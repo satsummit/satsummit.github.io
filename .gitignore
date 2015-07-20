@@ -1,0 +1,13 @@
+# System files
+.project
+.DS_Store
+.sass-cache
+node_modules
+src/assets/bower_components
+_site
+.tmp
+
+# Local
+.resources
+.bundle
+bundle

@@ -1,0 +1,57 @@
+{% if page.id == 'index' %}
+  {% capture meta_title %}{{ site.name }}{% endcapture %}
+{% else %}
+  {% capture meta_title %}{{ page.title }} — {{ site.name }}{% endcapture %}
+{% endif %}
+
+{% if page.id == 'index' %}
+  {% assign meta_description = site.description %}
+{% elsif page.introduction %}
+  {% assign meta_description = page.introduction %}
+{% elsif page.description %}
+  {% assign meta_description = page.description %}
+{% else %}
+  {% assign stripped_ct = page.content | strip_newlines %}
+  {% unless stripped_ct == '' %}
+    {% assign meta_description = stripped_ct | markdownify | strip_html | truncate: 200 %}
+  {% else %}
+    {% assign meta_description = site.description %}
+  {% endunless %}
+{% endif %}
+
+
+{% if page.media.cover.url and page.category != 'team' %}
+  {% assign meta_image = page.media.cover.url %}
+{% elsif page.media.card.url %}
+  {% assign meta_image = page.media.card.url %}
+{% else %}
+  {% assign meta_image = '/assets/graphics/meta/default-meta-image.png' %}
+{% endif %}
+
+<title>{{ meta_title }}</title>
+<meta name="description" content="{{ meta_description }}" />
+
+<!-- Twiter Cards -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@developmentseed" />
+<meta name="twitter:title" content="{{ meta_title }}">
+<meta name="twitter:description" content="{{ meta_description }}" />
+<meta name="twitter:image:src" content="{{ site.baseurl }}{{ meta_image }}" />
+
+{% if page.category == 'blog' %}
+  {% unless page.title == 'Blog' %}
+  {% for author in site.team %}{% if page.tags contains author.title %}{% assign author = author %}{% endif %}{% endfor %}
+  <meta name="twitter:creator" content="@{{author.twitter}}">
+  {% endunless %}
+{% endif %}
+
+<!--/ Twiter Cards -->
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ meta_title }}" />
+<meta property="og:url" content="{{ site.baseurl }}{{ page.url | remove:'index.html' }}" />
+<meta property="og:description" content="{{ meta_description }}" />
+<meta property="og:image" content="{{ site.baseurl }}{{ meta_image }}" />
+<!--/ Open Graph -->

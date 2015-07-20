@@ -1,0 +1,7 @@
+# Dev environment overrides.
+baseurl: 
+
+exclude:
+  - assets/scripts
+  - assets/styles
+  - assets/templates
