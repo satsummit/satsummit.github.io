@@ -63,7 +63,7 @@ h6, .hd-xxs {
     padding: 1rem;
     word-break: break-all;
     word-wrap: break-word;
-    box-shadow: inset 0 0 0 1px $pos-brdr-rgba;
+    box-shadow: inset 0 0 0 1px $brdr-rgba;
     overflow: auto;
   }
 
@@ -87,7 +87,7 @@ h6, .hd-xxs {
     @include heading(1rem, xlarge-up);      // 16, 20, 24, 28
   }
   
-  p, ul, ol, dl, blockquote, figure, .highlight, .callout, pre, table, .table-responsive {
+  p, ul, ol, dl, blockquote, figure, pre, table, .table-responsive {
     margin-bottom: 1.5rem;
   }
 
@@ -122,7 +122,6 @@ h6, .hd-xxs {
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-align: center;
-    @extend .row, .hd-deco, .hd-deco-ground, .hd-deco-center;
     padding-top: 1rem;
     padding-bottom: 1rem; 
     max-width: 32rem;
@@ -166,7 +165,6 @@ h6, .hd-xxs {
     margin-top: 0 !important;
   }
 
-  .highlight > *:last-child,
   > *:last-child {
     margin-bottom: 0 !important;
   }
@@ -176,58 +174,17 @@ h6, .hd-xxs {
       margin-left: -1rem;
       margin-right: -1rem;
     }
-    .details-list {
-      dt, dd {
-        float: left;
-        width: 50%;
-        margin: 0;
-        padding: 0.25rem 0;
-        box-shadow: inset 0 1px 0 0 $pos-brdr-rgba;
-        &:first-of-type {
-          box-shadow: none;
-        }
-      }
-      dt {
-        clear: left;
-        padding-right: 0.5rem;
-      }
-      dd {
-        text-align: right;
-        padding-left: 0.5rem;
-      }
-    }
   }
 
   @include media(medium-up) {
     font-size: 1.25rem;
     line-height: 1.6;
 
-    // Figure mono spacing
-    figure.mono-spacing {
-      margin-top: 3.5rem;
-      margin-bottom: 3.5rem;
-    }
-
-    .check-list,
-    .cta-list {
-      li {
-        &:before {
-          top: 0.25em;
-        }
-      }
-    }
-
-    .details-list {
-      dt, dd {
-        padding: 0.5rem 0;
-      }
-    }
-
     h1, h2, h3, h4, h5, h6 {
       margin: 3.5rem 0 1.75rem 0;
     }
 
-    p, ul, ol, dl, blockquote, figure, .highlight, .callout, pre, table, .table-responsive {
+    p, ul, ol, dl, blockquote, figure, pre, table, .table-responsive {
       margin-bottom: 1.75rem;
     }
 
