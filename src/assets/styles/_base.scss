@@ -191,7 +191,7 @@ a:active{
   }
   @include media(large-up) {
     @include span-columns(9 of 12);
-    @include shift(1);
+    @include shift(1.5);
     padding: 4rem;
   }
   @include media(xlarge-up) {
@@ -323,7 +323,7 @@ a:active{
     }
     @include media(large-up) {
       @include span-columns(9 of 12);
-      @include shift(1);
+      @include shift(1.5);
     }
     @include media(xlarge-up) {
       @include span-columns(8 of 12);
