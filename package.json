@@ -24,6 +24,6 @@
     "gulp-util": "^3.0.5"
   },
   "scripts": {
-    "install": "bower install && bundle install --path bundle/cache"
+    "install": "bundle install --path bundle/cache"
   }
 }
