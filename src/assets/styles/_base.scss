@@ -156,6 +156,9 @@ a:active{
 
 .block {
   margin-bottom: 2rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .block-title {
@@ -236,6 +239,12 @@ a:active{
   &:active {
     background: shade($primary-color, 24%);
   }
+}
+
+#mce-responses {
+  padding: 1rem;
+  text-align: center;
+  opacity: 0.8;
 }
 
 
