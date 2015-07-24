@@ -81,12 +81,22 @@ a:active{
   color: #fff;
   background: $base-color url(../graphics/layout/sat-banner.jpg) center top no-repeat;
   background-size: cover;
-  padding-top: 6rem;
-  padding-bottom: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 
   > .inner {
     @extend .row;
     @extend .centered;
+  }
+
+  @include media(small-up) {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  @include media(medium-up) {
+    padding-top: 6rem;
+    padding-bottom: 8rem;
   }
 }
 
@@ -94,6 +104,8 @@ a:active{
   text-align: center;
   img {
     vertical-align: top;
+    max-width: 100%;
+    height: auto;
   }
   span {
     @extend .visually-hidden;
@@ -104,26 +116,54 @@ a:active{
   position: relative;
   z-index: 2;
   overflow: hidden;
-  width: 746px;
-  margin: -4.75rem auto 0 auto;
+  margin: 0;
   font-weight: $base-font-regular;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  text-align: center;
+  word-spacing: -0.26rem;
   dt {
     @extend .visually-hidden;
   }
-  dd {
-    width: 50%;
-  }
-  .where {
-    float: left;
-    text-align: right;
-    padding-right: 9rem;
+  > * {
+    word-spacing: normal;
+    display: inline-block;
+    vertical-align: top;
   }
   .when {
-    float: right;
-    text-align: left;
-    padding-left: 8rem;
+    &:before {
+      content: "·";
+      padding: 0 0.5rem;
+    }
+  }
+  @include media(small-up) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    .when {
+      &:before {
+        padding: 0 1rem;
+      }
+    }
+  }
+  @include media(medium-up) {
+    width: 746px;
+    margin: -4.75rem auto 0 auto;
+    dd {
+      width: 50%;
+    }
+    .where {
+      float: left;
+      text-align: right;
+      padding-right: 9rem;
+    }
+    .when {
+      float: right;
+      text-align: left;
+      padding-left: 8rem;
+      &:before {
+        display: none;
+      }
+    }
   }
 }
 
@@ -138,13 +178,21 @@ a:active{
 }
 
 .content-wrapper {
-  padding: 4rem 4rem 2rem 4rem;
+  padding: 3rem 1rem 2rem 1rem;
   background: rgba(#fff, 0.92);
   margin-top: -2rem;
   @include span-columns(12 of 12);
+  @include media(small-up) {
+    padding: 3rem 2rem 2rem 2rem;
+  }
   @include media(medium-up) {
     @include span-columns(10 of 12);
     @include shift(1);
+  }
+  @include media(large-up) {
+    @include span-columns(9 of 12);
+    @include shift(1);
+    padding: 4rem;
   }
   @include media(xlarge-up) {
     @include span-columns(8 of 12);
@@ -176,7 +224,7 @@ a:active{
 
 #mc_embed_signup div.mce_inline_error {
   position: absolute;
-  bottom: -2rem;
+  bottom: -1.75rem;
   left: 1rem;
   margin: 0 !important;
   padding: 0 0.5rem !important;
@@ -202,7 +250,7 @@ a:active{
   width: 100%;
   line-height: 1.5rem;
   font-size: 1rem;
-  padding: 0.75rem 13.5rem 0.75rem 1rem;
+  padding: 0.75rem 7rem 0.75rem 1rem;
 
   @include transform(translateZ(0));
   @include transition(box-shadow 0.2s ease 0s);
@@ -214,6 +262,9 @@ a:active{
 
   @include placeholder {
     color: tint($base-color, 64%);
+  }
+  @include media(small-up) {
+    padding-right: 13.5rem;
   }
 }
 
@@ -228,8 +279,8 @@ a:active{
   font-weight: $base-font-bold;
   height: 2.25rem;
   line-height: 2.25rem;
-  padding: 0 1rem;
-  width: 12rem;
+  padding: 0 0.75rem;
+  width: 6rem;
   text-align: center;
   border-radius: $global-radius/2;
   transition: background 0.2s ease 0s;
@@ -238,6 +289,10 @@ a:active{
   }
   &:active {
     background: shade($primary-color, 24%);
+  }
+  @include media(small-up) {
+    width: 12rem;
+    padding: 0 1rem;
   }
 }
 
@@ -258,11 +313,16 @@ a:active{
   }
   p {
     line-height: 1.5rem;
-    padding: 2rem 4rem;
+    padding: 2rem 4rem 2rem 4rem;
     background: rgba(#fff, 0.92);
+    box-shadow: inset 0 1px 0 0 tint($base-color, 92%);
     @include span-columns(12 of 12);
     @include media(medium-up) {
       @include span-columns(10 of 12);
+      @include shift(1);
+    }
+    @include media(large-up) {
+      @include span-columns(9 of 12);
       @include shift(1);
     }
     @include media(xlarge-up) {
@@ -272,7 +332,7 @@ a:active{
   }
   strong {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
   a {
     display: inline-block;
