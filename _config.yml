@@ -5,7 +5,7 @@ exclude:
   - assets/templates
   - bundle/cache
 highlighter: pygments
-baseurl: 
+baseurl: http://devseed.com/satsummit
 paginate: 40
 kramdown:
   input: GFM
