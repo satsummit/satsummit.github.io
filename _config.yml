@@ -1,15 +1,10 @@
-source: src
-exclude:
-  - assets/scripts
-  - assets/styles
-  - assets/templates
-  - bundle/cache
-highlighter: pygments
-baseurl: http://devseed.com/satsummit
-paginate: 40
-kramdown:
-  input: GFM
+# Site settings
+title: Satellite Summit
+email: satellite@mapbox.com
+url: http://devseed.com/satsummit
+description: "Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."
 
-# SEO defaults:
-name: Sat summit
-description: Something about satellites..
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#000000'
+  links: '#219ab3'

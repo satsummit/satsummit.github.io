@@ -1,0 +1,15 @@
+source: src
+exclude:
+  - assets/scripts
+  - assets/styles
+  - assets/templates
+  - bundle/cache
+highlighter: pygments
+baseurl: http://devseed.com/satsummit
+paginate: 40
+kramdown:
+  input: GFM
+
+# SEO defaults:
+name: Sat summit
+description: Something about satellites..
