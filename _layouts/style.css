@@ -118,11 +118,18 @@ a:focus {
     transition: background .3s ease-in-out;
 }
 
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus,
-.navbar-custom .nav li a.active {
-    outline: 0;
-    background-color: rgba(255,255,255,.3);
+
+
+.navbar-custom .nav li a:hover {
+	outline: none;
+    border-bottom: 3px solid white;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active a:hover {
+	outline: none;
+    border-bottom: none;
+    background-color: transparent;
 }
 
 @media(min-width:767px) {
