@@ -1,0 +1,18 @@
+---
+---
+SPEAKER layout
+<br/>
+<br/>
+<br/>
+<h1>{{ page.title }}</h1>
+
+<!-- Get all the events for this speaker -->
+
+{% assign user_events = site.events | where_exp: "item", "item.speakers contains page.title" %}
+
+<!-- Loop over the speaker's talks -->
+{% for event in user_events %}
+<div style='border: 1px dashed grey'>
+  <p>{{ event.time }} - <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a></p>
+</div>
+{% endfor %}

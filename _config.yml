@@ -8,3 +8,31 @@ baseurl: https://satsummit.io
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+##
+# Default values
+##
+defaults:
+  - 
+    scope:
+      type: events
+    values:
+      layout: event
+  - 
+    scope:
+      type: speakers
+    values:
+      layout: speaker
+
+##
+# Collections definitions
+##
+collections:
+  events:
+    output: true
+    permalink: /agenda/:slug/
+  speakers:
+    output: true
+    permalink: /speakers/:path/
+  sponsors:
+    output: false
