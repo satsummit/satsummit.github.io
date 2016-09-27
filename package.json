@@ -78,5 +78,6 @@
     "yamljs": "^0.2.8"
   },
   "dependencies": {
+    "jquery": "^1.12.4"
   }
 }

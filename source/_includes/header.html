@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<header class="page__header" role="banner">
+<header class="page__header" role="banner" data-hook="page-header">
   <div class="inner">
     <div class="page__headline">
       <h1 class="page__title">
@@ -13,12 +13,12 @@
       <h2 class="toggle-menu"><a href="#global-menu" title="Show/hide menu" data-hook="global-menu:trigger"><span>Browse</span></a></h2>
       <div class="menu-wrapper" data-hook="global-menu:wrapper">
         <ul class="global-menu" id="global-menu">
-          <li><a href="#welcome" title="View section" class="global-menu__link global-menu__link--active"><span>Welcome</span></a></li>
-          <li><a href="#about" title="View section" class="global-menu__link"><span>About</span></a></li>
-          <li><a href="#agenda" title="View section" class="global-menu__link"><span>Agenda</span></a></li>
-          <li><a href="#venue" title="View section" class="global-menu__link"><span>Venue</span></a></li>
-          <li><a href="#tickets" title="View section" class="global-menu__link"><span>Tickets</span></a></li>
-          <li><a href="#sponsors" title="View section" class="global-menu__link"><span>Sponsors</span></a></li>
+          <li><a href="{{ site.baseurl }}/#welcome" title="View section" class="global-menu__link global-menu__link--active"><span>Welcome</span></a></li>
+          <li><a href="{{ site.baseurl }}/#about" title="View section" class="global-menu__link"><span>About</span></a></li>
+          <li><a href="{{ site.baseurl }}/#agenda" title="View section" class="global-menu__link"><span>Agenda</span></a></li>
+          <li><a href="{{ site.baseurl }}/#venue" title="View section" class="global-menu__link"><span>Venue</span></a></li>
+          <li><a href="{{ site.baseurl }}/#tickets" title="View section" class="global-menu__link"><span>Tickets</span></a></li>
+          <li><a href="{{ site.baseurl }}/#sponsors" title="View section" class="global-menu__link"><span>Sponsors</span></a></li>
         </ul>
       </div>
     </nav>

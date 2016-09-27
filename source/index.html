@@ -1,25 +1,34 @@
 ---
-layout: homepage
-id: Homepage
-
-permalink: /
-
-title: Homepage
-introduction: Lorem ipsum dolor sit amet.
+layout: base
 ---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
 
-<ul class="launcher">
-{% for p in site.pages %}
-  {% unless p.parent %}
-    {% unless p.id == 'Welcome' %}
-    <li class="launcher__item-wrapper">
-      <article class="launcher__item">
-        <h1 class="launcher__item-title"><a href="{{ site.baseurl }}{{ p.url }}" title="Visit page">{{ p.id }}</a></h1>
-        <p>{{ p.introduction }}</p>
-        <a href="{{ site.baseurl }}{{ p.url }}" title="Visit page" class="launcher__item-button"><span>View</span></a>
-      </article>
-    </li>
-    {% endunless %}
-  {% endunless %}
-{% endfor %}
-</ul>
+    <!-- inPage -->
+    <section class="inpage">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">Homepage</h1>
+            <div class="inpage__introduction">
+              <p>Welcome to satsummit 2016</p>
+            </div>
+          </div>
+        </div>         
+      </header>
+      <div class="inpage__body">
+        <div class="inner">
+          <!-- inPage main content -->
+          <div class="inpage__main-content prose prose--responsive">
+            page content
+          </div>
+          <!--/ inPage main content -->
+        </div>
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->
