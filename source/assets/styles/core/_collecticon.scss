@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Icon font: Collecticons
+   ========================================================================== */
+
+/**
+ * Designed by Development Seed
+ * https://developmentseed.org/
+ *
+ * Generated with collecticons-processor on September 27, 2016
+ * http://collecticons.io/
+ */
+
+
+
+
+@font-face {
+  font-family: "Collecticons";
+  
+  
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAPUAAsAAAAABggAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAAPgAAAFZAdkhpY21hcAAAAXwAAABLAAABcOspwa1nbHlmAAAByAAAADQAAAA0j705sGhlYWQAAAH8AAAALQAAADYK/sAZaGhlYQAAAiwAAAAbAAAAJAgdBANobXR4AAACSAAAAAgAAAAIBAAAAGxvY2EAAAJQAAAABgAAAAYAGgAAbWF4cAAAAlgAAAAgAAAAIAEPABhuYW1lAAACeAAAATMAAAJGGkJN9XBvc3QAAAOsAAAAJwAAADi/h0M8eJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkYmCcwMDKwMHownSGgYGhH0IzvmYwYuRgYGBiYGVmwAoC0lxTGBxeMb5iZAFxY1ggwowgAgCMpQhiAAB4nGNgYGBlYGBgBmIdIGZhYGAMYWBkAAE/oCgjWJyZgQsszsKgBFbDAhJ/xfj/P4wE8lnAJAMjG8Mo4AGTMlAeOKwgmIERADU0CX0AAAMAAAAAA8ADgAADAAcACwAAEyE1IREhNSERFSE1QAOA/IADgPyAA4ABwID+QIACgICAAHicY2BkYGAA4oX5Mx7H89t8ZeBmYQCBKwK255Bp5gPMDUCKg4EJxAMAIqgJagAAAHicY2BkYGBhAIIYMMnAfICBkQEVMAEAGXIBLAAAAAAABAAAAAAAAAAAGgAAAAEAAAACAAwAAwAAAAAAAgAAAAoACgAAAP8AAAAAAAB4nHWRPU7DQBCFnxMniAQhJCREx1Y0SM5PQZGSSEmfIgWd46wTR7bXWm8ipeMYnIBjUHIETsEheF6miJCyK62/+fbN2JIB3OALAZoV4MqfzWrhgtUft0m3wiH5QbiDPp6Eu/TPwj3aF+E+OwtOCMJLmnu8CbdwjXfhNv2HcEj+FO7gDt/CXfof4R6WQSjcx2PwOjV5rhOXJaasF3qzz2N7qk55qW2dmVKNouGpnutS29jptVodVX3YjJ1LVWpNoWamdDrPjaqs2TEebZ2rJoNBKj5KTIEpDHJujQQOGU+DEjUWNBvseRPDnk2d80say2fma4URIgzPpuc0pe+I6TXW7FjhyLPGgV8xpnVIWafMGP4VhZnvbdLNRENT+budTI+w9V0VJhhwp//ykX978QvzuWtBAHicY2BigAAuBuyAiZGJkZmBLyMxN6m0KD21SDc3Na+UgQEAOaIFwwA=) format('woff');
+  
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+%collecticon,
+[class^="collecticon-"],
+[class*=" collecticon-"] {
+  speak: none;
+  font-family: "Collecticons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better font rendering */
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+%collecticon-hamburger-menu {
+  @extend %collecticon;
+  content: "\EA01"
+}
+.collecticon-hamburger-menu:before {
+  content: "\EA01"
+}

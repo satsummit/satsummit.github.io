@@ -1,0 +1,25 @@
+---
+layout: homepage
+id: Homepage
+
+permalink: /
+
+title: Homepage
+introduction: Lorem ipsum dolor sit amet.
+---
+
+<ul class="launcher">
+{% for p in site.pages %}
+  {% unless p.parent %}
+    {% unless p.id == 'Welcome' %}
+    <li class="launcher__item-wrapper">
+      <article class="launcher__item">
+        <h1 class="launcher__item-title"><a href="{{ site.baseurl }}{{ p.url }}" title="Visit page">{{ p.id }}</a></h1>
+        <p>{{ p.introduction }}</p>
+        <a href="{{ site.baseurl }}{{ p.url }}" title="Visit page" class="launcher__item-button"><span>View</span></a>
+      </article>
+    </li>
+    {% endunless %}
+  {% endunless %}
+{% endfor %}
+</ul>

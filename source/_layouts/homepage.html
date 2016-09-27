@@ -1,0 +1,31 @@
+---
+layout: base
+---
+<main class="page__body" role="main">
+  <div class="inner">
+    <section class="section section--hub">
+      <header class="section__header">
+        <div class="inner">
+          <div class="section__headline">
+            {% if page.parent %}
+            <p class="section__subtitle">{{ page.parent }}</p>
+            {% endif %}
+            <h1 class="section__title">{{ page.title }}</h1>
+            {% if page.introduction %}
+            <div class="section__introduction">
+              <p>{{ page.introduction }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>         
+      </header>
+      <div class="section__body">
+        <div class="inner">
+          <!-- section main content -->
+          <div class="section__main-content prose">{{ content }}</div>
+          <!--/ section main content -->
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

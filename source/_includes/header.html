@@ -1,0 +1,32 @@
+<!-- Page Header -->
+<header class="page__header" role="banner">
+  <div class="inner">
+    <div class="page__headline">
+      <h1 class="page__title">
+        <a href="{{ site.baseurl }}" title="Visit homepage">
+          <img src="{{ site.baseurl }}/assets/graphics/layout/satsummit-logo-symbol-neg.svg" width="256" height="160" alt="#SatSummit Logo Smbol.svg" />
+          <span>#SatSummit</span>
+        </a>
+      </h1>        
+    </div>
+    <nav class="page__prime-nav" role="navigation">
+      <h2 class="toggle-menu"><a href="#global-menu" title="Show/hide menu" data-hook="global-menu:trigger"><span>Browse</span></a></h2>
+      <div class="menu-wrapper" data-hook="global-menu:wrapper">
+        <ul class="global-menu" id="global-menu">
+          {% for p in site.pages %}
+            {% unless p.parent %}
+              {% assign klass = "" %}
+              {% if page.id == p.id or page.parent == p.id %}
+                {% assign klass = "global-menu-item--active" %}
+              {% endif %}
+              <li>
+                <a href="{{ site.baseurl }}{{ p.url }}" title="Visit page" class="global-menu-item {{ klass }}"><span>{{ p.id }}</span></a>
+              </li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+<!--/ Page Header -->
