@@ -26,6 +26,12 @@ html {
 
 /* Reset HTML, body, etc */
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 html {
   font-size: $root-font-size;
   // Changes the default tap highlight to be completely transparent in iOS.
@@ -33,7 +39,7 @@ html {
 }
 
 body {
-  background: #fff;
+  @extend .antialiased;
   color: $base-font-color;
   font-size: $base-font-size;
   line-height: $base-line-height;
@@ -41,6 +47,17 @@ body {
   font-weight: $base-font-weight;
   font-style: $base-font-style;
   min-width: $row-min-width;
+  background: shade($base-color, 48%) url(../graphics/layout/intro-hero-01a.jpg) center top no-repeat fixed; // 
+  background-size: cover;
+
+  &::before {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(36,35,221,0.64) 0%,rgba(36,35,221,0.32) 32%,rgba(36,35,221,0.32) 100%);
+    content: '';
+  }
 }
 
 

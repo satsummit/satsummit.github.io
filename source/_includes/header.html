@@ -13,17 +13,12 @@
       <h2 class="toggle-menu"><a href="#global-menu" title="Show/hide menu" data-hook="global-menu:trigger"><span>Browse</span></a></h2>
       <div class="menu-wrapper" data-hook="global-menu:wrapper">
         <ul class="global-menu" id="global-menu">
-          {% for p in site.pages %}
-            {% unless p.parent %}
-              {% assign klass = "" %}
-              {% if page.id == p.id or page.parent == p.id %}
-                {% assign klass = "global-menu-item--active" %}
-              {% endif %}
-              <li>
-                <a href="{{ site.baseurl }}{{ p.url }}" title="Visit page" class="global-menu-item {{ klass }}"><span>{{ p.id }}</span></a>
-              </li>
-            {% endunless %}
-          {% endfor %}
+          <li><a href="#welcome" title="View section" class="global-menu__link global-menu__link--active"><span>Welcome</span></a></li>
+          <li><a href="#about" title="View section" class="global-menu__link"><span>About</span></a></li>
+          <li><a href="#agenda" title="View section" class="global-menu__link"><span>Agenda</span></a></li>
+          <li><a href="#venue" title="View section" class="global-menu__link"><span>Venue</span></a></li>
+          <li><a href="#tickets" title="View section" class="global-menu__link"><span>Tickets</span></a></li>
+          <li><a href="#sponsors" title="View section" class="global-menu__link"><span>Sponsors</span></a></li>
         </ul>
       </div>
     </nav>
