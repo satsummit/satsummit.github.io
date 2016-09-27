@@ -1,0 +1,10 @@
+source: source
+# To exclude inside source/
+exclude:
+  - assets/scripts
+  - assets/styles
+  - assets/graphics/collecticons
+baseurl: https://satsummit.io
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
