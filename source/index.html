@@ -88,6 +88,44 @@ layout: base
         </section>
         <!--/ Fold: Agenda -->
 
+         <!-- Fold: Speakers -->
+        <section class="fold" id="speakers">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Speakers</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <ul class="speakers-list">
+                  {% for speaker in site.speakers %}
+                  <li class="speaker-list__item-wrapper">
+                    <article class="card card--speaker">
+                      <a class="card__contents" href="{{ speaker.url }}" title="View speaker profile">
+                        <header class="card__header">
+                          <figure class="card__avatar">
+                            {% if speaker.avatar %}
+                            <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                            {% else %}
+                            <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+                            {% endif %}
+                          </figure>
+                          <h1 class="card__title">{{ speaker.title }}</h1>
+                          <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
+                        </header>
+                      </a>
+                      <footer class="card__footer">
+                        <a class="speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ speaker.twitter }}" title="Follow on Twitter">@{{ speaker.twitter }}</a>
+                      </footer>
+                    </article>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Speakers -->
+
         <!-- Fold: Venue -->
         <section class="fold" id="venue">
           <div class="inner">

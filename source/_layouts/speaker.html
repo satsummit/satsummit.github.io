@@ -10,13 +10,16 @@ layout: base
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
-            <p class="inpage__subtitle">Speaker</p>
+            <p class="inpage__suptitle">Speaker</p>
             <h1 class="inpage__title">{{ page.title }}</h1>
             {% if page.role %}
             <div class="inpage__detail">
               <p>{{ page.role }}, {{ page.company }}</p>
             </div>
             {% endif %}
+          </div>
+          <div class="inpage__actions">
+            <a class="inpage-speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ page.twitter }}" title="Follow on Twitter">@{{ page.twitter }}</a>
           </div>
         </div>         
       </header>

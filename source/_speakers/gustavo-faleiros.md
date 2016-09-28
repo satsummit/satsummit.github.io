@@ -4,7 +4,7 @@ company: International Center for Journalists
 role: Knight International Journalism Fellow
 twitter: gufalei
 website: 
-avatar:
+avatar: gustavo-faleiros.jpg
 ---
 Knight International Journalism Fellow Gustavo Faleiros is an environmental journalist and media trainer who specializes in data-driven journalism. During his first Knight International Journalism Fellowship last year, Faleiros launched InfoAmazonia, a digital map that uses satellite and other publicly available data to monitor the Amazon rainforest. Before his fellowship, Faleiros helped create the Amazon Communications Network, which trained journalists and produced 200 stories about environmental issues in the region. The network sprang from his earlier accomplishments at the Brazilian environmental news site O Eco, where Faleiros worked his way up to executive editor. He introduced the use of satellite images and interactive maps in O Eco reports.
 

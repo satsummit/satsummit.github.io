@@ -277,6 +277,7 @@
    ========================================================================== */
 
 #venue {
+  background: rgba(shade($base-color, 80%), 0.32);
   position: relative;
   text-align: center;
 
@@ -397,5 +398,169 @@
     @include media(medium-up) {
       width: 14rem;
     }
+  }
+}
+
+
+/* Fold: Speakers
+   ========================================================================== */
+
+#speakers {
+
+}
+
+.speakers-list {
+  @extend .clearfix;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto ($global-spacing * 2) auto;
+}
+
+.speaker-list__item-wrapper {
+  @include col(12/12);
+  margin-bottom: $global-spacing * 2;
+
+  @include media(small-up) {
+    @include col(6/12, $cycle: 2);
+    margin-bottom: $global-spacing * 3;
+  }
+
+  @include media(large-up) {
+    @include col(4/12, $cycle: 3);
+    margin-bottom: $global-spacing * 3;
+  }
+
+  @include media(xlarge-up) {
+    @include col(3/12, $cycle: 4);
+    margin-bottom: $global-spacing * 3;
+  }
+}
+
+.card {
+  position: relative;
+}
+
+.card__contents {
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: rgba(shade($base-color, 80%), 0.32);
+  border-radius: $base-border-radius / 2;
+  backface-visibility: hidden;
+  padding: $global-spacing;
+  box-shadow: none;
+  overflow: hidden;
+  min-height: 20rem;
+
+  &, &:visited {
+    color: inherit;
+  }
+
+  /* Animation */
+  transition: all 0.16s ease-in-out 0s;
+
+  @include media(small-up) {
+    min-height: 26rem;
+  }
+
+  @include media(medium-up) {
+    padding: $global-spacing * 2;
+  }
+}
+
+a.card__contents {
+  &:hover {
+    opacity: 1;
+    z-index: 2;
+    transform: scale(1.05);
+  }
+}
+
+.card__header {
+  position: relative;
+  margin-bottom: $global-spacing;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  
+}
+
+.card__title {
+  @include heading(1.25rem);
+  margin-bottom: 0;
+
+  &::before {
+    content: '';
+    left: 50%;
+    width: 3rem;
+    height: 0.25rem;
+    background: #fff;
+    display: block;
+    border-radius: $base-border-radius / 4;
+    margin-bottom: 1em;
+    transform: skewY(-5deg);
+  }
+}
+
+.card__detail {
+  @extend .heading-alt;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: none;
+  opacity: 0.64;
+
+  @include media(medium-up) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.card__avatar {
+  position: relative;
+  margin: (- $global-spacing * 2) (- $global-spacing * 2) (- $global-spacing) (- $global-spacing * 2);
+  width: 10rem;
+  z-index: -1;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba($base-color, 0.16) 0, rgba($base-color, 0.32) 64%, rgba($base-color, 0.64) 100%);
+  }
+}
+
+.card__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transform: skewY(-5deg);
+  transform-origin: left bottom;
+  padding: $global-spacing;
+
+  @include media(medium-up) {
+    padding: $global-spacing * 2;
+  }
+}
+
+.speaker-twitter-button {
+  @extend .button, .button--achromic, .button--small;
+  vertical-align: bottom;
+
+  &::before {
+    @extend %collecticon-twitter;
   }
 }
