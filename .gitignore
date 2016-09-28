@@ -38,7 +38,7 @@
 ################################################
 
 source/assets/scripts/config/local.js
-source/assets/styles/_collecticons.scss
+source/assets/styles/core/_collecticons.scss
 _config-dev.yml
 
 
