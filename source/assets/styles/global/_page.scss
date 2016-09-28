@@ -50,6 +50,7 @@
   line-height: 1.5rem;
   word-spacing: -0.26rem;
   margin: 0;
+  text-transform: none;
 
   a {
     display: block;
@@ -214,7 +215,7 @@
   padding: 0 ($global-spacing / 2);
   border-radius: $base-border-radius;
   box-shadow: none;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.125em;
 
   &, &:visited {
     color: inherit;
