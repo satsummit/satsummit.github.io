@@ -296,6 +296,10 @@
       transform: translate(0, -50%);
     }
   }
+
+  @include media(large-up) {
+    min-height: 36rem;
+  }
 }
 
 .map-container {
