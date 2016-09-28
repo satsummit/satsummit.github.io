@@ -1,5 +1,6 @@
 ---
 title: Development Seed
 website: http://developmentseed.org
-image:
+image: devseed.png
+group:
 ---

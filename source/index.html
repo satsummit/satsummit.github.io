@@ -132,36 +132,14 @@ layout: base
               <div class="prose prose--responsive">
 
                 <ul class="sponsors-list">
+                  {% for sponsor in site.sponsors %}
                   <li class="sponsors-list__item-wrapper">
-                    <a href="https://www.mapbox.com/" title="Visit website" class="sponsors-list__item" target="_blank">
-                      <span class="visually-hidden">Mapbox</span>
-                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/mapbox.png" alt="Mapbox logo" />
+                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsors-list__item" target="_blank">
+                      <span class="visually-hidden">{{ sponsor.title }}</span>
+                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
                     </a>
                   </li>
-                  <li class="sponsors-list__item-wrapper">
-                    <a href="https://developmentseed.org/" title="Visit website" class="sponsors-list__item" target="_blank">
-                      <span class="visually-hidden">Development Seed</span>
-                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/devseed.png" alt="Development Seed logo" />
-                    </a>
-                  </li>
-                  <li class="sponsors-list__item-wrapper">
-                    <a href="https://astrodigital.com/" title="Visit website" class="sponsors-list__item" target="_blank">
-                      <span class="visually-hidden">Astro Digital</span>
-                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/astrodigital.png" alt="Astro Digital logo" />
-                    </a>
-                  </li>
-                  <li class="sponsors-list__item-wrapper">
-                    <a href="https://www.digitalglobe.com/" title="Visit website" class="sponsors-list__item" target="_blank">
-                      <span class="visually-hidden">DigitalGlobe</span>
-                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/dg.png" alt="DigitalGlobe logo" />
-                    </a>
-                  </li>
-                  <li class="sponsors-list__item-wrapper">
-                    <a href="https://www.azavea.com/" title="Visit website" class="sponsors-list__item" target="_blank">
-                      <span class="visually-hidden">Azavea</span>
-                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/azavea.png" alt="Azavea logo" />
-                    </a>
-                  </li>
+                  {% endfor %}
                 </ul>
                 
                 <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
