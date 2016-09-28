@@ -4,7 +4,7 @@ exclude:
   - assets/scripts
   - assets/styles
   - assets/graphics/collecticons
-baseurl: https://satsummit.io
+baseurl: http://localhost:3000
 kramdown:
   input: GFM
   syntax_highlighter: rouge
@@ -13,12 +13,12 @@ kramdown:
 # Default values
 ##
 defaults:
-  - 
+  -
     scope:
       type: events
     values:
       layout: event
-  - 
+  -
     scope:
       type: speakers
     values:
