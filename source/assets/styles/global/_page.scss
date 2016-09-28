@@ -15,16 +15,27 @@
   position: fixed;
   z-index: 100;
   width: 100%;
-  color: #fff;
+  background: #fff;
+  color: $base-color;
   padding: $global-spacing 0;
   transition: all 0.32s ease-in-out 0s;
+  box-shadow: 0 8px 32px 0 $base-alpha-color;
 
   > .inner {
     @extend .row, .row--centered;
   }
   
-  @include media(medium-up) {
+  @include media(large-up) {
     padding: ($global-spacing * 2) 0;
+    background: transparent;
+    color: #fff;
+  }
+
+  &--light {
+    background: #fff;
+    color: $base-color;
+    box-shadow: 0 8px 32px 0 $base-alpha-color;
+    padding: $global-spacing 0;
   }
 }
 
@@ -52,10 +63,24 @@
     }
   }
 
-  img {
+  .logo-symbol {
     margin-right: $global-spacing / 2;
     width: 1.5rem;
     height: auto;
+  }
+
+  .logo-symbol--neg {
+    display: none;
+
+    @include media(large-up) {
+      display: inline-block;
+    }    
+  }
+
+  .logo-symbol--pos {
+    @include media(large-up) {
+      display: none;
+    }    
   }
 
   span {
@@ -66,10 +91,20 @@
     font-size: 1.25rem;
     line-height: 2rem;
 
-    img {
+    logo-symbol {
       margin-right: $global-spacing;
       width: 2rem;
     }
+  }
+}
+
+.page__header--light {
+  .logo-symbol--pos {
+    display: inline-block;
+  }
+
+  .logo-symbol--neg {
+    display: none;
   }
 }
 
@@ -104,7 +139,7 @@
     }
 
     @include media(medium-up) {
-      top: 1.5rem;
+      top: 1rem;
     }
 
     @include media(large-up) {
@@ -121,7 +156,7 @@
   clear: both;
   background: #fff;
   padding: $global-spacing;
-  box-shadow: 0 4px 12px 0 $base-alpha-color, 0 1px 0 0 $base-alpha-color;
+  box-shadow: 0 8px 32px 0 $base-alpha-color;
 
   /* Animation */
 

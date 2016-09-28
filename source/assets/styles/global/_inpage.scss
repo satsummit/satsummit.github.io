@@ -3,7 +3,8 @@
    ========================================================================== */
 
 $page-header-y-small: 3.5rem;
-$page-header-y-medium-up: 6rem;
+$page-header-y-medium-up: 4rem;
+$page-header-y-large-up: 6rem;
 
 .inpage {
   &__header {
@@ -30,7 +31,7 @@ $page-header-y-medium-up: 6rem;
 
     @include media(large-up) {
       padding: {
-        top: ($global-spacing * 6) + $page-header-y-medium-up;
+        top: ($global-spacing * 6) + $page-header-y-large-up;
         bottom: ($global-spacing * 6);
       }
     }
@@ -63,9 +64,12 @@ $page-header-y-medium-up: 6rem;
     margin: 0;
 
     @include media(medium-up) {
+      font-size: 1.25rem;
+    }
+
+    @include media(large-up) {
       position: absolute;
       transform: translate(0, -100%);
-      font-size: 1.25rem;
     }
   }
 
