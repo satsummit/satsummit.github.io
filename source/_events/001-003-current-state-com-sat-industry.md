@@ -8,11 +8,8 @@ speakers:
 group: The Satellite Industry Today
 
 description: |
-  The Next Resolution Frontier
-
-  $60M in Imagery for the Millenium Development Goals
-
-  Aligning Regulations with Policy Goals
-
+  The Next Resolution Frontier  
+  $60M in Imagery for the Millenium Development Goals  
+  Aligning Regulations with Policy Goals  
   Launch Capacity
 ---

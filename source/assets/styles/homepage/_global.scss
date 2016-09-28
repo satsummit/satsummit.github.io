@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Homepage: Global
+   ========================================================================== */
+
+.inpage--homepage {
+
+  .inpage__header {
+    position: relative;
+    height: 100vh;
+    text-align: center;
+
+    > .inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      max-width: none;
+      transform: translate(0, -50%);
+    }
+
+    @include media(medium-up) {
+      min-height: 40rem;
+    }
+  }
+
+  .inpage__headline {
+    @include col(12/12);
+    transform: skewY(-5deg);
+
+    &::before,
+    &::after {
+      content: '';
+      left: 50%;
+      width: 5rem;
+      height: 0.25rem;
+      background: #fff;
+      display: block;
+      margin: 0 auto;
+      border-radius: $base-border-radius / 4;
+
+      @include media(medium-up) {
+        width: 8rem;
+        height: 0.5rem;
+        border-radius: $base-border-radius / 2;
+      }
+
+      @include media(large-up) {
+        width: 10rem;
+        height: 0.625rem;
+        border-radius: $base-border-radius / 1.5;
+      }
+    }
+
+    &::before {
+      margin-bottom: 1.5em;
+
+      @include media(medium-up) {
+        margin-bottom: 2.5em;
+      }
+
+      @include media(large-up) {
+        margin-bottom: 4em;
+      }
+    }
+
+    &::after {
+      margin-top: 1.5em;
+
+      @include media(medium-up) {
+        margin-top: 2.5em;
+      }
+
+      @include media(large-up) {
+        margin-top: 4em;
+      }
+    }
+  }
+
+  .inpage__title {
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    font-size: 7vw;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .inpage__details {
+    font-family: $heading-font-family;
+    font-size: 5vw;
+    font-weight: $heading-font-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    color: $primary-color;
+    margin-bottom: 0;
+    line-height: 1.5;
+
+    @include media(medium-up) {
+      font-size: 4vw;
+    }
+  }
+
+  .inpage__introduction {
+    font-family: $heading-font-family;
+    font-size: 1rem;
+    font-weight: $heading-font-bold;
+    letter-spacing: 0.05em;
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.25;
+
+    @include media(medium-up) {
+      font-size: 2vw;
+    }
+  }
+
+  .inpage__body {
+    padding: 0;
+  }
+
+  .hero-media {
+    position: absolute;
+    bottom: $global-spacing;
+    right: $global-spacing;
+    margin: 0;
+
+    img {
+      @extend .visually-hidden;
+    }
+
+    figcaption {
+      display: inline-block;
+      background: rgba(shade($base-color, 80%), 0.32);
+      font-size: 0.75rem;
+      line-height: 1rem;
+      padding: ($global-spacing / 2);
+      border-radius: $base-border-radius / 2;
+    }
+  }
+}
+
+
+/* Fold: About
+   ========================================================================== */
+
+#about {
+  .prose {
+    @include col(12/12);
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+
+  .call-to-action {
+    text-align: center;
+  }
+}
+
+
+/* Fold: Agenda
+   ========================================================================== */
+
+#agenda {
+  .agenda {
+    @include col(12/12);
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+}
+
+.agenda__group {
+  margin-bottom: $global-spacing * 4;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.agenda__title {
+  @include heading(1.25rem, medium-up);
+}
+
+.agenda__list {
+  box-shadow:  0 2px 0 0 $base-color;
+  overflow: hidden;
+
+  ul {
+    margin: 0;
+  }
+  
+  .alt-row {
+    background: rgba($base-color, 0.06);
+  }
+
+  dt {
+    box-shadow: inset 0 2px 0 0 $base-color;
+    padding: ($global-spacing / 2) ($global-spacing / 2) 0 ($global-spacing / 2);
+
+    &:first-of-type {
+      box-shadow: inset 0 4px 0 0 $base-color;
+    }
+  }
+
+  dd {
+    margin-bottom: 0;
+    padding: 0 ($global-spacing / 2) ($global-spacing / 2) ($global-spacing / 2);
+  }
+}
+
+@include media(medium-up) {
+  .agenda__list dt,
+  .agenda__list dd {
+    float: left;
+    padding: $global-spacing;
+    box-shadow: inset 0 2px 0 0 $base-color;
+  }
+
+  .agenda__list dt:first-of-type,
+  .agenda__list dd:first-of-type {
+    box-shadow: inset 0 4px 0 0 $base-color;
+  }
+
+  .agenda__list dt {
+    width: 32%;
+    clear: left;
+  }
+
+  .agenda__list dd {
+    width: 68%;
+    margin-bottom: 0;
+  }
+}
+
+.agenda__value-title {
+  font-style: normal;
+}
+
+.agenda__value-description {
+  padding-left: $global-spacing;
+  font-size: 80%;
+  margin-top: $global-spacing;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Fold: Venue
+   ========================================================================== */
+
+#venue {
+  position: relative;
+  text-align: center;
+
+  > .inner {
+    padding-bottom: 16rem;
+  }
+
+  @include media(medium-up) {
+    min-height: 28rem;
+
+    > .inner {
+      position: absolute;
+      padding: $global-spacing * 2;
+      top: 50%;
+      right: 0;
+      width: 44%;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.map-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 16rem;
+  width: 100%;
+  text-align: left;
+  background: rgba(#fff, 0.16);
+
+  @include media(medium-up) {
+    height: 100%;
+    width: 56%;
+  }
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* Fold: Tickets
+   ========================================================================== */
+
+#tickets {
+  text-align: center;
+
+  .prose {
+    @include col(12/12);
+
+    > iframe {
+      display: block;
+    }
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+}
+
+
+/* Fold: Sponsors
+   ========================================================================== */
+
+#sponsors {
+  text-align: center;
+
+  .prose {
+    @include col(12/12);
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+}
+
+.sponsors-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto ($global-spacing * 2) auto;
+  overflow: hidden;
+}
+
+.sponsors-list__item-wrapper {
+  @include col(12/12);
+  margin-bottom: $global-spacing * 2;
+
+  @include media(medium-up) {
+    @include col(6/12, $cycle: 2);
+    margin-bottom: $global-spacing * 3;
+  }
+}
+
+.sponsors-list__item {
+  display: inline-block;
+  box-shadow: none;
+  vertical-align: top;
+
+  img {
+    max-width: 100%;
+    width: 10rem;
+    height: auto;
+    display: block;
+
+    @include media(medium-up) {
+      width: 14rem;
+    }
+  }
+}

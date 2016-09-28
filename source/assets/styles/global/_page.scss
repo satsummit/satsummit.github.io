@@ -24,7 +24,7 @@
   }
   
   @include media(medium-up) {
-    padding: ($global-spacing * 1.5) 0;
+    padding: ($global-spacing * 2) 0;
   }
 }
 
@@ -157,12 +157,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
   @include media(medium-up) {
     float: left;
 
     > li {
       float: left;
-      margin: 0 ($global-spacing / 2) 0 0;
+      margin: 0 $global-spacing 0 0;
 
       &:last-child {
         margin-right: 0;

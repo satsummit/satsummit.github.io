@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Global: Folds
+   ========================================================================== */
+
+.fold {
+  padding: ($global-spacing * 3) 0;
+
+  > .inner {
+    @extend .row, .row--centered;
+  }
+
+  &,
+  > .inner,
+  .fold__header,
+  .fold__introduction,
+  .fold__body {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media(medium-up) {
+    padding: ($global-spacing * 4) 0;
+  }
+
+  @include media(large-up) {
+    padding: ($global-spacing * 6) 0;
+  }
+}
+
+.fold__header {
+  margin-bottom: $global-spacing * 2;
+  text-align: center;
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media(medium-up) {
+    margin-bottom: $global-spacing * 3;
+  }
+
+  @include media(large-up) {
+    margin-bottom: $global-spacing * 4;
+  }
+}
+
+.fold__introduction {
+  @include col(12/12);
+
+  @include media(medium-up) {
+    @include col(10/12);
+  }
+
+  @include media(large-up) {
+    @include col(8/12);
+  }
+}
+
+.fold__title {
+  @include heading(1.5rem, xlarge-up);
+  letter-spacing: 0.25em;
+  transform: skewY(-5deg);
+
+  &::after {
+    content: '';
+    width: 4rem;
+    height: 0.25rem;
+    background: #fff;
+    display: block;
+    margin: 0.5em auto 0 auto;
+    border-radius: $base-border-radius / 4;
+  }
+}
+
+
+/* Modifiers
+   ========================================================================== */
+
+.fold--light {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  background: #fff;
+  color: $base-color;
+
+  .fold__title {
+    &::after {
+      background: $base-color;
+    }
+  }
+}

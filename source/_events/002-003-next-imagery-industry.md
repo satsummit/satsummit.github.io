@@ -10,9 +10,7 @@ speakers:
 group: Imagery for Development
 
 description: |
-  Automated Road Extraction
-
-  Remote Election Observation
-  
+  Automated Road Extraction  
+  Remote Election Observation  
   Water Resource Management
 ---

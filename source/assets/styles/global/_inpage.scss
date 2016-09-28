@@ -3,24 +3,19 @@
    ========================================================================== */
 
 $page-header-y-small: 3.5rem;
-$page-header-y-medium-up: 5rem;
+$page-header-y-medium-up: 6rem;
 
 .inpage {
   &__header {
     position: relative;
     color: #fff;
     padding: {
-      top: ($global-spacing * 2) + $page-header-y-small;
+      top: ($global-spacing * 3) + $page-header-y-small;
       right: 0;
-      bottom: ($global-spacing * 2);
+      bottom: ($global-spacing * 3);
       left: 0;
     }
     margin-top: - $page-header-y;
-
-    > * {
-      position: relative;
-      z-index: 2;
-    }
 
     > .inner {
       @extend .row, .row--centered;

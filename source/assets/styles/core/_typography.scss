@@ -13,6 +13,10 @@
   > * {
     margin-bottom: $base-font-size * $base-line-height; // same as line-height
   }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .prose--responsive {
@@ -74,9 +78,9 @@ ol {
 }
 
 dt {
-  @extend .heading-alt;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-family: $heading-font-family;
+  font-weight: $heading-font-bold;
+  letter-spacing: 0.05em;
 }
 
 dd {
@@ -115,8 +119,6 @@ dd {
     @include media(medium-up) {
       padding-top: $global-spacing / 4;
       padding-bottom: $global-spacing / 4;
-      font-size: 1rem;
-      line-height: 1.5;
     }
   }
 }
@@ -212,7 +214,8 @@ abbr[title] {
   font-weight: $heading-font-weight;
   margin-top: 0;
   margin-bottom: $global-spacing;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
 }
 
 .heading--xlarge {
