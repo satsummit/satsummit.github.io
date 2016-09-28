@@ -28,7 +28,7 @@ $base-semi-alpha-color: rgba($base-color, 0.08);
 
 $root-font-size: 16px;
 
-$base-font-color: #fff;
+$base-font-color: $base-color;
 $base-font-family: "Atlas", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-style: normal;
 $base-font-light: 300;

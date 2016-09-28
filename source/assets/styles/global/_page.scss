@@ -238,6 +238,8 @@
    ========================================================================== */
 
 .page__footer {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
   background: #fff;
   padding: 2rem 0;
   text-align: center;

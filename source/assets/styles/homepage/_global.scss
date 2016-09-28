@@ -156,7 +156,25 @@
   }
 
   .call-to-action {
+    margin-top: $global-spacing * 2;
     text-align: center;
+    transform: skewY(-5deg);
+
+    @include media(medium-up) {
+      margin-top: $global-spacing * 4;
+    }
+  }
+}
+
+.twitter-button {
+  @extend .button, .button--achromic, .button--xlarge;
+
+  &::before {
+    @extend %collecticon-twitter;
+  }
+
+  @include media(medium-up) {
+    min-width: 24rem;
   }
 }
 
