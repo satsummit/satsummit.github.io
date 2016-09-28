@@ -1,5 +1,5 @@
-// require('./old');
 import $ from 'jquery';
+import mapboxgl from 'mapbox-gl';
 
 // Global menu toggle.
 var menuWrapper = $('[data-hook="global-menu:wrapper"]');
@@ -32,3 +32,15 @@ $(window).scroll(function () {
     header.removeClass('page__header--light');
   }
 });
+
+// Mapbox.
+mapboxgl.accessToken = 'pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w';
+// eslint-disable-next-line
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/tatiana/cirghsrcr000qggm7y4vh3f0q',
+  center: [-77.0216026, 38.8956264],
+  zoom: 15.85
+});
+
+map.scrollZoom.disable();

@@ -78,6 +78,7 @@
     "yamljs": "^0.2.8"
   },
   "dependencies": {
-    "jquery": "^1.12.4"
+    "jquery": "^1.12.4",
+    "mapbox-gl": "^0.24.0"
   }
 }
