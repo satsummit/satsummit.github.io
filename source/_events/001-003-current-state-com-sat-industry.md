@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: current-state-com-sat-industry
 
 title: The Current State of the Commercial Satellite Industry

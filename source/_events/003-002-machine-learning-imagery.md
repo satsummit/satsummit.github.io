@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: machine-learning-imagery
 
 title: "Putting Pixels to Work: Machine Learning with Imagery"

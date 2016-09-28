@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: efficient-effective-data-distribution
 
 title: Efficient and Effective Data Distribution - How to Push Pixels Globally

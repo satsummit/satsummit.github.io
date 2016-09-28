@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: state-sat-global-development
 
 title: The State of Satellite in Global Development

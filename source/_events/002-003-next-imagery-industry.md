@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: next-imagery-industry
 
 title: What's Next for the Imagery Industry? 

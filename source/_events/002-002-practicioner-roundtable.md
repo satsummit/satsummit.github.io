@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: practicioner-roundtable
 
 title: "Practitioner Roundtable: A Satellite Data Revolution?"

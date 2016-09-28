@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: stories-from-ground
 
 title: "Stories from the Ground: Real Data for Real Change"

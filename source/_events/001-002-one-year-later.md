@@ -1,4 +1,5 @@
 ---
+permalink: none
 slug: one-year-later
 
 title: "One Year Later: Updates from the last Summit"
