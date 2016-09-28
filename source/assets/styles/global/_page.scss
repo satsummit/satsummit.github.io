@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Global: Page
+   ========================================================================== */
+
+.page {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header
+   ========================================================================== */
+
+.page__header {
+  @extend .antialiased;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  color: $base-color;
+  padding: $global-spacing 0;
+  transition: all 0.32s ease-in-out 0s;
+  box-shadow: 0 8px 32px 0 $base-alpha-color;
+
+  > .inner {
+    @extend .row, .row--centered;
+  }
+  
+  @include media(large-up) {
+    padding: ($global-spacing * 2) 0;
+    background: transparent;
+    color: #fff;
+  }
+
+  &--light {
+    background: #fff;
+    color: $base-color;
+    box-shadow: 0 8px 32px 0 $base-alpha-color;
+    padding: $global-spacing 0;
+  }
+}
+
+/* Headline */
+
+.page__headline {
+  float: left;
+}
+
+.page__title {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  word-spacing: -0.26rem;
+  margin: 0;
+  text-transform: none;
+
+  a {
+    display: block;
+    box-shadow: none;
+    word-spacing: normal;
+
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+      word-spacing: normal;
+    }
+  }
+
+  .logo-symbol {
+    margin-right: $global-spacing / 2;
+    width: 1.5rem;
+    height: auto;
+  }
+
+  .logo-symbol--neg {
+    display: none;
+
+    @include media(large-up) {
+      display: inline-block;
+    }    
+  }
+
+  .logo-symbol--pos {
+    @include media(large-up) {
+      display: none;
+    }    
+  }
+
+  span {
+    transform: translate(0, 0.125rem); // Tweak vertical alignment
+  }
+
+  @include media(medium-up) {
+    font-size: 1.25rem;
+    line-height: 2rem;
+
+    logo-symbol {
+      margin-right: $global-spacing;
+      width: 2rem;
+    }
+  }
+}
+
+.page__header--light {
+  .logo-symbol--pos {
+    display: inline-block;
+  }
+
+  .logo-symbol--neg {
+    display: none;
+  }
+}
+
+
+/* Navigation */
+
+.page__prime-nav {
+  font-weight: $base-font-bold;
+
+  @include media(medium-up) {
+    float: right;
+  }
+
+  .toggle-menu {
+    position: absolute;
+    top: 0.75rem;
+    right: $global-spacing / 4;
+    margin: 0;
+
+    a {
+      @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
+      vertical-align: top;
+      box-shadow: none;
+
+      &:before {
+        @extend %collecticon-hamburger-menu;
+      }
+    }
+
+    @include media(small-up) {
+      right: $global-spacing * 1.5;
+    }
+
+    @include media(medium-up) {
+      top: 1rem;
+    }
+
+    @include media(large-up) {
+      display: none;
+    }
+  }
+}
+
+.menu-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  clear: both;
+  background: #fff;
+  padding: $global-spacing;
+  box-shadow: 0 8px 32px 0 $base-alpha-color;
+
+  /* Animation */
+
+  margin-top: - $global-spacing;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.16s ease 0s, margin 0.16s ease 0s, visibility 0.16s linear 0s;
+
+  &.menu-wrapper--open {
+    margin-top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include media(small-up) {
+    padding: $global-spacing ($global-spacing * 2);
+  }
+
+  @include media(large-up) {
+    position: initial;
+    float: left;
+    width: auto;
+    margin-top: 0;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.global-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include media(medium-up) {
+    float: left;
+
+    > li {
+      float: left;
+      margin: 0 $global-spacing 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.global-menu__link {
+  display: block;
+  line-height: 2rem;
+  font-size: 1rem;
+  padding: 0 ($global-spacing / 2);
+  border-radius: $base-border-radius;
+  box-shadow: none;
+  letter-spacing: 0.125em;
+
+  &, &:visited {
+    color: inherit;
+  }
+
+  &--active {
+    background: rgba($base-color, 0.08);
+  }
+}
+
+
+/* Body
+   ========================================================================== */
+
+.page__body {
+  @extend .clearfix;
+}
+
+
+/* Footer
+   ========================================================================== */
+
+.page__footer {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  background: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: $base-color;
+
+  > .inner {
+    @extend .row, .row--centered;
+  }
+  
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media(medium-up) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}

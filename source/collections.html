@@ -1,0 +1,69 @@
+---
+published: false
+---
+<h1>Agenda</h1>
+
+<!-- Group events by the group property to create the different sections -->
+<!-- events_by_group is an array of objects
+Each object has a `name` key with the group name
+and a `items` key with all the events. -->
+{% assign events_by_group = site.events | group_by: "group" %}
+
+<!-- Loop through the event groups -->
+{% for g in events_by_group %}
+  <h2>{{ g.name }}</h2>
+
+  <!-- Loop through the events in each group -->
+  {% for post in g.items %}
+    <div style='border: 1px dashed grey'>
+
+    <!-- If the permalink if `none` we don't want to print a link -->
+      {% unless post.permalink == 'none' %}
+      <h3>{{ post.time }} - <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      {% else %}
+      <h3>{{ post.time }} - {{ post.title }}</h3>
+      {% endunless %}
+
+      <!-- Are there any speakers for this event -->
+      {% if post.speakers %}
+        <!-- Since an event can have multiple speakers loop over them -->
+        {% for speaker in post.speakers %}
+          <!-- Find the corresponding speaker in the speakers collection using the name. -->
+          {% assign s = site.speakers | where: "title",speaker | first %}
+          <!-- `s` is now the speaker object with all the properties defined in the `.md` file -->
+          <a href="{{ site.baseurl }}{{ s.url }}">{{ s.title }}</a>
+        {% endfor %}
+      {% endif %}
+      {{ post.description | markdownify }}
+    </div>
+  {% endfor %}
+
+{% endfor %}
+
+
+
+<h1>Speakers</h1>
+<!-- Loop over the speakers -->
+{% for speaker in site.speakers %}
+<div style='border: 1px dashed grey'>
+  <p>url: {{ speaker.url }}</p>
+  <p>title: {{ speaker.title }}</p>
+  <p>company: {{ speaker.company }}</p>
+  <p>role: {{ speaker.role }}</p>
+  <p>twitter: {{ speaker.twitter }}</p>
+  <p>website: {{ speaker.website }}</p>
+  <p>avatar: {{ speaker.avatar }}</p>
+</div>
+{% endfor %}
+
+
+<h1>Sponsors</h1>
+<!-- Loop over the sponsors -->
+{% for sponsor in site.sponsors %}
+<div style='border: 1px dashed grey'>
+  <p>url: {{ sponsor.url }}</p>
+  <p>title: {{ sponsor.title }}</p>
+  <p>website: {{ sponsor.website }}</p>
+  <p>image: {{ sponsor.image }}</p>
+</div>
+{% endfor %}

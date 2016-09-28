@@ -1,0 +1,160 @@
+---
+layout: base
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--homepage">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">SatSummit</h1>
+            <p class="inpage__details">Oct 24 &bullet; Washington DC</p>
+            <p class="inpage__introduction">Satellite data for global development</p>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img src="{{ site.baseurl }}/assets/graphics/layout/intro-hero-01a.jpg" width="1920" height="960" alt="Hero image" />
+          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image" target="_blank">The Earth Observatory</a></figcaption>
+        </figure>      
+      </header>
+      <div class="inpage__body">
+          
+        <!-- Fold: About -->
+        <section class="fold" id="about">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">About</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <p>SatSummit brings together satellite industry experts and global development leaders for in-depth conversations about how satellite imagery is solving some of the world's most critical development challenges. From climate change to population growth to natural resource availability, satellite data is offering insights into today's biggest global issues.</p>
+                <p>Join us as we explore current satellite data capabilities and global applications to identify real opportunities for partnership and innovation.</p>
+                
+                <div class="call-to-action">
+                  <a class="twitter-button" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow on Twitter">Follow #SatSummit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: About -->
+
+        <!-- Fold: Agenda -->
+        {% assign events_by_group = site.events | group_by: "group" %}
+
+        <section class="fold fold--light" id="agenda">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Agenda</h1>
+            </header>
+            <div class="fold__body">
+              <div class="agenda prose prose--responsive">
+
+                {% for g in events_by_group %}
+                <section class="agenda__group">
+                  <h2 class="agenda__title">{{ g.name }}</h2>
+                  <dl class="agenda__list">
+                    {% for post in g.items %}
+                    {% assign klass = '' %}
+                    {% if post.type == 'social' %}
+                    {% assign klass = 'alt-row' %}
+                    {% endif %}
+                    <dt class="agenda__key {{ klass }}">{{ post.time }}</dt>
+                    <dd class="agenda__value {{ klass }}">
+                      {% unless post.permalink == 'none' %}
+                      <em class="agenda__value-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></em>
+                      {% else %}
+                      <em class="agenda__value-title">{{ post.title }}</em>
+                      {% endunless %}
+                      {% if post.description %}
+                      <div class="agenda__value-description">
+                        {{ post.description | markdownify }}
+                      </div>
+                      {% endif %}
+                    </dd>
+                    {% endfor %}
+                  </dl>
+                </section>
+                {% endfor %}
+
+                <p><small>Note: this schedule is subject to change.</small></p>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Agenda -->
+
+        <!-- Fold: Venue -->
+        <section class="fold" id="venue">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Venue</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <p>District Architecture Center, 421 7th St NW <br/ > Washington, DC 20004</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </section>
+        <!--/ Fold: Venue -->
+
+        <!-- Fold: Tickets -->
+        <section class="fold fold--light" id="tickets">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Tickets</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <iframe src="//eventbrite.com/tickets-external?eid=27762180429&ref=etckt" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+                <p><small>Powered by <a class="powered-by-eb" target="_blank" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Tickets -->
+
+         <!-- Fold: Sponsors -->
+        <section class="fold" id="sponsors">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Sponsors</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+
+                <ul class="sponsors-list">
+                  {% for sponsor in site.sponsors %}
+                  <li class="sponsors-list__item-wrapper">
+                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsors-list__item" target="_blank">
+                      <span class="visually-hidden">{{ sponsor.title }}</span>
+                      <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                
+                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
+
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Sponsors -->
+
+      </div>
+
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->

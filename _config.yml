@@ -1,10 +1,38 @@
-# Site settings
-title: Satellite Summit
-email: satellite@mapbox.com
-url: http://devseed.com/satsummit
-description: "Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."
+source: source
+# To exclude inside source/
+exclude:
+  - assets/scripts
+  - assets/styles
+  - assets/graphics/collecticons
+baseurl: https://satsummit.io
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# Color settings (hex-codes without the leading hash-tag)
-color:
-  primary-dark: '#000000'
-  links: '#219ab3'
+##
+# Default values
+##
+defaults:
+  - 
+    scope:
+      type: events
+    values:
+      layout: event
+  - 
+    scope:
+      type: speakers
+    values:
+      layout: speaker
+
+##
+# Collections definitions
+##
+collections:
+  events:
+    output: true
+    permalink: /agenda/:slug/
+  speakers:
+    output: true
+    permalink: /speakers/:path/
+  sponsors:
+    output: false

@@ -1,0 +1,50 @@
+---
+layout: base
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--event">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <p class="inpage__subtitle">Speaker</p>
+            <h1 class="inpage__title">{{ page.title }}</h1>
+            {% if page.role %}
+            <div class="inpage__detail">
+              <p>{{ page.role }}, {{ page.company }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>         
+      </header>
+      <div class="inpage__body">
+        <div class="inner prose prose--responsive">
+          <!-- inPage main content -->
+          <div class="inpage__main-content prose prose--responsive">
+            {{ content }}
+          </div>
+          <!--/ inPage main content -->
+        </div>
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->
+
+{% comment %}
+<!-- Get all the events for this speaker -->
+
+{% assign user_events = site.events | where_exp: "item", "item.speakers contains page.title" %}
+
+<!-- Loop over the speaker's talks -->
+{% for event in user_events %}
+<div style='border: 1px dashed grey'>
+  <p>{{ event.time }} - <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a></p>
+</div>
+{% endfor %}
+{% endcomment %}

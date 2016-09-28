@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--event">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            {% if page.type %}
+            <p class="inpage__subtitle">{{ page.type }}</p>
+            {% endif %}
+            <h1 class="inpage__title">{{ page.title }}</h1>
+            {% if page.time %}
+            <div class="inpage__detail">
+              <p>{{ page.time }}</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>         
+      </header>
+      <div class="inpage__body">
+        <div class="inner prose prose--responsive">
+          <!-- inPage main content -->
+          <div class="inpage__main-content prose prose--responsive">
+            {{ content }}
+          </div>
+          <!--/ inPage main content -->
+        </div>
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->

@@ -1,0 +1,15 @@
+_config-dev.yml
+docs
+Gemfile
+.gitignore
+LICENSE
+_README.md
+_site
+.travis.yml
+.build_scripts
+_config.yml
+.eslintrc
+Gemfile.lock
+.gitattributes
+gulpfile.js
+.tmp

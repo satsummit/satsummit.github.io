@@ -1,25 +1,41 @@
 language: node_js
 node_js:
-  - '0.12'
+  - "4.5"
 
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - CXX=g++-4.8
   - DEPLOY_BRANCH=master
-  - GH_REF=github.com/developmentseed/satsummit.git
-  - secure: "cCtSHOHhie8qTELIatgiKC1ADHMRjayztpAvLJuAJ2Ux9rqigI2uCH3OEfLPK5WlZiE/YLnEGe1PtHZkbiLiuNRSjaxXamz6ec5ftp2OZ7vto3MH8fBtnBs6zXh9GWZUuzq3IDFrbCEpNSQGicTSlCsMXUvJziann08Txp0eVEIqG8Hdb2uUzDlIXXox7nuLxRxVx2v34knCeIk0O/Ehe0aTQFxDl38k5hWA0dCyrMmRt9HL2gYCj3ciNgjhoA4UksOvW5PcqZVfefvRSqxw482TJyJnzA70nAcdoypUA8qOuO9h2xHFog6Duag7Pxq5RVdIeeZm2HOVLf7mUFrZqaE9qhQfmagFxq2OOq0WTZtNJFajh9XFAniBccS10SLNLmBaDvb5YOMSwlcvJIootaSnHgEIyoeuR4LXgkYXEGOWWJ+S0DLhkBlWVMESWXaLONtyVnRgTWXSuwlhDOw48YZsQLfhW+kM3+SR6BFl+eo8pd7lBB92bpGpxEv+P2+qkTenxTxrGXKcNi+4aCbdBdELNZexyo5YHlorCQooeJ+Cg+ldk5JPc7PylobCrn76tz7pzSiZW77x5+oyBwI/gU1tg2zmyrO9t/yBy5ZaaoZjrxhDM5hUhcknaPuNPhlpAvxQR/VRHxSVdf+EX/iaJbL5ORiKGGgo4aacwGv7M2I="
-  
+  - secure: "ivsWIkIng8AkuuqIut27L+s6D7YCWpSEtNMAX+WU/VfIsL0MpGuPJP140tRtaHFMPixDZCYsLe11NL+4rzPk7TmXDd1/lP1C66+Ba0Gsi1aEz5vw/q1ue3Cxt2+Hy2mA5etl8bQxfyZMXe7pDLMK5+oN3aqdZgyvMbiHORaJZJzjH4hqHfnIQ+ZZpdOY/SLFA5BSgAZuVIKEHXYPbWHvbxyUJAteDx+h/z2oDCwrhjvZCdjAp5EBp48711z4kcp9Cy11ioQ4D1FV/BaU38cnPr4LXkAFVD9kuoZmOw6nzur0XwIcYEEcrqSPwe2gpqo83PYDXiqR4L+SXvviCxASbUbQ3lFRzXrx24ZnEOpn66PYlBJcePq9/Q86eHF6hW519YgduDK+TUL6uAUUysxzdlSGpQkJXbMloTN9bLR3C9F5ssERgQfI40iG3OOsdwClNZijTUYeJVHwH3D4Xf+NZggiwL28o+RMEbt0Y4GHKPx4EJK5B/YvQScxFHHRcRlbhQMw4OhvjKVbuSsmtymdd4+l7psm277j7kC6I276v5p9Dhzs2De/qbuHRNG5nNty4QL4b4xWX+bxHLh4aDzRvBlVvLpBhtxwm01SaAUOoqvYhBdKOXdxQN3nkkIm2z/KWEIzUyGoPHRaUc1byFpJH0iiAjqfe70TIuFLXxiYaIg=" # GH_TOKEN
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
 cache:
+  apt: true
   directories:
     - node_modules
     - bundle/cache
 
 before_install:
-  - chmod +x ./.build_scripts/build.sh
-  - chmod +x ./.build_scripts/deploy.sh
+- rvm install 2.1
+- chmod +x ./.build_scripts/deploy.sh
+- chmod +x ./.build_scripts/lint.sh
+
+before_script:
+- ./.build_scripts/lint.sh
+- npm test
 
 script:
-  - travis_wait ./.build_scripts/build.sh
+- npm run build
 
-after_success:
-  - travis_wait ./.build_scripts/deploy.sh
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: .build_scripts/deploy.sh
+  on:
+    branch: ${DEPLOY_BRANCH}

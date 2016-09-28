@@ -1,0 +1,9 @@
+---
+---
+
+/* SITE */
+
+Last update: {{ site.time | date: "%Y/%m/%d"}}
+Standards: HTML5, CSS3, RWD
+Components: jQuery, Jekyll, Mapbox
+Software: Sublime Text, Eclipse, Adobe Illustrator CC, GitHub (Mac)
