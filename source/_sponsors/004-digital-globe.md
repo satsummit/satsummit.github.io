@@ -1,6 +1,6 @@
 ---
 title: DigitalGlobe
 website: https://www.digitalglobe.com/
-image: dg.png
-group:
+image: digitalglobe-flat-neg.svg
+group: Lead Sponsor
 ---

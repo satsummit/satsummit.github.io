@@ -1,6 +1,6 @@
 ---
 title: Development Seed
 website: http://developmentseed.org
-image: devseed.png
-group:
+image: development-seed-flat-neg.svg
+group: Lead Sponsor
 ---

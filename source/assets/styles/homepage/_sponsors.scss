@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Homepage: Sponsors Fold
+   ========================================================================== */
+
+#sponsors {
+  text-align: center;
+
+  .prose {
+    @include col(12/12);
+    margin-top: $global-spacing;
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+      margin-top: $global-spacing * 2;
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+}
+
+.sponsor-group {
+  @include center(60rem);
+  margin-bottom: $global-spacing * 2;
+
+  &__title {
+    @include heading(1rem, medium-up);
+    margin-bottom: $global-spacing * 2;
+    opacity: 0.56;
+  }
+
+  @include media(medium-up) {
+    margin-bottom: $global-spacing * 3;
+  }
+}
+
+.sponsor-list {
+  @extend .clearfix;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sponsor-list__item {
+  @include col(12/12);
+  margin-bottom: $global-spacing * 2.5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media(medium-up) {
+    @include col(4/12, $cycle: 3);
+    margin-bottom: $global-spacing * 2;
+  }
+}
+
+.sponsor {
+  display: inline-block;
+  box-shadow: none;
+  vertical-align: top;
+
+  img {
+    width: auto;
+    max-width: 100%;
+    max-height: 2.5rem;
+    display: block;
+    backface-visibility: hidden;
+
+    @include media(medium-up) {
+      max-height: 3rem;
+    }
+  }
+
+  /* Downsize supporting sponsors */
+  .sponsor-group--supporting-sponsor & {
+    transform: scale(0.8);
+  }
+
+  /* Compensate Digital Globe logo proportions and alignment */
+  &--digitalglobe img {
+    transform: translate(0, -1em);
+    max-height: 3.5rem;
+  }
+}

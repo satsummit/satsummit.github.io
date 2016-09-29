@@ -47,16 +47,18 @@ body {
   font-weight: $base-font-weight;
   font-style: $base-font-style;
   min-width: $row-min-width;
-  background: shade($base-color, 48%) url(../graphics/layout/intro-hero-01a.jpg) center top no-repeat fixed; // 
-  background-size: cover;
+  background: shade($base-color, 48%);
 
   &::before {
+    content: '';
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(36,35,221,0.64) 0%,rgba(36,35,221,0.32) 32%,rgba(36,35,221,0.32) 100%);
-    content: '';
+    background: linear-gradient(to bottom, rgba(36,35,221,0.64) 0%,rgba(36,35,221,0.32) 32%,rgba(36,35,221,0.32) 100%), url(../graphics/layout/intro-hero-01a.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto, cover;
   }
 }
 

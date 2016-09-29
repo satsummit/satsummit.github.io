@@ -96,7 +96,7 @@ layout: base
             </header>
             <div class="fold__body">
               <div class="prose prose--responsive">
-                <ul class="speakers-list">
+                <ul class="speaker-list">
                   {% for speaker in site.speakers %}
                   <li class="speaker-list__item-wrapper">
                     <article class="card card--speaker">
@@ -160,30 +160,37 @@ layout: base
         </section>
         <!--/ Fold: Tickets -->
 
-         <!-- Fold: Sponsors -->
+        <!-- Fold: Sponsors -->
+        {% assign sponsors_by_group = site.sponsors | group_by: "group" %}
+
         <section class="fold" id="sponsors">
           <div class="inner">
             <header class="fold__header">
               <h1 class="fold__title">Sponsors</h1>
             </header>
             <div class="fold__body">
-              <div class="prose prose--responsive">
-
-                <ul class="sponsors-list">
-                  {% for sponsor in site.sponsors %}
-                  <li class="sponsors-list__item-wrapper">
-                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsors-list__item" target="_blank">
+        
+              {% for g in sponsors_by_group %}
+              <section class="sponsor-group sponsor-group--{{ g.name | slugify }}">
+                <h2 class="sponsor-group__title">{{ g.name }}</h2>
+                <ul class="sponsor-list">
+                  {% for sponsor in g.items %}
+                  <li class="sponsor-list__item">
+                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}" target="_blank">
                       <span class="visually-hidden">{{ sponsor.title }}</span>
                       <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
                     </a>
                   </li>
                   {% endfor %}
-                </ul>
-                
-                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
+                </ul>            
+              </section>
+              {% endfor %}
 
+              <div class="prose prose--responsive">
+                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
               </div>
             </div>
+
           </div>
         </section>
         <!--/ Fold: Sponsors -->

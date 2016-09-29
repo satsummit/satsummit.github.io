@@ -2,5 +2,5 @@
 title: Astro Digital
 website: https://astrodigital.com/
 image: astrodigital.png
-group:
+group: Supporting Sponsor
 ---
