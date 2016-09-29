@@ -194,12 +194,19 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  word-spacing: -0.26rem;
+
+  > li {
+    display: block;
+    word-spacing: normal;
+    margin: 0 0 ($global-spacing / 2) (-$global-spacing / 4);
+  }
 
   @include media(medium-up) {
-    float: left;
+    text-align: center;
 
     > li {
-      float: left;
+      display: inline-block;
       margin: 0 $global-spacing 0 0;
 
       &:last-child {
@@ -210,11 +217,11 @@
 }
 
 .global-menu__link {
-  display: block;
+  display: inline-block;
   line-height: 2rem;
   font-size: 1rem;
   padding: 0 ($global-spacing / 2);
-  border-radius: $base-border-radius;
+  border-radius: $base-border-radius / 2;
   box-shadow: none;
   letter-spacing: 0.125em;
 
@@ -224,6 +231,18 @@
 
   &--active {
     background: rgba($base-color, 0.08);
+  }
+
+  &--cta {
+    background: rgba($base-color, 0.12);
+
+    .page__header--light & {
+      background: rgba($base-color, 0.12);
+    }
+
+    @include media(large-up) {
+      background: rgba(#fff, 0.16);
+    }
   }
 }
 
@@ -244,10 +263,10 @@
   -moz-osx-font-smoothing: auto;
   background: #fff;
   padding: 2rem 0;
-  text-align: center;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: $base-color;
+  text-align: center;
 
   > .inner {
     @extend .row, .row--centered;
@@ -261,4 +280,56 @@
     font-size: 1rem;
     line-height: 1.5rem;
   }
+}
+
+.footer-nav {
+  margin-bottom: $global-spacing * 2;
+
+  @include media(medium-up) {
+    @include col(8/12);
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
+
+.contacts-menu {
+  @extend .clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  word-spacing: -0.26rem;
+
+  > li {
+    display: inline-block;
+    word-spacing: normal;
+    margin: $global-spacing / 2;
+    transform: skewY(-5deg);
+  }
+
+  @include media(medium-up) {
+    > li {
+      margin: 0 ($global-spacing / 2) 0 0;
+    }
+  }
+}
+
+.footer-credits {
+  @include media(medium-up) {
+    @include col(4/12);
+    text-align: right;
+  }
+}
+
+.email-button,
+.twitter-button {
+  @extend .button, .button--base, .button--small;
+  min-width: 12rem;
+}
+
+.email-button::before {
+  @extend %collecticon-envelope;
+}
+
+.twitter-button::before {
+  @extend %collecticon-twitter;
 }

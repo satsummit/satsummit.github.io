@@ -1,6 +1,6 @@
 ---
 title: Open Imagery Network
-website: https://openimagerynetwork.github.io/
+website: 
 image: oin.png
 group: Supporting Sponsor
 ---

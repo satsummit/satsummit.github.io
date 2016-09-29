@@ -17,7 +17,7 @@ layout: base
         </div>
         <figure class="hero-media">
           <img src="{{ site.baseurl }}/assets/graphics/layout/intro-hero-01a.jpg" width="1920" height="960" alt="Hero image" />
-          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image" target="_blank">The Earth Observatory</a></figcaption>
+          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image">The Earth Observatory</a></figcaption>
         </figure>      
       </header>
       <div class="inpage__body">
@@ -30,14 +30,15 @@ layout: base
             </header>
             <div class="fold__body">
               <div class="prose prose--responsive">
-                <p>SatSummit brings together satellite industry experts and global development leaders for in-depth conversations about how satellite imagery is solving some of the world's most critical development challenges. From climate change to population growth to natural resource availability, satellite data is offering insights into today's biggest global issues.</p>
+                <p>#SatSummit brings together satellite industry experts and global development leaders for in-depth conversations about how satellite imagery is solving some of the world's most critical development challenges. From climate change to population growth to natural resource availability, satellite data is offering insights into today's biggest global issues.</p>
                 <p>Join us as we explore current satellite data capabilities and global applications to identify real opportunities for partnership and innovation.</p>
-                
-                <div class="call-to-action">
-                  <a class="twitter-button" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow on Twitter">Follow #SatSummit</a>
-                </div>
+                <hr />
+                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Send email">info@satsummit.io</a>.</p>
               </div>
             </div>
+            <footer class="fold__footer fold__footer--actions">
+              <a class="cta-twitter" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow us on Twitter"><span>Follow #SatSummit</span></a>
+            </footer>
           </div>
         </section>
         <!--/ Fold: About -->
@@ -98,7 +99,7 @@ layout: base
               <div class="prose prose--responsive">
                 <ul class="speaker-list">
                   {% for speaker in site.speakers %}
-                  <li class="speaker-list__item-wrapper">
+                  <li class="speaker-list__item">
                     <article class="card card--speaker">
                       <a class="card__contents" href="{{ speaker.url }}" title="View speaker profile">
                         <header class="card__header">
@@ -153,12 +154,50 @@ layout: base
             <div class="fold__body">
               <div class="prose prose--responsive">
                 <iframe src="//eventbrite.com/tickets-external?eid=27762180429&ref=etckt" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
-                <p><small>Powered by <a class="powered-by-eb" target="_blank" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
+                <p><small>Powered by <a class="powered-by-eb" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
               </div>
             </div>
           </div>
         </section>
         <!--/ Fold: Tickets -->
+
+        <!-- Fold: Lightning Talks -->
+        <section class="fold" id="lightning-talks">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Lightning Talks</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <p>If you are interested in giving a lightning talk (5-7 minutes) at #SatSummit, we are opening up a call for proposals now until October 15. If interested, please submit a brief proposal to <a href="mailto:info@satsummit.io" title="Send email">info@satsummit.io</a> outlining speaker information, affiliation, and 3-5 sentences on the substance of what they would present on. The three main topic areas are: state of the industry, imagery of development, and data into action.</p>
+              </div>
+            </div>
+            <footer class="fold__footer fold__footer--actions">
+              <a class="cta-email" href="mailto:info@satsummit.io" title="Send email"><span>Get in touch</span></a>
+            </footer>
+          </div>
+        </section>
+        <!--/ Fold: Lightning Talks -->
+
+        <!-- Fold: Code of Conduct -->
+        <section class="fold fold--light" id="code-of-conduct">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Code of Conduct</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <blockquote cite="http://confcodeofconduct.com/">
+                  <p>Our conference is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices.</p>
+                  <p>We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, Twitter and other online media.</p>
+                  <p>Conference participants violating these rules may be sanctioned or expelled from the conference <strong>without a refund</strong> at the discretion of the conference organisers.</p>
+                  <footer>Via <cite><a href="http://confcodeofconduct.com/" title="View original source">Conference Code of Conduct</a></cite></footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Code of Conduct -->
 
         <!-- Fold: Sponsors -->
         {% assign sponsors_by_group = site.sponsors | group_by: "group" %}
@@ -169,14 +208,13 @@ layout: base
               <h1 class="fold__title">Sponsors</h1>
             </header>
             <div class="fold__body">
-        
               {% for g in sponsors_by_group %}
               <section class="sponsor-group sponsor-group--{{ g.name | slugify }}">
                 <h2 class="sponsor-group__title">{{ g.name }}</h2>
                 <ul class="sponsor-list">
                   {% for sponsor in g.items %}
                   <li class="sponsor-list__item">
-                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}" target="_blank">
+                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}">
                       <span class="visually-hidden">{{ sponsor.title }}</span>
                       <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
                     </a>
@@ -185,12 +223,7 @@ layout: base
                 </ul>            
               </section>
               {% endfor %}
-
-              <div class="prose prose--responsive">
-                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
-              </div>
             </div>
-
           </div>
         </section>
         <!--/ Fold: Sponsors -->

@@ -9,13 +9,16 @@
   margin: 0 auto ($global-spacing * 2) auto;
 }
 
-.speaker-list__item-wrapper {
+.speaker-list__item {
   @include col(12/12);
   margin-bottom: $global-spacing * 2;
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   @include media(small-up) {
     @include col(6/12, $cycle: 2);
-    margin-bottom: $global-spacing * 3;
   }
 
   @include media(large-up) {
@@ -25,7 +28,6 @@
 
   @include media(xlarge-up) {
     @include col(3/12, $cycle: 4);
-    margin-bottom: $global-spacing * 3;
   }
 }
 
