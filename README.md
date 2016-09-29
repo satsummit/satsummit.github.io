@@ -24,3 +24,7 @@ $ npm run serve
 Compiles the sass files, javascript, and launches the server making the site available at `http://localhost:3000/`  
 The system will watch files and execute tasks whenever one of them changes.  
 The site will automatically refresh since it is bundled with livereload.
+
+#### Jekyll settings
+There are several config files for jekyll that are loaded according to the environment.
+The production settings are in `_config.yml`. If overrides for local development are required they should be done in `_config-dev.yml`.
