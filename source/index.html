@@ -17,7 +17,7 @@ layout: base
         </div>
         <figure class="hero-media">
           <img src="{{ site.baseurl }}/assets/graphics/layout/intro-hero-01a.jpg" width="1920" height="960" alt="Hero image" />
-          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image" target="_blank">The Earth Observatory</a></figcaption>
+          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image">The Earth Observatory</a></figcaption>
         </figure>      
       </header>
       <div class="inpage__body">
@@ -37,7 +37,7 @@ layout: base
               </div>
             </div>
             <footer class="fold__footer fold__footer--actions">
-              <a class="cta-twitter" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow on Twitter">Follow #SatSummit</a>
+              <a class="cta-twitter" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow us on Twitter"><span>Follow #SatSummit</span></a>
             </footer>
           </div>
         </section>
@@ -154,7 +154,7 @@ layout: base
             <div class="fold__body">
               <div class="prose prose--responsive">
                 <iframe src="//eventbrite.com/tickets-external?eid=27762180429&ref=etckt" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
-                <p><small>Powered by <a class="powered-by-eb" target="_blank" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
+                <p><small>Powered by <a class="powered-by-eb" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@ layout: base
               </div>
             </div>
             <footer class="fold__footer fold__footer--actions">
-              <a class="cta-email" href="mailto:info@satsummit.io" title="Send email">Get in touch</a>
+              <a class="cta-email" href="mailto:info@satsummit.io" title="Send email"><span>Get in touch</span></a>
             </footer>
           </div>
         </section>
@@ -214,7 +214,7 @@ layout: base
                 <ul class="sponsor-list">
                   {% for sponsor in g.items %}
                   <li class="sponsor-list__item">
-                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}" target="_blank">
+                    <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}">
                       <span class="visually-hidden">{{ sponsor.title }}</span>
                       <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
                     </a>
@@ -224,7 +224,6 @@ layout: base
               </section>
               {% endfor %}
             </div>
-
           </div>
         </section>
         <!--/ Fold: Sponsors -->
