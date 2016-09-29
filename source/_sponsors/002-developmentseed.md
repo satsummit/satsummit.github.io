@@ -2,5 +2,5 @@
 title: Development Seed
 website: http://developmentseed.org
 image: devseed.png
-group:
+group: Lead Sponsor
 ---
