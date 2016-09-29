@@ -2,7 +2,6 @@
    Media
    ========================================================================== */
 
-
 figure {
   padding: 0;
   margin: 0 0 $global-spacing 0;
@@ -10,6 +9,10 @@ figure {
 
 img {
   vertical-align: middle;
+}
+
+iframe {
+  display: block;
 }
 
 .image-fluid {

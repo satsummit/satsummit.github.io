@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Homepage: About Fold
+   ========================================================================== */
+
+#about {
+  .prose {
+    @include col(12/12);
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+
+  .call-to-action {
+    margin-top: $global-spacing * 2;
+    text-align: center;
+    transform: skewY(-5deg);
+
+    @include media(medium-up) {
+      margin-top: $global-spacing * 4;
+    }
+  }
+}
+
+.twitter-button {
+  @extend .button, .button--achromic, .button--xlarge;
+
+  &::before {
+    @extend %collecticon-twitter;
+  }
+
+  @include media(medium-up) {
+    min-width: 24rem;
+  }
+}

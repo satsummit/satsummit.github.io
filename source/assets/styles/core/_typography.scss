@@ -128,7 +128,7 @@ dd {
    ========================================================================== */
 
 blockquote {
-  box-shadow: inset 1px 0 0 0 $base-alpha-color;
+  box-shadow: inset 4px 0 0 0 $base-color;
   padding: ($global-spacing / 2) $global-spacing;
 
   *:last-child {
@@ -137,9 +137,25 @@ blockquote {
 
   footer {
     color: rgba($base-font-color, 0.64);
-    margin-top: -0.5rem;
+    margin-top: -$global-spacing / 2;
     &:before {
       content: '— ';
+    }
+  }
+}
+
+/* Prose specific */
+
+.prose--responsive {
+  blockquote {
+    @include media(medium-up) {
+      padding: $global-spacing ($global-spacing * 2);
+    }
+
+    footer {
+      @include media(medium-up) {
+        margin-top: 0;
+      }
     }
   }
 }
