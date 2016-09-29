@@ -13,12 +13,12 @@ kramdown:
 # Default values
 ##
 defaults:
-  - 
+  -
     scope:
       type: events
     values:
       layout: event
-  - 
+  -
     scope:
       type: speakers
     values:
