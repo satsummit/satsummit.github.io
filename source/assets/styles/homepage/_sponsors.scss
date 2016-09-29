@@ -7,6 +7,7 @@
 
   .prose {
     @include col(12/12);
+    margin-top: $global-spacing;
 
     @include media(medium-up) {
       @include col(10/12, $offset: 1/12);
@@ -21,28 +22,29 @@
 
 .sponsor-group {
   @include center(60rem);
-  margin-bottom: $global-spacing * 4;
+  margin-bottom: $global-spacing * 2;
 
   &__title {
-    @include heading(1.25rem, medium-up);
+    @include heading(1rem, medium-up);
     margin-bottom: $global-spacing * 2;
+    opacity: 0.56;
   }
 
   @include media(medium-up) {
-    margin-bottom: $global-spacing;
+    margin-bottom: $global-spacing * 3;
   }
 }
 
 .sponsor-list {
+  @extend .clearfix;
   list-style: none;
   padding: 0;
   margin: 0;
-  overflow: hidden;
 }
 
-.sponsor-list__item-wrapper {
+.sponsor-list__item {
   @include col(12/12);
-  margin-bottom: $global-spacing * 2;
+  margin-bottom: $global-spacing * 2.5;
 
   &:last-child {
     margin-bottom: 0;
@@ -54,23 +56,31 @@
   }
 }
 
-.sponsor-list__item {
+.sponsor {
   display: inline-block;
   box-shadow: none;
   vertical-align: top;
 
   img {
+    width: auto;
     max-width: 100%;
-    width: 10rem;
-    height: auto;
+    max-height: 2.5rem;
     display: block;
+    backface-visibility: hidden;
 
     @include media(medium-up) {
-      width: 12rem;
+      max-height: 3rem;
     }
+  }
 
-    @include media(large-up) {
-      width: 14rem;
-    }
+  /* Downsize supporting sponsors */
+  .sponsor-group--supporting-sponsor & {
+    transform: scale(0.8);
+  }
+
+  /* Compensate Digital Globe logo proportions and alignment */
+  &--digitalglobe img {
+    transform: translate(0, -1em);
+    max-height: 3.5rem;
   }
 }
