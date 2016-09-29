@@ -15,7 +15,7 @@ $('#global-menu a').on('click', function (e) {
   var anchor = $(this).attr('href').match(/(#.+)/);
   anchor = anchor[1] || '';
   $('html, body').stop().animate({
-    scrollTop: $(anchor).offset().top - $('[data-hook="page-header"]').outerHeight()
+    scrollTop: $(anchor).offset().top
   }, 750);
   e.preventDefault();
 });

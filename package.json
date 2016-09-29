@@ -18,7 +18,7 @@
   "main": "assets/scripts",
   "scripts": {
     "install": "bundle install --path bundle/cache",
-    "postinstall": "[ -f _config-dev.yml ] || touch _config-dev.yml",
+    "postinstall": "[ -f _config-dev.yml ] || echo 'baseurl: http://localhost:3000' > _config-dev.yml",
     "serve": "gulp collecticons && DS_ENV=development NODE_ENV=development gulp serve",
     "build": "DS_ENV=production NODE_ENV=production gulp",
     "lint": "eslint docs/assets/scripts/ --ext .js",
