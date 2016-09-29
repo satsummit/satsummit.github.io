@@ -166,11 +166,12 @@ blockquote {
 
 hr, .hr {
   border: 0;
-  height: 2px;
+  height: 4px;
   background: $base-alpha-color;
   width: 80%;
-  max-width: 16rem;
-  margin: ($global-spacing * 2) auto;
+  max-width: 8rem;
+  margin: ($global-spacing * 2) 0;
+  border-radius: $global-spacing / 8;
 }
 
 /* Prose specific */
@@ -178,7 +179,7 @@ hr, .hr {
 .prose {
   > hr,
   >.hr {
-    margin: ($global-spacing * 3) auto;
+    margin: ($global-spacing * 3) 0;
   }
 }
 
@@ -186,7 +187,7 @@ hr, .hr {
   > hr,
   > .hr {
     @include media(medium-up) {
-      margin: ($global-spacing * 4) auto;
+      margin: ($global-spacing * 4) 0;
     }
   }
 }

@@ -14,16 +14,6 @@
       @include col(8/12, $offset: 2/12);
     }
   }
-
-  .call-to-action {
-    margin-top: $global-spacing * 2;
-    text-align: center;
-    transform: skewY(-5deg);
-
-    @include media(medium-up) {
-      margin-top: $global-spacing * 4;
-    }
-  }
 }
 
 .cta-email {

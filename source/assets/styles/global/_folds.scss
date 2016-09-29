@@ -14,7 +14,8 @@
   > .inner,
   .fold__header,
   .fold__introduction,
-  .fold__body {
+  .fold__body,
+  .fold__footer {
     > *:last-child {
       margin-bottom: 0;
     }
@@ -74,6 +75,30 @@
   }
 }
 
+.fold__body {
+  @extend .clearfix;
+}
+
+.fold__footer {
+  clear: both;
+  margin-top: $global-spacing;
+  text-align: center;
+
+  &--actions > * {
+    margin-top: $global-spacing * 2;
+    transform: skewY(-5deg);
+    transform-origin: left bottom;
+  }
+
+  @include media(medium-up) {
+    margin-top: $global-spacing * 2;
+
+    &--actions > * {
+      margin-top: $global-spacing * 4;
+    }
+  }
+}
+
 
 /* Modifiers
    ========================================================================== */
@@ -88,5 +113,11 @@
     &::after {
       background: $base-color;
     }
+  }
+}
+
+.fold {
+  hr, .hr {
+    background: #fff;
   }
 }
