@@ -136,7 +136,7 @@ blockquote {
   }
 
   footer {
-    color: rgba($base-font-color, 0.64);
+    opacity: 0.64;
     margin-top: -$global-spacing / 2;
     &:before {
       content: '— ';

@@ -32,10 +32,9 @@ layout: base
               <div class="prose prose--responsive">
                 <p>SatSummit brings together satellite industry experts and global development leaders for in-depth conversations about how satellite imagery is solving some of the world's most critical development challenges. From climate change to population growth to natural resource availability, satellite data is offering insights into today's biggest global issues.</p>
                 <p>Join us as we explore current satellite data capabilities and global applications to identify real opportunities for partnership and innovation.</p>
-                
-                <div class="call-to-action">
-                  <a class="twitter-button" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow on Twitter">Follow #SatSummit</a>
-                </div>
+                <p class="call-to-action">
+                  <a class="cta-twitter" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow on Twitter">Follow #SatSummit</a>
+                </p>
               </div>
             </div>
           </div>
@@ -144,6 +143,40 @@ layout: base
         </section>
         <!--/ Fold: Venue -->
 
+        <!-- Fold: Tickets -->
+        <section class="fold fold--light" id="tickets">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Tickets</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <iframe src="//eventbrite.com/tickets-external?eid=27762180429&ref=etckt" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+                <p><small>Powered by <a class="powered-by-eb" target="_blank" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Tickets -->
+
+        <!-- Fold: Lightning Talks -->
+        <section class="fold" id="lightning-talks">
+          <div class="inner">
+            <header class="fold__header">
+              <h1 class="fold__title">Lightning Talks</h1>
+            </header>
+            <div class="fold__body">
+              <div class="prose prose--responsive">
+                <p>If you are interested in giving a lightning talk (5-7 minutes) at SatSummit, we are opening up a call for proposals now until October 15. If interested, please submit a brief proposal to <a href="mailto:info@satsummit.io" title="Send email">info@satsummit.io</a> outlining speaker information, affiliation, and 3-5 sentences on the substance of what they would present on. The three main topic areas are: state of the industry, imagery of development, and data into action.</p>
+                <p class="call-to-action">
+                  <a class="cta-email" href="mailto:info@satsummit.io" title="Send email">Get in touch</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/ Fold: Lightning Talks -->
+
         <!-- Fold: Code of Conduct -->
         <section class="fold fold--light" id="code-of-conduct">
           <div class="inner">
@@ -161,22 +194,6 @@ layout: base
           </div>
         </section>
         <!--/ Fold: Code of Conduct -->
-
-        <!-- Fold: Tickets -->
-        <section class="fold fold--light" id="tickets">
-          <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Tickets</h1>
-            </header>
-            <div class="fold__body">
-              <div class="prose prose--responsive">
-                <iframe src="//eventbrite.com/tickets-external?eid=27762180429&ref=etckt" frameborder="0" height="400" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
-                <p><small>Powered by <a class="powered-by-eb" target="_blank" title="Visit Eventbrite" href="http://www.eventbrite.com/l/registration-online/">Eventbrite</a></small></p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--/ Fold: Tickets -->
 
         <!-- Fold: Sponsors -->
         {% assign sponsors_by_group = site.sponsors | group_by: "group" %}
@@ -205,7 +222,7 @@ layout: base
               {% endfor %}
 
               <div class="prose prose--responsive">
-                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Get in touch">info@satsummit.io</a></p>
+                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Send email">info@satsummit.io</a></p>
               </div>
             </div>
 

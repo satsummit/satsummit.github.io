@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Homepage: About Fold
+   Homepage: Lightning Talks
    ========================================================================== */
 
-#about {
+#lightning-talks {
   .prose {
     @include col(12/12);
 
@@ -26,11 +26,11 @@
   }
 }
 
-.cta-twitter {
+.cta-email {
   @extend .button, .button--achromic, .button--xlarge;
 
   &::before {
-    @extend %collecticon-twitter;
+    @extend %collecticon-envelope;
   }
 
   @include media(medium-up) {
