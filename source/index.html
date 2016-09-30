@@ -114,9 +114,11 @@ layout: base
                           <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
                         </header>
                       </a>
+                      {% if speaker.twitter %}
                       <footer class="card__footer">
                         <a class="speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ speaker.twitter }}" title="Follow on Twitter">@{{ speaker.twitter }}</a>
                       </footer>
+                      {% endif %}
                     </article>
                   </li>
                   {% endfor %}

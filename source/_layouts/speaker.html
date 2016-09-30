@@ -26,10 +26,12 @@ use_excerpt: true
             </div>
             {% endif %}
           </div>
+          {% if page.twitter %}
           <div class="inpage__actions">
             <a class="inpage-speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ page.twitter }}" title="Follow on Twitter">@{{ page.twitter }}</a>
           </div>
-        </div>         
+          {% endif %}
+        </div>
       </header>
       <div class="inpage__body">
         <div class="inner prose prose--responsive">
