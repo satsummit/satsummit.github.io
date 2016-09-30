@@ -6,12 +6,16 @@
 
 {% if page.introduction %}
   {% assign meta_introduction = page.introduction %}
+{% elsif layout.use_excerpt %}
+  {% assign meta_introduction = page.content | strip_html | truncatewords: 24 %}
 {% else %}
   {% assign meta_introduction = "Satellite data for global development." %}
 {% endif %}
 
-{% if page.image %}
-  {% assign meta_image = page.image %}
+{% if page.meta_image %}
+  {% assign meta_image = page.meta_image %}
+{% elsif page.avatar %}
+  {% capture meta_image %}/assets/graphics/content/speakers/{{ page.avatar }}{% endcapture %}
 {% else %}
   {% assign meta_image = "/assets/graphics/meta/default-meta-image.png" %}
 {% endif %}
