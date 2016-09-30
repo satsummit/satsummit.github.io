@@ -7,10 +7,17 @@ use_excerpt: true
   <div class="inner">
 
     <!-- inPage -->
-    <section class="inpage inpage--event">
+    <section class="inpage inpage--speaker">
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
+            <figure class="speaker-avatar">
+              {% if page.avatar %}
+              <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
+              {% else %}
+              <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+              {% endif %}
+            </figure>
             <p class="inpage__suptitle">Speaker</p>
             <h1 class="inpage__title">{{ page.title }}</h1>
             {% if page.role %}

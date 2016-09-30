@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Speakers: Single Page
+   ========================================================================== */
+
+.inpage--speaker .inpage__headline::before {
+  display: none;
+}
+
+.speaker-avatar {
+  @include clip-path(polygon(0 0, 100% 0%, 100% 95%, 0% 100%));
+  position: relative;
+  margin: 0 0 (-$global-spacing * 4) (-$global-spacing);
+  width: 16rem;
+  z-index: -1;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba($base-color, 0.16) 0, rgba($base-color, 0.32) 64%, rgba($base-color, 0.64) 100%);
+  }
+
+  @include media(small-up) {
+    margin-left: (-$global-spacing * 2);
+  }
+
+  @include media(medium-up) {
+    float: left;
+    margin: (-$global-spacing * 4) (-$global-spacing * 3) 0 0;
+  }
+}
