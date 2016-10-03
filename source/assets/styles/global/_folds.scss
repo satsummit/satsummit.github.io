@@ -121,3 +121,17 @@
     background: #fff;
   }
 }
+
+
+/* Links
+   ========================================================================== */
+
+.prose a {
+  .fold & {
+    @extend .link, .link--indark;
+  }
+
+  .fold--light & {
+    @extend .link--inlight;
+  }
+}

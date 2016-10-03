@@ -129,7 +129,6 @@
     a {
       @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
       vertical-align: top;
-      box-shadow: none;
 
       &:before {
         @extend %collecticon-hamburger-menu;
@@ -222,7 +221,6 @@
   font-size: 1rem;
   padding: 0 ($global-spacing / 2);
   border-radius: $base-border-radius / 2;
-  box-shadow: none;
   letter-spacing: 0.125em;
 
   &, &:visited {
@@ -234,10 +232,10 @@
   }
 
   &--cta {
-    background: rgba($base-color, 0.12);
+    background: rgba($base-color, 0.08);
 
     .page__header--light & {
-      background: rgba($base-color, 0.12);
+      background: rgba($base-color, 0.08);
     }
 
     @include media(large-up) {
@@ -314,6 +312,14 @@
 }
 
 .footer-credits {
+  .copyright {
+    display: block;
+  }
+
+  a {
+    @extend .link, .link--inlight;
+  }
+
   @include media(medium-up) {
     @include col(4/12);
     text-align: right;

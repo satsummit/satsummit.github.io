@@ -131,9 +131,13 @@
       display: inline-block;
       background: rgba(shade($base-color, 80%), 0.32);
       font-size: 0.75rem;
-      line-height: 1rem;
-      padding: ($global-spacing / 2);
+      line-height: 1;
+      padding: ($global-spacing / 4);
       border-radius: $base-border-radius / 2;
+
+      @include media(medium-up) {
+        padding: ($global-spacing / 2);
+      }
     }
   }
 }
