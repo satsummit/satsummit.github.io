@@ -96,34 +96,32 @@ layout: base
               <h1 class="fold__title">Speakers</h1>
             </header>
             <div class="fold__body">
-              <div class="prose prose--responsive">
-                <ul class="speaker-list">
-                  {% for speaker in site.speakers %}
-                  <li class="speaker-list__item">
-                    <article class="card card--speaker">
-                      <a class="card__contents" href="{{ speaker.url }}" title="View speaker profile">
-                        <header class="card__header">
-                          <figure class="card__avatar">
-                            {% if speaker.avatar %}
-                            <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
-                            {% else %}
-                            <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-                            {% endif %}
-                          </figure>
-                          <h1 class="card__title">{{ speaker.title }}</h1>
-                          <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
-                        </header>
-                      </a>
-                      {% if speaker.twitter %}
-                      <footer class="card__footer">
-                        <a class="speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ speaker.twitter }}" title="Follow on Twitter">@{{ speaker.twitter }}</a>
-                      </footer>
-                      {% endif %}
-                    </article>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </div>
+              <ul class="speaker-list">
+                {% for speaker in site.speakers %}
+                <li class="speaker-list__item">
+                  <article class="card card--speaker">
+                    <a class="card__contents" href="{{ speaker.url }}" title="View speaker profile">
+                      <header class="card__header">
+                        <figure class="card__avatar speaker-avatar">
+                          {% if speaker.avatar %}
+                          <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                          {% else %}
+                          <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+                          {% endif %}
+                        </figure>
+                        <h1 class="card__title">{{ speaker.title }}</h1>
+                        <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
+                      </header>
+                    </a>
+                    {% if speaker.twitter %}
+                    <footer class="card__footer">
+                      <a class="speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ speaker.twitter }}" title="Follow on Twitter">@{{ speaker.twitter }}</a>
+                    </footer>
+                    {% endif %}
+                  </article>
+                </li>
+                {% endfor %}
+              </ul>
             </div>
           </div>
         </section>
@@ -172,7 +170,6 @@ layout: base
             <div class="fold__body">
               <div class="prose prose--responsive">
                 <p>Ligtning talks provide an opportunity to share <em>practical applications</em> of integrating satellite data into global development programming. Talks are 5-7 minutes. They can cover any sector of development, and any type of remote sensing data. They can cover projects in the early concept phase or projects that have already been completed.</p>
-
                 <p>If you are interested in delivering a lightning talk at SatSummit, please send a quick note to <a href="mailto:info@satsummit.io" title="Lighting Talk">info@satsummit.io</a> with your name, affiliation, and 3-5 sentences on what you propose to discuss. Please send your proposal by October 13.</p>
               </div>
             </div>

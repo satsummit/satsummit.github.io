@@ -70,7 +70,6 @@ a {
   cursor: pointer;
   color: inherit;
   text-decoration: none;
-  box-shadow: inset 0 -4px 0 $secondary-color;
   transition: opacity 0.24s ease 0s;
 }
 
@@ -85,6 +84,19 @@ a:hover {
 a:active {
   outline: 0;
   transform: translate(0, 1px);
+}
+
+.link {
+  border-radius: $base-border-radius / 2;
+  padding: $global-spacing / 4;
+}
+
+.link--indark {
+  background: rgba(#fff, 0.08);
+}
+
+.link--inlight {
+  background: rgba($base-color, 0.08);
 }
 
 
