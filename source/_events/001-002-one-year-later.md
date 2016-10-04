@@ -2,7 +2,7 @@
 permalink: none
 slug: one-year-later
 
-title: "One Year Later: Updates from the last Summit"
+title: "The State of Play: Satellites in Development"
 type: talk
 time: 9:00-9:30
 
