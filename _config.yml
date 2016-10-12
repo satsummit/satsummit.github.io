@@ -10,6 +10,11 @@ kramdown:
   syntax_highlighter: rouge
 
 ##
+# Global definitions
+##
+event_date: 2017-01-31
+
+##
 # Default values
 ##
 defaults:
