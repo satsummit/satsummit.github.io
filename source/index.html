@@ -11,7 +11,7 @@ layout: base
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
             <h1 class="inpage__title">SatSummit</h1>
-            <p class="inpage__details">Jan 31 &bullet; Washington DC</p>
+            <p class="inpage__details"><time datetime="2017-01-31">Jan 31</time> &bullet; Washington DC</p>
             <p class="inpage__introduction">Satellite data for global development</p>
           </div>
         </div>
@@ -63,7 +63,8 @@ layout: base
                     {% if post.type == 'social' %}
                     {% assign klass = 'alt-row' %}
                     {% endif %}
-                    <dt class="agenda__key {{ klass }}">{{ post.time }}</dt>
+                    {% assign start_time = post.time | split: "-" %}
+                    <dt class="agenda__key {{ klass }}"><time datetime="2017-01-31 {{ start_time[0] }}">{{ post.time }}</time></dt>
                     <dd class="agenda__value {{ klass }}">
                       {% unless post.permalink == 'none' %}
                       <em class="agenda__value-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></em>
