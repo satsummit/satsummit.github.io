@@ -119,24 +119,6 @@
   @include button-variation("unbounded", null, $primary-color);
 }
 
-/* Secondary */
-
-.button--secondary {
-  @include button-variation("filled", "dark", $secondary-color);
-}
-
-/* Secondary Bounded */
-
-.button--secondary-bounded {
-  @include button-variation("bounded", null, $secondary-color);
-}
-
-/* Secondary Unbounded */
-
-.button--secondary-unbounded {
-  @include button-variation("unbounded", null, $secondary-color);
-}
-
 
 /* Button size modifiers
    ========================================================================== */
