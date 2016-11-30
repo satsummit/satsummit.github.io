@@ -5,6 +5,7 @@ exclude:
   - assets/styles
   - assets/graphics/collecticons
 baseurl: https://satsummit.io
+permalink: /insights/:year/:month/:day/:title/
 kramdown:
   input: GFM
   syntax_highlighter: rouge
