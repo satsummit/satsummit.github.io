@@ -7,15 +7,19 @@ use_excerpt: true
   <div class="inner">
 
     <!-- inPage -->
-    <article class="inpage inpage--event">
+    <article class="inpage inpage--events-single">
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
-            <p class="inpage__suptitle">Insight</p>
+            {% if page.type %}
+            <p class="inpage__suptitle">{{ page.type }}</p>
+            {% endif %}
             <h1 class="inpage__title">{{ page.title }}</h1>
+            {% if page.time %}
             <div class="inpage__detail">
-              <p>By {{ page.author.name }} on <time datetime="{{page.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
+              <p>{{ page.time }}</p>
             </div>
+            {% endif %}
           </div>
         </div>
       </header>

@@ -21,14 +21,19 @@ event_date: 2017-01-31
 defaults:
   -
     scope:
+      type: posts
+    values:
+      layout: insights-single
+  -
+    scope:
       type: events
     values:
-      layout: event
+      layout: events-single
   -
     scope:
       type: speakers
     values:
-      layout: speaker
+      layout: speakers-single
 
 ##
 # Collections definitions

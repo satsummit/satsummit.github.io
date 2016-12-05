@@ -1,6 +1,4 @@
 ---
-layout: insight
-
 published: true
 title: This is a testdrive post
 summary: This is the post summary.
