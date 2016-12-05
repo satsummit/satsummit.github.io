@@ -34,13 +34,13 @@ $(window).scroll(function () {
 });
 
 // Mapbox.
-mapboxgl.accessToken = 'pk.eyJ1IjoidGF0aWFuYSIsImEiOiJjaWs1bzRiZGQwMDdjcHRrc285bTdwcWU5In0.0EWPVHyjaE9jTzNvOiIO-w';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJnUi1mbkVvIn0.018aLhX0Mb0tdtaT2QNe2Q';
 const mapContainer = document.querySelector('#map');
 if (mapContainer) {
   // eslint-disable-next-line
   const map = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/tatiana/cirghsrcr000qggm7y4vh3f0q',
+    style: 'mapbox://styles/devseed/ciwcmblmc00472qme6fvns7ae',
     center: [-77.0216026, 38.8956264],
     zoom: 15.85
   });
