@@ -17,7 +17,21 @@ layout: base
       </header>
       <div class="inpage__body">
         <div class="inner">
-          <p>Insights list goes here.</p>
+          <ol class="insights-list insights-list--hub">
+              {% assign posts = site.posts %}
+              {% for post in posts %}
+              {% unless post.hidden == true %}
+              <li class="insights-list__entry">
+                <article class="insight-sum">
+                  <a href="{{ site.domain }}{{ site.path_prefix }}{{ post.url }}" title="View insight">
+                    <h1 class="insight-sum__title">{{ post.title }}</h1>
+                    <p class="insight-sum__date">{{ post.date | date: '%b %-d, %Y' }}</p>
+                  </a>
+                </article>
+              </li>
+              {% endunless %}
+              {% endfor %}
+            </ol>
         </div>
       </div>
     </article>
