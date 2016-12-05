@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Insights: Single Page
+   ========================================================================== */
+
+.inpage--insights-hub {
+  .inpage__headline {
+    &::before {
+      content: '';
+      left: 50%;
+      width: 5rem;
+      height: 0.25rem;
+      background: #fff;
+      display: block;
+      border-radius: $base-border-radius / 4;
+      margin-bottom: 2em;
+      transform: skewY(-5deg);
+    }
+  }
+}

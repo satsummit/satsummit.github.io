@@ -89,7 +89,11 @@ $page-header-y-large-up: 6rem;
     font-size: 1.25rem;
     line-height: 2rem;
     text-transform: none;
-    opacity: 0.64;
+    color: rgba(#fff, 0.64);
+
+    a {
+      @extend .link, .link--indark;
+    }
 
     > *:last-child {
       margin-bottom: 0;
@@ -126,23 +130,6 @@ $page-header-y-large-up: 6rem;
 
 /* Misc (clean me)
    ========================================================================== */
-
-.inpage--event,
-.inpage--speaker {
-  .inpage__headline {
-    &::before {
-      content: '';
-      left: 50%;
-      width: 5rem;
-      height: 0.25rem;
-      background: #fff;
-      display: block;
-      border-radius: $base-border-radius / 4;
-      margin-bottom: 2em;
-      transform: skewY(-5deg);
-    }
-  }
-}
 
 .inpage__main-content {
   @include col(12/12);

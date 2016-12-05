@@ -2,11 +2,7 @@
    Speakers: Single Page
    ========================================================================== */
 
-.inpage--speaker .inpage__headline::before {
-  display: none;
-}
-
-.inpage--speaker {
+.inpage--speakers-single {
   .speaker-avatar {
     margin: 0 0 (-$global-spacing * 4) (-$global-spacing);
     width: 16rem;
