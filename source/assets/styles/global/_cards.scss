@@ -119,7 +119,6 @@
 
 .button-light-go {
   @extend .button, .button--achromic, .button--small;
-  min-width: 12rem;
 
   &::after {
     @extend %collecticon-arrow-right;
