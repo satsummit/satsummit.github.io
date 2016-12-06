@@ -1,7 +1,7 @@
 ---
 published: true
 title: This is another testdrive post
-type: Article
+type: White Paper
 summary: This is the post summary.
 
 author:

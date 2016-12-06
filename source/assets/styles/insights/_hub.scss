@@ -2,22 +2,6 @@
    Insights: Hub Page
    ========================================================================== */
 
-.inpage--insights-hub {
-  .inpage__headline {
-    &::before {
-      content: '';
-      left: 50%;
-      width: 5rem;
-      height: 0.25rem;
-      background: #fff;
-      display: block;
-      border-radius: $base-border-radius / 4;
-      margin-bottom: 2em;
-      transform: skewY(-5deg);
-    }
-  }
-}
-
 
 /* Insights list
    ========================================================================== */
@@ -28,7 +12,7 @@
   padding: 0;
 }
 
-.insights-list__entry {
+.insights-list__item {
   @include col(12/12);
   margin-top: $global-spacing * 2;
 
@@ -42,91 +26,5 @@
     &:nth-child(2) {
       margin-top: 0;
     }
-  }
-}
-
-
-/* Insight
-   ========================================================================== */
-
-.insight--short {
-  padding: $global-spacing * 1;
-  box-shadow: inset 0 0 0 2px #fff;
-  border-radius: $base-border-radius / 4;
-
-  @include media(small-up) {
-    padding: $global-spacing * 2;
-  }
-
-  .insight__header,
-  .insight__body,
-  .insight__prose {
-    > *:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .insight__header,
-  .insight__body {
-    margin-bottom: $global-spacing;
-  }
-
-  .insight__suptitle {
-    @extend .heading;
-    font-size: 0.675rem;
-    line-height: 1;
-    margin: 0;
-    color: $primary-color;
-    letter-spacing: 0.25em;
-    margin-bottom: $global-spacing / 2;
-
-    @include media(medium-up) {
-      font-size: 0.875rem;
-      line-height: 1rem;
-    }
-  }
-
-  .insight__title {
-    @include heading(1.25rem);
-    margin-bottom: 0;
-  }
-
-  .insight__detail {
-    @extend .heading-alt;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    text-transform: none;
-    opacity: 0.64;
-    margin-bottom: 0;
-
-    @include media(medium-up) {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-  }
-
-  .insight__footer {
-    clear: both;
-
-    &--actions > * {
-      margin-top: $global-spacing;
-      transform: skewY(-5deg);
-      transform-origin: left bottom;
-    }
-
-    @include media(medium-up) {
-      &--actions > * {
-        margin-top: $global-spacing * 2;
-      }
-    }
-  }
-}
-
-.button-light-go {
-  @extend .button, .button--achromic, .button--small;
-  min-width: 12rem;
-
-  &::after {
-    @extend %collecticon-arrow-right;
   }
 }

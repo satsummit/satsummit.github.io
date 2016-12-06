@@ -43,18 +43,6 @@ $page-header-y-large-up: 6rem;
     > *:last-child {
       margin-bottom: 0;
     }
-
-    @include media(medium-up) {
-      @include col(10/12);
-    }
-
-    @include media(large-up) {
-      @include col(8/12);
-    }
-  }
-
-  &__title {
-    @extend .heading, .heading--xlarge;
   }
 
   &__suptitle {
@@ -124,6 +112,62 @@ $page-header-y-large-up: 6rem;
     @include media(large-up) {
       padding: ($global-spacing * 6) 0;
     }
+  }
+}
+
+
+/* inPage modifiers
+   ========================================================================== */
+
+.inpage--poster {
+
+}
+
+.inpage--hub {
+  .inpage__headline {
+    text-align: center;
+
+    &::after {
+      content: '';
+      left: 50%;
+      width: $global-spacing * 6;
+      height: $global-spacing / 4;
+      background: #fff;
+      display: inline-block;
+      border-radius: $base-border-radius / 4;
+      margin-top: 1.5em;
+      transform: skewY(-5deg);
+    }
+
+    @include media(medium-up) {
+      @include col(10/12, $offset: 1/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12, $offset: 2/12);
+    }
+  }
+
+  .inpage__title {
+    @include heading(2rem, xlarge-up);
+    letter-spacing: 0.25em;
+    transform: skewY(-5deg);
+  }
+}
+
+.inpage--single {
+  .inpage__headline {
+    @include media(medium-up) {
+      @include col(10/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12);
+    }
+  }
+
+  .inpage__title {
+    @extend .heading, .heading--xlarge;
   }
 }
 

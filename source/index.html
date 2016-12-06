@@ -100,25 +100,25 @@ layout: base
               <ul class="speaker-list">
                 {% for speaker in site.speakers %}
                 <li class="speaker-list__item">
-                  <article class="card card--speaker">
-                    <a class="card__contents" href="{{ speaker.url }}" title="View speaker profile">
+                  <article class="card speaker--short">
+                    <div class="card__inner">
                       <header class="card__header">
-                        <figure class="card__avatar speaker-avatar">
-                          {% if speaker.avatar %}
-                          <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
-                          {% else %}
-                          <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-                          {% endif %}
+                        <figure class="card__avatar speaker__avatar">
+                          <a href="{{ speaker.url }}" title="View profile">
+                            {% if speaker.avatar %}
+                            <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                            {% else %}
+                            <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+                            {% endif %}
+                          </a>
                         </figure>
-                        <h1 class="card__title">{{ speaker.title }}</h1>
+                        <h1 class="card__title"><a href="{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
                         <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
                       </header>
                     </a>
-                    {% if speaker.twitter %}
-                    <footer class="card__footer">
-                      <a class="speaker-twitter-button" href="https://twitter.com/intent/user?screen_name={{ speaker.twitter }}" title="Follow on Twitter">@{{ speaker.twitter }}</a>
+                    <footer class="card__footer card__footer--actions">
+                      <a class="button-light-go" href="{{ speaker.url }}" title="View speaker profile">View profile</a>
                     </footer>
-                    {% endif %}
                   </article>
                 </li>
                 {% endfor %}

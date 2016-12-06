@@ -90,6 +90,10 @@
     transform-origin: left bottom;
   }
 
+  &--actions > *:active {
+    transform: skewY(-5deg) translate(0, 1px);
+  }
+
   @include media(medium-up) {
     margin-top: $global-spacing * 2;
 
