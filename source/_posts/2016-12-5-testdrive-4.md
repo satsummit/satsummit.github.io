@@ -1,12 +1,12 @@
 ---
 published: true
-title: This is a testdrive post
-type: Paper
-summary:
+title: Lorem ipsum dolor sit amet
+type: Data analysis
+summary: This is the post summary.
 
 author:
   name: Fulano Sicrano
-  url: 
+  url:
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in leo vehicula odio sollicitudin hendrerit et et purus. Nullam velit nunc, porttitor vitae dignissim sed, cursus eu enim. Duis at erat diam. Aliquam vitae ullamcorper sem. Donec dapibus pellentesque enim. Ut ac facilisis purus. Suspendisse sit amet tortor vitae nunc sodales ornare. Suspendisse dolor elit, efficitur consequat sapien quis, porttitor lobortis erat. Ut imperdiet augue quis metus lacinia, in elementum est semper. Pellentesque ut dolor nisi. Aenean nec convallis neque, vel congue sem.
