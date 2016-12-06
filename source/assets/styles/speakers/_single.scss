@@ -17,3 +17,10 @@
     }
   }
 }
+
+.speaker--single .inpage__headline {
+  > *:not(.card__avatar) {
+    position: relative;
+    z-index: 2;
+  }
+}
