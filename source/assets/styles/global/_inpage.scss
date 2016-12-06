@@ -52,9 +52,31 @@ $page-header-y-large-up: 6rem;
     margin: 0;
     color: $primary-color;
     letter-spacing: 0.25em;
+    margin-bottom: 0.25rem;
 
     @include media(medium-up) {
       font-size: 1.25rem;
+    }
+
+    > small {
+      font-size: 0;
+      position: relative;
+      margin: 0 -0.25rem;
+
+      &::before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        width: 0.5rem;
+        height: 8rem;
+        top: 50%;
+        left: calc(50% - 0.125rem);
+        background: $primary-color;
+        transform: skew(-11deg) translate(-50%, -50%);
+        transform-origin: right top;
+        border-radius: $base-border-radius / 4;
+        opacity: 0.24;
+      }
     }
   }
 
