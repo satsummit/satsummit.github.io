@@ -139,3 +139,41 @@
     @extend .link--inlight;
   }
 }
+
+
+/* Call-to-actions
+   ========================================================================== */
+
+.fold__cta {
+  @extend .button, .button--xlarge;
+
+   @include media(medium-up) {
+    min-width: 24rem;
+  }
+}
+
+.fold__cta--light {
+  @extend .button--achromic;
+}
+
+.fold__cta--dark {
+  @extend .button--primary;
+}
+
+.fold__cta--go {
+  &::after {
+    @extend %collecticon-arrow-right;
+  }
+}
+
+.fold__cta--twitter {
+  &::before {
+    @extend %collecticon-twitter;
+  }
+}
+
+.fold__cta--email {
+  &::before {
+    @extend %collecticon-envelope;
+  }
+}

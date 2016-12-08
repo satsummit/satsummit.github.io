@@ -117,22 +117,9 @@ $page-header-y-large-up: 6rem;
 
   &__body {
     background: rgba(40, 41, 174, 0.62);
-    padding: ($global-spacing * 2) 0;
 
     > *:last-child {
       margin-bottom: 0;
-    }
-
-    > .inner {
-      @extend .row, .row--centered;
-    }
-
-    @include media(medium-up) {
-      padding: ($global-spacing * 4) 0;
-    }
-
-    @include media(large-up) {
-      padding: ($global-spacing * 6) 0;
     }
   }
 }
@@ -140,10 +127,6 @@ $page-header-y-large-up: 6rem;
 
 /* inPage modifiers
    ========================================================================== */
-
-.inpage--poster {
-
-}
 
 .inpage--hub {
   .inpage__headline {
