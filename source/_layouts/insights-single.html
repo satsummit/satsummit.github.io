@@ -24,13 +24,23 @@ use_excerpt: true
         </div>
       </header>
       <div class="inpage__body">
-        <div class="inner prose prose--responsive">
-          <!-- inPage main content -->
-          <div class="inpage__main-content prose prose--responsive">
-            {{ content }}
+      
+        <div class="fold">
+          <div class="inner">
+
+            <div class="main-content prose prose--responsive">
+              {{ content }}
+            </div>
+
           </div>
-          <!--/ inPage main content -->
         </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+        
       </div>
     </article>
     <!--/ inPage -->

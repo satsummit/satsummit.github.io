@@ -1,30 +1,3 @@
 /* ==========================================================================
    Insights: Hub Page
    ========================================================================== */
-
-
-/* Insights list
-   ========================================================================== */
-
-.insights-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.insights-list__item {
-  @include col(12/12);
-  margin-top: $global-spacing * 2;
-
-  &:nth-child(1) {
-    margin-top: 0;
-  }
-
-  @include media(small-up) {
-    @include col(6/12, $cycle: 2);
-
-    &:nth-child(2) {
-      margin-top: 0;
-    }
-  }
-}
