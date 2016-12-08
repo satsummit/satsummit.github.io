@@ -47,3 +47,48 @@
     }
   }
 }
+
+
+/* Listed
+   ========================================================================== */
+
+.speaker-list {
+  @extend .clearfix;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.speaker-list__item {
+  @include col(12/12);
+  margin-top: $global-spacing * 2;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+
+  @include media(small-up) {
+    @include col(6/12, $cycle: 2);
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+
+  @include media(large-up) {
+    @include col(4/12, $cycle: 3);
+    margin-top: $global-spacing * 2.5;
+
+    &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+
+  @include media(xlarge-up) {
+    @include col(3/12, $cycle: 4);
+
+    &:nth-child(4) {
+      margin-top: 0;
+    }
+  }
+}
