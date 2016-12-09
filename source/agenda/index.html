@@ -1,0 +1,70 @@
+---
+layout: base
+
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--hub agenda">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">Agenda</h1>
+          </div>
+        </div>
+      </header>
+      <div class="inpage__body">
+
+        <div class="fold fold--light">
+          <div class="inner">
+
+          {% assign events_by_group = site.events | group_by: "group" %}
+
+          {% for g in events_by_group %}
+          <section class="agenda__group">
+            <h2 class="agenda__title">{{ g.name }}</h2>
+            <dl class="agenda__list">
+              {% for post in g.items %}
+              {% assign klass = '' %}
+              {% if post.type == 'social' %}
+              {% assign klass = 'alt-row' %}
+              {% endif %}
+              {% assign start_time = post.time | split: "-" %}
+              <dt class="agenda__key {{ klass }}"><time datetime="{{ site.event_date }} {{ start_time[0] }}">{{ post.time }}</time></dt>
+              <dd class="agenda__value {{ klass }}">
+                {% unless post.permalink == 'none' %}
+                <em class="agenda__value-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></em>
+                {% else %}
+                <em class="agenda__value-title">{{ post.title }}</em>
+                {% endunless %}
+                {% if post.description %}
+                <div class="agenda__value-description">
+                  {{ post.description | markdownify }}
+                </div>
+                {% endif %}
+              </dd>
+              {% endfor %}
+            </dl>
+          </section>
+          {% endfor %}
+
+          <p><small>Note: this schedule is subject to change.</small></p>
+
+          </div>
+        </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->
