@@ -1,6 +1,6 @@
 ---
 layout: base
-
+published: false
 ---
 <!-- Page Body -->
 <main class="page__body" role="main">
@@ -21,7 +21,6 @@ layout: base
           <div class="inner">
             <ol class="insight-list insight-list--hub">
               {% for post in site.posts %}
-              {% unless post.hidden == true %}
               <li class="insight-list__item">
                 <article class="card insight insight--short">
                   <div class="card__inner">
@@ -49,7 +48,6 @@ layout: base
                   </div>
                 </article>
               </li>
-              {% endunless %}
               {% endfor %}
             </ol>
           </div>
