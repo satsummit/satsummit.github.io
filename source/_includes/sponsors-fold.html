@@ -1,0 +1,28 @@
+<!-- Fold: Sponsors -->
+{% assign sponsors_by_group = site.sponsors | group_by: "group" %}
+
+<section class="fold" id="sponsors">
+  <div class="inner">
+    <header class="fold__header">
+      <h1 class="fold__title">Sponsors</h1>
+    </header>
+    <div class="fold__body">
+      {% for g in sponsors_by_group %}
+      <section class="sponsor-group sponsor-group--{{ g.name | slugify }}">
+        <h2 class="sponsor-group__title">{{ g.name }}</h2>
+        <ul class="sponsor-list">
+          {% for sponsor in g.items %}
+          <li class="sponsor-list__item">
+            <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}">
+              <span class="visually-hidden">{{ sponsor.title }}</span>
+              <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!--/ Fold: Sponsors -->

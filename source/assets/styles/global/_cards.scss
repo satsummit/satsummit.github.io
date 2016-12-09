@@ -1,0 +1,126 @@
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.card {
+  position: relative;
+}
+
+.card__inner {
+  position: relative;
+  z-index: 1;
+  padding: $global-spacing * 1;
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    pointer-events: none;
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: $base-border-radius / 2;
+  }
+
+  @include media(small-up) {
+    padding: $global-spacing * 2;
+  }
+}
+
+.card__header,
+.card__body,
+.card__footer,
+.card__prose {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card__header,
+.card__body {
+  margin-bottom: $global-spacing;
+}
+
+.card__header {
+  > *:not(.card__avatar) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.card__suptitle {
+  @extend .heading;
+  font-size: 0.675rem;
+  line-height: 1;
+  margin: 0;
+  color: $primary-color;
+  letter-spacing: 0.25em;
+  margin-bottom: $global-spacing / 2;
+
+  @include media(medium-up) {
+    font-size: 0.875rem;
+    line-height: 1rem;
+  }
+}
+
+.card__title {
+  @include heading(1.25rem);
+  margin-bottom: 0;
+}
+
+.card__detail {
+  @extend .heading-alt;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: none;
+  opacity: 0.64;
+  margin-bottom: 0;
+
+  @include media(medium-up) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+.card__avatar {
+  margin: (-$global-spacing / 2) 0 (-$global-spacing) (-$global-spacing / 2);
+  max-width: 10rem;
+
+  > a {
+    display: block;
+  }
+
+  @include media(small-up) {
+    margin: (-$global-spacing) 0 (-$global-spacing) (-$global-spacing);
+  }
+}
+
+.card__footer {
+  clear: both;
+
+  &--actions > * {
+    margin-top: $global-spacing;
+    transform: skewY(-5deg);
+    transform-origin: left bottom;
+  }
+
+  &--actions > *:active {
+    transform: skewY(-5deg) translate(0, 1px);
+  }
+
+  @include media(medium-up) {
+    &--actions > * {
+      margin-top: $global-spacing * 2;
+    }
+  }
+}
+
+.button-light-go {
+  @extend .button, .button--achromic, .button--small;
+
+  &::after {
+    @extend %collecticon-arrow-right;
+  }
+}

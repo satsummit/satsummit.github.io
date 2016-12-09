@@ -7,10 +7,11 @@ use_excerpt: true
   <div class="inner">
 
     <!-- inPage -->
-    <article class="inpage inpage--event">
+    <article class="inpage inpage--single event event--single">
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
+            <p class="inpage__suptitle"><a href="{{ site.domain }}{{ site.path_prefix }}/agenda/" title="View full agenda">Agenda</a> <small>/</small> {{ page.type }}</p>
             {% if page.type %}
             <p class="inpage__suptitle">{{ page.type }}</p>
             {% endif %}

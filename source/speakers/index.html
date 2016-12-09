@@ -1,0 +1,63 @@
+---
+layout: base
+
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--hub speakers">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">Speakers</h1>
+          </div>
+        </div>
+      </header>
+      <div class="inpage__body">
+
+        <div class="fold">
+          <div class="inner">
+            <ol class="speaker-list speaker-list--hub">
+              {% for speaker in site.speakers %}
+              <li class="speaker-list__item">
+                <article class="card speaker--short">
+                  <div class="card__inner">
+                    <header class="card__header">
+                      <figure class="card__avatar speaker__avatar">
+                        <a href="{{ speaker.url }}" title="View profile">
+                          {% if speaker.avatar %}
+                          <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                          {% else %}
+                          <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+                          {% endif %}
+                        </a>
+                      </figure>
+                      <h1 class="card__title"><a href="{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
+                      <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
+                    </header>
+                  </a>
+                  <footer class="card__footer card__footer--actions">
+                    <a class="button-light-go" href="{{ speaker.url }}" title="View speaker profile">View profile</a>
+                  </footer>
+                </article>
+              </li>
+              {% endfor %}
+            </ol>
+          </div>
+        </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->

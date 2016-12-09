@@ -4,12 +4,12 @@
   {% capture meta_title %}#SatSummit {{ site.event_date | date: "%Y" }}{% endcapture %}
 {% endif %}
 
-{% if page.introduction %}
-  {% assign meta_introduction = page.introduction %}
+{% if page.summary %}
+  {% assign meta_summary = page.summary %}
 {% elsif layout.use_excerpt %}
-  {% assign meta_introduction = page.content | strip_html | truncatewords: 24 %}
+  {% assign meta_summary = page.content | strip_html | truncatewords: 24 %}
 {% else %}
-  {% assign meta_introduction = "Satellite data for global development." %}
+  {% assign meta_summary = "Satellite data for global development." %}
 {% endif %}
 
 {% if page.meta_image %}
@@ -22,7 +22,7 @@
 
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="description" content="{{ meta_introduction }}" />
+<meta name="description" content="{{ meta_summary }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <title>{{ meta_title }}</title>
@@ -31,7 +31,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@sat_summit" />
 <meta name="twitter:title" content="{{ meta_title }}">
-<meta name="twitter:description" content="{{ meta_introduction }}" />
+<meta name="twitter:description" content="{{ meta_summary }}" />
 <meta name="twitter:image:src" content="{{ site.baseurl }}{{ meta_image }}" />
 <!--/ Twitter --> 
 
@@ -40,7 +40,7 @@
 <meta property="og:title" content="{{ meta_title }}" />
 <meta property="og:url" content="{{ site.baseurl }}{{ page.url | remove:'index.html' }}" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="{{ meta_introduction }}" />
+<meta property="og:description" content="{{ meta_summary }}" />
 <meta property="og:image" content="{{ site.baseurl }}{{ meta_image }}" />
 <!--/ OG -->
 

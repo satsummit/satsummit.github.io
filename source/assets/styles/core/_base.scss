@@ -46,6 +46,7 @@ body {
   font-family: $base-font-family;
   font-weight: $base-font-weight;
   font-style: $base-font-style;
+  letter-spacing: 0.05em;
   min-width: $row-min-width;
   background: shade($base-color, 48%);
 
@@ -92,7 +93,7 @@ a:active {
 }
 
 .link--indark {
-  background: rgba(#fff, 0.08);
+  background: rgba(#fff, 0.12);
 }
 
 .link--inlight {

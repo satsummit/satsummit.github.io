@@ -43,18 +43,6 @@ $page-header-y-large-up: 6rem;
     > *:last-child {
       margin-bottom: 0;
     }
-
-    @include media(medium-up) {
-      @include col(10/12);
-    }
-
-    @include media(large-up) {
-      @include col(8/12);
-    }
-  }
-
-  &__title {
-    @extend .heading, .heading--xlarge;
   }
 
   &__suptitle {
@@ -64,9 +52,31 @@ $page-header-y-large-up: 6rem;
     margin: 0;
     color: $primary-color;
     letter-spacing: 0.25em;
+    margin-bottom: 0.25rem;
 
     @include media(medium-up) {
       font-size: 1.25rem;
+    }
+
+    > small {
+      font-size: 0;
+      position: relative;
+      margin: 0 -0.25rem;
+
+      &::before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        width: 0.5rem;
+        height: 8rem;
+        top: 50%;
+        left: calc(50% - 0.125rem);
+        background: $primary-color;
+        transform: skew(-11deg) translate(-50%, -50%);
+        transform-origin: right top;
+        border-radius: $base-border-radius / 4;
+        opacity: 0.24;
+      }
     }
   }
 
@@ -89,7 +99,11 @@ $page-header-y-large-up: 6rem;
     font-size: 1.25rem;
     line-height: 2rem;
     text-transform: none;
-    opacity: 0.64;
+    color: rgba(#fff, 0.64);
+
+    a {
+      @extend .link, .link--indark;
+    }
 
     > *:last-child {
       margin-bottom: 0;
@@ -103,46 +117,68 @@ $page-header-y-large-up: 6rem;
 
   &__body {
     background: rgba(40, 41, 174, 0.62);
-    padding: ($global-spacing * 2) 0;
 
     > *:last-child {
       margin-bottom: 0;
     }
+  }
+}
 
-    > .inner {
-      @extend .row, .row--centered;
+
+/* inPage modifiers
+   ========================================================================== */
+
+.inpage--hub {
+  .inpage__headline {
+    text-align: center;
+
+    &::after {
+      content: '';
+      left: 50%;
+      width: $global-spacing * 6;
+      height: $global-spacing / 4;
+      background: #fff;
+      display: inline-block;
+      border-radius: $base-border-radius / 4;
+      margin-top: 1.5em;
+      transform: skewY(-5deg);
     }
 
     @include media(medium-up) {
-      padding: ($global-spacing * 4) 0;
+      @include col(10/12, $offset: 1/12);
     }
 
     @include media(large-up) {
-      padding: ($global-spacing * 6) 0;
+      @include col(8/12, $offset: 2/12);
     }
+  }
+
+  .inpage__title {
+    @include heading(2rem, xlarge-up);
+    letter-spacing: 0.25em;
+    transform: skewY(-5deg);
+  }
+}
+
+.inpage--single {
+  .inpage__headline {
+    @include media(medium-up) {
+      @include col(10/12);
+    }
+
+    @include media(large-up) {
+      @include col(8/12);
+    }
+  }
+
+  .inpage__title {
+    @extend .heading, .heading--xlarge;
   }
 }
 
 
 /* Misc (clean me)
    ========================================================================== */
-
-.inpage--event,
-.inpage--speaker {
-  .inpage__headline {
-    &::before {
-      content: '';
-      left: 50%;
-      width: 5rem;
-      height: 0.25rem;
-      background: #fff;
-      display: block;
-      border-radius: $base-border-radius / 4;
-      margin-bottom: 2em;
-      transform: skewY(-5deg);
-    }
-  }
-}
 
 .inpage__main-content {
   @include col(12/12);

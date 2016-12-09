@@ -1,0 +1,68 @@
+---
+layout: base
+published: false
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--hub insights">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">Insights</h1>
+          </div>
+        </div>
+      </header>
+      <div class="inpage__body">
+
+        <div class="fold">
+          <div class="inner">
+            <ol class="insight-list insight-list--hub">
+              {% for post in site.posts %}
+              <li class="insight-list__item">
+                <article class="card insight insight--short">
+                  <div class="card__inner">
+                    <header class="card__header">
+                      <p class="card__suptitle">{{ post.type }}</p>
+                      <h1 class="card__title"><a href="{{ site.domain }}{{ site.path_prefix }}{{ post.url }}" title="Read more">{{ post.title }}</a></h1>
+                      {% if post.author.url %}
+                      <p class="card__detail">By <a href="{{ post.author.url }}" title="View author">{{ post.author.name }}</a> on <time datetime="{{post.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
+                      {% else %}
+                      <p class="card__detail">By {{ post.author.name }} on <time datetime="{{post.date | date:'%Y-%m-%d'}}" pubdate>{{ post.date | date:'%b %d, %Y' }}</time></p>
+                      {% endif %}
+                    </header>
+                    <div class="card__body">
+                      <div class="card__prose">
+                        {% if post.summary %}
+                          <p>{{ post.summary }}</p>
+                        {% else %}
+                          <p>{{ post.content | strip_html | truncatewords: 24 }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                    <footer class="card__footer card__footer--actions">
+                      <a href="{{ site.domain }}{{ site.path_prefix }}{{ post.url }}" title="Read more" class="button-light-go">Read more</a>
+                    </footer>
+                  </div>
+                </article>
+              </li>
+              {% endfor %}
+            </ol>
+          </div>
+        </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->
