@@ -46,6 +46,16 @@
       transform: skewY(-5deg);
     }
   }
+
+  .card__header {
+    @include media(small-up) {
+      min-height: 18rem;
+    }
+
+    @include media(large-up) {
+      min-height: 20rem;
+    }
+  }
 }
 
 
