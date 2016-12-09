@@ -1,0 +1,50 @@
+---
+layout: base
+use_excerpt: true
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <article class="inpage inpage--single insight insight--single">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <p class="inpage__suptitle"><a href="{{ site.domain }}{{ site.path_prefix }}/insights/" title="View all insights">Insights</a> <small>/</small> {{ page.type }}</p>
+            <h1 class="inpage__title">{{ page.title }}</h1>
+            <div class="inpage__detail">
+              {% if page.author.url %}
+              <p>By <a href="{{ page.author.url }}" title="View author">{{ page.author.name }}</a> on <time datetime="{{page.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
+              {% else %}
+              <p>By {{ page.author.name }} on <time datetime="{{page.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="inpage__body">
+      
+        <div class="fold">
+          <div class="inner">
+
+            <div class="main-content prose prose--responsive">
+              {{ content }}
+            </div>
+
+          </div>
+        </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+        
+      </div>
+    </article>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->

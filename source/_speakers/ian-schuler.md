@@ -5,6 +5,7 @@ role: CEO
 twitter: ianschuler
 website: http://developmentseed.org
 avatar: ian-schuler.jpg
+featured: true
 ---
 
 Ian oversees the technology strategy and development capacity at Development Seed, keeping it pointed at the most interesting problems in development.

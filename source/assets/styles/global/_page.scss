@@ -114,7 +114,7 @@
 /* Navigation */
 
 .page__prime-nav {
-  font-weight: $base-font-bold;
+  font-weight: $base-font-medium;
 
   @include media(medium-up) {
     float: right;
@@ -302,6 +302,7 @@
     word-spacing: normal;
     margin: $global-spacing / 2;
     transform: skewY(-5deg);
+    transform-origin: right top;
   }
 
   @include media(large-up) {
@@ -326,9 +327,19 @@
   }
 }
 
+.email-button,
+.twitter-button,
 .go-button {
-  @extend .button, .button--base-bounded, .button--small;
+  @extend .button, .button--small;
   min-width: 12rem;
+
+  @include media(small-up) {
+    min-width: auto;
+  }
+}
+
+.go-button {
+  @extend .button--base-bounded;
 
   &::after {
     @extend %collecticon-arrow-right;
@@ -337,8 +348,7 @@
 
 .email-button,
 .twitter-button {
-  @extend .button, .button--base, .button--small;
-  min-width: 12rem;
+  @extend .button--base;
 }
 
 .email-button::before {

@@ -2,10 +2,12 @@
    Speakers: Global
    ========================================================================== */
 
-.speaker-avatar {
+.speaker__avatar {
   @include clip-path(polygon(0 0, 100% 0%, 100% 95%, 0% 100%));
+  border-radius: $base-border-radius / 2;
+  overflow: hidden;
   position: relative;
-  z-index: -1;
+  z-index: 1;
   
   img {
     display: block;
@@ -23,5 +25,70 @@
     content: '';
     pointer-events: none;
     background: linear-gradient(to bottom, rgba($base-color, 0.16) 0, rgba($base-color, 0.32) 64%, rgba($base-color, 0.64) 100%);
+  }
+}
+
+
+/* Short
+   ========================================================================== */
+
+.speaker--short {
+  .card__title {
+    &::before {
+      content: '';
+      left: 50%;
+      width: 3rem;
+      height: 0.25rem;
+      background: #fff;
+      display: block;
+      border-radius: $base-border-radius / 4;
+      margin-bottom: 1em;
+      transform: skewY(-5deg);
+    }
+  }
+}
+
+
+/* Listed
+   ========================================================================== */
+
+.speaker-list {
+  @extend .clearfix;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.speaker-list__item {
+  @include col(12/12);
+  margin-top: $global-spacing * 2;
+
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+
+  @include media(small-up) {
+    @include col(6/12, $cycle: 2);
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+
+  @include media(large-up) {
+    @include col(4/12, $cycle: 3);
+    margin-top: $global-spacing * 2.5;
+
+    &:nth-child(3) {
+      margin-top: 0;
+    }
+  }
+
+  @include media(xlarge-up) {
+    @include col(3/12, $cycle: 4);
+
+    &:nth-child(4) {
+      margin-top: 0;
+    }
   }
 }

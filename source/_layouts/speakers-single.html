@@ -7,18 +7,18 @@ use_excerpt: true
   <div class="inner">
 
     <!-- inPage -->
-    <article class="inpage inpage--speaker">
+    <article class="inpage inpage--single speaker speaker--single">
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
-            <figure class="speaker-avatar">
+            <figure class="speaker__avatar">
               {% if page.avatar %}
               <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
               {% else %}
               <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
               {% endif %}
             </figure>
-            <p class="inpage__suptitle">Speaker</p>
+            <p class="inpage__suptitle"><a href="{{ site.domain }}{{ site.path_prefix }}/speakers/" title="View all speakers">Speakers</a></p>
             <h1 class="inpage__title">{{ page.title }}</h1>
             {% if page.role %}
             <div class="inpage__detail">
@@ -34,13 +34,23 @@ use_excerpt: true
         </div>
       </header>
       <div class="inpage__body">
-        <div class="inner prose prose--responsive">
-          <!-- inPage main content -->
-          <div class="inpage__main-content prose prose--responsive">
-            {{ content }}
+      
+        <div class="fold">
+          <div class="inner">
+
+            <div class="main-content prose prose--responsive">
+              {{ content }}
+            </div>
+
           </div>
-          <!--/ inPage main content -->
         </div>
+
+        <aside>
+          {% include code-of-conduct-fold.html %}
+
+          {% include sponsors-fold.html %}
+        </aside>
+        
       </div>
     </article>
     <!--/ inPage -->

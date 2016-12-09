@@ -2,12 +2,8 @@
    Speakers: Single Page
    ========================================================================== */
 
-.inpage--speaker .inpage__headline::before {
-  display: none;
-}
-
-.inpage--speaker {
-  .speaker-avatar {
+.speaker--single {
+  .speaker__avatar {
     margin: 0 0 (-$global-spacing * 4) (-$global-spacing);
     width: 16rem;
 
@@ -19,5 +15,32 @@
       float: left;
       margin: (-$global-spacing * 4) (-$global-spacing * 3) 0 0;
     }
+  }
+}
+
+.speaker--single .inpage__headline {
+  > *:not(.card__avatar) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.speaker--single .main-content {
+  @include col(12/12);
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    @extend .link, .link--indark;
+  }
+
+  @include media(medium-up) {
+    @include col(10/12, $offset: 1/12);
+  }
+
+  @include media(large-up) {
+    @include col(8/12, $offset: 2/12);
   }
 }
