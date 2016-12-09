@@ -5,7 +5,7 @@ role: CEO
 twitter: ericg
 website: 
 avatar: eric-gundersen.jpg
-featured: true
+featured:
 ---
 As CEO of Mapbox, Eric coordinates product and business development. Eric has been with the team since the start and splits his time working on projects in San Francisco and Washington DC.
 

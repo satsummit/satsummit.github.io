@@ -5,7 +5,7 @@ role: Senior Geospatial Specialist
 twitter: 
 website: 
 avatar: christoph-aubrecht.jpg
-featured: true
+featured:
 ---
 Christoph Aubrecht is affiliated with the European Space Agency (ESA), representing ESA at the World Bank to coordinate collaborative activities. Prior to joining ESA, Chris was leading the spatial analytics efforts under the World Bank’s Central America & Caribbean CDRP initiative. For more than 10 years Chris also worked at the AIT Austrian Institute of Technology, most recently serving as senior advisor on geospatial strategy development and implementation design.
 

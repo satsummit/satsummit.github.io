@@ -5,7 +5,7 @@ role: Developer
 twitter: camillacaros
 website: 
 avatar: camilla-mahon.jpg
-featured: true
+featured:
 ---
 Camilla is an imagery specialist at Mapbox where she works with the satellite team to analyze environmental and remotely sensed data. She also works to facilitate the transition of traditional pipelines into fully open-source powered workflows.
 

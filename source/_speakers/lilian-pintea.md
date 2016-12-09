@@ -5,7 +5,7 @@ role: Vice-President
 twitter: JaneGoodallInst
 website: 
 avatar: lilian-pintea.jpg
-featured: true
+featured:
 ---
 Lilian brings more than twenty years of experience in using satellite imagery and Geographic Information Systems (GIS) to the job of conserving chimpanzees and their vanishing habitats in Africa. As vice president of conservation science at the Jane Goodall Institute (JGI), Dr. Pintea directs the scientific department at the Institute and conducts applied conservation research. 
 

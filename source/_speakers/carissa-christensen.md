@@ -5,6 +5,7 @@ role: Managing Partner, Space and Technology Practice
 twitter: TauriSpace
 website: https://space.taurigroup.com
 avatar: carissa-christensen.jpg
+featured:
 ---
 Carissa Bryce Christensen is a founder and Managing Partner of The Tauri Group, an analytic consulting firm based in Alexandria, Virginia. Ms. Christensen is a recognized expert in commercial space, and for 25 years has engaged the leading edge of the space industry with innovative analysis of space systems, industry economics, advanced technologies, unique regulatory requirements, and underlying demand.
 

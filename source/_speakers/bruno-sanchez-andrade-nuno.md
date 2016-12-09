@@ -5,7 +5,7 @@ role: Scientist, Big Data
 twitter: brunosan
 website: 
 avatar: bruno-sanchez-andrade-nuno.jpg
-featured: true
+featured:
 ---
 Bruno Sánchez-Andrade Nuño, PhD is the technical lead of the Big Data program at the World Bank Innovations Labs. The program accelerates our operations with better or new types of data; and advanced analytics to make our work more cost-effective, faster and more transparent.
 
