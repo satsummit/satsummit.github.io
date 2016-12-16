@@ -1,6 +1,6 @@
 ---
 title: Sean Gorman
-company: DigitalGlobe / Timbr
+company: DigitalGlobe
 role: Director of Program Management
 twitter: SeanGorman
 website: 
