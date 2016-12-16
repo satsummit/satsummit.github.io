@@ -10,7 +10,7 @@ group: Imagery to Insight
 
 description: |
   Drew Bollinger, Development Seed  
-  Sean Gorman, Digital Globe / Timbr  
+  Sean Gorman, DigitalGlobe / Timbr  
   James Crawford, Orbital Insight  
   Robinson Meyer, The Atlantic
 ---
