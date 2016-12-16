@@ -2,7 +2,7 @@
 permalink: none
 slug: stories-from-the-field
 
-title: Stories From the Field
+title: Making Change on the Ground
 type: Panel
 time: 3:45-4:45
 speakers:

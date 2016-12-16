@@ -2,7 +2,7 @@
 permalink: none
 slug: current-state-com-sat-industry
 
-title: User Interface Design
+title: User-Focused Interfaces
 type: Talk
 time: 10:10-10:20
 speakers: Bronwyn Agrios

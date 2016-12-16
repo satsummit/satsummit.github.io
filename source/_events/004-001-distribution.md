@@ -2,7 +2,7 @@
 permalink: none
 slug: distribution
 
-title: Distribution
+title: Distribution - Data to Decision Makers
 type: Panel
 time: 2:00-3:00
 speakers:

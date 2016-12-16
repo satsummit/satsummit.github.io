@@ -2,7 +2,7 @@
 permalink: none
 slug: aligning-regulations-policy-goals-tahara
 
-title: Aligning Regulations and Policy Goals
+title: Our Space Goals and Regulations Aligned
 type: Talk
 time: 10:20-10:30
 speakers: Tahara Dawkins

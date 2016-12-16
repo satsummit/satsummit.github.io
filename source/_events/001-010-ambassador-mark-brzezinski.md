@@ -2,7 +2,7 @@
 permalink: none
 slug: Ambassador
 
-title: Ambassador Mark Brzezinski
+title: Data into Action
 type: Talk
 time: 10:30-10:40
 speakers: Ambassador Mark Brzezinski
