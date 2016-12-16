@@ -10,7 +10,7 @@ group: Imagery to Insight
 
 description: |
   Jed Sundwall, Amazon Web Services Public Sector Data  
-  Camilla McMahon, Mapbox  
+  Camilla Mahon, Mapbox  
   Jeremy Hale, DigitalGlobe  
   Chris Brown, Azavea  
 ---

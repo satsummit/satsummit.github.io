@@ -1,7 +1,7 @@
 ---
 title: Lilian Pintea
 company: Jane Goodall Institute
-role: Vice-President
+role: Vice President
 twitter: JaneGoodallInst
 website: 
 avatar: lilian-pintea.jpg
