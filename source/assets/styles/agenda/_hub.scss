@@ -56,6 +56,7 @@
 }
 
 .timeslot {
+  position: relative;
   min-height: $global-spacing * 12;
   padding: $global-spacing;
   box-shadow: inset 0 -2px 0 0 #fff;
@@ -63,12 +64,26 @@
   .event-group--1e & {
     min-height: auto;
   }
+
+  &::before {
+    position: absolute;
+    top: 0.75rem;
+    right: $global-spacing;
+    content: '';
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: $full-border-radius;
+    background: $base-color;
+    box-shadow: 0 0 0 2px #fff;
+    transform: translate(0, 0.25rem);
+  }
 }
 
 .timeslot__header,
 .timeslot__body,
 .timeslot__footer,
-.timeslot__prose {
+.timeslot__prose,
+.timeslot__inner {
   > *:last-child {
     margin-bottom: 0;
   }
@@ -79,55 +94,38 @@
   margin-bottom: $global-spacing;
 }
 
-.timeslot__details {
-  position: relative;
-  padding-right: $global-spacing;
-  margin: 0 0 $global-spacing / 2 0;
+.timeslot__suptitle {
+  @extend .heading;
+  font-size: 0.75rem;
+  line-height: 1;
+  margin: 0;
+  color: $primary-color;
+  letter-spacing: 0.25em;
+  margin-bottom: $global-spacing / 2;
 
-  dt {
-    @extend .visually-hidden;
+  @include media(medium-up) {
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
+}
 
-  dd {
-    @extend .heading;
-    display: inline-block;
-    margin: 0 $global-spacing 0 0;
-    font-size: 0.75rem;
-    line-height: 1;
-    color: $primary-color;
-    letter-spacing: 0.25em;
+.timeslot__detail {
+  @extend .heading-alt;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-transform: none;
+  opacity: 0.64;
+  margin-bottom: 0;
 
-    @include media(medium-up) {
-      font-size: 0.875rem;
-      line-height: 1rem;
-    }
-  }
-
-  .category {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 0;
-
-    > span {
-      @extend .visually-hidden;
-    }
-
-    &::before {
-      display: block;
-      content: '';
-      height: 0.75rem;
-      width: 0.75rem;
-      border-radius: $full-border-radius;
-      background: $base-color;
-      box-shadow: 0 0 0 4px #fff;
-      transform: translate(0, 0.25rem);
-    }
+  @include media(medium-up) {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 
 .timeslot__title {
   @include heading(1rem, medium-up);
+  margin-bottom: 0;
 }
 
 .event__speaker-list {
@@ -157,6 +155,6 @@
 }
 
 .event-legend__item--state-of-satellite-industry::before,
-.event--cat-state-of-satellite-industry .category::before {
+.event--cat-state-of-satellite-industry::before {
   background: red;
 }

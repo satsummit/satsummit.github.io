@@ -52,21 +52,13 @@ layout: base
                   <article class="timeslot event--short {{ article_classes }}">
                     <div class="timeslot__inner">
                       <header class="timeslot__header">
-                        <dl class="timeslot__details">
-                          <dt>Room</dt>
-                          <dd class="room">{{ event.room }}</dd>
-                          <dt>Duration</dt>
-                          <dd class="duration">{{ event.duration }}Min</dd>
-                          {% if event.category %}
-                          <dt>Category</dt>
-                          <dd title="{{ event.category }}" class="category"><span>{{ event.category }}</span></dd>
-                          {% endif %}
-                        </dl>
+                        <p class="timeslot__suptitle">{{ event.type }}</p>
                         {% unless event.permalink == 'none' %}
                         <h1 class="timeslot__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
                         {% else %}
                         <h1 class="timeslot__title">{{ event.title }}</h1>
                         {% endunless %}
+                        <p class="timeslot__detail">{{ event.room }}, {{ event.duration }}min.</p>
                       </header>
                       {% if event.description %}
                       <div class="timeslot__body">

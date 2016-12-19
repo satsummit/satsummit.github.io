@@ -3,7 +3,7 @@ permalink: none
 slug: coffee
 
 title: Coffee
-type: Social
+type: break
 category:
 time: "10:40"
 duration: 30

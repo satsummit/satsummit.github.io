@@ -3,7 +3,7 @@ permalink: none
 slug: lunch
 
 title: Lunch
-type: Social
+type: Break
 category:
 time: "13:00"
 duration: 60

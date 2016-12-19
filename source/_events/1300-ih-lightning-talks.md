@@ -2,8 +2,8 @@
 permalink: none
 slug: lightning-talks
 
-title: Lightning Talks
-type: Lightning Talk
+title: Lunch & Lightning Talks
+type: Misc
 category: Misc
 time: "13:00"
 duration: 60
