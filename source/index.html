@@ -105,7 +105,7 @@ layout: base
                     <div class="card__inner">
                       <header class="card__header">
                         <figure class="card__avatar speaker__avatar">
-                          <a href="{{ speaker.url }}" title="View profile">
+                          <a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">
                             {% if speaker.avatar %}
                             <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
                             {% else %}
@@ -113,11 +113,11 @@ layout: base
                             {% endif %}
                           </a>
                         </figure>
-                        <h1 class="card__title"><a href="{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
+                        <h1 class="card__title"><a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
                         <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
                       </header>
                       <footer class="card__footer card__footer--actions">
-                        <a class="button-light-go" href="{{ speaker.url }}" title="View speaker profile">View profile</a>
+                        <a class="button-light-go" href="{{ site.baseurl }}{{ speaker.url }}" title="View speaker profile">View profile</a>
                       </footer>
                     </div>
                   </article>
