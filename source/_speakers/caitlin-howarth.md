@@ -5,6 +5,7 @@ role: Co Founder & CEO
 twitter: CaitlinHowarth
 website: 
 avatar: caitlin-howarth.jpg
+featured:
 ---
 Caitlin Howarth is Co Founder and CEO of Aulenor, where she and her team support social impact and public sector organizations through innovative strategic design.
 
