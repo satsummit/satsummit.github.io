@@ -4,7 +4,7 @@ slug: lightning-talks
 
 title: Lunch & Lightning Talks
 type: Misc
-category: Misc
+category:
 time: "13:00"
 duration: 60
 room: Impact Hub

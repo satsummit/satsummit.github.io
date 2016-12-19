@@ -3,7 +3,7 @@ permalink: none
 slug: registration-breakfast
 
 title: Registration & Breakfast
-type: Social
+type: Welcome
 category: 
 time: "08:00"
 duration: 60
