@@ -4,19 +4,4 @@
 
 .speaker-list--featured {
   margin: 0 auto ($global-spacing * 2) auto;
-
-  .speaker-list__item {
-    @include media(large-up) {
-      &:nth-child(4) {
-        display: none;
-      }
-    }
-
-    @include media(xlarge-up) {
-      &:nth-child(4) {
-        display: block;
-      }
-    }
-  }
-
 }
