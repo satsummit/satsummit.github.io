@@ -17,38 +17,88 @@ layout: base
       </header>
       <div class="inpage__body">
 
-        <div class="fold fold--light">
+        <div class="fold">
           <div class="inner">
 
-          {% assign events_by_group = site.events | group_by: "group" %}
+          {% assign events_by_category = site.events | group_by: "category" %}
 
-          {% for g in events_by_group %}
-          <section class="agenda__group">
-            <h2 class="agenda__title">{{ g.name }}</h2>
-            <dl class="agenda__list">
-              {% for post in g.items %}
-              {% assign klass = '' %}
-              {% if post.type == 'social' %}
-              {% assign klass = 'alt-row' %}
-              {% endif %}
-              {% assign start_time = post.time | split: "-" %}
-              <dt class="agenda__key {{ klass }}"><time datetime="{{ site.event_date }} {{ start_time[0] }}">{{ post.time }}</time></dt>
-              <dd class="agenda__value {{ klass }}">
-                {% unless post.permalink == 'none' %}
-                <em class="agenda__value-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></em>
-                {% else %}
-                <em class="agenda__value-title">{{ post.title }}</em>
-                {% endunless %}
-                {% if post.description %}
-                <div class="agenda__value-description">
-                  {{ post.description | markdownify }}
-                </div>
+          <ul class="event-legend">
+            {% for g in events_by_category %}
+            {% unless g.name == "" %}
+            <li class="event-legend__item event-legend__item--{{ g.name | slugify }}"><span>{{ g.name }}</span></li>
+            {% endunless %}
+            {% endfor %}
+          </ul>
+
+          {% assign events_by_time = site.events | group_by: "time" %}
+
+          <div class="timetable">
+            {% for g in events_by_time %}
+            {% capture time_start %}2016/01/01 {{ g.name }}{% endcapture %}
+            <section class="event-group event-group--{{ g.size }}e">
+              <h1 class="event-group__title">{{ time_start | date: "%l:%M%P" }}</h1>
+              <ul class="event-list event-list--hub">
+                {% for event in g.items %}
+
+                {% capture article_classes %}{% endcapture %}
+                {% if event.category %}
+                {% capture article_classes %}{{ article_classes }} event--cat-{{ event.category | slugify }}{% endcapture %}
                 {% endif %}
-              </dd>
-              {% endfor %}
-            </dl>
-          </section>
-          {% endfor %}
+                {% if event.type %}
+                {% capture article_classes %}{{ article_classes }} event--type-{{ event.type | slugify }}{% endcapture %}
+                {% endif %}
+
+                <li class="event-list__item">
+                  <article class="timeslot event--short {{ article_classes }}">
+                    <div class="timeslot__inner">
+                      <header class="timeslot__header">
+                        <dl class="timeslot__details">
+                          <dt>Room</dt>
+                          <dd class="room">{{ event.room }}</dd>
+                          <dt>Duration</dt>
+                          <dd class="duration">{{ event.duration }}Min</dd>
+                          {% if event.category %}
+                          <dt>Category</dt>
+                          <dd title="{{ event.category }}" class="category"><span>{{ event.category }}</span></dd>
+                          {% endif %}
+                        </dl>
+                        {% unless event.permalink == 'none' %}
+                        <h1 class="timeslot__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                        {% else %}
+                        <h1 class="timeslot__title">{{ event.title }}</h1>
+                        {% endunless %}
+                      </header>
+                      {% if event.description %}
+                      <div class="timeslot__body">
+                        <div class="timeslot__prose">
+                          {{ event.description | markdownify }}
+                        </div>
+                      </div>
+                      {% endif %}
+                      {% if event.speakers %}
+                      <footer class="timeslot__footer">
+                        <ul class="event__speaker-list">
+                        {% for speaker in event.speakers %}
+                          {% assign s = site.speakers | where: "title",speaker | first %}
+                          {% if s.url %}
+                          <li><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a></li>
+                          {% else %}
+                          <li>{{ speaker }}</li>
+                          {% endif %}
+                        {% endfor %}
+                        </ul>
+                      </footer>
+                      {% endif %}
+                    </div>
+                  </article>
+                  
+                </li>
+                {% endfor %}
+              </ul>
+
+            </section>
+            {% endfor %}
+          </div>
 
           <p><small>Note: this schedule is subject to change.</small></p>
 
