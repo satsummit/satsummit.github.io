@@ -1,6 +1,6 @@
 ---
 title: Sean Gorman
-company: DigitaGlobe
+company: DigitalGlobe
 role: Director of Program Management
 twitter: SeanGorman
 website: 
