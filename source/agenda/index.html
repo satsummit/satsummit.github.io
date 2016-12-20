@@ -32,7 +32,7 @@ layout: base
             </ul>
           </div>
 
-          {% assign events_by_time = site.events | group_by: "time" %}
+          {% assign events_by_time = site.events | group_by: "time_slot" %}
 
           <div class="agenda-content">
             {% for g in events_by_time %}

@@ -6,11 +6,12 @@ title: Our Space Goals and Regulations Aligned
 type: Keynote
 category: State of Satellite Industry
 time: "10:20"
+time_slot: "09:00"
 duration: 10
 room: DAC Main Room
 speakers:
   - Tahara Dawkins
 
-description: 
+description: "As the remote sensing industry has boomed, the US Department of Commerce has faced a new regulatory landscape. Learn how NOAA is working to aid in the digital revolution and align with industry goals."
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+As the remote sensing industry has boomed, the US Department of Commerce has faced a new regulatory landscape. Learn how NOAA is working to aid in the digital revolution and align with industry goals.

@@ -6,11 +6,12 @@ title: Data into Action
 type: Keynote
 category: State of Satellite Industry
 time: "10:30"
+time_slot: "09:00"
 duration: 10
 room: DAC Main Room
 speakers:
   - Ambassador Mark Brzezinski
 
-description: 
+description: "Mark Brzezinski will recount how, when tasked with executing a tactical implementation of a presidential vision on climate resilience and adaptation, he used digital elevation maps in the Arctic to understand a rapidly changing region with global implications."
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+Mark Brzezinski will recount how, when tasked with executing a tactical implementation of a presidential vision on climate resilience and adaptation, he used digital elevation maps in the Arctic to understand a rapidly changing region with global implications.

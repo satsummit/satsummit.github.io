@@ -6,12 +6,13 @@ title: The Geographers
 type: Panel
 category: Satellite Data In Development
 time: "12:05"
+time_slot: "12:05"
 duration: 55
 room: DAC Main Room
 speakers:
   - Keith Garrett
   - Carrie Stokes
 
-description: 
+description: "Consumers of remote sensing data at the highest level dive into tough questions about building organizations that integrate remote sensing into daily decision-making."
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+Consumers of remote sensing data at the highest level dive into tough questions about building organizations that integrate remote sensing into daily decision-making.

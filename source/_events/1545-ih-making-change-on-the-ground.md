@@ -6,6 +6,7 @@ title: Making Change on the Ground
 type: Panel
 category: Data Into Action
 time: "15:45"
+time_slot: "15:45"
 duration: 60
 room: Impact Hub
 speakers:
@@ -14,6 +15,6 @@ speakers:
  - Lilian Pintea
  - Hannah Bloch
 
-description: 
+description: "Applying data to make real change on the ground."
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+Applying data to make real change on the ground.

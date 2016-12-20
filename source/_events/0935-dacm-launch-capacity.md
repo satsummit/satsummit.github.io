@@ -2,15 +2,16 @@
 permalink: none
 slug: launch-capacity
 
-title: Launch Capacity - Breaking the gravitational limits on the data revolution
+title: "Launch Capacity: Breaking the Gravitational Limits on the Data Revolution"
 type: Keynote
 category: State of Satellite Industry
 time: "09:35"
+time_slot: "09:00"
 duration: 10
 room: DAC Main Room
 speakers:
   - Steve Nixon
 
-description: 
+description: "What is launch capacity, and most importantly, how does it affect our access to data? Steve Nixon will break down the terminology and factors at play and explain how Vulcan is working to unlock the next frontier of data."
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+What is launch capacity, and most importantly, how does it affect our access to data? Steve Nixon will break down the terminology and factors at play and explain how Vulcan is working to unlock the next frontier of data.

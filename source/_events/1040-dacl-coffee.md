@@ -6,6 +6,7 @@ title: Coffee
 type: break
 category:
 time: "10:40"
+time_slot: "10:40"
 duration: 30
 room: DAC Lobby
 speakers:
