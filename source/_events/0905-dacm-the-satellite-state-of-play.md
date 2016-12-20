@@ -6,7 +6,7 @@ title: "The Satellite Sector: State of Play"
 type: Keynote
 category: State of Satellite Industry
 time: "09:05"
-time_slot: "09:00"
+time_slot: "09:05"
 duration: 10
 room: DAC Main Room
 speakers:

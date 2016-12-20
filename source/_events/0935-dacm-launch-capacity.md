@@ -6,7 +6,7 @@ title: "Launch Capacity: Breaking the Gravitational Limits on the Data Revolutio
 type: Keynote
 category: State of Satellite Industry
 time: "09:35"
-time_slot: "09:00"
+time_slot: "09:05"
 duration: 10
 room: DAC Main Room
 speakers:

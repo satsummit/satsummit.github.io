@@ -6,7 +6,7 @@ title: Our Space Goals and Regulations Aligned
 type: Keynote
 category: State of Satellite Industry
 time: "10:20"
-time_slot: "09:00"
+time_slot: "09:05"
 duration: 10
 room: DAC Main Room
 speakers:

@@ -6,7 +6,7 @@ title: User Interface Design for Satellite Data
 type: Keynote
 category: State of Satellite Industry
 time: "10:10"
-time_slot: "09:00"
+time_slot: "09:05"
 duration: 10
 room: DAC Main Room
 speakers:
