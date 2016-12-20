@@ -12,4 +12,3 @@ room: DAC Lobby
 speakers:
 description:
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
