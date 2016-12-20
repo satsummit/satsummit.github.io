@@ -73,12 +73,22 @@ layout: base
 
                         {% if event.speakers %}
                         <dl class="event__speaker-list">
+                          {% if event.moderator %}
+                            <dt>Moderator</dt>
+                            {% assign s = site.speakers | where: "title", event.moderator | first %}
+                            {% if s.url %}
+                            <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ s.title }}</a></dd>
+                            {% else %}
+                            <dd>{{ event.moderator }}</dd>
+                            {% endif %}
+                          {% endif %}
+
                           {% if event.type == "Keynote" %}
-                          <dt>Speakers</dt>
+                          <dt>Speaker</dt>
                           {% elsif event.type == "Panel" %}
-                          <dt>Moderators</dt>
+                          <dt>Speakers</dt>
                           {% else %}
-                          <dt>Hosts</dt>
+                          <dt>Host</dt>
                           {% endif %}
 
                           {% for speaker in event.speakers %}

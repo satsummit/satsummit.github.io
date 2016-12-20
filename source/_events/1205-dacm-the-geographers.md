@@ -9,6 +9,7 @@ time: "12:05"
 time_slot: "12:05"
 duration: 55
 room: DAC Main Room
+moderator: 
 speakers:
   - Keith Garrett
   - Carrie Stokes

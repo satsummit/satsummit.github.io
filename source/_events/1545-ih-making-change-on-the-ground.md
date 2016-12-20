@@ -9,11 +9,11 @@ time: "15:45"
 time_slot: "15:45"
 duration: 60
 room: Impact Hub
+moderator: Hannah Bloch
 speakers:
  - Gaurav Thapa
  - Gustavo Faleiros
  - Lilian Pintea
- - Hannah Bloch
 
 description: "Applying data to make real change on the ground."
 ---
