@@ -124,3 +124,24 @@
     @extend %collecticon-arrow-right;
   }
 }
+
+.button-dark-go {
+  @extend .button, .button--base, .button--small;
+
+  &::after {
+    @extend %collecticon-arrow-right;
+  }
+}
+
+
+/* Modifiers
+   ========================================================================== */
+
+.card--inlight {
+
+  .card__inner {
+    &::before {
+      box-shadow: inset 0 0 0 2px $base-color;
+    }
+  }
+}

@@ -15,15 +15,3 @@
     }
   }
 }
-
-.cta-email {
-  @extend .button, .button--achromic, .button--xlarge;
-
-  &::before {
-    @extend %collecticon-envelope;
-  }
-
-  @include media(medium-up) {
-    min-width: 24rem;
-  }
-}

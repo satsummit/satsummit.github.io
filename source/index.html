@@ -43,55 +43,8 @@ layout: base
         </section>
         <!--/ Fold: About -->
 
-        <!-- Fold: Agenda -->
-        {% assign events_by_group = site.events | group_by: "group" %}
-
-        <section class="fold fold--light" id="agenda">
-          <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Agenda</h1>
-            </header>
-            <div class="fold__body">
-              <div class="agenda prose prose--responsive">
-
-                {% for g in events_by_group %}
-                <section class="agenda__group">
-                  <h2 class="agenda__title">{{ g.name }}</h2>
-                  <dl class="agenda__list">
-                    {% for post in g.items %}
-                    {% assign klass = '' %}
-                    {% if post.type == 'social' %}
-                    {% assign klass = 'alt-row' %}
-                    {% endif %}
-                    {% assign start_time = post.time | split: "-" %}
-                    <dt class="agenda__key {{ klass }}"><time datetime="{{ site.event_date }} {{ start_time[0] }}">{{ post.time }}</time></dt>
-                    <dd class="agenda__value {{ klass }}">
-                      {% unless post.permalink == 'none' %}
-                      <em class="agenda__value-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></em>
-                      {% else %}
-                      <em class="agenda__value-title">{{ post.title }}</em>
-                      {% endunless %}
-                      {% if post.description %}
-                      <div class="agenda__value-description">
-                        {{ post.description | markdownify }}
-                      </div>
-                      {% endif %}
-                    </dd>
-                    {% endfor %}
-                  </dl>
-                </section>
-                {% endfor %}
-
-                <p><small>Note: this schedule is subject to change.</small></p>
-
-              </div>
-            </div>
-          </div>
-        </section>
-        <!--/ Fold: Agenda -->
-
         <!-- Fold: Speakers -->
-        <section class="fold" id="speakers">
+        <section class="fold fold--light" id="speakers">
           <div class="inner">
             <header class="fold__header">
               <h1 class="fold__title">Speakers</h1>
@@ -101,7 +54,7 @@ layout: base
                 {% for speaker in site.speakers %}
                 {% if speaker.featured == true %}
                 <li class="speaker-list__item">
-                  <article class="card speaker--short">
+                  <article class="card card--inlight speaker--short">
                     <div class="card__inner">
                       <header class="card__header">
                         <figure class="card__avatar speaker__avatar">
@@ -117,7 +70,7 @@ layout: base
                         <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
                       </header>
                       <footer class="card__footer card__footer--actions">
-                        <a class="button-light-go" href="{{ site.baseurl }}{{ speaker.url }}" title="View speaker profile">View profile</a>
+                        <a class="button-dark-go" href="{{ site.baseurl }}{{ speaker.url }}" title="View speaker profile">View profile</a>
                       </footer>
                     </div>
                   </article>
@@ -127,7 +80,7 @@ layout: base
               </ol>
             </div>
             <footer class="fold__footer fold__footer--actions">
-              <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all</span></a>
+              <a class="fold__cta fold__cta--dark fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all</span></a>
             </footer>
           </div>
         </section>
