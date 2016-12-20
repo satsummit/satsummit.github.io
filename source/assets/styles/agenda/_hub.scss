@@ -18,16 +18,17 @@
 .event--short {
   position: relative;
   min-height: $global-spacing * 12;
-  padding: $global-spacing;
+  padding: $global-spacing $global-spacing $global-spacing ($global-spacing * 2.5);
   box-shadow: inset 0 -2px 0 0 #fff;
 
   .agenda-section--1e & {
     min-height: auto;
   }
-}
 
-.agenda-content {
-  margin-bottom: $global-spacing * 2;
+  .cat {
+    font-size: 0;
+    position: absolute;
+  }
 }
 
 .agenda-section__title {
@@ -43,7 +44,9 @@
    ========================================================================== */
 
 .agenda-legend {
-  margin-bottom: $global-spacing * 2;
+  background: #fff;
+  padding: $global-spacing / 2;
+  border-radius: ($base-border-radius / 2) ($base-border-radius / 2) 0 0;
 }
 
 .agenda-legend__list {
@@ -61,6 +64,8 @@
   border-radius: $full-border-radius;
   color: $base-color;
   background: #fff;
+  vertical-align: top;
+  font-weight: $base-font-medium;
 
   &::before {
     position: absolute;
@@ -75,35 +80,35 @@
   }
 }
 
-[class*=" event--cat"]::before {
-  position: absolute;
-  top: 0.75rem;
-  right: $global-spacing;
+[class*=" event--cat"] .cat {
+  top: 50%;
+  left: -$global-spacing * 1.5;
   content: '';
   height: 0.75rem;
   width: 0.75rem;
   border-radius: $full-border-radius;
   background: $base-color;
-  box-shadow: 0 0 0 2px #fff;
-  transform: translate(0, 0.25rem);
+  box-shadow: 0 0 0 4px #fff;
+  transform: translate(0, -50%);
+  margin-top: -0.5%;
 }
 
 .event-legend__item--state-of-satellite-industry::before,
-.event--cat-state-of-satellite-industry::before {
+.event--cat-state-of-satellite-industry .cat {
   background: #9b59b6;
 }
 
 .event-legend__item--satellite-data-in-development::before,
-.event--cat-satellite-data-in-development::before {
+.event--cat-satellite-data-in-development .cat {
   background: #16a085;
 }
 
 .event-legend__item--imagery-to-insight::before,
-.event--cat-imagery-to-insight::before {
-  background: #95a5a6;
+.event--cat-imagery-to-insight .cat {
+  background: #e67e22;
 }
 
 .event-legend__item--data-into-action::before,
-.event--cat-data-into-action::before {
+.event--cat-data-into-action .cat {
   background: #e74c3c;
 }
