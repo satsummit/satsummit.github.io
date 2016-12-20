@@ -55,11 +55,7 @@ use_excerpt: true
                         <div class="event__inner">
                           <header class="event__header">
                             <p class="event__suptitle">{{ event.type }}</p>
-                            {% unless event.permalink == 'none' %}
                             <h1 class="event__title"><a href="{{ site.baseurl }}/agenda/#event-{{ event.slug }}" title="View event">{{ event.title }}</a></h1>
-                            {% else %}
-                            <h1 class="event__title">{{ event.title }}</h1>
-                            {% endunless %}
                             <p class="event__detail">{{ event.room }}, {{ time_start | date: "%l:%M%p" }}</p>
                           </header>
                           {% if event.description %}
