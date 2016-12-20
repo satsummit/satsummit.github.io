@@ -2,7 +2,7 @@
 permalink: none
 slug: lightning-talks
 
-title: Lunch & Lightning Talks
+title: Lightning Talks
 type: Misc
 category:
 time: "13:00"
