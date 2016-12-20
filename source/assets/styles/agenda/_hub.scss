@@ -10,15 +10,21 @@
   box-shadow: inset 0 -2px 0 0 #fff;
 
   .event-list__item {
-    float: left;
-    width: 50%;
+    @include media(medium-up) {
+      @include display(flex);
+      width: 50%;
+    }
+  }
+
+  @include media(medium-up) {
+    @include display(flex);
+    @include flex-wrap(wrap);
   }
 }
 
 .event--short {
   position: relative;
-  min-height: $global-spacing * 12;
-  padding: $global-spacing $global-spacing $global-spacing ($global-spacing * 2.5);
+  padding: ($global-spacing * 1.5) $global-spacing ($global-spacing * 1.5) ($global-spacing * 2.5);
   box-shadow: inset 0 -2px 0 0 #fff;
 
   .agenda-section--1e & {
