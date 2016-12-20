@@ -51,7 +51,7 @@ layout: base
                 {% endif %}
 
                 <li class="event-list__item">
-                  <article class="event event--short {{ article_classes }}">
+                  <article class="event event--short {{ article_classes }}" id="event-{{ event.slug }}">
                     <div class="event__inner">
                       <header class="event__header">
                         <p class="event__suptitle">{{ event.type }}</p>
@@ -62,13 +62,6 @@ layout: base
                         {% endunless %}
                         <p class="event__detail">{{ event.room }}, {{ event.duration }}min.</p>
                       </header>
-                      {% if event.description %}
-                      <div class="event__body">
-                        <div class="event__prose">
-                          {{ event.description | markdownify }}
-                        </div>
-                      </div>
-                      {% endif %}
                       {% if event.speakers %}
                       <footer class="event__footer">
                         <ul class="event__speaker-list">
