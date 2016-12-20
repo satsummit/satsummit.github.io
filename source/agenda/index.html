@@ -1,0 +1,128 @@
+---
+layout: base
+
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <section class="inpage inpage--hub agenda">
+      <header class="inpage__header">
+        <div class="inner">
+          <div class="inpage__headline" data-hook="nav-offset">
+            <h1 class="inpage__title">Agenda</h1>
+          </div>
+        </div>
+      </header>
+      <div class="inpage__body">
+
+        <div class="fold">
+          <div class="inner">
+
+            {% assign events_by_category = site.events | group_by: "category" %}
+            <div class="agenda-legend">
+              <ul class="agenda-legend__list">
+                {% for g in events_by_category %}
+                {% unless g.name == "" %}
+                <li class="agenda-legend__item event-legend__item--{{ g.name | slugify }}"><span>{{ g.name }}</span></li>
+                {% endunless %}
+                {% endfor %}
+              </ul>
+            </div>
+
+            {% assign events_by_time = site.events | group_by: "time_slot" %}
+            <div class="agenda-content">
+              {% for g in events_by_time %}
+              {% capture time_start %}2016/01/01 {{ g.name }}{% endcapture %}
+              <section class="agenda-section agenda-section--{{ g.size }}e">
+                <h1 class="agenda-section__title">{{ time_start | date: "%l:%M%P" }}</h1>
+                <ul class="event-list event-list--hub">
+                  {% for event in g.items %}
+
+                  {% capture article_classes %}{% endcapture %}
+                  {% if event.category %}
+                  {% capture article_classes %}{{ article_classes }} event--cat-{{ event.category | slugify }}{% endcapture %}
+                  {% endif %}
+                  {% if event.type %}
+                  {% capture article_classes %}{{ article_classes }} event--type-{{ event.type | slugify }}{% endcapture %}
+                  {% endif %}
+
+                  <li class="event-list__item">
+                    <article class="event event--short {{ article_classes }}" id="event-{{ event.slug }}">
+                      <div class="event__inner">
+                        <header class="event__header">
+                          <p class="event__suptitle"><span class="cat" title="{{ event.category }}">{{ event.category }}: </span>{{ event.type }}</p>
+                          {% unless event.permalink == 'none' %}
+                          <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                          {% else %}
+                          <h1 class="event__title">{{ event.title }}</h1>
+                          {% endunless %}
+                          <p class="event__detail">{{ event.room }}, {{ event.duration }}min.</p>
+                        </header>
+                        
+                        {% if event.description or event.speakers %}
+                        <div class="event__body">
+                          {% if event.description %}
+                          <div class="event__prose">
+                            {{ event.description | markdownify }}
+                          </div>
+                          {% endif %}
+
+                          {% if event.speakers %}
+                          <dl class="event__speaker-list">
+                            {% if event.moderator %}
+                              <dt>Moderator</dt>
+                              {% assign s = site.speakers | where: "title", event.moderator | first %}
+                              {% if s.url %}
+                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ s.title }}</a></dd>
+                              {% else %}
+                              <dd>{{ event.moderator }}</dd>
+                              {% endif %}
+                            {% endif %}
+
+                            {% if event.type == "Keynote" %}
+                            <dt>Speaker</dt>
+                            {% elsif event.type == "Panel" %}
+                            <dt>Speakers</dt>
+                            {% else %}
+                            <dt>Host</dt>
+                            {% endif %}
+
+                            {% for speaker in event.speakers %}
+                              {% assign s = site.speakers | where: "title",speaker | first %}
+                              {% if s.url and event.type == "Keynote" %}
+                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a> ({{ s.role }}, {{ s.company }})</dd>
+                              {% elsif s.url %}
+                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a></dd>
+                              {% else %}
+                              <dd>{{ speaker }}</dd>
+                              {% endif %}
+                            {% endfor %}
+                          </dl>
+                          {% endif %}
+
+                        </div>
+                        {% endif %}
+                        
+                      </div>
+                    </article>
+                    
+                  </li>
+                  {% endfor %}
+                </ul>
+
+              </section>
+              {% endfor %}
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!--/ inPage -->
+
+  </div>
+</main>
+<!--/ Page Body -->

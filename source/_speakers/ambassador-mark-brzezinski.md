@@ -5,7 +5,7 @@ role: Executive Director, Arctic Executive Steering Committee
 twitter: 
 website: 
 avatar: ambassador-mark-brzezinski.jpg
-featured:
+featured: true
 ---
 Former United States Ambassador to Sweden Mark Brzezinski serves as Executive Director of the U.S. Government's Arctic Executive Steering Committee. On January 21st, 2015, in recognition of the unique challenges and opportunities presented by the Arctic, President Obama issued an Executive Order to enhance coordination of national efforts in the Arctic. The Executive Order creates expanded opportunities for Alaskans and those in the Federal government to work on Arctic issues and establishes a clear structure to improve the coordination of Federal Arctic activity.
 

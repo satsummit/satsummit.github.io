@@ -78,13 +78,20 @@
 
 @import "homepage/global";
 @import "homepage/about";
-@import "homepage/agenda";
 @import "homepage/speakers";
 @import "homepage/venue";
 @import "homepage/tickets";
 @import "homepage/lightning-talks";
 @import "homepage/code-of-conduct";
 @import "homepage/sponsors";
+
+
+/* Agenda
+   ========================================================================== */
+
+@import "agenda/global";
+@import "agenda/hub";
+@import "agenda/single";
 
 
 /* Speakers

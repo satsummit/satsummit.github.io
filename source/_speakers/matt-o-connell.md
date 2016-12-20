@@ -1,5 +1,5 @@
 ---
-title: Matt O'Connell
+title: Matt O’Connell
 company: MOC Partners
 role: President
 twitter: 

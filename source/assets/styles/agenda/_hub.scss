@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Agenda: Hub Page
+   ========================================================================== */
+
+.event-list--hub {
+  @extend .clearfix;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: inset 0 -2px 0 0 #fff;
+
+  .event-list__item {
+    @include media(medium-up) {
+      @include display(flex);
+      width: 50%;
+    }
+  }
+
+  @include media(medium-up) {
+    @include display(flex);
+    @include flex-wrap(wrap);
+  }
+}
+
+.event--short {
+  position: relative;
+  padding: ($global-spacing * 1.5) $global-spacing ($global-spacing * 1.5) ($global-spacing * 2.5);
+  box-shadow: inset 0 -2px 0 0 #fff;
+
+  .agenda-section--1e & {
+    min-height: auto;
+  }
+
+  .cat {
+    font-size: 0;
+    position: absolute;
+  }
+}
+
+.agenda-section__title {
+  @include heading(0.75rem, medium-up);
+  background: rgba(#fff, 0.12);
+  box-shadow: inset 0 -4px 0 0 #fff;
+  padding: ($global-spacing / 2) $global-spacing;
+  margin: 0;
+}
+
+
+/* Agenda legend
+   ========================================================================== */
+
+.agenda-legend {
+  background: #fff;
+  padding: $global-spacing / 2;
+  border-radius: ($base-border-radius / 2) ($base-border-radius / 2) 0 0;
+}
+
+.agenda-legend__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.agenda-legend__item {
+  position: relative;
+  display: inline-block;
+  padding: ($global-spacing / 4) ($global-spacing) ($global-spacing / 4) ($global-spacing * 1.75);
+  margin: ($global-spacing / 4) ($global-spacing / 2);
+  border-radius: $full-border-radius;
+  color: $base-color;
+  background: #fff;
+  vertical-align: top;
+  font-weight: $base-font-medium;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    content: '';
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: $full-border-radius;
+    background: $base-color;
+    transform: translate(0, -50%);
+  }
+}
+
+[class*=" event--cat"] .cat {
+  top: 50%;
+  left: -$global-spacing * 1.5;
+  content: '';
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: $full-border-radius;
+  background: $base-color;
+  box-shadow: 0 0 0 4px #fff;
+  transform: translate(0, -50%);
+  margin-top: -0.5%;
+}
+
+.event-legend__item--state-of-satellite-industry::before,
+.event--cat-state-of-satellite-industry .cat {
+  background: #9b59b6;
+}
+
+.event-legend__item--satellite-data-in-development::before,
+.event--cat-satellite-data-in-development .cat {
+  background: #16a085;
+}
+
+.event-legend__item--imagery-to-insight::before,
+.event--cat-imagery-to-insight .cat {
+  background: #e67e22;
+}
+
+.event-legend__item--data-into-action::before,
+.event--cat-data-into-action .cat {
+  background: #e74c3c;
+}
