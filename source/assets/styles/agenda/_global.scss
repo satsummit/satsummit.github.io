@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Agenda: Global
+   ========================================================================== */
+
+.event--short,
+.event--tiny {
+  @extend .clearfix;
+
+  .event__header,
+  .event__body,
+  .event__footer,
+  .event__prose,
+  .event__inner {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .event__header,
+  .event__body,
+  .event__prose {
+    margin-bottom: $global-spacing;
+  }
+
+  .event__title {
+    @include heading(1rem, medium-up);
+    margin-bottom: 0;
+  }
+
+  .event__suptitle {
+    position: relative;
+    @extend .heading;
+    font-size: 0.75rem;
+    line-height: 1;
+    margin: 0;
+    color: $primary-color;
+    letter-spacing: 0.25em;
+    margin-bottom: $global-spacing / 2;
+
+    @include media(medium-up) {
+      font-size: 0.875rem;
+      line-height: 1rem;
+    }
+  }
+
+  .event__detail {
+    @extend .heading-alt;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: none;
+    opacity: 0.64;
+    margin-bottom: 0;
+
+    @include media(medium-up) {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .event__speaker-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    dt, dd {
+      display: inline;
+    }
+
+    dt {
+      @extend .heading;
+      font-size: 0.875rem;
+      line-height: 1;
+      margin-right: $global-spacing / 4;
+      opacity: 0.64;
+    }
+
+    dd:not(:last-child)::after {
+      content: ', ';
+    }
+
+    dt:first-of-type + dd::after {
+      content: '';
+    }
+
+
+    a {
+      @extend .link, .link--indark;
+    }
+
+    &::before {
+      content: '';
+      left: 50%;
+      width: 2rem;
+      height: 0.175rem;
+      background: #fff;
+      display: block;
+      border-radius: $base-border-radius / 4;
+      margin-bottom: 0.5em;
+      transform: skewY(-5deg);
+    }
+  }
+}

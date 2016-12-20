@@ -5,7 +5,7 @@ role: Digital Editor
 twitter: HannahBloch
 website: 
 avatar: hannah-bloch.jpg
-featured:
+featured: true
 ---
 Hannah Bloch is a Washington, D.C.-based journalist with more than 20 years of experience in the United States and overseas. She is a digital editor for international news at NPR and writes the “Work in Progress” column for The Wall Street Journal. Previously, Bloch was a staff writer and editor at National Geographic, where she authored magazine stories on subjects including archaeology, global health and the role failure plays in exploration. Her September 2015 story covered the challenges in Afghanistan of preserving an ancient Buddhist archaeological site sitting atop one of the world's biggest copper deposits. 
 

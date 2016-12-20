@@ -38,18 +38,35 @@ use_excerpt: true
         <div class="fold">
           <div class="inner">
 
-            <div class="main-content prose prose--responsive">
-              {{ content }}
+            <div class="fold__body">
+              <div class="main-content prose prose--responsive">
+                {{ content }}
+              </div>
+
+              <aside class="sec-content">
+                <section class="sec-section">
+                  <h1 class="sec-section__title">On the Agenda</h1>
+                  {% assign events = site.events | where: "speakers", page.title %}
+                  {% assign eventsMod = site.events | where: "moderator", page.title %}
+                  <ol class="event-list event-list--single">
+                    {% for event in eventsMod %}
+                    {% include related-event.html event=event is_moderator=true %}
+                    {% endfor %}
+
+                    {% for event2 in events %}
+                    {% include related-event.html event=event2 %}
+                    {% endfor %}
+                  </ol>
+                </section>
+              </aside>
+            </div>
+
+            <div class="fold__footer fold__footer--actions">
+              <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
             </div>
 
           </div>
         </div>
-
-        <aside>
-          {% include code-of-conduct-fold.html %}
-
-          {% include sponsors-fold.html %}
-        </aside>
         
       </div>
     </article>
