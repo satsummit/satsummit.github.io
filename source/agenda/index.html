@@ -22,21 +22,23 @@ layout: base
 
           {% assign events_by_category = site.events | group_by: "category" %}
 
-          <ul class="event-legend">
-            {% for g in events_by_category %}
-            {% unless g.name == "" %}
-            <li class="event-legend__item event-legend__item--{{ g.name | slugify }}"><span>{{ g.name }}</span></li>
-            {% endunless %}
-            {% endfor %}
-          </ul>
+          <div class="agenda-legend">
+            <ul class="agenda-legend__list">
+              {% for g in events_by_category %}
+              {% unless g.name == "" %}
+              <li class="agenda-legend__item event-legend__item--{{ g.name | slugify }}"><span>{{ g.name }}</span></li>
+              {% endunless %}
+              {% endfor %}
+            </ul>
+          </div>
 
           {% assign events_by_time = site.events | group_by: "time" %}
 
-          <div class="timetable">
+          <div class="agenda-content">
             {% for g in events_by_time %}
             {% capture time_start %}2016/01/01 {{ g.name }}{% endcapture %}
-            <section class="event-group event-group--{{ g.size }}e">
-              <h1 class="event-group__title">{{ time_start | date: "%l:%M%P" }}</h1>
+            <section class="agenda-section agenda-section--{{ g.size }}e">
+              <h1 class="agenda-section__title">{{ time_start | date: "%l:%M%P" }}</h1>
               <ul class="event-list event-list--hub">
                 {% for event in g.items %}
 
@@ -49,26 +51,26 @@ layout: base
                 {% endif %}
 
                 <li class="event-list__item">
-                  <article class="timeslot event--short {{ article_classes }}">
-                    <div class="timeslot__inner">
-                      <header class="timeslot__header">
-                        <p class="timeslot__suptitle">{{ event.type }}</p>
+                  <article class="event event--short {{ article_classes }}">
+                    <div class="event__inner">
+                      <header class="event__header">
+                        <p class="event__suptitle">{{ event.type }}</p>
                         {% unless event.permalink == 'none' %}
-                        <h1 class="timeslot__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                        <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
                         {% else %}
-                        <h1 class="timeslot__title">{{ event.title }}</h1>
+                        <h1 class="event__title">{{ event.title }}</h1>
                         {% endunless %}
-                        <p class="timeslot__detail">{{ event.room }}, {{ event.duration }}min.</p>
+                        <p class="event__detail">{{ event.room }}, {{ event.duration }}min.</p>
                       </header>
                       {% if event.description %}
-                      <div class="timeslot__body">
-                        <div class="timeslot__prose">
+                      <div class="event__body">
+                        <div class="event__prose">
                           {{ event.description | markdownify }}
                         </div>
                       </div>
                       {% endif %}
                       {% if event.speakers %}
-                      <footer class="timeslot__footer">
+                      <footer class="event__footer">
                         <ul class="event__speaker-list">
                         {% for speaker in event.speakers %}
                           {% assign s = site.speakers | where: "title",speaker | first %}
@@ -94,16 +96,12 @@ layout: base
             {% endfor %}
           </div>
 
-          <p><small>Note: this schedule is subject to change.</small></p>
+          <div class="prose prose--responsive">
+            <p><small>Note: this schedule is subject to change.</small></p>
+          </div>
 
           </div>
         </div>
-
-        <aside>
-          {% include code-of-conduct-fold.html %}
-
-          {% include sponsors-fold.html %}
-        </aside>
 
       </div>
     </section>

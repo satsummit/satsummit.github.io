@@ -2,13 +2,57 @@
    Agenda: Hub Page
    ========================================================================== */
 
-.event-legend {
+.event-list--hub {
+  @extend .clearfix;
   list-style: none;
-  margin: 0 0 ($global-spacing * 2) 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: inset 0 -2px 0 0 #fff;
+
+  .event-list__item {
+    float: left;
+    width: 50%;
+  }
+}
+
+.event--short {
+  position: relative;
+  min-height: $global-spacing * 12;
+  padding: $global-spacing;
+  box-shadow: inset 0 -2px 0 0 #fff;
+
+  .agenda-section--1e & {
+    min-height: auto;
+  }
+}
+
+.agenda-content {
+  margin-bottom: $global-spacing * 2;
+}
+
+.agenda-section__title {
+  @include heading(0.75rem, medium-up);
+  background: rgba(#fff, 0.12);
+  box-shadow: inset 0 -4px 0 0 #fff;
+  padding: ($global-spacing / 2) $global-spacing;
+  margin: 0;
+}
+
+
+/* Agenda legend
+   ========================================================================== */
+
+.agenda-legend {
+  margin-bottom: $global-spacing * 2;
+}
+
+.agenda-legend__list {
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-.event-legend__item {
+.agenda-legend__item {
   position: relative;
   display: inline-block;
   padding: ($global-spacing / 4) ($global-spacing) ($global-spacing / 4) ($global-spacing * 1.75);
@@ -30,43 +74,6 @@
   }
 }
 
-.timetable {
-  margin-bottom: $global-spacing * 2;
-}
-
-.event-group__title {
-  @include heading(0.75rem, medium-up);
-  background: rgba(#fff, 0.12);
-  box-shadow: inset 0 -4px 0 0 #fff;
-  padding: ($global-spacing / 2) $global-spacing;
-  margin: 0;
-}
-
-.event-list {
-  @extend .clearfix;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  box-shadow: inset 0 -2px 0 0 #fff;
-}
-
-.event-list__item {
-  float: left;
-  width: 50%;
-}
-
-.timeslot {
-  position: relative;
-  min-height: $global-spacing * 12;
-  padding: $global-spacing;
-  box-shadow: inset 0 -2px 0 0 #fff;
-
-  .event-group--1e & {
-    min-height: auto;
-  }
-}
-
-
 [class*=" event--cat"]::before {
   position: absolute;
   top: 0.75rem;
@@ -78,85 +85,6 @@
   background: $base-color;
   box-shadow: 0 0 0 2px #fff;
   transform: translate(0, 0.25rem);
-}
-
-.timeslot__header,
-.timeslot__body,
-.timeslot__footer,
-.timeslot__prose,
-.timeslot__inner {
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.timeslot__header,
-.timeslot__body {
-  margin-bottom: $global-spacing;
-}
-
-.timeslot__suptitle {
-  @extend .heading;
-  font-size: 0.75rem;
-  line-height: 1;
-  margin: 0;
-  color: $primary-color;
-  letter-spacing: 0.25em;
-  margin-bottom: $global-spacing / 2;
-
-  @include media(medium-up) {
-    font-size: 0.875rem;
-    line-height: 1rem;
-  }
-}
-
-.timeslot__detail {
-  @extend .heading-alt;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  text-transform: none;
-  opacity: 0.64;
-  margin-bottom: 0;
-
-  @include media(medium-up) {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-}
-
-.timeslot__title {
-  @include heading(1rem, medium-up);
-  margin-bottom: 0;
-}
-
-.event__speaker-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: inline-block;
-
-    &:not(:last-child)::after {
-      content: ', ';
-    }
-  }
-
-  a {
-    @extend .link, .link--indark;
-  }
-
-  &::before {
-    content: '';
-    left: 50%;
-    width: 2rem;
-    height: 0.175rem;
-    background: #fff;
-    display: block;
-    border-radius: $base-border-radius / 4;
-    margin-bottom: 0.5em;
-    transform: skewY(-5deg);
-  }
 }
 
 .event-legend__item--state-of-satellite-industry::before,

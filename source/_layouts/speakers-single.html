@@ -38,18 +38,52 @@ use_excerpt: true
         <div class="fold">
           <div class="inner">
 
-            <div class="main-content prose prose--responsive">
-              {{ content }}
+            <div class="fold__body">
+              <div class="main-content prose prose--responsive">
+                {{ content }}
+              </div>
+
+              <aside class="sec-content">
+                <section class="sec-section">
+                  <h1 class="sec-section__title">On the Agenda</h1>
+                  {% assign events = site.events | where: "speakers", page.title %}
+                  <ol class="event-list event-list--single">
+                    {% for event in events %}
+                    {% capture time_start %}2016/01/01 {{ event.time}}{% endcapture %}
+                    <li class="event-list__item">
+                      <article class="event--tiny">
+                        <div class="event__inner">
+                          <header class="event__header">
+                            <p class="event__suptitle">{{ event.type }}</p>
+                            {% unless event.permalink == 'none' %}
+                            <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                            {% else %}
+                            <h1 class="event__title">{{ event.title }}</h1>
+                            {% endunless %}
+                            <p class="event__detail">{{ event.room }}, {{ time_start | date: "%l:%M%p" }}</p>
+                          </header>
+                          {% if event.description %}
+                          <div class="event__body">
+                            <div class="event__prose">
+                              {{ event.description | markdownify }}
+                            </div>
+                          </div>
+                          {% endif %} 
+                        </div>
+                      </article>
+                    </li>
+                    {% endfor %}
+                  </ol>
+                </section>
+              </aside>
+            </div>
+
+            <div class="fold__footer fold__footer--actions">
+              <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
             </div>
 
           </div>
         </div>
-
-        <aside>
-          {% include code-of-conduct-fold.html %}
-
-          {% include sponsors-fold.html %}
-        </aside>
         
       </div>
     </article>

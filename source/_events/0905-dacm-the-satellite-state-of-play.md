@@ -1,5 +1,5 @@
 ---
-permalink: none
+permalink:
 slug: the-satellite-state-of-play
 
 title: The Satellite State of Play
@@ -11,6 +11,6 @@ room: DAC Main Room
 speakers:
   - Carissa Christensen
 
-description: 
+description: In this rapidly developing landscape, Carissa Christensen will set the stage for the day by analyzing key trends within the industry, developments within the last year, and what to be on the lookout for moving forward.
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.
+In this rapidly developing landscape, Carissa Christensen will set the stage for the day by analyzing key trends within the industry, developments within the last year, and what to be on the lookout for moving forward.
