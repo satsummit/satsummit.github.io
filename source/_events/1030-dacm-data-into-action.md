@@ -10,8 +10,6 @@ duration: 10
 room: DAC Main Room
 speakers:
   - Ambassador Mark Brzezinski
-  - Arctic Executive Steering Committee
-  - The White House
 
 description: 
 ---

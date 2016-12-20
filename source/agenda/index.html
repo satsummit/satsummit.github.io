@@ -72,7 +72,9 @@ layout: base
                         <ul class="event__speaker-list">
                         {% for speaker in event.speakers %}
                           {% assign s = site.speakers | where: "title",speaker | first %}
-                          {% if s.url %}
+                          {% if s.url and event.type == "Keynote" %}
+                          <li><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a> ({{ s.role }}, {{ s.company }})</li>
+                          {% elsif s.url %}
                           <li><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a></li>
                           {% else %}
                           <li>{{ speaker }}</li>
