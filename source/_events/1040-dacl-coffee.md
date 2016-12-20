@@ -3,12 +3,12 @@ permalink: none
 slug: coffee
 
 title: Coffee
-type: break
+type: Break
 category:
 time: "10:40"
+time_slot: "10:40"
 duration: 30
 room: DAC Lobby
 speakers:
 description:
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.

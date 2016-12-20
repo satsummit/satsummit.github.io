@@ -1,13 +1,13 @@
 ---
 permalink: none
-slug: lunch
+slug: coffee2
 
-title: Lunch
+title: Coffee
 type: Break
 category:
-time: "13:00"
-time_slot: "13:00"
-duration: 60
+time: "15:00"
+time_slot: "15:00"
+duration: 45
 room: DAC Lobby
 speakers:
 description:

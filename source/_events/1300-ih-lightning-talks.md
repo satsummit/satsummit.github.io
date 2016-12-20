@@ -6,6 +6,7 @@ title: Lightning Talks
 type: Misc
 category:
 time: "13:00"
+time_slot: "13:00"
 duration: 60
 room: Impact Hub
 speakers:
@@ -17,4 +18,3 @@ speakers:
 
 description: 
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim enim ut ligula gravida suscipit.

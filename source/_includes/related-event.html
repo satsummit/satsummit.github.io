@@ -1,0 +1,27 @@
+{% capture time_start %}2016/01/01 {{ include.event.time}}{% endcapture %}
+<li class="event-list__item">
+  <article class="event--tiny">
+    <div class="event__inner">
+      <header class="event__header">
+      {% if include.event.type == "Keynote" %}
+        <p class="event__suptitle">Keynote Speaker</p>
+      {% elsif include.event.type == "Panel" and include.is_moderator %}
+        <p class="event__suptitle">Panel Moderator</p>
+      {% elsif include.event.type == "Panel" %}
+        <p class="event__suptitle">Panel Speaker</p>
+      {% else %}
+        <p class="event__suptitle">Host</p>
+      {% endif %}
+        <h1 class="event__title"><a href="{{ site.baseurl }}/agenda/#event-{{ include.event.slug }}" title="View event">{{ include.event.title }}</a></h1>
+        <p class="event__detail">{{ include.event.room }}, {{ time_start | date: "%l:%M%p" }}</p>
+      </header>
+      {% if include.event.description %}
+      <div class="event__body">
+        <div class="event__prose">
+          {{ include.event.description | markdownify }}
+        </div>
+      </div>
+      {% endif %} 
+    </div>
+  </article>
+</li>
