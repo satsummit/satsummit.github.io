@@ -11,8 +11,8 @@ duration: 60
 room: Impact Hub
 moderator: Laura Helmuth
 speakers:
-  - Bruno Sanchez
-  - Tara O’Shea
+  - Bruno Sánchez-Andrade Nuño
+  - Tara O'Shea
   - Chris Biddy
 
 description: "Sustainable Development Goals: Not your average “the world in 2030” appeal to avoid selling unkept promises; but rather, a look at ways to leverage a concrete framework and apply concrete applications."

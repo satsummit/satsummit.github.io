@@ -10,11 +10,6 @@ time_slot: "13:00"
 duration: 60
 room: Impact Hub
 speakers:
-  - Tim Wallace
-  - Jamon Van Den Hoek
-  - Jonathan Hersh (World Bank)
-  - NASA
-  - Dr. Shay Strong
 
 description: 
 ---

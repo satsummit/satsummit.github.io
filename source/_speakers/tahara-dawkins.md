@@ -1,7 +1,7 @@
 ---
 title: Tahara Dawkins
 company: NOAA
-role: Director & Commercial Remote Sensing Regulatory Affairs
+role: Director, Commercial Remote Sensing, Regulatory Affairs Office
 twitter: NOAA
 website: 
 avatar: tahara-dawkins.jpg
