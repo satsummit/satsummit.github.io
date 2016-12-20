@@ -3,7 +3,7 @@ permalink: none
 slug: distribution-data-decision-makers
 
 title: Distribution - Data to Decision Makers
-type: Keynote
+type: Panel
 category: Imagery To Insight
 time: "14:00"
 duration: 60

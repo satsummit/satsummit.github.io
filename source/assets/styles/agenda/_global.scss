@@ -4,6 +4,7 @@
 
 .event--short,
 .event--tiny {
+  @extend .clearfix;
 
   .event__header,
   .event__body,
@@ -16,7 +17,8 @@
   }
 
   .event__header,
-  .event__body {
+  .event__body,
+  .event__prose {
     margin-bottom: $global-spacing;
   }
 
@@ -59,12 +61,20 @@
     margin: 0;
     padding: 0;
 
-    li {
-      display: inline-block;
+    dt, dd {
+      display: inline;
+    }
 
-      &:not(:last-child)::after {
-        content: ', ';
-      }
+    dt {
+      @extend .heading;
+      font-size: 0.875rem;
+      line-height: 1;
+      margin-right: $global-spacing / 4;
+      opacity: 0.64;
+    }
+
+    dd:not(:last-child)::after {
+      content: ', ';
     }
 
     a {

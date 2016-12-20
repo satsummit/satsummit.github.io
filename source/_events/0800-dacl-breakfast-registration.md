@@ -3,7 +3,7 @@ permalink: none
 slug: registration-breakfast
 
 title: Registration & Breakfast
-type: Welcome
+type: Check-in
 category: 
 time: "08:00"
 duration: 60

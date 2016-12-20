@@ -50,13 +50,14 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .agenda-legend__item {
   position: relative;
   display: inline-block;
   padding: ($global-spacing / 4) ($global-spacing) ($global-spacing / 4) ($global-spacing * 1.75);
-  margin: ($global-spacing / 4) ($global-spacing / 2) ($global-spacing / 4) 0;
+  margin: ($global-spacing / 4) ($global-spacing / 2);
   border-radius: $full-border-radius;
   color: $base-color;
   background: #fff;

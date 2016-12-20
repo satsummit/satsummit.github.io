@@ -3,7 +3,7 @@ permalink: none
 slug: welcome
 
 title: "Welcome to SatSummit!"
-type: Keynote
+type: Welcome
 category: State of Satellite Industry
 time: "09:00"
 duration: 5
