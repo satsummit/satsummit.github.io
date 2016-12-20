@@ -78,6 +78,11 @@
       content: ', ';
     }
 
+    dt:first-of-type + dd::after {
+      content: '';
+    }
+
+
     a {
       @extend .link, .link--indark;
     }
