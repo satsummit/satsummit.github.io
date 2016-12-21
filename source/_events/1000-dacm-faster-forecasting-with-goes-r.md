@@ -1,6 +1,6 @@
 ---
 permalink: none
-slug: faster-forecasting-with-gozar
+slug: faster-forecasting-with-GOES-R
 
 title: Faster Forecasting with GOES-R
 type: Keynote
