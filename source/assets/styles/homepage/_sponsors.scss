@@ -25,9 +25,18 @@
   margin-bottom: $global-spacing * 2;
 
   &__title {
-    @include heading(1rem, medium-up);
+    @extend .heading;
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1rem;
     margin-bottom: $global-spacing * 2;
-    opacity: 0.56;
+    color: $primary-color;
+    letter-spacing: 0.25em;
+
+    @include media(medium-up) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
   }
 
   @include media(medium-up) {
