@@ -8,7 +8,7 @@ category: Data Into Action
 time: "15:45"
 time_slot: "15:45"
 duration: 60
-room: Impact Hub
+room: Impact Hub DC
 moderator: Hannah Bloch
 speakers:
  - Gaurav Thapa

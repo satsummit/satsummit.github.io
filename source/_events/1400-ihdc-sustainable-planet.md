@@ -8,7 +8,7 @@ category: Data Into Action
 time: "14:00"
 time_slot: "14:00"
 duration: 60
-room: Impact Hub
+room: Impact Hub DC
 moderator: Laura Helmuth
 speakers:
   - Bruno Sánchez-Andrade Nuño
