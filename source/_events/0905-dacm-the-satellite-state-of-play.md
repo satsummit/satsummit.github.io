@@ -1,5 +1,5 @@
 ---
-permalink:
+permalink: none
 slug: the-satellite-state-of-play
 
 title: "The Satellite Sector: State of Play"
