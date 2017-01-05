@@ -16,4 +16,9 @@
       @include col(8/12, $offset: 2/12);
     }
   }
+
+  .couponcode {
+    @extend strong;
+    color: $primary-color;
+  }
 }
