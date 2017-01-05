@@ -9,7 +9,7 @@ time: "11:10"
 time_slot: "11:10"
 duration: 45
 room: DAC Main Room
-moderator: Charlie Lloyd
+moderator: Charlie Loyd
 speakers:
   - Kevin Murphy
   - Christoph Aubrecht

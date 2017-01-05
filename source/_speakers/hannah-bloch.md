@@ -2,7 +2,7 @@
 title: Hannah Bloch
 company: NPR
 role: Digital Editor
-twitter: HannahBloch
+twitter: hannahbloch
 website: 
 avatar: hannah-bloch.jpg
 featured: true
