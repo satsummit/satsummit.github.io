@@ -54,7 +54,7 @@ layout: base
                         <header class="event__header">
                           <p class="event__suptitle"><span class="cat" title="{{ event.category }}">{{ event.category }}: </span>{{ event.type }}</p>
                           {% unless event.permalink == 'none' %}
-                          <h1 class="event__title">{{ event.title }}</h1>
+                          <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
                           {% else %}
                           <h1 class="event__title">{{ event.title }}</h1>
                           {% endunless %}
