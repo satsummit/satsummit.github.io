@@ -163,6 +163,7 @@ table {
   border-spacing: 0;
 }
 
+
 /* Misc
    ========================================================================== */
 
@@ -172,4 +173,29 @@ table {
 
 main {
   display: block;
+}
+
+
+/* Tags
+   ========================================================================== */
+
+.tag {
+  display: inline-block;
+  padding: ($global-spacing / 4) ($global-spacing / 2);
+  font-weight: $base-font-bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $base-border-radius / 2;
+}
+
+.tag--indark {
+  color: $primary-color;
+  background: rgba($primary-color, 0.16);
+}
+
+.tag--light {
+  color: #fff;
+  background: $primary-color;
 }
