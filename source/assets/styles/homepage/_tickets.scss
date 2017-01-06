@@ -16,9 +16,13 @@
       @include col(8/12, $offset: 2/12);
     }
   }
+}
 
-  .couponcode {
-    @extend strong;
-    color: $primary-color;
+.tickets-widget {
+  width: 100%;
+  min-height: 30rem;
+
+  @include media(small-up) {
+    min-height: 27rem;
   }
 }
