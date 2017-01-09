@@ -10,6 +10,10 @@ time_slot: "13:00"
 duration: 60
 room: Impact Hub DC
 speakers:
+  - Bryan Duncan
+  - Jamon Van Den Hoek
+  - Shay Strong
+  - Tim Wallace
 
 description: 
 ---
