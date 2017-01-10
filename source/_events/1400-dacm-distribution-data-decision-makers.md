@@ -14,7 +14,7 @@ speakers:
   - Camilla Mahon
   - Chris Brown
   - Jed Sundwall
-  - Jeremy Hale
+  - Rachel Peterson
 
 description: "How can satellite data providers make data available in ways that best fits development needs, and how can they improve distribution on a more impactful level."
 ---
