@@ -1,10 +1,10 @@
 ---
-title: Guarav Thapa
+title: Gaurav Thapa
 company: Kathmandu Living Labs
 role: Geography
 twitter: KTMLivingLabs
 website: 
-avatar: guarav-thapa.jpg
+avatar: gaurav-thapa.jpg
 featured:
 ---
 Gaurav Thapa completed his Honours Bachelor of Arts degree from University of Toronto, Canada and his Master’s of Applied Geography from New Mexico State University, USA. His thesis concerned the ‘Introduction of Bus Rapid Transit system in Kathmandu, Nepal’ using GIS and satellite imagery. In his capacity as a teaching assistant, Gaurav spent two years teaching undergraduate students in physical geography, cartography, GIS and remote sensing at New Mexico State University. 
