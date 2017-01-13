@@ -2,7 +2,7 @@
 permalink: none
 slug: goes-r-a-giant-leap-for-weather-forecasting
 
-title: GOES-R: A Giant Leap for Weather Forecasting
+title: "GOES-R: A Giant Leap for Weather Forecasting"
 type: Keynote
 category: State of Satellite Industry
 time: "10:00"
