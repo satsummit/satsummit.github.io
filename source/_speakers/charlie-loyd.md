@@ -2,7 +2,7 @@
 title: Charlie Loyd
 company: Mapbox
 role: Satellite, Aerial processing
-twitter: Mapbox
+twitter: vruba
 website: https://www.mapbox.com/
 avatar: charlie-loyd.jpg
 featured:
