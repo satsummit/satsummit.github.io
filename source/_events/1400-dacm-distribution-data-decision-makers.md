@@ -12,7 +12,6 @@ room: DAC Main Room
 moderator: Chris Brown
 speakers:
   - Camilla Mahon
-  - Chris Brown
   - Jed Sundwall
   - Rachael Petersen
 
