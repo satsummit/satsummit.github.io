@@ -13,6 +13,7 @@ moderator: Chris Brown
 speakers:
   - Camilla Mahon
   - Jed Sundwall
+  - Mike Collett
   - Rachael Petersen
 
 description: "How can satellite data providers make data available in ways that best fits development needs, and how can they improve distribution on a more impactful level."

@@ -12,8 +12,8 @@ room: DAC Main Room
 moderator: Robinson Meyer
 speakers:
   - Drew Bollinger
+  - Matt Chwastek
   - Sean Gorman
-  - James Crawford
 
 description: "As we build a vast archive of remote sensing data, how can we use smart machines to help us better understand our world, dig deeper, and react faster?"
 ---
