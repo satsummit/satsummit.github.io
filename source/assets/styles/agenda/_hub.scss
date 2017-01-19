@@ -26,6 +26,7 @@
   position: relative;
   padding: ($global-spacing * 1.5) $global-spacing ($global-spacing * 1.5) ($global-spacing * 2.5);
   box-shadow: inset 0 -2px 0 0 #fff;
+  width: 100%;
 
   .agenda-section--1e & {
     min-height: auto;
