@@ -65,7 +65,7 @@
     }
 
     .sponsor-group--supporting-sponsor & {
-      @include col(3/12, $cycle: 4);
+      @include col(4/12, $cycle: 3);
     }
     margin-bottom: $global-spacing * 2;
   }
