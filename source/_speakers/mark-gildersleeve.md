@@ -5,7 +5,7 @@ role: President, Business Solutions
 twitter: weathercompany
 website: 
 avatar: mark-gildersleeve.jpg
-featured:
+featured: true
 ---
 Mark Gildersleeve serves as president of business solutions at The Weather Company, an IBM Business. In this role, Gildersleeve oversees the business solutions division (previously known as Weather Services International (WSI)), which provides critical data-driven products and services to over 5,000 global clients in media, aviation, energy, insurance, retail, ground transportation and government sectors. The Weather Company also includes consumer brands, [The Weather Channel®](weather.com) and [Weather Underground](wunderground.com).
 
