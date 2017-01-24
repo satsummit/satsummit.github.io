@@ -18,4 +18,4 @@ speakers:
 
 description: "Applying data to make real change on the ground."
 ---
-Applying data to make real change on the ground.t status
+Applying data to make real change on the ground.

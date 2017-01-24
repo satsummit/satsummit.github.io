@@ -12,6 +12,7 @@ room: Impact Hub DC
 speakers:
   - Bryan Duncan
   - Jamon Van Den Hoek
+  - Lucio Torre
   - Shay Strong
   - Tim Wallace
 
