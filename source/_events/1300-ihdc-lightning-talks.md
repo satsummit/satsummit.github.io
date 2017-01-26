@@ -13,7 +13,7 @@ speakers:
   - Bryan Duncan
   - Jamon Van Den Hoek
   - Lucio Torre
-  - Shay Strong
+  - Dr Shay Strong
   - Tim Wallace
 
 description:
