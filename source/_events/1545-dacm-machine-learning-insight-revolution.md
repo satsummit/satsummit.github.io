@@ -13,7 +13,7 @@ moderator: Robinson Meyer
 speakers:
   - Drew Bollinger
   - Matt Chwastek
-  - Mohamed Ahmed 
+  - Dr Mohamed Ahmed 
   - Sean Gorman
 
 description: "As we build a vast archive of remote sensing data, how can we use smart machines to help us better understand our world, dig deeper, and react faster?"
