@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: This is another testdrive post
 type: White Paper
 summary: This is the post summary.

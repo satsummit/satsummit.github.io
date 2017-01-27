@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: This is yet another testdrive post
 type: Opinion
 summary: Nunc et suscipit lectus. Aliquam ullamcorper aliquet ligula non eleifend. Praesent laoreet arcu vel leo pulvinar posuere. Pellentesque et enim id leo ornare ullamcorper. Sed dignissim purus et erat viverra, et fringilla leo molestie.

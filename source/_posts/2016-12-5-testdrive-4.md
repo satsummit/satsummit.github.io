@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Lorem ipsum dolor sit amet
 type: Data analysis
 summary: This is the post summary.
