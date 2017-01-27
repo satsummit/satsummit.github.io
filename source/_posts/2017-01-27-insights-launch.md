@@ -9,7 +9,7 @@ author:
   url: 
 ---
 
-Welcome to SatSummit Insights -- a forum for the key recommendations and actions to come out of SatSummit. This space will provide recaps of the sessions and reflections from participants. 
+Welcome to SatSummit _Insights_ -- a forum for the key recommendations and actions to come out of SatSummit. This space will provide recaps of the sessions and reflections from participants. 
 
 A big focus of SatSummit is turning data into action. With that in mind, we'll look to capture specific actions and partnerships with the potential to advance social and environmental challenges. One part of this will be our list of announcements and commitments made around SatSummit.
 
