@@ -14,6 +14,7 @@ speakers:
  - Gaurav Thapa
  - Gustavo Faleiros
  - Lilian Pintea
+ - Lt Col Shulaxan Sharma
 
 description: "Applying data to make real change on the ground."
 ---

@@ -10,7 +10,7 @@ time_slot: "09:05"
 duration: 10
 room: DAC Main Room
 speakers:
-  - Mark Gildersleeve
+  - Mark Gildersleeve 
 
 description: "The recently launched GOES-R is able to relay more detailed and more frequent updates than ever before. Learn what this means for The Weather Company as it uses the data to create even more accurate forecasts that enable business and their customers to make informed decisions - and take action - in the fact of weather."
 ---
