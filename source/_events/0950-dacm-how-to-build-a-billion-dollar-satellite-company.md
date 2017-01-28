@@ -1,8 +1,9 @@
 ---
 permalink: none
-slug: how-i-made-1-billion-satellite
+slug: how-to-build-a-billion-dollar-satellite-company
 
-title: How I made $1 billion on a Satellite Company
+title: How to Build a Billion Dollar Satellite Company
+
 type: Keynote
 category: State of Satellite Industry
 time: "09:50"
