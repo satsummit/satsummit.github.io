@@ -2,7 +2,7 @@
 title: Lucio Torre
 company: Satellogic
 role: Vice President of Service Platform
-twitter: brunosan
+twitter:
 website: 
 avatar: lucio-torre.jpg
 featured:
