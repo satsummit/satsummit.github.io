@@ -148,7 +148,7 @@
 .fold__cta {
   @extend .button, .button--xlarge;
 
-   @include media(medium-up) {
+  @include media(medium-up) {
     min-width: 24rem;
   }
 }

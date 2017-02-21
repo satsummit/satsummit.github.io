@@ -28,8 +28,14 @@ use_excerpt: true
         <div class="fold">
           <div class="inner">
 
-            <div class="main-content prose prose--responsive">
-              {{ content }}
+            <div class="fold__body">
+              <div class="main-content prose prose--responsive">
+                {{ content }}
+              </div>
+
+              <div class="fold__footer fold__footer--actions">
+                <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/insights/" title="View all insights"><span>View all insights</span></a>
+              </div>
             </div>
 
           </div>
