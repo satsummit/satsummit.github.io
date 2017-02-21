@@ -37,7 +37,7 @@
   }
 
   &:last-child {
-    margin-bottom: - $global-spacing !important;
+    margin-bottom: -($global-spacing * 4) !important;
   }
 }
 
