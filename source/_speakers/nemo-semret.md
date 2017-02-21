@@ -6,6 +6,9 @@ twitter: nemozen
 website: https://gro-intelligence.com/
 avatar: nemo-semret.jpg
 featured:
+related_insights:
+- presentation-nemo
+
 ---
 Nemo joined Gro Intelligence after 8+ years in engineering at Google, where he first worked for several years in web search on ranking algorithms. He was then Tech Lead on Google’s Ad Exchange. He led the engineering team responsible for auction algorithms and mathematical optimization. Most recently, he was Tech Lead for Contributor by Google, a new product that he invented and led from a “20%” research project to a full product launch. Contributor is a new product that enables market-based micropayment for content, letting users pay instead of seeing ads. 
 
