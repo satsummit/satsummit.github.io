@@ -119,6 +119,12 @@
   @include button-variation("unbounded", null, $primary-color);
 }
 
+/* Negative Bounded */
+
+.button--negative-bounded {
+  @include button-variation("bounded", light, #fff);
+}
+
 
 /* Button size modifiers
    ========================================================================== */

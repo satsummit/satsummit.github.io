@@ -26,7 +26,7 @@ published: true
                   <div class="card__inner">
                     <header class="card__header">
                       <p class="card__suptitle">{{ post.type }}</p>
-                      <h1 class="card__title"><a href="{{ site.domain }}{{ site.path_prefix }}{{ post.url }}" title="Read more">{{ post.title }}</a></h1>
+                      <h1 class="card__title"><a href="{{ site.baseurl }}{{ post.url }}" title="Read more">{{ post.title }}</a></h1>
                       {% if post.author.url %}
                       <p class="card__detail">By <a href="{{ post.author.url }}" title="View author">{{ post.author.name }}</a> on <time datetime="{{post.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
                       {% else %}
@@ -43,7 +43,7 @@ published: true
                       </div>
                     </div>
                     <footer class="card__footer card__footer--actions">
-                      <a href="{{ site.domain }}{{ site.path_prefix }}{{ post.url }}" title="Read more" class="button-light-go">Read more</a>
+                      <a href="{{ site.baseurl }}{{ post.url }}" title="Read more" class="button-light-go">Read more</a>
                     </footer>
                   </div>
                 </article>

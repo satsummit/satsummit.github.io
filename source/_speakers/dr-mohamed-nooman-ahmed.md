@@ -1,5 +1,5 @@
 ---
-title: Dr Mohamed Nooman Ahmed
+title: Dr. Mohamed Nooman Ahmed
 company: IBM
 role: IBM Distinguished Engineer, CTO Cognitive Computing, Applied Research Manager
 twitter: mohamed_nooman

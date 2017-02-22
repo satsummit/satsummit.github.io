@@ -52,7 +52,7 @@
 
 .agenda-legend {
   background: #fff;
-  padding: $global-spacing / 2;
+  padding: $global-spacing;
   border-radius: ($base-border-radius / 2) ($base-border-radius / 2) 0 0;
 }
 
@@ -60,30 +60,54 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  text-align: center;
+  word-spacing: -0.26rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+
+  @include media(large-up) {
+    text-align: center;
+  }
 }
 
 .agenda-legend__item {
   position: relative;
-  display: inline-block;
-  padding: ($global-spacing / 4) ($global-spacing) ($global-spacing / 4) ($global-spacing * 1.75);
-  margin: ($global-spacing / 4) ($global-spacing / 2);
+  display: block;
+  padding-left: $global-spacing * 1.25;
   border-radius: $full-border-radius;
   color: $base-color;
   background: #fff;
   vertical-align: top;
   font-weight: $base-font-medium;
+  word-spacing: normal;
+  margin-top: 0.25rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   &::before {
     position: absolute;
-    top: 50%;
-    left: 0.5rem;
+    top: 0.125rem;
+    left: 0;
     content: '';
     height: 0.75rem;
     width: 0.75rem;
     border-radius: $full-border-radius;
     background: $base-color;
-    transform: translate(0, -50%);
+  }
+
+  @include media(small-up) {
+    display: inline-block;
+    width: 49.9%;
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+
+  @include media(large-up) {
+    width: auto;
+    margin: 0 $global-spacing;
   }
 }
 

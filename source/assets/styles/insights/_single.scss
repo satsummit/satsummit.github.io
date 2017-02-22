@@ -9,10 +9,6 @@
     margin-bottom: 0;
   }
 
-  a {
-    @extend .link, .link--indark;
-  }
-
   @include media(medium-up) {
     @include col(10/12, $offset: 1/12);
   }

@@ -1,7 +1,7 @@
 ---
 published: true
 title: SatSummit Insights
-type: Update
+type: Announcements
 summary:
 
 author:

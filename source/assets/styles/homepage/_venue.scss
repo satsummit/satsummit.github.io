@@ -70,7 +70,7 @@
     margin: 0;
     color: $primary-color;
     letter-spacing: 0.25em;
-    margin-bottom: 0;
+    margin-bottom: $global-spacing / 4;
 
     @include media(medium-up) {
       font-size: 0.875rem;
