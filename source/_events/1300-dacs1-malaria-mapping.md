@@ -8,8 +8,6 @@ category:
 time: "13:00"
 time_slot: "13:00"
 duration: 60
-room: DAC SALLE 1
-moderator: USAID Global Development Lab & Mapbox
-
-description: ""
+room: DAC Salle 1
+speakers: USAID Global Development Lab & Mapbox
 ---

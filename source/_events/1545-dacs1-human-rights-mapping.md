@@ -8,8 +8,6 @@ category:
 time: "15:45"
 time_slot: "15:45"
 duration: 60
-room: DAC SALLE 1
-moderator: Oregon State University
-
-description: ""
+room: DAC Salle 1
+speakers: Oregon State University
 ---
