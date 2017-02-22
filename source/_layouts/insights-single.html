@@ -11,7 +11,7 @@ use_excerpt: true
       <header class="inpage__header">
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
-            <p class="inpage__suptitle"><a href="{{ site.domain }}{{ site.path_prefix }}/insights/" title="View all insights">Insights</a> <small>/</small> {{ page.type }}</p>
+            <p class="inpage__suptitle"><a href="{{ site.baseurl }}/insights/" title="View all insights">Insights</a> <small>/</small> {{ page.type }}</p>
             <h1 class="inpage__title">{{ page.title }}</h1>
             <div class="inpage__detail">
               {% if page.author.url %}
@@ -21,6 +21,11 @@ use_excerpt: true
               {% endif %}
             </div>
           </div>
+          {% if page.presentation %}
+          <div class="inpage__actions">
+          <a class="inpage-action-download" href="{{ site.baseurl }}/assets/downloads/presentations/{{ page.presentation }}" title="Download presentation"><span>Download</span></a>
+          </div>
+          {% endif %}
         </div>
       </header>
       <div class="inpage__body">

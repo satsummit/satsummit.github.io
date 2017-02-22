@@ -17,36 +17,3 @@
     @include col(8/12, $offset: 2/12);
   }
 }
-
-.download-wrapper {
-  clear: both;
-  text-align: center;
-
-  > * {
-    margin-top: $global-spacing * 2;
-    transform: skewY(-5deg);
-    transform-origin: left bottom;
-  }
-
-  > *:active {
-    transform: skewY(-5deg) translate(0, 1px);
-  }
-
-  &:last-child {
-    margin-bottom: -($global-spacing * 4) !important;
-  }
-}
-
-.insight--single .prose {
-  .download-button {
-    @extend .button, .button--negative-bounded, .button--xlarge;
-
-    &::before {
-      @extend %collecticon-download;
-    }
-
-    @include media(medium-up) {
-      min-width: 24rem;
-    }
-  }
-}

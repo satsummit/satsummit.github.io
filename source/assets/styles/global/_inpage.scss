@@ -217,16 +217,21 @@ $page-header-y-large-up: 6rem;
   }
 }
 
-.inpage-speaker-twitter-button {
+.inpage-action-twitter,
+.inpage-action-download {
   @extend .button, .button--achromic, .button--medium;
   vertical-align: bottom;
-
-  &::before {
-    @extend %collecticon-twitter;
-  }
 
   @include media(medium-up) {
     min-width: 16rem;
     padding: $global-spacing / 2;
   }
+}
+
+.inpage-action-twitter:before {
+  @extend %collecticon-twitter;
+}
+
+.inpage-action-download:before {
+  @extend %collecticon-download;
 }
