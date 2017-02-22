@@ -9,10 +9,6 @@
     margin-bottom: 0;
   }
 
-  a:not(.button) {
-    @extend .link, .link--indark;
-  }
-
   @include media(medium-up) {
     @include col(10/12, $offset: 1/12);
   }
@@ -41,14 +37,16 @@
   }
 }
 
-.download-button {
-  @extend .button, .button--negative-bounded, .button--xlarge;
+.insight--single .prose {
+  .download-button {
+    @extend .button, .button--negative-bounded, .button--xlarge;
 
-  &::before {
-    @extend %collecticon-download;
-  }
+    &::before {
+      @extend %collecticon-download;
+    }
 
-  @include media(medium-up) {
-    min-width: 24rem;
+    @include media(medium-up) {
+      min-width: 24rem;
+    }
   }
 }
