@@ -3,7 +3,7 @@ published: true
 title: Nemo Semret, CTO, Gro Intelligence
 type: Presentations
 summary:
-uid: presentation-nemo
+uid: presentation-nemo-semret
 
 author:
   name: Laura Gillen

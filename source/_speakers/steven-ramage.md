@@ -6,6 +6,8 @@ twitter: steven_ramage
 website: 
 avatar: steven-ramage.jpg
 featured:
+related_insights:
+  - presentation-steven-ramage
 ---
 Steven Ramage leads global stakeholder engagement and external relations for the intergovernmental Group on Earth Observations (GEO) based in Geneva. During his career Steven has successfully completed a management buyout for a company focusing on geospatial data integration, been responsible for communications at a global open standards body, created a consulting business for the British Government which he ran as Managing Director for several years, and was on the Board and subsequently Director of Strategy for a London startup - all in the spatial domain. 
 

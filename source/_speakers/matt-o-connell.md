@@ -6,6 +6,8 @@ twitter:
 website: 
 avatar: matt-o-connell.jpg
 featured: true
+related_insights:
+  - presentation-matt-o-connell
 ---
 Matt O'Connell currently servces as President of MOC Partners. He has extensive consulting experience in telecommunications, digital mapping and location technology, operations strategy, project management, finance and venture capital. 
 
