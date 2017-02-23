@@ -1,6 +1,6 @@
 ---
 published: true
-title: SatSummit Recap
+title: My First SatSummit Experience 
 type: Announcements
 summary:
 
@@ -19,7 +19,10 @@ First up was Carissa Christensen from the Space and Technology Practice at Tauri
 
 Kevin Bullock from DigitalGlobe was the first of the major commercial satellite constellation owners to speak and he entertained us with several references to physics and explaining the increase in the amount of high resolution imagery available from the DigitalGlobe constellation following the launch of WorldView-4. He also announced opendata.digitalglobe.com, which I hope will be brokered via geoportal.org. The best image of the day also goes to Kevin for his slide showing #WV4 launching from Vandenberg AFB captured by #WV2.
 
-
+<figure class="align-center">
+  <img src="/assets/graphics/content/kevin bullock_ramage.png" />
+   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+</figure>
 
 The next presenter was someone I had heard about, but never met, and again a very good presenter who talked about some of the real challenges in international development and disaster response, which could be helped by the technology and solutions provided by his organisation, Planet. Andrew Zolli leads global impact initiatives at Planet and spoke about their work around the world, which is indeed making an impact. I don’t remember him mentioning it, but shortly after his session there was a public announcement about Planet acquiring Terra Bella from Google.
 
@@ -31,9 +34,15 @@ Next up was Mark Gildersleeve from The Weather Company, part of IBM. He spoke ex
 
 Bronwyn Agrios from Astro Digital then talked about building a platform for satellite data and about how satellites will continue to create an overwhelming amount of raw data. She explained the platform Astro Digital has been focussing on the importance of good UI design and APIs, notably the concept of #fatdata – every pixel contains lots of information – big data and metadata. 
 
+<figure class="align-center">
+  <img src="/assets/graphics/content/fat data_ramage.png" />
+   <figcaption>Bronwyn Agrios speaking on fat data</figcaption>
+</figure>
 
-
-
+<figure class="align-center">
+  <img src="/assets/graphics/content/put an api on it_ramage.png" />
+   <figcaption>Bronwyn Agrios telling folks to "put an API on it."</figcaption>
+</figure>
 
 One of the great things about SatSummit was the cross section of industry organisations involved in the space sector. Tahara Dawkins who is responsible for commercial remote sensing in the Regulatory Affairs Office of NOAA spoke about government challenges in this area and how they are working to keep pace with technology and make it possible for industry to work effectively with them. 
 
