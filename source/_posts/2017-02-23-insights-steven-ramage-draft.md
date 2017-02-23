@@ -9,11 +9,16 @@ author:
   url:
 ---
 
-I attended my first SatSummit in Washington DC a few weeks ago and it was only the second ever SatSummit. It was fabulous. Open. Engaging. Informative. Diverse. I had the privilege of sitting on a panel with ESA, NASA and the CEO of Radiant, an organisation being set up by Omidyar and the Gates Foundation to talk about open data and government, but more about that later. 
+I attended my first SatSummit in Washington, D.C. a few weeks ago and it was only the second ever SatSummit. It was fabulous. Open. Engaging. Informative. Diverse. I had the privilege of sitting on a panel with ESA, NASA and the CEO of Radiant, an organisation being set up by Omidyar and the Gates Foundation to talk about open data and government, but more about that later. 
 
 The event was made possible by a number of sponsors and as the CEO of one of them, Mapbox, Eric Gundersen gave a heart-warming intro with one caveat, “no bullshit”. I quite like this since he is running a software company and not once did he pitch his wares. 
 
 Our MC, and overall event organiser and good fellow, was Ian Schuler, CEO of Development Seed (also the person who kindly invited me to participate). 
+
+<figure class="align-center">
+  <img src="/assets/graphics/content/32308276410_5a75e637a2_o.jpg" />
+   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+</figure>
 
 First up was Carissa Christensen from the Space and Technology Practice at Tauri Group, who provided insight and numerous stats regarding the state of the satellite industry. I would recommend visiting the Tauri Group website if you want to learn more about the satellite aspects of global Earth observations. 
 
