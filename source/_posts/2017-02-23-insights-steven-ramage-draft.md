@@ -16,8 +16,7 @@ The event was made possible by a number of sponsors and as the CEO of one of the
 Our MC, and overall event organiser and good fellow, was Ian Schuler, CEO of Development Seed (also the person who kindly invited me to participate). 
 
 <figure class="align-center">
-  <img src="/assets/graphics/content/32308276410_5a75e637a2_o.jpg" />
-   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+  <img src="/assets/graphics/content/satsummit-attendees.jpg" />
 </figure>
 
 First up was Carissa Christensen from the Space and Technology Practice at Tauri Group, who provided insight and numerous stats regarding the state of the satellite industry. I would recommend visiting the Tauri Group website if you want to learn more about the satellite aspects of global Earth observations. 
@@ -25,8 +24,8 @@ First up was Carissa Christensen from the Space and Technology Practice at Tauri
 Kevin Bullock from DigitalGlobe was the first of the major commercial satellite constellation owners to speak and he entertained us with several references to physics and explaining the increase in the amount of high resolution imagery available from the DigitalGlobe constellation following the launch of WorldView-4. He also announced opendata.digitalglobe.com, which I hope will be brokered via geoportal.org. The best image of the day also goes to Kevin for his slide showing #WV4 launching from Vandenberg AFB captured by #WV2.
 
 <figure class="align-center">
-  <img src="/assets/graphics/content/kevin bullock_ramage.png" />
-   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+  <img src="/assets/graphics/content/kevin-bullock-ramage.jpg" />
+   <figcaption>Kevin Bullock's slide on #WV4 launch</figcaption>
 </figure>
 
 The next presenter was someone I had heard about, but never met, and again a very good presenter who talked about some of the real challenges in international development and disaster response, which could be helped by the technology and solutions provided by his organisation, Planet. Andrew Zolli leads global impact initiatives at Planet and spoke about their work around the world, which is indeed making an impact. I don’t remember him mentioning it, but shortly after his session there was a public announcement about Planet acquiring Terra Bella from Google.
@@ -37,16 +36,16 @@ Back to SatSummit.  Melanie Preisser from Vulcan Aerospace, the first of numerou
 
 Next up was Mark Gildersleeve from The Weather Company, part of IBM. He spoke extensively about the recently launched GOES-R [Geostationary Operational Environmental Satellite-R Series] and lauded the efforts of the National Oceanic and Atmospheric Administration (NOAA).  GOES-R series data will be used in real time for critical weather forecasting and warning applications, which is invaluable for Weather Company customers and others.
 
+<figure class="align-center">
+  <img src="/assets/graphics/content/api-ramage.jpg" />
+   <figcaption>Bronwyn Agrios telling folks to "put an API on it."</figcaption>
+</figure>
+
 Bronwyn Agrios from Astro Digital then talked about building a platform for satellite data and about how satellites will continue to create an overwhelming amount of raw data. She explained the platform Astro Digital has been focussing on the importance of good UI design and APIs, notably the concept of #fatdata – every pixel contains lots of information – big data and metadata. 
 
 <figure class="align-center">
-  <img src="/assets/graphics/content/fat data_ramage.png" />
-   <figcaption>Bronwyn Agrios speaking on fat data</figcaption>
-</figure>
-
-<figure class="align-center">
-  <img src="/assets/graphics/content/put an api on it_ramage.png" />
-   <figcaption>Bronwyn Agrios telling folks to "put an API on it."</figcaption>
+  <img src="/assets/graphics/content/fat-data-ramage.jpg" />
+   <figcaption>Bronwyn Agrios speaking on #fatdata</figcaption>
 </figure>
 
 One of the great things about SatSummit was the cross section of industry organisations involved in the space sector. Tahara Dawkins who is responsible for commercial remote sensing in the Regulatory Affairs Office of NOAA spoke about government challenges in this area and how they are working to keep pace with technology and make it possible for industry to work effectively with them. 
@@ -56,8 +55,8 @@ Also representing government was Ambassador Mark Brzezinski formerly with the Ar
 The penultimate note, from my perspective, because I had to fly back to Geneva for a meeting the same day, was the panel that I sat on with ESA, NASA and Radiant.  
 
 <figure class="align-center">
-  <img src="/assets/graphics/content/32687255185_41d094a8df_o.jpg" />
-   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+  <img src="/assets/graphics/content/open-data-ramage.jpg" />
+   <figcaption>Open Data Roundtable</figcaption>
 </figure>
 
 NASA, ESA, JAXA and other space agencies produce a great deal of open data. It is possible that many people in the international development community are unaware of all the great data that is actually available.  I mentioned that geoportal.org also brokers all the satellite imagery, as well as other Earth observations since GEO provides EO data in, on and around the Earth. 
