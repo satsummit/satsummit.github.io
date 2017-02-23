@@ -55,6 +55,11 @@ Also representing government was Ambassador Mark Brzezinski formerly with the Ar
 
 The penultimate note, from my perspective, because I had to fly back to Geneva for a meeting the same day, was the panel that I sat on with ESA, NASA and Radiant.  
 
+<figure class="align-center">
+  <img src="/assets/graphics/content/32687255185_41d094a8df_o.jpg" />
+   <figcaption>Kevin Bullock's slide on #WV4 launch.</figcaption>
+</figure>
+
 NASA, ESA, JAXA and other space agencies produce a great deal of open data. It is possible that many people in the international development community are unaware of all the great data that is actually available.  I mentioned that geoportal.org also brokers all the satellite imagery, as well as other Earth observations since GEO provides EO data in, on and around the Earth. 
 
 One goal of this panel was to highlight what open data and services are available that are relevant to social and environmental work. A second goal was to understand how NASA and ESA can better serve the needs of the global development community, i.e. make their data discoverable, accessible and usable. Finally, there was a goal to understand the new initiative being led by Anne Miglarese to provide open imagery to the development community. 
