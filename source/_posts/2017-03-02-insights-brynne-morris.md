@@ -1,21 +1,13 @@
 ---
-layout: blog
-category: blog
-tags:
-  - Brynne Morris
-
 published: true
-title: "Welcoming Diversity to the Industry"
-introduction: Diverse set of experts set the tone for SatSummit
-theme: negative
+title: Welcoming Diversity to the Industry
+type: Announcements
+summary: 
 
-media:
-  card:
-    url:
-  cover:
-    url: 
-
----
+author:
+  name: Brynne Morris
+  url:
+--- 
 
 SatSummit 2017 fell just days after President Trump announced his travel and immigration ban. As Eric Gundersen, CEO of Mapbox, kicked off SatSummit 2017 he acknowledged that the ban was not far from anyone’s minds. He encouraged the crowd to feel comfortable with the fact that we are living in strange times, and that he hoped this conference would affirm that just as there is a diversity in satellites and the way they are used, there is diversity in the teams that make this industry possible.
 
