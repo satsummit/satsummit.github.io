@@ -9,7 +9,7 @@ author:
   url:
 ---
 
-SatSummit is committed to helping the community by getting good people to the right opportunities. We'll update this thread with job opportunities we think fit within the space. If you'd like us to post something, please send your request to: info@satsummit.io
+SatSummit is committed to helping the community by getting good people to the right opportunities. We'll update this thread with job opportunities we think fit within the space. If you'd like us to post something, please send your request to: [info@satsummit.io](mailto:info@satsummit.io)
 
 __Updated March 17, 2017__
 
@@ -25,7 +25,7 @@ Azavea
 - The Azavea [Fellowship Program](https://fellowship.azavea.com/#/about) is 12 weeks long (aligned with Summer of Maps) and matches software engineering fellows to open source projects at Azavea. Prospective fellows do not need to be in a Geography, GIS, or computer science program in order to apply, but will need to have strong software engineering skills. The application period closes April 14 at 11:30pm ET. Know any strong candidates?
 
 Radiant
-- [Radiant](http://radiant.earth/) provides a geospatial and imagery technology platform that supports knowledge transfer to positively impact the developing world’s greatest social, economic and environmental challenges. They launched in August 2016 and are looking to hire and build their team in a number of areas. Inquiries should be sent to: jobs@radiant.earth
+- [Radiant](http://radiant.earth/) provides a geospatial and imagery technology platform that supports knowledge transfer to positively impact the developing world’s greatest social, economic and environmental challenges. They launched in August 2016 and are looking to hire and build their team in a number of areas. Inquiries should be sent to: [jobs@radiant.earth](mailto:jobs@radiant.earth)
 
 Planet
 - Planet's Impact team is focused on understanding the ultimate social, ecological and humanitarian outcomes from the use of their data, and oversees Planet’s Disaster Response procedures. Currently the Impact team has three impact-related [internships]((https://www.planet.com/company/careers/)) open in disaster response, academic programs, and impact analysis . There are a number of other opportunities available on their [careers page](https://www.planet.com/company/careers/).
