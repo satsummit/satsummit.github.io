@@ -138,10 +138,28 @@
    ========================================================================== */
 
 .card--inlight {
-
   .card__inner {
     &::before {
       box-shadow: inset 0 0 0 3px $base-color;
+    }
+  }
+}
+
+
+.card--sticky {
+  .card__inner::before {
+    box-shadow: inset 0 0 0 3px $primary-color;
+  }
+
+  .card__inner::after {
+    @extend %collecticon-star-full;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    color: $primary-color;
+    z-index: 10;
+
+    @include media(medium-up) {
     }
   }
 }
