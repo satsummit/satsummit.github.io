@@ -20,6 +20,6 @@ Groups like Nemo Semret's are starting to fill in the gaps with tools targeted a
 As Planet and soon, Astro Digital, add capacity, they're realizing they can't just build it; there exists the need to build capacity to analyze and apply geospatial data in the development sector. While there is still a disconnect between the enormous potential for improved satellite data to help achieve sustainable development objectives and humanitarian organizations’ ability to use the data in practice, pioneering applications are beginning to break down those barriers and lead to new solutions.
 
 In order to tighten the feedback loop and broaden reach, it's critical for these new efforts to apply satellite data by:
-- getting the application right. Tools need to go beyond a general index and offer timely operational data in a manner that decision-makers can access and understand.
-- getting the licensing right. Development organizations themselves aren't often the end recipients for the data. They need to be able to share data with local partners and often have a strong preference for data that can be open for broader civil society use.
-- getting the market right. Yet they need to find a sustainable business approach to provide this value added data in a manner that generates enough value to drive revenue or donor support.
+- Getting the application right. Tools need to go beyond a general index and offer timely operational data in a manner that decision-makers can access and understand.
+- Getting the licensing right. Development organizations themselves aren't often the end recipients for the data. They need to be able to share data with local partners and often have a strong preference for data that can be open for broader civil society use.
+- Getting the market right. Yet they need to find a sustainable business approach to provide this value added data in a manner that generates enough value to drive revenue or donor support.
