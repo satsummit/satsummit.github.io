@@ -1,0 +1,29 @@
+{% if include.post.sticky == true %}
+<article class="card card--sticky insight insight--short">
+{% else %}
+<article class="card insight insight--short">
+{% endif %}
+  <div class="card__inner">
+    <header class="card__header">
+      <p class="card__suptitle">{{ include.post.type }}</p>
+      <h1 class="card__title"><a href="{{ site.baseurl }}{{ include.post.url }}" title="Read more">{{ include.post.title }}</a></h1>
+      {% if include.post.author.url %}
+      <p class="card__detail">By <a href="{{ include.post.author.url }}" title="View author">{{ include.post.author.name }}</a> on <time datetime="{{include.post.date | date:'%Y-%m-%d'}}" pubdate>{{ page.date | date:'%b %d, %Y' }}</time></p>
+      {% else %}
+      <p class="card__detail">By {{ include.post.author.name }} on <time datetime="{{include.post.date | date:'%Y-%m-%d'}}" pubdate>{{ include.post.date | date:'%b %d, %Y' }}</time></p>
+      {% endif %}
+    </header>
+    <div class="card__body">
+      <div class="card__prose">
+        {% if include.post.summary %}
+          <p>{{ include.post.summary }}</p>
+        {% else %}
+          <p>{{ include.post.content | strip_html | truncatewords: 24 }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <footer class="card__footer card__footer--actions">
+      <a href="{{ site.baseurl }}{{ include.post.url }}" title="Read more" class="button-light-go">Read more</a>
+    </footer>
+  </div>
+</article>
