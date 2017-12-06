@@ -1,4 +1,4 @@
-# Satsummit (2017)
+# SatSummit (2018)
 
 Website for SatSummit, a one day of presentations and discussions about satellite imagery and data processing capabilities that brings together the satellite industry and the global development leaders.
 
