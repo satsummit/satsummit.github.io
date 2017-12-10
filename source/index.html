@@ -11,8 +11,8 @@ layout: base
         <div class="inner">
           <div class="inpage__headline" data-hook="nav-offset">
             <h1 class="inpage__title">SatSummit</h1>
-            <p class="inpage__details"><time datetime="{{ site.event_date }}">{{ site.event_date | date: "%b %d" }}</time> &bullet; Washington DC</p>
-            <p class="inpage__introduction">Satellite data for global development</p>
+            <p class="inpage__details"><time datetime="{{ site.event_date }}">Fall 2018</time> &bullet; Washington DC</p>
+            <p class="inpage__introduction">Details coming soon.</p>
           </div>
         </div>
         <figure class="hero-media">
@@ -31,9 +31,6 @@ layout: base
             <div class="fold__body">
               <div class="prose prose--responsive">
                 <p>SatSummit convenes leaders in the satellite industry and experts in global development for in-depth conversations on solving the world's most critical development challenges with satellite data. From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.</p>
-
-                <p>SatSummit is committed to exploring the current state of satellite data capabilities and new systems. Our second SatSummit explored the topics ranging from machine learning to automated monitoring to identifying specific opportunities for partnership and innovation. Read more about the presentations, program launches and commitments, and news related to SatSummit on our <a href="https://satsummit.io/insights/">Insights blog</a>, and stay tuned for more information on SatSummit 3!</p>
-                <hr />
                 <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Hi SatSummit!">info@satsummit.io</a>.</p>
               </div>
             </div>
@@ -43,72 +40,6 @@ layout: base
           </div>
         </section>
         <!--/ Fold: About -->
-
-        <!-- Fold: Speakers -->
-        <section class="fold fold--light" id="speakers">
-          <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Speakers</h1>
-            </header>
-            <div class="fold__body">
-              <ol class="speaker-list speaker-list--featured">
-                {% for speaker in site.speakers %}
-                {% if speaker.featured == true %}
-                <li class="speaker-list__item">
-                  <article class="card card--inlight speaker--short">
-                    <div class="card__inner">
-                      <header class="card__header">
-                        <figure class="card__avatar speaker__avatar">
-                          <a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">
-                            {% if speaker.avatar %}
-                            <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
-                            {% else %}
-                            <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-                            {% endif %}
-                          </a>
-                        </figure>
-                        <h1 class="card__title"><a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
-                        <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
-                      </header>
-                      <footer class="card__footer card__footer--actions">
-                        <a class="button-dark-go" href="{{ site.baseurl }}{{ speaker.url }}" title="View speaker profile">View profile</a>
-                      </footer>
-                    </div>
-                  </article>
-                </li>
-                {% endif %}
-                {% endfor %}
-              </ol>
-            </div>
-            <footer class="fold__footer fold__footer--actions">
-              <a class="fold__cta fold__cta--dark fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all</span></a>
-            </footer>
-          </div>
-        </section>
-        <!--/ Fold: Speakers -->
-
-        <!-- Fold: Venue -->
-        <section class="fold" id="venue">
-          <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Venue</h1>
-            </header>
-            <div class="fold__body">
-              <div class="prose prose--responsive">
-                <dl class="venue-list">
-                  <dt>Main venue</dt>
-                  <dd><strong><a href="http://www.aiadc.com/dac" title="Visit page">District Architecture Center</a></strong> 421 7th St NW,  Washington, DC 20004</dd>
-                  <dt>Secondary venue</dt>
-                  <dd><strong><a href="https://washington.impacthub.net/" title="Visit page">Impact Hub DC</a></strong> 419 7th St NW, Washington, DC 20004</dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div class="map-container">
-            <div id="map"></div>
-          </div>
-        </section>
-        <!--/ Fold: Venue -->
 
         {% include code-of-conduct-fold.html %}
         {% include sponsors-fold.html %}
