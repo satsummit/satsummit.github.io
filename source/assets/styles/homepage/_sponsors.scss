@@ -46,28 +46,23 @@
 
 .sponsor-list {
   @extend .clearfix;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: (-$global-spacing) 0;
+
+  @include media(medium-up) {
+    margin: (-$global-spacing * 2) 0;
+  }
 }
 
 .sponsor-list__item {
-  @include col(12/12);
-  margin-bottom: $global-spacing * 2.5;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  margin: $global-spacing;
 
   @include media(medium-up) {
-    .sponsor-group--lead-sponsor & {
-      @include col(4/12, $cycle: 3);
-    }
-
-    .sponsor-group--supporting-sponsor & {
-      @include col(4/12, $cycle: 3);
-    }
-    margin-bottom: $global-spacing * 2;
+    margin: $global-spacing * 2;
   }
 }
 
