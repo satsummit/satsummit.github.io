@@ -12,7 +12,7 @@
   },
   "license": "BSD 3-Clause",
   "bugs": {
-    "url": "https://github.com/hotosm/oam-docs/issues"
+    "url": "https://github.com/developmentseed/satsummit/issues"
   },
   "homepage": "http://satsummit.io/",
   "main": "assets/scripts",
