@@ -1,7 +1,7 @@
 {% if page.title %}
-  {% capture meta_title %}{{ page.title }} — #SatSummit {{ site.event_date | date: "%Y" }}{% endcapture %}
+  {% capture meta_title %}{{ page.title }} — #SatSummit{% endcapture %}
 {% else %}
-  {% capture meta_title %}#SatSummit {{ site.event_date | date: "%Y" }}{% endcapture %}
+  {% capture meta_title %}#SatSummit{% endcapture %}
 {% endif %}
 
 {% if page.summary %}
@@ -36,7 +36,7 @@
 <!--/ Twitter --> 
 
 <!-- OG -->
-<meta property="og:site_name" content="#SatSummit {{ site.event_date | date: '%Y' }}" />
+<meta property="og:site_name" content="#SatSummit" />
 <meta property="og:title" content="{{ meta_title }}" />
 <meta property="og:url" content="{{ site.baseurl }}{{ page.url | remove:'index.html' }}" />
 <meta property="og:type" content="website" />
