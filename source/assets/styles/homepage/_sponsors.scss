@@ -3,7 +3,6 @@
    ========================================================================== */
 
 #sponsors {
-  text-align: center;
 
   .prose {
     @include col(12/12);
@@ -30,7 +29,7 @@
     font-size: 0.875rem;
     line-height: 1rem;
     margin-bottom: $global-spacing * 2;
-    color: $primary-color;
+    color: $primary-link-color;
     letter-spacing: 0.25em;
 
     @include media(medium-up) {

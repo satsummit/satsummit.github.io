@@ -2,26 +2,18 @@
    Buttons
    ========================================================================== */
 
-.button {
+.button, .button:visited {
   @include user-select(none);
-  display: inline-block;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
   line-height: 1.5rem;
   font-size: 1rem;
-  padding: 0.25rem 0.75rem;
-  min-width: 2rem;
-  background: none; 
-  text-shadow: none;
-  border: 0;
-  border-radius: $base-border-radius / 2;
+  padding: 0.5rem 1.2rem;
+  border: 4px solid $primary-link-color;
   cursor: pointer;
   font-family: $heading-font-family;
-  font-weight: $heading-font-bold;
+  font-weight: $heading-font-medium;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: none;
+  color: $primary-link-color;
+  display: inline-block;
 
   /* States */
 
@@ -67,6 +59,13 @@
   transition: background-color 0.24s ease 0s;
 }
 
+.fold {
+  .button {
+    margin-top: 1em;
+    font-size: 1.15rem;
+  }
+}
+
 
 /* Button color modifiers
    ========================================================================== */
@@ -104,19 +103,19 @@
 /* Primary */
 
 .button--primary {
-  @include button-variation("filled", "dark", $primary-color);
+  @include button-variation("filled", "dark", $primary-link-color);
 }
 
 /* Primary Bounded */
 
 .button--primary-bounded {
-  @include button-variation("bounded", null, $primary-color);
+  @include button-variation("bounded", null, $primary-link-color);
 }
 
 /* Primary Unbounded */
 
 .button--primary-unbounded {
-  @include button-variation("unbounded", null, $primary-color);
+  @include button-variation("unbounded", null, $primary-link-color);
 }
 
 /* Negative Bounded */
@@ -214,54 +213,5 @@
     display: block;
     position: relative;
     margin: 0;
-  }
-}
-
-/* Horizontal */
-
-.button-group--horizontal {
-  > .button {
-    float: left;
-  }
-  > .button:first-child:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  > .button:last-child:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  > .button:not(:first-child):not(:last-child) {
-    border-radius: 0;
-  }
-  > .button + .button {
-    margin-left: -2px;
-  }
-}
-
-/* Vertical */
-
-.button-group--vertical {
-  > .button {
-    clear: both;
-    width: 100%;
-    border-radius: $base-border-radius;
-    &:hover {
-      z-index: 2;
-    }
-  }
-  > .button:first-child:not(:last-child) {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  > .button:last-child:not(:first-child) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-  > .button:not(:first-child):not(:last-child) {
-    border-radius: 0;
-  }
-  > .button + .button {
-    margin-top: -2px;
   }
 }

@@ -8,76 +8,93 @@ layout: base
     <!-- inPage -->
     <section class="inpage inpage--homepage">
       <header class="inpage__header">
-        <div class="inner">
-          <div class="inpage__headline" data-hook="nav-offset">
-            <h1 class="inpage__title">SatSummit</h1>
-            <p class="inpage__details"><time datetime="{{ site.event_date }}">{{ site.event_date | date: "%b %d" }}</time> &bullet; Washington DC</p>
-            <p class="inpage__introduction">Satellite data for global development</p>
-          </div>
+        <div class="fade"></div>
+          <div class="inner">
+            <div class="inpage__headline clearfix" data-hook="nav-offset">
+              <img class="logo-symbol logo-symbol--neg" src="{{ site.baseurl }}/assets/graphics/layout/satsummit-logo-symbol-neg.svg" width="256" height="160" alt="#SatSummit symbol - negative" />
+
+              <div class='header--metadata'>
+                <span>September 19 & 20</span><span>Washington, DC</span>
+              </div>
+              <h1 class="inpage__title">SatSummit 2018</h1>
+              <span class="inpage__introduction">Satellite data for global development</span>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="{{ site.baseurl }}/#about" title="View section" class="global-menu__link">About</a></li>
+                <li><a href="{{ site.baseurl }}/#propsals" title="View section" class="global-menu__link">Call for Proposals</a></li>
+                <li><a href="{{ site.baseurl }}/#sponsors" title="View section" class="global-menu__link">Sponsors</a></li>
+                <li><a href="{{ site.baseurl }}/#speakers" title="View section" class="global-menu__link">Past Speakers</a></li>
+                <li><a href="{{ site.baseurl }}/#tickets" title="View section" class="button">Get Tickets</a></li>
+              </ul>
+            </nav>
+
         </div>
-        <figure class="hero-media">
-          <img src="{{ site.baseurl }}/assets/graphics/layout/intro-hero-01a.jpg" width="1920" height="960" alt="Hero image" />
-          <figcaption>Image by <a href="http://earthobservatory.nasa.gov/IOTD/view.php?id=88687" title="View image">The Earth Observatory</a></figcaption>
-        </figure>
       </header>
       <div class="inpage__body">
 
         <!-- Fold: About -->
-        <section class="fold" id="about">
+        <section class="fold fold--about" id="about">
           <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">About</h1>
-            </header>
+            <img class="img-bg" src="{{ site.baseurl }}/assets/graphics/layout/conference-photo4.jpg" width="503" height="362" alt="Satsummit speaker" />
             <div class="fold__body">
-              <div class="prose prose--responsive">
-                <p>SatSummit convenes leaders in the satellite industry and experts in global development for in-depth conversations on solving the world's most critical development challenges with satellite data. From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.</p>
+              <h2 class="fold__title">About</h2>
+              <p>SatSummit convenes leaders in the satellite industry and experts in global development for in-depth conversations on solving the world's most critical development challenges with satellite data. From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.</p>
 
-                <p>SatSummit is committed to exploring the current state of satellite data capabilities and new systems. Our second SatSummit explored the topics ranging from machine learning to automated monitoring to identifying specific opportunities for partnership and innovation. Read more about the presentations, program launches and commitments, and news related to SatSummit on our <a href="https://satsummit.io/insights/">Insights blog</a>, and stay tuned for more information on SatSummit 3!</p>
-                <hr />
-                <p>For questions about #SatSummit, presenting, or sponsoring, email <a href="mailto:info@satsummit.io" title="Hi SatSummit!">info@satsummit.io</a>.</p>
-              </div>
+              <p>SatSummit is committed to exploring the current state of satellite data capabilities and new systems. Our second SatSummit explored the topics ranging from machine learning to automated monitoring to identifying specific opportunities for partnership and innovation. Read more about the presentations, program launches and commitments, and news related to SatSummit on our <a href="https://satsummit.io/insights/">Insights blog</a>, and stay tuned for more information on SatSummit 3!</p>
             </div>
-            <footer class="fold__footer fold__footer--actions">
-              <a class="fold__cta fold__cta--light fold__cta--twitter" href="https://twitter.com/intent/user?screen_name=sat_summit" title="Follow us on Twitter"><span>Follow @SatSummit</span></a>
-            </footer>
+            <img class="img-bg" src="{{ site.baseurl }}/assets/graphics/layout/conference-photo1.jpg" width="374" height="374" alt="Satsummit speaker" />
+            <img class="img-bg" src="{{ site.baseurl }}/assets/graphics/layout/conference-photo2.jpg" width="736" height="347" alt="Satsummit speaker" />
+            <img class="img-bg" src="{{ site.baseurl }}/assets/graphics/layout/conference-photo3.jpg" width="736" height="374" alt="Satsummit speaker" />
           </div>
         </section>
         <!--/ Fold: About -->
 
-        <!-- Fold: Speakers -->
-        <section class="fold fold--light" id="speakers">
+        <!-- Fold: Proposals -->
+        <section class="fold fold-proposals">
           <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Speakers</h1>
-            </header>
+            <div class="side-by-side section--left">
+              <h2 class="fold__title">Call for Proposals</h2>
+              <p>SatSummit's success depends on the involvement and engagement from the community - from NGOs to industry leaders and government agencies. We want to include your work and your voice in the conversation for SatSummit. Please apply to our Call for Proposals to submit your lightning talk, workshop, or working group session, and our Call for Posters/Imagery for us to display your work throughout the conference venue.</p>
+            </div>
+            <ul class="side-by-side section--right list--vertical">
+              <li>
+                <h3 class="heading--large">Talks/Workshops</h3>
+                <p>Submit your lightning talk, workshop, or working group session. Deadline: March 23, 11:59pm EST</p>
+                <a class="button" href="">Submit Your Talk</a>
+              </li>
+              <li>
+                <h3 class="heading--large">Posters</h3>
+                <p>Submit your poster or satellite and aerial imagery. Deadline: April 20, 11:59pm EST</p>
+                <a class="button" href="">Submit Your Poster</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!--/ Fold: Venue -->
+        <section class="fold section--sponsors" id="sponsors">
+          <div class="inner">
+            <div class="card side-by-side">
+              <h2 class="fold__title">Become a Sponsor</h2>
+              <p>Interested in sponsoring SatSummit? We have curated opportunities for your involvement in speaking and hosting working group sessions.</p>
+              <a class="button" href="">Contact Us</a>
+            </div>
+            {% include sponsors-fold.html %}
+          </div>
+        </section>
+        <!-- Fold: Speakers -->
+        <section class="fold" id="speakers">
+          <div class="inner">
+            <h2 class="fold__title">Speakers</h2>
             <div class="fold__body">
               <ol class="speaker-list speaker-list--featured">
-                {% for speaker in site.speakers %}
-                {% if speaker.featured == true %}
                 <li class="speaker-list__item">
-                  <article class="card card--inlight speaker--short">
-                    <div class="card__inner">
-                      <header class="card__header">
-                        <figure class="card__avatar speaker__avatar">
-                          <a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">
-                            {% if speaker.avatar %}
-                            <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
-                            {% else %}
-                            <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-                            {% endif %}
-                          </a>
-                        </figure>
-                        <h1 class="card__title"><a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
-                        <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
-                      </header>
-                      <footer class="card__footer card__footer--actions">
-                        <a class="button-dark-go" href="{{ site.baseurl }}{{ speaker.url }}" title="View speaker profile">View profile</a>
-                      </footer>
-                    </div>
-                  </article>
+                  <a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">
+                    <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                  </a>
+                  <h5 class="card__title"><a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile"></a></h5>
+                  <span class="speaker__detail"></span>
                 </li>
-                {% endif %}
-                {% endfor %}
               </ol>
             </div>
             <footer class="fold__footer fold__footer--actions">
@@ -86,33 +103,6 @@ layout: base
           </div>
         </section>
         <!--/ Fold: Speakers -->
-
-        <!-- Fold: Venue -->
-        <section class="fold" id="venue">
-          <div class="inner">
-            <header class="fold__header">
-              <h1 class="fold__title">Venue</h1>
-            </header>
-            <div class="fold__body">
-              <div class="prose prose--responsive">
-                <dl class="venue-list">
-                  <dt>Main venue</dt>
-                  <dd><strong><a href="http://www.aiadc.com/dac" title="Visit page">District Architecture Center</a></strong> 421 7th St NW,  Washington, DC 20004</dd>
-                  <dt>Secondary venue</dt>
-                  <dd><strong><a href="https://washington.impacthub.net/" title="Visit page">Impact Hub DC</a></strong> 419 7th St NW, Washington, DC 20004</dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div class="map-container">
-            <div id="map"></div>
-          </div>
-        </section>
-        <!--/ Fold: Venue -->
-
-        {% include code-of-conduct-fold.html %}
-        {% include sponsors-fold.html %}
-
       </div>
 
     </section>

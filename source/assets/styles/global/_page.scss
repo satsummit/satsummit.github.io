@@ -19,12 +19,12 @@
   color: $base-color;
   padding: $global-spacing 0;
   transition: all 0.32s ease-in-out 0s;
-  box-shadow: 0 8px 32px 0 $base-alpha-color;
+  box-shadow: 0 8px 32px 0 #000;
 
   > .inner {
     @extend .row, .row--centered;
   }
-  
+
   @include media(large-up) {
     padding: ($global-spacing * 2) 0;
     background: transparent;
@@ -35,8 +35,12 @@
   &--light {
     background: #fff;
     color: $base-color;
-    box-shadow: 0 8px 32px 0 $base-alpha-color;
+    box-shadow: 0 8px 32px 0 #000;
     padding: $global-spacing 0;
+    display: block;
+  }
+  &--dark {
+    display: none;
   }
 }
 
@@ -76,13 +80,13 @@
 
     @include media(large-up) {
       display: inline-block;
-    }    
+    }
   }
 
   .logo-symbol--pos {
     @include media(large-up) {
       display: none;
-    }    
+    }
   }
 
   span {
@@ -114,7 +118,7 @@
 /* Navigation */
 
 .page__prime-nav {
-  font-weight: $base-font-medium;
+  font-weight: $heading-font-medium;
 
   @include media(medium-up) {
     float: right;
@@ -157,7 +161,7 @@
   clear: both;
   background: #fff;
   padding: $global-spacing;
-  box-shadow: 0 8px 32px 0 $base-alpha-color;
+  box-shadow: 0 8px 32px 0 #000;
 
   /* Animation */
 
@@ -218,10 +222,11 @@
 .global-menu__link {
   display: inline-block;
   line-height: 2rem;
-  font-size: 1rem;
+  font-size: 1.14rem;
+  font-weight: $heading-font-regular;
+  font-family: $heading-font-family;
   padding: 0 ($global-spacing / 2);
-  border-radius: $base-border-radius / 2;
-  letter-spacing: 0.125em;
+  text-transform: uppercase;
 
   &, &:visited {
     color: inherit;
@@ -269,7 +274,7 @@
   > .inner {
     @extend .row, .row--centered;
   }
-  
+
   *:last-child {
     margin-bottom: 0;
   }
@@ -318,7 +323,6 @@
   }
 
   a {
-    @extend .link, .link--inlight;
   }
 
   @include media(large-up) {

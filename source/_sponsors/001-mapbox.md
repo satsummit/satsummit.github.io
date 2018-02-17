@@ -1,6 +1,6 @@
 ---
 title: Mapbox
 website: https://www.mapbox.com/
-image: mapbox-flat-neg.svg
+image: mapbox-logo-white.png
 group: Lead Sponsor
 ---

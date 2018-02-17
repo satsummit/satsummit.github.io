@@ -3,6 +3,13 @@
    ========================================================================== */
 
 .card {
+  background-color: #fff;
+  -moz-box-shadow:    0px 2px 2px 1px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, .1);
+  box-shadow:         0px 2px 2px 1px rgba(0, 0, 0, .1);
+  padding: 2em 2.5em 4em;
+  width: 35%;
+  z-index: 10;
   position: relative;
 }
 
@@ -10,19 +17,6 @@
   position: relative;
   z-index: 1;
   padding: $global-spacing * 1;
-
-  &::before {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    pointer-events: none;
-    box-shadow: inset 0 0 0 3px #fff;
-    border-radius: $base-border-radius / 2;
-  }
 
   @include media(small-up) {
     padding: $global-spacing * 2;
@@ -55,7 +49,7 @@
   font-size: 0.75rem;
   line-height: 1;
   margin: 0;
-  color: $primary-color;
+  color: $primary-link-color;
   letter-spacing: 0.25em;
   margin-bottom: $global-spacing / 2;
 
@@ -148,7 +142,7 @@
 
 .card--sticky {
   .card__inner::before {
-    box-shadow: inset 0 0 0 3px $primary-color;
+    box-shadow: inset 0 0 0 3px $primary-link-color;
   }
 
   .card__inner::after {
@@ -156,7 +150,7 @@
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    color: $primary-color;
+    color: $primary-link-color;
     z-index: 10;
 
     @include media(medium-up) {

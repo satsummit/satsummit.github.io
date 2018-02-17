@@ -79,7 +79,7 @@
 @import "homepage/global";
 @import "homepage/about";
 @import "homepage/speakers";
-@import "homepage/venue";
+//@import "homepage/venue";
 @import "homepage/tickets";
 @import "homepage/lightning-talks";
 @import "homepage/code-of-conduct";
@@ -87,24 +87,25 @@
 
 
 /* Agenda
-   ========================================================================== */
+   ==========================================================================
 
 @import "agenda/global";
 @import "agenda/hub";
-@import "agenda/single";
+@import "agenda/single";*/
 
 
 /* Speakers
-   ========================================================================== */
+   ==========================================================================
 
 @import "speakers/global";
 @import "speakers/hub";
-@import "speakers/single";
+@import "speakers/single";*/
 
 
 /* Insights
-   ========================================================================== */
+   ==========================================================================
 
 @import "insights/global";
 @import "insights/hub";
 @import "insights/single";
+*/
