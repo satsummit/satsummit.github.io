@@ -35,9 +35,12 @@
   &--light {
     background: #fff;
     color: $base-color;
-    box-shadow: 0 8px 32px 0 #000;
-    padding: $global-spacing 0;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,.4);
+    padding: .4em 0;
     display: block;
+    .button {
+      padding: 0.2rem 1.2rem;
+    }
   }
   &--dark {
     display: none;
@@ -64,7 +67,6 @@
 
     > * {
       display: inline-block;
-      vertical-align: middle;
       word-spacing: normal;
     }
   }

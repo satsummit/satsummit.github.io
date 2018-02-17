@@ -2,10 +2,10 @@
 {% assign sponsors_by_group = site.sponsors | group_by: "group" %}
 
 
-<div class="side-by-side">
+<div class="side-by-side sponsor-logos">
   {% for g in sponsors_by_group %}
   <div class="sponsor-group sponsor-group--{{ g.name | slugify }}">
-    <h2 class="sponsor-group__title">{{ g.name }}</h2>
+    <h4 class="sponsor-group__title heading--medium">Past {{ g.name }}</h4>
     <ul class="sponsor-list">
       {% for sponsor in g.items %}
       <li class="sponsor-list__item">

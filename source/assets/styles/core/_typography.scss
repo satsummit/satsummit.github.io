@@ -182,7 +182,7 @@ abbr[title] {
 }
 
 .heading--medium {
-  @include heading(1.25rem, xlarge-up);   // 20, 24, 28, 32
+  @include heading(.68rem, xlarge-up);   // 20, 24, 28, 32
 }
 
 .heading--small,

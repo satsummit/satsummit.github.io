@@ -3,18 +3,13 @@
    ========================================================================== */
 
 #sponsors {
-
-  .prose {
-    @include col(12/12);
-    margin-top: $global-spacing;
-
-    @include media(medium-up) {
-      @include col(10/12, $offset: 1/12);
-      margin-top: $global-spacing * 2;
-    }
-
-    @include media(large-up) {
-      @include col(8/12, $offset: 2/12);
+  .sponsor-logos {
+    margin-top: 8em;
+    width: 45%;
+  }
+  .side-by-side {
+    &:first-of-type {
+      margin-right: 9%;
     }
   }
 }
@@ -25,17 +20,8 @@
 
   &__title {
     @extend .heading;
-    display: block;
-    font-size: 0.875rem;
-    line-height: 1rem;
     margin-bottom: $global-spacing * 2;
     color: $primary-link-color;
-    letter-spacing: 0.25em;
-
-    @include media(medium-up) {
-      font-size: 1rem;
-      line-height: 1.25rem;
-    }
   }
 
   @include media(medium-up) {
@@ -51,22 +37,18 @@
 }
 
 .sponsor-list__item {
-  @include col(12/12);
+  width: 40%;
   margin-bottom: $global-spacing * 2.5;
+  float: left;
+  &:nth-of-type(odd) {
+    margin-right: 7%;
+  }
+  &:nth-of-type(3) {
+    clear: left;
+  }
 
   &:last-child {
     margin-bottom: 0;
-  }
-
-  @include media(medium-up) {
-    .sponsor-group--lead-sponsor & {
-      @include col(4/12, $cycle: 3);
-    }
-
-    .sponsor-group--supporting-sponsor & {
-      @include col(4/12, $cycle: 3);
-    }
-    margin-bottom: $global-spacing * 2;
   }
 }
 
