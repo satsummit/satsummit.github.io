@@ -40,6 +40,9 @@ $page-header-y-large-up: 6rem;
       height: 60%;
       bottom: 0;
     }
+    @include media(xsmall-up) {
+      min-height: 480px;
+    }
 
     @include media(medium-up) {
       padding: {
@@ -134,17 +137,29 @@ $page-header-y-large-up: 6rem;
 }
 
 .side-by-side {
-  float: left;
-  width: 35%;
-  &:first-of-type {
-    margin-right: 5%;
+  @include media(xsmall-up) {
+    float: none;
+    width: 100%;
+    &:first-of-type {
+      margin-right: 0%;
+    }
+  }
+  @include media(medium-up) {
+    float: left;
+    width: 35%;
+    &:first-of-type {
+      margin-right: 5%;
+    }
   }
 }
 
 .list--vertical {
   li {
     &:first-of-type {
-      margin-bottom: 4em;
+      margin-bottom: 3em;
+      @include media(medium-up) {
+        margin-bottom: 4em;
+      }
     }
   }
 }

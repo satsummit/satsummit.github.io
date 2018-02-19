@@ -99,7 +99,10 @@
 
 .fold-proposals {
   background-color: #fff;
-  padding: 6rem 0 2em;
+  padding: 6rem 0 5em;
+  @include media(medium-up) {
+    padding: 6rem 0 2em;
+  }
   &:before {
     border-top: 8px solid $primary-link-color;
   }
@@ -120,15 +123,25 @@
     -webkit-backface-visibility: hidden; // for Chrome Windows
   }
   .side-by-side {
-    &:first-of-type {
-      margin-left: 5%;
+    @include media(xsmall-up) {
+      &:nth-of-type(2) {
+        width: 100%;
+      }
     }
-    &:nth-of-type(2) {
-      width: 40%;
+    @include media(medium-up) {
+      &:nth-of-type(2) {
+        width: 40%;
+      }
+      &:first-of-type {
+        margin-left: 5%;
+      }
     }
   }
   .list--vertical {
-    margin-top: -5em;
+    margin-top: 3em;
+    @include media(medium-up) {
+      margin-top: -5em;
+    }
   }
 }
 
@@ -146,11 +159,22 @@
     z-index: -1;
     -webkit-backface-visibility: hidden; // for Chrome Windows
   }
-
   &:before {
-    top: -16.3em;
     transform: skewY(-10deg);
     transform-origin: 100% 0;
+    top: -3em;
+    @include media(medium-up) {
+      top: -16.3em;
+    }
+  }
+}
+
+.fold--about {
+  &:before {
+    top: -13em;
+    @include media(medium-up) {
+      top: -16.3em;
+    }
   }
 }
 

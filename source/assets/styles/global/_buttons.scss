@@ -63,8 +63,11 @@
 
 .fold {
   .button {
-    margin-top: 1em;
+    margin-top: 0em;
     font-size: 1.15rem;
+    @include media(medium-up) {
+      margin-top: 1em;
+    }
   }
 }
 

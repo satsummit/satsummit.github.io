@@ -4,8 +4,14 @@
 
 #sponsors {
   .sponsor-logos {
-    margin-top: 8em;
-    width: 45%;
+    @include media(xsmall-up) {
+      margin-top: 2em;
+      width: 80%;
+    }
+    @include media(medium-up) {
+      margin-top: 8em;
+      width: 45%;
+    }
   }
   .side-by-side {
     &:first-of-type {

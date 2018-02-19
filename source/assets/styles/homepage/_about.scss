@@ -19,16 +19,18 @@
 
 #about {
   .fold__body {
-    float: left;
-    width: 40%;
-    margin-top: -6em;
-    margin-left: 11%;
-    padding-top: 2em;
-    @include media(small-down) {
+    @include media(xsmall-up) {
       width: 100%;
       float: none;
       margin-left: 0;
       margin-top: 0em;
+    }
+    @include media(medium-up) {
+      float: left;
+      width: 40%;
+      margin-top: -6em;
+      margin-left: 11%;
+      padding-top: 2em;
     }
   }
 }
@@ -40,12 +42,15 @@
   margin-bottom: 2em;
 
   &:first-of-type {
-    margin-top: 8em;
-    width: 45%;
-    @include media(small-down) {
+    @include media(xsmall-up) {
       width: 100%;
       float: none;
       margin-left: 0;
+    }
+    @include media(medium-up) {
+      margin-top: 8em;
+      width: 45%;
+      float: left;
     }
   }
   &:nth-of-type(2) {

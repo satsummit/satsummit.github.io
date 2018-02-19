@@ -2,11 +2,6 @@
    Homepage: Speakers Fold
    ========================================================================== */
 .speaker-list__item {
-  float: left;
-  width: 19%;
-  margin-right: 7%;
-  border-top: 7px solid $primary-link-color;
-  position: relative;
   &:after {
     position: absolute;
     top: 0;
@@ -32,12 +27,22 @@
     color: $secondary-color;
     line-height: 1.8em;
   }
-  @include media(medium-down) {
-    margin-right: 3%;
-    width: 22%;
-  }
-  @include media(small-down) {
+  @include media(xsmall-up) {
     width: 40%;
+    float: left;
+    margin-right: 7%;
+    position: relative;
+    border-top: 7px solid $primary-link-color;
+    margin-bottom: 1em;
+  }
+  @include media(small-up) {
+    width: 22%;
+    margin-right: 4%;
+    margin-bottom: 0em;
+  }
+  @include media(medium-up) {
+    width: 19%;
+    margin-right: 7%;
   }
 }
 

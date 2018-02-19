@@ -84,6 +84,9 @@
         margin-right: 2em;
       }
     }
+    @include media(medium-down) {
+      visibility: hidden;
+    }
   }
 
 
