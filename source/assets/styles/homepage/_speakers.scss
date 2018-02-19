@@ -16,10 +16,10 @@
     z-index: 2;
     content: '';
     background: rgba(8, 0, 255, .19);
-    max-height: 210px;
+    max-height: 39%;
   }
   img {
-    width: 210px;
+    width: 100%;
     margin-bottom: 1em;
   }
   &:last-of-type {
@@ -31,6 +31,13 @@
   p {
     color: $secondary-color;
     line-height: 1.8em;
+  }
+  @include media(medium-down) {
+    margin-right: 3%;
+    width: 22%;
+  }
+  @include media(small-down) {
+    width: 40%;
   }
 }
 

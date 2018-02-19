@@ -229,6 +229,8 @@
   font-family: $heading-font-family;
   padding: 0 ($global-spacing / 2);
   text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  border-bottom: 2px solid rgba(255,255,255, 0);
 
   &, &:visited {
     color: inherit;
@@ -249,6 +251,9 @@
       background: rgba(#fff, 0.16);
     }
   }
+  &:hover {
+    border-bottom: 2px solid $primary-link-color;
+  }
 }
 
 
@@ -266,11 +271,9 @@
 .page__footer {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-  background: #fff;
   padding: 2rem 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: $base-color;
   text-align: center;
 
   > .inner {
@@ -320,10 +323,6 @@
   .copyright {
     display: block;
   }
-
-  a {
-  }
-
   @include media(large-up) {
     @include col(4/12);
     text-align: right;

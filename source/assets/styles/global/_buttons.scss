@@ -14,11 +14,13 @@
   text-transform: uppercase;
   color: $primary-link-color;
   display: inline-block;
+  transition: all 0.4s ease 0s;
 
   /* States */
 
   &:hover {
-    opacity: initial;
+    background-color: $primary-link-color;
+    color: #fff;
   }
 
   .drop--open > &,
