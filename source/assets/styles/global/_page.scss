@@ -302,14 +302,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  word-spacing: -0.26rem;
 
   > li {
     display: inline-block;
     word-spacing: normal;
     margin: $global-spacing / 2;
-    transform: skewY(-5deg);
-    transform-origin: right top;
   }
 
   @include media(large-up) {
@@ -336,7 +333,6 @@
 .email-button,
 .twitter-button,
 .go-button {
-  @extend .button, .button--small;
   min-width: 12rem;
 
   @include media(small-up) {
@@ -345,16 +341,10 @@
 }
 
 .go-button {
-  @extend .button--base-bounded;
 
   &::after {
     @extend %collecticon-arrow-right;
   }
-}
-
-.email-button,
-.twitter-button {
-  @extend .button--base;
 }
 
 .email-button::before {

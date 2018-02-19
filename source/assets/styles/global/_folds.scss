@@ -155,11 +155,22 @@
 }
 
 .section--sponsors {
-  background-image: url(../graphics/layout/img-header.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  position: relative;
+  overflow-y: hidden;
+  &:before {
+    content: " ";
+    background-image: url(../graphics/layout/img-header.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    transform: rotate(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -7.5em;
+    z-index: -1;
+  }
 }
 
 /* Modifiers
@@ -211,10 +222,6 @@
 
 .fold__cta--light {
   @extend .button--achromic;
-}
-
-.fold__cta--dark {
-  @extend .button--base;
 }
 
 .fold__cta--go {

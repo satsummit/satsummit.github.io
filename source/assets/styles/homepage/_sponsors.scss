@@ -20,12 +20,12 @@
 
   &__title {
     @extend .heading;
-    margin-bottom: $global-spacing * 2;
+    margin-bottom: $global-spacing * 1.5;
     color: $primary-link-color;
   }
 
   @include media(medium-up) {
-    margin-bottom: $global-spacing * 3;
+    margin-bottom: $global-spacing * 4;
   }
 }
 
@@ -38,7 +38,7 @@
 
 .sponsor-list__item {
   width: 40%;
-  margin-bottom: $global-spacing * 2.5;
+  margin-bottom: $global-spacing * 2;
   float: left;
   &:nth-of-type(odd) {
     margin-right: 7%;
@@ -69,12 +69,12 @@
 
   /* Downsize supporting sponsors */
   .sponsor-group--supporting-sponsor & {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 
   /* Compensate Digital Globe logo proportions and alignment */
   &--digitalglobe img {
-    transform: translate(0, -1em);
+    transform: translate(0, -.5em);
     max-height: 3.5rem;
   }
 }

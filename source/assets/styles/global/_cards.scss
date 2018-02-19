@@ -116,7 +116,7 @@
 }
 
 .button-dark-go {
-  @extend .button, .button--base, .button--small;
+  @extend .button, .button--small;
 
   &::after {
     @extend %collecticon-arrow-right;

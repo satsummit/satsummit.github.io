@@ -70,12 +70,6 @@
 /* Button color modifiers
    ========================================================================== */
 
-/* Base */
-
-.button--base {
-  @include button-variation("filled", "dark", $base-color);
-}
-
 /* Base Bounded */
 
 .button--base-bounded {

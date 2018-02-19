@@ -1,3 +1,44 @@
 /* ==========================================================================
    Homepage: Speakers Fold
    ========================================================================== */
+.speaker-list__item {
+  float: left;
+  width: 19%;
+  margin-right: 7%;
+  border-top: 7px solid $primary-link-color;
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    content: '';
+    background: rgba(8, 0, 255, .19);
+    max-height: 210px;
+  }
+  img {
+    width: 210px;
+    margin-bottom: 1em;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+  .heading--medium {
+    margin-bottom: .1em;
+  }
+  p {
+    color: $secondary-color;
+    line-height: 1.8em;
+  }
+}
+
+.speaker__detail {
+  font-size: .86em;
+  line-height: 1.6em;
+  font-style: italic;
+  margin-bottom: 1em;
+  display: inline-block;
+  color: #2C2B2B;
+}
