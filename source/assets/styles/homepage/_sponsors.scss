@@ -7,10 +7,12 @@
     @include media(xsmall-up) {
       margin-top: 2em;
       width: 80%;
+      padding-bottom: 2em;
     }
     @include media(medium-up) {
       margin-top: 8em;
       width: 45%;
+      padding-bottom: 0em;
     }
   }
   .side-by-side {
@@ -44,15 +46,17 @@
 
 .sponsor-list__item {
   width: 40%;
-  margin-bottom: $global-spacing * 2;
+  margin-bottom: $global-spacing;
   float: left;
+  @include media(medium-up) {
+    margin-bottom: $global-spacing * 2;
+  }
   &:nth-of-type(odd) {
     margin-right: 7%;
   }
   &:nth-of-type(3) {
     clear: left;
   }
-
   &:last-child {
     margin-bottom: 0;
   }

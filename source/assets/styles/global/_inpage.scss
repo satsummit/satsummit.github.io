@@ -28,9 +28,13 @@ $page-header-y-large-up: 6rem;
     }
 
     .logo-symbol {
-      width: 40px;
+      width: 30px;
       transform: rotate(-50deg);
-      height: 100px;
+      height: 45px;
+      @include media(medium-up) {
+        width: 40px;
+        height: 100px;
+      }
     }
 
     .fade {
@@ -41,7 +45,7 @@ $page-header-y-large-up: 6rem;
       bottom: 0;
     }
     @include media(xsmall-up) {
-      min-height: 480px;
+      min-height: 430px;
     }
 
     @include media(medium-up) {

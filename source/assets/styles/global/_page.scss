@@ -36,10 +36,13 @@
     background: #fff;
     color: $base-color;
     box-shadow: 0 8px 32px 0 rgba(0,0,0,.4);
-    padding: .4em 0;
+    padding: .8em 0;
     display: block;
     .button {
       padding: 0.2rem 1.2rem;
+    }
+    @include media(medium-up) {
+      padding: .4em 0;
     }
   }
   &--dark {
@@ -130,10 +133,11 @@
     position: absolute;
     top: 0.75rem;
     right: $global-spacing / 2;
-    margin: 0;
+    margin: -.3em 0 0;
+    border: 0px;
 
     a {
-      @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
+      @extend .button--text-hidden;
       vertical-align: top;
 
       &:before {

@@ -62,6 +62,7 @@
 .fold__title {
   @include heading(2.11rem, xlarge-up);
   margin-bottom: .7em;
+
 }
 
 .fold__body {
@@ -171,7 +172,7 @@
 
 .fold--about {
   &:before {
-    top: -13em;
+    top: -7em;
     @include media(medium-up) {
       top: -16.3em;
     }

@@ -9,9 +9,12 @@
     font-family: $heading-font-family;
     font-weight: $heading-font-bold-italic;
     font-style: italic;
-    font-size: 1.29em;
-    margin-bottom: .5em;
+    font-size: 1.19em;
     display: inline-block;
+    @include media(medium-up) {
+      margin-bottom: .5em;
+      font-size: 1.29em;
+    }
 
       &:first-of-type {
         padding-right: .7em;
@@ -29,10 +32,13 @@
 
     > .inner {
       position: absolute;
-      top: 35%;
+      top: 55%;
       left: 0;
       width: 100%;
       transform: translate(0, -50%);
+      @include media(medium-up) {
+        top: 35%;
+      }
     }
 
     @include media(medium-up) {
@@ -42,9 +48,12 @@
 
   .inpage__title {
     text-transform: uppercase;
-    font-size: 7vw;
+    font-size: 14vw;
     line-height: 1;
     margin-bottom: .02em;
+    @include media(medium-up) {
+      font-size: 7vw;
+    }
   }
 
   .inpage__details {
@@ -64,7 +73,7 @@
 
   .inpage__introduction {
     font-family: $heading-font-family;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-weight: $heading-font-light;
     max-width: 56rem;
     margin: 0 auto;

@@ -57,7 +57,7 @@
 /* Typography: Headings
    ========================================================================== */
 
-@mixin heading($font-size, $max-media: small-up) {
+@mixin heading($font-size, $max-media: xsmall-up) {
   font-size: $font-size;
   line-height: $font-size + 0.5;
 
@@ -126,7 +126,7 @@
     $bg-color: rgba($color, 0);
     $bg-color-hover: rgba($color, 0.08);
     $bg-color-active: rgba($color, 0.16);
-    
+
     @if $style == "bounded" {
       box-shadow: inset 0 0 0 2px $border-shadow-color;
       .drop--open > &,

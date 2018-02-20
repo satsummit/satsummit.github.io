@@ -184,11 +184,18 @@ abbr[title] {
 }
 
 .heading--medium {
-  @include heading(.97rem, xlarge-up);   // 20, 24, 28, 32
+  font-size: 1.44em;
+  line-height: 1.4em;
+  @include media(medium-up) {
+    @include heading(.97rem, xlarge-up);   // 20, 24, 28, 32
+  }
 }
 
 .heading--small {
-  @include heading(.68rem, xlarge-up);   // 20, 24, 28, 32
+  font-size: 1em;
+  @include media(medium-up) {
+    @include heading(.68rem, xlarge-up);   // 20, 24, 28, 32
+  }
 }
 
 .heading--xsmall,
@@ -200,45 +207,4 @@ abbr[title] {
   font-family: $heading-font-family;
   font-weight: $heading-font-regular;
   text-transform: uppercase;
-}
-
-/* Prose specific */
-
-.prose {
-  > h1:not(:first-child),
-  > h2:not(:first-child),
-  > h3:not(:first-child),
-  > h4:not(:first-child),
-  > h5:not(:first-child),
-  > h6:not(:first-child) {
-    margin-top: $global-spacing * 2.5;
-  }
-
-  > h1 + h2:not(:first-child),
-  > h2 + h3:not(:first-child),
-  > h3 + h4:not(:first-child),
-  > h4 + h5:not(:first-child),
-  > h5 + h6:not(:first-child) {
-    margin-top: 0;
-  }
-}
-
-.prose--responsive {
-  > h1 { @include heading(1.75rem, xlarge-up); }            // 28, 32, 36, 40
-  > h2 { @include heading(1.5rem, xlarge-up); }             // 24, 28, 32, 36
-  > h3 { @include heading(1.25rem, xlarge-up); }            // 20, 24, 28, 32
-  > h4,
-  > h5,
-  > h6 { @include heading(1rem, xlarge-up); }               // 16, 20, 24, 28
-
-  @include media(medium-up) {
-    > h1:not(:first-child),
-    > h2:not(:first-child),
-    > h3:not(:first-child),
-    > h4:not(:first-child),
-    > h5:not(:first-child),
-    > h6:not(:first-child) {
-      margin-top: $global-spacing * 4;
-    }
-  }
 }

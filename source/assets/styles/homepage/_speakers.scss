@@ -1,21 +1,31 @@
 /* ==========================================================================
    Homepage: Speakers Fold
    ========================================================================== */
+#speakers {
+  padding: 0rem 0px 3rem;
+  @include media(medium-up) {
+    padding: 3rem 0px;
+  }
+}
+
 .speaker-list__item {
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    content: '';
-    background: rgba(8, 0, 255, .19);
-    max-height: 39%;
+  .photoOverlay {
+    position: relative;
+    margin-bottom: 1em;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      content: '';
+      background: rgba(8, 0, 255, .19);
+      max-height: 100%;
+    }
   }
   img {
     width: 100%;
-    margin-bottom: 1em;
   }
   &:last-of-type {
     margin-right: 0;
@@ -34,15 +44,21 @@
     position: relative;
     border-top: 7px solid $primary-link-color;
     margin-bottom: 1em;
+    &:nth-of-type(3) {
+      clear: left;
+    }
   }
   @include media(small-up) {
-    width: 22%;
-    margin-right: 4%;
+    width: 30%;
+    margin-right: 8%;
     margin-bottom: 0em;
   }
   @include media(medium-up) {
     width: 19%;
     margin-right: 7%;
+    &:nth-of-type(3) {
+      clear: none;
+    }
   }
 }
 
