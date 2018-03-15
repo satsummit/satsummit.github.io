@@ -36,13 +36,6 @@
 
 @import "vendor/normalize";
 
-/**
- * Kenneth Ormandy's OpenType features—ligatures, kerning, and more—to Normalize.css:
- * https://github.com/kennethormandy/normalize-opentype.css
- */
-
-// @import "vendor/normalize-opentype";
-
 
 /* Settings
    ========================================================================== */
@@ -59,7 +52,7 @@
 @import "core/webfont-satsummit"; // Webfont: Satsummit
 @import "core/collecticons"; // Webfont icon library: Collecticons
 @import "core/typography";
-@import "core/media";
+// @import "core/media";
 @import "core/utilities";
 
 
@@ -70,7 +63,7 @@
 @import "global/page";
 @import "global/inpage";
 @import "global/folds";
-@import "global/cards";
+// @import "global/cards";
 
 
 /* Homepage
@@ -78,10 +71,10 @@
 
 @import "homepage/global";
 @import "homepage/about";
-@import "homepage/speakers";
-@import "homepage/venue";
-@import "homepage/tickets";
-@import "homepage/lightning-talks";
+// @import "homepage/speakers";
+// @import "homepage/venue";
+// @import "homepage/tickets";
+// @import "homepage/lightning-talks";
 @import "homepage/code-of-conduct";
 @import "homepage/sponsors";
 
@@ -89,22 +82,22 @@
 /* Agenda
    ========================================================================== */
 
-@import "agenda/global";
-@import "agenda/hub";
-@import "agenda/single";
+// @import "agenda/global";
+// @import "agenda/hub";
+// @import "agenda/single";
 
 
 /* Speakers
    ========================================================================== */
 
-@import "speakers/global";
-@import "speakers/hub";
-@import "speakers/single";
+// @import "speakers/global";
+// @import "speakers/hub";
+// @import "speakers/single";
 
 
 /* Insights
    ========================================================================== */
 
-@import "insights/global";
-@import "insights/hub";
-@import "insights/single";
+// @import "insights/global";
+// @import "insights/hub";
+// @import "insights/single";
