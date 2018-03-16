@@ -1,0 +1,57 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: developmentseed/satsummit-circleci:4.8
+    working_directory: ~/satsummit
+    steps:
+      - checkout
+
+      # restore cache
+      - restore_cache:
+          keys:
+            - satsummit-{{ checksum "package.json" }}
+            - satsummit
+
+      - run:
+          name: Install
+          command: |
+            source /usr/local/rvm/scripts/rvm
+            gem install bundler
+            npm install
+            npm rebuild node-sass
+
+      - save_cache:
+          key: satsummit-{{ checksum "package.json" }}
+          paths:
+            - ~/satsummit/node_modules
+            - ~/satsummit/bundle
+            - ~/satsummit/.bundle
+            - ~/satsummit/.tmp
+
+      - run:
+          name: Lint and build
+          command: |
+            source /usr/local/rvm/scripts/rvm
+            npm run lint
+            npm run build
+
+      - run:
+         name: Deploying to Github
+         command: |
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+               cd _site
+               git init
+               git config user.name "Devseed-CI"
+               git config user.email "dev@developmentseed.org"
+               touch .nojekyll # Add this so GitHub doesn't try and build site
+               echo "2018.satsummit.io" > CNAME
+               git add .
+               git commit -m "CI deploy [skip ci]"
+               git remote add origin git@github.com:satsummit/satsummit.github.io.git
+               git fetch
+               git push origin --force --quiet HEAD:master
+               rm -rf .git
+             else
+               echo "Skip deploying to Github"
+            fi
