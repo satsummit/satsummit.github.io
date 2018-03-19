@@ -5,7 +5,7 @@
 .button, .button:visited {
   @include user-select(none);
   line-height: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.28rem;
   padding: 0.5rem 1.2rem;
   border: 4px solid $primary-link-color;
   cursor: pointer;
@@ -181,10 +181,10 @@
   > *:not([class^="openaq-ds-icon-"]):not([class*=" openaq-ds-icon-"]):not([class^="collecticons-"]):not([class*=" collecticons-"]) {
     @extend .visually-hidden;
   }
-  :not(.button-group) & {
+  /*:not(.button-group) & {
     padding-left: 0;
     padding-right: 0;
-  }
+  }*/
 }
 
 

@@ -10,7 +10,7 @@
       padding-bottom: 2em;
     }
     @include media(medium-up) {
-      margin-top: 8em;
+      margin-top: 22em;
       width: 45%;
       padding-bottom: 0em;
     }
@@ -45,9 +45,8 @@
 }
 
 .sponsor-list__item {
-  width: 40%;
+  width: 70%;
   margin-bottom: $global-spacing;
-  float: left;
   @include media(medium-up) {
     margin-bottom: $global-spacing * 2;
   }
@@ -85,7 +84,7 @@
   /* Compensate logo proportions and alignment */
   &--development-seed img {
     // transform: translate(0, -1em);
-    max-height: 2.5rem;
+    max-height: 3rem;
   }
 
   &--digitalglobe img {

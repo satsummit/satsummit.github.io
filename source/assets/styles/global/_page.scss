@@ -36,7 +36,7 @@
     background: #fff;
     color: $base-color;
     box-shadow: 0 8px 32px 0 rgba(0,0,0,.4);
-    padding: .8em 0;
+    padding: .8em 0 .2em;
     display: block;
     .button {
       padding: 0.2rem 1.2rem;
@@ -101,10 +101,6 @@
     }
   }
 
-  span {
-    transform: translate(0, 0.125rem); // Tweak vertical alignment
-  }
-
   @include media(medium-up) {
     font-size: 1.25rem;
     line-height: 2rem;
@@ -142,14 +138,15 @@
     right: $global-spacing / 2;
     margin: -.3em 0 0;
     border: 0px;
+    width: 40%;
 
     a {
       @extend .button--text-hidden;
       vertical-align: top;
+    }
 
-      &:before {
-        @extend %collecticon-hamburger-menu;
-      }
+    .button--small {
+      float: right;
     }
 
     @include media(small-up) {
@@ -162,6 +159,17 @@
 
     @include media(large-up) {
       display: none;
+    }
+  }
+}
+
+.toggle-menu--item {
+  float: right;
+  margin-left: 1em;
+  margin-top: -.2em;
+  a {
+    &:before {
+      @extend %collecticon-hamburger-menu;
     }
   }
 }
@@ -235,7 +243,7 @@
 .global-menu__link {
   display: inline-block;
   line-height: 2rem;
-  font-size: 1.14rem;
+  font-size: 1.28rem;
   font-weight: $heading-font-regular;
   font-family: $heading-font-family;
   padding: 0 ($global-spacing / 2);
