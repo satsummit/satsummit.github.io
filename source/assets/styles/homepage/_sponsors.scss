@@ -38,17 +38,10 @@
 }
 
 .sponsor-list {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  @extend .clearfix;
   list-style: none;
   padding: 0;
-  margin: (-$global-spacing) 0;
-
-  @include media(small-up) {
-    flex-flow: row nowrap;
-    margin: (-$global-spacing * 2) 0;
-  }
+  margin: 0;
 }
 
 .sponsor-list__item {
@@ -70,7 +63,8 @@
 }
 
 .sponsor {
-  display: block;
+  display: inline-block;
+  vertical-align: top;
 
   img {
     width: auto;

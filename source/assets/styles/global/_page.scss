@@ -48,6 +48,11 @@
   &--dark {
     display: none;
   }
+
+  .page__headline {
+    float: left;
+    text-align: left;
+  }
 }
 
 /* Headline */
@@ -338,7 +343,7 @@
 .email-button,
 .twitter-button,
 .go-button {
-  min-width: 12rem;
+  min-width: 11rem;
 
   @include media(small-up) {
     min-width: auto;
