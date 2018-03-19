@@ -36,6 +36,10 @@ jobs:
             npm run lint
             npm run build
 
+      - add_ssh_keys:
+          fingerprints:
+            - "14:6f:fc:50:3b:c5:a6:27:dc:e7:5a:e7:df:68:b8:65"
+
       - run:
          name: Deploying to Github
          command: |
