@@ -59,7 +59,3 @@ jobs:
              else
                echo "Skip deploying to Github"
             fi
-
-      - store_artifacts:
-          path: /home/circleci/satsummit/_site
-          destination: build_site
