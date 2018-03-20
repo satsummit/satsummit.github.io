@@ -3,23 +3,21 @@
    ========================================================================== */
 
 #sponsors {
-  text-align: center;
-
-  .fold__title span {
-    display: block;
-  }
-
-  .prose {
-    @include col(12/12);
-    margin-top: $global-spacing;
-
-    @include media(medium-up) {
-      @include col(10/12, $offset: 1/12);
-      margin-top: $global-spacing * 2;
+  .sponsor-logos {
+    @include media(xsmall-up) {
+      margin-top: 2em;
+      width: 80%;
+      padding-bottom: 2em;
     }
-
-    @include media(large-up) {
-      @include col(8/12, $offset: 2/12);
+    @include media(medium-up) {
+      margin-top: 17em;
+      width: 45%;
+      padding-bottom: 0em;
+    }
+  }
+  .side-by-side {
+    &:first-of-type {
+      margin-right: 9%;
     }
   }
 }
@@ -30,53 +28,42 @@
 
   &__title {
     @extend .heading;
-    display: block;
-    font-size: 0.875rem;
-    line-height: 1rem;
-    margin-bottom: $global-spacing * 2;
-    color: $primary-color;
-    letter-spacing: 0.25em;
-
-    @include media(medium-up) {
-      font-size: 1rem;
-      line-height: 1.25rem;
-    }
+    margin-bottom: $global-spacing * 1.5;
+    color: $primary-link-color;
   }
 
   @include media(medium-up) {
-    margin-bottom: $global-spacing * 3;
+    margin-bottom: $global-spacing * 4;
   }
 }
 
 .sponsor-list {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  @extend .clearfix;
   list-style: none;
   padding: 0;
-  margin: (-$global-spacing) 0;
-
-  @include media(small-up) {
-    flex-flow: row nowrap;
-    margin: (-$global-spacing * 2) 0;
-  }
+  margin: 0;
 }
 
 .sponsor-list__item {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  margin: $global-spacing;
-  flex: 1 1 auto;
-
+  width: 70%;
+  margin-bottom: $global-spacing;
   @include media(medium-up) {
-    margin: $global-spacing * 2;
+    margin-bottom: $global-spacing * 2;
+  }
+  &:nth-of-type(odd) {
+    margin-right: 7%;
+  }
+  &:nth-of-type(3) {
+    clear: left;
+  }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
 .sponsor {
-  display: block;
+  display: inline-block;
+  vertical-align: top;
 
   img {
     width: auto;
@@ -91,20 +78,17 @@
 
   /* Downsize supporting sponsors */
   .sponsor-group--supporting-sponsor & {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 
   /* Compensate logo proportions and alignment */
   &--development-seed img {
     // transform: translate(0, -1em);
-    max-height: 2.5rem;
+    max-height: 3rem;
   }
 
   &--digitalglobe img {
-    max-height: 3.75rem;
-
-    @include media(small-up) {
-      transform: translate(0, -0.75em);
-    }
+    transform: translate(0, -.5em);
+    max-height: 3.5rem;
   }
 }

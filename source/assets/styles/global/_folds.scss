@@ -4,7 +4,6 @@
 
 .fold {
   padding: ($global-spacing * 3) 0;
-  box-shadow: inset 0 -4px 0 0 $base-semi-alpha-color;
 
   > .inner {
     @extend .row, .row--centered;
@@ -61,19 +60,9 @@
 }
 
 .fold__title {
-  @include heading(1.5rem, xlarge-up);
-  letter-spacing: 0.25em;
-  transform: skewY(-5deg);
+  @include heading(2.11rem, xlarge-up);
+  margin-bottom: .7em;
 
-  &::after {
-    content: '';
-    width: 4rem;
-    height: 0.25rem;
-    background: #fff;
-    display: block;
-    margin: 0.5em auto 0 auto;
-    border-radius: $base-border-radius / 4;
-  }
 }
 
 .fold__body {
@@ -104,6 +93,110 @@
   }
 }
 
+.fold--about {
+  background-color: #fff;
+  padding: 0 0 5em;
+}
+
+.fold-proposals {
+  background-color: #fff;
+  padding: 6rem 0 5em;
+  @include media(medium-up) {
+    padding: 6rem 0 2em;
+  }
+  &:before {
+    border-top: 8px solid $primary-link-color;
+  }
+  &:after {
+    background-color: #fff;
+    border-bottom: 8px solid $primary-link-color;
+    bottom: 0em;
+    transform: skewY(-10deg);
+    transform-origin: 100% 0;
+    background: inherit;
+    content: '';
+    display: block;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; // for Chrome Windows
+  }
+  .side-by-side {
+    @include media(xsmall-up) {
+      &:nth-of-type(2) {
+        width: 100%;
+      }
+    }
+    @include media(medium-up) {
+      &:nth-of-type(2) {
+        width: 40%;
+      }
+      &:first-of-type {
+        margin-left: 5%;
+      }
+    }
+  }
+  .list--vertical {
+    margin-top: 3em;
+    @include media(medium-up) {
+      margin-top: -5em;
+    }
+  }
+}
+
+.fold--about, .fold-proposals {
+  position: relative;
+  z-index: 1;
+  &:before {
+    background: inherit;
+    content: '';
+    display: block;
+    height: 80%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; // for Chrome Windows
+  }
+  &:before {
+    transform: skewY(-10deg);
+    transform-origin: 100% 0;
+    top: -3em;
+    @include media(medium-up) {
+      top: -16.3em;
+    }
+  }
+}
+
+.fold--about {
+  &:before {
+    top: -7em;
+    @include media(medium-up) {
+      top: -16.3em;
+    }
+  }
+}
+
+.section--sponsors {
+  position: relative;
+  overflow-y: hidden;
+  &:before {
+    content: " ";
+    background-image: url(../graphics/layout/img-header.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    transform: rotate(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: -7.5em;
+    z-index: -1;
+  }
+}
 
 /* Modifiers
    ========================================================================== */
@@ -133,11 +226,9 @@
 
 .prose a {
   .fold & {
-    @extend .link, .link--indark;
   }
 
   .fold--light & {
-    @extend .link--inlight;
   }
 }
 
@@ -156,10 +247,6 @@
 
 .fold__cta--light {
   @extend .button--achromic;
-}
-
-.fold__cta--dark {
-  @extend .button--base;
 }
 
 .fold__cta--go {

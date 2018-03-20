@@ -28,7 +28,9 @@ $(window).scroll(function () {
   let header = $('[data-hook="page-header"]');
   if (header.offset().top > $('[data-hook="nav-offset"]').offset().top - header.outerHeight()) {
     header.addClass('page__header--light');
+    header.removeClass('page__header--dark');
   } else {
+    header.addClass('page__header--dark');
     header.removeClass('page__header--light');
   }
 });

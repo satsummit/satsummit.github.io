@@ -3,7 +3,30 @@
    ========================================================================== */
 
 .card {
+  background-color: #fff;
+  -moz-box-shadow:    0px 2px 2px 1px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, .1);
+  box-shadow:         0px 2px 2px 1px rgba(0, 0, 0, .1);
+  z-index: 14;
   position: relative;
+  border: 1px solid lighten($secondary-color, 40%);
+  margin-top: -3em;
+  .button {
+    margin-top: 2em;
+  }
+  @include media(xsmall-up) {
+    padding: 2em 2.5em 3em;
+    width: 100%;
+  }
+  @include media(medium-up) {
+    padding: 3em 3.5em 8em;
+    width: 46%;
+    margin-top: 0em;
+  }
+  @include media(large-up) {
+    padding: 5em 4.5em 9em;
+    width: 43%;
+  }
 }
 
 .card__inner {
@@ -11,30 +34,8 @@
   z-index: 1;
   padding: $global-spacing * 1;
 
-  &::before {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    pointer-events: none;
-    box-shadow: inset 0 0 0 3px #fff;
-    border-radius: $base-border-radius / 2;
-  }
-
   @include media(small-up) {
     padding: $global-spacing * 2;
-  }
-}
-
-.card__header,
-.card__body,
-.card__footer,
-.card__prose {
-  > *:last-child {
-    margin-bottom: 0;
   }
 }
 
@@ -55,7 +56,7 @@
   font-size: 0.75rem;
   line-height: 1;
   margin: 0;
-  color: $primary-color;
+  color: $primary-link-color;
   letter-spacing: 0.25em;
   margin-bottom: $global-spacing / 2;
 
@@ -126,7 +127,7 @@
 }
 
 .button-dark-go {
-  @extend .button, .button--base, .button--small;
+  @extend .button, .button--small;
 
   &::after {
     @extend %collecticon-arrow-right;
@@ -148,7 +149,7 @@
 
 .card--sticky {
   .card__inner::before {
-    box-shadow: inset 0 0 0 3px $primary-color;
+    box-shadow: inset 0 0 0 3px $primary-link-color;
   }
 
   .card__inner::after {
@@ -156,7 +157,7 @@
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    color: $primary-color;
+    color: $primary-link-color;
     z-index: 10;
 
     @include media(medium-up) {
