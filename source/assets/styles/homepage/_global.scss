@@ -4,93 +4,65 @@
 
 .inpage--homepage {
 
+  .header--metadata {
+    span {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-bold-italic;
+    font-style: italic;
+    font-size: 1.19em;
+    display: inline-block;
+    @include media(medium-up) {
+      margin-bottom: .5em;
+      font-size: 1.48em;
+    }
+
+      &:first-of-type {
+        padding-right: .7em;
+        &:after {
+          content: '•';
+          display: inline-block;
+          padding-left: .7em;
+        }
+      }
+    }
+  }
+
   .inpage__header {
-    position: relative;
-    height: 100vh;
     text-align: center;
 
     > .inner {
       position: absolute;
-      top: 50%;
+      top: 55%;
       left: 0;
       width: 100%;
-      max-width: none;
       transform: translate(0, -50%);
+      @include media(medium-up) {
+        top: 35%;
+      }
     }
 
     @include media(medium-up) {
-      min-height: 40rem;
-    }
-  }
-
-  .inpage__headline {
-    @include col(12/12);
-    transform: skewY(-5deg);
-
-    &::before,
-    &::after {
-      content: '';
-      left: 50%;
-      width: 5rem;
-      height: 0.25rem;
-      background: #fff;
-      display: block;
-      margin: 0 auto;
-      border-radius: $base-border-radius / 4;
-
-      @include media(medium-up) {
-        width: 8rem;
-        height: 0.5rem;
-        border-radius: $base-border-radius / 2;
-      }
-
-      @include media(large-up) {
-        width: 10rem;
-        height: 0.625rem;
-        border-radius: $base-border-radius / 1.5;
-      }
-    }
-
-    &::before {
-      margin-bottom: 1.5em;
-
-      @include media(medium-up) {
-        margin-bottom: 2.5em;
-      }
-
-      @include media(large-up) {
-        margin-bottom: 4em;
-      }
-    }
-
-    &::after {
-      margin-top: 1.5em;
-
-      @include media(medium-up) {
-        margin-top: 2.5em;
-      }
-
-      @include media(large-up) {
-        margin-top: 4em;
-      }
+      min-height: 50rem;
     }
   }
 
   .inpage__title {
     text-transform: uppercase;
-    letter-spacing: 0.125em;
-    font-size: 7vw;
+    font-size: 14vw;
     line-height: 1;
-    margin: 0;
+    margin-bottom: .02em;
+    @include media(medium-up) {
+      font-size: 7vw;
+    }
   }
 
   .inpage__details {
     font-family: $heading-font-family;
     font-size: 5vw;
-    font-weight: $heading-font-bold;
+    font-weight: $heading-font-medium;
     text-transform: uppercase;
     letter-spacing: 0.125em;
-    color: $primary-color;
+    color: $primary-link-color;
     margin-bottom: 0;
     line-height: 1.5;
 
@@ -101,17 +73,31 @@
 
   .inpage__introduction {
     font-family: $heading-font-family;
-    font-size: 1rem;
-    font-weight: $heading-font-bold;
-    letter-spacing: 0.05em;
+    font-size: 1.15rem;
+    font-weight: $heading-font-light;
     max-width: 56rem;
     margin: 0 auto;
     line-height: 1.25;
 
     @include media(medium-up) {
-      font-size: 2vw;
+      font-size: 2.30vw;
     }
   }
+
+  nav {
+    margin-top: 4em;
+    ul {
+      list-style-type: none;
+      li {
+        display: inline-block;
+        margin-right: 2em;
+      }
+    }
+    @include media(medium-down) {
+      visibility: hidden;
+    }
+  }
+
 
   .inpage__body {
     padding: 0;
@@ -133,7 +119,6 @@
       font-size: 0.75rem;
       line-height: 1;
       padding: ($global-spacing / 4);
-      border-radius: $base-border-radius / 2;
 
       @include media(medium-up) {
         padding: ($global-spacing / 2);

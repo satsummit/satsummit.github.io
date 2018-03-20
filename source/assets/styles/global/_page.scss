@@ -19,12 +19,12 @@
   color: $base-color;
   padding: $global-spacing 0;
   transition: all 0.32s ease-in-out 0s;
-  box-shadow: 0 8px 32px 0 $base-alpha-color;
+  box-shadow: 0 8px 32px 0 #000;
 
   > .inner {
     @extend .row, .row--centered;
   }
-  
+
   @include media(large-up) {
     padding: ($global-spacing * 2) 0;
     background: transparent;
@@ -35,8 +35,23 @@
   &--light {
     background: #fff;
     color: $base-color;
-    box-shadow: 0 8px 32px 0 $base-alpha-color;
-    padding: $global-spacing 0;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,.4);
+    padding: .8em 0 .2em;
+    display: block;
+    .button {
+      padding: 0.2rem 1.2rem;
+    }
+    @include media(medium-up) {
+      padding: .4em 0;
+    }
+  }
+  &--dark {
+    display: none;
+  }
+
+  .page__headline {
+    float: left;
+    text-align: left;
   }
 }
 
@@ -62,7 +77,6 @@
 
     > * {
       display: inline-block;
-      vertical-align: middle;
       word-spacing: normal;
     }
   }
@@ -78,17 +92,13 @@
 
     @include media(large-up) {
       display: inline-block;
-    }    
+    }
   }
 
   .logo-symbol--pos {
     @include media(large-up) {
       display: none;
-    }    
-  }
-
-  span {
-    transform: translate(0, 0.125rem); // Tweak vertical alignment
+    }
   }
 
   @include media(medium-up) {
@@ -116,7 +126,7 @@
 /* Navigation */
 
 .page__prime-nav {
-  font-weight: $base-font-medium;
+  font-weight: $heading-font-medium;
 
   @include media(medium-up) {
     float: right;
@@ -126,15 +136,17 @@
     position: absolute;
     top: 0.75rem;
     right: $global-spacing / 2;
-    margin: 0;
+    margin: -.3em 0 0;
+    border: 0px;
+    width: 40%;
 
     a {
-      @extend .button, .button--base-unbounded, .button--medium, .button--text-hidden;
+      @extend .button--text-hidden;
       vertical-align: top;
+    }
 
-      &:before {
-        @extend %collecticon-hamburger-menu;
-      }
+    .button--small {
+      float: right;
     }
 
     @include media(small-up) {
@@ -151,6 +163,17 @@
   }
 }
 
+.toggle-menu--item {
+  float: right;
+  margin-left: 1em;
+  margin-top: -.2em;
+  a {
+    &:before {
+      @extend %collecticon-hamburger-menu;
+    }
+  }
+}
+
 .menu-wrapper {
   position: absolute;
   top: 100%;
@@ -159,7 +182,7 @@
   clear: both;
   background: #fff;
   padding: $global-spacing;
-  box-shadow: 0 8px 32px 0 $base-alpha-color;
+  box-shadow: 0 8px 32px 0 #000;
 
   /* Animation */
 
@@ -220,10 +243,13 @@
 .global-menu__link {
   display: inline-block;
   line-height: 2rem;
-  font-size: 1rem;
+  font-size: 1.28rem;
+  font-weight: $heading-font-regular;
+  font-family: $heading-font-family;
   padding: 0 ($global-spacing / 2);
-  border-radius: $base-border-radius / 2;
-  letter-spacing: 0.125em;
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
+  border-bottom: 2px solid rgba(255,255,255, 0);
 
   &, &:visited {
     color: inherit;
@@ -244,6 +270,9 @@
       background: rgba(#fff, 0.16);
     }
   }
+  &:hover {
+    border-bottom: 2px solid $primary-link-color;
+  }
 }
 
 
@@ -261,17 +290,15 @@
 .page__footer {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
-  background: #fff;
   padding: 2rem 0;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: $base-color;
   text-align: center;
 
   > .inner {
     @extend .row, .row--centered;
   }
-  
+
   *:last-child {
     margin-bottom: 0;
   }
@@ -297,14 +324,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  word-spacing: -0.26rem;
 
   > li {
     display: inline-block;
     word-spacing: normal;
     margin: $global-spacing / 2;
-    transform: skewY(-5deg);
-    transform-origin: right top;
   }
 
   @include media(large-up) {
@@ -318,11 +342,6 @@
   .copyright {
     display: block;
   }
-
-  a {
-    @extend .link, .link--inlight;
-  }
-
   @include media(large-up) {
     @include col(4/12);
     text-align: right;
@@ -332,8 +351,7 @@
 .email-button,
 .twitter-button,
 .go-button {
-  @extend .button, .button--small;
-  min-width: 12rem;
+  min-width: 11rem;
 
   @include media(small-up) {
     min-width: auto;
@@ -341,16 +359,10 @@
 }
 
 .go-button {
-  @extend .button--base-bounded;
 
   &::after {
     @extend %collecticon-arrow-right;
   }
-}
-
-.email-button,
-.twitter-button {
-  @extend .button--base;
 }
 
 .email-button::before {
