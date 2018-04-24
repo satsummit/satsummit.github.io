@@ -4,97 +4,62 @@ use_excerpt: true
 ---
 <!-- Page Body -->
 <main class="page__body" role="main">
-  <div class="inner">
 
     <!-- inPage -->
-    <article class="inpage inpage--single speaker speaker--single">
-      <header class="inpage__header">
-        <div class="inner">
-          <div class="inpage__headline" data-hook="nav-offset">
-            <figure class="speaker__avatar">
-              {% if page.avatar %}
-              <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
+    <article class="inpage inpage--single speaker speaker--single fold">
+      <div class="inner">
+        <div class="sidebar-left">
+          <figure class="speaker__avatar">
+            {% if page.avatar %}
+              <div class="photoOverlay">
+                <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
               {% else %}
               <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-              {% endif %}
-            </figure>
-            <p class="inpage__suptitle"><a href="{{ site.baseurl }}/speakers/" title="View all speakers">Speakers</a></p>
-            <h1 class="inpage__title">{{ page.title }}</h1>
-            {% if page.role %}
-            <div class="inpage__detail">
-              <p>{{ page.role }}, {{ page.company }}</p>
             </div>
             {% endif %}
-          </div>
-          {% if page.twitter %}
-          <div class="inpage__actions">
-          <a class="inpage-action-twitter" href="https://twitter.com/intent/user?screen_name={{ page.twitter }}" title="Follow on Twitter"><span>@{{ page.twitter }}</span></a>
-          </div>
-          {% endif %}
+          </figure>
         </div>
-      </header>
-      <div class="inpage__body">
-      
-        <div class="fold">
-          <div class="inner">
+        <div class="sidebar-content-main">
+          <header>
+            <h1 class="inpage__title withDescription">{{ page.title }}</h1>
+            {% if page.role %}
+            <span class="speaker__detail">{{ page.role }}, {{ page.company }}</span>
+            {% endif %}
+            {% if page.twitter %}
+            <a class="inpage-action-twitter" href="https://twitter.com/intent/user?screen_name={{ page.twitter }}" title="Follow on Twitter"><span>@{{ page.twitter }}</span></a>
+            {% endif %}
+          </header>
+          <div class="inpage__body">
+            {{ content }}
+            <section class="speaker--content">
+              <h2 class="heading--large">See {{ page.title }}:</h2>
+              {% assign events = site.events | where: "speakers", page.title %}
+              {% assign eventsMod = site.events | where: "moderator", page.title %}
+              <ol class="event-list event-list--single">
+                {% for event in eventsMod %}
+                {% include related-event.html event=event is_moderator=true %}
+                {% endfor %}
 
-            <div class="fold__body">
-              <div class="main-content prose prose--responsive">
-                {{ content }}
-              </div>
-
-              <aside class="sec-content">
-                <section class="sec-section">
-                  <h1 class="sec-section__title">On the Agenda</h1>
-                  {% assign events = site.events | where: "speakers", page.title %}
-                  {% assign eventsMod = site.events | where: "moderator", page.title %}
-                  <ol class="event-list event-list--single">
-                    {% for event in eventsMod %}
-                    {% include related-event.html event=event is_moderator=true %}
-                    {% endfor %}
-
-                    {% for event2 in events %}
-                    {% include related-event.html event=event2 %}
-                    {% endfor %}
-                  </ol>
-                </section>
-
-                {% if page.related_insights %}
-                <section class="sec-section">
-                  <h1 class="sec-section__title">Under Insights</h1>
-                  <ol class="event-list event-list--single">
-                  {% for rel_insight in page.related_insights %}
-                  {% assign insight = site.posts | where: "uid", rel_insight | first %}
-                    <li class="event-list__item">
-                      <article class="event--tiny">
-                        <div class="event__inner">
-                          <header class="event__header">
-                            <p class="event__suptitle">{{ insight.type }}</p>
-                            <h1 class="event__title"><a href="{{ site.baseurl }}{{ insight.url }}" title="View insight">{{ insight.title }}</a></h1>
-                            <p class="event__detail">On <time datetime="{{insight.date | date:'%Y-%m-%d'}}" pubdate>{{ insight.date | date:'%b %d, %Y' }}</time></p>
-                          </header>
-                        </div>
-                      </article>
-                    </li>
-                  {% endfor %}
-                  </ol>
-                </section>
-                {% endif %}
-              </aside>
-            </div>
+                {% for event2 in events %}
+                {% include related-event.html event=event2 %}
+                {% endfor %}
+              </ol>
+              {% if page.related_insights %}
+                {% for rel_insight in page.related_insights %}
+                {% assign insight = site.posts | where: "uid", rel_insight | first %}
+                <a href="{{ site.baseurl }}{{ insight.url }}" title="View insight">Download presentation</a>
+                {% endfor %}
+              {% endif %}
+            </section>
 
             <div class="fold__footer fold__footer--actions">
               <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
             </div>
-
           </div>
         </div>
-        
       </div>
     </article>
     <!--/ inPage -->
-
-  </div>
 </main>
 <!--/ Page Body -->
 
