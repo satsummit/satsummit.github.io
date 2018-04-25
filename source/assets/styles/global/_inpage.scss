@@ -141,6 +141,9 @@ $page-header-y-large-up: 6rem;
     .fold {
       padding-bottom: 1em;
     }
+    p {
+      width: 60%;
+    }
   }
 }
 
@@ -276,4 +279,9 @@ $page-header-y-large-up: 6rem;
 
 .inpage-action-download:before {
   @extend %collecticon-download;
+}
+
+.venue--img {
+  border-top: 7px solid #19E9D4;
+  margin-bottom: 3em;
 }

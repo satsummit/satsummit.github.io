@@ -1,32 +1,25 @@
-/* ==========================================================================
-   Global: Page
-   ========================================================================== */
-
-.page {
-  position: relative;
-  z-index: 2;
-}
-
 /* Header
    ========================================================================== */
 
 .page__header {
   @extend .antialiased;
-  position: fixed;
   z-index: 100;
   width: 100%;
   background: #fff;
   color: $base-color;
   padding: $global-spacing 0;
   transition: all 0.32s ease-in-out 0s;
-  box-shadow: 0 8px 32px 0 #000;
+  box-shadow: 0 4px 7px 0 rgba(0,0,0,.1);
 
   > .inner {
     @extend .row, .row--centered;
   }
-
+  @include media(medium-down) {
+    position: fixed;
+    padding: .8em 0 0;
+  }
   @include media(large-up) {
-    padding: ($global-spacing * 2) 0;
+    padding: ($global-spacing * .8) 0;
     background: transparent;
     color: #fff;
     box-shadow: none;
@@ -55,6 +48,13 @@
   }
 }
 
+.page__header--internal {
+  margin-bottom: 3em;
+  .global-menu__link, .global-menu__link:visited {
+    color: $base-color;
+  }
+}
+
 /* Headline */
 
 .page__headline {
@@ -74,10 +74,15 @@
     display: block;
     box-shadow: none;
     word-spacing: normal;
+    color: $base-color;
 
     > * {
       display: inline-block;
       word-spacing: normal;
+      @include media(medium-up) {
+        font-size: 1.38em;
+        margin-top: .25em;
+      }
     }
   }
 
@@ -85,19 +90,8 @@
     margin-right: $global-spacing / 2;
     width: 1.5rem;
     height: auto;
-  }
-
-  .logo-symbol--neg {
-    display: none;
-
-    @include media(large-up) {
-      display: inline-block;
-    }
-  }
-
-  .logo-symbol--pos {
-    @include media(large-up) {
-      display: none;
+    @include media(medium-up) {
+      width: 2rem;
     }
   }
 
@@ -111,17 +105,6 @@
     }
   }
 }
-
-.page__header--light {
-  .logo-symbol--pos {
-    display: inline-block;
-  }
-
-  .logo-symbol--neg {
-    display: none;
-  }
-}
-
 
 /* Navigation */
 
