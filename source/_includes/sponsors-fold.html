@@ -11,7 +11,7 @@
       <li class="sponsor-list__item">
         <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}">
           <span class="visually-hidden">{{ sponsor.title }}</span>
-          <img src="{{ site.baseurl }}/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
+          <img src="/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
         </a>
       </li>
       {% endfor %}

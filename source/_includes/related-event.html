@@ -12,7 +12,7 @@
       {% else %}
         <p class="event__suptitle">Host</p>
       {% endif %}
-        <h1 class="event__title"><a href="{{ site.baseurl }}/agenda/#event-{{ include.event.slug }}" title="View event">{{ include.event.title }}</a></h1>
+        <h1 class="event__title"><a href="/agenda/#event-{{ include.event.slug }}" title="View event">{{ include.event.title }}</a></h1>
         <p class="event__detail">{{ include.event.room }}, {{ time_start | date: "%l:%M%p" }}</p>
       </header>
       {% if include.event.description %}

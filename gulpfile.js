@@ -259,7 +259,7 @@ gulp.task('html', function () {
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
     .pipe($.if(/\.(css|js)$/, rev()))
-    .pipe(revReplace({prefix: jkConf.baseurl}))
+    .pipe(revReplace())
     .pipe(gulp.dest('_site'));
 });
 

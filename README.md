@@ -1,5 +1,7 @@
 ## SatSummit 2018
 
+[![CircleCI](https://circleci.com/gh/satsummit/satsummit.github.io.svg?style=svg)](https://circleci.com/gh/satsummit/satsummit.github.io)
+
 Website for #SatSummit 2018, a one day of presentations and discussions about satellite imagery and data processing capabilities that brings together the satellite industry and the global development leaders.
 
 ## Development environment
