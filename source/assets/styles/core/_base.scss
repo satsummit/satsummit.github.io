@@ -152,6 +152,23 @@ main {
   display: block;
 }
 
+.background--grey {
+  background-color: #FAFAFA;
+}
+
+.columns--two {
+  column-count: 2;
+  column-gap: 8%;
+}
+
+.list--top-border {
+  li {
+    border-top: 7px solid $primary-link-color;
+    padding-top: 1.5em;
+    margin-bottom: 4em;
+  }
+}
+
 
 /* Tags
    ==========================================================================

@@ -2,9 +2,9 @@
    Homepage: Speakers Fold
    ========================================================================== */
 #speakers {
-  padding: 0rem 0px 3rem;
+  padding: 3em 0px 2rem;
   @include media(medium-up) {
-    padding: 3rem 0px;
+    padding: 7rem 0px 1em;
   }
 }
 
