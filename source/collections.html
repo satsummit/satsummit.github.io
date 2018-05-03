@@ -19,7 +19,7 @@ and a `items` key with all the events. -->
 
     <!-- If the permalink if `none` we don't want to print a link -->
       {% unless post.permalink == 'none' %}
-      <h3>{{ post.time }} - <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <h3>{{ post.time }} - <a href="{{ post.url }}">{{ post.title }}</a></h3>
       {% else %}
       <h3>{{ post.time }} - {{ post.title }}</h3>
       {% endunless %}
@@ -31,7 +31,7 @@ and a `items` key with all the events. -->
           <!-- Find the corresponding speaker in the speakers collection using the name. -->
           {% assign s = site.speakers | where: "title",speaker | first %}
           <!-- `s` is now the speaker object with all the properties defined in the `.md` file -->
-          <a href="{{ site.baseurl }}{{ s.url }}">{{ s.title }}</a>
+          <a href="{{ s.url }}">{{ s.title }}</a>
         {% endfor %}
       {% endif %}
       {{ post.description | markdownify }}

@@ -54,7 +54,7 @@ published: false
                         <header class="event__header">
                           <p class="event__suptitle"><span class="cat" title="{{ event.category }}">{{ event.category }}: </span>{{ event.type }}</p>
                           {% unless event.permalink == 'none' %}
-                          <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                          <h1 class="event__title"><a href="{{ event.url }}" title="View event">{{ event.title }}</a></h1>
                           {% else %}
                           <h1 class="event__title">{{ event.title }}</h1>
                           {% endunless %}
@@ -75,7 +75,7 @@ published: false
                               <dt>Moderator</dt>
                               {% assign s = site.speakers | where: "title", event.moderator | first %}
                               {% if s.url %}
-                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ s.title }}</a></dd>
+                              <dd><a href="{{ s.url }}" title="View speaker profile">{{ s.title }}</a></dd>
                               {% else %}
                               <dd>{{ event.moderator }}</dd>
                               {% endif %}
@@ -94,9 +94,9 @@ published: false
                             {% for speaker in event.speakers %}
                               {% assign s = site.speakers | where: "title", speaker | first %}
                               {% if s.url and event.type == "Keynote" %}
-                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a> ({{ s.role }}, {{ s.company }})</dd>
+                              <dd><a href="{{ s.url }}" title="View speaker profile">{{ speaker }}</a> ({{ s.role }}, {{ s.company }})</dd>
                               {% elsif s.url %}
-                              <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a></dd>
+                              <dd><a href="{{ s.url }}" title="View speaker profile">{{ speaker }}</a></dd>
                               {% else %}
                               <dd>{{ speaker }}</dd>
                               {% endif %}
