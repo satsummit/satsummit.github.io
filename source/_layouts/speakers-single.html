@@ -13,12 +13,12 @@ use_excerpt: true
           <div class="inpage__headline" data-hook="nav-offset">
             <figure class="speaker__avatar">
               {% if page.avatar %}
-              <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
+              <img src="/assets/graphics/content/speakers/{{ page.avatar }}" alt="{{ page.title }} photo" />
               {% else %}
-              <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+              <img src="/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
               {% endif %}
             </figure>
-            <p class="inpage__suptitle"><a href="{{ site.baseurl }}/speakers/" title="View all speakers">Speakers</a></p>
+            <p class="inpage__suptitle"><a href="/speakers/" title="View all speakers">Speakers</a></p>
             <h1 class="inpage__title">{{ page.title }}</h1>
             {% if page.role %}
             <div class="inpage__detail">
@@ -70,7 +70,7 @@ use_excerpt: true
                         <div class="event__inner">
                           <header class="event__header">
                             <p class="event__suptitle">{{ insight.type }}</p>
-                            <h1 class="event__title"><a href="{{ site.baseurl }}{{ insight.url }}" title="View insight">{{ insight.title }}</a></h1>
+                            <h1 class="event__title"><a href="{{ insight.url }}" title="View insight">{{ insight.title }}</a></h1>
                             <p class="event__detail">On <time datetime="{{insight.date | date:'%Y-%m-%d'}}" pubdate>{{ insight.date | date:'%b %d, %Y' }}</time></p>
                           </header>
                         </div>
@@ -84,7 +84,7 @@ use_excerpt: true
             </div>
 
             <div class="fold__footer fold__footer--actions">
-              <a class="fold__cta fold__cta--light fold__cta--go" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
+              <a class="fold__cta fold__cta--light fold__cta--go" href="/speakers/" title="View all speakers"><span>View all speakers</span></a>
             </div>
 
           </div>
@@ -106,7 +106,7 @@ use_excerpt: true
 <!-- Loop over the speaker's talks -->
 {% for event in user_events %}
 <div style='border: 1px dashed grey'>
-  <p>{{ event.time }} - <a href="{{ site.baseurl }}{{ event.url }}">{{ event.title }}</a></p>
+  <p>{{ event.time }} - <a href="{{ event.url }}">{{ event.title }}</a></p>
 </div>
 {% endfor %}
 {% endcomment %}
