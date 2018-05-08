@@ -152,6 +152,38 @@ main {
   display: block;
 }
 
+.background--grey {
+  background-color: #FAFAFA;
+}
+
+.columns--two {
+  @include media(xsmall-up) {
+    column-count: 0;
+  }
+  @include media(medium-up) {
+    column-count: 2;
+    column-gap: 8%;
+  }
+}
+
+.list--top-border {
+  li {
+    border-top: 7px solid $primary-link-color;
+    padding-top: 1.5em;
+    margin-bottom: 4em;
+  }
+}
+
+p {
+  a {
+    border-bottom: 1px solid lighten($base-color, 30%);
+    transition: all 0.4s ease 0s;
+    &:hover {
+      border-bottom: 1px solid $primary-link-color;
+    }
+  }
+}
+
 
 /* Tags
    ==========================================================================

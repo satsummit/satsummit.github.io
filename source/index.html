@@ -23,8 +23,9 @@ layout: base
               <ul>
                 <li><a href="/#about" title="View section" class="global-menu__link">About</a></li>
                 <li><a href="/#proposals" title="View section" class="global-menu__link">Call for Proposals</a></li>
-                <li><a href="/#sponsors" title="View section" class="global-menu__link">Sponsors</a></li>
                 <li><a href="/#speakers" title="View section" class="global-menu__link">Past Speakers</a></li>
+                <li><a href="/#sponsors" title="View section" class="global-menu__link">Sponsors</a></li>
+                <li><a href="/#faq" title="View section" class="global-menu__link">FAQs</a></li>
                 <li><a href="https://www.eventbrite.com/e/satsummit-3-tickets-42123663010" title="View section" class="button">Get Tickets</a></li>
               </ul>
             </nav>
@@ -71,18 +72,8 @@ layout: base
             </ul>
           </div>
         </section>
-        <!--/ Fold: Venue -->
-        <section class="fold section--sponsors" id="sponsors">
-          <div class="inner">
-            <div class="card side-by-side">
-              <h2 class="fold__title">Sponsorship</h2>
-              <p>We're excited to partner with thought and industry leaders in the satellite and development communities, and through their sponsorship and support of SatSummit we are solving real-world and global development challenges.</p>
-            </div>
-            {% include sponsors-fold.html %}
-          </div>
-        </section>
         <!-- Fold: Speakers -->
-        <section class="fold" id="speakers">
+        <section class="fold background--grey fold-speakers" id="speakers">
           <div class="inner">
             <h2 class="fold__title">Featured Past Speakers & Talks</h2>
             <div class="fold__body">
@@ -123,7 +114,45 @@ layout: base
             </div>
           </div>
         </section>
-        <!--/ Fold: Speakers -->
+        <!--/ Fold: Venue -->
+        <section class="fold section--sponsors" id="sponsors">
+          <div class="inner">
+            <div class="card side-by-side">
+              <h2 class="fold__title">Sponsorship</h2>
+              <p>We're excited to partner with thought and industry leaders in the satellite and development communities, and through their sponsorship and support of SatSummit we are solving real-world and global development challenges.</p>
+            </div>
+            {% include sponsors-fold.html %}
+          </div>
+        </section>
+
+        <section class="fold" id="faq">
+          <div class="inner">
+            <h2 class="fold__title">Frequently Asked Questions</h2>
+            <div class="fold__body">
+              <ol class="columns--two list--top-border">
+                <li>
+                  <h4 class="heading--medium">What is SatSummit?</h4>
+                  <p>SatSummit is a two-day conference that convenes leaders in the satellite industry and experts in global development for in-depth conversations on solving the world's most critical development challenges with satellite data. From climate change to population growth to natural resource availability, Earth observation data offers insights into today's biggest global issues.</p>
+                </li>
+                <li>
+                  <h4 class="heading--medium">How do I register?</h4>
+                  <p>You can register <a href="https://www.eventbrite.com/e/satsummit-3-tickets-42123663010">here</a>. Onsite registration will not be available.</p>
+                </li>
+                <li>
+                  <h4 class="heading--medium">Am I able to purchase tickets for only one day of the event?</h4>
+                  <p>Yes, we have ticket levels that include access to both days of SatSummit. You can also purchase tickets to attend Day 1 or Day 2 only.</p>
+                </li>
+                <li>
+                  <h4 class="heading--medium">Will you make special accommodations for attendees observing Yom Kippur? </h4>
+                  <p>Please reach out to us directly at info@satsummit.io to discuss dietary needs, schedule, and other accommodations that we can assist with while you’re at SatSummit. Videos of all sessions from the first day of SatSummit will be available on the website after the event concludes. If you are unable to attend Day 1 of SatSummit, we have separate tickets available for the Day 1 party at Air and Space and for Day 2 of the summit. Please send your ticket request to <a href="mailto:info@satsummit.io">info@satsummit.io</a>.</p>
+                </li>
+                <li>
+                  <h4 class="heading--medium">Is there a Mother’s room available if I am nursing?</h4>
+                  <p>Yes, we have a private and comfortable space available for nursing Mother’s. </p>
+                </li>
+              </ol>
+          </div>
+        </section>
       </div>
 
     </section>

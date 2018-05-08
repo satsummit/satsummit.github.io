@@ -100,28 +100,12 @@
 
 .fold-proposals {
   background-color: #fff;
-  padding: 6rem 0 5em;
+  padding: 6rem 0 4em;
   @include media(medium-up) {
-    padding: 6rem 0 2em;
+    padding: 6rem 0 8em;
   }
   &:before {
     border-top: 8px solid $primary-link-color;
-  }
-  &:after {
-    background-color: #fff;
-    border-bottom: 8px solid $primary-link-color;
-    bottom: 0em;
-    transform: skewY(-10deg);
-    transform-origin: 100% 0;
-    background: inherit;
-    content: '';
-    display: block;
-    height: 50%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: -1;
-    -webkit-backface-visibility: hidden; // for Chrome Windows
   }
   .side-by-side {
     @include media(xsmall-up) {
@@ -143,6 +127,27 @@
     @include media(medium-up) {
       margin-top: -5em;
     }
+  }
+}
+
+.fold-speakers {
+  position: relative;
+  z-index: 1;
+  &:after {
+    background-color: #fff;
+    border-bottom: 8px solid $primary-link-color;
+    bottom: 0em;
+    transform: skewY(-10deg);
+    transform-origin: 100% 0;
+    background: inherit;
+    content: '';
+    display: block;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; // for Chrome Windows
   }
 }
 
