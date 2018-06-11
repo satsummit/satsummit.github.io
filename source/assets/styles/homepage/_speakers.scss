@@ -12,13 +12,35 @@
   .speaker-list__item {
     position: relative;
     border-top: 0;
-    @include media(medium-up) {
+    overflow-y: hidden;
+    margin-bottom: 1.3em;
+    width: 22%;
+    margin-right: 4%;
+    &:nth-of-type(4n) {
+      margin-right: 0%;
+    }
+    @include media(medium-down) {
       width: 22%;
       margin-right: 4%;
+      &:nth-of-type(4n) {
+        margin-right: 0%;
+      }
+    }
+    @include media(small-down) {
+      width: 46%;
+      margin-bottom: .4em;
+      &:nth-of-type(even) {
+        margin-right: 0;
+      }
     }
     .photoOverlay {
       &:before {
         max-height: 96.5%;
+      }
+      @include media(medium-down) {
+        &:before {
+          max-height: 95%;
+        }
       }
     }
     .speaker--header--wrapper {
@@ -27,8 +49,14 @@
       width: 100%;
       height: 100%;
       z-index: 3;
-      max-height: 90.8%;
+      max-height: 91.5%;
       transition: all 0.4s ease 0s;
+      @include media(medium-down) {
+        max-height: 87%;
+      }
+      @include media(small-down) {
+        max-height: 88%;
+      }
     }
     .speaker--header--content {
       bottom: -2;
@@ -42,9 +70,15 @@
       }
       .speaker--header {
         bottom: 1em;
+        @include media(medium-down) {
+          top: .5em;
+        }
       }
       .speaker--role {
         bottom: 1em;
+        @include media(medium-down) {
+          bottom: 1.3em;
+        }
       }
     }
   }

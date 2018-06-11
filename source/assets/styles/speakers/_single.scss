@@ -3,11 +3,21 @@
    ========================================================================== */
 
 .speaker--single {
-  .speaker__avatar {
-    margin: 0 0 (-$global-spacing * 4) 0;
+  .sidebar-left {
     float: left;
     width: 25%;
     margin-right: 5%;
+    @include media(small-down) {
+      width: 40%;
+      float: none;
+      margin: 3em 0 4em;
+    }
+    @include media(xsmall-only) {
+      width: 60%;
+    }
+  }
+  .speaker__avatar {
+    margin: 0 0 (-$global-spacing * 4) 0;
     border-top: 7px solid $primary-link-color;
     img {
       width: 100%;
@@ -16,6 +26,10 @@
   .sidebar-content-main {
     width: 60%;
     float: left;
+    @include media(small-down) {
+      width: 100%;
+      float: none;
+    }
   }
   header {
     margin-bottom: 3em;
