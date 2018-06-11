@@ -2,106 +2,25 @@
    Homepage: Venue Fold
    ========================================================================== */
 
-#venue {
-  background: rgba(shade($base-color, 80%), 0.32);
-  position: relative;
-  text-align: center;
-
-  > .inner {
-    padding-bottom: 20rem;
-  }
-
-  @include media(medium-up) {
-    min-height: 36rem;
-
-    > .inner {
-      position: absolute;
-      padding: $global-spacing * 2;
-      top: 50%;
-      right: 0;
-      width: 44%;
-      transform: translate(0, -50%);
-
-      @include media(medium-up) {
-        padding: $global-spacing * 3;
-      }
-
-      @include media(large-up) {
-        padding: $global-spacing * 4;
-      }
-    }
-  }
-
-  @include media(large-up) {
-    min-height: 38rem;
+.map {
+  width: 45%;
+  float: left;
+  margin-right: 8%;
+  background: gray;
+  height: 400px;
+  display: block;
+  content: '';
+  @include media(small-down) {
+    width: 100%;
+    margin-bottom: 2em;
+    height: 250px;
   }
 }
 
-.map-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 20rem;
-  width: 100%;
-  text-align: left;
-  background: rgba(#fff, 0.16);
-
-  @include media(medium-up) {
-    height: 100%;
-    width: 56%;
-  }
-}
-
-#map {
-  height: 100%;
-  width: 100%;
-
-  canvas {
-    outline: none;
-  }
-}
-
-.venue-list {
-  dt {
-    @extend .heading;
-    display: block;
-    font-size: 0.75rem;
-    line-height: 1;
-    margin: 0;
-    color: $primary-color;
-    letter-spacing: 0.25em;
-    margin-bottom: $global-spacing / 4;
-
-    @include media(medium-up) {
-      font-size: 0.875rem;
-      line-height: 1rem;
-    }
-  }
-
-  dd:not(:last-child) {
-    margin-bottom: $global-spacing * 1.5;
-
-    &:after {
-      content: '';
-      width: 2rem;
-      height: 0.175rem;
-      background: #fff;
-      display: block;
-      border-radius: $base-border-radius / 4;
-      margin: ($global-spacing * 1.5) auto 0 auto;
-      transform: skewY(-5deg);
-    }
-  }
-
-  strong {
-    @include heading(1rem, medium-up);
-    @extend .heading;
-    display: block;
-    margin-bottom: 0;
-
-    a:link {
-      background: none;
-      padding: 0;
-    }
+.venue--content {
+  width: 38%;
+  float: left;
+  @include media(small-down) {
+    width: 100%;
   }
 }

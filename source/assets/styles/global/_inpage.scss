@@ -138,11 +138,17 @@ $page-header-y-large-up: 6rem;
     }
   }
   &__header--secondary {
+    @include media(medium-down) {
+      margin-top: 5em;
+    }
     .fold {
       padding-bottom: 1em;
     }
     p {
       width: 60%;
+      @include media(medium-down) {
+        width: 100%;
+      }
     }
   }
 }
