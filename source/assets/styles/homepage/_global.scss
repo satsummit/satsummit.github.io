@@ -4,6 +4,34 @@
 
 .inpage--homepage {
 
+  .banner-tease {
+    background-color: rgba($base-color, 1);
+/*    position: absolute;
+    z-index: 4;
+    top: 0;*/
+    padding: $global-spacing 0;
+    color: #FFF;
+    width: 100%;
+    text-align: center;
+    > .inner {
+      @extend .row, .row--centered;
+
+    }
+    a {
+      text-decoration: underline;
+    }
+    h2 {
+      margin-bottom: 0;
+/*      line-height: 1.25rem;*/
+    }
+  span {
+    font-family: $base-font-family;
+    text-transform: capitalize;
+    font-size: 1.15rem;
+    font-style: italic;
+    }
+  }
+
   .header--metadata {
     span {
     font-family: $heading-font-family;
