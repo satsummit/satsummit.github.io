@@ -339,8 +339,14 @@
 }
 
 .footer-credits {
-  .copyright {
-    display: block;
+  p {
+    margin-bottom: 0.25rem;
+  }
+  span {
+    &:first-child {
+      margin-right: 1rem;
+
+    };
   }
   @include media(large-up) {
     @include col(4/12);
