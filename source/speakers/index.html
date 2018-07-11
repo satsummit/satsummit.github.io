@@ -1,55 +1,47 @@
 ---
 layout: base
-published: false
+published: true
 ---
 <!-- Page Body -->
-<main class="page__body" role="main">
+<main class="page__body page__body--speakers" role="main">
   <div class="inner">
 
-    <!-- inPage -->
-    <section class="inpage inpage--hub speakers">
-      <header class="inpage__header">
+  <!-- inPage -->
+    <header class="inpage__header--secondary">
+      <div class="fold">
         <div class="inner">
-          <div class="inpage__headline" data-hook="nav-offset">
-            <h1 class="inpage__title">Speakers</h1>
-          </div>
+          <h1 class="heading--xlarge">Speakers</h1>
         </div>
-      </header>
-      <div class="inpage__body">
-
-        <div class="fold">
-          <div class="inner">
-            <ol class="speaker-list speaker-list--hub">
-              {% for speaker in site.speakers %}
-              <li class="speaker-list__item">
-                <article class="card speaker--short">
-                  <div class="card__inner">
-                    <header class="card__header">
-                      <figure class="card__avatar speaker__avatar">
-                        <a href="{{ speaker.url }}" title="View profile">
-                          {% if speaker.avatar %}
-                          <img src="/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
-                          {% else %}
-                          <img src="/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
-                          {% endif %}
-                        </a>
-                      </figure>
-                      <h1 class="card__title"><a href="{{ speaker.url }}" title="View profile">{{ speaker.title }}</a></h1>
-                      <p class="card__detail">{{ speaker.role }}, {{ speaker.company }}</p>
-                    </header>
-                    <footer class="card__footer card__footer--actions">
-                      <a class="button-light-go" href="{{ speaker.url }}" title="View speaker profile">View profile</a>
-                    </footer>
+      </div>
+    </header>
+    <section class="inpage__body">
+      <div class="fold">
+        <div class="inner">
+          <ol class="speaker-list">
+            {% for speaker in site.speakers %}
+            <li class="speaker-list__item">
+              <a href="{{ site.baseurl }}{{ speaker.url }}" title="View profile">
+                <div class="speaker--header--wrapper">
+                  <div class="speaker--header--content">
+                    <h2 class="speaker--header heading--large">{{ speaker.title }}</h2>
+                    <span class="speaker--role">{{ speaker.role }}, {{ speaker.company }}</span>
                   </div>
-                </article>
-              </li>
-              {% endfor %}
-            </ol>
-          </div>
+                </div>
+                <div class="photoOverlay">
+                  {% if speaker.avatar %}
+                  <img src="{{ site.baseurl }}/assets/graphics/content/speakers/{{ speaker.avatar }}" alt="{{ sponsor.title }} photo" />
+                  {% else %}
+                  <img src="{{ site.baseurl }}/assets/graphics/layout/speaker-thumb-placeholder.svg" alt="Speaker placeholder image" />
+                  {% endif %}
+                </div>
+              </a>
+            </li>
+            {% endfor %}
+          </ol>
         </div>
-
       </div>
     </section>
+
     <!--/ inPage -->
 
   </div>

@@ -1,0 +1,20 @@
+---
+title: Ambassador Mark Brzezinski
+company: The White House
+role: Executive Director, Arctic Executive Steering Committee
+twitter: 
+website: 
+avatar: ambassador-mark-brzezinski.jpg
+featured: true
+related_insights:
+  - presentation-ambassador-mark-brzezinski
+---
+Former United States Ambassador to Sweden Mark Brzezinski serves as Executive Director of the U.S. Government's Arctic Executive Steering Committee. On January 21st, 2015, in recognition of the unique challenges and opportunities presented by the Arctic, President Obama issued an Executive Order to enhance coordination of national efforts in the Arctic. The Executive Order creates expanded opportunities for Alaskans and those in the Federal government to work on Arctic issues and establishes a clear structure to improve the coordination of Federal Arctic activity.
+
+An Arctic Executive Steering Committee (AESC) was established to oversee implementation of the [National Strategy for the Arctic Region](https://www.whitehouse.gov/blog/2015/03/27/white-house-releases-implementation-report-national-strategy-arctic). The AESC convenes at the Deputy Secretary level to guide the development of department and agency plans to assure that Federal activity is well-coordinated and better communicated to partners such as the State of Alaska, Alaska Native communities, the U.S. Congress, the business community, international partners, and other stakeholders. Dr. John Holdren, Assistant to the President for Science and Technology and Director of the White House Office of Science and Technology Policy, serves as the AESC Chair.
+
+As U.S. Ambassador to Sweden between 2011-2015, Mark worked closely with the Swedish Government during its Chairmanship of the Arctic Council. The U.S. is one of eight member nations of the Arctic Council, and currently is the Council's Chair. In May 2013, Mark joined the U.S. Delegation led by Secretary of State John Kerry to the Arctic Council Ministerial in Kiruna, Sweden, above the Arctic Circle. At that ministerial, key agreements involving Arctic search and rescue, oil spill preparedness and cleanup, and inclusion of non-Arctic nations as Arctic Council observers were advanced. In September 2013, Mark welcomed President Barack Obama to Stockholm for a historic, first ever visit by a sitting U.S. President to Sweden's capital. In Stockholm, President Obama and all five heads of government of the Nordic countries met together to discuss a shared approach to climate change and the future of the Arctic among other issues.
+
+Mark made the Arctic a central focus of his tenure in Sweden. Speaking in February 2015 at Dartmouth College where he gave the Montgomery Fellowship lecture on the Arctic, Mark noted that "the Arctic is simultaneously a strategic problem and a human problem." At the U.S. Embassy, he developed new partnerships with government and diplomats, business, media and entertainment, and the environmental and NGO community to consider the link between what is happening in the Arctic and what is happening in the rest of the world. He used new communications and social-media tools to share how the looming crisis confronting the Arctic is a tangible preview of the crisis confronting the world as a whole. Mark initiated and helped develop the new U.S. Fulbright Scholarship devoted to the study of the future of the Arctic. The new Arctic Fulbright, funded by the State Department, is a unique two-year program composed of researchers selected from the eight Arctic Council countries.
+
+Mark served on the National Security Council staff under President Clinton between 1999-2001, first as Director for Russia and Eurasia, then as Director for the Balkans. He received his undergraduate degree at Dartmouth College, his law degree at the University of Virginia Law School and has Doctorate in political science from Oxford University. He was a Fulbright Scholar in Warsaw, Poland between 1991-1993. He was a partner at a Washington, DC law firm before joining the Obama Administration, and is a member of the Council on Foreign Relations.
