@@ -127,13 +127,13 @@
   }
 }
 
-.fold-speakers {
+.fold-speakers  {
   position: relative;
   z-index: 1;
   &:before {
     border-top: 8px solid $primary-link-color;
   }
-/*  &:after {
+  &:after {
     background-color: #fff;
     border-bottom: 8px solid $primary-link-color;
     bottom: 0em;
@@ -148,10 +148,10 @@
     right: 0;
     z-index: -1;
     -webkit-backface-visibility: hidden; // for Chrome Windows
-  }*/
+  }
 }
 
-.fold--about, .fold-speakers, .fold-faq {
+.fold--about, .fold-speakers {
   position: relative;
   z-index: 1;
   &:before {
@@ -182,6 +182,13 @@
       top: -16.3em;
     }
   }
+}
+
+.fold.fold--faq {
+  padding-top: 10rem;
+  @include media(medium-up) {
+    padding-top: 22rem
+  };
 }
 
 .section--sponsors {
