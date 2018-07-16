@@ -5,11 +5,28 @@
 <div class="side-by-side sponsor-logos">
   {% for g in sponsors_by_group %}
   <div class="sponsor-group sponsor-group--{{ g.name | slugify }}">
-    <h5 class="sponsor-group__title heading--small">Hosted By</h5>
+    <h5 class="sponsor-group__title heading--medium">Sponsored By</h5>
     <ul class="sponsor-list">
-      {% for sponsor in g.items %}
       <li class="sponsor-list__item">
-        <a href="{{ sponsor.website }}" title="Visit website" class="sponsor sponsor--{{ sponsor.title | slugify }}">
+        <p class="sponsor-label">Party</p>
+        <a href="https://aws.amazon.com/" title="Visit website" class="sponsor">
+          <span class="visually-hidden">Amazon Web Services</span>
+          <img src="/assets/graphics/content/sponsors/aws-logo.png" alt="AWS logo" />
+        </a>
+      </li>
+      <li class="sponsor-list__item">
+        <p class="sponsor-label">Spirit</p>
+        <a href="https://www.azavea.com/" title="Visit website" class="sponsor">
+          <span class="visually-hidden">Azavea</span>
+          <img src="/assets/graphics/content/sponsors/azavea.png" alt="Azavea logo" />
+        </a>
+      </li>
+    </ul>
+    <h5 class="sponsor-group__title heading--medium">Hosted By</h5>
+    <ul class="host-list">
+      {% for sponsor in g.items %}
+      <li class="host-list__item">
+        <a href="{{ sponsor.website }}" title="Visit website" class="host host--{{ sponsor.title | slugify }}">
           <span class="visually-hidden">{{ sponsor.title }}</span>
           <img src="/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="{{ sponsor.title }} logo" />
         </a>
