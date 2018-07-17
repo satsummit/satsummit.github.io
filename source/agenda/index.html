@@ -30,7 +30,7 @@ published: true
               {% for g in events_by_time %}
               {% capture time_start %}2016/01/01 {{ g.name }}{% endcapture %}
               <section class="agenda-section agenda-section--{{ g.size }}e">
-                <span class="agenda-section__title">{{ time_start | date: "%l:%M%P" }}</span>
+                <div class="agenda-section__container"><span class="agenda-section__time">{{ time_start | date: "%l:%M%P" }}</span></div>
                 <ul class="event-list event-list--hub">
                   {% for event in g.items %}
 
@@ -50,7 +50,7 @@ published: true
                         {% else %}
                         <h3 class="heading--medium">{{ event.title }}</h3>
                         {% endunless %}
-                        <span class="event__detail">{{ event.room }}</span>
+                        <span class="event__room event__room-{{ event.room | slugify }}">{{ event.room }}</span>
 
                         {% if event.description or event.speakers %}
                         {% if event.description %}
