@@ -1,0 +1,14 @@
+.code-of-conduct {
+  width: 75%;
+  ul {
+    list-style: circle;
+    margin-left: 3rem;
+  }
+  a {
+  	border-bottom: 1px solid #abb4f7;
+    transition: all 0.4s ease 0s;
+     &:hover {
+      border-bottom: 1px solid $primary-link-color;
+    }
+  }
+}

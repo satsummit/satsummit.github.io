@@ -62,7 +62,6 @@ $page-header-y-large-up: 6rem;
       }
     }
   }
-
   &__headline {
 
 
@@ -138,6 +137,26 @@ $page-header-y-large-up: 6rem;
       line-height: 2.25rem;
     }
   }
+  &__header--secondary {
+    @include media(medium-down) {
+      margin-top: 5em;
+    }
+    .fold {
+      padding-bottom: 1em;
+    }
+    p {
+      width: 60%;
+      @include media(medium-down) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.inpage__body {
+  .fold {
+    padding-top: 2em;
+  }
 }
 
 .side-by-side {
@@ -172,36 +191,6 @@ $page-header-y-large-up: 6rem;
 /* inPage modifiers
    ========================================================================== */
 
-.inpage--hub {
-  .inpage__headline {
-    text-align: center;
-
-    &::after {
-      content: '';
-      left: 50%;
-      width: $global-spacing * 6;
-      height: $global-spacing / 4;
-      background: #fff;
-      display: inline-block;
-      margin-top: 1.5em;
-      transform: skewY(-5deg);
-    }
-
-    @include media(medium-up) {
-      @include col(10/12, $offset: 1/12);
-    }
-
-    @include media(large-up) {
-      @include col(8/12, $offset: 2/12);
-    }
-  }
-
-  .inpage__title {
-    @include heading(2rem, xlarge-up);
-    letter-spacing: 0.25em;
-    transform: skewY(-5deg);
-  }
-}
 
 .inpage--single {
   .inpage__headline {
@@ -216,6 +205,9 @@ $page-header-y-large-up: 6rem;
 
   .inpage__title {
     @extend .heading, .heading--xlarge;
+  }
+  .withDescription {
+    margin-bottom: .01em;
   }
 }
 
@@ -259,7 +251,24 @@ $page-header-y-large-up: 6rem;
   }
 }
 
-.inpage-action-twitter,
+.inpage-action-twitter {
+  display: inline-block;
+  color: #fff;
+  background-color: $primary-link-color;
+  padding: 0em 1em;
+  font-size: .86em;
+  margin-top: 1em;
+  span {
+    margin-left: .3em;
+    float: left;
+  }
+  &:before {
+    float: left;
+    display: block;
+    padding-top: .5em;
+  }
+}
+
 .inpage-action-download {
   @extend .button, .button--achromic, .button--medium;
   vertical-align: bottom;
@@ -276,4 +285,9 @@ $page-header-y-large-up: 6rem;
 
 .inpage-action-download:before {
   @extend %collecticon-download;
+}
+
+.venue--img {
+  border-top: 7px solid #19E9D4;
+  margin-bottom: 3em;
 }

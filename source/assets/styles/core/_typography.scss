@@ -176,11 +176,14 @@ abbr[title] {
 }
 
 .heading--xlarge {
-  @include heading(1.75rem, xlarge-up);   // 28, 32, 36, 40
+  @include heading(3.571rem, xlarge-up);   // 28, 32, 36, 40
 }
 
 .heading--large {
   @include heading(1.8rem, xlarge-up);    // 24, 28, 32, 36
+  @include media(medium-up) {
+    line-height: 1.1em;
+  }
 }
 
 .heading--medium {
