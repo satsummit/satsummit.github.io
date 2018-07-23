@@ -27,10 +27,9 @@
       }
     }
     @include media(small-down) {
-      width: 46%;
-      margin-bottom: .4em;
-      &:nth-of-type(even) {
-        margin-right: 0;
+      @include col(6/12, $cycle: 2);
+      &:nth-child(2) {
+        margin-top: 0;
       }
     }
     .photoOverlay {
@@ -55,7 +54,7 @@
         max-height: 87%;
       }
       @include media(small-down) {
-        max-height: 88%;
+        max-height: 90%;
       }
     }
     .speaker--header--content {

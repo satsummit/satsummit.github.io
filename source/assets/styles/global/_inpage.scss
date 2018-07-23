@@ -153,11 +153,11 @@ $page-header-y-large-up: 6rem;
   }
 }
 
-.inpage__body {
+/*.inpage__body {
   .fold {
     padding-top: 2em;
   }
-}
+}*/
 
 .side-by-side {
   @include media(xsmall-up) {
