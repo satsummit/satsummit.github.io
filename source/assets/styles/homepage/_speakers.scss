@@ -19,6 +19,14 @@
     &:nth-of-type(4n) {
       margin-right: 0%;
     }
+    @include media(large-up) {
+      @include col(3/12, $cycle: 4);
+      margin-top: $global-spacing * 2.5;
+  
+/*      &:nth-child(3) {
+        margin-top: 0;
+      }*/
+    }
     @include media(medium-down) {
       width: 22%;
       margin-right: 4%;
