@@ -1,7 +1,7 @@
 ---
 title: Samapriya Roy
 company: Planet
-role: Hands-on Satellite Imagery Processing and Analysis at Scale
+role: Ph.D. Candidate and Senior Developer Advocate Intern
 twitter: samapriyaroy
 website: 
 avatar: Samapriya_Roy.jpg
