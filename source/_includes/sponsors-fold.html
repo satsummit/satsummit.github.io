@@ -5,7 +5,7 @@
 <div class="side-by-side sponsor-logos">
   {% for g in sponsors_by_group %}
   <div class="sponsor-group sponsor-group--{{ g.name | slugify }}">
-    <!-- <h5 class="sponsor-group__title heading--medium">Sponsored By</h5>
+    <h5 class="sponsor-group__title heading--medium">Sponsored By</h5>
     <ul class="sponsor-list">
       <li class="sponsor-list__item">
         <p class="sponsor-label">Party</p>
@@ -21,7 +21,7 @@
           <img src="/assets/graphics/content/sponsors/azavea.png" alt="Azavea logo" />
         </a>
       </li>
-    </ul> -->
+    </ul>
     <h5 class="sponsor-group__title heading--medium">Hosted By</h5>
     <ul class="host-list">
       {% for sponsor in g.items %}
