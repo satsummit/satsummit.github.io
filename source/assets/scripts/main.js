@@ -42,9 +42,9 @@ if (mapContainer) {
   // eslint-disable-next-line
   const map = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/devseed/ciwcmblmc00472qme6fvns7ae',
-    center: [-77.0216026, 38.8956264],
-    zoom: 15.85
+    style: 'mapbox://styles/devseed/cjjrefy0x1f712ss5spif25ve',
+    center: [-77.025961, 38.891800],
+    zoom: 14.3
   });
   map.scrollZoom.disable();
 }

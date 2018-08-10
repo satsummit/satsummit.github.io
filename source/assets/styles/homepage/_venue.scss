@@ -3,13 +3,8 @@
    ========================================================================== */
 
 .map {
-  width: 45%;
-  float: left;
-  margin-right: 8%;
-  background: gray;
   height: 400px;
-  display: block;
-  content: '';
+  position: relative;
   @include media(small-down) {
     width: 100%;
     margin-bottom: 2em;

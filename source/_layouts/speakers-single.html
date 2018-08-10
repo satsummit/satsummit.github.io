@@ -31,7 +31,7 @@ use_excerpt: true
           </header>
           <div class="inpage__body">
             {{ content }}
-            <section class="speaker--content">
+            <!-- <section class="speaker--content">
               <h2 class="heading--large">See {{ page.title }}:</h2>
               {% assign events = site.events | where: "speakers", page.title %}
               {% assign eventsMod = site.events | where: "moderator", page.title %}
@@ -49,7 +49,7 @@ use_excerpt: true
                 <a href="{{ site.baseurl }}{{ insight.url }}" title="View insight">Download presentation</a>
                 {% endfor %}
               {% endif %}
-            </section>
+            </section> -->
 
             <div class="">
               <a class="button go-button" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
