@@ -1,0 +1,32 @@
+---
+layout: base
+published: true
+---
+<!-- Page Body -->
+<main class="page__body" role="main">
+  <div class="inner">
+
+    <!-- inPage -->
+    <header class="inpage__header--secondary">
+      <div class="fold">
+        <div class="inner">
+          <h1 class="heading--xlarge">Featured Sessions</h1>
+        </div>
+      </div>
+    </header>
+    <div class="inpage__body">
+      <div class="fold">
+        <div class="inner">
+          <ul class="featured__list">
+            {% for session in site.featured %}
+              <li id="{{ session.id }}">
+                <h3 class="heading--large">{{ session.title }}</h3>
+                {{ session.content }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
