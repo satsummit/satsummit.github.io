@@ -1,6 +1,6 @@
 ---
 layout: base
-published: true
+published: false
 ---
 <!-- Page Body -->
 <main class="page__body" role="main">
@@ -12,7 +12,7 @@ published: true
         <div class="fold">
           <div class="inner">
             <h1 class="inpage__title heading--xlarge">Agenda</h1>
-            <ul>
+            <ul class="button-list">
               <li><a class="button" href="#">Wednesday</a></li>
               <li><a class="button" href="#">Thursday</a></li>
             </ul>
@@ -27,10 +27,11 @@ published: true
 
             {% assign events_by_time = site.events | group_by: "time_slot" %}
             <div class="agenda-content">
+              <h2 class="agenda__day heading--large">Wednesday<span>Sept. 19</span></h2>
               {% for g in events_by_time %}
               {% capture time_start %}2016/01/01 {{ g.name }}{% endcapture %}
               <section class="agenda-section agenda-section--{{ g.size }}e">
-                <span class="agenda-section__title">{{ time_start | date: "%l:%M%P" }}</span>
+                <div class="agenda-section__container"><span class="agenda-section__time">{{ time_start | date: "%l:%M%P" }}</span></div>
                 <ul class="event-list event-list--hub">
                   {% for event in g.items %}
 
@@ -45,12 +46,13 @@ published: true
                   <li class="event-list__item">
                     <div class="event event--short {{ article_classes }}" id="event-{{ event.slug }}">
                       <div class="event__header">
+                        <div class="event__content">
                         {% unless event.permalink == 'none' %}
                         <h3 class="heading--medium"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h3>
                         {% else %}
                         <h3 class="heading--medium">{{ event.title }}</h3>
                         {% endunless %}
-                        <span class="event__detail">{{ event.room }}</span>
+                        <span class="event__room event__room-{{ event.room | slugify }}">{{ event.room }}</span>
 
                         {% if event.description or event.speakers %}
                         {% if event.description %}
@@ -58,6 +60,7 @@ published: true
                           {{ event.description | markdownify }}
                         </div>
                         {% endif %}
+                        </div>
 
                         {% if event.speakers %}
                         <dl class="event__speaker-list">
