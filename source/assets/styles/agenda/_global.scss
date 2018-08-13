@@ -12,8 +12,16 @@
   }
 }
 
+.agenda-section {
+  display: flex;
+  flex-wrap: wrap;
+  @include media(small-up) {
+    flex-wrap: nowrap;
+  }
+}
+
 .agenda-section__container {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 2rem;
   padding-top: 1rem;
@@ -31,7 +39,7 @@
 }
 
 .event-list {
-  float: left;
+  display: inline-block;
   width: 100%;
   border-top: solid 0px;
   padding: 2rem 0;

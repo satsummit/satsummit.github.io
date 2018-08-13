@@ -17,14 +17,18 @@ published: true
     <div class="inpage__body">
       <div class="fold">
         <div class="inner">
-          <ul class="featured__list">
-            {% for session in site.featured %}
-              <li id="{{ session.id }}">
-                <h3 class="heading--large">{{ session.title }}</h3>
+          {% for session in site.featured %}
+          <div class="agenda-section" id="{{ session.id }}">
+            <div class="agenda-section__container">
+              <h3 class="heading--medium">{{ session.title }}</h3>
+            </div>
+            <ul class="event-list event-list--hub">
+              <li class="event-list__item">
                 {{ session.content }}
               </li>
-            {% endfor %}
-          </ul>
+            </ul>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
