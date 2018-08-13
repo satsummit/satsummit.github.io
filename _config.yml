@@ -47,3 +47,5 @@ collections:
     permalink: /speakers/:path/
   sponsors:
     output: false
+  featured:
+    output: false
