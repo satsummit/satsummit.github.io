@@ -134,9 +134,6 @@
   img {
     width: 100%;
   }
-  .heading--medium {
-    margin-bottom: .1em;
-  }
   p {
     color: $secondary-color;
     line-height: 1.8em;
@@ -167,4 +164,12 @@
   margin-bottom: 1em;
   display: block;
   color: #2C2B2B;
+}
+
+.speaker-list__link {
+   transition: all 0.3s ease 0s;
+   border-bottom: 2px solid rgba(255, 255, 255, 0);
+   &:hover {
+      border-bottom: 2px solid #19E9D4;
+   }
 }
