@@ -55,6 +55,12 @@
   }
 }
 
+.homepage__header {
+  @include media(large-up) {
+    display: none;
+  }
+}
+
 /* Headline */
 
 .page__headline {
@@ -79,7 +85,7 @@
     > * {
       display: inline-block;
       word-spacing: normal;
-      @include media(medium-up) {
+      @include media(large-up) {
         font-size: 1.38em;
         margin-top: .25em;
       }
