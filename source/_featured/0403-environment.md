@@ -1,5 +1,5 @@
 ---
-title: Lightning Talks: Environment
+title: "Lightning Talks: Environment"
 id: lt-environment
 ---
 Deploying deep learning for realtime estimates of hurricane intensity.
