@@ -1,5 +1,5 @@
 ---
 title: GIANTS
-id: giants
+hash: giants
 ---
-Hear great stories from great people who got us to where we are today. 
+Hear great stories from great people who got us to where we are today.
