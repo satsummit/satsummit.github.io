@@ -143,26 +143,21 @@
   }
   @include media(xsmall-up) {
     width: 40%;
-    float: left;
-    margin-right: 7%;
+    margin-right: 10%;
     position: relative;
     border-top: 7px solid $primary-link-color;
     margin-bottom: 1em;
   }
-  @include media(small-up) {
-    width: 30%;
-    margin-right: 8%;
-  }
   @include media(medium-up) {
-    width: 19%;
-    margin-right: 7%;
-    &:nth-child(3n) {
-      clear: none;
-    }
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
+    width: 20%;
+    margin-right: 5%;
   }
+}
+
+.speaker-list--featured {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .speaker__detail {
