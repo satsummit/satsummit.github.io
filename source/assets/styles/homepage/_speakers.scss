@@ -1,44 +1,31 @@
 /* ==========================================================================
    Homepage: Speakers Fold
    ========================================================================== */
-#speakers {
+.fold-speakers {
   padding: 3em 0px 2rem;
   @include media(medium-up) {
     padding: 7rem 0px 1em;
   }
 }
 
+.speaker-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .page__body--speakers {
   .speaker-list__item {
     position: relative;
     border-top: 0;
-    overflow-y: hidden;
-    margin-bottom: 1.3em;
-    width: 22%;
-    margin-right: 4%;
-    &:nth-of-type(4n) {
-      margin-right: 0%;
+    overflow: hidden;
+    margin: 0 0 1.3em;
+    width: 48.5%;
+    @include media(small-up) {
+      width: 31%;
     }
-    @include media(large-up) {
-      @include col(3/12, $cycle: 4);
-      margin-top: $global-spacing * 2.5;
-  
-/*      &:nth-child(3) {
-        margin-top: 0;
-      }*/
-    }
-    @include media(medium-down) {
-      width: 22%;
-      margin-right: 4%;
-      &:nth-of-type(4n) {
-        margin-right: 0%;
-      }
-    }
-    @include media(small-down) {
-      @include col(6/12, $cycle: 2);
-      &:nth-child(2) {
-        margin-top: 0;
-      }
+    @include media(medium-up) {
+      width: 23%;
     }
     .photoOverlay {
       &:before {
@@ -134,39 +121,27 @@
   img {
     width: 100%;
   }
-  &:last-of-type {
-    margin-right: 0;
-  }
-  .heading--medium {
-    margin-bottom: .1em;
-  }
   p {
     color: $secondary-color;
     line-height: 1.8em;
   }
   @include media(xsmall-up) {
     width: 40%;
-    float: left;
-    margin-right: 7%;
+    margin-right: 10%;
     position: relative;
     border-top: 7px solid $primary-link-color;
     margin-bottom: 1em;
-    &:nth-of-type(3) {
-      clear: left;
-    }
-  }
-  @include media(small-up) {
-    width: 30%;
-    margin-right: 8%;
-    margin-bottom: 0em;
   }
   @include media(medium-up) {
-    width: 19%;
-    margin-right: 7%;
-    &:nth-of-type(3) {
-      clear: none;
-    }
+    width: 20%;
+    margin-right: 5%;
   }
+}
+
+.speaker-list--featured {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .speaker__detail {
@@ -176,4 +151,12 @@
   margin-bottom: 1em;
   display: block;
   color: #2C2B2B;
+}
+
+.speaker-list__link {
+   transition: all 0.3s ease 0s;
+   border-bottom: 2px solid rgba(255, 255, 255, 0);
+   &:hover {
+      border-bottom: 2px solid #19E9D4;
+   }
 }

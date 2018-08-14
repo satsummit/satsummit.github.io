@@ -1,102 +1,100 @@
 /* ==========================================================================
    Agenda: Global
    ========================================================================== */
+.agenda__day {
+  font-weight: $base-font-bold;
+  line-height: 2.25rem;
+  span {
+    display: block;
+    font-weight: $base-font-regular;
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+}
 
-.event--short,
-.event--tiny {
+.agenda-section {
+  display: flex;
+  flex-wrap: wrap;
+  @include media(small-up) {
+    flex-wrap: nowrap;
+  }
+}
+
+.agenda-section__container {
+  display: inline-block;
+  width: 100%;
+  margin-right: 2rem;
+  padding-top: 1rem;
+  border-top: solid 7px $primary-link-color;
+  @include media(small-up) {
+    width: 20%;
+    padding-top: 2rem;
+  }
+}
+
+.agenda-section__time {
+  font-family: $heading-font-family;
+  font-weight: $base-font-regular;
+  font-size: 1.5rem;
+}
+
+.event-list {
+  display: inline-block;
+  width: 100%;
+  border-top: solid 0px;
+  padding: 2rem 0;
+  @include media(small-up) {
+     width: 65%;
+    border-top: solid 7px $primary-link-color;
+  }
+}
+
+.event-list__item {
   @extend .clearfix;
-
-  .event__header,
-  .event__body,
-  .event__footer,
-  .event__prose,
-  .event__inner {
-    > *:last-child {
-      margin-bottom: 0;
-    }
+  margin-bottom: 3rem;
+  &:last-child {
+    margin-bottom: 0 ;
   }
+}
 
-  .event__header,
-  .event__body,
-  .event__prose {
-    margin-bottom: $global-spacing;
+.event__speaker-list {
+  dt {
+    font-weight: $base-font-bold;
   }
+}
 
-  .event__title {
-    @include heading(1rem, medium-up);
-    margin-bottom: 0;
-  }
+.event__room {
+  font-size: 0.875rem;
+  color: #FFF;
+  padding: 0.15rem 0.5rem;
+  background-color: rgba(#000, 0.3);
+  border-radius: 3px;
+  font-weight: $base-font-bold;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
 
-  .event__suptitle {
-    position: relative;
-    @extend .heading;
-    font-size: 0.75rem;
-    line-height: 1;
-    margin: 0;
-    color: $primary-color;
-    letter-spacing: 0.25em;
-    margin-bottom: $global-spacing / 2;
+.event__room-dac-main-room {
+  background-color: #19E9D4;
+}
 
-    @include media(medium-up) {
-      font-size: 0.875rem;
-      line-height: 1rem;
-    }
-  }
-
-  .event__detail {
-    @extend .heading-alt;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    text-transform: none;
-    opacity: 0.64;
-    margin-bottom: 0;
-
-    @include media(medium-up) {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-  }
-
-  .event__speaker-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    dt, dd {
-      display: inline;
-    }
-
-    dt {
-      @extend .heading;
-      font-size: 0.875rem;
-      line-height: 1;
-      margin-right: $global-spacing / 4;
-      opacity: 0.64;
-    }
-
-    dd:not(:last-child)::after {
-      content: ', ';
-    }
-
-    dt:first-of-type + dd::after {
-      content: '';
-    }
+.event__room-impact-hub-dc {
+  background-color: #F76D10;
+}
 
 
-    a {
-      @extend .link, .link--indark;
-    }
+.event__room-dac-salle-1 {
+  background-color: #834AE4;
+}
 
-    &::before {
-      content: '';
-      left: 50%;
-      width: 2rem;
-      height: 0.175rem;
-      background: #fff;
-      display: block;
-      border-radius: $base-border-radius / 4;
-      margin-bottom: 0.5em;
-      transform: skewY(-5deg);
-    }
-  }
+.event__room-dac-lobby {
+  background-color: #DA5CF5;
+}
+
+.event__room-hill-country-bbq {
+  background-color: #2037E9;
+}
+
+.event__prose {
+  color: rgba($base-color, 0.7);
 }
