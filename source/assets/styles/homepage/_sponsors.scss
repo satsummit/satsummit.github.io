@@ -10,7 +10,7 @@
       padding-bottom: 2em;
     }
     @include media(medium-up) {
-      margin-top: 19em;
+      margin-top: 12em;
       width: 45%;
       padding-bottom: 0em;
     }
@@ -28,8 +28,10 @@
 
   &__title {
     @extend .heading;
+    font-weight: $base-font-bold;
     margin-bottom: $global-spacing * 1.5;
     color: $primary-link-color;
+    font-size: 2rem;
   }
 
   @include media(medium-up) {
@@ -45,7 +47,7 @@
 }
 
 .sponsor-list {
-  margin-bottom: $global-spacing * 2;
+  margin-bottom: $global-spacing * 3;
 }
 
 .sponsor-list__item {
@@ -66,9 +68,20 @@
 }
 
 .sponsor-label {
-  color: #FFF;
+  color: $primary-link-color;
   text-transform: uppercase;
   font-family: $heading-font-family;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.sponsor-subhead {
+  color: #FFF;
+  font-weight: $base-font-bold;
+  font-style: italic;
+  line-height: 1.25rem;
+  width: 80%;
+  margin-top: $global-spacing;
 }
 
 .host-list__item {
