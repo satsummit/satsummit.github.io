@@ -8,37 +8,24 @@
   }
 }
 
+.speaker-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .page__body--speakers {
   .speaker-list__item {
     position: relative;
     border-top: 0;
-    overflow-y: hidden;
-    margin-bottom: 1.3em;
-    width: 22%;
-    margin-right: 4%;
-    &:nth-child(4n) {
-      margin-right: 0%;
+    overflow: hidden;
+    margin: 0 0 1.3em;
+    width: 48.5%;
+    @include media(small-up) {
+      width: 31%;
     }
-    @include media(large-up) {
-      @include col(3/12, $cycle: 4);
-      margin-top: $global-spacing * 2.5;
-
-/*      &:nth-child(3) {
-        margin-top: 0;
-      }*/
-    }
-    @include media(medium-down) {
-      width: 22%;
-      margin-right: 4%;
-      &:nth-child(4n) {
-        margin-right: 0%;
-      }
-    }
-    @include media(small-down) {
-      @include col(6/12, $cycle: 2);
-      &:nth-child(2n) {
-        margin-top: 0;
-      }
+    @include media(medium-up) {
+      width: 23%;
     }
     .photoOverlay {
       &:before {
