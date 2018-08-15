@@ -1,12 +1,12 @@
 ---
-title: Asimina Syriou
-company: Satellite Applications Catapult
-role: Earth Observation Specialist
-twitter: MinaSyriou
-website: 
-avatar: Asimina_Syriou.jpg
+title: Theresa Harris
+company: American Association for the Advancement of Science
+role: Project Director
+twitter: TheresaLHarris
+website:
+avatar: Theresa_Harris.png
 featured: false
 related_insights:
 
 ---
-Mina is an Earth Observation Specialist within the Earth Observation Domain at the Satellite Applications Catapult, a not-for-profit research organisation focused on promoting the commercialisation and advancement of the satellite applications industry. Prior to this she has undertaken roles across academia, industry, the United Nations and NGOs focused on the research and development of Earth observation and geospatial applications dedicated to supporting humanitarian relief, social justice, wildlife conservation and sustainable development. In her current role, Mina is responsible for engaging in a dynamic range of projects and activities in support of an expanding effort to further the exploitation of data from remote sensing satellites. She is an expert in providing technical input and support for various applications, underpinning the delivery of technical work within both collaborative and commercial R&D projects. She holds a position as a STEM Ambassador and she is also a Fellow of the Royal Geographical Society.
+Theresa Harris is Project Director in the Scientific Responsibility, Human Rights and Law Program at the American Association for the Advancement of Science (AAAS). She manages the AAAS Science and Human Rights Coalition, a network of scientific organizations that recognize a role for scientists and engineers in human rights. She also directs On-call Scientists, which connects volunteer scientists, engineers, and health professionals with human rights organizations that seek scientific and technical expertise. Prior to joining AAAS, she led the World Organization for Human Rights USA as its Executive Director, where she represented survivors of human rights violations before United States courts, the Inter-American human rights system and United Nations human rights mechanisms. She has served on the Board of Directors of Amnesty International USA and is a member of the governing body of the World Organization Against Torture (OMCT). She earned a BA in Anthropology from Florida State University, an MSc in Urban and Regional Planning from the University of Tennessee-Knoxville and a JD from American University Washington College of Law. 

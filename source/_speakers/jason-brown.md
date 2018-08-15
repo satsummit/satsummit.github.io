@@ -1,9 +1,9 @@
 ---
 title: Jason Brown
-company: Astraea, Inc. 
+company: Astraea, Inc.
 role: Senior Data Scientist
 twitter: vpipkt
-website: 
+website:
 avatar: Jason_Brown.jpg
 featured: false
 related_insights:

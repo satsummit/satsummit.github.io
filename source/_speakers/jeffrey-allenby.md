@@ -1,12 +1,15 @@
 ---
-title: Asimina Syriou
-company: Satellite Applications Catapult
-role: Earth Observation Specialist
-twitter: MinaSyriou
-website: 
+title: Jeffrey Allenby
+company: Chesapeake Conservancy
+role: Director of Conservation Technology
+twitter: Chesconserv
+website:
 avatar: Asimina_Syriou.jpg
 featured: false
 related_insights:
 
 ---
-Mina is an Earth Observation Specialist within the Earth Observation Domain at the Satellite Applications Catapult, a not-for-profit research organisation focused on promoting the commercialisation and advancement of the satellite applications industry. Prior to this she has undertaken roles across academia, industry, the United Nations and NGOs focused on the research and development of Earth observation and geospatial applications dedicated to supporting humanitarian relief, social justice, wildlife conservation and sustainable development. In her current role, Mina is responsible for engaging in a dynamic range of projects and activities in support of an expanding effort to further the exploitation of data from remote sensing satellites. She is an expert in providing technical input and support for various applications, underpinning the delivery of technical work within both collaborative and commercial R&D projects. She holds a position as a STEM Ambassador and she is also a Fellow of the Royal Geographical Society.
+Jeffrey Allenby manages the Conservancy’s Conservation Innovation Center. His team explores new methods to improve the effectiveness and efficiency of conservation and restoration decision making and focuses on developing new ways to empower partner organizations by providing them with innovative 
+platforms to access geospatial data and analysis tools that will create beneficial management outcomes.
+
+Before joining the Conservancy, Jeff worked with the University of Maryland Center for Environmental Science and the Maryland Department of Natural Resources, managing a competitive grant program providing support to local communities to plan for and proactively adapt to climate change and coastal hazards at the Chesapeake Bay Foundation. Jeff has a Masters of Environmental Management and Certificate in Geospatial Analysis from Duke University and a Bachelors of Science from the University of Richmond.

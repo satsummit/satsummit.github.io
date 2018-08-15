@@ -3,7 +3,7 @@ title: Asimina Syriou
 company: Satellite Applications Catapult
 role: Earth Observation Specialist
 twitter: MinaSyriou
-website: 
+website:
 avatar: Asimina_Syriou.jpg
 featured: false
 related_insights:

@@ -4,7 +4,7 @@ company: UN World Food Programme
 role: Earth Observation and Climate Analyst
 twitter: WFPVAM
 website:
-avatar: Sarah_Muir.jpg
+avatar: Sarah_Muir.JPG
 featured: false
 related_insights:
 

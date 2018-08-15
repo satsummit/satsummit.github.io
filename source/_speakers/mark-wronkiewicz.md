@@ -1,12 +1,12 @@
 ---
-title: Christoph Koettl
-company: New York Times
-role: Senior Video Journalist
-twitter: ckoettl
+title: Mark Wronkiewicz
+company: Development Seed
+role: Machine Learning Engineer
+twitter: mark_wronk
 website:
-avatar: Christoph_Koettl.jpg
+avatar: Mark_Wronkiewicz.jpeg
 featured: false
 related_insights:
 
 ---
-Christoph Koettl is a senior video journalist at The New York Times, specializing in geospatial and open-source research. He is an expert on armed conflicts, human rights and social media research and verification. He previously was part of Amnesty International’s Crisis Response Team, where he founded and edited the Citizen Evidence Lab.
+Mark is focused on using machine learning tools to empower mappers. He works on projects to augment  human effort with automation so they are more efficient and accurate. Most of his work revolves around analyzing infrastructure (e.g., builds and roads) in overhead imagery.

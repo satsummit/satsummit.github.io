@@ -1,12 +1,12 @@
 ---
-title: Christoph Koettl
-company: New York Times
-role: Senior Video Journalist
-twitter: ckoettl
+title: Jamon Van Den Hoek
+company: Oregon State University
+role: Assistant Professor
+twitter: JamonVDH
 website:
-avatar: Christoph_Koettl.jpg
+avatar: Jamon_Van_Den_Hoek.jpg
 featured: false
 related_insights:
 
 ---
-Christoph Koettl is a senior video journalist at The New York Times, specializing in geospatial and open-source research. He is an expert on armed conflicts, human rights and social media research and verification. He previously was part of Amnesty International’s Crisis Response Team, where he founded and edited the Citizen Evidence Lab.
+Jamon is interested in better understanding how environmental and climatic patterns result from processes of violent conflict or influence vulnerability of human communities. As a geographer and remote sensing scientist, he works with satellite imagery, spatial statistics, and machine learning to document social-environmental consequences of conflict from local to global scales, and develop grounded insights in support of affected communities and the humanitarian, policy, and scientific groups working on their behalf. Current research includes improving our spatial awareness of global informal settlements, measuring climate vulnerability of refugee camps, assessing landscape effects of violent conflict in Palestine, documenting infrastructural damage in global cities, and gauging spatially explicit linkages between conflict and food security in Syria and Nigeria. 

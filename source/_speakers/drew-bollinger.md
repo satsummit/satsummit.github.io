@@ -1,12 +1,12 @@
 ---
-title: Christoph Koettl
-company: New York Times
-role: Senior Video Journalist
-twitter: ckoettl
+title: Drew Bollinger
+company: Development Seed
+role: Developer
+twitter: drewbo19
 website:
-avatar: Christoph_Koettl.jpg
+avatar: Drew_Bollinger.png
 featured: false
 related_insights:
 
 ---
-Christoph Koettl is a senior video journalist at The New York Times, specializing in geospatial and open-source research. He is an expert on armed conflicts, human rights and social media research and verification. He previously was part of Amnesty International’s Crisis Response Team, where he founded and edited the Citizen Evidence Lab.
+Drew is a data analyst and software developer at Development Seed, with rich experience running advanced statistical and spatial analysis. He leads the machine learning team and has a keen eye for building useful products and interfaces. Drew has built several highly-usable satellite imagery browsers that allows users to easily search and sort through open earth observation data.

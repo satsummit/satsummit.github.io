@@ -2,8 +2,8 @@
 title: David Johnson
 company: USDA National Agricultural Statistics Service
 role: Senior Geographer
-twitter: 
-website: 
+twitter:
+website:
 avatar: David_Johnson.jpg
 featured: false
 related_insights:
