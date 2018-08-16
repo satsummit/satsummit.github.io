@@ -4,12 +4,12 @@ company: Caribou Digital
 role: Senior Director
 twitter: spacefordev
 website:
-avatar: David_Taverner.jpg
+avatar: David_TavernerONE.jpg
 featured: false
 related_insights:
 
 ---
-Caribou Digital has a dedicated team supporting clients in the space industry to bridge the space and development worlds. 
+Caribou Digital has a dedicated team supporting clients in the space industry to bridge the space and development worlds.
 
 David is currently supporting UK Space Agency’s International Partnership Programme (IPP) and the European Space Agency’s Earth Observation for Sustainable Development programme (EO4SD). David also manages Caribou Digital’s Space for Development website https://www.spacefordevelopment.org/. David previously co-founded the Digital Financial Services Innovation Lab, a fund for financial technology start-ups in developing countries, with the Bill and Melinda Gates Foundation. David also led research on new technologies, including satellite, to address Internet adoption in developing countries, for USAID.
 
