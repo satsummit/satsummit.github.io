@@ -3,7 +3,7 @@ title: Caroline Gevaert
 company: The World Bank
 role: Remote Sensing and Machine Learning Specialist
 twitter:
-website: 
+website:
 avatar: Caroline_Gevaert.jpg
 featured: false
 related_insights:

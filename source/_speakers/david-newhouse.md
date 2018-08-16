@@ -2,8 +2,8 @@
 title: David Newhouse
 company: The World Bank
 role: Senior Economist
-twitter: 
-website: 
+twitter:
+website:
 avatar: David_Newhouse.jpg
 featured: false
 related_insights:

@@ -2,8 +2,8 @@
 title: Hannah Friedrich
 company: Oregon State University
 role: Master's Student
-twitter: 
-website: 
+twitter:
+website:
 avatar: Hannah_Friedrich.jpg
 featured: false
 related_insights:
