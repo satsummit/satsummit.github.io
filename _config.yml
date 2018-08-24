@@ -9,11 +9,12 @@ permalink: /insights/:year/:month/:day/:title/
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+future: true
 
 ##
 # Global definitions
 ##
-event_date: 2018-09-01
+event_date: 2018-09-19
 
 ##
 # Default values

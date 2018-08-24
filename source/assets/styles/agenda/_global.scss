@@ -4,6 +4,7 @@
 .agenda__day {
   font-weight: $base-font-bold;
   line-height: 2.25rem;
+
   span {
     display: block;
     font-weight: $base-font-regular;
@@ -36,6 +37,8 @@
   font-family: $heading-font-family;
   font-weight: $base-font-regular;
   font-size: 1.5rem;
+  line-height: 1.5rem;
+  display: block;
 }
 
 .event-list {
@@ -43,8 +46,9 @@
   width: 100%;
   border-top: solid 0px;
   padding: 2rem 0;
+
   @include media(small-up) {
-     width: 65%;
+    width: 65%;
     border-top: solid 7px $primary-link-color;
   }
 }
@@ -63,11 +67,30 @@
   }
 }
 
+.event__title {
+  @include heading(1.5rem, xlarge-up);
+  margin-bottom: $global-spacing / 2;
+}
+
+.event__type {
+  font-family: $heading-font-family;
+  font-weight: $base-font-regular;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  text-transform: uppercase;
+  margin: 0;
+
+  @include media(small-up) {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
 .event__room {
   font-size: 0.875rem;
   color: #FFF;
   padding: 0.15rem 0.5rem;
-  background-color: rgba(#000, 0.3);
+  background-color: $base-color;
   border-radius: 3px;
   font-weight: $base-font-bold;
   margin-bottom: 1rem;
