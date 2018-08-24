@@ -4,7 +4,8 @@ slug: human-rights-mapping
 
 title: Human Rights Mapping
 type: Facilitated Conversation
-category: 
+category:
+date: "2018-09-19"
 time: "15:45"
 time_slot: "15:45"
 duration: 60

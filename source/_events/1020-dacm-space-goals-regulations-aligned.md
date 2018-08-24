@@ -5,6 +5,7 @@ slug: space-goals-regulations-aligned
 title: Our Space Goals and Regulations Aligned
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "10:20"
 time_slot: "09:05"
 duration: 10

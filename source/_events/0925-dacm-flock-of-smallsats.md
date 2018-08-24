@@ -5,6 +5,7 @@ slug: flock-of-smallsats
 title: "What Can You do with a Flock of Smallsats?"
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "09:25"
 time_slot: "09:05"
 duration: 10

@@ -5,6 +5,7 @@ slug: worldview4-first-light-digitalglobe
 title: "WorldView-4: First light and what this means for the DigitalGlobe constellation"
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "09:15"
 time_slot: "09:05"
 duration: 10

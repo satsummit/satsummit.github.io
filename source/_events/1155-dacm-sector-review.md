@@ -5,6 +5,7 @@ slug: sector-review
 title: Sector Review
 type: Keynote
 category: Satellite Data In Development
+date: "2018-09-19"
 time: "11:55"
 time_slot: "11:55"
 duration: 10

@@ -4,6 +4,7 @@ slug: building-platform-for-satellite-data
 title: Building a platform for Satellite Data
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "10:10"
 time_slot: "09:05"
 duration: 10

@@ -5,6 +5,7 @@ slug: open-data-round-table
 title: Open Data Roundtable
 type: Panel
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "11:10"
 time_slot: "11:10"
 duration: 45

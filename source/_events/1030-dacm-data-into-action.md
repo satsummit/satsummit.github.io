@@ -5,6 +5,7 @@ slug: data-into-action
 title: Data into Action
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "10:30"
 time_slot: "09:05"
 duration: 10

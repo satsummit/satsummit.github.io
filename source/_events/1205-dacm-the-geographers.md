@@ -5,6 +5,7 @@ slug: the-geographers
 title: The Geographers
 type: Panel
 category: Satellite Data In Development
+date: "2018-09-19"
 time: "12:05"
 time_slot: "12:05"
 duration: 55

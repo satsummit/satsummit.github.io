@@ -5,6 +5,7 @@ slug: launch-capacity-and-its-impact-on-the-satellite-industry-getting-a-better-
 title: "Launch Capacity and its Impact on the Satellite Industry: Getting a Better Ride into Space"
 type: Keynote
 category: State of Satellite Industry
+date: "2018-09-19"
 time: "09:50"
 time_slot: "09:05"
 duration: 10

@@ -5,6 +5,7 @@ slug: making-change-on-the-ground
 title: Making Change on the Ground
 type: Panel
 category: Data Into Action
+date: "2018-09-19"
 time: "15:45"
 time_slot: "15:45"
 duration: 60

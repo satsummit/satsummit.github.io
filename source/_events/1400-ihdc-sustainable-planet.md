@@ -5,6 +5,7 @@ slug: sustainable-planet
 title: A Sustainable Planet
 type: Panel
 category: Data Into Action
+date: "2018-09-19"
 time: "14:00"
 time_slot: "14:00"
 duration: 60

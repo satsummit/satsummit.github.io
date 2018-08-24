@@ -9,6 +9,7 @@ permalink: /insights/:year/:month/:day/:title/
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+future: true
 
 ##
 # Global definitions
