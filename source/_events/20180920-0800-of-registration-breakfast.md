@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: Registration & Breakfast
+title: "Registration & Breakfast"
 type: Check-in
 category:
 date: "2018-09-20"
