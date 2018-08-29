@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "Up in the COGs"
+title: "ARD Workshop: COGs"
 type: Workshop
 category:
 date: "2018-09-20"
