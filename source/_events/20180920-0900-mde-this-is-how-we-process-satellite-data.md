@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: ML & Analysis Workshop: Rasterio
+title: "ML & Analysis Workshop: Rasterio"
 type: Workshop
 category:
 date: "2018-09-20"
