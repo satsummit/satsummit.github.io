@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "ML & Analysis Workshop: Label Maker and Robosat"
+title: "ML & Analysis Workshop: GBDX"
 type: Workshop
 category:
 date: "2018-09-20"
