@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "Information into Action"
+title: "Our Opportunity"
 type: Keynote
 category:
 date: "2018-09-19"

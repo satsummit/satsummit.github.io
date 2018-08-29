@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "Where we are Today"
+title: "State of Play"
 type: Keynote
 category:
 date: "2018-09-19"

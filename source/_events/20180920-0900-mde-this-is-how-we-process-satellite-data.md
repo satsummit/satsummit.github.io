@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: This is how we process satellite data
+title: ML & Analysis Workshop: Rasterio
 type: Workshop
 category:
 date: "2018-09-20"

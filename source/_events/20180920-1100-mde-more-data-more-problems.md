@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "More data, More problems"
+title: "ML & Analysis Workshop: Label Maker and Robosat"
 type: Workshop
 category:
 date: "2018-09-20"
