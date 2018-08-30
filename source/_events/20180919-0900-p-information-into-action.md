@@ -2,14 +2,14 @@
 permalink: none
 slug:
 
-title: "Information into Action"
+title: "Our Opportunity"
 type: Keynote
 category:
 date: "2018-09-19"
 time: "09:00"
 time_slot: "09:00"
 duration:
-room: Pavillon
+room: Pavilion
 speakers:
 
 description:

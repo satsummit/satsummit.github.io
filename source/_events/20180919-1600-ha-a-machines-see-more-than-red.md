@@ -2,7 +2,7 @@
 permalink: none
 slug:
 
-title: "Machines see more than red, green and blue"
+title: "Seeing more than red, green and blue"
 type: Panel
 category:
 date: "2018-09-19"

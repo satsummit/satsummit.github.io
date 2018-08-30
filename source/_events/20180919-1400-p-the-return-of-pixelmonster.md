@@ -9,7 +9,7 @@ date: "2018-09-19"
 time: "14:00"
 time_slot: "14:00"
 duration:
-room: Pavillon
+room: Pavilion
 speakers:
 description:
 ---
