@@ -1,7 +1,7 @@
 ---
 title: Catherin Andrea Alvarez Hernandez
 company: Bogota's Habitat Department
-role: Topographical Engineer, specialist in geographic information systems from the Francisco José de Caldas District University in Colombia
+role: Topographical Engineer
 twitter: catherinska
 website:
 avatar: Catherin_Andrea_Alvarez_Hernandez.jpeg
