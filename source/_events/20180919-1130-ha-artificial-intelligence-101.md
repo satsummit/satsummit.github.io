@@ -12,5 +12,6 @@ duration:
 room: Hemisphere A
 speakers:
 
-description:
+summary: "Let’s peel away the hype and talk specifics on artificial intelligence for earth observations. What can you expect as a customer of AI? What’s the current state of the art and what can AI tell us? What are the pre-reqs in order to do this well?"
 ---
+Let’s peel away the hype and talk specifics on artificial intelligence for earth observations. What can you expect as a customer of AI? What’s the current state of the art and what can AI tell us? What are the pre-reqs in order to do this well?

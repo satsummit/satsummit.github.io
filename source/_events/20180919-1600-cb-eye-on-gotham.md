@@ -12,5 +12,6 @@ duration:
 room: Continental B
 speakers:
 
-description:
+summary: "We now have the spatial and temporal resolution to keep up with the cadence of a modern city. These presenters show you new ways to look at our urban landscape."
 ---
+We now have the spatial and temporal resolution to keep up with the cadence of a modern city. These presenters show you new ways to look at our urban landscape.

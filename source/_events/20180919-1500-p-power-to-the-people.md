@@ -11,5 +11,6 @@ time_slot: "15:00"
 duration:
 room: Pavilion
 speakers:
-description:
+summary: "One billion people live without access to electricity. This workshop will discuss methods of mapping existing power infrastructure, and modeling the best ways to provide electricity to the unconnected."
 ---
+One billion people live without access to electricity. This workshop will discuss methods of mapping existing power infrastructure, and modeling the best ways to provide electricity to the unconnected.

@@ -12,5 +12,5 @@ duration:
 room: Oceanic A/B
 speakers:
 
-description:
+summary:
 ---

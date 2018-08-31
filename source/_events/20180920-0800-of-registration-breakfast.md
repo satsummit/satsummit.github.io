@@ -12,5 +12,5 @@ duration:
 room: Oceanic Foyer
 speakers:
 
-description:
+summary:
 ---
