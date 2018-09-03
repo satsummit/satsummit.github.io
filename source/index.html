@@ -86,7 +86,9 @@ layout: base-home
         <!-- Fold: Sessions -->
         <section class="fold background--grey fold-sessions" id="featured-sessions">
           <div class="inner">
-            <h2 class="fold__title">Featured Sessions</h2>
+            <header class="fold__header">
+              <h2 class="fold__title">Featured Sessions</h2>
+            </header>
             <div class="fold__body">
               <ol class="session-list session-list--featured">
                 {% for event in feat_events limit: 8 %}
@@ -98,6 +100,9 @@ layout: base-home
                 {% endfor %}
               </ol>
             </div>
+            <footer>
+              <a class="button go-button" href="{{ site.baseurl }}/agenda/" title="View all sessions"><span>View all sessions</span></a>
+            </footer>
           </div>
         </section>
         <!--/ Fold: Sessions -->
