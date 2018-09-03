@@ -1,5 +1,6 @@
 ---
 permalink: none
+published: false
 slug:
 
 title: "Zanzibar Mapping"
