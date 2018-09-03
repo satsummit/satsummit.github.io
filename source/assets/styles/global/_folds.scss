@@ -127,7 +127,7 @@
   }
 }
 
-.fold-speakers, .section--sponors, .fold--about, {
+.fold-sessions, .fold-speakers, .section--sponors, .fold--about, {
   position: relative;
   z-index: 1;
   &:before {
@@ -151,7 +151,7 @@
   }
 }
 
-.fold--about, .fold-speakers, .section--sponors {
+.fold-sessions, .fold--about, .fold-speakers, .section--sponors {
   position: relative;
   z-index: 1;
   &:before {
