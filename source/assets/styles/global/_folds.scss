@@ -31,19 +31,18 @@
 }
 
 .fold__header {
-  margin-bottom: $global-spacing * 2;
-  text-align: center;
+  margin-bottom: $global-spacing;
 
   > *:last-child {
     margin-bottom: 0;
   }
 
   @include media(medium-up) {
-    margin-bottom: $global-spacing * 3;
+    margin-bottom: $global-spacing * 2;
   }
 
   @include media(large-up) {
-    margin-bottom: $global-spacing * 4;
+    margin-bottom: $global-spacing * 3;
   }
 }
 
@@ -71,26 +70,6 @@
 
 .fold__footer {
   clear: both;
-  margin-top: $global-spacing;
-  text-align: center;
-
-  &--actions > * {
-    margin-top: $global-spacing * 2;
-    transform: skewY(-5deg);
-    transform-origin: left bottom;
-  }
-
-  &--actions > *:active {
-    transform: skewY(-5deg) translate(0, 1px);
-  }
-
-  @include media(medium-up) {
-    margin-top: $global-spacing * 2;
-
-    &--actions > * {
-      margin-top: $global-spacing * 4;
-    }
-  }
 }
 
 .fold--about {
@@ -127,7 +106,7 @@
   }
 }
 
-.fold-speakers, .section--sponors, .fold--about, {
+.fold-sessions, .fold-speakers, .section--sponors, .fold--about, {
   position: relative;
   z-index: 1;
   &:before {
@@ -151,7 +130,7 @@
   }
 }
 
-.fold--about, .fold-speakers, .section--sponors {
+.fold-sessions, .fold--about, .fold-speakers, .section--sponors {
   position: relative;
   z-index: 1;
   &:before {

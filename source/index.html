@@ -72,7 +72,6 @@ layout: base-home
             <div class="fold__body">
               <h2 class="fold__title">About</h2>
               <p>SatSummit convenes leaders in the satellite industry and experts in global development for in-depth conversations on solving the world's most critical development challenges with satellite data. From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.</p>
-
               <p>SatSummit is committed to exploring the current state of satellite data capabilities and new systems. Our second SatSummit explored the topics ranging from machine learning to automated monitoring to identifying specific opportunities for partnership and innovation. Read more about the presentations, program launches and commitments, and news related to SatSummit on our <a href="https://satsummit.io/insights/">Insights blog</a>, and stay tuned for more information on SatSummit 3!</p>
             </div>
             <img class="img-bg" src="/assets/graphics/layout/conference-photo1.jpg" width="374" height="374" alt="Satsummit speaker" />
@@ -82,89 +81,34 @@ layout: base-home
         </section>
         <!--/ Fold: About -->
 
-        <!-- Fold: Speakers -->
-        <section class="fold background--grey fold-speakers" id="featured-sessions">
+        {% assign feat_events = site.events | where: "featured", true %}
+        {% if feat_events.size > 0 %}
+        <!-- Fold: Sessions -->
+        <section class="fold background--grey fold-sessions" id="featured-sessions">
           <div class="inner">
-            <h2 class="fold__title">Featured Sessions</h2>
+            <header class="fold__header">
+              <h2 class="fold__title">Featured Sessions</h2>
+            </header>
             <div class="fold__body">
-              <ol class="speaker-list speaker-list--featured">
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#planetary-scale-analysis">Planetary scale analysis</a>
-                  </h4>
-                  <p>Next generation datasets are cloud-based and analysis-ready, supportting planetary scale analysis, AI, and direct integration into web apps.</p>
+              <ol class="session-list session-list--featured">
+                {% for event in feat_events limit: 8 %}
+                <li class="session-list__item">
+                  <p class="event__type">{{ event.type }}</p>
+                  <h4 class="heading--medium"><a class="session-list__link" href="{{ site.baseurl }}/agenda/#event-{{ event.title | slugify }}">{{ event.title }}</a></h4>
+                  <p>{{ event.summary }}</p>
                 </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#fast-food-security">Fast Food Security</a>
-                  </h4>
-                  <p>We have the data to support rapid calibration of crop health and yield, to precisely predict food crisis and to operationalize food intelligence to prevent hunger.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#nighttime-lights">Out of the Dark. What you learn from the world at night.</a>
-                  </h4>
-                  <p>It is remarkable what you can learn about the world at night. Forest fires, oil production, economic activity.. all shine at night.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#bot-or-not">Bot or not?</a>
-                  </h4>
-                  <p>Industry leaders in applied AI discuss emerging design patterns in combining humans and machines to build a queryable planet.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#a-pixel-tells">A pixel tells a thousand words</a>
-                  </h4>
-                  <p>Rockstar storytellers share how they're using maps and imagery to share compelling stories with audiences around the world.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#new-space-ecosystem">Anyone can go to space: the new space ecosystem</a>
-                  </h4>
-                  <p>Countries that have previously be unable to establish a national space program, now take advantage of partnerships to access satellites and sensors to protect their boarders, track their natural resources, and monitor human development.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#more-than-rgb">Seeing more than red, green and blue</a>
-                  </h4>
-                  <p>New satellites take us beyond the human eye - they see through the smoke of wildfires, detect and measure the gas leaking into the air from faulty pipelines, and capture the world at night.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#eye-on-gotham">Eye on Gotham</a>
-                  </h4>
-                  <p>We finally have the spatial and temporal resolution to keep up with the cadence of a modern city. These presenters show you new ways to look at our urban landscape.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#space-census">2020 Space Census</a>
-                  </h4>
-                  <p>Worldwide, the 2020 census cycle is our last chance to calibrate our data collection.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#conservation-conversation">Conservation Conversation. What's your relation?</a>
-                  </h4>
-                  <p>Cutting edge conservation experts discuss building realtime global monitoring for conservation operations and what other sectors can learn.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#friends-with-benefits">Friends with benefits: Gov, Commercial, NGOs</a>
-                  </h4>
-                  <p>Masters of bureaucratic ju-jitsu show you how to get bureaucracy out of the way so that we can share data and work together on common goals across government, NGOs, and companies.</p>
-                </li>
-                <li class="speaker-list__item">
-                  <h4 class="heading--medium">
-                    <a class="speaker-list__link" href="/featured-sessions/#ai-101">Artificial Intelligence 101</a>
-                  </h4>
-                  <p>Peel away the hype and talk specifics on artificial intelligence for earth observations. What's the current state of the art and what can AI tell us?</p>
-                </li>
+                {% endfor %}
               </ol>
             </div>
+            <footer>
+              <a class="button go-button" href="{{ site.baseurl }}/agenda/" title="View all sessions"><span>View all sessions</span></a>
+            </footer>
           </div>
         </section>
-        <!--/ Fold: Venue -->
+        <!--/ Fold: Sessions -->
+        {% endif %}
+
+        <!-- Fold: Sponsors -->
         <section class="fold section--sponsors" id="sponsors">
           <div class="inner">
             <div class="card side-by-side">
@@ -174,7 +118,9 @@ layout: base-home
             {% include sponsors-fold.html %}
           </div>
         </section>
+        <!--/ Fold: Sponsors -->
 
+        <!-- Fold: FAQ -->
         <section class="fold fold--faq" id="faq">
           <div class="inner">
             <h2 class="fold__title">Frequently Asked Questions</h2>
@@ -211,12 +157,15 @@ layout: base-home
               </ol>
           </div>
         </section>
+        <!--/ Fold: FAQ -->
 
+        <!-- Fold: Venue -->
         <section class="fold fold--venue">
           <div class="fold__body">
             <div class="map" id="map"></div>
           </div>
         </section>
+        <!--/ Fold: Venue -->
 
     </section>
     <!--/ inPage -->
