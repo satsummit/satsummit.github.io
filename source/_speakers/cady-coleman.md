@@ -1,16 +1,16 @@
 ---
 title: Cady Coleman
 company: Exploration Leadership
-role: Former Astronaut
+role: Former NASA Astronaut
 twitter: Astro_Cady
 website:
-avatar: Cady_Coleman.jpg
+avatar: Cady_Coleman2.jpg
 featured: false
 related_insights:
 
 ---
-Cady Coleman is a scientist, wife, mother, pilot, musician and recently retired NASA astronaut. After flying in space twice on the Space Shuttle and spending 6 months on the International Space Station, Cady finished her NASA career leading innovation at the Office of the Chief Technologist. Cady is now focused on sharing her space-related stories about leadership, collaboration and the importance of STEM and STEAM.
+Dr. Cady Coleman is a chemist, a retired United States Air Force Colonel, and former NASA Astronaut with more than 180 days in space, accumulated during two space shuttle missions and a six-month expedition to the International Space Station (ISS). She launched and landed aboard the Russian Soyuz spacecraft, and acted as the Lead Robotics and Lead Science officer during her tenure aboard the ISS, performing the second-ever free flyer robotic capture from the station.
 
-Coleman studied chemistry at MIT, received a doctorate in polymer science and engineering from the University of Massachusetts and was commissioned in the US Air Force, serving as a research chemist at the Air Force Materials Laboratory.
+In her spare time aboard the ISS, Cady played the flute 220 miles above the earth, joining Jethro Tull flutist Ian Anderson for a duet between earth and space and coached actress Sandra Bullock in preparation for Bullock’s role as a stranded astronaut in the movie “Gravity.”  After returning to Earth, she became an Innovation Lead and managed LAUNCH.ORG for NASA’s Office of the Chief Technologist at NASA Headquarters, before retiring from NASA after a 26-year career.  
 
-Coleman was honored to be selected as a NASA Astronaut in 1992 and has since logged more than 180 days in space. Over the course of three missions, she conducted experiments in materials science, biotechnology, combustion science and fluid physics; served as the lead mission specialist for the deployment of the Chandra X-Ray Observatory under the leadership of Col. Eileen Collins, the first woman Space Shuttle Commander; and spent almost six months living aboard the International Space Station as the Lead Robotics and Science Officer.  Coleman is currently serving on the Board of Directors for the Smithsonian Museum of Natural History, Greenfield Community College and Skycatch, a leading drone data imaging and processing service.
+Currently, she is a public speaker, advocating for inclusion in STEM and STEAM fields and on teams everywhere, and a technical consultant for microgravity research. She serves on several boards, including the Smithsonian Natural History Museum and Dent the Future.  She received a bachelor of science degree in chemistry from the Massachusetts Institute of Technology, and a doctorate in polymer science and engineering from the University of Massachusetts.
