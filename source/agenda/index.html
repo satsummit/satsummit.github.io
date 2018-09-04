@@ -47,7 +47,7 @@ published: true
                     {% endif %}
 
                     <li class="event-list__item">
-                      <article class="event event--short {{ article_classes }}" id="event-{{ event.slug }}">
+                      <article class="event event--short {{ article_classes }}" id="event-{{ event.title | slugify }}">
                         <div class="event__content">
 
                           <header class="event__header">
@@ -62,12 +62,12 @@ published: true
                             <span class="event__room event__room-{{ event.room | slugify }}">{{ event.room }}</span>
                           </header>
 
-                          {% if event.description or event.speakers %}
+                          {% if event.summary or event.speakers %}
                           <div class="event__body">
 
-                            {% if event.description %}
+                            {% if event.summary %}
                             <div class="event__prose">
-                              {{ event.description | markdownify }}
+                              {{ event.summary | markdownify }}
                             </div>
                             {% endif %}
 

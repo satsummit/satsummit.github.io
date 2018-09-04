@@ -11,6 +11,6 @@ time_slot: "13:15"
 duration:
 room: Continental B
 speakers:
-
-description:
+summary: "Deploying deep learning for realtime estimates of hurricane intensity. SAR data for better flood forecasting and flood hazard calculations. Mapping 17 years of forest change in Mato Grosso using machine learning."
 ---
+Deploying deep learning for realtime estimates of hurricane intensity. SAR data for better flood forecasting and flood hazard calculations. Mapping 17 years of forest change in Mato Grosso using machine learning.

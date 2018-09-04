@@ -12,6 +12,6 @@ duration:
 room: Smithsonian National Air and Space Museum
 speakers:
 
-description: "Transportation will be provided. Busses will depart from the Ronald Reagan Building at 6:45pm following the closing session."
+summary: "Transportation will be provided. Busses will depart from the Ronald Reagan Building at 6:45pm following the closing session."
 ---
 Transportation will be provided. Busses will depart from the Ronald Reagan Building at 6:45pm following the closing session.

@@ -1,5 +1,6 @@
 ---
 permalink: none
+published: false
 slug:
 
 title: "Zanzibar Mapping"
@@ -12,5 +13,5 @@ duration:
 room: Oceanic A/B
 speakers:
 
-description:
+summary:
 ---

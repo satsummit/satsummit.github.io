@@ -12,5 +12,5 @@ duration:
 room: Hemisphere A/B Lobby
 speakers:
 
-description:
+summary:
 ---

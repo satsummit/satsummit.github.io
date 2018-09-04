@@ -11,6 +11,6 @@ time_slot: "13:15"
 duration:
 room: Hemisphere A
 speakers:
-
-description:
+summary: "Planetary Scale monitoring on a budget with open source and open data. The Cognitive Limitations of AI. Semi-supervised deep learning for rooftop solar potential."
 ---
+Planetary Scale monitoring on a budget with open source and open data. The Cognitive Limitations of AI. Semi-supervised deep learning for rooftop solar potential.
