@@ -11,6 +11,6 @@ time_slot: "09:00"
 duration:
 room: Oceanic A/B
 speakers:
-summary: "Policy and strategy workshops will teach project managers how to navigate issues related to project design, ethical and responsible data collection, data procurement, and stewardship."
+summary: "Based on the Signal Code, this workshop will walk participants step-by-step through designing their Code of Conduct and ethical guidelines for a humanitarian or human rights-oriented remote sensing application. Any organization (including businesses) interested in rights-oriented project design should attend."
 ---
-Policy and strategy workshops will teach project managers how to navigate issues related to project design, ethical and responsible data collection, data procurement, and stewardship.
+Based on the Signal Code, this workshop will walk participants step-by-step through designing their Code of Conduct and ethical guidelines for a humanitarian or human rights-oriented remote sensing application. Any organization (including businesses) interested in rights-oriented project design should attend.
