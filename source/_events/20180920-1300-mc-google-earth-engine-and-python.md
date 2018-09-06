@@ -2,8 +2,8 @@
 permalink: none
 slug:
 
-title: "ARD Workshop: Google Earth Engine and Python"
-type: Workshop
+title: "Google Earth Engine and Python"
+type: "Workshop Track: Analysis Ready Data"
 category:
 date: "2018-09-20"
 time: "13:00"
