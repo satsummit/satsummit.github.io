@@ -1,6 +1,5 @@
 ---
 permalink: none
-published: false
 slug:
 
 title: Signal Code, ethical guidelines for humanitarian remote sensing
