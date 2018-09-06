@@ -2,8 +2,8 @@
 permalink: none
 slug:
 
-title: "ARD Workshop: DataCubes and CommonSensing"
-type: Workshop
+title: "DataCubes and CommonSensing"
+type: "Workshop Track: Analysis Ready Data"
 category:
 date: "2018-09-20"
 time: "11:00"

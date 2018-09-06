@@ -2,8 +2,8 @@
 permalink: none
 slug:
 
-title: "ML & Analysis Workshop: Label Maker and Robosat"
-type: Workshop
+title: "Label Maker and Robosat"
+type: "Workshop Track: Machine Learning"
 category:
 date: "2018-09-20"
 time: "13:00"
