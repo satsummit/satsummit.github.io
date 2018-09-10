@@ -35,6 +35,7 @@ jobs:
             source /usr/local/rvm/scripts/rvm
             npm run lint
             npm run build
+          no_output_timeout: 30m
 
       - add_ssh_keys:
           fingerprints:
