@@ -30,30 +30,60 @@ use_excerpt: true
             {% endif %}
           </header>
           <div class="inpage__body">
-            {{ content }}
-            <!-- <section class="speaker--content">
-              <h2 class="heading--large">See {{ page.title }}:</h2>
-              {% assign events = site.events | where: "speakers", page.title %}
-              {% assign eventsMod = site.events | where: "moderator", page.title %}
-              <ol class="event-list event-list--single">
-                {% for event in eventsMod %}
-                {% include related-event.html event=event is_moderator=true %}
-                {% endfor %}
-                {% for event2 in events %}
-                {% include related-event.html event=event2 %}
-                {% endfor %}
-              </ol>
-              {% if page.related_insights %}
-                {% for rel_insight in page.related_insights %}
-                {% assign insight = site.posts | where: "uid", rel_insight | first %}
-                <a href="{{ site.baseurl }}{{ insight.url }}" title="View insight">Download presentation</a>
-                {% endfor %}
-              {% endif %}
-            </section> -->
 
-            <div class="">
+            <div class="inpage__main-content">
+              {{ content }}
+            </div>
+
+            {% capture agenda_events_content %}
+              {% for event in site.events %}
+                {% for role in event.people %}
+
+                  {% if role[1] contains page.title %}
+                    {% assign has_agenda_events = true %}
+
+                    {{ agenda_events_content }}
+                    <li class="event-list__item">
+                      <article class="event--tiny">
+                        <div class="event__inner">
+                          <header class="event__header">
+                            <p class="event__suptitle">{{ event.type }} {{ role[0] | capitalize }}</p>
+                            <h1 class="event__title">
+                              <a href="{{ site.baseurl }}/agenda/#event-{{ event.title | slugify }}" title="View event">{{ event.title }}</a>
+                            </h1>
+                            {% capture time_start %}{{ event.date }} {{ event.time }}{% endcapture %}
+                            <p class="event__detail">{{ event.room }} &bull; {{ time_start | date: "%a, %b %d &bull; %l:%M%p" }}</p>
+                          </header>
+                          {% if event.summary %}
+                          <div class="event__body">
+                            <div class="event__prose">
+                              {{ event.summary | markdownify }}
+                            </div>
+                          </div>
+                          {% endif %}
+                        </div>
+                      </article>
+                    </li>
+                  {% endif %}
+
+                {% endfor %}
+              {% endfor %}
+            {% endcapture %}
+
+            {% if has_agenda_events %}
+            <aside class="inpage__related-content">
+              <h2 class="heading--large">On the agenda</h2>
+
+              <ol class="event-list event-list--single">
+                {{ agenda_events_content }}
+              </ol>
+            </aside>
+            {% endif %}
+
+            <div>
               <a class="button go-button" href="{{ site.baseurl }}/speakers/" title="View all speakers"><span>View all speakers</span></a>
             </div>
+
           </div>
         </div>
       </div>

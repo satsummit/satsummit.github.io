@@ -1,6 +1,7 @@
 /* ==========================================================================
    Agenda: Global
    ========================================================================== */
+
 .agenda__day {
   font-weight: $base-font-bold;
   line-height: 2.25rem;
@@ -68,8 +69,12 @@
 }
 
 .event__title {
-  @include heading(1.5rem, xlarge-up);
+  @include heading(1.5rem, large-up);
   margin-bottom: $global-spacing / 2;
+
+  > a {
+    @extend .session-list__link;
+  }
 }
 
 .event__type {
@@ -84,6 +89,15 @@
     font-size: 1.25rem;
     line-height: 1.5rem;
   }
+}
+
+.event__body {
+  font-size: .86em;
+  width: 77%;
+}
+
+.event__detail {
+
 }
 
 .event__room {
@@ -120,4 +134,36 @@
 
 .event__prose {
   color: rgba($base-color, 0.7);
+}
+
+.event__speaker-list {
+  margin: 0;
+
+  dt, dd {
+    margin: 0;
+  }
+
+  a {
+    @extend .session-list__link;
+  }
+}
+
+
+/* Event tiny
+   ========================================================================== */
+
+.event--tiny {
+  .event__suptitle {
+    font-family: $heading-font-family;
+    font-weight: $base-font-regular;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    margin: 0;
+
+    @include media(small-up) {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+  }
 }
