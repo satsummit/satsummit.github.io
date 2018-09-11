@@ -13,6 +13,7 @@ room: Continental C
 people:
   moderator:
     - John Crowley
+  panelists:
     - Jamie Favors
     - Laura McGorman
     - Sarah Henley-Shepard
