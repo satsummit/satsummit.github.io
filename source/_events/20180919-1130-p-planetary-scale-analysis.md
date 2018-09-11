@@ -13,6 +13,7 @@ room: Pavilion
 people:
   moderator:
     - Will Cadell
+  panelists:
     - Christopher Lynnes
     - David Potere
     - Brian Killough
