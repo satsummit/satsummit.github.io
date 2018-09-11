@@ -10,7 +10,5 @@ time: "08:00"
 time_slot: "08:00"
 duration:
 room: Hemisphere A/B Lobby
-speakers:
-
 summary:
 ---

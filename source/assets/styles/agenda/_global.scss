@@ -139,8 +139,20 @@
 .event__speaker-list {
   margin: 0;
 
+  dt {
+    margin: 0 ($global-spacing / 2) 0 ($global-spacing / 2);
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+
+  dd {
+    margin: 0 ($global-spacing / 2) 0 0;
+  }
+
   dt, dd {
-    margin: 0;
+    display: inline-flex;
   }
 
   a {
