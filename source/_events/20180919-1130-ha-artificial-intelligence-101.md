@@ -13,6 +13,7 @@ room: Hemisphere A
 people:
   moderator:
     - Dalton Lunga
+  panelists:
     - Drew Bollinger
     - Sean Gorman
     - Jubal Harpster
