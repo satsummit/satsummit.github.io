@@ -1,5 +1,5 @@
 ---
-title: David Newhouse
+title: David Locke Newhouse
 company: The World Bank
 role: Senior Economist
 twitter:
