@@ -11,7 +11,5 @@ time: "11:00"
 time_slot: "11:00"
 duration:
 room: Oceanic A/B
-speakers:
-
 summary:
 ---

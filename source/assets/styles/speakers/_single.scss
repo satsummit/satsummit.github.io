@@ -43,16 +43,6 @@
   margin-top: 3em;
 }
 
-.event__detail {
-  font-size: .86em;
-  color: $secondary-color;
-}
-
-.event__body {
-  font-size: .86em;
-  width: 77%;
-}
-
 
 /* Events
    ========================================================================== */
@@ -62,7 +52,8 @@
     @extend .clearfix;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: $global-spacing 0 0 0;
+    width: 100%;
   }
 
   .event-list__item:not(:last-child) {

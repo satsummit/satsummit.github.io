@@ -62,7 +62,7 @@ published: true
                             <span class="event__room event__room-{{ event.room | slugify }}">{{ event.room }}</span>
                           </header>
 
-                          {% if event.summary or event.speakers %}
+                          {% if event.summary or event.people %}
                           <div class="event__body">
 
                             {% if event.summary %}
@@ -71,38 +71,19 @@ published: true
                             </div>
                             {% endif %}
 
-                            {% if event.speakers %}
+                            {% if event.people %}
                             <dl class="event__speaker-list">
-                              {% if event.moderator %}
-                                <dt>Moderator</dt>
-                                {% assign s = site.speakers | where: "title", event.moderator | first %}
+                            {% for role in event.people %}
+                              <dt>{{ role[0] | capitalize }}</dt>
+                              {% for person in role[1] %}
+                                {% assign s = site.speakers | where: "title", person | first %}
                                 {% if s.url %}
                                 <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ s.title }}</a></dd>
                                 {% else %}
-                                <dd>{{ event.moderator }}</dd>
-                                {% endif %}
-                              {% endif %}
-
-                              {% if event.type == "Keynote" %}
-                              <dt>Speaker</dt>
-                              {% elsif event.type == "Panel" %}
-                              <dt>Speakers</dt>
-                              {% elsif event.type == "Facilitated Conversation" %}
-                              <dt>Facilitator</dt>
-                              {% else %}
-                              <dt>Host</dt>
-                              {% endif %}
-
-                              {% for speaker in event.speakers %}
-                                {% assign s = site.speakers | where: "title", speaker | first %}
-                                {% if s.url and event.type == "Keynote" %}
-                                <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a> ({{ s.role }}, {{ s.company }})</dd>
-                                {% elsif s.url %}
-                                <dd><a href="{{ site.baseurl }}{{ s.url }}" title="View speaker profile">{{ speaker }}</a></dd>
-                                {% else %}
-                                <dd>{{ speaker }}</dd>
+                                <dd>{{ person }}</dd>
                                 {% endif %}
                               {% endfor %}
+                            {% endfor %}
                             </dl>
                             {% endif %}
 
