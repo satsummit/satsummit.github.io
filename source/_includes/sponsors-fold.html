@@ -4,36 +4,37 @@
 
 <div class="side-by-side sponsor-logos">
   <h5 class="sponsor-group__title heading--medium">Sponsored By</h5>
-  {% for g in sponsors_by_group %}
-  <div class="sponsor-group sponsor-group--{{ g.name | slugify }}">
-    <p class="sponsor-label">{{ g.name }}</p>
-    <ul class="sponsor-list">
-      {% for sponsor in g.items %}
-      <li class="sponsor-list__item">
-        <a href="{{ sponsor.website }}" title="Visit website" class="sponsor">
-          <span class="visually-hidden">{{ sponsor.title }}</span>
-          <img src="/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="AWS logo" />
+  <div class="sponsor-group">
+    {% for g in sponsors_by_group %}
+      <p class="sponsor-label">{{ g.name }}</p>
+      <ul class="sponsor-list">
+        {% for sponsor in g.items %}
+        <li class="sponsor-list__item sponsor-list__item__size__{{ g.items | size }}">
+          <a href="{{ sponsor.website }}" title="Visit website" class="sponsor">
+            <span class="visually-hidden">{{ sponsor.title }}</span>
+            <img src="/assets/graphics/content/sponsors/{{ sponsor.image }}" alt="AWS logo" />
+          </a>
+          {% if sponsor.subhead %}
+          <p class="sponsor-subhead">{{ sponsor.subhead }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+
+  <h5 class="sponsor-group__title heading--medium">Hosted By</h5>
+  <div class="sponsor-group">
+    <ul class="host-list">
+      {% for host in site.hosts %}
+      <li class="host-list__item">
+        <a href="{{ host.website }}" title="Visit website" class="host host--{{ host.title | slugify }}">
+          <span class="visually-hidden">{{ host.title }}</span>
+          <img src="/assets/graphics/content/sponsors/{{ host.image }}" alt="{{ host.title }} logo" />
         </a>
-        {% if sponsor.subhead %}
-        <p class="sponsor-subhead">{{ sponsor.subhead }}</p>
-        {% endif %}
       </li>
       {% endfor %}
     </ul>
   </div>
-  {% endfor %}
-
-  <h5 class="sponsor-group__title heading--medium">Hosted By</h5>
-  <ul class="host-list">
-    {% for host in site.hosts %}
-    <li class="host-list__item">
-      <a href="{{ host.website }}" title="Visit website" class="host host--{{ host.title | slugify }}">
-        <span class="visually-hidden">{{ host.title }}</span>
-        <img src="/assets/graphics/content/sponsors/{{ host.image }}" alt="{{ host.title }} logo" />
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-
 </div>
 <!--/ Fold: Sponsors -->
