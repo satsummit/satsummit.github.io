@@ -19,7 +19,7 @@
     position: relative;
     border-top: 0;
     overflow: hidden;
-    margin: 0 0 1.3em;
+    margin: 0 0 3rem;
     width: 48.5%;
     @include media(small-up) {
       width: 31%;
@@ -27,30 +27,13 @@
     @include media(medium-up) {
       width: 23%;
     }
-    .photoOverlay {
-      &:before {
-        max-height: 96.5%;
-      }
-      @include media(medium-down) {
-        &:before {
-          max-height: 95%;
-        }
-      }
-    }
     .speaker--header--wrapper {
       position: absolute;
       background: rgba(8, 0, 255, .0);
       width: 100%;
       height: 100%;
       z-index: 3;
-      max-height: 91.5%;
       transition: all 0.4s ease 0s;
-      @include media(medium-down) {
-        max-height: 87%;
-      }
-      @include media(small-down) {
-        max-height: 90%;
-      }
     }
     .speaker--header--content {
       bottom: -2;
@@ -63,15 +46,15 @@
         background: rgba(8, 0, 255, .8);
       }
       .speaker--header {
-        bottom: 1em;
+        bottom: 2em;
         @include media(medium-down) {
           top: .5em;
         }
       }
       .speaker--role {
-        bottom: 1em;
+        bottom: 2em;
         @include media(medium-down) {
-          bottom: 1.3em;
+          bottom: 1.5em;
         }
       }
     }
@@ -80,18 +63,19 @@
 
 .speaker--header {
   position: absolute;
-  padding: 0 .5em .5em;
+  padding: 0 1.25rem .75rem;
   color: #fff;
-  bottom: -.7em;
+  bottom: 0;
   z-index: 3;
   transition: top 3s ease;
+  margin-bottom: 0;
 }
 
 .speaker--role {
   position: absolute;
-  padding: 0 .5em 0em 1.3em;
+  padding: 0 1.25rem;
   bottom: -3em;
-  height: 42px;
+  height: 3rem;
   color: #fff;
   z-index: 3;
   font-size: .86em;
@@ -102,7 +86,7 @@
 
 .photoOverlay {
   position: relative;
-  margin-bottom: 1em;
+  line-height: 0;
   &:before {
     position: absolute;
     top: 0;
@@ -112,7 +96,6 @@
     z-index: 2;
     content: '';
     background: rgba(8, 0, 255, .19);
-    max-height: 96%;
     transition: all 0.3s ease 0s;
   }
 }
