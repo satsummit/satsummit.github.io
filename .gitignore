@@ -114,3 +114,4 @@ tmp
 .tmp
 dist
 _site
+*.swp

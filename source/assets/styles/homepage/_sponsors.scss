@@ -46,13 +46,10 @@
   margin: 0;
 }
 
-.sponsor-list {
-  margin-bottom: $global-spacing * 3;
-}
-
 .sponsor-list__item {
-  width: 70%;
+  width: 45%;
   margin-bottom: $global-spacing;
+  float: left;
   @include media(medium-up) {
     margin-bottom: $global-spacing * 2;
   }
@@ -65,6 +62,12 @@
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+/* Allow sponsor rows with only 1 entry to go longer. */
+/* This accommodates, ie, subheads. */
+.sponsor-list__item__size__1 {
+   width: 75%;
 }
 
 .sponsor-label {
