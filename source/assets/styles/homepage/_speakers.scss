@@ -19,7 +19,7 @@
     position: relative;
     border-top: 0;
     overflow: hidden;
-    margin: 0 0 1.3em;
+    margin: 0 0 3rem;
     width: 48.5%;
     @include media(small-up) {
       width: 31%;
@@ -63,7 +63,7 @@
 
 .speaker--header {
   position: absolute;
-  padding: 0 1rem .5rem;
+  padding: 0 1.25rem .75rem;
   color: #fff;
   bottom: 0;
   z-index: 3;
@@ -73,7 +73,7 @@
 
 .speaker--role {
   position: absolute;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
   bottom: -3em;
   height: 3rem;
   color: #fff;
