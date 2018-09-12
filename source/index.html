@@ -91,7 +91,7 @@ layout: base-home
             </header>
             <div class="fold__body">
               <ol class="session-list session-list--featured">
-                {% for event in feat_events limit: 8 %}
+                {% for event in feat_events limit: 12 %}
                 <li class="session-list__item">
                   <p class="event__type">{{ event.type }}</p>
                   <h4 class="heading--medium"><a class="session-list__link" href="{{ site.baseurl }}/agenda/#event-{{ event.title | slugify }}">{{ event.title }}</a></h4>

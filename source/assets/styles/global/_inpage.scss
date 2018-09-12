@@ -62,9 +62,8 @@ $page-header-y-large-up: 6rem;
       }
     }
   }
+
   &__headline {
-
-
     > *:last-child {
       margin-bottom: 0;
     }
@@ -206,6 +205,7 @@ $page-header-y-large-up: 6rem;
   .inpage__title {
     @extend .heading, .heading--xlarge;
   }
+
   .withDescription {
     margin-bottom: .01em;
   }
@@ -216,21 +216,16 @@ $page-header-y-large-up: 6rem;
    ========================================================================== */
 
 .inpage__main-content {
-  @include col(12/12);
+  margin-bottom: $global-spacing * 4;
 
   > *:last-child {
     margin-bottom: 0;
   }
+}
 
-  a {
-  }
-
-  @include media(medium-up) {
-    @include col(10/12);
-  }
-
-  @include media(large-up) {
-    @include col(8/12);
+.inpage__related-content {
+  h2 {
+    margin-bottom: $global-spacing * 2;
   }
 }
 
