@@ -13,6 +13,7 @@ room: Hemisphere B
 people:
   moderator:
     - Jessica Seddon
+  panelists:
     - Annemarie Schneider
     - Denise Ross
     - Kien Chi Vu
