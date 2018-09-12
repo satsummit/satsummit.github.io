@@ -1,9 +1,9 @@
 ---
-title: Josh Hacker
+title: Dr. Josh Hacker
 company: Jupiter Intelligence
 role: Atmospheric Science Team Lead
 twitter: JupiterIntel
-website: 
+website:
 avatar: Josh_Hacker.jpg
 featured: false
 related_insights:

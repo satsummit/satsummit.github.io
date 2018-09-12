@@ -12,7 +12,7 @@ duration:
 room: Hemisphere B
 people:
   moderator:
-    - Rachel Petersen
+    - Rachael Petersen
   panelists:
     - Jeffrey Allenby
     - Jenny Rowland
