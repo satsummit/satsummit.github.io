@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "The Return of Pixelmonster: Attacking Satellite Image Processing"

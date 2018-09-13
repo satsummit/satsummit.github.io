@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Google Earth Engine and Python"

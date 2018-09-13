@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Seeing more than red, green and blue"

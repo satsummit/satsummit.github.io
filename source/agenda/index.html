@@ -55,7 +55,7 @@ published: true
                             <p class="event__type">{{ event.type }}</p>
                             {% endif %}
                             {% unless event.permalink == 'none' %}
-                            <h1 class="event__title"><a href="{{ site.baseurl }}{{ event.url }}" title="View event">{{ event.title }}</a></h1>
+                            <h1 class="event__title"><a href="{{ site.baseurl }}/agenda#event-{{ event.title | slugify }}" title="View event">{{ event.title }}</a></h1>
                             {% else %}
                             <h1 class="event__title">{{ event.title }}</h1>
                             {% endunless %}

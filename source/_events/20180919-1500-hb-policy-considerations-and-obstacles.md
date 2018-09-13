@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Policy Considerations and Obstacles"

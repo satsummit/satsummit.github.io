@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Conservation Conversation. What’s your relation?"

@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Out of the Dark. What you Learn from the World at Night"

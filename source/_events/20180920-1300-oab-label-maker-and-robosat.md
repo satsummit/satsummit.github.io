@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Label Maker and Robosat"

@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "A pixel tells a thousand words"

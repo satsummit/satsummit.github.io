@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Friends with benefits: Gov, Commercial, NGOs"

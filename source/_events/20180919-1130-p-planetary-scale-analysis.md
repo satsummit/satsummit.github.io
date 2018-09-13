@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Planetary Scale Analysis"
