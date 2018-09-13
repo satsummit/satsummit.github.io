@@ -4,7 +4,7 @@ company: Mapbox
 role: Product  Manager
 twitter: camillacaros
 website:
-avatar: camilla_mahon.jpg
+avatar: camilla_mahon.JPG
 featured: false
 related_insights:
 
