@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Open Machine Learning for SDGs"

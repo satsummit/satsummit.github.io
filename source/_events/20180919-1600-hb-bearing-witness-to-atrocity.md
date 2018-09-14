@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Bearing witness to atrocity."

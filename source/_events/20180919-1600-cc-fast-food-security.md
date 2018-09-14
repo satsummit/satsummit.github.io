@@ -1,5 +1,4 @@
 ---
-permalink: none
 slug:
 
 title: "Fast Food Security"
