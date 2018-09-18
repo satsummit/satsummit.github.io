@@ -4,13 +4,10 @@
   "description": "Satellite data for global development",
   "repository": {
     "type": "git",
-    "url": "https://github.com/satsummit/satsummit.github.io.git"
+    "url": "git+https://github.com/satsummit/satsummit.github.io.git"
   },
-  "author": {
-    "name": "Development Seed",
-    "url": "https://developmentseed.org"
-  },
-  "license": "BSD 3-Clause",
+  "author": "Development Seed (https://developmentseed.org)",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/satsummit/satsummit.github.io/issues"
   },
@@ -75,9 +72,11 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0",
+    "webpack": "^4.17.1",
     "yamljs": "^0.2.8"
   },
   "dependencies": {
+    "glob-parent": "^2.0.0",
     "jquery": "^3.0.0",
     "mapbox-gl": "^0.24.0"
   }
