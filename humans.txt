@@ -1,0 +1,6 @@
+/* SITE */
+
+Last update: 2018/09/19
+Standards: HTML5, CSS3, RWD
+Components: jQuery, Jekyll, Mapbox
+Software: Sublime Text, Eclipse, Adobe Illustrator CC, GitHub (Mac)
