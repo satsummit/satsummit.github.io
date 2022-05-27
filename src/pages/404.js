@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { DevseedUiThemeProvider, themeVal } from '@devseed-ui/theme-provider';
-import themeOverrides from '$styles/theme';
+import themeOverrides, { GlobalStyles } from '$styles/theme';
 
 import SEO from '$components/seo';
 
@@ -17,6 +17,7 @@ const UhOh = () => {
     <DevseedUiThemeProvider theme={themeOverrides}>
       {/* eslint-disable-next-line */}
       <SEO title='Not Found' />
+      <GlobalStyles />
       <Page>We lost this page</Page>
     </DevseedUiThemeProvider>
   );

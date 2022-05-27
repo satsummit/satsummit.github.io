@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import T from 'prop-types';
 import { DevseedUiThemeProvider } from '@devseed-ui/theme-provider';
 
-import themeOverrides from '$styles/theme';
+import themeOverrides, { GlobalStyles } from '$styles/theme';
 import SEO from './seo';
 
 const Page = styled.div`
@@ -30,6 +30,7 @@ const Layout = ({ children, title }) => {
     <DevseedUiThemeProvider theme={themeOverrides}>
       {/* eslint-disable-next-line */}
       <SEO title={title || 'Welcome'} />
+      <GlobalStyles />
       <Page>
         <PageBody>{children}</PageBody>
       </Page>

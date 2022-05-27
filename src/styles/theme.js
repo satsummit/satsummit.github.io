@@ -23,4 +23,5 @@ export default function themeOverrides() {
 }
 
 export const GlobalStyles = createGlobalStyle`
+  /** Global styles */
 `;
