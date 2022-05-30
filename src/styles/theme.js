@@ -33,7 +33,8 @@ export default function themeOverrides() {
       },
       heading: {
         family: 'Barlow Condensed',
-        weight: '500'
+        weight: '500',
+        case: 'uppercase'
       }
     },
     layout: {
