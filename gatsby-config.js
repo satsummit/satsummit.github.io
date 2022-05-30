@@ -14,6 +14,23 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google2: [
+            {
+              family: 'Open Sans',
+              axes: 'ital,wght@0,400;0,700;1,400;1,700'
+            },
+            {
+              family: 'Barlow Condensed',
+              axes: 'ital,wght@0,500;1,500'
+            }
+          ]
+        }
+      }
+    },
     'gatsby-transformer-yaml',
     'gatsby-plugin-styled-components',
     // {
