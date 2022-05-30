@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { glsp, themeVal, truncated } from '@devseed-ui/theme-provider';
 import { Subtitle } from '@devseed-ui/typography';
-// import { CollecticonCircleInformation } from '@devseed-ui/collecticons';
+import { CollecticonCircleInformation } from '@devseed-ui/collecticons';
 
 import { variableBaseType, variableGlsp } from '$styles/variable-utils';
 
@@ -115,7 +115,7 @@ function FigureAttributionCmp(props) {
   return (
     <FigureAttributionSelf {...rest}>
       <FigureAttributionInner {...innerProps}>
-        {/* <CollecticonCircleInformation /> */}
+        <CollecticonCircleInformation />
         <strong>Figure by {author}</strong>
       </FigureAttributionInner>
     </FigureAttributionSelf>
