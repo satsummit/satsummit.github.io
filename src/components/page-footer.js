@@ -5,10 +5,22 @@ import styled from 'styled-components';
 import { themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '../styles/variable-utils';
+import { VarHeading } from '$styles/variable-components';
 
 const PageFooterSelf = styled.footer`
   padding: ${variableGlsp(0.75, 1)};
   background: ${themeVal('color.base-50')};
+`;
+
+const FootBlock = styled.section`
+  /* styled-component */
+`;
+
+const FootBlockTitle = styled(VarHeading).attrs({
+  as: 'h3',
+  size: 'small'
+})`
+  /* styled-component */
 `;
 
 const FooterCredits = styled.address`
@@ -54,6 +66,35 @@ function PageFooter(props) {
 
   return (
     <PageFooterSelf isHidden={props.isHidden}>
+      <FootBlock>
+        <FootBlockTitle>Previous editions</FootBlockTitle>
+        <ol>
+          <li>
+            <a href='https://2018.satsummit.io/'>SatSummit 2018</a>
+          </li>
+          <li>
+            <a href='https://2017.satsummit.io/'>SatSummit 2017</a>
+          </li>
+          <li>
+            <a href='https://2015.satsummit.io/'>SatSummit 2015</a>
+          </li>
+        </ol>
+      </FootBlock>
+
+      <FootBlock>
+        <FootBlockTitle>Let&apos;s connect</FootBlockTitle>
+        <ul>
+          <li>
+            <a href='mailto:info@satsummit.io'>Get in touch</a>
+          </li>
+          <li>
+            <a href='https://twitter.com/intent/user?screen_name=sat_summit'>
+              Follow us on Twitter
+            </a>
+          </li>
+        </ul>
+      </FootBlock>
+
       <FooterCredits>
         <p>
           <span>Organized by</span> <a href='https://www.cyient.com/'>Cyent</a>,{' '}
