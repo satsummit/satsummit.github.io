@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
-import { variableGlsp } from '../styles/variable-utils';
+import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading } from '$styles/variable-components';
 
 const PageFooterSelf = styled.footer`

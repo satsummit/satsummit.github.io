@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import T from 'prop-types';
+
 import { DevseedUiThemeProvider } from '@devseed-ui/theme-provider';
 
 import themeOverrides, { GlobalStyles } from '$styles/theme';
-import SEO from './seo';
 
-import PageFooter from './page-footer';
+import SEO from '$components/seo';
+import PageFooter from '$components/page-footer';
 
 const Page = styled.div`
   display: flex;

@@ -4,11 +4,11 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import { themeVal } from '@devseed-ui/theme-provider';
 
-import Layout from '$components/layout';
-
 import { variableGlsp } from '$styles/variable-utils';
-import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 import { VarHeading, VarLead, VarProse } from '$styles/variable-components';
+
+import Layout from '$components/layout';
+import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 
 const Hero = styled.div`
   display: flex;
@@ -86,11 +86,11 @@ const IndexPage = () => {
             <p>
               SatSummit convenes leaders in the satellite industry and experts
               in global development for 2 days of presentations and in-depth
-              conversations on solving the world's most critical development
-              challenges with satellite data. From climate change to population
-              growth to natural resource availability, earth observation data
-              offers insights into today's biggest global issues. Stay tuned for
-              more information on SatSummit 2022!
+              conversations on solving the world&apos;s most critical
+              development challenges with satellite data. From climate change to
+              population growth to natural resource availability, earth
+              observation data offers insights into today&apos;s biggest global
+              issues. Stay tuned for more information on SatSummit 2022!
             </p>
           </VarProse>
         </Block>
@@ -110,8 +110,8 @@ const IndexPage = () => {
           <BlockTitle>Sponsorship opportunities</BlockTitle>
           <VarProse>
             <p>
-              We're excited to partner with thought and industry leaders in the
-              satellite and development communities, and through their
+              We&apos;re excited to partner with thought and industry leaders in
+              the satellite and development communities, and through their
               sponsorship and support of SatSummit, we are solving real-world
               and global development challenges. Please contact{' '}
               <a href='mailto:sponsorship@satsummit.io'>
