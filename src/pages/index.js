@@ -45,7 +45,7 @@ const HeroHeadline = styled.div`
   ${CollecticonBrandSatsummit} {
     order: -2;
     margin-bottom: ${variableGlsp(1.5)};
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
   }
 `;
 
@@ -97,6 +97,7 @@ const HeroFigure = styled(Figure)`
     position: absolute;
     z-index: 40;
     inset: 0;
+    z-index: 1;
     background: linear-gradient(
       to top,
       ${themeVal('color.base-500')} 0%,
@@ -117,7 +118,7 @@ const BlockGrid = styled(Hug)`
 const BlockGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp()};
+  gap: ${variableGlsp(2)};
 `;
 
 const Block = styled.section`
