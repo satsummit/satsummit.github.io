@@ -38,9 +38,13 @@ export default function themeOverrides() {
         case: 'uppercase'
       }
     },
+    shape: {
+      rounded: '0'
+    },
     layout: {
       min: '384px',
       max: '1440px',
+      border: '4px',
       glspMultiplier: {
         xsmall: 1,
         small: 1,

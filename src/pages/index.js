@@ -118,13 +118,19 @@ const BlockGrid = styled(Hug)`
 const BlockGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(2)};
+  gap: ${variableGlsp(1)};
+  padding: ${variableGlsp(2)};
 `;
 
 const Block = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${variableGlsp()};
+
+  &:not(:first-child) {
+    padding-top: ${variableGlsp(1)};
+    border-top: 0.5rem solid ${themeVal('color.primary-500')};
+  }
 `;
 
 const BlockHeader = styled.header`
@@ -145,13 +151,13 @@ const BlockTitle = styled(VarHeading).attrs({
 `;
 
 const BlockGroupAlpha = styled(BlockGroup)`
-  grid-column: content-8 / content-end;
+  grid-column: content-7 / content-end;
   grid-row: 1;
   margin-top: ${variableGlsp(-4)};
 `;
 
 const BlockGroupBeta = styled(BlockGroup)`
-  grid-column: content-start / content-6;
+  grid-column: content-start / content-7;
   grid-row: 3;
   margin-top: ${variableGlsp(4)};
 `;
@@ -263,7 +269,7 @@ const IndexPage = () => {
                   <p>
                     Registration is not yet open. Please sign-up to be the first
                     to receive updates about SatSummit 2022, including when
-                    Registration opens.
+                    registration opens.
                   </p>
                 </VarProse>
                 <Newsletter />

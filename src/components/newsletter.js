@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
-import addToMailchimp from 'gatsby-plugin-mailchimp';
 import styled, { css } from 'styled-components';
-import { Form, FormInput } from '@devseed-ui/form';
-import { themeVal } from '@devseed-ui/theme-provider';
+
+import addToMailchimp from 'gatsby-plugin-mailchimp';
+
+import { Form, FormInput, FormLabel } from '@devseed-ui/form';
+import { glsp, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
+
+const FormGroupRow = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  gap: ${glsp(0, 0.5)};
+
+  ${FormInput} {
+    width: 100%;
+  }
+
+  ${Button} {
+    flex: 0 0 8rem;
+    height: 100%;
+  }
+`;
+
+const RegFormLabel = styled(FormLabel)`
+  ${visuallyHidden()};
+`;
 
 const ErrorWrapper = styled.div`
   ${({ hasError }) =>
@@ -43,8 +64,19 @@ export function Newsletter() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormInput isRequired onChange={handleChange} />
-      <Button type='submit'>Sign up</Button>
+      <FormGroupRow>
+        <RegFormLabel for='reg-email'>Email</RegFormLabel>
+        <FormInput
+          id='reg-email'
+          isRequired
+          onChange={handleChange}
+          placeholder='you@provider.tld'
+          size='large'
+        />
+        <Button variation='base-fill' type='submit'>
+          Sign up
+        </Button>
+      </FormGroupRow>
       {message ? (
         <ErrorWrapper hasError={hasError}>
           <p dangerouslySetInnerHTML={{ __html: message }} />
