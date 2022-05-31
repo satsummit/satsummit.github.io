@@ -2,34 +2,56 @@ import React from 'react';
 import T from 'prop-types';
 import styled from 'styled-components';
 
-import { themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { listReset, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading } from '$styles/variable-components';
+import Hug from '$styles/hug';
+import { Button } from '@devseed-ui/button';
+import { CollecticonArrowRight, CollecticonBrandTwitter, CollecticonEnvelope } from '@devseed-ui/collecticons';
 
-const PageFooterSelf = styled.footer`
-  padding: ${variableGlsp(0.75, 1)};
-  background: ${themeVal('color.base-50')};
+const PageFooterSelf = styled(Hug).attrs({
+  as: 'footer'
+})`
+  border-top: 0.5rem solid ${themeVal('color.primary-500')};
+  padding: ${variableGlsp(2)};
 `;
 
-const FootBlock = styled.section`
-  /* styled-component */
+const FootBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${variableGlsp(0.5)};
+  padding: ${variableGlsp(2)};
+
+  ol,
+  ul {
+    ${listReset()};
+  }
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
-  as: 'h3',
+  as: 'h2',
   size: 'small'
 })`
   /* styled-component */
 `;
 
-const FooterCredits = styled.address`
-  font-size: 0.875rem;
-  line-height: 1.5rem;
+const EditionsBlock = styled(FootBlock)`
+  grid-column: content-start / content-5;
+`;
+
+const ConnectBlock = styled(FootBlock)`
+  grid-column: content-5 / content-9;
+`;
+
+const FooterCredits = styled(FootBlock).attrs({
+  as: 'address'
+})`
+  font-size: 1rem;
   font-style: normal;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-end;
+  grid-column: content-9 / content-end;
 
   a {
     font-weight: bold;
@@ -39,12 +61,9 @@ const FooterCredits = styled.address`
     ${visuallyHidden()}
   }
 
-  h3 {
-    ${visuallyHidden()}
-  }
-
   time {
     display: block;
+    margin-top: ${variableGlsp(0.25)};
   }
 
   small {
@@ -66,34 +85,45 @@ function PageFooter(props) {
 
   return (
     <PageFooterSelf isHidden={props.isHidden}>
-      <FootBlock>
+      <EditionsBlock>
         <FootBlockTitle>Previous editions</FootBlockTitle>
         <ol>
           <li>
-            <a href='https://2018.satsummit.io/'>SatSummit 2018</a>
+            <Button forwardedAs='a' href='https://2018.satsummit.io/'>
+              <CollecticonArrowRight /> SatSummit 2018
+            </Button>
           </li>
           <li>
-            <a href='https://2017.satsummit.io/'>SatSummit 2017</a>
+            <Button forwardedAs='a' href='https://2017.satsummit.io/'>
+              <CollecticonArrowRight /> SatSummit 2017
+            </Button>
           </li>
           <li>
-            <a href='https://2015.satsummit.io/'>SatSummit 2015</a>
+            <Button forwardedAs='a' href='https://2015.satsummit.io/'>
+              <CollecticonArrowRight /> SatSummit 2015
+            </Button>
           </li>
         </ol>
-      </FootBlock>
+      </EditionsBlock>
 
-      <FootBlock>
+      <ConnectBlock>
         <FootBlockTitle>Let&apos;s connect</FootBlockTitle>
         <ul>
           <li>
-            <a href='mailto:info@satsummit.io'>Get in touch</a>
+            <Button forwardedAs='a' href='mailto:info@satsummit.io'>
+              <CollecticonEnvelope /> Get in touch
+            </Button>
           </li>
           <li>
-            <a href='https://twitter.com/intent/user?screen_name=sat_summit'>
-              Follow us on Twitter
-            </a>
+            <Button
+              forwardedAs='a'
+              href='https://twitter.com/intent/user?screen_name=sat_summit'
+            >
+              <CollecticonBrandTwitter /> Follow us on Twitter
+            </Button>
           </li>
         </ul>
-      </FootBlock>
+      </ConnectBlock>
 
       <FooterCredits>
         <p>

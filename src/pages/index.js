@@ -11,9 +11,10 @@ import { Newsletter } from '$components/newsletter';
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 import Hug from '$styles/hug';
-import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
+import { CollecticonBrandSatsummit, CollecticonEnvelope } from '@devseed-ui/collecticons';
 
 import heroFigure from '../images/welcome-hero.jpg';
+import { Button } from '@devseed-ui/button';
 
 const Hero = styled.div`
   filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
@@ -118,7 +119,7 @@ const BlockGrid = styled(Hug)`
 const BlockGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(1)};
+  gap: ${variableGlsp(2)};
   padding: ${variableGlsp(2)};
 `;
 
@@ -288,12 +289,12 @@ const IndexPage = () => {
                     We&apos;re excited to partner with thought and industry
                     leaders in the satellite and development communities, and
                     through their sponsorship and support of SatSummit, we are
-                    solving real-world and global development challenges. Please
-                    contact{' '}
-                    <a href='mailto:info@satsummit.io'>info@satsummit.io</a> to
-                    get involved!
+                    solving real-world and global development challenges.
                   </p>
                 </VarProse>
+                <Button variation='base-fill' to='mailto:info@satsummit.io' size='xlarge'>
+                  <CollecticonEnvelope /> Contact us
+                </Button>
               </BlockBody>
             </SponsorshipBlock>
 
