@@ -10,6 +10,7 @@ import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
+import Hug from '$styles/hug';
 import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
 
 import heroFigure from '../images/welcome-hero.jpg';
@@ -39,10 +40,11 @@ const HeroHeadline = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-bottom: ${variableGlsp(4)};
 
   ${CollecticonBrandSatsummit} {
     order: -2;
-    margin-bottom: ${variableGlsp()};
+    margin-bottom: ${variableGlsp(1.5)};
     transform: rotate(-45deg);
   }
 `;
@@ -90,10 +92,48 @@ const HeroFigure = styled(Figure)`
     object-fit: cover;
     mix-blend-mode: screen;
   }
+
+  &::after {
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      ${themeVal('color.base-500')} 0%,
+      ${themeVal('color.base-500')}00 100%
+    );
+    content: '';
+  }
+`;
+
+const BlockGrid = styled(Hug)`
+  padding: ${variableGlsp(2)};
+
+  ${Figure} {
+    border-top: 0.5rem solid ${themeVal('color.primary-500')};
+  }
+`;
+
+const BlockGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${variableGlsp()};
 `;
 
 const Block = styled.section`
-  padding: ${variableGlsp()};
+  display: flex;
+  flex-direction: column;
+  gap: ${variableGlsp()};
+`;
+
+const BlockHeader = styled.header`
+  /* styled-component */
+`;
+
+const BlockBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${variableGlsp()};
 `;
 
 const BlockTitle = styled(VarHeading).attrs({
@@ -101,6 +141,55 @@ const BlockTitle = styled(VarHeading).attrs({
   size: 'xxlarge'
 })`
   /* styled-component */
+`;
+
+const BlockGroupAlpha = styled(BlockGroup)`
+  grid-column: content-8 / content-end;
+  grid-row: 1;
+  margin-top: ${variableGlsp(-4)};
+`;
+
+const BlockGroupBeta = styled(BlockGroup)`
+  grid-column: content-start / content-6;
+  grid-row: 3;
+  margin-top: ${variableGlsp(4)};
+`;
+
+const AboutBlock = styled(Block)`
+  /* styled-component */
+`;
+
+const RegistrationBlock = styled(Block)`
+  /* styled-component */
+`;
+
+const SponsorshipBlock = styled(Block)`
+  /* styled-component */
+`;
+
+const VenueBlock = styled(Block)`
+  /* styled-component */
+`;
+
+const FigureA = styled(Figure)`
+  grid-column: content-start / content-7;
+  grid-row: 1;
+  align-self: end;
+`;
+
+const FigureB = styled(Figure)`
+  grid-column: content-start / content-5;
+  grid-row: 2;
+`;
+
+const FigureC = styled(Figure)`
+  grid-column: content-5 / content-end;
+  grid-row: 2;
+`;
+
+const FigureD = styled(Figure)`
+  grid-column: content-7 / content-end;
+  grid-row: 3;
 `;
 
 const IndexPage = () => {
@@ -140,64 +229,86 @@ const IndexPage = () => {
           </HeroInner>
         </Hero>
 
-        <Block>
-          <BlockTitle>About</BlockTitle>
-          <VarProse>
-            <p>
-              SatSummit convenes leaders in the satellite industry and experts
-              in global development for 2 days of presentations and in-depth
-              conversations on solving the world&apos;s most critical
-              development challenges with satellite data. From climate change to
-              population growth to natural resource availability, earth
-              observation data offers insights into today&apos;s biggest global
-              issues. Stay tuned for more information on SatSummit 2022!
-            </p>
-          </VarProse>
-        </Block>
+        <BlockGrid>
+          <BlockGroupAlpha>
+            <AboutBlock>
+              <BlockHeader>
+                <BlockTitle>About</BlockTitle>
+              </BlockHeader>
+              <BlockBody>
+                <VarProse>
+                  <p>
+                    SatSummit convenes leaders in the satellite industry and
+                    experts in global development for 2 days of presentations
+                    and in-depth conversations on solving the world&apos;s most
+                    critical development challenges with satellite data.
+                  </p>
+                  <p>
+                    From climate change to population growth to natural resource
+                    availability, earth observation data offers insights into
+                    today&apos;s biggest global issues. Stay tuned for more
+                    information on SatSummit 2022!
+                  </p>
+                </VarProse>
+              </BlockBody>
+            </AboutBlock>
 
-        <Block>
-          <BlockTitle>How do I register?</BlockTitle>
-          <VarProse>
-            <p>
-              Registration is not yet open. Please sign-up to be the first to
-              receive updates about SatSummit 2022, including when Registration
-              opens.
-            </p>
-            <Newsletter />
-          </VarProse>
-        </Block>
+            <RegistrationBlock>
+              <BlockHeader>
+                <BlockTitle>How do I register?</BlockTitle>
+              </BlockHeader>
+              <BlockBody>
+                <VarProse>
+                  <p>
+                    Registration is not yet open. Please sign-up to be the first
+                    to receive updates about SatSummit 2022, including when
+                    Registration opens.
+                  </p>
+                </VarProse>
+                <Newsletter />
+              </BlockBody>
+            </RegistrationBlock>
+          </BlockGroupAlpha>
 
-        <Block>
-          <BlockTitle>Sponsorship opportunities</BlockTitle>
-          <VarProse>
-            <p>
-              We&apos;re excited to partner with thought and industry leaders in
-              the satellite and development communities, and through their
-              sponsorship and support of SatSummit, we are solving real-world
-              and global development challenges. Please contact{' '}
-              <a href='mailto:sponsorship@satsummit.io'>
-                sponsorship@satsummit.io
-              </a>{' '}
-              to get involved!
-            </p>
-          </VarProse>
-        </Block>
+          <BlockGroupBeta>
+            <SponsorshipBlock>
+              <BlockHeader>
+                <BlockTitle>Sponsorship opportunities</BlockTitle>
+              </BlockHeader>
+              <BlockBody>
+                <VarProse>
+                  <p>
+                    We&apos;re excited to partner with thought and industry
+                    leaders in the satellite and development communities, and
+                    through their sponsorship and support of SatSummit, we are
+                    solving real-world and global development challenges. Please
+                    contact{' '}
+                    <a href='mailto:info@satsummit.io'>info@satsummit.io</a> to
+                    get involved!
+                  </p>
+                </VarProse>
+              </BlockBody>
+            </SponsorshipBlock>
 
-        <Block>
-          <BlockTitle>Where is SatSummit being held?</BlockTitle>
-          <VarProse>
-            <p>
-              SatSummit will take place at{' '}
-              <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
-                CONVENE
-              </a>
-              , located at 600 14th St NW, Washington, DC 20005.
-            </p>
-          </VarProse>
-        </Block>
+            <VenueBlock>
+              <BlockHeader>
+                <BlockTitle>Where is SatSummit being held?</BlockTitle>
+              </BlockHeader>
+              <BlockBody>
+                <VarProse>
+                  <p>
+                    SatSummit will take place at{' '}
+                    <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
+                      CONVENE
+                    </a>
+                    , located at 600 14th St NW, Washington, DC 20005.
+                  </p>
+                </VarProse>
+              </BlockBody>
+            </VenueBlock>
+          </BlockGroupBeta>
 
-        <Block>
-          <Figure>
+          <FigureA>
             <StaticImage
               src='../images/fig01.jpg'
               alt='Image alt'
@@ -211,8 +322,56 @@ const IndexPage = () => {
                 url='https://www.flickr.com/photos/mapbox/43082615860/'
               />
             </Figcaption>
-          </Figure>
-        </Block>
+          </FigureA>
+
+          <FigureB>
+            <StaticImage
+              src='../images/fig01.jpg'
+              alt='Image alt'
+              placeholder='blurred'
+              layout='constrained'
+              width={1000}
+            />
+            <Figcaption>
+              <FigureAttribution
+                author='Mapbox'
+                url='https://www.flickr.com/photos/mapbox/43082615860/'
+              />
+            </Figcaption>
+          </FigureB>
+
+          <FigureC>
+            <StaticImage
+              src='../images/fig01.jpg'
+              alt='Image alt'
+              placeholder='blurred'
+              layout='constrained'
+              width={1000}
+            />
+            <Figcaption>
+              <FigureAttribution
+                author='Mapbox'
+                url='https://www.flickr.com/photos/mapbox/43082615860/'
+              />
+            </Figcaption>
+          </FigureC>
+
+          <FigureD>
+            <StaticImage
+              src='../images/fig01.jpg'
+              alt='Image alt'
+              placeholder='blurred'
+              layout='constrained'
+              width={1000}
+            />
+            <Figcaption>
+              <FigureAttribution
+                author='Mapbox'
+                url='https://www.flickr.com/photos/mapbox/43082615860/'
+              />
+            </Figcaption>
+          </FigureD>
+        </BlockGrid>
       </main>
     </Layout>
   );
