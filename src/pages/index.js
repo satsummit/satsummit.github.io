@@ -8,7 +8,7 @@ import Layout from '$components/layout';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
-import { VarHeading, VarLead } from '$styles/variable-components';
+import { VarHeading, VarLead, VarProse } from '$styles/variable-components';
 
 const Hero = styled.div`
   display: flex;
@@ -60,6 +60,13 @@ const Block = styled.section`
   padding: ${variableGlsp()};
 `;
 
+const BlockTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'xxlarge'
+})`
+  /* styled-component */
+`;
+
 const IndexPage = () => {
   return (
     <Layout>
@@ -72,6 +79,22 @@ const IndexPage = () => {
             <span>in</span> Washington, DC
           </Meta>
         </Hero>
+
+        <Block>
+          <BlockTitle>About</BlockTitle>
+          <VarProse>
+            <p>
+              SatSummit convenes leaders in the satellite industry and experts
+              in global development for 2 days of presentations and in-depth
+              conversations on solving the world's most critical development
+              challenges with satellite data. From climate change to population
+              growth to natural resource availability, earth observation data
+              offers insights into today's biggest global issues. Stay tuned for
+              more information on SatSummit #4!
+            </p>
+          </VarProse>
+        </Block>
+
         <Block>
           <Figure>
             <StaticImage
