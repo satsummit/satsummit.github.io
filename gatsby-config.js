@@ -20,7 +20,7 @@ module.exports = {
         fonts: {
           google2: [
             {
-              family: 'Open Sans',
+              family: 'Barlow',
               axes: 'ital,wght@0,400;0,700;1,400;1,700'
             },
             {
