@@ -12,25 +12,33 @@ import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
 
+import heroFigure from '../images/welcome-hero.jpg';
+
 const Hero = styled.div`
+  filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
+`;
+
+const HeroInner = styled.div`
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  height: clamp(16rem, 80vh, 48rem);
   padding: ${variableGlsp()};
   color: ${themeVal('color.surface')};
   align-items: center;
   justify-content: center;
   text-align: center;
-  filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
+  background: ${themeVal('color.base')};
+  clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+`;
 
-  &::before {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: ${themeVal('color.base')};
-    clip-path: polygon(0 0, 100% 0, 100% 64%, 0 100%);
-    content: '';
-  }
+const HeroHeadline = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   ${CollecticonBrandSatsummit} {
     order: -2;
@@ -66,6 +74,24 @@ const HeroOverline = styled(VarHeading).attrs({
   }
 `;
 
+const HeroFigure = styled(Figure)`
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    ${themeVal('color.base-500')} 0%,
+    ${themeVal('color.primary-500')}64 100%
+  );
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    mix-blend-mode: screen;
+  }
+`;
+
 const Block = styled.section`
   padding: ${variableGlsp()};
 `;
@@ -82,13 +108,36 @@ const IndexPage = () => {
     <Layout>
       <main>
         <Hero>
-          <CollecticonBrandSatsummit title='SatSummit logo symbol' meaningful size='xxlarge' />
-          <HeroTitle>SatSummit 2022</HeroTitle>
-          <HeroSubtitle>Satellite data for global development.</HeroSubtitle>
-          <HeroOverline>
-            <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
-            <span>in</span> Washington, DC
-          </HeroOverline>
+          <HeroInner>
+            <HeroHeadline>
+              <CollecticonBrandSatsummit
+                title='SatSummit logo symbol'
+                meaningful
+                size='xxlarge'
+              />
+              <HeroTitle>SatSummit 2022</HeroTitle>
+              <HeroSubtitle>
+                Satellite data for global development.
+              </HeroSubtitle>
+              <HeroOverline>
+                <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
+                <span>in</span> Washington, DC
+              </HeroOverline>
+            </HeroHeadline>
+
+            <HeroFigure>
+              <img
+                src={heroFigure}
+                alt='Satellite image of canadian waters teem with phytoplankton'
+              />
+              <Figcaption>
+                <FigureAttribution
+                  author='NASA Earth Observatory'
+                  url='https://earthobservatory.nasa.gov/images/88687/canadian-waters-teem-with-phytoplankton'
+                />
+              </Figcaption>
+            </HeroFigure>
+          </HeroInner>
         </Hero>
 
         <Block>
