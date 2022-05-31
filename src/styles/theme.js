@@ -21,6 +21,7 @@ export default function themeOverrides() {
     },
     type: {
       base: {
+        family: 'Barlow',
         weight: '400',
         leadSize: '1.25rem',
         // Increments to the type.base.size for each media breakpoint.

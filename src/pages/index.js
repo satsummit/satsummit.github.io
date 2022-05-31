@@ -5,11 +5,12 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { themeVal } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
-import { VarHeading, VarLead, VarProse } from '$styles/variable-components';
+import { VarHeading, VarProse } from '$styles/variable-components';
 import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
+import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
 
 const Hero = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Hero = styled.div`
   color: ${themeVal('color.surface')};
   align-items: center;
   justify-content: center;
+  text-align: center;
   filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
 
   &::before {
@@ -29,22 +31,28 @@ const Hero = styled.div`
     clip-path: polygon(0 0, 100% 0, 100% 64%, 0 100%);
     content: '';
   }
+
+  ${CollecticonBrandSatsummit} {
+    order: -2;
+    margin-bottom: ${variableGlsp()};
+    transform: rotate(-45deg);
+  }
 `;
 
-const Title = styled(VarHeading).attrs({
-  as: 'h1',
-  size: 'jumbo'
+const HeroTitle = styled(VarHeading).attrs({
+  as: 'h1'
 })`
-  /* styled-component */
+  font-size: clamp(3.5rem, 12vw, 8rem);
 `;
 
-const Slogan = styled(VarLead).attrs({
-  as: 'p'
+const HeroSubtitle = styled.p`
+  font-size: clamp(1.25rem, 4vw, 2rem);
+`;
+
+const HeroOverline = styled(VarHeading).attrs({
+  as: 'p',
+  size: 'large'
 })`
-  /* styled-component */
-`;
-
-const Meta = styled.p`
   order: -1;
 
   span {
@@ -52,7 +60,8 @@ const Meta = styled.p`
 
     &::before {
       content: '•';
-      font-size: 1rem;
+      font-size: 2rem;
+      margin: 0 0.5rem;
     }
   }
 `;
@@ -73,12 +82,13 @@ const IndexPage = () => {
     <Layout>
       <main>
         <Hero>
-          <Title>SatSummit 2022</Title>
-          <Slogan>Satellite data for global development.</Slogan>
-          <Meta>
-            <time dateTime='2022-09-28/2022-09-29'>September 28 & 29</time>{' '}
+          <CollecticonBrandSatsummit title='SatSummit logo symbol' meaningful size='xxlarge' />
+          <HeroTitle>SatSummit 2022</HeroTitle>
+          <HeroSubtitle>Satellite data for global development.</HeroSubtitle>
+          <HeroOverline>
+            <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
             <span>in</span> Washington, DC
-          </Meta>
+          </HeroOverline>
         </Hero>
 
         <Block>
