@@ -52,6 +52,7 @@
   "dependencies": {
     "@devseed-ui/button": "^4.0.2",
     "@devseed-ui/collecticons": "^4.0.2",
+    "@devseed-ui/form": "^4.0.2",
     "@devseed-ui/theme-provider": "^4.0.2",
     "@devseed-ui/typography": "^4.0.2",
     "babel-plugin-styled-components": "^2.0.7",
@@ -59,6 +60,7 @@
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-analytics": "^4.15.0",
     "gatsby-plugin-image": "^2.15.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-plugin-styled-components": "^5.15.0",

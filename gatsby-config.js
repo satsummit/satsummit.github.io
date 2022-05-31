@@ -31,6 +31,14 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://developmentseed.us11.list-manage.com/subscribe/post?u=83197aba6c63ace1729a7beff&amp;id=73c42dcaab',
+        timeout: 3500
+      }
+    },
     'gatsby-transformer-yaml',
     'gatsby-plugin-styled-components',
     // {

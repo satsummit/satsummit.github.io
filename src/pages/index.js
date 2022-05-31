@@ -6,6 +6,7 @@ import { themeVal } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarLead, VarProse } from '$styles/variable-components';
+import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
@@ -103,6 +104,7 @@ const IndexPage = () => {
               receive updates about SatSummit 2022, including when Registration
               opens.
             </p>
+            <Newsletter />
           </VarProse>
         </Block>
 
