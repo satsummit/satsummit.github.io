@@ -90,7 +90,47 @@ const IndexPage = () => {
               challenges with satellite data. From climate change to population
               growth to natural resource availability, earth observation data
               offers insights into today's biggest global issues. Stay tuned for
-              more information on SatSummit #4!
+              more information on SatSummit 2022!
+            </p>
+          </VarProse>
+        </Block>
+
+        <Block>
+          <BlockTitle>How do I register?</BlockTitle>
+          <VarProse>
+            <p>
+              Registration is not yet open. Please sign-up to be the first to
+              receive updates about SatSummit 2022, including when Registration
+              opens.
+            </p>
+          </VarProse>
+        </Block>
+
+        <Block>
+          <BlockTitle>Sponsorship opportunities</BlockTitle>
+          <VarProse>
+            <p>
+              We're excited to partner with thought and industry leaders in the
+              satellite and development communities, and through their
+              sponsorship and support of SatSummit, we are solving real-world
+              and global development challenges. Please contact{' '}
+              <a href='mailto:sponsorship@satsummit.io'>
+                sponsorship@satsummit.io
+              </a>{' '}
+              to get involved!
+            </p>
+          </VarProse>
+        </Block>
+
+        <Block>
+          <BlockTitle>Where is SatSummit being held?</BlockTitle>
+          <VarProse>
+            <p>
+              SatSummit will take place at{' '}
+              <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
+                CONVENE
+              </a>
+              , located at 600 14th St NW, Washington, DC 20005.
             </p>
           </VarProse>
         </Block>
