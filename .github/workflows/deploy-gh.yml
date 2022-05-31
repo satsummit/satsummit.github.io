@@ -8,6 +8,9 @@ on:
 env:
   NODE: 16
 
+permissions: 
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -64,9 +67,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          repository-name: satsummit/satsummit.github.io
-          branch: main
+          branch: gh-pages
           clean: true
           single-commit: true
           folder: public
-          ssh-key: ${{ secrets.WEBSITE_DEPLOY_KEY }}
