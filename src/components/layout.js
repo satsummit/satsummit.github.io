@@ -6,6 +6,8 @@ import { DevseedUiThemeProvider } from '@devseed-ui/theme-provider';
 import themeOverrides, { GlobalStyles } from '$styles/theme';
 import SEO from './seo';
 
+import PageFooter from './page-footer';
+
 const Page = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,6 +35,7 @@ const Layout = ({ children, title }) => {
       <GlobalStyles />
       <Page>
         <PageBody>{children}</PageBody>
+        <PageFooter />
       </Page>
     </DevseedUiThemeProvider>
   );
