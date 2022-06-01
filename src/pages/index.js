@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { themeVal } from '@devseed-ui/theme-provider';
+import { media, themeVal } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
@@ -32,7 +32,11 @@ const HeroInner = styled.div`
   justify-content: center;
   text-align: center;
   background: ${themeVal('color.base')};
-  clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 72%);
+
+  ${media.largeUp`
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 0 100%);
+  `}
 `;
 
 const HeroHeadline = styled.div`
@@ -109,7 +113,7 @@ const HeroFigure = styled(Figure)`
 `;
 
 const BlockGrid = styled(Hug)`
-  padding: ${variableGlsp(2)};
+  padding: ${variableGlsp(2, 0)};
 
   ${Figure} {
     border-top: 0.5rem solid ${themeVal('color.primary-500')};
@@ -120,7 +124,10 @@ const BlockGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${variableGlsp(2)};
-  padding: ${variableGlsp(2)};
+
+  ${media.mediumUp`
+    padding: ${variableGlsp(2)};
+  `}
 `;
 
 const Block = styled.section`
@@ -152,52 +159,87 @@ const BlockTitle = styled(VarHeading).attrs({
 `;
 
 const BlockGroupAlpha = styled(BlockGroup)`
-  grid-column: content-7 / content-end;
+  grid-column: content-start / content-end;
   grid-row: 1;
-  margin-top: ${variableGlsp(-4)};
+  margin: ${variableGlsp(-4, 0, 2, 0)};
+
+  ${media.mediumUp`
+    margin: ${variableGlsp(-4, 0, 0, 0)};
+  `}
+
+  ${media.largeUp`
+    grid-column: content-7 / content-end;
+    margin-top: ${variableGlsp(-4)};
+  `}
 `;
 
 const BlockGroupBeta = styled(BlockGroup)`
-  grid-column: content-start / content-7;
-  grid-row: 3;
-  margin-top: ${variableGlsp(4)};
-`;
+  grid-column: content-start / content-end;
+  grid-row: 4;
+  margin: ${variableGlsp(2, 0)};
 
-const AboutBlock = styled(Block)`
-  /* styled-component */
-`;
+  ${media.mediumUp`
+    margin: ${variableGlsp(0)};
+  `}
 
-const RegistrationBlock = styled(Block)`
-  /* styled-component */
-`;
-
-const SponsorshipBlock = styled(Block)`
-  /* styled-component */
-`;
-
-const VenueBlock = styled(Block)`
-  /* styled-component */
+  ${media.largeUp`
+    grid-column: content-start / content-7;
+    grid-row: 3;
+    margin-top: ${variableGlsp(4)};
+  `}
 `;
 
 const FigureA = styled(Figure)`
-  grid-column: content-start / content-7;
-  grid-row: 1;
+  grid-column: content-start / content-end;
   align-self: end;
+  grid-row: 2;
+
+  ${media.largeUp`
+    grid-row: 1;
+    grid-column: content-start / content-7;
+  `}
 `;
 
 const FigureB = styled(Figure)`
-  grid-column: content-start / content-5;
-  grid-row: 2;
+  grid-column: full-start / content-3;
+  grid-row: 3;
+
+  ${media.mediumUp`
+    grid-column: content-start / content-5;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-5;
+    grid-row: 2;
+  `}
 `;
 
 const FigureC = styled(Figure)`
-  grid-column: content-5 / content-end;
-  grid-row: 2;
+  grid-column: content-start / full-end;
+  grid-row: 5;
+
+  ${media.mediumUp`
+    grid-column: content-2 / full-end;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-5 / content-end;
+    grid-row: 2;
+  `}
 `;
 
 const FigureD = styled(Figure)`
-  grid-column: content-7 / content-end;
-  grid-row: 3;
+  grid-column: content-2 / content-end;
+  grid-row: 6;
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-7 / content-end;
+    grid-row: 3;
+  `}
 `;
 
 const IndexPage = () => {
@@ -239,7 +281,7 @@ const IndexPage = () => {
 
         <BlockGrid>
           <BlockGroupAlpha>
-            <AboutBlock>
+            <Block>
               <BlockHeader>
                 <BlockTitle>About</BlockTitle>
               </BlockHeader>
@@ -259,9 +301,9 @@ const IndexPage = () => {
                   </p>
                 </VarProse>
               </BlockBody>
-            </AboutBlock>
+            </Block>
 
-            <RegistrationBlock>
+            <Block>
               <BlockHeader>
                 <BlockTitle>How do I register?</BlockTitle>
               </BlockHeader>
@@ -275,11 +317,11 @@ const IndexPage = () => {
                 </VarProse>
                 <Newsletter />
               </BlockBody>
-            </RegistrationBlock>
+            </Block>
           </BlockGroupAlpha>
 
           <BlockGroupBeta>
-            <VenueBlock>
+            <Block>
               <BlockHeader>
                 <BlockTitle>Where is SatSummit being held?</BlockTitle>
               </BlockHeader>
@@ -294,9 +336,9 @@ const IndexPage = () => {
                   </p>
                 </VarProse>
               </BlockBody>
-            </VenueBlock>
+            </Block>
 
-            <SponsorshipBlock>
+            <Block>
               <BlockHeader>
                 <BlockTitle>Sponsorship opportunities</BlockTitle>
               </BlockHeader>
@@ -318,7 +360,7 @@ const IndexPage = () => {
                   <CollecticonEnvelope /> Contact us
                 </Button>
               </BlockBody>
-            </SponsorshipBlock>
+            </Block>
           </BlockGroupBeta>
 
           <FigureA>
