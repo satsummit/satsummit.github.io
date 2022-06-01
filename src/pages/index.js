@@ -279,25 +279,6 @@ const IndexPage = () => {
           </BlockGroupAlpha>
 
           <BlockGroupBeta>
-            <SponsorshipBlock>
-              <BlockHeader>
-                <BlockTitle>Sponsorship opportunities</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    We&apos;re excited to partner with thought and industry
-                    leaders in the satellite and development communities, and
-                    through their sponsorship and support of SatSummit, we are
-                    solving real-world and global development challenges.
-                  </p>
-                </VarProse>
-                <Button variation='base-fill' to='mailto:info@satsummit.io' size='xlarge'>
-                  <CollecticonEnvelope /> Contact us
-                </Button>
-              </BlockBody>
-            </SponsorshipBlock>
-
             <VenueBlock>
               <BlockHeader>
                 <BlockTitle>Where is SatSummit being held?</BlockTitle>
@@ -314,15 +295,39 @@ const IndexPage = () => {
                 </VarProse>
               </BlockBody>
             </VenueBlock>
+
+            <SponsorshipBlock>
+              <BlockHeader>
+                <BlockTitle>Sponsorship opportunities</BlockTitle>
+              </BlockHeader>
+              <BlockBody>
+                <VarProse>
+                  <p>
+                    We&apos;re excited to partner with thought and industry
+                    leaders in the satellite and development communities, and
+                    through their sponsorship and support of SatSummit, we are
+                    solving real-world and global development challenges.
+                  </p>
+                </VarProse>
+                <Button
+                  forwardedAs='a'
+                  variation='base-fill'
+                  href='mailto:info@satsummit.io'
+                  size='xlarge'
+                >
+                  <CollecticonEnvelope /> Contact us
+                </Button>
+              </BlockBody>
+            </SponsorshipBlock>
           </BlockGroupBeta>
 
           <FigureA>
             <StaticImage
-              src='../images/fig01.jpg'
-              alt='Image alt'
+              src='../images/content-06.jpg'
+              alt='A moment from SatSummit 2018'
               placeholder='blurred'
               layout='constrained'
-              width={1000}
+              width={960}
             />
             <Figcaption>
               <FigureAttribution
@@ -334,48 +339,48 @@ const IndexPage = () => {
 
           <FigureB>
             <StaticImage
-              src='../images/fig01.jpg'
-              alt='Image alt'
+              src='../images/content-04.jpg'
+              alt='A moment from SatSummit 2018'
               placeholder='blurred'
               layout='constrained'
-              width={1000}
+              width={960}
             />
             <Figcaption>
               <FigureAttribution
                 author='Mapbox'
-                url='https://www.flickr.com/photos/mapbox/43082615860/'
+                url='https://www.flickr.com/photos/147278163@N08/31875079283/'
               />
             </Figcaption>
           </FigureB>
 
           <FigureC>
             <StaticImage
-              src='../images/fig01.jpg'
-              alt='Image alt'
+              src='../images/content-07.jpg'
+              alt='A moment from SatSummit 2018'
               placeholder='blurred'
               layout='constrained'
-              width={1000}
+              width={960}
             />
             <Figcaption>
               <FigureAttribution
                 author='Mapbox'
-                url='https://www.flickr.com/photos/mapbox/43082615860/'
+                url='https://www.flickr.com/photos/mapbox/29957540547/'
               />
             </Figcaption>
           </FigureC>
 
           <FigureD>
             <StaticImage
-              src='../images/fig01.jpg'
-              alt='Image alt'
+              src='../images/content-05.jpg'
+              alt='A moment from SatSummit 2018'
               placeholder='blurred'
               layout='constrained'
-              width={1000}
+              width={960}
             />
             <Figcaption>
               <FigureAttribution
                 author='Mapbox'
-                url='https://www.flickr.com/photos/mapbox/43082615860/'
+                url='https://www.flickr.com/photos/mapbox/43082616700/'
               />
             </Figcaption>
           </FigureD>
