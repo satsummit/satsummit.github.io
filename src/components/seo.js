@@ -22,7 +22,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || '/meta/default-meta-image.jpg';
+  const metaImage = image || '/meta/default-meta-image.png';
   const metaImageUrl = metaImage.match(/^https?:\/\//)
     ? metaImage
     : `${site.siteMetadata.siteUrl}${metaImage}`;
