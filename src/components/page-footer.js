@@ -2,13 +2,22 @@ import React from 'react';
 import T from 'prop-types';
 import styled from 'styled-components';
 
-import { listReset, media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  listReset,
+  media,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { Button } from '@devseed-ui/button';
-import { CollecticonArrowRight, CollecticonBrandTwitter, CollecticonEnvelope } from '@devseed-ui/collecticons';
+import {
+  CollecticonArrowRight,
+  CollecticonBrandTwitter,
+  CollecticonEnvelope
+} from '@devseed-ui/collecticons';
 
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'

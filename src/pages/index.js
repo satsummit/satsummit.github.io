@@ -11,7 +11,10 @@ import { Newsletter } from '$components/newsletter';
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 import Hug from '$styles/hug';
-import { CollecticonBrandSatsummit, CollecticonEnvelope } from '@devseed-ui/collecticons';
+import {
+  CollecticonBrandSatsummit,
+  CollecticonEnvelope
+} from '@devseed-ui/collecticons';
 
 import heroFigure from '../images/welcome-hero.jpg';
 import { Button } from '@devseed-ui/button';
