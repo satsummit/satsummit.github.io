@@ -65,7 +65,7 @@ export function Newsletter() {
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroupRow>
-        <RegFormLabel for='reg-email'>Email</RegFormLabel>
+        <RegFormLabel htmlFor='reg-email'>Email</RegFormLabel>
         <FormInput
           id='reg-email'
           isRequired
