@@ -38,6 +38,13 @@ export default function themeOverrides() {
         case: 'uppercase'
       }
     },
+    button: {
+      type: {
+        family: 'Barlow Condensed',
+        case: 'uppercase',
+        weight: '500'
+      }
+    },
     shape: {
       rounded: '0'
     },
