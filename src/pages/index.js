@@ -103,7 +103,6 @@ const HeroFigure = styled(Figure)`
 
   &::after {
     position: absolute;
-    z-index: 40;
     inset: 0;
     z-index: 1;
     background: linear-gradient(

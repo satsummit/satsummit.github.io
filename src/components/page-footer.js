@@ -107,6 +107,11 @@ const FooterCredits = styled(FootBlock).attrs({
 
   a {
     font-weight: bold;
+
+    &,
+    &:visited {
+      color: inherit;
+    }
   }
 
   span {
@@ -122,13 +127,6 @@ const FooterCredits = styled(FootBlock).attrs({
     font-size: inherit;
     display: block;
     opacity: 0.64;
-  }
-
-  a {
-    &,
-    &:visited {
-      color: inherit;
-    }
   }
 `;
 
