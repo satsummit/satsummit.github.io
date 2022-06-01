@@ -3,7 +3,7 @@ const pkg = require('./package.json');
 module.exports = {
   pathPrefix: '',
   siteMetadata: {
-    siteUrl: 'https://satsummit.io',
+    siteUrl: 'https://2022.satsummit.io',
     title: 'SatSummit 2022',
     author: {
       name: `Cyent, DevGlobal & Development Seed`
