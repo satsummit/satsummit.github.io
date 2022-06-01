@@ -353,14 +353,17 @@ const IndexPage = () => {
                     solving real-world and global development challenges.
                   </p>
                 </VarProse>
-                <Button
-                  forwardedAs='a'
-                  variation='base-fill'
-                  href='mailto:info@satsummit.io'
-                  size='xlarge'
-                >
-                  <CollecticonEnvelope /> Contact us
-                </Button>
+                <div>
+                  <Button
+                    forwardedAs='a'
+                    variation='base-fill'
+                    href='mailto:info@satsummit.io'
+                    size='xlarge'
+                    fitting='relaxed'
+                  >
+                    <CollecticonEnvelope /> Contact us
+                  </Button>
+                </div>
               </BlockBody>
             </Block>
           </BlockGroupBeta>
