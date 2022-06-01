@@ -16,7 +16,6 @@ import {
   CollecticonEnvelope
 } from '@devseed-ui/collecticons';
 
-import heroFigure from '../images/welcome-hero.jpg';
 import { Button } from '@devseed-ui/button';
 
 const Hero = styled.div`
@@ -267,8 +266,9 @@ const IndexPage = () => {
             </HeroHeadline>
 
             <HeroFigure>
-              <img
-                src={heroFigure}
+              <StaticImage
+                style={{ position: 'static' }}
+                src='../images/welcome-hero.jpg'
                 alt='Satellite image of canadian waters teem with phytoplankton'
               />
               <Figcaption>
@@ -353,14 +353,17 @@ const IndexPage = () => {
                     solving real-world and global development challenges.
                   </p>
                 </VarProse>
-                <Button
-                  forwardedAs='a'
-                  variation='base-fill'
-                  href='mailto:info@satsummit.io'
-                  size='xlarge'
-                >
-                  <CollecticonEnvelope /> Contact us
-                </Button>
+                <div>
+                  <Button
+                    forwardedAs='a'
+                    variation='base-fill'
+                    href='mailto:info@satsummit.io'
+                    size='xlarge'
+                    fitting='relaxed'
+                  >
+                    <CollecticonEnvelope /> Contact us
+                  </Button>
+                </div>
               </BlockBody>
             </Block>
           </BlockGroupBeta>
