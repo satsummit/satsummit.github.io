@@ -15,6 +15,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-K18ZKYSQBS']
+      }
+    },
+    {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
@@ -41,12 +47,6 @@ module.exports = {
     },
     'gatsby-transformer-yaml',
     'gatsby-plugin-styled-components',
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     trackingId: "",
-    //   },
-    // },
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     {
