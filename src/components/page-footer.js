@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import styled from 'styled-components';
 
-import { listReset, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { listReset, media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading } from '$styles/variable-components';
@@ -14,14 +14,13 @@ const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
   border-top: 0.5rem solid ${themeVal('color.primary-500')};
-  padding: ${variableGlsp(2)};
+  padding: ${variableGlsp(2, 0)};
 `;
 
 const FootBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${variableGlsp(0.5)};
-  padding: ${variableGlsp(2)};
 
   ol,
   ul {
@@ -37,11 +36,39 @@ const FootBlockTitle = styled(VarHeading).attrs({
 `;
 
 const EditionsBlock = styled(FootBlock)`
-  grid-column: content-start / content-5;
+  grid-column: content-start / content-end;
+  grid-row: 1;
+
+  ${media.smallUp`
+    grid-column: content-start / span 2;
+  `}
+
+  ${media.mediumUp`
+    grid-column: content-start / span 4;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / span 4;
+  `}
 `;
 
 const ConnectBlock = styled(FootBlock)`
-  grid-column: content-5 / content-9;
+  grid-column: content-start / content-end;
+  grid-row: 2;
+
+  ${media.smallUp`
+    grid-column: content-3 / span 2;
+    grid-row: 1;
+  `}
+
+  ${media.mediumUp`
+    grid-column: content-5 / span 4;
+    grid-row: 1;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-5 / span 4;
+  `}
 `;
 
 const FooterCredits = styled(FootBlock).attrs({
@@ -51,7 +78,23 @@ const FooterCredits = styled(FootBlock).attrs({
   font-style: normal;
   display: flex;
   flex-flow: column nowrap;
-  grid-column: content-9 / content-end;
+  grid-column: content-start / content-end;
+  grid-row: 3;
+
+  ${media.smallUp`
+    grid-column: content-3 / span 2;
+  `}
+
+  ${media.mediumUp`
+    grid-column: content-5 / span 6;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-9 / span 4;
+    grid-row: 1;
+    text-align: right;
+    align-self: end;
+  `}
 
   a {
     font-weight: bold;
