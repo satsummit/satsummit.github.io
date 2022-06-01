@@ -1,0 +1,4 @@
+# Disable checking on these files since the dynamic css leads to
+# `CssSyntaxError` on the whole file.
+src/styles/variable-utils.js
+src/styles/hug/index.ts

@@ -1,83 +1,88 @@
 {
-  "name": "satsummit",
-  "version": "0.0.0",
-  "description": "Satellite data for global development",
+  "name": "2022.satsummit.io",
+  "version": "1.0.0",
+  "description": "A one day of presentations and discussions about satellite imagery and data processing capabilities that brings together the satellite industry and the global development leaders.",
+  "keywords": [
+    "gatsby"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/satsummit/satsummit.github.io.git"
+    "url": "https://github.com/satsummit/satsummit.github.io"
   },
-  "author": "Development Seed (https://developmentseed.org)",
+  "author": {
+    "name": "Development Seed",
+    "url": "https://developmentseed.org/"
+  },
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/satsummit/satsummit.github.io/issues"
   },
   "homepage": "http://satsummit.io/",
-  "main": "assets/scripts",
-  "scripts": {
-    "install": "bundle install --path bundle/cache",
-    "postinstall": "[ -f _config-dev.yml ] || echo 'baseurl: http://localhost:3000' > _config-dev.yml",
-    "serve": "gulp collecticons && DS_ENV=development NODE_ENV=development gulp serve",
-    "build": "DS_ENV=production NODE_ENV=production gulp",
-    "lint": "eslint docs/assets/scripts/ --ext .js",
-    "test": "echo \"No tests\" && exit 0"
+  "engines": {
+    "node": "16.x"
   },
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
-      "require-globify",
-      "envify"
-    ]
+  "scripts": {
+    "serve": "gatsby develop -p 9000 -H 0.0.0.0",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "lint": "eslint ./src/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern",
+    "lint:css": "stylelint './src/**/*.{js,ts,jsx,tsx}' ",
+    "test": "echo No tests && exit 0"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-preset-es2015": "^6.14.0",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.16.0",
-    "browserify": "^13.1.0",
-    "collecticons-processor": "^2.0.0",
-    "del": "^2.2.2",
-    "envify": "^3.4.1",
-    "eslint": "^3.6.0",
-    "eslint-config-standard": "^6.0.1",
-    "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-standard": "^2.0.0",
-    "gulp": "^3.9.1",
-    "gulp-cache": "^0.4.5",
-    "gulp-csso": "^2.0.0",
-    "gulp-exit": "0.0.2",
-    "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-load-plugins": "^1.3.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rev": "^7.1.2",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-sass": "^2.3.2",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.1.2",
-    "gulp-util": "^3.0.7",
-    "jeet": "6.1.4",
-    "node-bourbon": "^4.2.8",
-    "node-notifier": "^4.6.1",
-    "node-sass": "^3.10.0",
-    "require-globify": "^1.4.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0",
-    "webpack": "^4.17.1",
-    "yamljs": "^0.2.8"
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.16.7",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-inclusive-language": "^2.2.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2",
+    "stream-browserify": "^3.0.0",
+    "stylelint": "^14.8.5",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
+    "surge": "^0.23.1",
+    "typescript": "^4.5.5"
   },
   "dependencies": {
-    "glob-parent": "^2.0.0",
-    "jquery": "^3.0.0",
-    "mapbox-gl": "^0.24.0"
+    "@devseed-ui/button": "^4.0.2",
+    "@devseed-ui/collecticons": "^4.0.2",
+    "@devseed-ui/form": "^4.0.2",
+    "@devseed-ui/theme-provider": "^4.0.2",
+    "@devseed-ui/typography": "^4.0.2",
+    "babel-plugin-styled-components": "^2.0.7",
+    "gatsby": "^4.15.1",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-google-analytics": "^4.15.0",
+    "gatsby-plugin-image": "^2.15.0",
+    "gatsby-plugin-mailchimp": "^5.2.2",
+    "gatsby-plugin-react-helmet": "^5.15.0",
+    "gatsby-plugin-sharp": "^4.15.0",
+    "gatsby-plugin-styled-components": "^5.15.0",
+    "gatsby-plugin-webfonts": "^2.2.2",
+    "gatsby-source-filesystem": "^4.15.0",
+    "gatsby-transformer-sharp": "^4.15.0",
+    "gatsby-transformer-yaml": "^4.15.0",
+    "lodash.get": "^4.4.2",
+    "polished": "^4.2.2",
+    "react": "^17.0.1",
+    "react-cool-dimensions": "^2.0.7",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "styled-components": "^5.3.5"
+  },
+  "alias": {
+    "$components": "./src/components",
+    "$styles": "./src/styles",
+    "$utils": "./src/utils"
   }
 }
