@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -252,6 +253,17 @@ const FigureD = styled(Figure)`
 `;
 
 const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          subtitle
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       <main>
@@ -263,10 +275,8 @@ const IndexPage = () => {
                 meaningful
                 size='xxlarge'
               />
-              <HeroTitle>SatSummit 2022</HeroTitle>
-              <HeroSubtitle>
-                Satellite data for global development
-              </HeroSubtitle>
+              <HeroTitle>{data.site.siteMetadata.title}</HeroTitle>
+              <HeroSubtitle>{data.site.siteMetadata.subtitle}</HeroSubtitle>
               <HeroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
                 <span>in</span> Washington, DC

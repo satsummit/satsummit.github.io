@@ -5,10 +5,11 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://2022.satsummit.io',
     title: 'SatSummit 2022',
+    subtitle: `Satellite data for global development`,
+    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
       name: `Cyent, DevGlobal & Development Seed`
     },
-    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     social: {
       twitter: `@sat_summit`
     }
