@@ -332,7 +332,7 @@ const IndexPage = () => {
                   <p>
                     SatSummit will take place at{' '}
                     <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
-                      CONVENE
+                      <strong>Convene</strong>
                     </a>
                     , located at 600 14th St NW, Washington, DC 20005.
                   </p>

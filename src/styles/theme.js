@@ -17,7 +17,8 @@ export default function themeOverrides() {
       // Orange
       warning: '#f39c12',
       // Belize Hole (Blue)
-      info: '#2980b9'
+      info: '#2980b9',
+      link: 'inherit',
     },
     type: {
       base: {
@@ -64,6 +65,12 @@ export default function themeOverrides() {
 }
 
 export const GlobalStyles = createGlobalStyle`
+  a:not([class]) {
+    text-decoration: underline;
+    text-decoration-color: ${themeVal('color.primary-500')};
+    text-decoration-thickness: 2px;
+  }
+
   :root {
     --base-space-multiplier: ${themeVal('layout.glspMultiplier.xsmall')};
   }
