@@ -43,7 +43,7 @@ export default function themeOverrides() {
       type: {
         family: 'Barlow Condensed',
         case: 'uppercase',
-        weight: '500'
+        weight: '600'
       }
     },
     shape: {

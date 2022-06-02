@@ -31,7 +31,7 @@ module.exports = {
             },
             {
               family: 'Barlow Condensed',
-              axes: 'ital,wght@0,500;1,500'
+              axes: 'ital,wght@0,500;0,600;1,600;1,700'
             }
           ]
         }

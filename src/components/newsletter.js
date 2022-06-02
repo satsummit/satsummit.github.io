@@ -6,6 +6,7 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { Form, FormInput, FormLabel } from '@devseed-ui/form';
 import { glsp, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
+import { CollecticonArrowUpRight } from '@devseed-ui/collecticons';
 
 const FormGroupRow = styled.div`
   display: flex;
@@ -73,8 +74,8 @@ export function Newsletter() {
           placeholder='you@provider.tld'
           size='large'
         />
-        <Button variation='base-fill' type='submit'>
-          Sign up
+        <Button variation='base-fill' size='large' type='submit'>
+          <CollecticonArrowUpRight /> Sign up
         </Button>
       </FormGroupRow>
       {message ? (
