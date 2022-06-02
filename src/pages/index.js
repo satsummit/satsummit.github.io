@@ -19,7 +19,7 @@ import {
 import { Button } from '@devseed-ui/button';
 
 const Hero = styled.div`
-  filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
+  filter: drop-shadow(0 8px 0 ${themeVal('color.primary-500')});
 `;
 
 const HeroInner = styled.div`
@@ -77,8 +77,13 @@ const HeroOverline = styled(VarHeading).attrs({
 
     &::before {
       content: '•';
-      font-size: 2rem;
-      margin: 0 0.5rem;
+      font-size: 1.75rem;
+      margin: 0 0.25rem;
+
+      ${media.mediumUp`
+        font-size: 2rem;
+        margin: 0 0.5rem;
+      `}
     }
   }
 `;
@@ -117,7 +122,7 @@ const BlockGrid = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
 
   ${Figure} {
-    border-top: 0.5rem solid ${themeVal('color.primary-500')};
+    border-top: 8px solid ${themeVal('color.primary-500')};
   }
 `;
 
@@ -137,8 +142,8 @@ const Block = styled.section`
   gap: ${variableGlsp()};
 
   &:not(:first-child) {
-    padding-top: ${variableGlsp(1)};
-    border-top: 0.5rem solid ${themeVal('color.primary-500')};
+    padding-top: ${variableGlsp()};
+    border-top: 8px solid ${themeVal('color.primary-500')};
   }
 `;
 
@@ -165,12 +170,11 @@ const BlockGroupAlpha = styled(BlockGroup)`
   margin: ${variableGlsp(-4, 0, 2, 0)};
 
   ${media.mediumUp`
-    margin: ${variableGlsp(-4, 0, 0, 0)};
+    margin: ${variableGlsp(-5, 0, 0, 0)};
   `}
 
   ${media.largeUp`
     grid-column: content-7 / content-end;
-    margin-top: ${variableGlsp(-4)};
   `}
 `;
 
@@ -186,7 +190,7 @@ const BlockGroupBeta = styled(BlockGroup)`
   ${media.largeUp`
     grid-column: content-start / content-7;
     grid-row: 3;
-    margin-top: ${variableGlsp(4)};
+    margin-top: ${variableGlsp(2)};
   `}
 `;
 
@@ -202,8 +206,12 @@ const FigureA = styled(Figure)`
 `;
 
 const FigureB = styled(Figure)`
-  grid-column: full-start / content-3;
+  grid-column: full-start / content-4;
   grid-row: 3;
+
+  ${media.smallUp`
+    grid-column: content-start / content-4;
+  `}
 
   ${media.mediumUp`
     grid-column: content-start / content-5;
@@ -257,7 +265,7 @@ const IndexPage = () => {
               />
               <HeroTitle>SatSummit 2022</HeroTitle>
               <HeroSubtitle>
-                Satellite data for global development.
+                Satellite data for global development
               </HeroSubtitle>
               <HeroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
