@@ -8,7 +8,7 @@ module.exports = {
     author: {
       name: `Cyent, DevGlobal & Development Seed`
     },
-    description: `A one day of presentations and discussions about satellite imagery and data processing capabilities that brings together the satellite industry and the global development leaders.`,
+    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     social: {
       twitter: `@sat_summit`
     }
