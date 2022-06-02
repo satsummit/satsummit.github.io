@@ -105,13 +105,13 @@ const FooterCredits = styled(FootBlock).attrs({
 })`
   font-size: 1rem;
   font-style: normal;
-  display: flex;
-  flex-flow: column nowrap;
+  gap: 0;
   grid-column: content-start / content-end;
   grid-row: 3;
 
   ${media.smallUp`
     grid-row: 2;
+    gap: 0.25rem;
   `}
 
   ${media.mediumUp`
@@ -129,19 +129,15 @@ const FooterCredits = styled(FootBlock).attrs({
     ${visuallyHidden()}
   }
 
-  time {
-    display: block;
-
-    ${media.mediumUp`
-      margin-top: ${variableGlsp(0.25)};
-    `}
-  }
-
   small {
     font-size: inherit;
     display: block;
     opacity: 0.64;
   }
+`;
+
+const FooterCopyright = styled.p`
+  /* styled-component */
 `;
 
 function PageFooter(props) {
@@ -208,10 +204,13 @@ function PageFooter(props) {
           <a href='https://developmentseed.org/'>
             <strong>Development Seed</strong>
           </a>{' '}
-          <time dateTime={`2015/${nowDate.getFullYear()}`}>
-            © 2015-{nowDate.getFullYear()}
-          </time>
         </p>
+        <FooterCopyright>
+          ©{' '}
+          <time dateTime={`2015/${nowDate.getFullYear()}`}>
+            2015-{nowDate.getFullYear()}
+          </time>
+        </FooterCopyright>
       </FooterCredits>
     </PageFooterSelf>
   );
