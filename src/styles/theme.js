@@ -4,21 +4,21 @@ import { createGlobalStyle } from 'styled-components';
 export default function themeOverrides() {
   return createUITheme({
     color: {
-      // blue
+      // Persian Blue
       base: '#2037E9',
-      // link-green
+      // Bright Turquoise
       primary: '#19E9D4',
-      // grey
+      // Oslo Gray
       secondary: '#888990',
       // Alizarin (Red-ish)
       danger: '#e74c3c',
-      // Nephritis (Green)
-      success: '#27ae60',
+      // Dark Sprint Green
+      success: '#2C6E49',
       // Orange
       warning: '#f39c12',
       // Belize Hole (Blue)
       info: '#2980b9',
-      link: 'inherit',
+      link: 'inherit'
     },
     type: {
       base: {
