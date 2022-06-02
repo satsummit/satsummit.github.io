@@ -15,6 +15,7 @@ import Hug from '$styles/hug';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
+  CollecticonBrandGithub,
   CollecticonBrandTwitter,
   CollecticonEnvelope
 } from '@devseed-ui/collecticons';
@@ -22,7 +23,7 @@ import {
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
-  border-top: 0.5rem solid ${themeVal('color.primary-500')};
+  border-top: 8px solid ${themeVal('color.primary-500')};
   padding: ${variableGlsp(2, 0)};
 `;
 
@@ -35,11 +36,30 @@ const FootBlock = styled.div`
   ul {
     ${listReset()};
   }
+
+  &:not(:first-child) {
+    padding-top: ${variableGlsp()};
+    border-top: 4px solid ${themeVal('color.primary-500')};
+  }
+
+  &:not(:first-child):not(:last-child) {
+    ${media.smallUp`
+      padding: 0;
+      border: 0;
+    `}
+  }
+
+  &:last-child {
+    ${media.largeUp`
+      padding: 0;
+      border: 0;
+    `}
+  }
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
   as: 'h2',
-  size: 'small'
+  size: 'medium'
 })`
   /* styled-component */
 `;
@@ -53,11 +73,11 @@ const EditionsBlock = styled(FootBlock)`
   `}
 
   ${media.mediumUp`
-    grid-column: content-start / span 4;
+    grid-column: content-2 / span 3;
   `}
 
   ${media.largeUp`
-    grid-column: content-start / span 4;
+    grid-column: content-start / span 3;
   `}
 `;
 
@@ -71,12 +91,12 @@ const ConnectBlock = styled(FootBlock)`
   `}
 
   ${media.mediumUp`
-    grid-column: content-5 / span 4;
+    grid-column: content-5 / span 3;
     grid-row: 1;
   `}
 
   ${media.largeUp`
-    grid-column: content-5 / span 4;
+    grid-column: content-4 / span 3;
   `}
 `;
 
@@ -91,11 +111,11 @@ const FooterCredits = styled(FootBlock).attrs({
   grid-row: 3;
 
   ${media.smallUp`
-    grid-column: content-3 / span 2;
+    grid-row: 2;
   `}
 
   ${media.mediumUp`
-    grid-column: content-5 / span 6;
+    grid-column: content-2 / span 6;
   `}
 
   ${media.largeUp`
@@ -105,22 +125,16 @@ const FooterCredits = styled(FootBlock).attrs({
     align-self: end;
   `}
 
-  a {
-    font-weight: bold;
-
-    &,
-    &:visited {
-      color: inherit;
-    }
-  }
-
   span {
     ${visuallyHidden()}
   }
 
   time {
     display: block;
-    margin-top: ${variableGlsp(0.25)};
+
+    ${media.mediumUp`
+      margin-top: ${variableGlsp(0.25)};
+    `}
   }
 
   small {
@@ -172,14 +186,28 @@ function PageFooter(props) {
               <CollecticonBrandTwitter /> Follow us on Twitter
             </Button>
           </li>
+          <li>
+            <Button forwardedAs='a' href='https://github.com/satsummit'>
+              <CollecticonBrandGithub /> Check us on GitHub
+            </Button>
+          </li>
         </ul>
       </ConnectBlock>
 
       <FooterCredits>
         <p>
-          <span>Organized by</span> <a href='https://www.cyient.com/'>Cyent</a>,{' '}
-          <a href='https://dev.global/'>DevGlobal</a> &{' '}
-          <a href='https://developmentseed.org/'>Development Seed</a>
+          <span>Organized by</span>{' '}
+          <a href='https://www.cyient.com/'>
+            <strong>Cyent</strong>
+          </a>
+          ,{' '}
+          <a href='https://dev.global/'>
+            <strong>DevGlobal</strong>
+          </a>{' '}
+          &{' '}
+          <a href='https://developmentseed.org/'>
+            <strong>Development Seed</strong>
+          </a>{' '}
           <time dateTime={`2015/${nowDate.getFullYear()}`}>
             © 2015-{nowDate.getFullYear()}
           </time>
