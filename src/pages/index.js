@@ -121,10 +121,6 @@ const HeroFigure = styled(Figure)`
 
 const BlockGrid = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
-
-  ${Figure} {
-    border-top: 8px solid ${themeVal('color.primary-500')};
-  }
 `;
 
 const BlockGroup = styled.div`
@@ -195,7 +191,23 @@ const BlockGroupBeta = styled(BlockGroup)`
   `}
 `;
 
-const FigureA = styled(Figure)`
+const FigureStyled = styled(Figure)`
+  border-top: 8px solid ${themeVal('color.primary-500')};
+
+  .gatsby-image-wrapper {
+    background: linear-gradient(
+      to top,
+      ${themeVal('color.base-500')}48 0%,
+      ${themeVal('color.primary-500')}08 100%
+    );
+  }
+
+  img {
+    mix-blend-mode: multiply;
+  }
+`;
+
+const FigureA = styled(FigureStyled)`
   grid-column: content-start / content-end;
   align-self: end;
   grid-row: 2;
@@ -206,7 +218,7 @@ const FigureA = styled(Figure)`
   `}
 `;
 
-const FigureB = styled(Figure)`
+const FigureB = styled(FigureStyled)`
   grid-column: full-start / content-4;
   grid-row: 3;
 
@@ -224,7 +236,7 @@ const FigureB = styled(Figure)`
   `}
 `;
 
-const FigureC = styled(Figure)`
+const FigureC = styled(FigureStyled)`
   grid-column: content-start / full-end;
   grid-row: 5;
 
@@ -238,7 +250,7 @@ const FigureC = styled(Figure)`
   `}
 `;
 
-const FigureD = styled(Figure)`
+const FigureD = styled(FigureStyled)`
   grid-column: content-2 / content-end;
   grid-row: 6;
 
