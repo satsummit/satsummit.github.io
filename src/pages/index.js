@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -19,7 +20,7 @@ import {
 import { Button } from '@devseed-ui/button';
 
 const Hero = styled.div`
-  filter: drop-shadow(0 0.5rem 0 ${themeVal('color.primary-500')});
+  filter: drop-shadow(0 8px 0 ${themeVal('color.primary-500')});
 `;
 
 const HeroInner = styled.div`
@@ -77,8 +78,13 @@ const HeroOverline = styled(VarHeading).attrs({
 
     &::before {
       content: '•';
-      font-size: 2rem;
-      margin: 0 0.5rem;
+      font-size: 1.75rem;
+      margin: 0 0.25rem;
+
+      ${media.mediumUp`
+        font-size: 2rem;
+        margin: 0 0.5rem;
+      `}
     }
   }
 `;
@@ -115,10 +121,6 @@ const HeroFigure = styled(Figure)`
 
 const BlockGrid = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
-
-  ${Figure} {
-    border-top: 0.5rem solid ${themeVal('color.primary-500')};
-  }
 `;
 
 const BlockGroup = styled.div`
@@ -137,8 +139,8 @@ const Block = styled.section`
   gap: ${variableGlsp()};
 
   &:not(:first-child) {
-    padding-top: ${variableGlsp(1)};
-    border-top: 0.5rem solid ${themeVal('color.primary-500')};
+    padding-top: ${variableGlsp()};
+    border-top: 8px solid ${themeVal('color.primary-500')};
   }
 `;
 
@@ -165,12 +167,11 @@ const BlockGroupAlpha = styled(BlockGroup)`
   margin: ${variableGlsp(-4, 0, 2, 0)};
 
   ${media.mediumUp`
-    margin: ${variableGlsp(-4, 0, 0, 0)};
+    margin: ${variableGlsp(-5, 0, 0, 0)};
   `}
 
   ${media.largeUp`
     grid-column: content-7 / content-end;
-    margin-top: ${variableGlsp(-4)};
   `}
 `;
 
@@ -186,11 +187,27 @@ const BlockGroupBeta = styled(BlockGroup)`
   ${media.largeUp`
     grid-column: content-start / content-7;
     grid-row: 3;
-    margin-top: ${variableGlsp(4)};
+    margin-top: ${variableGlsp(2)};
   `}
 `;
 
-const FigureA = styled(Figure)`
+const FigureStyled = styled(Figure)`
+  border-top: 8px solid ${themeVal('color.primary-500')};
+
+  .gatsby-image-wrapper {
+    background: linear-gradient(
+      to top,
+      ${themeVal('color.base-500')}48 0%,
+      ${themeVal('color.primary-500')}08 100%
+    );
+  }
+
+  img {
+    mix-blend-mode: multiply;
+  }
+`;
+
+const FigureA = styled(FigureStyled)`
   grid-column: content-start / content-end;
   align-self: end;
   grid-row: 2;
@@ -201,9 +218,13 @@ const FigureA = styled(Figure)`
   `}
 `;
 
-const FigureB = styled(Figure)`
-  grid-column: full-start / content-3;
+const FigureB = styled(FigureStyled)`
+  grid-column: full-start / content-4;
   grid-row: 3;
+
+  ${media.smallUp`
+    grid-column: content-start / content-4;
+  `}
 
   ${media.mediumUp`
     grid-column: content-start / content-5;
@@ -215,7 +236,7 @@ const FigureB = styled(Figure)`
   `}
 `;
 
-const FigureC = styled(Figure)`
+const FigureC = styled(FigureStyled)`
   grid-column: content-start / full-end;
   grid-row: 5;
 
@@ -229,7 +250,7 @@ const FigureC = styled(Figure)`
   `}
 `;
 
-const FigureD = styled(Figure)`
+const FigureD = styled(FigureStyled)`
   grid-column: content-2 / content-end;
   grid-row: 6;
 
@@ -244,6 +265,17 @@ const FigureD = styled(Figure)`
 `;
 
 const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          subtitle
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       <main>
@@ -255,10 +287,8 @@ const IndexPage = () => {
                 meaningful
                 size='xxlarge'
               />
-              <HeroTitle>SatSummit 2022</HeroTitle>
-              <HeroSubtitle>
-                Satellite data for global development.
-              </HeroSubtitle>
+              <HeroTitle>{data.site.siteMetadata.title}</HeroTitle>
+              <HeroSubtitle>{data.site.siteMetadata.subtitle}</HeroSubtitle>
               <HeroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
                 <span>in</span> Washington, DC
@@ -332,7 +362,7 @@ const IndexPage = () => {
                   <p>
                     SatSummit will take place at{' '}
                     <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
-                      CONVENE
+                      <strong>Convene</strong>
                     </a>
                     , located at 600 14th St NW, Washington, DC 20005.
                   </p>

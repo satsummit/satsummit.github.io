@@ -6,6 +6,11 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { Form, FormInput, FormLabel } from '@devseed-ui/form';
 import { glsp, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
+import { CollecticonArrowUpRight } from '@devseed-ui/collecticons';
+
+const FormSignup = styled(Form)`
+  position: relative;
+`;
 
 const FormGroupRow = styled.div`
   display: flex;
@@ -27,13 +32,38 @@ const RegFormLabel = styled(FormLabel)`
 `;
 
 const ErrorWrapper = styled.div`
+  position: absolute;
+  top: calc(100% + ${glsp(0.25)});
+  padding: ${glsp(0.5, 1)};
+  color: ${themeVal('color.surface')};
+
+  &::before {
+    position: absolute;
+    bottom: 100%;
+    left: ${glsp()};
+    content: '';
+    width: 1rem;
+    height: 0.5rem;
+    background: transparent;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    pointer-events: none;
+  }
+
   ${({ hasError }) =>
     hasError
       ? css`
           background: ${themeVal('color.danger')};
+
+          &::before {
+            background: ${themeVal('color.danger')};
+          }
         `
       : css`
-          background: ${themeVal('color.info')};
+          background: ${themeVal('color.success')};
+
+          &::before {
+            background: ${themeVal('color.success')};
+          }
         `}
 `;
 
@@ -63,7 +93,7 @@ export function Newsletter() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <FormSignup onSubmit={handleSubmit}>
       <FormGroupRow>
         <RegFormLabel htmlFor='reg-email'>Email</RegFormLabel>
         <FormInput
@@ -73,8 +103,8 @@ export function Newsletter() {
           placeholder='you@provider.tld'
           size='large'
         />
-        <Button variation='base-fill' type='submit'>
-          Sign up
+        <Button variation='base-fill' size='large' type='submit'>
+          <CollecticonArrowUpRight /> Sign up
         </Button>
       </FormGroupRow>
       {message ? (
@@ -82,6 +112,6 @@ export function Newsletter() {
           <p dangerouslySetInnerHTML={{ __html: message }} />
         </ErrorWrapper>
       ) : null}
-    </Form>
+    </FormSignup>
   );
 }
