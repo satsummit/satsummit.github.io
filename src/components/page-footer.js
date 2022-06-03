@@ -42,15 +42,15 @@ const FootBlock = styled.div`
     border-top: 4px solid ${themeVal('color.primary-500')};
   }
 
-  &:not(:first-child):not(:last-child) {
-    ${media.smallUp`
+  &:last-child {
+    ${media.largeUp`
       padding: 0;
       border: 0;
     `}
   }
 
-  &:last-child {
-    ${media.largeUp`
+  &:not(:first-child):not(:last-child) {
+    ${media.smallUp`
       padding: 0;
       border: 0;
     `}
