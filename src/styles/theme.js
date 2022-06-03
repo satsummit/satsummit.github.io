@@ -4,20 +4,21 @@ import { createGlobalStyle } from 'styled-components';
 export default function themeOverrides() {
   return createUITheme({
     color: {
-      // blue
+      // Persian Blue
       base: '#2037E9',
-      // link-green
+      // Bright Turquoise
       primary: '#19E9D4',
-      // grey
+      // Oslo Gray
       secondary: '#888990',
       // Alizarin (Red-ish)
       danger: '#e74c3c',
-      // Nephritis (Green)
-      success: '#27ae60',
+      // Dark Sprint Green
+      success: '#2C6E49',
       // Orange
       warning: '#f39c12',
       // Belize Hole (Blue)
-      info: '#2980b9'
+      info: '#2980b9',
+      link: 'inherit'
     },
     type: {
       base: {
@@ -42,7 +43,7 @@ export default function themeOverrides() {
       type: {
         family: 'Barlow Condensed',
         case: 'uppercase',
-        weight: '500'
+        weight: '600'
       }
     },
     shape: {
@@ -64,6 +65,12 @@ export default function themeOverrides() {
 }
 
 export const GlobalStyles = createGlobalStyle`
+  a:not([class]) {
+    text-decoration: underline;
+    text-decoration-color: ${themeVal('color.primary-500')};
+    text-decoration-thickness: 2px;
+  }
+
   :root {
     --base-space-multiplier: ${themeVal('layout.glspMultiplier.xsmall')};
   }
