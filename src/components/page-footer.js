@@ -194,7 +194,7 @@ function PageFooter(props) {
         <p>
           <span>Organized by</span>{' '}
           <a href='https://www.cyient.com/'>
-            <strong>Cyent</strong>
+            <strong>Cyient</strong>
           </a>
           ,{' '}
           <a href='https://dev.global/'>

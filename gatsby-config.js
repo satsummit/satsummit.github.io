@@ -8,7 +8,7 @@ module.exports = {
     subtitle: `Satellite data for global development`,
     description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
-      name: `Cyent, DevGlobal & Development Seed`
+      name: `Cyient, DevGlobal & Development Seed`
     },
     social: {
       twitter: `@sat_summit`
