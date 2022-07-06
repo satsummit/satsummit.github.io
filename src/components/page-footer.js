@@ -23,7 +23,7 @@ import {
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
-  border-top: 8px solid ${themeVal('color.primary-500')};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
   padding: ${variableGlsp(2, 0)};
 `;
 

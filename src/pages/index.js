@@ -20,7 +20,7 @@ import {
 import { Button } from '@devseed-ui/button';
 
 const Hero = styled.div`
-  filter: drop-shadow(0 8px 0 ${themeVal('color.primary-500')});
+  filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
 `;
 
 const HeroInner = styled.div`
@@ -34,7 +34,7 @@ const HeroInner = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: ${themeVal('color.base')};
+  background: ${themeVal('color.secondary')};
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 72%);
 
   ${media.largeUp`
@@ -95,8 +95,8 @@ const HeroFigure = styled(Figure)`
   z-index: -1;
   background: linear-gradient(
     to top,
-    ${themeVal('color.base-500')} 0%,
-    ${themeVal('color.primary-500')}64 100%
+    ${themeVal('color.primary-500')} 0%,
+    ${themeVal('color.secondary-500')}64 100%
   );
 
   img {
@@ -112,8 +112,8 @@ const HeroFigure = styled(Figure)`
     z-index: 1;
     background: linear-gradient(
       to top,
-      ${themeVal('color.base-500')} 0%,
-      ${themeVal('color.base-500')}00 100%
+      ${themeVal('color.primary-500')} 0%,
+      ${themeVal('color.primary-500')}00 100%
     );
     content: '';
   }
@@ -140,7 +140,7 @@ const Block = styled.section`
 
   &:not(:first-child) {
     padding-top: ${variableGlsp()};
-    border-top: 8px solid ${themeVal('color.primary-500')};
+    border-top: 8px solid ${themeVal('color.secondary-500')};
   }
 `;
 
@@ -192,13 +192,13 @@ const BlockGroupBeta = styled(BlockGroup)`
 `;
 
 const FigureStyled = styled(Figure)`
-  border-top: 8px solid ${themeVal('color.primary-500')};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
 
   .gatsby-image-wrapper {
     background: linear-gradient(
       to top,
-      ${themeVal('color.base-500')}48 0%,
-      ${themeVal('color.primary-500')}08 100%
+      ${themeVal('color.primary-500')}48 0%,
+      ${themeVal('color.secondary-500')}08 100%
     );
   }
 

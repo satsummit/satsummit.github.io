@@ -6,10 +6,10 @@ export default function themeOverrides() {
     color: {
       // Persian Blue
       base: '#2037E9',
+      // Persian Blue
+      primary: '#2037E9',
       // Bright Turquoise
-      primary: '#19E9D4',
-      // Oslo Gray
-      secondary: '#888990',
+      secondary: '#19E9D4',
       // Alizarin (Red-ish)
       danger: '#e74c3c',
       // Dark Sprint Green
@@ -67,7 +67,7 @@ export default function themeOverrides() {
 export const GlobalStyles = createGlobalStyle`
   a:not([class]) {
     text-decoration: underline;
-    text-decoration-color: ${themeVal('color.primary-500')};
+    text-decoration-color: ${themeVal('color.secondary-500')};
     text-decoration-thickness: 2px;
   }
 
