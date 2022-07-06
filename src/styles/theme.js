@@ -47,12 +47,12 @@ export default function themeOverrides() {
       }
     },
     shape: {
-      rounded: '0'
+      rounded: '0.125rem'
     },
     layout: {
       min: '384px',
       max: '1440px',
-      border: '4px',
+      border: '2px',
       glspMultiplier: {
         xsmall: 1,
         small: 1,
