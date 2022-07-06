@@ -4,8 +4,9 @@ module.exports = {
   pathPrefix: '',
   siteMetadata: {
     siteUrl: 'https://2022.satsummit.io',
-    title: 'SatSummit 2022',
+    title: 'SatSummit',
     subtitle: `Satellite data for global development`,
+    edition: '2022',
     description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
       name: `Cyient, DevGlobal & Development Seed`

@@ -271,6 +271,7 @@ const IndexPage = () => {
         siteMetadata {
           title
           subtitle
+          edition
         }
       }
     }
@@ -287,7 +288,9 @@ const IndexPage = () => {
                 meaningful
                 size='xxlarge'
               />
-              <HeroTitle>{data.site.siteMetadata.title}</HeroTitle>
+              <HeroTitle>
+                {data.site.siteMetadata.title} {data.site.siteMetadata.edition}
+              </HeroTitle>
               <HeroSubtitle>{data.site.siteMetadata.subtitle}</HeroSubtitle>
               <HeroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}

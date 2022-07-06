@@ -11,6 +11,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
           siteMetadata {
             title
             description
+            edition
             siteUrl
             social {
               twitter
@@ -27,7 +28,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
     ? metaImage
     : `${site.siteMetadata.siteUrl}${metaImage}`;
 
-  const formattedTitle = `${title} — ${site.siteMetadata.title}`;
+  const formattedTitle = `${title} — ${site.siteMetadata.title} ${site.siteMetadata.edition}`;
 
   return (
     <Helmet
