@@ -101,6 +101,7 @@ export function Newsletter() {
           isRequired
           onChange={handleChange}
           placeholder='you@provider.tld'
+          type='email'
           size='large'
         />
         <Button variation='base-fill' size='large' type='submit'>

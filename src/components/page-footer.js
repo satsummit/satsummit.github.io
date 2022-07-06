@@ -39,7 +39,7 @@ const FootBlock = styled.div`
 
   &:not(:first-child) {
     padding-top: ${variableGlsp()};
-    border-top: 4px solid ${themeVal('color.primary-500')};
+    border-top: 4px solid ${themeVal('color.secondary-500')};
   }
 
   &:last-child {
