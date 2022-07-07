@@ -22,7 +22,7 @@ export const PageMainHero = styled(Hug).attrs({
 
 export const PageMainTitle = styled(VarHeading).attrs({
   as: 'h1',
-  size: 'xxlarge'
+  size: 'jumbo'
 })`
   grid-column: content-start / content-end;
 `;
