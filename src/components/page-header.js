@@ -10,6 +10,7 @@ import Hug from '$styles/hug';
 
 import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
 import { Button } from '@devseed-ui/button';
+import { useMediaQuery } from '$utils/use-media-query';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -78,6 +79,8 @@ function PageHeader() {
     }
   `);
 
+  const { isLargeUp } = useMediaQuery();
+
   return (
     <PageHeaderSelf>
       <PageHeaderInner>
@@ -86,7 +89,7 @@ function PageHeader() {
             <CollecticonBrandSatsummit
               title='SatSummit logo symbol'
               meaningful
-              size='xlarge'
+              size={isLargeUp ? 'xlarge' : 'large'}
             />
             <BrandLabel>
               <span>{data.site.siteMetadata.title}</span>{' '}
@@ -96,10 +99,10 @@ function PageHeader() {
         </Brand>
         <GlobalCTA>
           <Button
-            forwardedAs='a'
+            forwardedAs={Link}
             variation='base-outline'
-            size='large'
-            href='/tickets'
+            size={isLargeUp ? 'large' : 'medium'}
+            to='/tickets'
           >
             Get tickets
           </Button>
