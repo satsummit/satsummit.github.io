@@ -1,13 +1,16 @@
 import React from 'react';
 
 import Layout from '$components/layout';
+import { PageMainContent, PageMainHero, PageMainTitle } from '$styles/page';
 
 const TicketsPage = () => {
   return (
     <Layout>
-      <main>
-        <p>Hello tickets!</p>
-      </main>
+      <PageMainContent>
+        <PageMainHero>
+          <PageMainTitle>Tickets</PageMainTitle>
+        </PageMainHero>
+      </PageMainContent>
     </Layout>
   );
 };
