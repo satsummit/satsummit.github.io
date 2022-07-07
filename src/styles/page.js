@@ -16,8 +16,7 @@ export const PageMainContent = styled.main`
 export const PageMainHero = styled(Hug).attrs({
   as: 'div'
 })`
-  border-bottom: 8px solid ${themeVal('color.secondary-500')};
-  padding: ${variableGlsp(2, 0)};
+  /* styled-component */
 `;
 
 export const PageMainHeroHeadline = styled.div`
@@ -25,9 +24,19 @@ export const PageMainHeroHeadline = styled.div`
   flex-flow: column nowrap;
   gap: ${variableGlsp()};
   grid-column: content-start / content-end;
+  padding: ${variableGlsp(2, 0)};
+  border-bottom: 8px solid ${themeVal('color.secondary-500')};
+
+  ${media.mediumUp`
+    grid-column: content-start / content-8;
+  `}
 
   ${media.largeUp`
-    grid-column: content-start / content-8;
+    grid-column: content-start / content-12;
+  `}
+
+  ${media.xlargeUp`
+    grid-column: content-start / content-11;
   `}
 `;
 

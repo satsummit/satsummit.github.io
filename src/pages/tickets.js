@@ -1,15 +1,31 @@
 import React from 'react';
 
 import Layout from '$components/layout';
-import { PageMainContent, PageMainHero, PageMainTitle } from '$styles/page';
+
+import {
+  PageMainContent,
+  PageMainHero,
+  PageMainHeroHeadline,
+  PageMainTitle
+} from '$styles/page';
+
+import { BlockAlpha } from '$styles/blocks';
+import { VarProse } from '$styles/variable-components';
 
 const TicketsPage = () => {
   return (
     <Layout>
       <PageMainContent>
         <PageMainHero>
-          <PageMainTitle>Tickets</PageMainTitle>
+          <PageMainHeroHeadline>
+            <PageMainTitle>Tickets</PageMainTitle>
+          </PageMainHeroHeadline>
         </PageMainHero>
+        <BlockAlpha>
+          <VarProse>
+            <p>Content goes here.</p>
+          </VarProse>
+        </BlockAlpha>
       </PageMainContent>
     </Layout>
   );

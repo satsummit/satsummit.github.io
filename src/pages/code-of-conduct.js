@@ -2,8 +2,6 @@ import React from 'react';
 
 import Layout from '$components/layout';
 
-import { VarProse } from '$styles/variable-components';
-
 import {
   PageLead,
   PageMainContent,
@@ -12,7 +10,8 @@ import {
   PageMainTitle
 } from '$styles/page';
 
-import { TextBlock } from '$styles/blocks';
+import { BlockAlpha } from '$styles/blocks';
+import { VarProse } from '$styles/variable-components';
 
 const CodeOfConductPage = () => {
   return (
@@ -24,7 +23,7 @@ const CodeOfConductPage = () => {
             <PageLead>Our commitment to our community.</PageLead>
           </PageMainHeroHeadline>
         </PageMainHero>
-        <TextBlock>
+        <BlockAlpha>
           <VarProse>
             <h2>Intro</h2>
             <p>
@@ -159,7 +158,7 @@ const CodeOfConductPage = () => {
               </li>
             </ul>
           </VarProse>
-        </TextBlock>
+        </BlockAlpha>
       </PageMainContent>
     </Layout>
   );

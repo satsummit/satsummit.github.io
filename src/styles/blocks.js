@@ -7,7 +7,7 @@ import { media } from '@devseed-ui/theme-provider';
 
 import Hug from './hug';
 
-export const TextBlock = styled(Hug).attrs({
+export const BlockAlpha = styled(Hug).attrs({
   as: 'div'
 })`
   padding: ${variableGlsp(2, 0)};
@@ -15,8 +15,16 @@ export const TextBlock = styled(Hug).attrs({
   ${VarProse} {
     grid-column: content-start / content-end;
 
+    ${media.mediumUp`
+      grid-column: content-2 / content-8;
+    `}
+
     ${media.largeUp`
-      grid-column: content-start / content-8;
+      grid-column: content-2 / content-12;
+    `}
+
+    ${media.xlargeUp`
+      grid-column: content-3 / content-11;
     `}
   }
 `;
