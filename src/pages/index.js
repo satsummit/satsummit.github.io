@@ -323,16 +323,17 @@ const IndexPage = () => {
               <BlockBody>
                 <VarProse>
                   <p>
-                    SatSummit convenes leaders in the satellite industry and
-                    experts in global development for 2 days of presentations
-                    and in-depth conversations on solving the world&apos;s most
-                    critical development challenges with satellite data.
+                    <strong>SatSummit</strong> convenes leaders in the satellite
+                    industry and experts in global development for 2 days of
+                    presentations and in-depth conversations on solving the
+                    world&apos;s most critical development challenges with
+                    satellite data.
                   </p>
                   <p>
                     From climate change to population growth to natural resource
                     availability, earth observation data offers insights into
                     today&apos;s biggest global issues. Stay tuned for more
-                    information on SatSummit 2022!
+                    information on <strong>SatSummit 2022</strong>!
                   </p>
                 </VarProse>
               </BlockBody>
@@ -346,8 +347,8 @@ const IndexPage = () => {
                 <VarProse>
                   <p>
                     Registration is not yet open. Please sign-up to be the first
-                    to receive updates about SatSummit 2022, including when
-                    registration opens.
+                    to receive updates about <strong>SatSummit 2022</strong>,
+                    including when registration opens.
                   </p>
                 </VarProse>
                 <Newsletter />
@@ -382,8 +383,9 @@ const IndexPage = () => {
                   <p>
                     We&apos;re excited to partner with thought and industry
                     leaders in the satellite and development communities, and
-                    through their sponsorship and support of SatSummit, we are
-                    solving real-world and global development challenges.
+                    through their sponsorship and support of{' '}
+                    <strong>SatSummit</strong>, we are solving real-world and
+                    global development challenges.
                   </p>
                 </VarProse>
                 <div>
