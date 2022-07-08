@@ -30,7 +30,7 @@ const CodeOfConductPage = () => {
               “us” or “our”) 2018 SatSummit Conference (“Conference”). If you
               are purchasing a ticket on behalf of your company or another legal
               entity, you represent that you have the authority to bind that
-              entity to these Terms, in which case “you" will mean the entity
+              entity to these Terms, in which case “you” will mean the entity
               you represent.{' '}
             </p>
             <h2>Rules, Regulations &amp; Conduct</h2>
@@ -172,7 +172,7 @@ const CodeOfConductPage = () => {
               You agree to defend, indemnify, and hold harmless us and our
               respective affiliates, directors, officers, employees, suppliers,
               vendors and agents from and against any and all claims or demands,
-              including reasonable attorneys' fees, arising out of or connected
+              including reasonable attorneys’ fees, arising out of or connected
               to your attendance at the Conference or your violation of these
               Terms, applicable law or any proprietary or privacy right of any
               other person attending the Conference.

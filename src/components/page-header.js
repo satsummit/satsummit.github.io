@@ -31,23 +31,23 @@ const PageHeaderInner = styled.div`
   }
 `;
 
-const Brand = styled.span`
+const Brand = styled.strong`
   flex-shrink: 0;
+`;
 
-  a {
-    display: flex;
-    gap: ${glsp(0.5)};
-    align-items: center;
-    color: inherit;
-    text-decoration: none;
-    transition: opacity 0.24s ease;
+const BrandLink = styled(Link)`
+  display: flex;
+  gap: ${glsp(0.5)};
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.24s ease;
 
-    ${media.mediumUp`
-      gap: ${glsp(0.75)};
-    `}
-  }
+  ${media.mediumUp`
+    gap: ${glsp(0.75)};
+  `}
 
-  a:hover {
+  &:hover {
     opacity: 0.64;
   }
 `;
@@ -85,7 +85,7 @@ function PageHeader() {
     <PageHeaderSelf>
       <PageHeaderInner>
         <Brand>
-          <Link to='/'>
+          <BrandLink to='/'>
             <CollecticonBrandSatsummit
               title='SatSummit logo symbol'
               meaningful
@@ -95,7 +95,7 @@ function PageHeader() {
               <span>{data.site.siteMetadata.title}</span>{' '}
               <span>{data.site.siteMetadata.edition}</span>
             </BrandLabel>
-          </Link>
+          </BrandLink>
         </Brand>
         <GlobalCTA>
           <Button
