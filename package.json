@@ -70,6 +70,7 @@
     "gatsby-plugin-styled-components": "^5.15.0",
     "gatsby-plugin-webfonts": "^2.2.2",
     "gatsby-source-filesystem": "^4.15.0",
+    "gatsby-transformer-remark": "^5.18.0",
     "gatsby-transformer-sharp": "^4.15.0",
     "gatsby-transformer-yaml": "^4.15.0",
     "lodash.get": "^4.4.2",
