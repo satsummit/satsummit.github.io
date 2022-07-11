@@ -1,5 +1,5 @@
 ---
-title: Terms
+title: Terms & Conditions
 ---
 Effective July 12, 2018.
 
