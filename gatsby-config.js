@@ -48,6 +48,7 @@ module.exports = {
       }
     },
     'gatsby-transformer-yaml',
+    'gatsby-transformer-remark',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
@@ -67,6 +68,13 @@ module.exports = {
         path: './src/images/'
       },
       __key: 'images'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `letter`,
+        path: `${__dirname}/content-letter`
+      }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
