@@ -37,5 +37,5 @@ If you see, overhear or experience a violation of the **Code of Conduct** during
 ### Credits
 
 This **Code of Conduct** was adapted from the following open resources, and may be used under a CC BY-SA 4.0 license:
-- The [**Conference Code of Conduct**](http://confcodeofconduct.com/) , licensed under a [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.  0/deed.en_US) Unported license;
-- The [**Berlin Code of Conduct**](http://berlincodeofconduct.org/) , licensed under a [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.  0/) license.
+- The [**Conference Code of Conduct**](http://confcodeofconduct.com/), licensed under a [Creative Commons Attribution 3.0](https://creativecommons.org/licenses/by/3.0/deed.en_US) Unported license;
+- The [**Berlin Code of Conduct**](http://berlincodeofconduct.org/), licensed under a [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/) license.
