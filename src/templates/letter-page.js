@@ -1,8 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
+import { graphql } from 'gatsby';
 
 import Layout from '$components/layout';
-
 import {
   PageLead,
   PageMainContent,
@@ -10,10 +10,8 @@ import {
   PageMainHeroHeadline,
   PageMainTitle
 } from '$styles/page';
-
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
-import { graphql } from 'gatsby';
 
 const LayoutLetter = ({ data }) => {
   const {
@@ -22,7 +20,7 @@ const LayoutLetter = ({ data }) => {
   } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout title={title}>
       <PageMainContent>
         <PageMainHero>
           <PageMainHeroHeadline>

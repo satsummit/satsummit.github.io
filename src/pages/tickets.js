@@ -14,7 +14,7 @@ import { VarProse } from '$styles/variable-components';
 
 const TicketsPage = () => {
   return (
-    <Layout>
+    <Layout title='Tickets'>
       <PageMainContent>
         <PageMainHero>
           <PageMainHeroHeadline>
