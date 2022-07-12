@@ -12,7 +12,7 @@ We follow a **Code of Conduct** for our events in order to create the best exper
 
 We also support the [**Diversity Charter**](https://diversitycharter.org/) , a commitment to encourage diversity at all of our events.
 
-##The code
+## The code
 
 All attendees, speakers, sponsors, vendors, partners and volunteers at **SatSummit** are required to adhere to the following **Code of Conduct**. **SatSummit** event organizers will enforce this Code throughout the event.
 
