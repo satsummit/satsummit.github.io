@@ -58,8 +58,8 @@ const FootBlock = styled.div`
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
-  as: 'h2',
-  size: 'medium'
+  as: 'h4',
+  size: 'small'
 })`
   /* styled-component */
 `;
