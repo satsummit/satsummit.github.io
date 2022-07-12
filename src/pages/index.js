@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { media, themeVal } from '@devseed-ui/theme-provider';
+import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
@@ -116,6 +116,10 @@ const HeroFigure = styled(Figure)`
       ${themeVal('color.primary-500')}00 100%
     );
     content: '';
+  }
+
+  figcaption {
+    ${visuallyHidden()}
   }
 `;
 
