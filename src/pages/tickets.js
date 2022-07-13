@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Layout from '$components/layout';
 
@@ -13,6 +13,31 @@ import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
 
 const TicketsPage = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      const exampleCallback = function () {
+        console.log('Order complete!');
+      };
+
+      window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '377386512217',
+        iframeContainerId: 'eb-widget',
+        iframeContainerHeight: 425,
+        onOrderComplete: exampleCallback
+      });
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <Layout title='Tickets'>
       <PageMainContent>
@@ -23,7 +48,7 @@ const TicketsPage = () => {
         </PageMainHero>
         <BlockAlpha>
           <VarProse>
-            <p>Content goes here.</p>
+            <div id='eb-widget' />
           </VarProse>
         </BlockAlpha>
       </PageMainContent>
