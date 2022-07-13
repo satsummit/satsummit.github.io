@@ -4,6 +4,11 @@ import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { Button } from '@devseed-ui/button';
+import {
+  CollecticonBrandSatsummit,
+  CollecticonEnvelope
+} from '@devseed-ui/collecticons';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
@@ -11,19 +16,15 @@ import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
+
 import Hug from '$styles/hug';
-import {
-  CollecticonBrandSatsummit,
-  CollecticonEnvelope
-} from '@devseed-ui/collecticons';
+import { PageMainContent } from '$styles/page';
 
-import { Button } from '@devseed-ui/button';
-
-const Hero = styled.div`
+const Intro = styled.div`
   filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
 `;
 
-const HeroInner = styled.div`
+const IntroInner = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
@@ -42,7 +43,7 @@ const HeroInner = styled.div`
   `}
 `;
 
-const HeroHeadline = styled.div`
+const IntroHeadline = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,17 +58,21 @@ const HeroHeadline = styled.div`
   }
 `;
 
-const HeroTitle = styled(VarHeading).attrs({
+const IntroTitle = styled(VarHeading).attrs({
   as: 'h1'
 })`
   font-size: clamp(3.5rem, 12vw, 8rem);
+
+  span {
+    font-size: 0;
+  }
 `;
 
-const HeroSubtitle = styled.p`
+const IntroSubtitle = styled.p`
   font-size: clamp(1.25rem, 4vw, 2rem);
 `;
 
-const HeroOverline = styled(VarHeading).attrs({
+const IntroOverline = styled(VarHeading).attrs({
   as: 'p',
   size: 'large'
 })`
@@ -89,7 +94,7 @@ const HeroOverline = styled(VarHeading).attrs({
   }
 `;
 
-const HeroFigure = styled(Figure)`
+const IntroFigure = styled(Figure)`
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -283,29 +288,26 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <main>
-        <Hero>
-          <HeroInner>
-            <HeroHeadline>
-              <CollecticonBrandSatsummit
-                title='SatSummit logo symbol'
-                meaningful
-                size='xxlarge'
-              />
-              <HeroTitle>
-                {data.site.siteMetadata.title} {data.site.siteMetadata.edition}
-              </HeroTitle>
-              <HeroSubtitle>{data.site.siteMetadata.subtitle}</HeroSubtitle>
-              <HeroOverline>
+      <PageMainContent>
+        <Intro>
+          <IntroInner>
+            <IntroHeadline>
+              <CollecticonBrandSatsummit size='xxlarge' />
+              <IntroTitle>
+                {data.site.siteMetadata.title}
+                <span> is back. Welcome to the</span>{' '}
+                {data.site.siteMetadata.edition} <span>edition!</span>
+              </IntroTitle>
+              <IntroSubtitle>{data.site.siteMetadata.subtitle}</IntroSubtitle>
+              <IntroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
                 <span>in</span> Washington, DC
-              </HeroOverline>
-            </HeroHeadline>
-
-            <HeroFigure>
+              </IntroOverline>
+            </IntroHeadline>
+            <IntroFigure>
               <StaticImage
                 style={{ position: 'static' }}
-                src='../images/welcome-hero.jpg'
+                src='../images/welcome-intro.jpg'
                 alt='Satellite image of canadian waters teem with phytoplankton'
               />
               <Figcaption>
@@ -314,9 +316,9 @@ const IndexPage = () => {
                   url='https://earthobservatory.nasa.gov/images/88687/canadian-waters-teem-with-phytoplankton'
                 />
               </Figcaption>
-            </HeroFigure>
-          </HeroInner>
-        </Hero>
+            </IntroFigure>
+          </IntroInner>
+        </Intro>
 
         <BlockGrid>
           <BlockGroupAlpha>
@@ -471,7 +473,7 @@ const IndexPage = () => {
             </Figcaption>
           </FigureD>
         </BlockGrid>
-      </main>
+      </PageMainContent>
     </Layout>
   );
 };
