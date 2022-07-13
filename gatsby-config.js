@@ -73,7 +73,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `letter`,
-        path: `${__dirname}/content-letter`
+        path: `${__dirname}/content/letter`
       }
     },
     {
