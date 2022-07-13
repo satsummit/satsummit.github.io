@@ -14,10 +14,7 @@ import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
 
 const LayoutLetter = ({ data }) => {
-  const {
-    html,
-    frontmatter: { title, lead }
-  } = data.markdownRemark;
+  const { parent, title, lead } = data.letter;
 
   return (
     <Layout title={title}>
@@ -29,7 +26,7 @@ const LayoutLetter = ({ data }) => {
           </PageMainHeroHeadline>
         </PageMainHero>
         <BlockAlpha>
-          <VarProse dangerouslySetInnerHTML={{ __html: html }} />
+          <VarProse dangerouslySetInnerHTML={{ __html: parent.html }} />
         </BlockAlpha>
       </PageMainContent>
     </Layout>
@@ -44,12 +41,14 @@ export default LayoutLetter;
 
 export const query = graphql`
   query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        lead
+    letter(slug: { eq: $slug }) {
+      parent {
+        ... on MarkdownRemark {
+          html
+        }
       }
+      title
+      lead
     }
   }
 `;
