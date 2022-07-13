@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useStaticQuery, graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { media, themeVal } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
@@ -34,10 +35,40 @@ const SponsorsFoldInner = styled.div`
 `;
 
 function SponsorsFold() {
+  const { sponsors } = useStaticQuery(
+    graphql`
+      query {
+        sponsors: allSponsor {
+          nodes {
+            id
+            title
+            url
+            group
+            image {
+              childImageSharp {
+                gatsbyImageData(width: 200, placeholder: BLURRED)
+              }
+            }
+          }
+        }
+      }
+    `
+  );
   return (
     <SponsorsFoldSelf>
       <SponsorsFoldInner>
-        <p>Hello sponsors!</p>
+        {sponsors.nodes.map((node) => {
+          const image = getImage(node.image);
+          return (
+            <div key={node.id}>
+              <h2>
+                <a href={node.url}>{node.title}</a>
+              </h2>
+              <GatsbyImage image={image} alt={`Logo for ${node.title}`} />
+              <p>{node.group}</p>
+            </div>
+          );
+        })}
       </SponsorsFoldInner>
     </SponsorsFoldSelf>
   );
