@@ -4,7 +4,6 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
-  glsp,
   listReset,
   media,
   themeVal,
@@ -93,7 +92,7 @@ const ConnectBlock = styled(FootBlock)`
 const FooterCredits = styled(FootBlock).attrs({
   as: 'address'
 })`
-  font-size: 1rem;
+  font-size: ${themeVal('type.base.size')};
   font-style: normal;
   gap: 0.25rem;
   grid-column: content-start / content-end;
