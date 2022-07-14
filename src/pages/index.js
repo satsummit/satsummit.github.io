@@ -20,6 +20,8 @@ import { Figcaption, Figure, FigureAttribution } from '$components/figure';
 import Hug from '$styles/hug';
 import { PageMainContent } from '$styles/page';
 
+import { useMediaQuery } from '$utils/use-media-query';
+
 const Intro = styled.div`
   filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
 `;
@@ -380,33 +382,7 @@ const IndexPage = () => {
               </BlockBody>
             </Block>
 
-            <Block>
-              <BlockHeader>
-                <BlockTitle>Sponsorship opportunities</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    We&apos;re excited to partner with thought and industry
-                    leaders in the satellite and development communities, and
-                    through their sponsorship and support of{' '}
-                    <strong>SatSummit</strong>, we are solving real-world and
-                    global development challenges.
-                  </p>
-                </VarProse>
-                <div>
-                  <Button
-                    forwardedAs='a'
-                    variation='base-fill'
-                    href='mailto:info@satsummit.io'
-                    size='xlarge'
-                    fitting='relaxed'
-                  >
-                    <CollecticonEnvelope /> Contact us
-                  </Button>
-                </div>
-              </BlockBody>
-            </Block>
+            <SponsorshipCallout />
           </BlockGroupBeta>
 
           <FigureA>
@@ -479,3 +455,36 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+function SponsorshipCallout() {
+  const { isLargeUp } = useMediaQuery();
+
+  return (
+    <Block>
+      <BlockHeader>
+        <BlockTitle>Sponsorship opportunities</BlockTitle>
+      </BlockHeader>
+      <BlockBody>
+        <VarProse>
+          <p>
+            We&apos;re excited to partner with thought and industry leaders in
+            the satellite and development communities, and through their
+            sponsorship and support of <strong>SatSummit</strong>, we are
+            solving real-world and global development challenges.
+          </p>
+        </VarProse>
+        <div>
+          <Button
+            forwardedAs='a'
+            variation='base-fill'
+            href='mailto:info@satsummit.io'
+            size={isLargeUp ? 'xlarge' : 'large'}
+            fitting='relaxed'
+          >
+            <CollecticonEnvelope /> Contact us
+          </Button>
+        </div>
+      </BlockBody>
+    </Block>
+  );
+}
