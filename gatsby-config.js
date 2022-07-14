@@ -73,7 +73,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `letter`,
-        path: `${__dirname}/content-letter`
+        path: `${__dirname}/content/letter`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `sponsor`,
+        path: `${__dirname}/content/sponsors`
       }
     },
     {

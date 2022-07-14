@@ -19,44 +19,56 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
+const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
+
 // Add custom url pathname for blog posts.
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = ({
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+  getNode
+}) => {
+  // const { createNodeField, createNode, createParentChildLink } = actions;
+  const { createNode, createParentChildLink } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent);
     const slug = createFilePath({ node, getNode });
+    const nodeType = capitalize(fileNode.sourceInstanceName);
 
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug
-    });
-    createNodeField({
-      node,
-      name: 'type',
-      value: fileNode.sourceInstanceName
-    });
+    const nodeProps = {
+      ...node.frontmatter,
+      slug
+    };
+
+    const newNode = {
+      ...nodeProps,
+      id: createNodeId(`${node.id} >>> ${nodeType}`),
+      parent: node.id,
+      internal: {
+        type: nodeType,
+        contentDigest: createContentDigest(nodeProps)
+      }
+    };
+    createNode(newNode);
+    createParentChildLink({ parent: node, child: newNode });
   }
 };
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark(filter: { fields: { type: { eq: "letter" } } }) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
+      allLetter {
+        nodes {
+          slug
         }
       }
     }
   `);
 
-  data.allMarkdownRemark.edges.forEach((edge) => {
-    const slug = edge.node.fields.slug;
+  data.allLetter.nodes.forEach((node) => {
+    const { slug } = node;
     actions.createPage({
       path: slug,
       component: require.resolve(`./src/templates/letter-page.js`),
