@@ -1,8 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
+  glsp,
   listReset,
   media,
   themeVal,
@@ -17,7 +19,8 @@ import {
   CollecticonArrowRight,
   CollecticonBrandGithub,
   CollecticonBrandTwitter,
-  CollecticonEnvelope
+  CollecticonEnvelope,
+  CollecticonExpandTopRight
 } from '@devseed-ui/collecticons';
 
 const PageFooterSelf = styled(Hug).attrs({
@@ -36,25 +39,6 @@ const FootBlock = styled.div`
   ul {
     ${listReset()};
   }
-
-  &:not(:first-child) {
-    padding-top: ${variableGlsp()};
-    border-top: 4px solid ${themeVal('color.secondary-500')};
-  }
-
-  &:last-child {
-    ${media.largeUp`
-      padding: 0;
-      border: 0;
-    `}
-  }
-
-  &:not(:first-child):not(:last-child) {
-    ${media.smallUp`
-      padding: 0;
-      border: 0;
-    `}
-  }
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
@@ -64,16 +48,12 @@ const FootBlockTitle = styled(VarHeading).attrs({
   /* styled-component */
 `;
 
-const EditionsBlock = styled(FootBlock)`
-  grid-column: content-start / content-end;
+const BrowseBlock = styled(FootBlock)`
+  grid-column: content-start / content-3;
   grid-row: 1;
 
-  ${media.smallUp`
-    grid-column: content-start / span 2;
-  `}
-
   ${media.mediumUp`
-    grid-column: content-2 / span 3;
+    grid-column: content-2 / span 2;
   `}
 
   ${media.largeUp`
@@ -81,17 +61,12 @@ const EditionsBlock = styled(FootBlock)`
   `}
 `;
 
-const ConnectBlock = styled(FootBlock)`
-  grid-column: content-start / content-end;
-  grid-row: 2;
-
-  ${media.smallUp`
-    grid-column: content-3 / span 2;
-    grid-row: 1;
-  `}
+const EditionsBlock = styled(FootBlock)`
+  grid-column: content-3 / content-end;
+  grid-row: 1;
 
   ${media.mediumUp`
-    grid-column: content-5 / span 3;
+    grid-column: content-4 / span 2;
     grid-row: 1;
   `}
 
@@ -100,29 +75,48 @@ const ConnectBlock = styled(FootBlock)`
   `}
 `;
 
+const ConnectBlock = styled(FootBlock)`
+  grid-column: content-3 / content-end;
+  grid-row: 2;
+
+  ${media.mediumUp`
+    grid-column: content-6 / span 2;
+    grid-row: 1;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-7 / span 3;
+    grid-row: 1;
+  `}
+`;
+
 const FooterCredits = styled(FootBlock).attrs({
   as: 'address'
 })`
   font-size: 1rem;
   font-style: normal;
-  gap: 0;
+  gap: 0.25rem;
   grid-column: content-start / content-end;
   grid-row: 3;
-
-  ${media.smallUp`
-    grid-row: 2;
-    gap: 0.25rem;
-  `}
+  align-self: end;
+  margin-top: ${variableGlsp()};
+  padding-top: ${variableGlsp()};
+  border-top: 4px solid ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
-    grid-column: content-2 / span 6;
+    grid-column: content-2 / content-8;
+    grid-row: 2;
+    margin: 0;
+    text-align: center;
   `}
 
   ${media.largeUp`
-    grid-column: content-9 / span 4;
+    grid-column: content-10 / span 3;
     grid-row: 1;
     text-align: right;
-    align-self: end;
+    padding: 0;
+    border: 0;
+    margin-top: ${variableGlsp(-1)};
   `}
 
   span {
@@ -145,22 +139,48 @@ function PageFooter(props) {
 
   return (
     <PageFooterSelf isHidden={props.isHidden}>
+      <BrowseBlock>
+        <FootBlockTitle>Browse</FootBlockTitle>
+        <ul>
+          <li>
+            <Button forwardedAs={Link} href='/'>
+              <CollecticonArrowRight /> Welcome
+            </Button>
+          </li>
+          <li>
+            <Button forwardedAs={Link} href='/tickets'>
+              <CollecticonArrowRight /> Tickets
+            </Button>
+          </li>
+          <li>
+            <Button forwardedAs={Link} href='/code-of-conduct'>
+              <CollecticonArrowRight /> Code of Conduct
+            </Button>
+          </li>
+          <li>
+            <Button forwardedAs={Link} href='/terms'>
+              <CollecticonArrowRight /> Terms & Conditions
+            </Button>
+          </li>
+        </ul>
+      </BrowseBlock>
+
       <EditionsBlock>
         <FootBlockTitle>Previous editions</FootBlockTitle>
         <ol>
           <li>
             <Button forwardedAs='a' href='https://2018.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2018
+              <CollecticonExpandTopRight /> SatSummit 2018
             </Button>
           </li>
           <li>
             <Button forwardedAs='a' href='https://2017.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2017
+              <CollecticonExpandTopRight /> SatSummit 2017
             </Button>
           </li>
           <li>
             <Button forwardedAs='a' href='https://2015.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2015
+              <CollecticonExpandTopRight /> SatSummit 2015
             </Button>
           </li>
         </ol>
@@ -179,12 +199,12 @@ function PageFooter(props) {
               forwardedAs='a'
               href='https://twitter.com/intent/user?screen_name=sat_summit'
             >
-              <CollecticonBrandTwitter /> Follow us on Twitter
+              <CollecticonBrandTwitter /> Follow on Twitter
             </Button>
           </li>
           <li>
             <Button forwardedAs='a' href='https://github.com/satsummit'>
-              <CollecticonBrandGithub /> Check us on GitHub
+              <CollecticonBrandGithub /> Check the GitHub
             </Button>
           </li>
         </ul>
