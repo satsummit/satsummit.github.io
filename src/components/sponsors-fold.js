@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
 import {
   listReset,
   media,
@@ -9,11 +10,13 @@ import {
   visuallyHidden
 } from '@devseed-ui/theme-provider';
 
+import { Button } from '@devseed-ui/button';
+import { CollecticonEnvelope } from '@devseed-ui/collecticons';
+
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import Hug from '$styles/hug';
-import { Button } from '@devseed-ui/button';
-import { CollecticonEnvelope } from '@devseed-ui/collecticons';
+
 import { useMediaQuery } from '$utils/use-media-query';
 
 const SponsorsFoldSelf = styled.section`
@@ -47,8 +50,8 @@ const SponsorsTitle = styled(VarHeading).attrs({
   grid-column: content-start / content-end;
 
   ${media.mediumUp`
-      grid-column: content-2 / content-8;
-   `}
+    grid-column: content-2 / content-8;
+  `}
 
   ${media.largeUp`
     grid-column: content-start / content-7;
@@ -96,72 +99,72 @@ const SponsorsOutroInner = styled.div`
   `}
 `;
 
-const SponsorsGroup = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: ${variableGlsp()};
-
-  &:nth-of-type(1) {
-    grid-column: content-start / content-end;
-
-    ${media.mediumUp`
-      grid-column: content-2 / content-8;
-   `}
-
-    ${media.largeUp`
-      grid-column: content-start / content-7;
-   `}
+const SponsorsGroup = styled(Hug).attrs({
+  grid: {
+    smallUp: ['content-start', 'content-end'],
+    mediumUp: ['content-2', 'content-8'],
+    largeUp: ['content-start', 'content-end']
   }
+})`
+  grid-column: content-start / content-end;
 
-  &:nth-of-type(2) {
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
     grid-column: content-start / content-end;
-
-    ${media.mediumUp`
-      grid-column: content-2 / content-8;
-   `}
-
-    ${media.largeUp`
-      grid-column: content-start / content-7;
-   `}
-  }
-
-  &:nth-of-type(3) {
-    grid-column: content-start / content-end;
-
-    ${media.mediumUp`
-      grid-column: content-2 / content-8;
-   `}
-
-    ${media.largeUp`
-      grid-column: content-7 / content-end;
-   `}
-  }
-
-  &:nth-of-type(4) {
-    grid-column: content-start / content-end;
-
-    ${media.mediumUp`
-      grid-column: content-2 / content-8;
-   `}
-
-    ${media.largeUp`
-      grid-column: content-start / content-7;
-   `}
-  }
+  `}
 `;
 
 const SponsorsGroupTitle = styled(VarHeading).attrs({
   as: 'h3',
   size: 'small'
 })`
-  /* styled-component */
+  grid-column: content-start / content-end;
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-end;
+  `}
 `;
 
-const SponsorsList = styled.ol`
+const SponsorsList = styled(Hug).attrs({
+  as: 'ol',
+  grid: {
+    smallUp: ['content-start', 'content-end'],
+    mediumUp: ['content-2', 'content-8'],
+    largeUp: ['content-start', 'content-end']
+  }
+})`
   ${listReset()};
-  display: flex;
-  flex-direction: row;
-  gap: ${variableGlsp()};
+  grid-column: content-start / content-end;
+  align-items: middle;
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-end;
+  `}
+
+  li {
+    grid-column-end: span 2;
+    display: flex;
+    align-items: center;
+
+    ${media.smallUp`
+      grid-column-end: span 2;
+    `}
+
+    ${media.largeUp`
+      grid-column-end: span 3;
+    `}
+  }
 `;
 
 const Sponsor = styled.a`
