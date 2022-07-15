@@ -1,13 +1,13 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
-  CollecticonBrandSatsummit,
-  CollecticonEnvelope
+  CollecticonArrowRight,
+  CollecticonBrandSatsummit
 } from '@devseed-ui/collecticons';
 
 import { variableGlsp } from '$styles/variable-utils';
@@ -155,23 +155,6 @@ const Block = styled.section`
   }
 `;
 
-const BlockHeader = styled.header`
-  /* styled-component */
-`;
-
-const BlockBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${variableGlsp()};
-`;
-
-const BlockTitle = styled(VarHeading).attrs({
-  as: 'h2',
-  size: 'xxlarge'
-})`
-  /* styled-component */
-`;
-
 const BlockGroupAlpha = styled(BlockGroup)`
   grid-column: content-start / content-end;
   grid-row: 1;
@@ -298,7 +281,8 @@ const IndexPage = () => {
               <IntroTitle>
                 {data.site.siteMetadata.title}
                 <span> is back. Welcome to the</span>{' '}
-                {data.site.siteMetadata.edition} <span>edition!</span>
+                {data.site.siteMetadata.edition}
+                <span> edition!</span>
               </IntroTitle>
               <IntroSubtitle>{data.site.siteMetadata.subtitle}</IntroSubtitle>
               <IntroOverline>
@@ -325,64 +309,52 @@ const IndexPage = () => {
         <BlockGrid>
           <BlockGroupAlpha>
             <Block>
-              <BlockHeader>
-                <BlockTitle>About</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    <strong>SatSummit</strong> convenes leaders in the satellite
-                    industry and experts in global development for 2 days of
-                    presentations and in-depth conversations on solving the
-                    world&apos;s most critical development challenges with
-                    satellite data.
-                  </p>
-                  <p>
-                    From climate change to population growth to natural resource
-                    availability, earth observation data offers insights into
-                    today&apos;s biggest global issues. Stay tuned for more
-                    information on <strong>SatSummit 2022</strong>!
-                  </p>
-                </VarProse>
-              </BlockBody>
+              <VarProse>
+                <h2>About</h2>
+                <p>
+                  <strong>SatSummit</strong> convenes leaders in the satellite
+                  industry and experts in global development for 2 days of
+                  presentations and in-depth conversations on solving the
+                  world&apos;s most critical development challenges with
+                  satellite data.
+                </p>
+                <p>
+                  From climate change to population growth to natural resource
+                  availability, earth observation data offers insights into
+                  today&apos;s biggest global issues. Stay tuned for more
+                  information on <strong>SatSummit 2022</strong>!
+                </p>
+              </VarProse>
             </Block>
 
-            <Block>
-              <BlockHeader>
-                <BlockTitle>How do I register?</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    Registration is not yet open. Please sign-up to be the first
-                    to receive updates about <strong>SatSummit 2022</strong>,
-                    including when registration opens.
-                  </p>
-                </VarProse>
-                <Newsletter />
-              </BlockBody>
-            </Block>
+            <TicketsCallout />
           </BlockGroupAlpha>
 
           <BlockGroupBeta>
             <Block>
-              <BlockHeader>
-                <BlockTitle>Where is SatSummit being held?</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    SatSummit will take place at{' '}
-                    <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
-                      <strong>Convene</strong>
-                    </a>
-                    , located at 600 14th St NW, Washington, DC 20005.
-                  </p>
-                </VarProse>
-              </BlockBody>
+              <VarProse>
+                <h2>Where is SatSummit being held?</h2>
+                <p>
+                  SatSummit will take place at{' '}
+                  <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
+                    <strong>Convene</strong>
+                  </a>
+                  , located at 600 14th St NW, Washington, DC 20005.
+                </p>
+              </VarProse>
             </Block>
+            <Block>
+              <VarProse>
+                <h2>Sign up for updates</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                  ullamcorper tincidunt ullamcorper. Etiam dictum eu tellus ut
+                  interdum.
+                </p>
+              </VarProse>
 
-            <SponsorshipCallout />
+              <Newsletter />
+            </Block>
           </BlockGroupBeta>
 
           <FigureA>
@@ -456,35 +428,29 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-function SponsorshipCallout() {
+function TicketsCallout() {
   const { isLargeUp } = useMediaQuery();
 
   return (
     <Block>
-      <BlockHeader>
-        <BlockTitle>Sponsorship opportunities</BlockTitle>
-      </BlockHeader>
-      <BlockBody>
-        <VarProse>
-          <p>
-            We&apos;re excited to partner with thought and industry leaders in
-            the satellite and development communities, and through their
-            sponsorship and support of <strong>SatSummit</strong>, we are
-            solving real-world and global development challenges.
-          </p>
-        </VarProse>
-        <div>
-          <Button
-            forwardedAs='a'
-            variation='base-fill'
-            href='mailto:info@satsummit.io'
-            size={isLargeUp ? 'xlarge' : 'large'}
-            fitting='relaxed'
-          >
-            <CollecticonEnvelope /> Contact us
-          </Button>
-        </div>
-      </BlockBody>
+      <VarProse>
+        <h2>How do I register?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+          ullamcorper tincidunt ullamcorper. Etiam dictum eu tellus ut interdum.
+        </p>
+      </VarProse>
+      <div>
+        <Button
+          forwardedAs={Link}
+          variation='base-fill'
+          to='/tickets'
+          size={isLargeUp ? 'xlarge' : 'large'}
+          fitting='relaxed'
+        >
+          <CollecticonArrowRight /> Get tickets
+        </Button>
+      </div>
     </Block>
   );
 }
