@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import {
+  glsp,
   listReset,
   media,
   themeVal,
@@ -156,19 +157,27 @@ const SponsorsList = styled(Hug).attrs({
     grid-column-end: span 2;
     display: flex;
     align-items: center;
+    min-height: 6rem;
 
     ${media.smallUp`
       grid-column-end: span 2;
     `}
 
     ${media.largeUp`
-      grid-column-end: span 3;
+      grid-column-end: span 4;
     `}
   }
 `;
 
 const Sponsor = styled.a`
-  display: block;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: ${variableGlsp()};
+  border-radius: ${themeVal('shape.rounded')};
+  border: ${themeVal('layout.border')} solid ${themeVal('color.surface-100a')};
   transition: opacity 0.24s ease;
 
   &:hover {
