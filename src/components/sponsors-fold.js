@@ -166,6 +166,10 @@ const SponsorsList = styled(Hug).attrs({
     ${media.largeUp`
       grid-column-end: span 4;
     `}
+
+    ${media.xlargeUp`
+      grid-column-end: span 3;
+    `}
   }
 `;
 
