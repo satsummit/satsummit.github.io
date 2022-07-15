@@ -348,10 +348,12 @@ const IndexPage = () => {
                 <p>
                   We want everyone to have a safe and enjoyable conference, and
                   highly recommend COVID-19 vaccination or a negative test
-                  before attending <strong>SatSummit</strong>. We will follow
-                  any Washington, DC protocols that are in effect at the time,
-                  which can be followed closely on this website. We will also
-                  provide indoor face coverings and hand sanitizer.
+                  before attending <strong>SatSummit</strong>.
+                </p>
+                <p>
+                  We will follow any Washington, DC protocols that are in effect
+                  at the time, which can be followed closely on this website. We
+                  will also provide indoor face coverings and hand sanitizer.
                 </p>
               </VarProse>
             </Block>
