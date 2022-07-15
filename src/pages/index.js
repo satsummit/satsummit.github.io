@@ -151,6 +151,7 @@ const Block = styled.section`
   &:not(:first-child) {
     padding-top: ${variableGlsp()};
     border-top: 8px solid ${themeVal('color.secondary-500')};
+    margin-top: ${variableGlsp(-0.75)};
   }
 `;
 
@@ -180,7 +181,12 @@ const BlockGroupBeta = styled(BlockGroup)`
   ${media.largeUp`
     grid-column: content-start / content-7;
     grid-row: 3;
-    margin-top: ${variableGlsp(2)};
+    margin: ${variableGlsp(2, 0, -4, 0)};
+    padding-bottom: 0;
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(0)};
   `}
 `;
 
