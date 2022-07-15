@@ -215,17 +215,17 @@ function PageFooter() {
 
       <FooterCredits>
         <p>
-          <span>Organized by</span>{' '}
+          <Brand /> <span>Organized by</span>{' '}
           <a href='https://www.cyient.com/'>
             <strong>Cyient</strong>
           </a>
           ,{' '}
-          <a href='https://dev.global/'>
-            <strong>DevGlobal</strong>
-          </a>{' '}
-          &{' '}
           <a href='https://developmentseed.org/'>
             <strong>Development Seed</strong>
+          </a>{' '}
+          &{' '}
+          <a href='https://dev.global/'>
+            <strong>DevGlobal</strong>
           </a>{' '}
         </p>
         <FooterCopyright>

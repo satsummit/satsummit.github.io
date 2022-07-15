@@ -9,7 +9,7 @@ module.exports = {
     edition: '2022',
     description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
-      name: `Cyient, DevGlobal & Development Seed`
+      name: `Cyient, Development Seed & DevGlobal`
     },
     social: {
       twitter: `@sat_summit`

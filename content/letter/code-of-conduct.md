@@ -6,7 +6,7 @@ lead: Our commitment to our community
 
 We want **SatSummit** to offer a positive and safe environment for all attendees.
 
-**Cyient**, **DevGlobal** & **Development Seed** believe that more diverse teams build better products - we know that diverse representation at events leads to building a stronger community.
+**Cyient**, **Development Seed** & **DevGlobal** believe that more diverse teams build better products - we know that diverse representation at events leads to building a stronger community.
 
 We follow a **Code of Conduct** for our events in order to create the best experience possible for all attendees. Before you participate in **SatSummit**, we ask that you review the **Code of Conduct** below.
 
