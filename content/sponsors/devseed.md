@@ -1,6 +1,6 @@
 ---
 title: Development Seed
 url: https://developmentseed.org/
-image: ./media/hor--neg-mono@2x.png
+image: ./media/devseed-logo--hor-neg-mono.png
 group: Hosts
 ---

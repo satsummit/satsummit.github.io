@@ -1,6 +1,6 @@
 ---
 title: Cyient
 url: https://www.cyient.com/
-image: ./media/hor--neg-mono@2x.png
+image: ./media/cyient-logo--hor-neg-mono.png
 group: Hosts
 ---
