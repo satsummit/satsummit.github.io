@@ -11,6 +11,7 @@ import Hug from '$styles/hug';
 import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
 import { Button } from '@devseed-ui/button';
 import { useMediaQuery } from '$utils/use-media-query';
+import MenuLinkAppearance from '$styles/menu-link';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -85,28 +86,17 @@ const GlobalMenu = styled.ul`
 `;
 
 const GlobalMenuLink = styled(Link)`
-  display: block;
-  font-family: ${themeVal('button.type.family')};
-  font-weight: ${themeVal('button.type.weight')};
-  text-transform: ${themeVal('button.type.case')};
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.24s ease;
-
-  &:hover {
-    opacity: 0.64;
-  }
+  ${MenuLinkAppearance}
 `;
 
 const GlobalMenuLinkPlaceholder = styled.span`
-  display: block;
-  font-family: ${themeVal('button.type.family')};
-  font-weight: ${themeVal('button.type.weight')};
-  text-transform: ${themeVal('button.type.case')};
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.24s ease;
-  opacity: 0.32;
+  ${MenuLinkAppearance}
+  cursor: not-allowed;
+
+  &,
+  &:hover {
+    opacity: 0.32;
+  }
 `;
 
 function PageHeader() {
@@ -139,7 +129,7 @@ function PageHeader() {
             </BrandLabel>
           </BrandLink>
         </Brand>
-        <GlobalNav>
+        <GlobalNav aria-label='Global'>
           <GlobalMenu>
             <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
             <GlobalMenuLinkPlaceholder aria-hidden='true'>

@@ -1,19 +1,14 @@
 import React from 'react';
-import T from 'prop-types';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
+  glsp,
   listReset,
   media,
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
-
-import { variableGlsp } from '$styles/variable-utils';
-import { VarHeading } from '$styles/variable-components';
-import Hug from '$styles/hug';
-import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
   CollecticonBrandGithub,
@@ -21,6 +16,12 @@ import {
   CollecticonEnvelope,
   CollecticonExpandTopRight
 } from '@devseed-ui/collecticons';
+
+import { variableGlsp } from '$styles/variable-utils';
+import { VarHeading } from '$styles/variable-components';
+
+import Hug from '$styles/hug';
+import MenuLinkAppearance from '$styles/menu-link';
 
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
@@ -33,11 +34,6 @@ const FootBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${variableGlsp(0.5)};
-
-  ol,
-  ul {
-    ${listReset()};
-  }
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
@@ -89,6 +85,17 @@ const ConnectBlock = styled(FootBlock)`
   `}
 `;
 
+const FooterMenu = styled.ul`
+  ${listReset()};
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${glsp(0.5)};
+`;
+
+const FooterMenuLink = styled.a`
+  ${MenuLinkAppearance}
+`;
+
 const FooterCredits = styled(FootBlock).attrs({
   as: 'address'
 })`
@@ -133,80 +140,77 @@ const FooterCopyright = styled.p`
   /* styled-component */
 `;
 
-function PageFooter(props) {
+function PageFooter() {
   const nowDate = new Date();
 
   return (
-    <PageFooterSelf isHidden={props.isHidden}>
+    <PageFooterSelf>
       <BrowseBlock>
         <FootBlockTitle>Browse</FootBlockTitle>
-        <ul>
+        <FooterMenu>
           <li>
-            <Button forwardedAs={Link} href='/'>
+            <FooterMenuLink forwardedAs={Link} href='/'>
               <CollecticonArrowRight /> Welcome
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs={Link} href='/tickets'>
+            <FooterMenuLink forwardedAs={Link} href='/tickets'>
               <CollecticonArrowRight /> Tickets
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs={Link} href='/code-of-conduct'>
+            <FooterMenuLink forwardedAs={Link} href='/code-of-conduct'>
               <CollecticonArrowRight /> Code of Conduct
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs={Link} href='/terms'>
+            <FooterMenuLink forwardedAs={Link} href='/terms'>
               <CollecticonArrowRight /> Terms & Conditions
-            </Button>
+            </FooterMenuLink>
           </li>
-        </ul>
+        </FooterMenu>
       </BrowseBlock>
 
       <EditionsBlock>
         <FootBlockTitle>Previous editions</FootBlockTitle>
-        <ol>
+        <FooterMenu as='ol'>
           <li>
-            <Button forwardedAs='a' href='https://2018.satsummit.io/'>
+            <FooterMenuLink href='https://2018.satsummit.io/'>
               <CollecticonExpandTopRight /> SatSummit 2018
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://2017.satsummit.io/'>
+            <FooterMenuLink href='https://2017.satsummit.io/'>
               <CollecticonExpandTopRight /> SatSummit 2017
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://2015.satsummit.io/'>
+            <FooterMenuLink href='https://2015.satsummit.io/'>
               <CollecticonExpandTopRight /> SatSummit 2015
-            </Button>
+            </FooterMenuLink>
           </li>
-        </ol>
+        </FooterMenu>
       </EditionsBlock>
 
       <ConnectBlock>
         <FootBlockTitle>Let&apos;s connect</FootBlockTitle>
-        <ul>
+        <FooterMenu>
           <li>
-            <Button forwardedAs='a' href='mailto:info@satsummit.io'>
+            <FooterMenuLink href='mailto:info@satsummit.io'>
               <CollecticonEnvelope /> Get in touch
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button
-              forwardedAs='a'
-              href='https://twitter.com/intent/user?screen_name=sat_summit'
-            >
+            <FooterMenuLink href='https://twitter.com/intent/user?screen_name=sat_summit'>
               <CollecticonBrandTwitter /> Follow on Twitter
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://github.com/satsummit'>
+            <FooterMenuLink href='https://github.com/satsummit'>
               <CollecticonBrandGithub /> Check the GitHub
-            </Button>
+            </FooterMenuLink>
           </li>
-        </ul>
+        </FooterMenu>
       </ConnectBlock>
 
       <FooterCredits>
@@ -236,7 +240,3 @@ function PageFooter(props) {
 }
 
 export default PageFooter;
-
-PageFooter.propTypes = {
-  isHidden: T.bool
-};
