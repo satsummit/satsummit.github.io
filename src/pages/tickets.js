@@ -100,37 +100,23 @@ const TicketsPage = () => {
               <thead>
                 <tr>
                   <th scope='col'>Type</th>
-                  <th scope='col'># released July 18</th>
-                  <th scope='col'># released XX</th>
                   <th scope='col'>Price</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope='row'>Standard 2 Day Ticket, Corporate</th>
-                  <td>100</td>
-                  <td>25</td>
                   <td>$279</td>
                 </tr>
                 <tr>
                   <th scope='row'>
                     Standard 2 Day Ticket, Government/Non-profit
                   </th>
-                  <td>75</td>
-                  <td>25</td>
                   <td>$139</td>
                 </tr>
                 <tr>
                   <th scope='row'>Virtual Attendee</th>
-                  <td>500</td>
-                  <td aria-label='No value'>-</td>
-                  <td>$0</td>
-                </tr>
-                <tr>
-                  <th scope='row'>Comped Tickets (Hosts)</th>
-                  <td>50</td>
-                  <td aria-label='No value'>-</td>
-                  <td>$0</td>
+                  <td>TBD</td>
                 </tr>
               </tbody>
             </Table>
