@@ -9,9 +9,13 @@ const MenuLinkAppearance = css`
   font-family: ${themeVal('button.type.family')};
   font-weight: ${themeVal('button.type.weight')};
   text-transform: ${themeVal('button.type.case')};
-  color: inherit;
   text-decoration: none;
   transition: opacity 0.24s ease;
+
+  &,
+  &:visited {
+    color: ${themeVal('color.primary')};
+  }
 
   &:hover {
     opacity: 0.64;
