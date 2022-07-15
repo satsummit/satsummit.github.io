@@ -47,8 +47,8 @@ export const FigcaptionInner = styled(Subtitle).attrs({
 
 export const FigureAttributionSelf = styled.p`
   position: absolute;
-  top: ${variableGlsp()};
-  right: ${variableGlsp()};
+  top: ${glsp()};
+  right: ${glsp()};
   z-index: 40;
   max-width: calc(100% - ${glsp(2)}); /* stylelint-disable-line */
   height: 1.5rem;
@@ -116,7 +116,7 @@ function FigureAttributionCmp(props) {
     <FigureAttributionSelf {...rest}>
       <FigureAttributionInner {...innerProps}>
         <CollecticonCircleInformation />
-        <strong>Figure by {author}</strong>
+        <strong>Photo by {author}</strong>
       </FigureAttributionInner>
     </FigureAttributionSelf>
   );
