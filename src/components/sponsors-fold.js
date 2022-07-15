@@ -276,7 +276,7 @@ function SponsorsFold() {
               size={isLargeUp ? 'xlarge' : 'large'}
               fitting='relaxed'
             >
-              <CollecticonEnvelope /> Contact us
+              <CollecticonEnvelope /> Get in touch
             </Button>
           </div>
         </SponsorsOutroInner>
