@@ -12,7 +12,6 @@ import {
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
-import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
@@ -345,15 +344,16 @@ const IndexPage = () => {
             </Block>
             <Block>
               <VarProse>
-                <h2>Sign up for updates</h2>
+                <h2>Health Protocols</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  ullamcorper tincidunt ullamcorper. Etiam dictum eu tellus ut
-                  interdum.
+                  We want everyone to have a safe and enjoyable conference, and
+                  highly recommend COVID-19 vaccination or a negative test
+                  before attending <strong>SatSummit</strong>. We will follow
+                  any Washington, DC protocols that are in effect at the time,
+                  which can be followed closely on this website. We will also
+                  provide indoor face coverings and hand sanitizer.
                 </p>
               </VarProse>
-
-              <Newsletter />
             </Block>
           </BlockGroupBeta>
 
@@ -436,8 +436,9 @@ function TicketsCallout() {
       <VarProse>
         <h2>How do I register?</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-          ullamcorper tincidunt ullamcorper. Etiam dictum eu tellus ut interdum.
+          Registration for in-person attendance is available now! Onsite
+          registration will not be available. Virtual participation tickets will
+          be available at a later date.
         </p>
       </VarProse>
       <div>
