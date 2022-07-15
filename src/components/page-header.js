@@ -148,7 +148,9 @@ function PageHeader() {
             <GlobalMenuLinkPlaceholder aria-hidden='true'>
               Speakers
             </GlobalMenuLinkPlaceholder>
-            <GlobalMenuLink to='/'>Code of Conduct</GlobalMenuLink>
+            <GlobalMenuLink to='/code-of-conduct'>
+              Code of Conduct
+            </GlobalMenuLink>
             <li>
               <Button
                 forwardedAs={Link}
