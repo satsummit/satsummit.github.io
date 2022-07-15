@@ -148,7 +148,7 @@ function PageHeader() {
                 size={isLargeUp ? 'large' : 'medium'}
                 to='/tickets'
               >
-                Get tickets
+                Get tickets <CollecticonArrowRight />
               </Button>
             </li>
           </GlobalMenu>

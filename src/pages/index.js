@@ -457,7 +457,7 @@ function TicketsCallout() {
           size={isLargeUp ? 'xlarge' : 'large'}
           fitting='relaxed'
         >
-          <CollecticonArrowRight /> Get tickets
+          Get tickets <CollecticonArrowRight />
         </Button>
       </div>
     </Block>
