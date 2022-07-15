@@ -11,7 +11,6 @@ import {
 
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
-import { Table } from '@devseed-ui/typography';
 
 const TicketsPage = () => {
   useEffect(() => {
@@ -78,48 +77,17 @@ const TicketsPage = () => {
               We want everyone to have a safe and enjoyable conference, and
               highly recommend COVID-19 vaccination or a negative test before
               attending <strong>SatSummit</strong>. We will follow any
-              Washington DC protocols that are in effect at the time which can
-              be followed closely on this site. We will take social distancing
-              measures, provide outdoor spaces, and will provide indoor face
-              coverings and hand sanitizer.
+              Washington, DC protocols that are in effect at the time, which can
+              be followed closely on this website. We will also provide indoor
+              face coverings and hand sanitizer.
             </p>
             <h2>Tickets</h2>
             <p>
-              All tickets include attendance for both Sept. 28 & Sept. 29. There
+              All tickets include attendance for both September 28 and 29. There
               are no one day tickets offered at this time. The prices include
               breakfast and lunch during the conference and light fare at social
-              events. If you are unable to attend the event after purchasing a
-              ticket, please contact{' '}
-              <a href='mailto:info@satsummit.io'>
-                <strong>info@satsummit.io</strong>
-              </a>{' '}
-              and we&apos;ll work to get you a full refund.
+              events. Tickets are nonrefundable.
             </p>
-            <h3>Pricing</h3>
-            <Table>
-              <thead>
-                <tr>
-                  <th scope='col'>Type</th>
-                  <th scope='col'>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope='row'>Standard 2 Day Ticket, Corporate</th>
-                  <td>$279</td>
-                </tr>
-                <tr>
-                  <th scope='row'>
-                    Standard 2 Day Ticket, Government/Non-profit
-                  </th>
-                  <td>$139</td>
-                </tr>
-                <tr>
-                  <th scope='row'>Virtual Attendee</th>
-                  <td>TBD</td>
-                </tr>
-              </tbody>
-            </Table>
             <h3>Book your ticket</h3>
             <div id='eb-widget' />
           </VarProse>
