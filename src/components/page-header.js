@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { glsp, media, themeVal } from '@devseed-ui/theme-provider';
+import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading } from '$styles/variable-components';
@@ -63,8 +63,50 @@ const BrandLabel = styled(VarHeading).attrs({
   }
 `;
 
-const GlobalCTA = styled.div`
+const GlobalNav = styled.nav`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   margin-left: auto;
+`;
+
+const GlobalMenu = styled.ul`
+  ${listReset()}
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${glsp(0.5)};
+
+  ${media.xlargeUp`
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: ${glsp(1.5)};
+  `}
+`;
+
+const GlobalMenuLink = styled(Link)`
+  display: block;
+  font-family: ${themeVal('button.type.family')};
+  font-weight: ${themeVal('button.type.weight')};
+  text-transform: ${themeVal('button.type.case')};
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.24s ease;
+
+  &:hover {
+    opacity: 0.64;
+  }
+`;
+
+const GlobalMenuLinkPlaceholder = styled.span`
+  display: block;
+  font-family: ${themeVal('button.type.family')};
+  font-weight: ${themeVal('button.type.weight')};
+  text-transform: ${themeVal('button.type.case')};
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.24s ease;
+  opacity: 0.32;
 `;
 
 function PageHeader() {
@@ -97,16 +139,28 @@ function PageHeader() {
             </BrandLabel>
           </BrandLink>
         </Brand>
-        <GlobalCTA>
-          <Button
-            forwardedAs={Link}
-            variation='base-outline'
-            size={isLargeUp ? 'large' : 'medium'}
-            to='/tickets'
-          >
-            Get tickets
-          </Button>
-        </GlobalCTA>
+        <GlobalNav>
+          <GlobalMenu>
+            <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
+            <GlobalMenuLinkPlaceholder aria-hidden='true'>
+              Agenda
+            </GlobalMenuLinkPlaceholder>
+            <GlobalMenuLinkPlaceholder aria-hidden='true'>
+              Speakers
+            </GlobalMenuLinkPlaceholder>
+            <GlobalMenuLink to='/'>Code of Conduct</GlobalMenuLink>
+            <li>
+              <Button
+                forwardedAs={Link}
+                variation='base-outline'
+                size={isLargeUp ? 'large' : 'medium'}
+                to='/tickets'
+              >
+                Get tickets
+              </Button>
+            </li>
+          </GlobalMenu>
+        </GlobalNav>
       </PageHeaderInner>
     </PageHeaderSelf>
   );
