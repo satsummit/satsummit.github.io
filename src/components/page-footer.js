@@ -9,6 +9,7 @@ import {
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
+
 import {
   CollecticonArrowRight,
   CollecticonBrandGithub,
@@ -23,6 +24,8 @@ import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import MenuLinkAppearance from '$styles/menu-link';
 
+import Brand from './brand';
+
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
@@ -33,7 +36,7 @@ const PageFooterSelf = styled(Hug).attrs({
 const FootBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(0.5)};
+  gap: ${variableGlsp(0.75)};
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
@@ -73,10 +76,12 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
+  margin-top: ${variableGlsp(-2.5)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
     grid-row: 1;
+    margin-top: 0;
   `}
 
   ${media.largeUp`
@@ -96,48 +101,52 @@ const FooterMenuLink = styled.a`
   ${MenuLinkAppearance}
 `;
 
-const FooterCredits = styled(FootBlock).attrs({
-  as: 'address'
-})`
-  font-size: ${themeVal('type.base.size')};
-  font-style: normal;
-  gap: 0.25rem;
+const FooterMenuLinkPlaceholder = styled.span`
+  ${MenuLinkAppearance}
+  cursor: not-allowed;
+
+  &,
+  &:hover {
+    opacity: 0.32;
+  }
+`;
+
+const FooterCredits = styled(FootBlock)`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp(0.5)};
   grid-column: content-start / content-end;
   grid-row: 3;
-  align-self: end;
   margin-top: ${variableGlsp()};
-  padding-top: ${variableGlsp()};
+  padding-top: ${variableGlsp(1.5)};
   border-top: 4px solid ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
     grid-row: 2;
-    margin: 0;
-    text-align: center;
+    margin-top: ${variableGlsp(0.5)};
   `}
 
   ${media.largeUp`
     grid-column: content-10 / span 3;
     grid-row: 1;
-    text-align: right;
+    margin: 0;
     padding: 0;
     border: 0;
-    margin-top: ${variableGlsp(-1)};
   `}
+
+  p > strong {
+    display: block;
+    margin-bottom: ${variableGlsp(0.5)};
+  }
 
   span {
     ${visuallyHidden()}
   }
 
   small {
-    font-size: inherit;
-    display: block;
-    opacity: 0.64;
+    font-size: 0.75rem;
   }
-`;
-
-const FooterCopyright = styled.p`
-  /* styled-component */
 `;
 
 function PageFooter() {
@@ -146,12 +155,22 @@ function PageFooter() {
   return (
     <PageFooterSelf>
       <BrowseBlock>
-        <FootBlockTitle>Browse</FootBlockTitle>
+        <FootBlockTitle>Browse this edition</FootBlockTitle>
         <FooterMenu>
           <li>
             <FooterMenuLink forwardedAs={Link} href='/'>
               <CollecticonArrowRight /> Welcome
             </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLinkPlaceholder>
+              <CollecticonArrowRight /> Agenda
+            </FooterMenuLinkPlaceholder>
+          </li>
+          <li>
+            <FooterMenuLinkPlaceholder>
+              <CollecticonArrowRight /> Speakers
+            </FooterMenuLinkPlaceholder>
           </li>
           <li>
             <FooterMenuLink forwardedAs={Link} href='/tickets'>
@@ -163,16 +182,11 @@ function PageFooter() {
               <CollecticonArrowRight /> Code of Conduct
             </FooterMenuLink>
           </li>
-          <li>
-            <FooterMenuLink forwardedAs={Link} href='/terms'>
-              <CollecticonArrowRight /> Terms & Conditions
-            </FooterMenuLink>
-          </li>
         </FooterMenu>
       </BrowseBlock>
 
       <EditionsBlock>
-        <FootBlockTitle>Previous editions</FootBlockTitle>
+        <FootBlockTitle>Check past editions</FootBlockTitle>
         <FooterMenu as='ol'>
           <li>
             <FooterMenuLink href='https://2018.satsummit.io/'>
@@ -202,12 +216,12 @@ function PageFooter() {
           </li>
           <li>
             <FooterMenuLink href='https://twitter.com/intent/user?screen_name=sat_summit'>
-              <CollecticonBrandTwitter /> Follow on Twitter
+              <CollecticonBrandTwitter /> Follow us on Twitter
             </FooterMenuLink>
           </li>
           <li>
             <FooterMenuLink href='https://github.com/satsummit'>
-              <CollecticonBrandGithub /> Check the GitHub
+              <CollecticonBrandGithub /> Find us on GitHub
             </FooterMenuLink>
           </li>
         </FooterMenu>
@@ -215,7 +229,8 @@ function PageFooter() {
 
       <FooterCredits>
         <p>
-          <Brand /> <span>Organized by</span>{' '}
+          <Brand />
+          <span>: </span>An event by{' '}
           <a href='https://www.cyient.com/'>
             <strong>Cyient</strong>
           </a>
@@ -226,14 +241,17 @@ function PageFooter() {
           &{' '}
           <a href='https://dev.global/'>
             <strong>DevGlobal</strong>
-          </a>{' '}
+          </a>
+          .
         </p>
-        <FooterCopyright>
-          ©{' '}
-          <time dateTime={`2015/${nowDate.getFullYear()}`}>
-            2015-{nowDate.getFullYear()}
-          </time>
-        </FooterCopyright>
+        <p>
+          <small>
+            <Link to='terms'>Terms & Conditions</Link> ©{' '}
+            <time dateTime={`2015/${nowDate.getFullYear()}`}>
+              2015-{nowDate.getFullYear()}
+            </time>
+          </small>
+        </p>
       </FooterCredits>
     </PageFooterSelf>
   );

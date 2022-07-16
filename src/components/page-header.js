@@ -1,17 +1,19 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
+import { glsp, listReset, media } from '@devseed-ui/theme-provider';
+import { CollecticonArrowRight } from '@devseed-ui/collecticons';
+
+import Hug from '$styles/hug';
+import MenuLinkAppearance from '$styles/menu-link';
+
+import { Button } from '@devseed-ui/button';
 
 import { variableGlsp } from '$styles/variable-utils';
-import { VarHeading } from '$styles/variable-components';
-import Hug from '$styles/hug';
-
-import { CollecticonBrandSatsummit } from '@devseed-ui/collecticons';
-import { Button } from '@devseed-ui/button';
 import { useMediaQuery } from '$utils/use-media-query';
-import MenuLinkAppearance from '$styles/menu-link';
+
+import Brand from './brand';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -25,43 +27,6 @@ const PageHeaderInner = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   gap: ${variableGlsp()};
-
-  &,
-  &:visited {
-    color: ${themeVal('color.primary')};
-  }
-`;
-
-const Brand = styled.strong`
-  flex-shrink: 0;
-`;
-
-const BrandLink = styled(Link)`
-  display: flex;
-  gap: ${glsp(0.5)};
-  align-items: center;
-  color: inherit;
-  text-decoration: none;
-  transition: opacity 0.24s ease;
-
-  ${media.mediumUp`
-    gap: ${glsp(0.75)};
-  `}
-
-  &:hover {
-    opacity: 0.64;
-  }
-`;
-
-const BrandLabel = styled(VarHeading).attrs({
-  as: 'span',
-  size: 'small'
-})`
-  font-weight: 700;
-
-  span:last-of-type {
-    color: ${themeVal('color.secondary')};
-  }
 `;
 
 const GlobalNav = styled.nav`
@@ -100,35 +65,12 @@ const GlobalMenuLinkPlaceholder = styled.span`
 `;
 
 function PageHeader() {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          edition
-        }
-      }
-    }
-  `);
-
   const { isLargeUp } = useMediaQuery();
 
   return (
     <PageHeaderSelf>
       <PageHeaderInner>
-        <Brand>
-          <BrandLink to='/'>
-            <CollecticonBrandSatsummit
-              title='SatSummit logo symbol'
-              meaningful
-              size={isLargeUp ? 'xlarge' : 'large'}
-            />
-            <BrandLabel>
-              <span>{data.site.siteMetadata.title}</span>{' '}
-              <span>{data.site.siteMetadata.edition}</span>
-            </BrandLabel>
-          </BrandLink>
-        </Brand>
+        <Brand />
         <GlobalNav aria-label='Global'>
           <GlobalMenu>
             <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
