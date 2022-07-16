@@ -32,7 +32,7 @@ Conference participants who violate these rules may be sanctioned or expelled fr
 
 ### Reporting an incident
 
-If you see, overhear or experience a violation of the **Code of Conduct** during an event, please seek out the nearest **Cyient**, **DevGlobal** & **Development Seed** team member to escalate your complaint. If you cannot find a team member, or would like to report a violation after an event, you may email [**info@satsummit.io**](mailto:info@satsummit.io) .
+If you see, overhear or experience a violation of the **Code of Conduct** during an event, please seek out the nearest **Cyient**, **Development Seed** & **DevGlobal** team member to escalate your complaint. If you cannot find a team member, or would like to report a violation after an event, you may email [**info@satsummit.io**](mailto:info@satsummit.io) .
 
 ### Credits
 
