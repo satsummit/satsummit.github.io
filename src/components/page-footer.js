@@ -158,7 +158,7 @@ function PageFooter() {
         <FootBlockTitle>Browse this edition</FootBlockTitle>
         <FooterMenu>
           <li>
-            <FooterMenuLink forwardedAs={Link} href='/'>
+            <FooterMenuLink as={Link} to='/'>
               <CollecticonArrowRight /> Welcome
             </FooterMenuLink>
           </li>
@@ -173,12 +173,12 @@ function PageFooter() {
             </FooterMenuLinkPlaceholder>
           </li>
           <li>
-            <FooterMenuLink forwardedAs={Link} href='/tickets'>
+            <FooterMenuLink as={Link} to='/tickets'>
               <CollecticonArrowRight /> Tickets
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink forwardedAs={Link} href='/code-of-conduct'>
+            <FooterMenuLink as={Link} to='/code-of-conduct'>
               <CollecticonArrowRight /> Code of Conduct
             </FooterMenuLink>
           </li>
