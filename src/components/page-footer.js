@@ -94,7 +94,7 @@ const FooterMenu = styled.ul`
   ${listReset()};
   display: flex;
   flex-flow: column nowrap;
-  gap: ${glsp(0.5)};
+  gap: ${glsp(0.25)};
 `;
 
 const FooterMenuLink = styled.a`

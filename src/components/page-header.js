@@ -111,7 +111,7 @@ const GlobalMenu = styled.ul`
   ${listReset()}
   display: flex;
   flex-flow: column nowrap;
-  gap: ${glsp()};
+  gap: ${glsp(0.75)};
   padding-top: ${variableGlsp()};
   border-top: 4px solid ${themeVal('color.secondary-500')};
 
@@ -125,7 +125,9 @@ const GlobalMenu = styled.ul`
   `}
 `;
 
-const GlobalMenuLink = styled(Link)`
+const GlobalMenuLink = styled(Link).attrs({
+  activeClassName: 'active'
+})`
   ${MenuLinkAppearance}
 `;
 
@@ -164,16 +166,24 @@ function PageHeader() {
 
         <GlobalNav aria-label='Global' revealed={navRevealed}>
           <GlobalMenu>
-            <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
-            <GlobalMenuLinkPlaceholder aria-hidden='true'>
-              Agenda
-            </GlobalMenuLinkPlaceholder>
-            <GlobalMenuLinkPlaceholder aria-hidden='true'>
-              Speakers
-            </GlobalMenuLinkPlaceholder>
-            <GlobalMenuLink to='/code-of-conduct'>
-              Code of Conduct
-            </GlobalMenuLink>
+            <li>
+              <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
+            </li>
+            <li>
+              <GlobalMenuLinkPlaceholder aria-hidden='true'>
+                Agenda
+              </GlobalMenuLinkPlaceholder>
+            </li>
+            <li>
+              <GlobalMenuLinkPlaceholder aria-hidden='true'>
+                Speakers
+              </GlobalMenuLinkPlaceholder>
+            </li>
+            <li>
+              <GlobalMenuLink to='/code-of-conduct'>
+                Code of Conduct
+              </GlobalMenuLink>
+            </li>
             <li>
               <Button
                 forwardedAs={Link}
