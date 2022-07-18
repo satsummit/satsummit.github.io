@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
-  glsp,
   listReset,
   media,
   themeVal,

@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-import {
-  glsp,
-  listReset,
-  media,
-  rgba,
-  themeVal
-} from '@devseed-ui/theme-provider';
+import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
 import {
   CollecticonArrowRight,
   CollecticonHamburgerMenu,
@@ -31,23 +25,18 @@ const PageHeaderSelf = styled(Hug).attrs({
 
   &::before {
     position: absolute;
-    z-index: 30;
+    z-index: 50;
     inset: 0;
-    background: linear-gradient(
-      180deg,
-      ${rgba(themeVal('color.surface'), 1)} 75%,
-      ${rgba(themeVal('color.surface'), 0)} 100%
-    );
+    background: ${themeVal('color.surface')};
     content: '';
 
     ${media.largeUp`
-      display: none;
+      z-index: 1;
     `}
   }
 `;
 
 const PageHeaderInner = styled.div`
-  position: relative;
   grid-column: content-start / content-end;
   display: flex;
   flex-flow: row nowrap;
@@ -56,7 +45,7 @@ const PageHeaderInner = styled.div`
 
   > * {
     position: relative;
-    z-index: 40;
+    z-index: 60;
   }
 `;
 
@@ -65,23 +54,25 @@ const GlobalNavToggle = styled(Button)`
 `;
 
 const GlobalNav = styled.nav`
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 100%;
   left: 0;
   right: 0;
-  height: 100%;
   z-index: 20;
+  height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  padding: ${variableGlsp(4, 1, 1, 1)};
-  overflow: auto;
-  pointer-events: auto;
-  background: ${themeVal('color.surface')};
-  box-shadow: ${themeVal('boxShadow.elevationD')};
-  margin: 0;
-  transition: all 0.4s ease-in-out 0s;
   transform: translate(0, -100%);
   will-change: transform;
+  transition: all 0.32s ease-in-out 0s;
+
+  ${media.largeUp`
+    position: static;
+    height: auto;
+    flex-direction: row;
+    transform: translate(0, 0);
+    margin-left: auto;
+  `}
 
   ${({ revealed }) =>
     revealed &&
@@ -89,20 +80,26 @@ const GlobalNav = styled.nav`
       transform: translate(0, 0);
     `}
 
-  ${media.mediumUp`
-    padding: ${variableGlsp(3.25, 1, 1, 1)};
-  `}
+  &::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    z-index: -1;
+    background: ${themeVal('color.base-400a')};
+
+    ${media.largeUp`
+      display: none;
+    `}
+  }
+`;
+
+const GlobalNavInner = styled.div`
+  background: ${themeVal('color.surface')};
+  padding: ${variableGlsp(0, 1, 1, 1)};
+  box-shadow: ${themeVal('boxShadow.elevationD')};
 
   ${media.largeUp`
-    position: static;
-    flex-flow: row nowrap;
-    align-items: center;
-    margin-left: auto;
     padding: 0;
-    box-shadow: none;
-    overflow: visible;
-    transform: translate(0, 0);
-    justify-content: flex-end;
     box-shadow: none;
   `}
 `;
@@ -115,20 +112,32 @@ const GlobalMenu = styled.ul`
   padding-top: ${variableGlsp()};
   border-top: 4px solid ${themeVal('color.secondary-500')};
 
-  ${media.largeUp`
+  ${media.smallUp`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    gap: ${glsp()};
+  `}
+
+  ${media.mediumUp`
     gap: ${glsp(1.5)};
-    padding-top: 0;
-    border-top: 0;
+  `}
+
+  ${media.largeUp`
+    gap: ${glsp(2)};
+    padding: 0;
+    border: 0;
   `}
 
   li:last-child {
-    margin-top: ${glsp()};
+    margin-top: ${glsp(0.75)};
+
+    ${media.smallUp`
+      margin: 0 0 0 auto;
+    `}
 
     ${media.largeUp`
-      margin-top: 0;
+      margin: 0;
     `}
   }
 `;
@@ -182,36 +191,38 @@ function PageHeader() {
         {navRevealed && <UnscrollableBody />}
 
         <GlobalNav aria-label='Global' revealed={navRevealed}>
-          <GlobalMenu>
-            <li>
-              <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
-            </li>
-            <li>
-              <GlobalMenuLinkPlaceholder aria-hidden='true'>
-                Agenda
-              </GlobalMenuLinkPlaceholder>
-            </li>
-            <li>
-              <GlobalMenuLinkPlaceholder aria-hidden='true'>
-                Speakers
-              </GlobalMenuLinkPlaceholder>
-            </li>
-            <li>
-              <GlobalMenuLink to='/code-of-conduct'>
-                Code of Conduct
-              </GlobalMenuLink>
-            </li>
-            <li>
-              <Button
-                forwardedAs={Link}
-                variation='base-outline'
-                size={isLargeUp ? 'large' : 'medium'}
-                to='/tickets'
-              >
-                Get tickets <CollecticonArrowRight />
-              </Button>
-            </li>
-          </GlobalMenu>
+          <GlobalNavInner>
+            <GlobalMenu>
+              <li>
+                <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
+              </li>
+              <li>
+                <GlobalMenuLinkPlaceholder aria-hidden='true'>
+                  Agenda
+                </GlobalMenuLinkPlaceholder>
+              </li>
+              <li>
+                <GlobalMenuLinkPlaceholder aria-hidden='true'>
+                  Speakers
+                </GlobalMenuLinkPlaceholder>
+              </li>
+              <li>
+                <GlobalMenuLink to='/code-of-conduct'>
+                  Code of Conduct
+                </GlobalMenuLink>
+              </li>
+              <li>
+                <Button
+                  forwardedAs={Link}
+                  variation='base-outline'
+                  size={isLargeUp ? 'large' : 'medium'}
+                  to='/tickets'
+                >
+                  Get tickets <CollecticonArrowRight />
+                </Button>
+              </li>
+            </GlobalMenu>
+          </GlobalNavInner>
         </GlobalNav>
       </PageHeaderInner>
     </PageHeaderSelf>
