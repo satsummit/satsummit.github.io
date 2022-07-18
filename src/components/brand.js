@@ -10,6 +10,8 @@ import { VarHeading } from '$styles/variable-components';
 import { useMediaQuery } from '$utils/use-media-query';
 
 const BrandSelf = styled.strong`
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
   color: ${themeVal('color.base-500')};
 `;
