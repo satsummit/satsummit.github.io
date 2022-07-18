@@ -148,6 +148,7 @@ const SponsorsList = styled(Hug).attrs({
   ${listReset()};
   grid-column: content-start / content-end;
   align-items: middle;
+  color: ${themeVal('color.base')};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
@@ -162,6 +163,7 @@ const SponsorsList = styled(Hug).attrs({
     display: flex;
     align-items: center;
     min-height: 6rem;
+    filter: drop-shadow(0 -4px 0 ${themeVal('color.secondary-500')});
 
     ${media.smallUp`
       grid-column-end: span 2;
@@ -183,13 +185,18 @@ const Sponsor = styled.a`
   align-items: center;
   justify-content: center;
   height: 100%;
+  color: inherit;
+  text-decoration: none;
   padding: ${variableGlsp()};
-  border-radius: ${themeVal('shape.rounded')};
-  border: ${themeVal('layout.border')} solid ${themeVal('color.surface-100a')};
-  transition: opacity 0.24s ease;
+  background: ${themeVal('color.surface')};
+  border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
+  box-shadow: ${themeVal('boxShadow.elevationD')};
 
   &:hover {
-    opacity: 0.64;
+    > * {
+      opacity: 0.64;
+      transition: opacity 0.24s ease-in-out;
+    }
   }
 `;
 
