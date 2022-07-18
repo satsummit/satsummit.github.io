@@ -1,3 +1,5 @@
+const { createFilePath } = require('gatsby-source-filesystem');
+
 exports.onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
@@ -14,5 +16,63 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         stream: require.resolve('stream-browserify')
       }
     }
+  });
+};
+
+const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
+
+// Add custom url pathname for blog posts.
+exports.onCreateNode = ({
+  node,
+  actions,
+  createNodeId,
+  createContentDigest,
+  getNode
+}) => {
+  // const { createNodeField, createNode, createParentChildLink } = actions;
+  const { createNode, createParentChildLink } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const fileNode = getNode(node.parent);
+    const slug = createFilePath({ node, getNode });
+    const nodeType = capitalize(fileNode.sourceInstanceName);
+
+    const nodeProps = {
+      ...node.frontmatter,
+      slug
+    };
+
+    const newNode = {
+      ...nodeProps,
+      id: createNodeId(`${node.id} >>> ${nodeType}`),
+      parent: node.id,
+      internal: {
+        type: nodeType,
+        contentDigest: createContentDigest(nodeProps)
+      }
+    };
+    createNode(newNode);
+    createParentChildLink({ parent: node, child: newNode });
+  }
+};
+
+exports.createPages = async function ({ actions, graphql }) {
+  const { data } = await graphql(`
+    query {
+      allLetter {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  data.allLetter.nodes.forEach((node) => {
+    const { slug } = node;
+    actions.createPage({
+      path: slug,
+      component: require.resolve(`./src/templates/letter-page.js`),
+      context: { slug }
+    });
   });
 };

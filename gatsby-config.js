@@ -4,11 +4,12 @@ module.exports = {
   pathPrefix: '',
   siteMetadata: {
     siteUrl: 'https://2022.satsummit.io',
-    title: 'SatSummit 2022',
+    title: 'SatSummit',
     subtitle: `Satellite data for global development`,
+    edition: '2022',
     description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
-      name: `Cyient, DevGlobal & Development Seed`
+      name: `Cyient, Development Seed & DevGlobal`
     },
     social: {
       twitter: `@sat_summit`
@@ -47,6 +48,7 @@ module.exports = {
       }
     },
     'gatsby-transformer-yaml',
+    'gatsby-transformer-remark',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
@@ -66,6 +68,20 @@ module.exports = {
         path: './src/images/'
       },
       __key: 'images'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `letter`,
+        path: `${__dirname}/content/letter`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `sponsor`,
+        path: `${__dirname}/content/sponsors`
+      }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
