@@ -29,7 +29,7 @@ const TicketsPage = () => {
         widgetType: 'checkout',
         eventId: '377386512217',
         iframeContainerId: 'eb-widget',
-        iframeContainerHeight: 425,
+        iframeContainerHeight: 700,
         onOrderComplete: exampleCallback
       });
     };
