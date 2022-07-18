@@ -152,6 +152,7 @@ function PageHeader() {
         {!isLargeUp && (
           <GlobalNavToggle
             variation='base-text'
+            fitting='skinny'
             onClick={() => setNavRevealed((v) => !v)}
           >
             {navRevealed ? (
