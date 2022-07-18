@@ -1,29 +1,31 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { media, themeVal } from '@devseed-ui/theme-provider';
+import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { Button } from '@devseed-ui/button';
+import {
+  CollecticonArrowRight,
+  CollecticonBrandSatsummit
+} from '@devseed-ui/collecticons';
 
 import { variableGlsp } from '$styles/variable-utils';
 import { VarHeading, VarProse } from '$styles/variable-components';
-import { Newsletter } from '$components/newsletter';
 
 import Layout from '$components/layout';
 import { Figcaption, Figure, FigureAttribution } from '$components/figure';
+
 import Hug from '$styles/hug';
-import {
-  CollecticonBrandSatsummit,
-  CollecticonEnvelope
-} from '@devseed-ui/collecticons';
+import { PageMainContent } from '$styles/page';
 
-import { Button } from '@devseed-ui/button';
+import { useMediaQuery } from '$utils/use-media-query';
 
-const Hero = styled.div`
-  filter: drop-shadow(0 8px 0 ${themeVal('color.primary-500')});
+const Intro = styled.div`
+  filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
 `;
 
-const HeroInner = styled.div`
+const IntroInner = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
@@ -34,7 +36,7 @@ const HeroInner = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: ${themeVal('color.base')};
+  background: ${themeVal('color.secondary')};
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 72%);
 
   ${media.largeUp`
@@ -42,7 +44,7 @@ const HeroInner = styled.div`
   `}
 `;
 
-const HeroHeadline = styled.div`
+const IntroHeadline = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,17 +59,21 @@ const HeroHeadline = styled.div`
   }
 `;
 
-const HeroTitle = styled(VarHeading).attrs({
+const IntroTitle = styled(VarHeading).attrs({
   as: 'h1'
 })`
   font-size: clamp(3.5rem, 12vw, 8rem);
+
+  span {
+    font-size: 0;
+  }
 `;
 
-const HeroSubtitle = styled.p`
+const IntroSubtitle = styled.p`
   font-size: clamp(1.25rem, 4vw, 2rem);
 `;
 
-const HeroOverline = styled(VarHeading).attrs({
+const IntroOverline = styled(VarHeading).attrs({
   as: 'p',
   size: 'large'
 })`
@@ -89,14 +95,14 @@ const HeroOverline = styled(VarHeading).attrs({
   }
 `;
 
-const HeroFigure = styled(Figure)`
+const IntroFigure = styled(Figure)`
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(
     to top,
-    ${themeVal('color.base-500')} 0%,
-    ${themeVal('color.primary-500')}64 100%
+    ${themeVal('color.primary-500')} 0%,
+    ${themeVal('color.secondary-500')}64 100%
   );
 
   img {
@@ -112,10 +118,14 @@ const HeroFigure = styled(Figure)`
     z-index: 1;
     background: linear-gradient(
       to top,
-      ${themeVal('color.base-500')} 0%,
-      ${themeVal('color.base-500')}00 100%
+      ${themeVal('color.primary-500')} 0%,
+      ${themeVal('color.primary-500')}00 100%
     );
     content: '';
+  }
+
+  figcaption {
+    ${visuallyHidden()}
   }
 `;
 
@@ -140,25 +150,9 @@ const Block = styled.section`
 
   &:not(:first-child) {
     padding-top: ${variableGlsp()};
-    border-top: 8px solid ${themeVal('color.primary-500')};
+    border-top: 8px solid ${themeVal('color.secondary-500')};
+    margin-top: ${variableGlsp(-0.75)};
   }
-`;
-
-const BlockHeader = styled.header`
-  /* styled-component */
-`;
-
-const BlockBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${variableGlsp()};
-`;
-
-const BlockTitle = styled(VarHeading).attrs({
-  as: 'h2',
-  size: 'xxlarge'
-})`
-  /* styled-component */
 `;
 
 const BlockGroupAlpha = styled(BlockGroup)`
@@ -187,18 +181,23 @@ const BlockGroupBeta = styled(BlockGroup)`
   ${media.largeUp`
     grid-column: content-start / content-7;
     grid-row: 3;
-    margin-top: ${variableGlsp(2)};
+    margin: ${variableGlsp(2, 0, -4, 0)};
+    padding-bottom: 0;
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(0)};
   `}
 `;
 
 const FigureStyled = styled(Figure)`
-  border-top: 8px solid ${themeVal('color.primary-500')};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
 
   .gatsby-image-wrapper {
     background: linear-gradient(
       to top,
-      ${themeVal('color.base-500')}48 0%,
-      ${themeVal('color.primary-500')}08 100%
+      ${themeVal('color.primary-500')}48 0%,
+      ${themeVal('color.secondary-500')}08 100%
     );
   }
 
@@ -271,6 +270,7 @@ const IndexPage = () => {
         siteMetadata {
           title
           subtitle
+          edition
         }
       }
     }
@@ -278,27 +278,27 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <main>
-        <Hero>
-          <HeroInner>
-            <HeroHeadline>
-              <CollecticonBrandSatsummit
-                title='SatSummit logo symbol'
-                meaningful
-                size='xxlarge'
-              />
-              <HeroTitle>{data.site.siteMetadata.title}</HeroTitle>
-              <HeroSubtitle>{data.site.siteMetadata.subtitle}</HeroSubtitle>
-              <HeroOverline>
+      <PageMainContent>
+        <Intro>
+          <IntroInner>
+            <IntroHeadline>
+              <CollecticonBrandSatsummit size='xxlarge' />
+              <IntroTitle>
+                {data.site.siteMetadata.title}
+                <span> is back. Welcome to the</span>{' '}
+                {data.site.siteMetadata.edition}
+                <span> edition!</span>
+              </IntroTitle>
+              <IntroSubtitle>{data.site.siteMetadata.subtitle}</IntroSubtitle>
+              <IntroOverline>
                 <time dateTime='2022-09-28/2022-09-29'>Sep. 28 & 29</time>{' '}
                 <span>in</span> Washington, DC
-              </HeroOverline>
-            </HeroHeadline>
-
-            <HeroFigure>
+              </IntroOverline>
+            </IntroHeadline>
+            <IntroFigure>
               <StaticImage
                 style={{ position: 'static' }}
-                src='../images/welcome-hero.jpg'
+                src='../images/welcome-intro.jpg'
                 alt='Satellite image of canadian waters teem with phytoplankton'
               />
               <Figcaption>
@@ -307,94 +307,61 @@ const IndexPage = () => {
                   url='https://earthobservatory.nasa.gov/images/88687/canadian-waters-teem-with-phytoplankton'
                 />
               </Figcaption>
-            </HeroFigure>
-          </HeroInner>
-        </Hero>
+            </IntroFigure>
+          </IntroInner>
+        </Intro>
 
         <BlockGrid>
           <BlockGroupAlpha>
             <Block>
-              <BlockHeader>
-                <BlockTitle>About</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    SatSummit convenes leaders in the satellite industry and
-                    experts in global development for 2 days of presentations
-                    and in-depth conversations on solving the world&apos;s most
-                    critical development challenges with satellite data.
-                  </p>
-                  <p>
-                    From climate change to population growth to natural resource
-                    availability, earth observation data offers insights into
-                    today&apos;s biggest global issues. Stay tuned for more
-                    information on SatSummit 2022!
-                  </p>
-                </VarProse>
-              </BlockBody>
+              <VarProse>
+                <h2>About</h2>
+                <p>
+                  <strong>SatSummit</strong> convenes leaders in the satellite
+                  industry and experts in global development for 2 days of
+                  presentations and in-depth conversations on solving the
+                  world&apos;s most critical development challenges with
+                  satellite data.
+                </p>
+                <p>
+                  From climate change to population growth to natural resource
+                  availability, earth observation data offers insights into
+                  today&apos;s biggest global issues. Stay tuned for more
+                  information on <strong>SatSummit 2022</strong>!
+                </p>
+              </VarProse>
             </Block>
 
-            <Block>
-              <BlockHeader>
-                <BlockTitle>How do I register?</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    Registration is not yet open. Please sign-up to be the first
-                    to receive updates about SatSummit 2022, including when
-                    registration opens.
-                  </p>
-                </VarProse>
-                <Newsletter />
-              </BlockBody>
-            </Block>
+            <TicketsCallout />
           </BlockGroupAlpha>
 
           <BlockGroupBeta>
             <Block>
-              <BlockHeader>
-                <BlockTitle>Where is SatSummit being held?</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    SatSummit will take place at{' '}
-                    <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
-                      <strong>Convene</strong>
-                    </a>
-                    , located at 600 14th St NW, Washington, DC 20005.
-                  </p>
-                </VarProse>
-              </BlockBody>
+              <VarProse>
+                <h2>Where is SatSummit being held?</h2>
+                <p>
+                  SatSummit will take place at{' '}
+                  <a href='https://convene.com/locations/washington-dc/600-14th-street-nw/'>
+                    <strong>Convene</strong>
+                  </a>
+                  , located at 600 14th St NW, Washington, DC 20005.
+                </p>
+              </VarProse>
             </Block>
-
             <Block>
-              <BlockHeader>
-                <BlockTitle>Sponsorship opportunities</BlockTitle>
-              </BlockHeader>
-              <BlockBody>
-                <VarProse>
-                  <p>
-                    We&apos;re excited to partner with thought and industry
-                    leaders in the satellite and development communities, and
-                    through their sponsorship and support of SatSummit, we are
-                    solving real-world and global development challenges.
-                  </p>
-                </VarProse>
-                <div>
-                  <Button
-                    forwardedAs='a'
-                    variation='base-fill'
-                    href='mailto:info@satsummit.io'
-                    size='xlarge'
-                    fitting='relaxed'
-                  >
-                    <CollecticonEnvelope /> Contact us
-                  </Button>
-                </div>
-              </BlockBody>
+              <VarProse>
+                <h2>Health Protocols</h2>
+                <p>
+                  We want everyone to have a safe and enjoyable conference, and
+                  highly recommend COVID-19 vaccination or a negative test
+                  before attending <strong>SatSummit</strong>.
+                </p>
+                <p>
+                  We will follow any Washington, DC protocols that are in effect
+                  at the time, which can be followed closely on this website. We
+                  will also provide indoor face coverings and hand sanitizer.
+                </p>
+              </VarProse>
             </Block>
           </BlockGroupBeta>
 
@@ -462,9 +429,37 @@ const IndexPage = () => {
             </Figcaption>
           </FigureD>
         </BlockGrid>
-      </main>
+      </PageMainContent>
     </Layout>
   );
 };
 
 export default IndexPage;
+
+function TicketsCallout() {
+  const { isLargeUp } = useMediaQuery();
+
+  return (
+    <Block>
+      <VarProse>
+        <h2>How do I register?</h2>
+        <p>
+          Registration for in-person attendance is available now! Onsite
+          registration will not be available. Virtual participation tickets will
+          be available at a later date.
+        </p>
+      </VarProse>
+      <div>
+        <Button
+          forwardedAs={Link}
+          variation='base-fill'
+          to='/tickets'
+          size={isLargeUp ? 'xlarge' : 'large'}
+          fitting='relaxed'
+        >
+          Get tickets <CollecticonArrowRight />
+        </Button>
+      </div>
+    </Block>
+  );
+}

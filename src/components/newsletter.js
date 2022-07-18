@@ -4,9 +4,16 @@ import styled, { css } from 'styled-components';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 import { Form, FormInput, FormLabel } from '@devseed-ui/form';
-import { glsp, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  glsp,
+  media,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import { CollecticonArrowUpRight } from '@devseed-ui/collecticons';
+
+import { useMediaQuery } from '$utils/use-media-query';
 
 const FormSignup = styled(Form)`
   position: relative;
@@ -19,11 +26,15 @@ const FormGroupRow = styled.div`
 
   ${FormInput} {
     width: 100%;
+    height: 2.5rem;
+
+    ${media.largeUp`
+      height: 3rem;
+    `}
   }
 
   ${Button} {
     flex: 0 0 8rem;
-    height: 100%;
   }
 `;
 
@@ -92,18 +103,25 @@ export function Newsletter() {
     setEmail(evt.target.value);
   };
 
+  const { isLargeUp } = useMediaQuery();
+
   return (
-    <FormSignup onSubmit={handleSubmit}>
+    <FormSignup onSubmit={handleSubmit} noValidate>
       <FormGroupRow>
         <RegFormLabel htmlFor='reg-email'>Email</RegFormLabel>
         <FormInput
           id='reg-email'
-          isRequired
+          type='email'
+          required
           onChange={handleChange}
           placeholder='you@provider.tld'
-          size='large'
+          size={isLargeUp ? 'large' : 'medium'}
         />
-        <Button variation='base-fill' size='large' type='submit'>
+        <Button
+          variation='base-fill'
+          size={isLargeUp ? 'xlarge' : 'large'}
+          type='submit'
+        >
           <CollecticonArrowUpRight /> Sign up
         </Button>
       </FormGroupRow>

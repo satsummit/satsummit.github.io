@@ -7,7 +7,9 @@ import { DevseedUiThemeProvider } from '@devseed-ui/theme-provider';
 import themeOverrides, { GlobalStyles } from '$styles/theme';
 
 import SEO from '$components/seo';
+import PageHeader from '$components/page-header';
 import PageFooter from '$components/page-footer';
+import SponsorsFold from '$components/sponsors-fold';
 
 const Page = styled.div`
   display: flex;
@@ -35,7 +37,9 @@ const Layout = ({ children, title }) => {
       <SEO title={title || 'Welcome'} />
       <GlobalStyles />
       <Page>
+        <PageHeader />
         <PageBody>{children}</PageBody>
+        <SponsorsFold />
         <PageFooter />
       </Page>
     </DevseedUiThemeProvider>

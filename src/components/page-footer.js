@@ -1,79 +1,57 @@
 import React from 'react';
-import T from 'prop-types';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import {
+  glsp,
   listReset,
   media,
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
 
-import { variableGlsp } from '$styles/variable-utils';
-import { VarHeading } from '$styles/variable-components';
-import Hug from '$styles/hug';
-import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
   CollecticonBrandGithub,
   CollecticonBrandTwitter,
-  CollecticonEnvelope
+  CollecticonEnvelope,
+  CollecticonExpandTopRight
 } from '@devseed-ui/collecticons';
+
+import { variableGlsp } from '$styles/variable-utils';
+import { VarHeading } from '$styles/variable-components';
+
+import Hug from '$styles/hug';
+import MenuLinkAppearance from '$styles/menu-link';
+
+import Brand from './brand';
 
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
-  border-top: 8px solid ${themeVal('color.primary-500')};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
   padding: ${variableGlsp(2, 0)};
 `;
 
 const FootBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(0.5)};
-
-  ol,
-  ul {
-    ${listReset()};
-  }
-
-  &:not(:first-child) {
-    padding-top: ${variableGlsp()};
-    border-top: 4px solid ${themeVal('color.primary-500')};
-  }
-
-  &:last-child {
-    ${media.largeUp`
-      padding: 0;
-      border: 0;
-    `}
-  }
-
-  &:not(:first-child):not(:last-child) {
-    ${media.smallUp`
-      padding: 0;
-      border: 0;
-    `}
-  }
+  gap: ${variableGlsp(0.75)};
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
   as: 'h2',
-  size: 'medium'
+  size: 'small'
 })`
   /* styled-component */
 `;
 
-const EditionsBlock = styled(FootBlock)`
-  grid-column: content-start / content-end;
+const BrowseBlock = styled(FootBlock)`
+  grid-column: content-start / content-3;
   grid-row: 1;
 
-  ${media.smallUp`
-    grid-column: content-start / span 2;
-  `}
-
   ${media.mediumUp`
-    grid-column: content-2 / span 3;
+    grid-column: content-2 / span 2;
   `}
 
   ${media.largeUp`
@@ -81,17 +59,12 @@ const EditionsBlock = styled(FootBlock)`
   `}
 `;
 
-const ConnectBlock = styled(FootBlock)`
-  grid-column: content-start / content-end;
-  grid-row: 2;
-
-  ${media.smallUp`
-    grid-column: content-3 / span 2;
-    grid-row: 1;
-  `}
+const EditionsBlock = styled(FootBlock)`
+  grid-column: content-3 / content-end;
+  grid-row: 1;
 
   ${media.mediumUp`
-    grid-column: content-5 / span 3;
+    grid-column: content-4 / span 2;
     grid-row: 1;
   `}
 
@@ -100,124 +73,188 @@ const ConnectBlock = styled(FootBlock)`
   `}
 `;
 
-const FooterCredits = styled(FootBlock).attrs({
-  as: 'address'
-})`
-  font-size: 1rem;
-  font-style: normal;
-  gap: 0;
-  grid-column: content-start / content-end;
-  grid-row: 3;
-
-  ${media.smallUp`
-    grid-row: 2;
-    gap: 0.25rem;
-  `}
+const ConnectBlock = styled(FootBlock)`
+  grid-column: content-3 / content-end;
+  grid-row: 2;
+  margin-top: ${variableGlsp(-2.5)};
 
   ${media.mediumUp`
-    grid-column: content-2 / span 6;
+    grid-column: content-6 / span 2;
+    grid-row: 1;
+    margin-top: 0;
   `}
 
   ${media.largeUp`
-    grid-column: content-9 / span 4;
+    grid-column: content-7 / span 3;
     grid-row: 1;
-    text-align: right;
-    align-self: end;
   `}
+`;
+
+const FooterMenu = styled.ul`
+  ${listReset()};
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${glsp(0.25)};
+`;
+
+const FooterMenuLink = styled.a`
+  ${MenuLinkAppearance}
+`;
+
+const FooterMenuLinkPlaceholder = styled.span`
+  ${MenuLinkAppearance}
+  cursor: not-allowed;
+
+  &,
+  &:hover {
+    opacity: 0.32;
+  }
+`;
+
+const FooterCredits = styled(FootBlock)`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp(0.5)};
+  grid-column: content-start / content-end;
+  grid-row: 3;
+  margin-top: ${variableGlsp()};
+  padding-top: ${variableGlsp(1.5)};
+  border-top: 4px solid ${themeVal('color.secondary-500')};
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+    grid-row: 2;
+    margin-top: ${variableGlsp(0.5)};
+  `}
+
+  ${media.largeUp`
+    grid-column: content-10 / span 3;
+    grid-row: 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  `}
+
+  p > strong {
+    display: block;
+    margin-bottom: ${variableGlsp(0.5)};
+  }
 
   span {
     ${visuallyHidden()}
   }
 
   small {
-    font-size: inherit;
-    display: block;
-    opacity: 0.64;
+    font-size: 0.75rem;
   }
 `;
 
-const FooterCopyright = styled.p`
-  /* styled-component */
-`;
-
-function PageFooter(props) {
+function PageFooter() {
   const nowDate = new Date();
 
   return (
-    <PageFooterSelf isHidden={props.isHidden}>
+    <PageFooterSelf>
+      <BrowseBlock>
+        <FootBlockTitle>Browse this edition</FootBlockTitle>
+        <FooterMenu>
+          <li>
+            <FooterMenuLink as={Link} to='/'>
+              <CollecticonArrowRight /> Welcome
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLinkPlaceholder>
+              <CollecticonArrowRight /> Agenda
+            </FooterMenuLinkPlaceholder>
+          </li>
+          <li>
+            <FooterMenuLinkPlaceholder>
+              <CollecticonArrowRight /> Speakers
+            </FooterMenuLinkPlaceholder>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/tickets'>
+              <CollecticonArrowRight /> Tickets
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/code-of-conduct'>
+              <CollecticonArrowRight /> Code of Conduct
+            </FooterMenuLink>
+          </li>
+        </FooterMenu>
+      </BrowseBlock>
+
       <EditionsBlock>
-        <FootBlockTitle>Previous editions</FootBlockTitle>
-        <ol>
+        <FootBlockTitle>Check past editions</FootBlockTitle>
+        <FooterMenu as='ol'>
           <li>
-            <Button forwardedAs='a' href='https://2018.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2018
-            </Button>
+            <FooterMenuLink href='https://2018.satsummit.io/'>
+              <CollecticonExpandTopRight /> SatSummit 2018
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://2017.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2017
-            </Button>
+            <FooterMenuLink href='https://2017.satsummit.io/'>
+              <CollecticonExpandTopRight /> SatSummit 2017
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://2015.satsummit.io/'>
-              <CollecticonArrowRight /> SatSummit 2015
-            </Button>
+            <FooterMenuLink href='https://2015.satsummit.io/'>
+              <CollecticonExpandTopRight /> SatSummit 2015
+            </FooterMenuLink>
           </li>
-        </ol>
+        </FooterMenu>
       </EditionsBlock>
 
       <ConnectBlock>
         <FootBlockTitle>Let&apos;s connect</FootBlockTitle>
-        <ul>
+        <FooterMenu>
           <li>
-            <Button forwardedAs='a' href='mailto:info@satsummit.io'>
+            <FooterMenuLink href='mailto:info@satsummit.io'>
               <CollecticonEnvelope /> Get in touch
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button
-              forwardedAs='a'
-              href='https://twitter.com/intent/user?screen_name=sat_summit'
-            >
+            <FooterMenuLink href='https://twitter.com/intent/user?screen_name=sat_summit'>
               <CollecticonBrandTwitter /> Follow us on Twitter
-            </Button>
+            </FooterMenuLink>
           </li>
           <li>
-            <Button forwardedAs='a' href='https://github.com/satsummit'>
-              <CollecticonBrandGithub /> Check us on GitHub
-            </Button>
+            <FooterMenuLink href='https://github.com/satsummit'>
+              <CollecticonBrandGithub /> Find us on GitHub
+            </FooterMenuLink>
           </li>
-        </ul>
+        </FooterMenu>
       </ConnectBlock>
 
       <FooterCredits>
         <p>
-          <span>Organized by</span>{' '}
+          <Brand />
+          <span>: </span>An event by{' '}
           <a href='https://www.cyient.com/'>
             <strong>Cyient</strong>
           </a>
           ,{' '}
-          <a href='https://dev.global/'>
-            <strong>DevGlobal</strong>
-          </a>{' '}
-          &{' '}
           <a href='https://developmentseed.org/'>
             <strong>Development Seed</strong>
           </a>{' '}
+          &{' '}
+          <a href='https://dev.global/'>
+            <strong>DevGlobal</strong>
+          </a>
+          .
         </p>
-        <FooterCopyright>
-          ©{' '}
-          <time dateTime={`2015/${nowDate.getFullYear()}`}>
-            2015-{nowDate.getFullYear()}
-          </time>
-        </FooterCopyright>
+        <p>
+          <small>
+            <Link to='/terms'>Terms & Conditions</Link> ©{' '}
+            <time dateTime={`2015/${nowDate.getFullYear()}`}>
+              2015-{nowDate.getFullYear()}
+            </time>
+          </small>
+        </p>
       </FooterCredits>
     </PageFooterSelf>
   );
 }
 
 export default PageFooter;
-
-PageFooter.propTypes = {
-  isHidden: T.bool
-};
