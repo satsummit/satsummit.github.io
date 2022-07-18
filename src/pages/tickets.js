@@ -21,6 +21,7 @@ const TicketsPage = () => {
 
     script.onload = () => {
       const exampleCallback = function () {
+        // eslint-disable-next-line
         console.log('Order complete!');
       };
 
