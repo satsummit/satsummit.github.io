@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import T from 'prop-types';
 
-import { DevseedUiThemeProvider } from '@devseed-ui/theme-provider';
-
-import themeOverrides, { GlobalStyles } from '$styles/theme';
+import { GlobalStyles } from '$styles/theme';
 
 import SEO from '$components/seo';
 import PageHeader from '$components/page-header';
@@ -32,7 +30,7 @@ const Layout = ({ children, title }) => {
   }, []);
 
   return (
-    <DevseedUiThemeProvider theme={themeOverrides}>
+    <>
       {/* eslint-disable-next-line */}
       <SEO title={title || 'Welcome'} />
       <GlobalStyles />
@@ -42,7 +40,7 @@ const Layout = ({ children, title }) => {
         <SponsorsFold />
         <PageFooter />
       </Page>
-    </DevseedUiThemeProvider>
+    </>
   );
 };
 

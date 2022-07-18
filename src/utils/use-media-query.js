@@ -1,4 +1,11 @@
-import { useEffect, useMemo } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react';
+import T from 'prop-types';
 import { useTheme } from 'styled-components';
 import useDimensions from 'react-cool-dimensions';
 
@@ -27,6 +34,58 @@ import useDimensions from 'react-cool-dimensions';
  * }
  */
 export function useMediaQuery() {
+  const { currentBreakpoint, width, ranges } = useContext(MediaQueryContext);
+
+  // To ensure a match between server and client on the rehydration process we
+  // need to keep track of mount.
+  // https://www.joshwcomeau.com/react/the-perils-of-rehydration/
+  const [isMounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const rangeBooleans = useMemo(
+    () =>
+      ranges.reduce((acc, [rangeKey, bounds]) => {
+        const upper = `${rangeKey.charAt(0).toUpperCase()}${rangeKey.slice(1)}`;
+        const makeKey = (b) => `is${upper}${b}`;
+
+        if (!width) {
+          return {
+            ...acc,
+            [makeKey('Up')]: undefined,
+            [makeKey('Only')]: undefined,
+            [makeKey('Down')]: undefined
+          };
+        }
+
+        let [lBound, uBound] = bounds;
+        lBound = lBound ?? -Infinity;
+        uBound = uBound ?? Infinity;
+
+        return {
+          ...acc,
+          [makeKey('Up')]: width >= lBound,
+          [makeKey('Only')]: width >= lBound && width <= uBound,
+          [makeKey('Down')]: width <= uBound
+        };
+      }, {}),
+    [ranges, width]
+  );
+
+  return useMemo(
+    () => ({
+      isMounted,
+      current: currentBreakpoint,
+      ...rangeBooleans
+    }),
+    [currentBreakpoint, rangeBooleans, isMounted]
+  );
+}
+
+// Context
+const MediaQueryContext = createContext();
+
+// Context provider
+export const MediaQueryProvider = ({ children }) => {
   const theme = useTheme();
 
   if (!theme.mediaRanges)
@@ -47,11 +106,7 @@ export function useMediaQuery() {
     [ranges]
   );
 
-  const {
-    observe,
-    currentBreakpoint,
-    width: calculatedWidth
-  } = useDimensions({
+  const { observe, currentBreakpoint, width } = useDimensions({
     breakpoints,
     updateOnBreakpointChange: true
   });
@@ -60,36 +115,19 @@ export function useMediaQuery() {
     observe(document.body);
   }, [observe]);
 
-  // On first mount react-cool-dimension will return a width of 0, which breaks
-  // the media queries styles because there's a mismatch between the css media
-  // queries and the js.
-  const width =
-    calculatedWidth || (typeof window !== 'undefined' ? window.innerWidth : 0);
+  const contextValue = {
+    currentBreakpoint,
+    width,
+    ranges
+  };
 
-  const rangeBooleans = useMemo(
-    () =>
-      ranges.reduce((acc, [rangeKey, bounds]) => {
-        const upper = `${rangeKey.charAt(0).toUpperCase()}${rangeKey.slice(1)}`;
-        const makeKey = (b) => `is${upper}${b}`;
-        let [lBound, uBound] = bounds;
-        lBound = lBound ?? -Infinity;
-        uBound = uBound ?? Infinity;
-
-        return {
-          ...acc,
-          [makeKey('Up')]: width >= lBound,
-          [makeKey('Only')]: width >= lBound && width <= uBound,
-          [makeKey('Down')]: width <= uBound
-        };
-      }, {}),
-    [ranges, width]
+  return (
+    <MediaQueryContext.Provider value={contextValue}>
+      {children}
+    </MediaQueryContext.Provider>
   );
+};
 
-  return useMemo(
-    () => ({
-      current: currentBreakpoint,
-      ...rangeBooleans
-    }),
-    [currentBreakpoint, rangeBooleans]
-  );
-}
+MediaQueryProvider.propTypes = {
+  children: T.node
+};
