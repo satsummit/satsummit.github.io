@@ -246,7 +246,7 @@ function PageFooter() {
         </p>
         <p>
           <small>
-            <Link to='terms'>Terms & Conditions</Link> ©{' '}
+            <Link to='/terms'>Terms & Conditions</Link> ©{' '}
             <time dateTime={`2015/${nowDate.getFullYear()}`}>
               2015-{nowDate.getFullYear()}
             </time>
