@@ -76,7 +76,7 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
-  margin-top: ${variableGlsp(-2.5)};
+  margin-top: ${variableGlsp(-2.875)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
@@ -94,7 +94,6 @@ const FooterMenu = styled.ul`
   ${listReset()};
   display: flex;
   flex-flow: column nowrap;
-  gap: ${glsp(0.25)};
 `;
 
 const FooterMenuLink = styled.a`

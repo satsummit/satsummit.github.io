@@ -111,7 +111,7 @@ const GlobalMenu = styled.ul`
   ${listReset()}
   display: flex;
   flex-flow: column nowrap;
-  gap: ${glsp(0.75)};
+  gap: ${glsp(0.25)};
   padding-top: ${variableGlsp()};
   border-top: 4px solid ${themeVal('color.secondary-500')};
 
@@ -123,17 +123,33 @@ const GlobalMenu = styled.ul`
     padding-top: 0;
     border-top: 0;
   `}
+
+  li:last-child {
+    margin-top: ${glsp()};
+
+    ${media.largeUp`
+      margin-top: 0;
+    `}
+  }
 `;
 
 const GlobalMenuLink = styled(Link).attrs({
   activeClassName: 'active'
 })`
   ${MenuLinkAppearance}
+
+  ${media.largeUp`
+    height: 2.5rem;
+  `}
 `;
 
 const GlobalMenuLinkPlaceholder = styled.span`
   ${MenuLinkAppearance}
   cursor: not-allowed;
+
+  ${media.largeUp`
+    height: 2.5rem;
+  `}
 
   &,
   &:hover {

@@ -21,7 +21,7 @@ const MenuLinkAppearance = css`
   font-weight: ${themeVal('button.type.weight')};
   text-transform: ${themeVal('button.type.case')};
   text-decoration: none;
-  padding: ${glsp(0.125, 0)};
+  height: 2rem;
   transition: opacity 0.24s ease;
 
   &,
