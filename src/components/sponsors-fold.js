@@ -1,4 +1,5 @@
 import React from 'react';
+import Slide from 'react-reveal/Slide';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -77,6 +78,18 @@ const SponsorsOutro = styled(Hug).attrs({
   ${media.largeUp`
     margin: ${variableGlsp(0, 0, -10, 0)};
   `}
+
+  > .react-reveal {
+    grid-column: content-start / content-end;
+
+    ${media.mediumUp`
+      grid-column: content-2 / content-8;
+    `}
+
+    ${media.largeUp`
+      grid-column: content-7 / content-end;
+    `}
+  }
 `;
 
 const SponsorsOutroInner = styled.div`
@@ -88,15 +101,6 @@ const SponsorsOutroInner = styled.div`
   color: ${themeVal('color.base')};
   border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
   box-shadow: ${themeVal('boxShadow.elevationD')};
-  grid-column: content-start / content-end;
-
-  ${media.mediumUp`
-    grid-column: content-2 / content-8;
-  `}
-
-  ${media.largeUp`
-    grid-column: content-7 / content-end;
-  `}
 `;
 
 const SponsorsGroup = styled(Hug).attrs({
@@ -257,28 +261,30 @@ function SponsorsFold() {
       </SponsorsFoldInner>
 
       <SponsorsOutro>
-        <SponsorsOutroInner>
-          <VarProse>
-            <h2>Become a sponsor</h2>
-            <p>
-              We&apos;re excited to partner with thought and industry leaders in
-              the satellite and development communities, and through their
-              sponsorship and support of <strong>SatSummit</strong>, we are
-              solving real-world and global development challenges.
-            </p>
-          </VarProse>
-          <div>
-            <Button
-              forwardedAs='a'
-              variation='base-fill'
-              href='mailto:info@satsummit.io'
-              size={isLargeUp ? 'xlarge' : 'large'}
-              fitting='relaxed'
-            >
-              <CollecticonEnvelope /> Get in touch
-            </Button>
-          </div>
-        </SponsorsOutroInner>
+        <Slide bottom>
+          <SponsorsOutroInner>
+            <VarProse>
+              <h2>Become a sponsor</h2>
+              <p>
+                We&apos;re excited to partner with thought and industry leaders
+                in the satellite and development communities, and through their
+                sponsorship and support of <strong>SatSummit</strong>, we are
+                solving real-world and global development challenges.
+              </p>
+            </VarProse>
+            <div>
+              <Button
+                forwardedAs='a'
+                variation='base-fill'
+                href='mailto:info@satsummit.io'
+                size={isLargeUp ? 'xlarge' : 'large'}
+                fitting='relaxed'
+              >
+                <CollecticonEnvelope /> Get in touch
+              </Button>
+            </div>
+          </SponsorsOutroInner>
+        </Slide>
       </SponsorsOutro>
     </SponsorsFoldSelf>
   );
