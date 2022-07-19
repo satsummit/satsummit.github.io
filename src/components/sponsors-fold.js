@@ -210,7 +210,7 @@ function SponsorsFold() {
   const { sponsors } = useStaticQuery(
     graphql`
       query {
-        sponsors: allSponsor(sort: { fields: [id], order: DESC }) {
+        sponsors: allSponsor(sort: { fields: [id], order: ASC }) {
           nodes {
             id
             title
