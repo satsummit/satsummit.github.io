@@ -37,7 +37,11 @@ Without our prior written consent, you may not take, publish or disseminate phot
 
 ## Tickets
 
-All ticket sales are final and non-refundable. Tickets are non-transferable and may only be used by the named individual who purchased the ticket according to our records. Any ticket substitution requests must be submitted to via Universe at least 30 days prior to the start of the Conference.
+All ticket sales are final and non-refundable. Tickets are non-transferable and may only be used by the named individual who purchased the ticket according to our records.
+
+Purchased tickets can be transferred to another individual that accepts our Code of Conduct, Covid Procautions, and Terms and Conditions at least 30 days prior to the start of the Conference. Please contact info@satsummit.io to help facilitate transfer of your ticket to a new ticket holder.
+
+Comped tickets that are provided to speakers and others may not be transferred. If you are unable to use your comped ticket, please let us know and we will make sure it is reassigned to another deserving individual.
 
 ### Cancellation by us
 
