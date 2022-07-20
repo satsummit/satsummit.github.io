@@ -41,7 +41,7 @@ All ticket sales are final and non-refundable.
 
 Purchased tickets can be transferred to another individual that accepts our Code of Conduct, Covid Procautions, and Terms and Conditions at least 30 days prior to the start of the Conference. Please contact info@satsummit.io to help facilitate transfer of your ticket to a new ticket holder.
 
-Comped tickets that are provided to speakers and others may not be transferred. If you are unable to use your comped ticket, please let us know and we will make sure it is reassigned to another deserving individual.
+Comped tickets that are provided to speakers and others may not be transferred. If you are unable to use your comped ticket, please let us know and we will make sure it is reassigned to another individual.
 
 ### Cancellation by us
 
