@@ -1,6 +1,6 @@
 ---
 title: Code of conduct
-lead: Our commitment to our community
+lead: Our commitment to our community.
 ---
 ## Intro
 
