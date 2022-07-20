@@ -37,7 +37,7 @@ Without our prior written consent, you may not take, publish or disseminate phot
 
 ## Tickets
 
-All ticket sales are final and non-refundable. Tickets are non-transferable and may only be used by the named individual who purchased the ticket according to our records.
+All ticket sales are final and non-refundable.
 
 Purchased tickets can be transferred to another individual that accepts our Code of Conduct, Covid Procautions, and Terms and Conditions at least 30 days prior to the start of the Conference. Please contact info@satsummit.io to help facilitate transfer of your ticket to a new ticket holder.
 
