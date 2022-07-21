@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { listReset, themeVal } from '@devseed-ui/theme-provider';
+import { listReset, media, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -13,7 +13,7 @@ import {
 } from '$styles/page';
 
 import { BlockAlpha } from '$styles/blocks';
-import { VarProse } from '$styles/variable-components';
+import { VarHeading, VarProse } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 
@@ -27,21 +27,59 @@ const TabbedContentList = styled.ul`
   ${listReset()};
   display: flex;
   flex-flow: row nowrap;
-  gap: ${variableGlsp(0.5)};
   background: ${themeVal('color.surface')};
   border-bottom: 8px solid ${themeVal('color.secondary-500')};
   margin-top: -8px;
   grid-column: content-start / content-end;
 `;
 
-const TabbedContentListLink = styled.a`
-  display: block;
-  background: ${themeVal('color.surface')};
-  padding: ${variableGlsp(0.5)};
+const TabbedContentListLink = styled(VarHeading).attrs({
+  as: 'a',
+  size: 'xsmall'
+})`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: ${themeVal('button.type.weight')};
+  text-decoration: none;
   border-radius: ${themeVal('shape.rounded')} ${themeVal('shape.rounded')} 0 0;
-  border: 8px solid ${themeVal('color.secondary-500')};
-  border-bottom: none;
+  border: 8px solid transparent;
   margin-bottom: -8px;
+  transition: all 0.24s ease;
+
+  &,
+  &:visited {
+    color: ${themeVal('color.primary')};
+  }
+
+  &:hover {
+    color: ${themeVal('color.primary-400')};
+  }
+
+  &.selected {
+    border-color: ${themeVal('color.secondary-500')};
+
+    > span {
+      box-shadow: 0 8px 0 0 white;
+    }
+  }
+
+  * {
+    line-height: 1;
+  }
+
+  > span {
+    display: block;
+    padding: ${variableGlsp(0.75)};
+
+    /* span {
+      display: block;
+
+      ${media.smallUp`
+        display: initial;
+      `}
+    } */
+  }
 `;
 
 const TabbedContentPanel = styled.section`
@@ -69,7 +107,9 @@ const SandboxPage = () => {
                 role='tab'
                 className='tab selected'
               >
-                Sep. 28
+                <span>
+                  <span>Wednesday, </span>Sep. 28
+                </span>
               </TabbedContentListLink>
             </li>
             <li>
@@ -82,7 +122,9 @@ const SandboxPage = () => {
                 className='tab'
                 tabIndex='-1'
               >
-                Sep. 29
+                <span>
+                  <span>Thursday, </span>Sep. 29
+                </span>
               </TabbedContentListLink>
             </li>
           </TabbedContentList>
