@@ -51,6 +51,10 @@ const PageHeaderInner = styled.div`
 
 const GlobalNavToggle = styled(Button)`
   margin-left: auto;
+
+  ${media.largeUp`
+    display: none;
+  `}
 `;
 
 const GlobalNav = styled.nav`
