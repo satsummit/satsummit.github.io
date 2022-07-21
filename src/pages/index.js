@@ -52,7 +52,15 @@ const IntroHeadline = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: ${variableGlsp(4)};
+  margin-bottom: ${variableGlsp(6)};
+
+  ${media.mediumUp`
+    margin-bottom: ${variableGlsp(4)};
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(3)};
+  `}
 
   ${CollecticonBrandSatsummit} {
     order: -2;
