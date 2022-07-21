@@ -257,6 +257,7 @@ function SponsorsFold() {
                         <GatsbyImage
                           image={image}
                           alt={`Logo for ${node.title}`}
+                          objectFit='contain'
                         />
                       </Sponsor>
                     </li>
