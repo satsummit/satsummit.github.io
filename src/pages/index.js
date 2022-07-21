@@ -469,7 +469,7 @@ function TicketsCallout() {
       <div>
         <Button
           forwardedAs={Link}
-          variation='base-outline'
+          variation='base-fill'
           to='/tickets'
           size={isLargeUp ? 'xlarge' : 'large'}
           fitting='relaxed'

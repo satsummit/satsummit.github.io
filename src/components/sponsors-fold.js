@@ -283,7 +283,7 @@ function SponsorsFold() {
           <div>
             <Button
               forwardedAs='a'
-              variation='base-outline'
+              variation='base-fill'
               href='mailto:info@satsummit.io'
               size={isLargeUp ? 'xlarge' : 'large'}
               fitting='relaxed'
