@@ -31,6 +31,14 @@ const TabbedContentList = styled.ul`
   border-bottom: 8px solid ${themeVal('color.secondary-500')};
   margin-top: -8px;
   grid-column: content-start / content-end;
+
+  li {
+    width: 50%;
+
+    ${media.smallUp`
+      width: auto;
+    `}
+  }
 `;
 
 const TabbedContentListLink = styled(VarHeading).attrs({
@@ -38,8 +46,8 @@ const TabbedContentListLink = styled(VarHeading).attrs({
   size: 'xsmall'
 })`
   position: relative;
-  display: inline-flex;
-  align-items: center;
+  display: block;
+  text-align: center;
   font-weight: ${themeVal('button.type.weight')};
   text-decoration: none;
   border-radius: ${themeVal('shape.rounded')} ${themeVal('shape.rounded')} 0 0;
@@ -98,14 +106,14 @@ const SandboxPage = () => {
 
         <TabbedContent>
           <TabbedContentList role='tablist'>
-            <li className='current'>
+            <li>
               <TabbedContentListLink
                 aria-controls='sep-28'
                 aria-selected='true'
                 href='#sep-28'
                 id='tab-sep-28'
                 role='tab'
-                className='tab selected'
+                className='selected'
               >
                 <span>
                   <span>Wednesday, </span>Sep. 28
@@ -119,7 +127,6 @@ const SandboxPage = () => {
                 href='#sep-28'
                 id='tab-sep-29'
                 role='tab'
-                className='tab'
                 tabIndex='-1'
               >
                 <span>
