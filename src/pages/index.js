@@ -215,7 +215,7 @@ const BlockGroupBeta = styled(BlockGroup)`
   `}
 
   ${media.xlargeUp`
-    margin-bottom: ${variableGlsp(0)};
+    margin-bottom: 0;
   `}
 `;
 
