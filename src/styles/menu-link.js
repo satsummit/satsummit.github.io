@@ -45,9 +45,8 @@ const MenuLinkAppearance = css`
   }
 
   &.active::after {
-    width: 100%;
     transform: translate(-50%, 0);
-    animation: ${underliner} ease-in 0.24s 0.48s;
+    animation: ${underliner} ease-in 0.24s 0s forwards;
   }
 `;
 

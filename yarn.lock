@@ -1084,48 +1084,48 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz#1bfafe4b7ed0f3e4105837e056e0a89b108ebe36"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
-"@devseed-ui/animation@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/animation/-/animation-4.0.0.tgz#d8063604e790c2309f4bbfe45483d435909ce2da"
-  integrity sha512-ZXmjXdYj19JKzYphaehuIPp4bnsd5hSntGTCwGsqKSq6Vbcf0uhRAQZazhNhw0FzhBmA98xeX9FeWHnpIlaQ3A==
+"@devseed-ui/animation@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/animation/-/animation-4.1.0.tgz#69d80b01d09aba3929e06ac2b7f7c88175ce6b3e"
+  integrity sha512-YPvaFBATXPnmqTkZOMHEkn+V2GlEkJx25Xowcr2SSgTDZ9DOsd600m7iCGwZNEVNmr3d568C3inkmQySm3h2ZQ==
 
-"@devseed-ui/button@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/button/-/button-4.0.2.tgz#6a2674f19b1210c19458a243203a49409f623fd7"
-  integrity sha512-K6DyMQ5LBRiosBmoKxulckWeuKyYXEKPWMFIszZWAeq6p9d0mvKd5wkDXEXvZ8y4wZFtWiBoIh52Z9xu7xDcCQ==
+"@devseed-ui/button@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/button/-/button-4.1.0.tgz#5640263219c70048e00bfce38359d25885ef08a4"
+  integrity sha512-M7vTxioT/MK95P2pi1pVjKDktH2a9yoRP5geFHDwJhDqDQwoKD58+bZQn0+h6v78n/aCkyQoUPpCCzIeYeu+MA==
   dependencies:
-    "@devseed-ui/collecticons" "^4.0.2"
-    "@devseed-ui/theme-provider" "^4.0.2"
+    "@devseed-ui/collecticons" "^4.1.0"
+    "@devseed-ui/theme-provider" "^4.1.0"
 
-"@devseed-ui/collecticons@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/collecticons/-/collecticons-4.0.2.tgz#d20af8522bfb41a6a6cc0920e94c9665a286f354"
-  integrity sha512-4z+TSOTBYRW2KAwPfTIiAWcX0e7A5y1e8HahPbv0W53RT7+2/V3q518tJtgBcMVub8ig1hU52r0e4+qLskvhGQ==
+"@devseed-ui/collecticons@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/collecticons/-/collecticons-4.1.0.tgz#d0d5237f1c03ce59d0d3a44cfd019d613761aba6"
+  integrity sha512-hJWfflJZe6tjRtjgyk+zs/2UuLugGy+Kbs2nNULREAAjBp1Kt4stcrwKkAtbev/dbC+u0hGXPP8gCd5sG5c4Ag==
 
-"@devseed-ui/form@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/form/-/form-4.0.2.tgz#6dbe2c80e0e3b7b56475666cade06bcd2d5d265c"
-  integrity sha512-3LYuNCNjJUJyX08fKzauiVNGa1HZcZ4LkAxUWKAwKm5JE0oxYkiBsDWNbtNcMb4nbejr74QeRuqyUuFc3bRHnA==
+"@devseed-ui/form@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/form/-/form-4.1.0.tgz#59c19e78e5a96f4deae30e9a69723f0a398f0319"
+  integrity sha512-Gq+i8QLzksuyWwVtXKymv0SFzvzwrFryNvQxHIFjxih1n8/JERgnMm/+HsOGl+eJBeMV4SlMZZgSeWsMDBolbA==
   dependencies:
-    "@devseed-ui/animation" "^4.0.0"
-    "@devseed-ui/collecticons" "^4.0.2"
-    "@devseed-ui/theme-provider" "^4.0.2"
-    "@devseed-ui/typography" "^4.0.2"
+    "@devseed-ui/animation" "^4.1.0"
+    "@devseed-ui/collecticons" "^4.1.0"
+    "@devseed-ui/theme-provider" "^4.1.0"
+    "@devseed-ui/typography" "^4.1.0"
 
-"@devseed-ui/theme-provider@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/theme-provider/-/theme-provider-4.0.2.tgz#8fbb67709414bdc2803377e4a3b618366a57765b"
-  integrity sha512-Db4Rx1BYTIiGneMiimyF1B+5WOgy67OxfN/5PR1v583qxRBUqprcPfLOZ2WnYnnubyJ8VW67/LuLGP8KcAytgA==
+"@devseed-ui/theme-provider@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/theme-provider/-/theme-provider-4.1.0.tgz#8e2718d879cd6bc2c4c43be6e3857702b3f97d17"
+  integrity sha512-1wGlau/u2rsGdEVe18tKkyWlF61fMVFcQ/j6L08HwBGT/n1pPLm07Jxgv+tcap5zAmuOon4qobZCbOrgXwMfOw==
   dependencies:
     lodash.get "^4.4.2"
     polished "^3.4.2"
 
-"@devseed-ui/typography@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@devseed-ui/typography/-/typography-4.0.2.tgz#18da6ab84467d4258001b66c383ff92681332492"
-  integrity sha512-lGWjehRWdM9mQ4pLAXiE6OhZVrBqRoP6SdesDvHcmCQpd1HqDPg8q2Svv4X66eR8tmy5ynhL0JMaBXURUTKSZA==
+"@devseed-ui/typography@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/typography/-/typography-4.1.0.tgz#8f7cde3d345af82fe8886efebfdb4e0fccadd08b"
+  integrity sha512-Dif8lQGGnVhwF6EwmhQQJf3aXyUjTl8sE0w2V/GiED2c7W43xzqaMYCRFQmFn37TJ3nASfLT7vCLqr9uT9uwjQ==
   dependencies:
-    "@devseed-ui/theme-provider" "^4.0.2"
+    "@devseed-ui/theme-provider" "^4.1.0"
 
 "@emotion/is-prop-valid@^1.1.0":
   version "1.1.3"

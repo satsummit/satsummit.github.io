@@ -54,11 +54,11 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@devseed-ui/button": "^4.0.2",
-    "@devseed-ui/collecticons": "^4.0.2",
-    "@devseed-ui/form": "^4.0.2",
-    "@devseed-ui/theme-provider": "^4.0.2",
-    "@devseed-ui/typography": "^4.0.2",
+    "@devseed-ui/button": "^4.1.0",
+    "@devseed-ui/collecticons": "^4.1.0",
+    "@devseed-ui/form": "^4.1.0",
+    "@devseed-ui/theme-provider": "^4.1.0",
+    "@devseed-ui/typography": "^4.1.0",
     "babel-plugin-styled-components": "^2.0.7",
     "gatsby": "^4.15.1",
     "gatsby-plugin-alias-imports": "^1.0.5",
