@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import T from 'prop-types';
 import styled, { css } from 'styled-components';
-import { themeVal, glsp, listReset, media } from '@devseed-ui/theme-provider';
+import { themeVal, listReset, media } from '@devseed-ui/theme-provider';
 
 import { useTabs } from './tabs-context';
 import { variableGlsp } from '$styles/variable-utils';
@@ -125,6 +125,7 @@ export function TabItem(props) {
         }}
         title={`Select ${label} tab`}
         active={activeTab === tabId}
+        aria-selected={String(activeTab === tabId)}
         {...rest}
       >
         {children}
