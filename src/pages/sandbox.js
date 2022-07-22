@@ -1,97 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { listReset, media, themeVal } from '@devseed-ui/theme-provider';
-
 import Layout from '$components/layout';
-
 import {
   PageMainContent,
   PageMainHero,
   PageMainHeroHeadline,
   PageMainTitle
 } from '$styles/page';
-
 import { BlockAlpha } from '$styles/blocks';
-import { VarHeading, VarProse } from '$styles/variable-components';
 import Hug from '$styles/hug';
-import { variableGlsp } from '$styles/variable-utils';
+import { TabContent, TabItem, TabsManager, TabsNav } from '$components/tabs';
+import { VarProse } from '$styles/variable-components';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
 })`
   /* styled-component */
-`;
-
-const TabbedContentList = styled.ul`
-  ${listReset()};
-  display: flex;
-  flex-flow: row nowrap;
-  background: ${themeVal('color.surface')};
-  border-bottom: 8px solid ${themeVal('color.secondary-500')};
-  margin-top: -8px;
-  grid-column: content-start / content-end;
-
-  li {
-    width: 50%;
-
-    ${media.smallUp`
-      width: auto;
-    `}
-  }
-`;
-
-const TabbedContentListLink = styled(VarHeading).attrs({
-  as: 'a',
-  size: 'xsmall'
-})`
-  position: relative;
-  display: block;
-  text-align: center;
-  font-weight: ${themeVal('button.type.weight')};
-  text-decoration: none;
-  border-radius: ${themeVal('shape.rounded')} ${themeVal('shape.rounded')} 0 0;
-  border: 8px solid transparent;
-  margin-bottom: -8px;
-  transition: all 0.24s ease;
-
-  &,
-  &:visited {
-    color: ${themeVal('color.primary')};
-  }
-
-  &:hover {
-    color: ${themeVal('color.primary-400')};
-  }
-
-  &.selected {
-    border-color: ${themeVal('color.secondary-500')};
-
-    > span {
-      box-shadow: 0 8px 0 0 white;
-    }
-  }
-
-  * {
-    line-height: 1;
-  }
-
-  > span {
-    display: block;
-    padding: ${variableGlsp(0.75)};
-
-    /* span {
-      display: block;
-
-      ${media.smallUp`
-        display: initial;
-      `}
-    } */
-  }
-`;
-
-const TabbedContentPanel = styled.section`
-  grid-column: content-start / content-end;
 `;
 
 const SandboxPage = () => {
@@ -104,79 +29,84 @@ const SandboxPage = () => {
           </PageMainHeroHeadline>
         </PageMainHero>
 
-        <TabbedContent>
-          <TabbedContentList role='tablist'>
-            <li>
-              <TabbedContentListLink
-                aria-controls='sep-28'
-                aria-selected='true'
-                href='#sep-28'
-                id='tab-sep-28'
-                role='tab'
-                className='selected'
-              >
-                <span>
-                  <span>Wednesday, </span>Sep. 28
-                </span>
-              </TabbedContentListLink>
-            </li>
-            <li>
-              <TabbedContentListLink
-                aria-controls='sep-29'
-                aria-selected='false'
-                href='#sep-28'
-                id='tab-sep-29'
-                role='tab'
-                tabIndex='-1'
-              >
-                <span>
-                  <span>Thursday, </span>Sep. 29
-                </span>
-              </TabbedContentListLink>
-            </li>
-          </TabbedContentList>
+        <TabsManager>
+          <TabbedContent>
+            <TabsNav role='tablist'>
+              <li className='current'>
+                <TabItem
+                  aria-controls='sep-28'
+                  aria-selected='true'
+                  href='#sep-28'
+                  tabId='sep-28'
+                  id='tab-sep-28'
+                  role='tab'
+                >
+                  <span>
+                    <span>Wednesday, </span>Sep. 28
+                  </span>
+                </TabItem>
+              </li>
+              <li>
+                <TabItem
+                  aria-controls='sep-29'
+                  aria-selected='false'
+                  href='#sep-28'
+                  tabId='sep-29'
+                  id='tab-sep-29'
+                  role='tab'
+                  tabIndex='-1'
+                >
+                  <span>
+                    <span>Thursday, </span>Sep. 29
+                  </span>
+                </TabItem>
+              </li>
+            </TabsNav>
 
-          <TabbedContentPanel
-            aria-labelledby='tab-sep-28'
-            className='tab-panel current'
-            role='tabpanel'
-            id='sep-28'
-          >
-            <h2>Sep. 28</h2>
-            <p>
-              {' '}
-              Lorem ipsum dolor sit amet, urna class vestibulum tincidunt atque,
-              habitasse sit wisi erat dapibus. Vitae curae natoque a, donec
-              nulla conubia in mollis. Sapien pede in tortor, lectus neque vitae
-              in et, vitae aliquam eget orci at, non turpis faucibus id morbi.
-              Elit tempor turpis donec inceptos, fringilla arcu sollicitudin
-              ligula magna, sed justo viverra lacus erat, vestibulum id in justo
-              nulla. Viverra dui leo donec, aptent deserunt nostra magnis
-              lobortis, id ultrices ac aenean, interdum vestibulum rhoncus
-              phasellus libero.
-            </p>
-          </TabbedContentPanel>
+            <TabContent
+              aria-labelledby='tab-sep-28'
+              className='tab-panel current'
+              role='tabpanel'
+              tabId='sep-28'
+              id='sep-28'
+            >
+              <h2>Sep. 28</h2>
+              <p>
+                {' '}
+                Lorem ipsum dolor sit amet, urna class vestibulum tincidunt
+                atque, habitasse sit wisi erat dapibus. Vitae curae natoque a,
+                donec nulla conubia in mollis. Sapien pede in tortor, lectus
+                neque vitae in et, vitae aliquam eget orci at, non turpis
+                faucibus id morbi. Elit tempor turpis donec inceptos, fringilla
+                arcu sollicitudin ligula magna, sed justo viverra lacus erat,
+                vestibulum id in justo nulla. Viverra dui leo donec, aptent
+                deserunt nostra magnis lobortis, id ultrices ac aenean, interdum
+                vestibulum rhoncus phasellus libero.
+              </p>
+            </TabContent>
 
-          <TabbedContentPanel
-            aria-labelledby='tab-sep-29'
-            className='tab-panel hidden'
-            role='tabpanel'
-            id='sep-29'
-          >
-            <h2>Sep. 29</h2>
-            <p>
-              Lorem ipsum dolor sit amet, urna class vestibulum tincidunt atque,
-              habitasse sit wisi erat dapibus. Vitae curae natoque a, donec
-              nulla conubia in mollis. Sapien pede in tortor, lectus neque vitae
-              in et, vitae aliquam eget orci at, non turpis faucibus id morbi.
-              Elit tempor turpis donec inceptos, fringilla arcu sollicitudin
-              ligula magna, sed justo viverra lacus erat, vestibulum id in justo
-              nulla. Viverra dui leo donec, aptent deserunt nostra magnis
-              lobortis, id ultrices ac aenean, interdum vestibulum rhoncus
-              phasellus libero.
-            </p>
-          </TabbedContentPanel>
-        </TabbedContent>
+            <TabContent
+              aria-labelledby='tab-sep-29'
+              className='tab-panel hidden'
+              role='tabpanel'
+              tabId='sep-29'
+              id='sep-29'
+            >
+              <h2>Sep. 29</h2>
+              <p>
+                Lorem ipsum dolor sit amet, urna class vestibulum tincidunt
+                atque, habitasse sit wisi erat dapibus. Vitae curae natoque a,
+                donec nulla conubia in mollis. Sapien pede in tortor, lectus
+                neque vitae in et, vitae aliquam eget orci at, non turpis
+                faucibus id morbi. Elit tempor turpis donec inceptos, fringilla
+                arcu sollicitudin ligula magna, sed justo viverra lacus erat,
+                vestibulum id in justo nulla. Viverra dui leo donec, aptent
+                deserunt nostra magnis lobortis, id ultrices ac aenean, interdum
+                vestibulum rhoncus phasellus libero.
+              </p>
+            </TabContent>
+          </TabbedContent>
+        </TabsManager>
 
         <BlockAlpha>
           <VarProse>
