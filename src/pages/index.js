@@ -25,15 +25,15 @@ import withReveal from '$utils/with-reveal';
 
 const satTranslation = keyframes`
   0% {
-    transform: rotate(45deg);
+    transform: rotate(60deg);
   }
 
   50% {
-    transform: rotate(202deg) scale(0.75);
+    transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(405deg) scale(1);
+    transform: rotate(-60deg);
   }
 `;
 
@@ -79,8 +79,9 @@ const IntroHeadline = styled.div`
   ${CollecticonBrandSatsummit} {
     order: -2;
     margin-bottom: ${variableGlsp(1)};
-    transform-origin: center;
-    animation: ${satTranslation} ease-in-out 32s infinite;
+    transform-origin: center 5rem;
+    animation: ${satTranslation} linear 32s infinite alternate-reverse;
+    animation-delay: -16s;
   }
 `;
 
