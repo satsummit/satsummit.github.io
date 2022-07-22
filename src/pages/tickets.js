@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 
 import Layout from '$components/layout';
 
@@ -9,8 +10,18 @@ import {
   PageMainTitle
 } from '$styles/page';
 
+import { themeVal } from '@devseed-ui/theme-provider';
+
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
+import { variableGlsp } from '$styles/variable-utils';
+
+const TicketsWidget = styled.div`
+  margin-top: ${variableGlsp(0.75)};
+  border: ${themeVal('shape.border')} solid ${themeVal('color.base-100')};
+  border-radius: ${themeVal('shape.rounded')};
+  padding: ${variableGlsp()};
+`;
 
 const TicketsPage = () => {
   useEffect(() => {
@@ -92,7 +103,7 @@ const TicketsPage = () => {
               events. Tickets are nonrefundable.
             </p>
             <h3>Book your ticket</h3>
-            <div id='eb-widget' />
+            <TicketsWidget id='eb-widget' />
           </VarProse>
         </BlockAlpha>
       </PageMainContent>
