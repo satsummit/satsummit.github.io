@@ -25,7 +25,7 @@ import withReveal from '$utils/with-reveal';
 
 const satTranslation = keyframes`
   0% {
-    transform: rotate(60deg);
+    transform: rotate(45deg);
   }
 
   50% {
@@ -33,7 +33,7 @@ const satTranslation = keyframes`
   }
 
   100% {
-    transform: rotate(-60deg);
+    transform: rotate(-45deg);
   }
 `;
 
