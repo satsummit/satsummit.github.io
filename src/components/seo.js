@@ -43,7 +43,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
         },
         {
           name: 'theme-color',
-          content: '#FFFFFF'
+          content: '#2037E9'
         },
         {
           property: `og:title`,
@@ -95,7 +95,6 @@ const SEO = ({ description, lang, meta, image, title }) => {
         href='/meta/apple-touch-icon.png'
       />
       <link rel='manifest' href='/meta/site.webmanifest' />
-      <meta name='theme-color' content='#2037E9' />
     </Helmet>
   );
 };
