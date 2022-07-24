@@ -32,6 +32,12 @@ const TabbedContentList = styled.ul`
   margin-top: -8px;
   grid-column: content-start / content-end;
 
+  ${media.smallUp`
+    margin-top: -8px;
+    justify-content: flex-end;
+    margin-top: calc(8px - ${variableGlsp(2.75)});
+  `}
+
   li {
     width: 50%;
 
