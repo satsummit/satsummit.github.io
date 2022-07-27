@@ -17,6 +17,7 @@ const TabbedContent = styled(Hug).attrs({
   as: 'div'
 })`
   /* styled-component */
+  row-gap: 0;
 `;
 
 const SandboxPage = () => {
@@ -32,35 +33,31 @@ const SandboxPage = () => {
         <TabsManager>
           <TabbedContent>
             <TabsNav role='tablist'>
-              <li className='current'>
-                <TabItem
-                  aria-controls='sep-28'
-                  aria-selected='true'
-                  href='#sep-28'
-                  tabId='sep-28'
-                  id='tab-sep-28'
-                  role='tab'
-                >
-                  <span>
-                    <span>Wednesday, </span>Sep. 28
-                  </span>
-                </TabItem>
-              </li>
-              <li>
-                <TabItem
-                  aria-controls='sep-29'
-                  aria-selected='false'
-                  href='#sep-28'
-                  tabId='sep-29'
-                  id='tab-sep-29'
-                  role='tab'
-                  tabIndex='-1'
-                >
-                  <span>
-                    <span>Thursday, </span>Sep. 29
-                  </span>
-                </TabItem>
-              </li>
+              <TabItem
+                aria-controls='sep-28'
+                aria-selected='true'
+                href='#sep-28'
+                tabId='sep-28'
+                id='tab-sep-28'
+                role='tab'
+              >
+                <span>
+                  <span>Wednesday, </span>Sep. 28
+                </span>
+              </TabItem>
+              <TabItem
+                aria-controls='sep-29'
+                aria-selected='false'
+                href='#sep-28'
+                tabId='sep-29'
+                id='tab-sep-29'
+                role='tab'
+                tabIndex='-1'
+              >
+                <span>
+                  <span>Thursday, </span>Sep. 29
+                </span>
+              </TabItem>
             </TabsNav>
 
             <TabContent
