@@ -6,6 +6,9 @@ exports.onCreatePage = async ({ page, actions: { deletePage } }) => {
     if (page.path.match(/^\/sandbox/)) {
       deletePage(page);
     }
+    if (page.path.match(/^\/agenda/)) {
+      deletePage(page);
+    }
   }
 };
 
@@ -39,6 +42,7 @@ exports.onCreateNode = ({
 
     const nodeProps = {
       ...node.frontmatter,
+      cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
 
@@ -75,4 +79,19 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { slug }
     });
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type Event implements Node {
+      # type
+      # people
+      title: String!
+      date: Date!
+      room: String
+      lead: String
+    }
+  `;
+  createTypes(typeDefs);
 };

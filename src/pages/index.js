@@ -1,7 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
@@ -22,6 +22,20 @@ import { PageMainContent } from '$styles/page';
 
 import { useMediaQuery } from '$utils/use-media-query';
 import withReveal from '$utils/with-reveal';
+
+const satTranslation = keyframes`
+  0% {
+    transform: rotate(45deg);
+  }
+
+  50% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-45deg);
+  }
+`;
 
 const Intro = styled.div`
   filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
@@ -52,12 +66,21 @@ const IntroHeadline = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: ${variableGlsp(4)};
+  margin-bottom: ${variableGlsp(6)};
+
+  ${media.mediumUp`
+    margin-bottom: ${variableGlsp(4)};
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(3)};
+  `}
 
   ${CollecticonBrandSatsummit} {
     order: -2;
-    margin-bottom: ${variableGlsp(1.5)};
+    margin-bottom: ${variableGlsp()};
     transform: rotate(45deg);
+    animation: ${satTranslation} linear 32s infinite alternate 4s;
   }
 `;
 
@@ -191,7 +214,7 @@ const BlockGroupBeta = styled(BlockGroup)`
   `}
 
   ${media.xlargeUp`
-    margin-bottom: ${variableGlsp(0)};
+    margin-bottom: 0;
   `}
 `;
 

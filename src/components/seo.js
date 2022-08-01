@@ -23,7 +23,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || '/meta/default-meta-image.png';
+  const metaImage = image || '/meta/meta-image.png';
   const metaImageUrl = metaImage.match(/^https?:\/\//)
     ? metaImage
     : `${site.siteMetadata.siteUrl}${metaImage}`;
@@ -43,7 +43,7 @@ const SEO = ({ description, lang, meta, image, title }) => {
         },
         {
           name: 'theme-color',
-          content: '#FFFFFF'
+          content: '#2037E9'
         },
         {
           property: `og:title`,
@@ -87,23 +87,14 @@ const SEO = ({ description, lang, meta, image, title }) => {
         }
       ].concat(meta)}
     >
-      <link
-        rel='icon'
-        type='image/png'
-        sizes='96x96'
-        href='/meta/apple-touch-icon.png'
-      />
-      <link
-        rel='icon'
-        type='image/png'
-        sizes='192x192'
-        href='/meta/apple-touch-icon.png'
-      />
+      <link rel='icon' sizes='any' href='/meta/favicon.ico' />
+      <link rel='icon' type='image/svg+xml' href='/meta/icon.svg' />
       <link
         rel='apple-touch-icon'
         sizes='180x180'
         href='/meta/apple-touch-icon.png'
       />
+      <link rel='manifest' href='/meta/site.webmanifest' />
     </Helmet>
   );
 };

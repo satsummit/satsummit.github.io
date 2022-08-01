@@ -35,7 +35,7 @@ const PageFooterSelf = styled(Hug).attrs({
 const FootBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(0.75)};
+  gap: ${variableGlsp(0.5)};
 `;
 
 const FootBlockTitle = styled(VarHeading).attrs({
@@ -135,7 +135,7 @@ const FooterCredits = styled(FootBlock)`
 
   p > strong {
     display: block;
-    margin-bottom: ${variableGlsp(0.5)};
+    margin-bottom: ${variableGlsp(0.375)};
   }
 
   span {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
@@ -51,6 +51,10 @@ const PageHeaderInner = styled.div`
 
 const GlobalNavToggle = styled(Button)`
   margin-left: auto;
+
+  ${media.largeUp`
+    display: none;
+  `}
 `;
 
 const GlobalNav = styled.nav`
@@ -170,6 +174,19 @@ function PageHeader() {
   const { isLargeUp } = useMediaQuery();
   const [navRevealed, setNavRevealed] = useState(false);
 
+  const globalNavBodyRef = useRef(null);
+  // Click listener for the whole global nav body so we can close it when
+  // clicking the overlay on medium down media query.
+  const onGlobalNavClick = useCallback((e) => {
+    // Any click on the global nav will close it except if in the GlobalNavInner
+    // (first and only child). This is the only way to reach the ::after pseudo
+    // element.
+    const child = globalNavBodyRef.current?.children[0];
+    if (!child?.contains(e.target)) {
+      setNavRevealed(false);
+    }
+  }, []);
+
   return (
     <PageHeaderSelf>
       <PageHeaderInner>
@@ -190,7 +207,12 @@ function PageHeader() {
 
         {navRevealed && <UnscrollableBody />}
 
-        <GlobalNav aria-label='Global' revealed={navRevealed}>
+        <GlobalNav
+          aria-label='Global'
+          revealed={navRevealed}
+          ref={globalNavBodyRef}
+          onClick={onGlobalNavClick}
+        >
           <GlobalNavInner>
             <GlobalMenu>
               <li>

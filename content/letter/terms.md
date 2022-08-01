@@ -1,9 +1,9 @@
 ---
 title: Terms & Conditions
 ---
-Effective July 12, 2018.
+Effective July 19, 2022.
 
-These terms and conditions (“Terms”) apply to every person (“you”) who purchases a ticket for and/or attends Mapbox, Inc.’s (“we”, “us” or “our”) 2018 SatSummit Conference (“Conference”). If you are purchasing a ticket on behalf of your company or another legal entity, you represent that you have the authority to bind that entity to these Terms, in which case “you” will mean the entity you represent.{' '}
+These terms and conditions (“Terms”) apply to every person (“you”) who purchases a ticket for and/or attends the Cyient, Development Seed and DevGlobal  (“we”, “us” or “our”) 2022 SatSummit Conference (“Conference”). If you are purchasing a ticket on behalf of your company or another legal entity, you represent that you have the authority to bind that entity to these Terms, in which case “you” will mean the entity you represent.{' '}
 
 ## Rules, Regulations & Conduct
 
@@ -29,7 +29,7 @@ Any information that we provide about the Conference schedule is non-binding and
 
 ### Our Use of Photography and Recordings
 
-We and third parties authorized by us may take photographs, video or audio recordings of the Conference, including of you ( **“Conference Recordings”**). By being permitted to attend the conference (and without additional consideration), you (A) agree that we shall be the sole copyright owner of the Conference Recordings, (B) irrevocably and perpetually consent to the capture of your image, voice and likeness in the Conference Recordings and our right to use, reproduce, distribute, display and publish such Conference Recordings, in whole or in part, for any purpose, at any time and either directly or through any third party, and (C) (on behalf of yourself and your successors and assigns) release us and all such third parties (and us and their respective successors, assigns, and licensees) from any and all liability, claims and causes of action you may have now or in the future with respect to the creation and any exploitation of the Conference Recordings, and (D) agree to pay any attorneys’ fee and costs incurred by us or the third parties if you institute any legal action based on or relating to any consent, waiver, release or other agreement you have given in this paragraph.
+We and third parties authorized by us may take photographs, video or audio recordings of the Conference, including of you ( “**Conference Recordings**”). By being permitted to attend the conference (and without additional consideration), you (A) agree that we shall be the sole copyright owner of the Conference Recordings, (B) irrevocably and perpetually consent to the capture of your image, voice and likeness in the Conference Recordings and our right to use, reproduce, distribute, display and publish such Conference Recordings, in whole or in part, for any purpose, at any time and either directly or through any third party, and (C) (on behalf of yourself and your successors and assigns) release us and all such third parties (and us and their respective successors, assigns, and licensees) from any and all liability, claims and causes of action you may have now or in the future with respect to the creation and any exploitation of the Conference Recordings, and (D) agree to pay any attorneys’ fee and costs incurred by us or the third parties if you institute any legal action based on or relating to any consent, waiver, release or other agreement you have given in this paragraph.
 
 ### Your Use of Photography, Recordings and Conference Information
 
@@ -37,7 +37,11 @@ Without our prior written consent, you may not take, publish or disseminate phot
 
 ## Tickets
 
-All ticket sales are final and non-refundable. Tickets are non-transferable and may not be assigned without our prior written consent (which may be withheld for any reason or no reason at all) and may only be used by the named individual who purchased the ticket according to our records. Any ticket substitution requests must be submitted to via Universe at least 30 days prior to the start of the Conference.
+All ticket sales are final and non-refundable.
+
+Purchased tickets can be transferred to another individual that accepts our Code of Conduct, Covid Procautions, and Terms and Conditions at least 30 days prior to the start of the Conference. Please contact info@satsummit.io to help facilitate transfer of your ticket to a new ticket holder.
+
+Comped tickets that are provided to speakers and others may not be transferred. If you are unable to use your comped ticket, please let us know and we will make sure it is reassigned to another individual.
 
 ### Cancellation by us
 
@@ -49,15 +53,15 @@ All digital data or information provided in connection with the Conference may b
 
 ## Limitation of Liability
 
-UNDER NO CIRCUMSTANCES, AND UNDER NO LEGAL THEORY, INCLUDING NEGLIGENCE, SHALL WE OR OUR AFFILIATES, CONTRACTORS, EMPLOYEES, AGENTS, OR THIRD PARTY SUPPLIERS OR VENDORS, BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES (INCLUDING LOSS OF PROFITS, DATA, OR USE OR COST OF COVER) ARISING OUT OF OR RELATING TO THESE TERMS OR THAT RESULT FROM YOUR ATTENDANCE OF THE CONFERENCE, EVEN IF MAPBOX OR A MAPBOX AUTHORIZED REPRESENTATIVE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+UNDER NO CIRCUMSTANCES, AND UNDER NO LEGAL THEORY, INCLUDING NEGLIGENCE, SHALL WE OR OUR AFFILIATES, SPONSORS, CONTRACTORS, EMPLOYEES, AGENTS, OR THIRD PARTY SUPPLIERS OR VENDORS, BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES (INCLUDING LOSS OF PROFITS, DATA, OR USE OR COST OF COVER) ARISING OUT OF OR RELATING TO THESE TERMS OR THAT RESULT FROM YOUR ATTENDANCE OF THE CONFERENCE, EVEN IF WE OR ANY OF OUR AUTHORIZED REPRESENTATIVES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-IN NO EVENT SHALL THE TOTAL LIABILITY OF US OR OUR AFFILIATES, CONTRACTORS, EMPLOYEES, AGENTS, OR THIRD PARTY SUPPLIERS OR VENDORS TO YOU FOR ALL DAMAGES, LOSSES, AND CAUSES OF ACTION ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR ATTENDANCE OF THE CONFERENCE (WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), WARRANTY, OR OTHERWISE) EXCEED THE GREATER OF ONE HUNDRED DOLLARS ($100 USD) OR FEES PAID OR PAYABLE TO MAPBOX FOR YOUR ATTENDANCE TO THE CONFERENCE.
+IN NO EVENT SHALL THE TOTAL LIABILITY OF US OR OUR AFFILIATES, SPONSORS, CONTRACTORS, EMPLOYEES, AGENTS, OR THIRD PARTY SUPPLIERS OR VENDORS TO YOU FOR ALL DAMAGES, LOSSES, AND CAUSES OF ACTION ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR ATTENDANCE OF THE CONFERENCE (WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), WARRANTY, OR OTHERWISE) EXCEED THE GREATER OF ONE HUNDRED DOLLARS ($100 USD) OR FEES PAID OR PAYABLE TO US FOR YOUR ATTENDANCE TO THE CONFERENCE.
 
 YOU AND WE AGREE THAT ANY CAUSE OF ACTION ARISING OUT OF THESE TERMS OR RELATED TO US MUST COMMENCE WITHIN ONE (1) YEAR AFTER THE CAUSE OF ACTION ACCRUES. OTHERWISE, SUCH CAUSE OF ACTION IS PERMANENTLY BARRED.
 
 ## Indemnification
 
-You agree to defend, indemnify, and hold harmless us and our respective affiliates, directors, officers, employees, suppliers, vendors and agents from and against any and all claims or demands, including reasonable attorneys’ fees, arising out of or connected to your attendance at the Conference or your violation of these Terms, applicable law or any proprietary or privacy right of any other person attending the Conference.
+You agree to defend, indemnify, and hold harmless us and our respective affiliates, sponsors, directors, officers, employees, suppliers, vendors and agents from and against any and all claims or demands, including reasonable attorneys’ fees, arising out of or connected to your attendance at the Conference or your violation of these Terms, applicable law or any proprietary or privacy right of any other person attending the Conference.
 
 ## Force Majeure
 
@@ -65,7 +69,7 @@ In the event that we are prevented from carrying out our obligations as a result
 
 ## Governing Law; Venue
 
-These Terms are governed by and construed in accordance with the laws of California, without giving effect to any principles of conflicts of law. Any action arising out of or relating to these Terms must be filed in the state or federal courts for San Francisco County, California, USA, and you hereby consent and submit to the exclusive personal jurisdiction and venue of these courts for the purposes of litigating any such action.
+These Terms are governed by and construed in accordance with the laws of the District of Columbia, without giving effect to any principles of conflicts of law. Any action arising out of or relating to these Terms must be filed in the state or federal courts for District of Columbia, USA, and you hereby consent and submit to the exclusive personal jurisdiction and venue of these courts for the purposes of litigating any such action.
 
 ## Miscellaneous
 

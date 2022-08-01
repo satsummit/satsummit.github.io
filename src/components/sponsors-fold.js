@@ -25,6 +25,7 @@ const SponsorsFoldSelf = styled.section`
   display: flex;
   flex-flow: column;
   filter: drop-shadow(0 -8px 0 ${themeVal('color.secondary-500')});
+  margin-top: ${variableGlsp(2)};
 
   & + footer {
     border: 0;
@@ -210,7 +211,7 @@ function SponsorsFold() {
   const { sponsors } = useStaticQuery(
     graphql`
       query {
-        sponsors: allSponsor(sort: { fields: [id], order: ASC }) {
+        sponsors: allSponsor(sort: { fields: [slug], order: ASC }) {
           nodes {
             id
             title
@@ -257,6 +258,7 @@ function SponsorsFold() {
                         <GatsbyImage
                           image={image}
                           alt={`Logo for ${node.title}`}
+                          objectFit='contain'
                         />
                       </Sponsor>
                     </li>
