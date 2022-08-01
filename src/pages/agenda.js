@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
+import { format } from 'date-fns';
 
 import { listReset, visuallyHidden } from '@devseed-ui/theme-provider';
 
@@ -17,6 +18,8 @@ import {
 import Hug from '$styles/hug';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
+
+const timeFromDate = (d) => format(d, 'hh:mmaaa');
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -123,14 +126,13 @@ const days = [
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
-      allEvent(sort: { fields: [time] }) {
+      allEvent(sort: { fields: [date] }) {
         nodes {
           id
           cId
           title
           type
           date
-          time
           room
           lead
         }
@@ -180,57 +182,71 @@ const AgendaPage = ({ location }) => {
               ))}
             </TabsNav>
 
-            {days.map((d) => (
-              <TabContent
-                as={Hug}
-                grid={{ smallUp: ['content-start', 'content-end'] }}
-                key={d.day}
-                role='tabpanel'
-                aria-labelledby={`tab-sep-${d.day}`}
-                tabId={`tab-${d.day}`}
-                id={`sep-${d.day}`}
-              >
-                <TabHeader>
-                  <TabTitle>{d.label}</TabTitle>
-                </TabHeader>
-                <TimeSlot>
-                  <TimeSlotHeader>
-                    <TimeSlotTitle>8:00AM</TimeSlotTitle>
-                  </TimeSlotHeader>
-                  <TimeSlotBody>
-                    <TimeSlotEntryList>
-                      {allEvent.nodes
-                        .filter((n) => new Date(n.date).getDate() === d.day)
-                        .map((node) => (
-                          <li key={node.id}>
-                            <AgendaEntry>
-                              <AgendaEntryHeader>
-                                <AgendaEntryTitle id={node.cId}>
-                                  <a href={`#${node.cId}`}>{node.title}</a>
-                                </AgendaEntryTitle>
-                                <AgendaEntryOverline>
-                                  {node.type} <span>at {node.time}</span> in{' '}
-                                  {node.room}
-                                </AgendaEntryOverline>
-                              </AgendaEntryHeader>
-                              <AgendaEntryBody>
-                                <VarProse>
-                                  <p>{node.lead}</p>
-                                </VarProse>
-                              </AgendaEntryBody>
-                              <AgendaEntryFooter>
-                                <p>
-                                  Speakers: <a href='/'>Lorem Ipsum</a>
-                                </p>
-                              </AgendaEntryFooter>
-                            </AgendaEntry>
-                          </li>
-                        ))}
-                    </TimeSlotEntryList>
-                  </TimeSlotBody>
-                </TimeSlot>
-              </TabContent>
-            ))}
+            {days.map((d) => {
+              const dayEvents = allEvent.nodes.filter(
+                (n) => new Date(n.date).getDate() === d.day
+              );
+
+              const hourGroups = dayEvents.reduce((acc, event) => {
+                const t = timeFromDate(new Date(event.date));
+                return {
+                  ...acc,
+                  [t]: [...(acc[t] || []), event]
+                };
+              }, {});
+
+              return (
+                <TabContent
+                  as={Hug}
+                  grid={{ smallUp: ['content-start', 'content-end'] }}
+                  key={d.day}
+                  role='tabpanel'
+                  aria-labelledby={`tab-sep-${d.day}`}
+                  tabId={`tab-${d.day}`}
+                  id={`sep-${d.day}`}
+                >
+                  <TabHeader>
+                    <TabTitle>{d.label}</TabTitle>
+                  </TabHeader>
+                  {Object.entries(hourGroups).map(([time, eventsByTime]) => (
+                    <TimeSlot key={time}>
+                      <TimeSlotHeader>
+                        <TimeSlotTitle>{time}</TimeSlotTitle>
+                      </TimeSlotHeader>
+                      <TimeSlotBody>
+                        <TimeSlotEntryList>
+                          {eventsByTime.map((node) => (
+                            <li key={node.id}>
+                              <AgendaEntry>
+                                <AgendaEntryHeader>
+                                  <AgendaEntryTitle id={node.cId}>
+                                    <a href={`#${node.cId}`}>{node.title}</a>
+                                  </AgendaEntryTitle>
+                                  <AgendaEntryOverline>
+                                    {node.type} <span>at {time}</span> in{' '}
+                                    {node.room}
+                                  </AgendaEntryOverline>
+                                </AgendaEntryHeader>
+                                <AgendaEntryBody>
+                                  <VarProse>
+                                    <p>{node.lead}</p>
+                                  </VarProse>
+                                </AgendaEntryBody>
+                                <AgendaEntryFooter>
+                                  <p>
+                                    Speakers: <a href='/'>Lorem Ipsum</a>
+                                  </p>
+                                </AgendaEntryFooter>
+                              </AgendaEntry>
+                            </li>
+                          ))}
+                        </TimeSlotEntryList>
+                      </TimeSlotBody>
+                    </TimeSlot>
+                  ))}
+                </TabContent>
+              );
+            })}
           </TabbedContent>
         </TabsManager>
       </PageMainContent>
