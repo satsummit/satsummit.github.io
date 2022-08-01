@@ -1,5 +1,6 @@
 ---
 title: Breakfast burrito
+type: Social
 date: 2022-09-28
 time: '09:30'
 room: Side

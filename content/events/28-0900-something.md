@@ -1,5 +1,6 @@
 ---
 title: Something about the topic
+type: Keynote
 date: 2022-09-28
 time: '09:00'
 room: Main

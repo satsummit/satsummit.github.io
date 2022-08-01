@@ -53,6 +53,7 @@ const TabsList = styled.ul`
 
 const TabInnerContent = styled.section`
   grid-column: content-start / content-end;
+  padding: ${variableGlsp(2, 0)};
 `;
 
 const TabbedContentListLink = styled(VarHeading).attrs({

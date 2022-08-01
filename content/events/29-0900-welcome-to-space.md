@@ -1,5 +1,6 @@
 ---
 title: Welcome to space
+type: Panel
 date: 2022-09-29
 time: '09:00'
 room: Main

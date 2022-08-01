@@ -1,5 +1,6 @@
 ---
 title: State of the art or not
+type: Keynote
 date: 2022-09-28
 time: '12:00'
 room: Main
