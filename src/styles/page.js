@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
+import { media, themeVal } from '@devseed-ui/theme-provider';
+
 import { VarHeading, VarLead } from './variable-components';
 import { variableGlsp } from './variable-utils';
-
-import { media, themeVal } from '@devseed-ui/theme-provider';
 
 import Hug from './hug';
 

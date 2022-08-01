@@ -29,7 +29,7 @@ const satTranslation = keyframes`
   }
 
   50% {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
 
   100% {
@@ -78,10 +78,9 @@ const IntroHeadline = styled.div`
 
   ${CollecticonBrandSatsummit} {
     order: -2;
-    margin-bottom: ${variableGlsp(1)};
-    transform-origin: center 5rem;
-    animation: ${satTranslation} linear 32s infinite alternate-reverse;
-    animation-delay: -16s;
+    margin-bottom: ${variableGlsp()};
+    transform: rotate(45deg);
+    animation: ${satTranslation} linear 32s infinite alternate 4s;
   }
 `;
 
@@ -215,7 +214,7 @@ const BlockGroupBeta = styled(BlockGroup)`
   `}
 
   ${media.xlargeUp`
-    margin-bottom: ${variableGlsp(0)};
+    margin-bottom: 0;
   `}
 `;
 

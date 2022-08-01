@@ -25,6 +25,7 @@ const SponsorsFoldSelf = styled.section`
   display: flex;
   flex-flow: column;
   filter: drop-shadow(0 -8px 0 ${themeVal('color.secondary-500')});
+  margin-top: ${variableGlsp(2)};
 
   & + footer {
     border: 0;
