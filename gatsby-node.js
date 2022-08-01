@@ -86,7 +86,6 @@ exports.createSchemaCustomization = ({ actions }) => {
       # people
       title: String!
       date: Date!
-      time: String
       room: String
       lead: String
     }
