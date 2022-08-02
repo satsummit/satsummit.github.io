@@ -4,7 +4,12 @@ import styled from 'styled-components';
 import T from 'prop-types';
 import { format } from 'date-fns';
 
-import { listReset, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  listReset,
+  media,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 import { TabContent, TabItem, TabsManager, TabsNav } from '$components/tabs';
@@ -28,6 +33,7 @@ const TabbedContent = styled(Hug).attrs({
 `;
 
 const TabHeader = styled.header`
+  ${visuallyHidden()}
   grid-column: content-start / content-end;
 `;
 
@@ -42,29 +48,76 @@ const TimeSlot = styled(Hug).attrs({
   as: 'section',
   grid: { smallUp: ['content-start', 'content-end'] }
 })`
-  /* styled-component */
+  &:not(:first-of-type) > *:first-child {
+    margin-top: ${variableGlsp(0.75)};
+    padding-top: ${variableGlsp(2)};
+    border-top: 8px solid ${themeVal('color.secondary-500')};
+
+    ${media.mediumUp`
+      margin-top: 0;
+      padding-top: ${variableGlsp()};
+    `}
+  }
+
+  &:not(:first-of-type) > * {
+    ${media.mediumUp`
+      margin-top: 0;
+      padding-top: ${variableGlsp()};
+      border-top: 8px solid ${themeVal('color.secondary-500')};
+    `}
+  }
 `;
 
 const TimeSlotHeader = styled.header`
-  grid-column: content-start / span 3;
+  grid-column: content-start / content-end;
+
+  ${media.mediumUp`
+    grid-column: content-start / content-2;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-3;
+  `}
 `;
 
 const TimeSlotTitle = styled(VarHeading).attrs({
   as: 'h3',
-  size: 'xsmall'
+  size: 'small'
 })`
   /* styled-component */
 `;
 
-const TimeSlotBody = styled.div`
-  grid-column: content-4 / content-end;
+const TimeSlotBody = styled(Hug).attrs({
+  as: 'section',
+  grid: {
+    smallUp: ['content-start', 'content-end'],
+    mediumUp: ['content-2', 'content-end'],
+    largeUp: ['content-3', 'content-end']
+  }
+})`
+  /* styled-component */
 `;
 
-const TimeSlotEntryList = styled.ol`
+const TimeSlotEntryList = styled(Hug).attrs({
+  as: 'section',
+  grid: {
+    mediumUp: ['content-2', 'content-8'],
+    largeUp: ['content-3', 'content-11']
+  }
+})`
   ${listReset()};
   display: flex;
   flex-flow: column nowrap;
   gap: ${variableGlsp()};
+
+  > li:not(:first-child) {
+    padding-top: ${variableGlsp()};
+    border-top: 4px solid ${themeVal('color.secondary-500')};
+
+    ${media.mediumUp`
+      border-width: 8px;
+    `}
+  }
 `;
 
 const AgendaEntry = styled.article`
@@ -80,19 +133,33 @@ const AgendaEntryHeader = styled.header`
 
 const AgendaEntryTitle = styled(VarHeading).attrs({
   as: 'h4',
-  size: 'large'
+  size: 'xlarge'
 })`
-  /* styled-component */
+  a,
+  a:visited {
+    text-decoration: none;
+  }
 `;
 
 const AgendaEntryOverline = styled(VarHeading).attrs({
   as: 'h3',
-  size: 'xsmall'
+  size: 'small'
 })`
   order: -1;
 
   span {
-    ${visuallyHidden()}
+    font-size: 0;
+
+    &::before {
+      content: '•';
+      font-size: 1.25rem;
+      margin: 0 0.25rem;
+
+      ${media.mediumUp`
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+      `}
+    }
   }
 `;
 
@@ -101,7 +168,31 @@ const AgendaEntryBody = styled.div`
 `;
 
 const AgendaEntryFooter = styled.footer`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp(0.125)};
+`;
+
+const AgendaEntryFooterTitle = styled(VarHeading).attrs({
+  as: 'h5',
+  size: 'xsmall'
+})`
   /* styled-component */
+`;
+
+const AgendaEntryFolksList = styled.ol`
+  ${listReset()};
+  display: flex;
+  flex-flow: row wrap;
+  gap: ${variableGlsp(0.125)};
+
+  li:not(:last-child)::after {
+    content: ', ';
+  }
+
+  > li:nth-last-of-type(2)::after {
+    content: ' & ';
+  }
 `;
 
 const days = [
@@ -223,7 +314,8 @@ const AgendaPage = ({ location }) => {
                                     <a href={`#${node.cId}`}>{node.title}</a>
                                   </AgendaEntryTitle>
                                   <AgendaEntryOverline>
-                                    {node.type} <span>at {time}</span> in{' '}
+                                    {node.type}
+                                    <span> at {time} in </span>
                                     {node.room}
                                   </AgendaEntryOverline>
                                 </AgendaEntryHeader>
@@ -233,9 +325,27 @@ const AgendaPage = ({ location }) => {
                                   </VarProse>
                                 </AgendaEntryBody>
                                 <AgendaEntryFooter>
-                                  <p>
-                                    Speakers: <a href='/'>Lorem Ipsum</a>
-                                  </p>
+                                  <AgendaEntryFooterTitle>
+                                    With
+                                  </AgendaEntryFooterTitle>
+                                  <AgendaEntryFolksList>
+                                    <li>
+                                      <a href='/'>
+                                        <strong>Lorem Ipsum</strong>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <strong>Consecture discipli</strong>
+                                    </li>
+                                    <li>
+                                      <strong>Dolor sit</strong>
+                                    </li>
+                                    <li>
+                                      <a href='/'>
+                                        <strong>Lorem Ipsum</strong>
+                                      </a>
+                                    </li>
+                                  </AgendaEntryFolksList>
                                 </AgendaEntryFooter>
                               </AgendaEntry>
                             </li>
