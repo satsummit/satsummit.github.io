@@ -37,7 +37,7 @@ exports.onCreateNode = ({
 
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent);
-    const slug = createFilePath({ node, getNode });
+    const slug = fileNode.name;
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
     const nodeProps = {
@@ -61,9 +61,16 @@ exports.onCreateNode = ({
 };
 
 exports.createPages = async function ({ actions, graphql }) {
-  const { data } = await graphql(`
+  const {
+    data: { allLetter, allPeople }
+  } = await graphql(`
     query {
-      allLetter(filter: { slug: { ne: "/tickets/" } }) {
+      allLetter(filter: { slug: { ne: "tickets" } }) {
+        nodes {
+          slug
+        }
+      }
+      allPeople {
         nodes {
           slug
         }
@@ -71,11 +78,20 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
-  data.allLetter.nodes.forEach((node) => {
+  allLetter.nodes.forEach((node) => {
     const { slug } = node;
     actions.createPage({
-      path: slug,
+      path: `/${slug}`,
       component: require.resolve(`./src/templates/letter-page.js`),
+      context: { slug }
+    });
+  });
+
+  allPeople.nodes.forEach((node) => {
+    const { slug } = node;
+    actions.createPage({
+      path: `/speakers/${slug}`,
+      component: require.resolve(`./src/templates/people-page.js`),
       context: { slug }
     });
   });
@@ -84,6 +100,15 @@ exports.createPages = async function ({ actions, graphql }) {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
+    type People implements Node {
+      title: String!
+      company: String!
+      role: String!
+      twitter: String
+      avatar: File @fileByRelativePath
+      pronouns: String
+    }
+
     type Event implements Node {
       # type
       # people

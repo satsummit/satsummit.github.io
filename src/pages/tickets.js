@@ -27,7 +27,7 @@ const TicketsWidget = styled.div`
 const TicketsPage = () => {
   const { tickets } = useStaticQuery(graphql`
     query {
-      tickets: letter(slug: { in: "/tickets/" }) {
+      tickets: letter(slug: { in: "tickets" }) {
         parent {
           ... on MarkdownRemark {
             html
