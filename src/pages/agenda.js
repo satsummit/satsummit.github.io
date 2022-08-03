@@ -217,7 +217,7 @@ const days = [
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
-      allEvent(sort: { fields: [date] }) {
+      allEvent(sort: { fields: [date, slug] }) {
         nodes {
           id
           cId
