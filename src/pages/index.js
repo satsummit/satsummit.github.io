@@ -499,14 +499,13 @@ function HealthProtocolsCallout() {
       <VarProse>
         <h2>Health Protocols</h2>
         <p>
-          We want everyone to have a safe and enjoyable conference, and highly
-          recommend COVID-19 vaccination or a negative test before attending{' '}
-          <strong>SatSummit</strong>.
+          We want everyone to have a safe and enjoyable conference. We have put
+          guidance in place which you can review.
         </p>
         <p>
-          We will follow any Washington, DC protocols that are in effect at the
-          time, which can be followed closely on this website. We will also
-          provide indoor face coverings and hand sanitizer.
+          We will follow CDC guidance and any Washington, DC protocols that are
+          in effect at the time, and we will update or modify our health
+          protocols accordingly.
         </p>
       </VarProse>
       <div>
