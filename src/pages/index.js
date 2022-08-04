@@ -388,21 +388,8 @@ const IndexPage = () => {
                 </p>
               </VarProse>
             </Block>
-            <Block>
-              <VarProse>
-                <h2>Health Protocols</h2>
-                <p>
-                  We want everyone to have a safe and enjoyable conference, and
-                  highly recommend COVID-19 vaccination or a negative test
-                  before attending <strong>SatSummit</strong>.
-                </p>
-                <p>
-                  We will follow any Washington, DC protocols that are in effect
-                  at the time, which can be followed closely on this website. We
-                  will also provide indoor face coverings and hand sanitizer.
-                </p>
-              </VarProse>
-            </Block>
+
+            <HealthProtocolsCallout />
           </BlockGroupBeta>
 
           <FigureA>
@@ -498,6 +485,38 @@ function TicketsCallout() {
           fitting='relaxed'
         >
           Get tickets <CollecticonArrowRight />
+        </Button>
+      </div>
+    </Block>
+  );
+}
+
+function HealthProtocolsCallout() {
+  const { isLargeUp } = useMediaQuery();
+
+  return (
+    <Block>
+      <VarProse>
+        <h2>Health Protocols</h2>
+        <p>
+          We want everyone to have a safe and enjoyable conference. We have put
+          guidance in place which you can review.
+        </p>
+        <p>
+          We will follow CDC guidance and any Washington, DC protocols that are
+          in effect at the time, and we will update or modify our health
+          protocols accordingly.
+        </p>
+      </VarProse>
+      <div>
+        <Button
+          forwardedAs={Link}
+          variation='base-fill'
+          to='/health-protocols'
+          size={isLargeUp ? 'xlarge' : 'large'}
+          fitting='relaxed'
+        >
+          Learn more <CollecticonArrowRight />
         </Button>
       </div>
     </Block>

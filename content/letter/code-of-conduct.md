@@ -26,6 +26,7 @@ Our aim in hosting events is to build community. To that end, our goal is to cre
 - Exercise consideration and respect in your speech and actions;
 - Attempt collaboration before conflict;
 - Refrain from demeaning, discriminatory, or harassing behavior and speech;
+- Follow **[Health Protocols](/health-protocols)** guidelines;
 - Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this **Code of Conduct**, even if they seem inconsequential.
 
 Conference participants who violate these rules may be sanctioned or expelled from the event/conference without a refund at the discretion of the organizers. Participants asked to stop any harassing behavior are expected to comply immediately.

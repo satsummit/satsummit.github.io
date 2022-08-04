@@ -75,7 +75,7 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
-  margin-top: ${variableGlsp(-2.875)};
+  margin-top: ${variableGlsp(-5)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
@@ -178,6 +178,11 @@ function PageFooter() {
           <li>
             <FooterMenuLink as={Link} to='/code-of-conduct'>
               <CollecticonArrowRight /> Code of Conduct
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/health-protocols'>
+              <CollecticonArrowRight /> Health Protocols
             </FooterMenuLink>
           </li>
         </FooterMenu>
