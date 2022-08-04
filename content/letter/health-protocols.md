@@ -1,8 +1,7 @@
 ---
 title: Health Protocols
 ---
-**HEALTH PROTOCOLS for COVID-19:**
-==================================
+## Health Protocols for Covid-19
 
 We're excited to welcome you to SatSummit 2022 in-person, but realize the COVID-19 pandemic is still an important consideration for many of you. We ask if you attend SatSummit 2022 that you help us create the safest environment we can as we reacquaint ourselves with in-person meetings.
 
@@ -49,7 +48,7 @@ We **strongly encourage** the following:
     -   We will have a limited supply of surgical masks available.
 
 
-**Onsite at SatSummit:**  
+## Onsite at SatSummit
 
 -   Provide hand washing stations with soap and water and hand sanitizer 
 -   Provide hand washing instructions at handwashing stations 
@@ -58,14 +57,10 @@ We **strongly encourage** the following:
 
 As the situation evolves, so will our approach to keeping you safe. We'll follow [CDC Guidance](https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fyour-health%2Fcovid-by-county.html&data=05%7C01%7CCourtney.Goss%40dev.global%7Cf52afe982984444ec73508da70cb9625%7C84cf7db47b6243258968901994248aa9%7C1%7C0%7C637946316936569703%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=v%2Ftc9Lizg%2BBNe4Cmoiet9FW1oeuwZL8MwkwKobjAmKY%3D&reserved=0) for Washington, DC protocols that are in effect at the time, which can be followed closely on this website. Please be aware that we reserve the right to modify these guidelines in the future based on best-available data and public health recommendations or policies.
 
-**Resources:**
+## Resources
 
-[How to Protect Yourself & Others](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html)  (CDC)
-
-[MyCOVIDRisk App](https://mycovidrisk.app/)[](https://mycovidrisk.app/)(Center for Digital Health, Medical School, Brown University)
-
-[COVID Travel Guidance](https://www.cdc.gov/coronavirus/2019-ncov/travelers/index.html)  (CDC)
-
-[Science Brief: Community Use of Masks to Control the Spread of SARS-CoV-2](https://www.cdc.gov/coronavirus/2019-ncov/science/science-briefs/masking-science-sars-cov2.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fmore%2Fmasking-science-sars-cov2.html)  (CDC)
-
-[Use & Care of Face Coverings](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/about-face-coverings.html)  (CDC)
+-   **[How to Protect Yourself & Others](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html)** (CDC)
+-   **[MyCOVIDRisk App](https://mycovidrisk.app/)[](https://mycovidrisk.app/)** (Center for Digital Health, Medical School, Brown University)
+-   **[COVID Travel Guidance](https://www.cdc.gov/coronavirus/2019-ncov/travelers/index.html)** (CDC)
+-   **[Science Brief: Community Use of Masks to Control the Spread of SARS-CoV-2](https://www.cdc.gov/coronavirus/2019-ncov/science/science-briefs/masking-science-sars-cov2.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fmore%2Fmasking-science-sars-cov2.html)** (CDC)
+-   **[Use & Care of Face Coverings](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/about-face-coverings.html)** (CDC)
