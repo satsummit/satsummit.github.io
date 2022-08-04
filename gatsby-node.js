@@ -46,6 +46,13 @@ exports.onCreateNode = ({
       slug
     };
 
+    // Add a specific field to the Event content type.
+    // Same as people but without the relationship. This is needed to get the
+    // names of people that don't have a page.
+    if (nodeType === 'Event') {
+      nodeProps.peopleRaw = nodeProps.people;
+    }
+
     const newNode = {
       ...nodeProps,
       id: createNodeId(`${node.id} >>> ${nodeType}`),
@@ -97,16 +104,16 @@ exports.createPages = async function ({ actions, graphql }) {
   });
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
-  const typeDefs = `
-    type People implements Node {
-      title: String!
-      company: String!
-      role: String!
-      twitter: String
-      avatar: File @fileByRelativePath
-      pronouns: String
+  const typeDefs = [
+    `
+    type EventPeople {
+      hosts: [People] @link(by: "title")
+      moderators: [People] @link(by: "title")
+      panelists: [People] @link(by: "title")
+      facilitators: [People] @link(by: "title")
+      speakers: [People] @link(by: "title")
     }
 
     type Event implements Node {
@@ -116,7 +123,78 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date!
       room: String
       lead: String
+      people: EventPeople
+
+      # peopleRaw - same as people but without the relationship. This is needed
+      # to get the names of people that don't have a page.
     }
-  `;
+
+    type RoleInEvent {
+      role: String!
+      event: Event
+    }
+  `,
+    schema.buildObjectType({
+      name: 'People',
+      fields: {
+        title: 'String!',
+        company: 'String!',
+        role: 'String!',
+        twitter: 'String',
+        avatar: {
+          type: 'File',
+          extensions: {
+            fileByRelativePath: {}
+          }
+        },
+        pronouns: 'String',
+
+        // Foreign relationship between people and events. This is not a
+        // straightforward relation because we need to know what is the role
+        // that the person plays in the event.
+        events: {
+          type: '[RoleInEvent]',
+          resolve: async (source, args, context, info) => {
+            const results = await Promise.all([
+              searchEventForRole('hosts', source.title, context),
+              searchEventForRole('moderators', source.title, context),
+              searchEventForRole('panelists', source.title, context),
+              searchEventForRole('facilitators', source.title, context),
+              searchEventForRole('speakers', source.title, context)
+            ]);
+
+            return [...results.flat()].sort((a, b) => {
+              const dateA = a.event.date;
+              const dateB = b.event.date;
+
+              return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+            });
+          }
+        }
+      },
+      interfaces: ['Node']
+    })
+  ];
+
   createTypes(typeDefs);
+};
+
+/**
+ * Search for all the Events where a given person (name), plays the given role
+ */
+const searchEventForRole = async (role, name, context) => {
+  const { entries } = await context.nodeModel.findAll({
+    type: 'Event',
+    query: {
+      filter: {
+        people: {
+          [role]: {
+            elemMatch: { title: { eq: name } }
+          }
+        }
+      }
+    }
+  });
+
+  return Array.from(entries).map((event) => ({ role, event }));
 };

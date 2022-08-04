@@ -13,7 +13,7 @@ import {
 
 import Layout from '$components/layout';
 import { TabContent, TabItem, TabsManager, TabsNav } from '$components/tabs';
-
+import { EventPeople } from '$components/event-people';
 import {
   PageMainContent,
   PageMainHero,
@@ -180,21 +180,6 @@ const AgendaEntryFooterTitle = styled(VarHeading).attrs({
   /* styled-component */
 `;
 
-const AgendaEntryFolksList = styled.ol`
-  ${listReset()};
-  display: flex;
-  flex-flow: row wrap;
-  gap: ${variableGlsp(0.125)};
-
-  li:not(:last-child)::after {
-    content: ', ';
-  }
-
-  > li:nth-last-of-type(2)::after {
-    content: ' & ';
-  }
-`;
-
 const days = [
   {
     day: 28,
@@ -214,6 +199,14 @@ const days = [
   }
 ];
 
+const peopleCategories = [
+  'Hosts',
+  'Moderators',
+  'Panelists',
+  'Facilitators',
+  'Speakers'
+];
+
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
@@ -226,10 +219,43 @@ const AgendaPage = ({ location }) => {
           date
           room
           lead
+          people {
+            hosts {
+              slug
+              title
+            }
+            moderators {
+              slug
+              title
+            }
+            panelists {
+              slug
+              title
+            }
+            facilitators {
+              slug
+              title
+            }
+            speakers {
+              slug
+              title
+            }
+          }
+          peopleRaw {
+            hosts
+            moderators
+            panelists
+            facilitators
+            speakers
+          }
         }
       }
     }
   `);
+  console.log(
+    '🚀 ~ file: agenda.js ~ line 219 ~ AgendaPage ~ allEvent',
+    allEvent
+  );
 
   const hashActiveEvent = useMemo(() => {
     const cId = location.hash.slice(1);
@@ -325,27 +351,23 @@ const AgendaPage = ({ location }) => {
                                   </VarProse>
                                 </AgendaEntryBody>
                                 <AgendaEntryFooter>
-                                  <AgendaEntryFooterTitle>
-                                    With
-                                  </AgendaEntryFooterTitle>
-                                  <AgendaEntryFolksList>
-                                    <li>
-                                      <a href='/'>
-                                        <strong>Lorem Ipsum</strong>
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <strong>Consecture discipli</strong>
-                                    </li>
-                                    <li>
-                                      <strong>Dolor sit</strong>
-                                    </li>
-                                    <li>
-                                      <a href='/'>
-                                        <strong>Lorem Ipsum</strong>
-                                      </a>
-                                    </li>
-                                  </AgendaEntryFolksList>
+                                  {peopleCategories.map((cat) => {
+                                    const key = cat.toLowerCase();
+
+                                    if (!node.people?.[key]) return null;
+
+                                    return (
+                                      <React.Fragment key={key}>
+                                        <AgendaEntryFooterTitle>
+                                          {cat}
+                                        </AgendaEntryFooterTitle>
+                                        <EventPeople
+                                          list={node.people[key]}
+                                          raw={node.peopleRaw[key]}
+                                        />
+                                      </React.Fragment>
+                                    );
+                                  })}
                                 </AgendaEntryFooter>
                               </AgendaEntry>
                             </li>
