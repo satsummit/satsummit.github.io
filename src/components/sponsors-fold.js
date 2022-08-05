@@ -41,8 +41,12 @@ const SponsorsFoldInner = styled(Hug).attrs({
   padding: ${variableGlsp(22, 0, 2, 0)};
 
   ${media.largeUp`
-    padding: ${variableGlsp(8, 0, 2, 0)};
+    padding-top: ${variableGlsp(14)};
     clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
+  `}
+
+  ${media.xlargeUp`
+    padding-top: ${variableGlsp(12)};
   `}
 `;
 
@@ -78,13 +82,17 @@ const SponsorsOutro = styled(Hug).attrs({
   `}
 
   ${media.largeUp`
-    margin: ${variableGlsp(0, 0, -10, 0)};
+    margin: ${variableGlsp(0, 0, -16, 0)};
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(-14)};
   `}
 `;
 
 const SponsorsOutroInner = withReveal(
   styled.div`
-    padding: ${variableGlsp(2, 2, 2, 2)};
+    padding: ${variableGlsp(2)};
     display: flex;
     flex-direction: column;
     gap: ${variableGlsp()};
@@ -205,7 +213,7 @@ const SponsorTitle = styled.h4`
   ${visuallyHidden()};
 `;
 
-const sponsorsGroups = ['Hosts', 'Gold', 'Silver', 'Bronze'];
+const sponsorsGroups = ['Gold', 'Silver', 'Bronze', 'Hosts'];
 
 function SponsorsFold() {
   const { sponsors } = useStaticQuery(
