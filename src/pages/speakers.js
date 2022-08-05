@@ -81,6 +81,8 @@ const SpeakersPage = () => {
               gatsbyImageData(width: 400, placeholder: BLURRED)
             }
           }
+          role
+          company
         }
       }
     }
@@ -103,6 +105,9 @@ const SpeakersPage = () => {
                   <SpeakerLink to={`/speakers/${speaker.slug}`}>
                     <SpeakerHeader>
                       <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                      <span>
+                        {speaker.role}, {speaker.company}
+                      </span>
                     </SpeakerHeader>
                     <SpeakerFigure>
                       <GatsbyImage

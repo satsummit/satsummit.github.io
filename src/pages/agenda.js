@@ -322,7 +322,9 @@ const AgendaPage = ({ location }) => {
                                   {peopleCategories.map((cat) => {
                                     const key = cat.toLowerCase();
 
-                                    if (!node.people?.[key]?.length) return null;
+                                    if (!node.people?.[key]?.length) {
+                                      return null;
+                                    }
 
                                     return (
                                       <React.Fragment key={key}>
