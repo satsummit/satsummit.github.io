@@ -223,18 +223,17 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 const searchEventForRole = async (role, name, context) => {
   const { entries } = await context.nodeModel.findAll({
     type: 'Event',
-    query: {
-      filter: {
-        people: {
-          [role]: {
-            elemMatch: { title: { eq: name } }
-          }
-        }
-      }
-    }
+    query: {},
+    sort: { fields: ['date'], order: ['ASC'] }
   });
 
-  return Array.from(entries).map((event) => ({ role, event }));
+  // Since people on the Event type is a Union it is not possible to filter on
+  // it. Doing it manually.
+  const filtered = Array.from(entries).filter((event) =>
+    event.people?.[role]?.includes(name)
+  );
+
+  return filtered.map((event) => ({ role, event }));
 };
 
 /**

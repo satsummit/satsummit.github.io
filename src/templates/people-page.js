@@ -1,6 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '$components/layout';
 import {
@@ -14,7 +14,7 @@ import { VarProse } from '$styles/variable-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const People = ({ data }) => {
-  const { parent, title, avatar, role, company, twitter, pronouns } =
+  const { parent, title, avatar, role, company, twitter, pronouns, events } =
     data.people;
 
   return (
@@ -39,6 +39,25 @@ const People = ({ data }) => {
             />
           </VarProse>
           <VarProse dangerouslySetInnerHTML={{ __html: parent.html }} />
+          <VarProse>
+            <h2>Participating</h2>
+            <ul>
+              {events.map(({ role, event }) => (
+                <li key={event.slug}>
+                  <h3>
+                    <Link to={`/agenda#${event.cId}`}>{event.title}</Link>
+                  </h3>
+                  <span>As: {role}</span>
+                  <p>
+                    {event.type}
+                    <span> at {event.date} in </span>
+                    {event.room}
+                  </p>
+                  <p>{event.lead}</p>
+                </li>
+              ))}
+            </ul>
+          </VarProse>
         </BlockAlpha>
       </PageMainContent>
     </Layout>
@@ -68,6 +87,18 @@ export const query = graphql`
       avatar {
         childImageSharp {
           gatsbyImageData(width: 400, placeholder: BLURRED)
+        }
+      }
+      events {
+        role
+        event {
+          cId
+          title
+          lead
+          slug
+          type
+          room
+          date
         }
       }
     }

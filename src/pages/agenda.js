@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-import { format } from 'date-fns';
 
 import {
   listReset,
@@ -23,8 +22,7 @@ import {
 import Hug from '$styles/hug';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
-
-const timeFromDate = (d) => format(d, 'hh:mmaaa');
+import { timeFromDate } from '$utils/date';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
