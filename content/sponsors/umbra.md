@@ -1,6 +1,6 @@
 ---
 title: Umbra
 url: https://umbra.space/
-image: ./media/devglobal-logo--hor.png
+image: ./media/umbra.png
 group: Bronze
 ---

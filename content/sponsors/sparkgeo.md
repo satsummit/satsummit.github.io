@@ -1,6 +1,6 @@
 ---
 title: SparkGeo
 url: https://sparkgeo.com/
-image: ./media/devglobal-logo--hor.png
+image: ./media/sparkgeo-logo-white.png
 group: Silver
 ---

@@ -1,6 +1,6 @@
 ---
 title: Radiant Earth Foundation
 url: https://www.radiant.earth/
-image: ./media/devglobal-logo--hor.png
+image: ./media/radiant-logo.png
 group: Bronze
 ---
