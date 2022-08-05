@@ -1,5 +1,3 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-
 exports.onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
@@ -45,13 +43,6 @@ exports.onCreateNode = ({
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
-
-    // Add a specific field to the Event content type.
-    // Same as people but without the relationship. This is needed to get the
-    // names of people that don't have a page.
-    if (nodeType === 'Event') {
-      nodeProps.peopleRaw = nodeProps.people;
-    }
 
     const newNode = {
       ...nodeProps,
@@ -108,14 +99,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `
-    type EventPeople {
-      hosts: [People] @link(by: "title")
-      moderators: [People] @link(by: "title")
-      panelists: [People] @link(by: "title")
-      facilitators: [People] @link(by: "title")
-      speakers: [People] @link(by: "title")
-    }
-
     type Event implements Node {
       # type
       # people
@@ -124,9 +107,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       room: String
       lead: String
       people: EventPeople
-
-      # peopleRaw - same as people but without the relationship. This is needed
-      # to get the names of people that don't have a page.
     }
 
     type RoleInEvent {
@@ -173,6 +153,64 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         }
       },
       interfaces: ['Node']
+    }),
+
+    // Each event has people associated to it in one of the following roles:
+    // hosts, moderators, panelists, facilitators, speakers.
+    // Each one of these is a list of people names:
+    // people:
+    //   hosts:
+    //     - name 1
+    //     - name 2
+    //
+    // The names are then used to establish a relationship with the People
+    // content-type to be able to link to a person's page.
+    // However, there may be names for which there is no page. In these cases we
+    // want to display the name as well, but not link it to anywhere. By default
+    // Gatsby will return null when a relationship is not found.
+
+    // The ideal solution would be to return a People if found, and leave the
+    // name string untouched if the relationship is not found. This would
+    // require the return type to be a union between People and String which is
+    // not possible because graphQl doesn't allow unions with Scalar types (like
+    // String, Boolean).
+
+    // The alternative is to return a union between 2 interfaces:
+    // - People for when a relationship if found;
+    // - VoidPeople when it is just a name with no relationship.
+
+    // The VoidPeople is just defined by a `isVoid` field and the name of the
+    // person under `title`.
+    schema.buildObjectType({
+      name: 'VoidPeople',
+      fields: {
+        title: 'String!',
+        isVoid: {
+          type: 'Boolean',
+          resolve: () => true
+        }
+      }
+    }),
+
+    // The union is resolved taking the `isVoid` property into account.
+    schema.buildUnionType({
+      name: 'PeopleOrVoid',
+      types: ['People', 'VoidPeople'],
+      resolveType: (value) => (value?.isVoid ? 'VoidPeople' : 'People')
+    }),
+
+    // The resolver is the same for each people role. For each entry, search for
+    // a relationship. Return it if found, otherwise return the structure of a
+    // VoidPeople.
+    schema.buildObjectType({
+      name: 'EventPeople',
+      fields: {
+        hosts: eventPeopleResolver('hosts'),
+        moderators: eventPeopleResolver('moderators'),
+        panelists: eventPeopleResolver('panelists'),
+        facilitators: eventPeopleResolver('facilitators'),
+        speakers: eventPeopleResolver('speakers')
+      }
     })
   ];
 
@@ -197,4 +235,35 @@ const searchEventForRole = async (role, name, context) => {
   });
 
   return Array.from(entries).map((event) => ({ role, event }));
+};
+
+/**
+ * For each name, search for a corresponding People object. Return it if found,
+ * otherwise map the missing value to a VoidPeople.
+ */
+const eventPeopleResolver = (role) => {
+  return {
+    type: '[PeopleOrVoid]',
+    resolve: async (source, args, context, info) => {
+      if (!source[role]) return [];
+
+      const { entries } = await context.nodeModel.findAll({
+        type: 'People',
+        query: {
+          filter: { title: { in: source[role] } }
+        }
+      });
+
+      const queryResult = Array.from(entries);
+
+      return source[role].map((title) => {
+        return (
+          queryResult.find((obj) => obj.title === title) || {
+            title,
+            isVoid: true
+          }
+        );
+      });
+    }
+  };
 };

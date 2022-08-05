@@ -28,21 +28,14 @@ const toArray = (v) => {
 
 export function EventPeople(props) {
   const list = useMemo(() => toArray(props.list), [props.list]);
-  const raw = useMemo(() => toArray(props.raw), [props.raw]);
 
-  // List contains the list of people that have a relationship with the People
-  // content type. For people that don't have a relationship (i.e. no .md file),
-  // the value will be null. In this case we look at the raw value (before a
-  // relationship is established) and render the name as it was added.
-  // We check this using the index because the order is the same.
   return (
     <AgendaEntryFolksList>
-      {list.map((person, idx) => {
-        if (!person) {
-          const personNoRel = raw[idx];
+      {list.map((person) => {
+        if (person.isVoid) {
           return (
-            <li key={personNoRel}>
-              <strong>{personNoRel}</strong>
+            <li key={person.title}>
+              <strong>{person.title}</strong>
             </li>
           );
         } else {
@@ -61,10 +54,15 @@ export function EventPeople(props) {
 
 EventPeople.propTypes = {
   list: T.arrayOf(
-    T.shape({
-      title: T.string,
-      slug: T.string
-    })
-  ),
-  raw: T.oneOfType(T.string, T.arrayOf(T.string))
+    T.oneOfType([
+      T.shape({
+        title: T.string,
+        slug: T.string
+      }),
+      T.shape({
+        title: T.string,
+        isVoid: T.boolean
+      })
+    ])
+  )
 };

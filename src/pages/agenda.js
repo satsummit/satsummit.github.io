@@ -220,42 +220,12 @@ const AgendaPage = ({ location }) => {
           room
           lead
           people {
-            hosts {
-              slug
-              title
-            }
-            moderators {
-              slug
-              title
-            }
-            panelists {
-              slug
-              title
-            }
-            facilitators {
-              slug
-              title
-            }
-            speakers {
-              slug
-              title
-            }
-          }
-          peopleRaw {
-            hosts
-            moderators
-            panelists
-            facilitators
-            speakers
+            ...AllEventPeople
           }
         }
       }
     }
   `);
-  console.log(
-    '🚀 ~ file: agenda.js ~ line 219 ~ AgendaPage ~ allEvent',
-    allEvent
-  );
 
   const hashActiveEvent = useMemo(() => {
     const cId = location.hash.slice(1);
@@ -354,17 +324,14 @@ const AgendaPage = ({ location }) => {
                                   {peopleCategories.map((cat) => {
                                     const key = cat.toLowerCase();
 
-                                    if (!node.people?.[key]) return null;
+                                    if (!node.people?.[key]?.length) return null;
 
                                     return (
                                       <React.Fragment key={key}>
                                         <AgendaEntryFooterTitle>
                                           {cat}
                                         </AgendaEntryFooterTitle>
-                                        <EventPeople
-                                          list={node.people[key]}
-                                          raw={node.peopleRaw[key]}
-                                        />
+                                        <EventPeople list={node.people[key]} />
                                       </React.Fragment>
                                     );
                                   })}
