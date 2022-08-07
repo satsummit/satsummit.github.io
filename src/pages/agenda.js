@@ -23,6 +23,7 @@ import Hug from '$styles/hug';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 import { timeFromDate } from '$utils/date';
+import { Heading } from '@devseed-ui/typography';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -121,7 +122,7 @@ const TimeSlotEntryList = styled(Hug).attrs({
 const AgendaEntry = styled.article`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp(0.5)};
+  gap: ${variableGlsp()};
 `;
 
 const AgendaEntryHeader = styled.header`
@@ -167,12 +168,18 @@ const AgendaEntryBody = styled.div`
 
 const AgendaEntryFooter = styled.footer`
   display: flex;
-  flex-flow: column nowrap;
-  gap: ${variableGlsp(0.125)};
+  flex-flow: row wrap;
+  gap: ${variableGlsp(0.5)};
 `;
 
-const AgendaEntryFooterTitle = styled(VarHeading).attrs({
-  as: 'h5',
+const AgendaEntryParticipants = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  gap: ${variableGlsp(0.25)};
+`;
+
+const AgendaEntryParticipantsTitle = styled(Heading).attrs({
+  as: 'h4',
   size: 'xsmall'
 })`
   /* styled-component */
@@ -327,12 +334,12 @@ const AgendaPage = ({ location }) => {
                                     }
 
                                     return (
-                                      <React.Fragment key={key}>
-                                        <AgendaEntryFooterTitle>
+                                      <AgendaEntryParticipants key={key}>
+                                        <AgendaEntryParticipantsTitle>
                                           {cat}
-                                        </AgendaEntryFooterTitle>
+                                        </AgendaEntryParticipantsTitle>
                                         <EventPeople list={node.people[key]} />
-                                      </React.Fragment>
+                                      </AgendaEntryParticipants>
                                     );
                                   })}
                                 </AgendaEntryFooter>
