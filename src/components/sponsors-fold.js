@@ -223,6 +223,7 @@ function SponsorsFold() {
           nodes {
             id
             title
+            slug
             url
             group
             image {
@@ -271,6 +272,7 @@ function SponsorsFold() {
                         <SponsorTitle>{node.title}</SponsorTitle>
                         <GatsbyImage
                           image={image}
+                          className={`sponsor-${node.slug}`}
                           alt={`Logo for ${node.title}`}
                         />
                       </Sponsor>
