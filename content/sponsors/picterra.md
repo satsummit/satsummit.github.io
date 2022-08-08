@@ -1,6 +1,6 @@
 ---
 title: Picterra
 url: https://picterra.ch/
-image: ./media/devglobal-logo--hor.png
+image: ./media/Picterra_Primary_Light_logo_NoMargins.png
 group: Silver
 ---
