@@ -41,8 +41,12 @@ const SponsorsFoldInner = styled(Hug).attrs({
   padding: ${variableGlsp(22, 0, 2, 0)};
 
   ${media.largeUp`
-    padding: ${variableGlsp(8, 0, 2, 0)};
+    padding-top: ${variableGlsp(14)};
     clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
+  `}
+
+  ${media.xlargeUp`
+    padding-top: ${variableGlsp(12)};
   `}
 `;
 
@@ -78,13 +82,17 @@ const SponsorsOutro = styled(Hug).attrs({
   `}
 
   ${media.largeUp`
-    margin: ${variableGlsp(0, 0, -10, 0)};
+    margin: ${variableGlsp(0, 0, -16, 0)};
+  `}
+
+  ${media.xlargeUp`
+    margin-bottom: ${variableGlsp(-14)};
   `}
 `;
 
 const SponsorsOutroInner = withReveal(
   styled.div`
-    padding: ${variableGlsp(2, 2, 2, 2)};
+    padding: ${variableGlsp(2)};
     display: flex;
     flex-direction: column;
     gap: ${variableGlsp()};
@@ -199,13 +207,38 @@ const Sponsor = styled.a`
       transition: opacity 0.24s ease-in-out;
     }
   }
+
+  /* Adjust image optical size */
+  .sponsor-planet {
+    transform: scale(1.2);
+  }
+
+  .sponsor-sparkgeo {
+    transform: scale(1.04);
+  }
+
+  .sponsor-azavea {
+    transform: scale(0.96);
+  }
+
+  .sponsor-umbra {
+    transform: scale(0.72);
+  }
+
+  .sponsor-cyient {
+    transform: scale(0.8);
+  }
+
+  .sponsor-development-seed {
+    transform: scale(0.9);
+  }
 `;
 
 const SponsorTitle = styled.h4`
   ${visuallyHidden()};
 `;
 
-const sponsorsGroups = ['Hosts', 'Gold', 'Silver', 'Bronze'];
+const sponsorsGroups = ['Gold', 'Silver', 'Bronze', 'Hosts'];
 
 function SponsorsFold() {
   const { sponsors } = useStaticQuery(
@@ -215,11 +248,18 @@ function SponsorsFold() {
           nodes {
             id
             title
+            slug
             url
             group
             image {
               childImageSharp {
-                gatsbyImageData(width: 200, placeholder: BLURRED)
+                gatsbyImageData(
+                  height: 56
+                  placeholder: BLURRED
+                  transformOptions: { fit: CONTAIN }
+                  formats: PNG
+                  backgroundColor: "#FFFFFF"
+                )
               }
             }
           }
@@ -257,8 +297,8 @@ function SponsorsFold() {
                         <SponsorTitle>{node.title}</SponsorTitle>
                         <GatsbyImage
                           image={image}
+                          className={`sponsor-${node.slug}`}
                           alt={`Logo for ${node.title}`}
-                          objectFit='contain'
                         />
                       </Sponsor>
                     </li>
