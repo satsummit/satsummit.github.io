@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { listReset, themeVal } from '@devseed-ui/theme-provider';
+import { listReset, media, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -24,9 +24,23 @@ const SpeakersBlock = styled(Hug)`
 const SpeakersList = styled.ol`
   ${listReset()};
   grid-column: content-start / content-end;
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
   gap: ${variableGlsp()};
+  grid-template-columns: repeat(1, 1fr);
+  background: ${themeVal('color.surface')};
+  margin-top: calc(8px - ${variableGlsp(2.875)});
+
+  ${media.smallUp`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${media.mediumUp`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+
+  ${media.xlargeUp`
+    grid-template-columns: repeat(4, 1fr);
+  `}
 `;
 
 const Speaker = styled.article`
@@ -54,7 +68,7 @@ const SpeakerLink = styled(Link)`
 `;
 
 const SpeakerHeader = styled.header`
-  padding: ${variableGlsp(1, 2)};
+  padding: ${variableGlsp()};
 `;
 
 const SpeakerFigure = styled.figure`
