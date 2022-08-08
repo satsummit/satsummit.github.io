@@ -207,6 +207,31 @@ const Sponsor = styled.a`
       transition: opacity 0.24s ease-in-out;
     }
   }
+
+  /* Adjust image optical size */
+  .sponsor-planet {
+    transform: scale(1.2);
+  }
+
+  .sponsor-sparkgeo {
+    transform: scale(1.04);
+  }
+
+  .sponsor-azavea {
+    transform: scale(0.96);
+  }
+
+  .sponsor-umbra {
+    transform: scale(0.72);
+  }
+
+  .sponsor-cyient {
+    transform: scale(0.8);
+  }
+
+  .sponsor-development-seed {
+    transform: scale(0.9);
+  }
 `;
 
 const SponsorTitle = styled.h4`
