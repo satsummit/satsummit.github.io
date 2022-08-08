@@ -227,7 +227,13 @@ function SponsorsFold() {
             group
             image {
               childImageSharp {
-                gatsbyImageData(width: 200, placeholder: BLURRED)
+                gatsbyImageData(
+                  height: 56
+                  placeholder: BLURRED
+                  transformOptions: { fit: CONTAIN }
+                  formats: PNG
+                  backgroundColor: "#FFFFFF"
+                )
               }
             }
           }
@@ -266,7 +272,6 @@ function SponsorsFold() {
                         <GatsbyImage
                           image={image}
                           alt={`Logo for ${node.title}`}
-                          objectFit='contain'
                         />
                       </Sponsor>
                     </li>
