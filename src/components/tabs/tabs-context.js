@@ -33,7 +33,7 @@ export function TabsManager({ children, initialActive, onTabChange }) {
 
   const registerTab = useCallback(({ id }) => {
     setTabList((list) => {
-      if (list.find((t) => t.id)) {
+      if (list.find((t) => t.id === id)) {
         // Already added.
         return list;
       } else {
