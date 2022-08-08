@@ -35,7 +35,7 @@ exports.onCreateNode = ({
 
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent);
-    const slug = fileNode.name;
+    const slug = fileNode.name.toLowerCase();
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
     const nodeProps = {
