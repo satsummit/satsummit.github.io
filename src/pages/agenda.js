@@ -1,17 +1,28 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-
 import {
   listReset,
   media,
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
+import { Heading } from '@devseed-ui/typography';
+import {
+  CollecticonArrowLeft,
+  CollecticonArrowRight
+} from '@devseed-ui/collecticons';
+import { Button } from '@devseed-ui/button';
 
 import Layout from '$components/layout';
-import { TabContent, TabItem, TabsManager, TabsNav } from '$components/tabs';
+import {
+  TabContent,
+  TabItem,
+  TabsManager,
+  TabsNav,
+  useTabs
+} from '$components/tabs';
 import { EventPeople } from '$components/event-people';
 import {
   PageMainContent,
@@ -23,7 +34,6 @@ import Hug from '$styles/hug';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 import { timeFromDate } from '$utils/date';
-import { Heading } from '@devseed-ui/typography';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -354,6 +364,7 @@ const AgendaPage = ({ location }) => {
               );
             })}
           </TabbedContent>
+          <TabsSecNav />
         </TabsManager>
       </PageMainContent>
     </Layout>
@@ -365,3 +376,55 @@ AgendaPage.propTypes = {
 };
 
 export default AgendaPage;
+
+const TabsSecNavSelf = styled.div`
+  grid-column: content-start / content-end;
+  display: flex;
+  gap: ${variableGlsp()};
+  justify-content: end;
+`;
+
+function TabsSecNav() {
+  const { tabList, activeTab, setActiveTab } = useTabs();
+  const activeIdx = tabList.findIndex((t) => t.id === activeTab);
+
+  const goToTab = useCallback(
+    (idx) => {
+      setActiveTab(tabList[idx].id);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    },
+    [setActiveTab, tabList]
+  );
+
+  return (
+    <Hug>
+      <TabsSecNavSelf>
+        {activeIdx < tabList.length - 1 && (
+          <Button
+            variation='base-outline'
+            size='medium'
+            onClick={() => {
+              goToTab(activeIdx + 1);
+            }}
+          >
+            Next day <CollecticonArrowRight />
+          </Button>
+        )}
+        {activeIdx > 0 && (
+          <Button
+            variation='base-outline'
+            size='medium'
+            onClick={() => {
+              goToTab(activeIdx - 1);
+            }}
+          >
+            <CollecticonArrowLeft /> Previous day
+          </Button>
+        )}
+      </TabsSecNavSelf>
+    </Hug>
+  );
+}
