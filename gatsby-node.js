@@ -1,5 +1,3 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-
 exports.onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
@@ -37,7 +35,7 @@ exports.onCreateNode = ({
 
   if (node.internal.type === `MarkdownRemark`) {
     const fileNode = getNode(node.parent);
-    const slug = createFilePath({ node, getNode });
+    const slug = fileNode.name.toLowerCase();
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
     const nodeProps = {
@@ -61,9 +59,11 @@ exports.onCreateNode = ({
 };
 
 exports.createPages = async function ({ actions, graphql }) {
-  const { data } = await graphql(`
+  const {
+    data: { allLetter, allPeople }
+  } = await graphql(`
     query {
-      allLetter(filter: { slug: { ne: "/tickets/" } }) {
+      allLetter(filter: { slug: { ne: "tickets" } }) {
         nodes {
           slug
         }
@@ -71,10 +71,10 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
-  data.allLetter.nodes.forEach((node) => {
+  allLetter.nodes.forEach((node) => {
     const { slug } = node;
     actions.createPage({
-      path: slug,
+      path: `/${slug}`,
       component: require.resolve(`./src/templates/letter-page.js`),
       context: { slug }
     });
