@@ -379,18 +379,25 @@ AgendaPage.propTypes = {
 
 export default AgendaPage;
 
-const TabsSecNavSelf = styled.div`
-  grid-column: content-start / content-end;
-  display: flex;
-  gap: ${variableGlsp()};
+const TabsSecNavSelf = styled(Hug)`
+  /* styled-component */
+`;
 
-  ${media.mediumUp`
-    grid-column-start: content-2;
-  `}
+const TabsSecNavInner = styled(Hug).attrs({
+  grid: { smallUp: ['content-start', 'content-end'] }
+})`
+  padding: ${variableGlsp(2, 0)};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
 
-  ${media.largeUp`
-    grid-column-start: content-3;
-  `}
+  > * {
+    ${media.mediumUp`
+      grid-column-start: content-2;
+    `}
+
+    ${media.largeUp`
+      grid-column-start: content-3;
+    `}
+  }
 `;
 
 function TabsSecNav() {
@@ -410,8 +417,8 @@ function TabsSecNav() {
   );
 
   return (
-    <Hug>
-      <TabsSecNavSelf>
+    <TabsSecNavSelf>
+      <TabsSecNavInner>
         {activeIdx < tabList.length - 1 && (
           <Button
             variation='base-fill'
@@ -436,7 +443,7 @@ function TabsSecNav() {
             <CollecticonArrowLeft /> View previous day
           </Button>
         )}
-      </TabsSecNavSelf>
-    </Hug>
+      </TabsSecNavInner>
+    </TabsSecNavSelf>
   );
 }
