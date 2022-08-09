@@ -33,7 +33,9 @@ import {
 import Hug from '$styles/hug';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
+
 import { timeFromDate } from '$utils/date';
+import { useMediaQuery } from '$utils/use-media-query';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -394,6 +396,7 @@ const TabsSecNavSelf = styled.div`
 function TabsSecNav() {
   const { tabList, activeTab, setActiveTab } = useTabs();
   const activeIdx = tabList.findIndex((t) => t.id === activeTab);
+  const { isLargeUp } = useMediaQuery();
 
   const goToTab = useCallback(
     (idx) => {
@@ -411,24 +414,26 @@ function TabsSecNav() {
       <TabsSecNavSelf>
         {activeIdx < tabList.length - 1 && (
           <Button
-            variation='base-outline'
-            size='medium'
+            variation='base-fill'
+            size={isLargeUp ? 'xlarge' : 'large'}
+            fitting='relaxed'
             onClick={() => {
               goToTab(activeIdx + 1);
             }}
           >
-            Next day <CollecticonArrowRight />
+            View next day <CollecticonArrowRight />
           </Button>
         )}
         {activeIdx > 0 && (
           <Button
-            variation='base-outline'
-            size='medium'
+            variation='base-fill'
+            size={isLargeUp ? 'xlarge' : 'large'}
+            fitting='relaxed'
             onClick={() => {
               goToTab(activeIdx - 1);
             }}
           >
-            <CollecticonArrowLeft /> Previous day
+            <CollecticonArrowLeft /> View previous day
           </Button>
         )}
       </TabsSecNavSelf>
