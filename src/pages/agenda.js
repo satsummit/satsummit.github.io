@@ -108,7 +108,7 @@ const TimeSlotBody = styled(Hug).attrs({
 `;
 
 const TimeSlotEntryList = styled(Hug).attrs({
-  as: 'section',
+  as: 'ol',
   grid: {
     mediumUp: ['content-2', 'content-8'],
     largeUp: ['content-3', 'content-11']
