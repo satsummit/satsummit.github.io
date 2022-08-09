@@ -381,7 +381,14 @@ const TabsSecNavSelf = styled.div`
   grid-column: content-start / content-end;
   display: flex;
   gap: ${variableGlsp()};
-  justify-content: end;
+
+  ${media.mediumUp`
+    grid-column-start: content-2;
+  `}
+
+  ${media.largeUp`
+    grid-column-start: content-3;
+  `}
 `;
 
 function TabsSecNav() {
