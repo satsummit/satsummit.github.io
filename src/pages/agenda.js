@@ -153,7 +153,7 @@ const AgendaEntryTitle = styled(VarHeading).attrs({
 `;
 
 const AgendaEntryOverline = styled(VarHeading).attrs({
-  as: 'h3',
+  as: 'p',
   size: 'small'
 })`
   order: -1;
