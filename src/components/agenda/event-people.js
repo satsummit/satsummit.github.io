@@ -6,7 +6,7 @@ import { listReset } from '@devseed-ui/theme-provider';
 import { variableGlsp } from '$styles/variable-utils';
 import { Link } from 'gatsby';
 
-const AgendaEntryFolksList = styled.ol`
+const AgendaEntryPeopleList = styled.ol`
   ${listReset()};
   display: flex;
   flex-flow: row wrap;
@@ -30,7 +30,7 @@ export function EventPeople(props) {
   const list = useMemo(() => toArray(props.list), [props.list]);
 
   return (
-    <AgendaEntryFolksList>
+    <AgendaEntryPeopleList>
       {list.map((person) => {
         if (person.isVoid) {
           return (
@@ -48,7 +48,7 @@ export function EventPeople(props) {
           );
         }
       })}
-    </AgendaEntryFolksList>
+    </AgendaEntryPeopleList>
   );
 }
 

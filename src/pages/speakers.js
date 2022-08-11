@@ -16,6 +16,7 @@ import {
 import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
+import { PersonAvatar } from '$styles/people';
 
 const SpeakersBlock = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
@@ -71,8 +72,9 @@ const SpeakerHeader = styled.header`
   padding: ${variableGlsp()};
 `;
 
-const SpeakerFigure = styled.figure`
+const SpeakerAvatar = styled(PersonAvatar)`
   order: -1;
+  border-top: none;
 `;
 
 const SpeakerTitle = styled(VarHeading).attrs({
@@ -92,7 +94,7 @@ const SpeakersPage = () => {
           title
           avatar {
             childImageSharp {
-              gatsbyImageData(width: 400, placeholder: BLURRED)
+              gatsbyImageData(width: 640, placeholder: BLURRED)
             }
           }
           role
@@ -123,13 +125,13 @@ const SpeakersPage = () => {
                         {speaker.role}, {speaker.company}
                       </span>
                     </SpeakerHeader>
-                    <SpeakerFigure>
+                    <SpeakerAvatar>
                       <GatsbyImage
                         image={getImage(speaker.avatar)}
                         alt={`Picture of ${speaker.title}`}
                         objectFit='contain'
                       />
-                    </SpeakerFigure>
+                    </SpeakerAvatar>
                   </SpeakerLink>
                 </Speaker>
               </li>
