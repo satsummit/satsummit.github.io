@@ -2,13 +2,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-import {
-  listReset,
-  media,
-  themeVal,
-  visuallyHidden
-} from '@devseed-ui/theme-provider';
-import { Heading } from '@devseed-ui/typography';
+import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import {
   CollecticonArrowLeft,
   CollecticonArrowRight
@@ -23,7 +17,6 @@ import {
   TabsNav,
   useTabs
 } from '$components/tabs';
-import { EventPeople } from '$components/event-people';
 import {
   PageMainContent,
   PageMainHero,
@@ -31,11 +24,13 @@ import {
   PageMainTitle
 } from '$styles/page';
 import Hug from '$styles/hug';
-import { VarHeading, VarProse } from '$styles/variable-components';
+import { VarHeading } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 
 import { timeFromDate } from '$utils/date';
 import { useMediaQuery } from '$utils/use-media-query';
+import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
+import { agendaDays } from '$components/agenda/utils';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -109,121 +104,6 @@ const TimeSlotBody = styled(Hug).attrs({
   /* styled-component */
 `;
 
-const TimeSlotEntryList = styled(Hug).attrs({
-  as: 'ol',
-  grid: {
-    mediumUp: ['content-2', 'content-8'],
-    largeUp: ['content-3', 'content-11']
-  }
-})`
-  ${listReset()};
-  display: flex;
-  flex-flow: column nowrap;
-  gap: ${variableGlsp()};
-
-  > li:not(:first-child) {
-    padding-top: ${variableGlsp()};
-    border-top: 4px solid ${themeVal('color.secondary-500')};
-
-    ${media.mediumUp`
-      border-width: 8px;
-    `}
-  }
-`;
-
-const AgendaEntry = styled.article`
-  display: flex;
-  flex-direction: column;
-  gap: ${variableGlsp()};
-`;
-
-const AgendaEntryHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-`;
-
-const AgendaEntryTitle = styled(VarHeading).attrs({
-  as: 'h4',
-  size: 'xlarge'
-})`
-  a,
-  a:visited {
-    text-decoration: none;
-  }
-`;
-
-const AgendaEntryOverline = styled(VarHeading).attrs({
-  as: 'p',
-  size: 'small'
-})`
-  order: -1;
-
-  span {
-    font-size: 0;
-
-    &::before {
-      content: '•';
-      font-size: 1.25rem;
-      margin: 0 0.25rem;
-
-      ${media.mediumUp`
-        font-size: 1.5rem;
-        margin: 0 0.5rem;
-      `}
-    }
-  }
-`;
-
-const AgendaEntryBody = styled.div`
-  /* styled-component */
-`;
-
-const AgendaEntryFooter = styled.footer`
-  display: flex;
-  flex-flow: row wrap;
-  gap: ${variableGlsp(0.5)};
-`;
-
-const AgendaEntryParticipants = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  gap: ${variableGlsp(0.25)};
-`;
-
-const AgendaEntryParticipantsTitle = styled(Heading).attrs({
-  as: 'h4',
-  size: 'xsmall'
-})`
-  /* styled-component */
-`;
-
-const days = [
-  {
-    day: 28,
-    label: (
-      <span>
-        <span>Wednesday, </span>Sep. 28
-      </span>
-    )
-  },
-  {
-    day: 29,
-    label: (
-      <span>
-        <span>Thursday, </span>Sep. 29
-      </span>
-    )
-  }
-];
-
-const peopleCategories = [
-  'Hosts',
-  'Moderators',
-  'Panelists',
-  'Facilitators',
-  'Speakers'
-];
-
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
@@ -271,7 +151,7 @@ const AgendaPage = ({ location }) => {
         <TabsManager initialActive={initialTab}>
           <TabbedContent>
             <TabsNav role='tablist'>
-              {days.map((d, idx) => (
+              {agendaDays.map((d, idx) => (
                 <TabItem
                   key={d.day}
                   aria-controls={`sep-${d.day}`}
@@ -286,7 +166,7 @@ const AgendaPage = ({ location }) => {
               ))}
             </TabsNav>
 
-            {days.map((d) => {
+            {agendaDays.map((d) => {
               const dayEvents = allEvent.nodes.filter(
                 (n) => new Date(n.date).getDate() === d.day
               );
@@ -318,47 +198,20 @@ const AgendaPage = ({ location }) => {
                         <TimeSlotTitle>{time}</TimeSlotTitle>
                       </TimeSlotHeader>
                       <TimeSlotBody>
-                        <TimeSlotEntryList>
+                        <AgendaEventList>
                           {eventsByTime.map((node) => (
-                            <li key={node.id}>
-                              <AgendaEntry>
-                                <AgendaEntryHeader>
-                                  <AgendaEntryTitle id={node.cId}>
-                                    <a href={`#${node.cId}`}>{node.title}</a>
-                                  </AgendaEntryTitle>
-                                  <AgendaEntryOverline>
-                                    {node.type}
-                                    <span> at {time} in </span>
-                                    {node.room}
-                                  </AgendaEntryOverline>
-                                </AgendaEntryHeader>
-                                <AgendaEntryBody>
-                                  <VarProse>
-                                    <p>{node.lead}</p>
-                                  </VarProse>
-                                </AgendaEntryBody>
-                                <AgendaEntryFooter>
-                                  {peopleCategories.map((cat) => {
-                                    const key = cat.toLowerCase();
-
-                                    if (!node.people?.[key]?.length) {
-                                      return null;
-                                    }
-
-                                    return (
-                                      <AgendaEntryParticipants key={key}>
-                                        <AgendaEntryParticipantsTitle>
-                                          {cat}
-                                        </AgendaEntryParticipantsTitle>
-                                        <EventPeople list={node.people[key]} />
-                                      </AgendaEntryParticipants>
-                                    );
-                                  })}
-                                </AgendaEntryFooter>
-                              </AgendaEntry>
-                            </li>
+                            <AgendaEventListItem
+                              key={node.id}
+                              cId={node.cId}
+                              title={node.title}
+                              type={node.type}
+                              date={node.date}
+                              room={node.room}
+                              lead={node.lead}
+                              people={node.people}
+                            />
                           ))}
-                        </TimeSlotEntryList>
+                        </AgendaEventList>
                       </TimeSlotBody>
                     </TimeSlot>
                   ))}

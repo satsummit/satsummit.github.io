@@ -1,6 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 import Layout from '$components/layout';
 import {
@@ -12,6 +13,11 @@ import {
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
+
+const PeopleEvents = styled.div`
+  grid-column: content-start / content-end;
+`;
 
 const People = ({ data }) => {
   const { parent, title, avatar, role, company, twitter, pronouns, events } =
@@ -39,25 +45,26 @@ const People = ({ data }) => {
             />
           </VarProse>
           <VarProse dangerouslySetInnerHTML={{ __html: parent.html }} />
-          <VarProse>
-            <h2>Participating</h2>
-            <ul>
-              {events.map(({ role, event }) => (
-                <li key={event.slug}>
-                  <h3>
-                    <Link to={`/agenda#${event.cId}`}>{event.title}</Link>
-                  </h3>
-                  <span>As: {role}</span>
-                  <p>
-                    {event.type}
-                    <span> at {event.date} in </span>
-                    {event.room}
-                  </p>
-                  <p>{event.lead}</p>
-                </li>
-              ))}
-            </ul>
-          </VarProse>
+          {!!events?.length && (
+            <PeopleEvents>
+              <h2>Participating</h2>
+
+              <AgendaEventList>
+                {events.map(({ event }) => (
+                  <AgendaEventListItem
+                    key={event.slug}
+                    cId={event.cId}
+                    title={event.title}
+                    type={event.type}
+                    date={event.date}
+                    room={event.room}
+                    lead={event.lead}
+                    people={event.people}
+                  />
+                ))}
+              </AgendaEventList>
+            </PeopleEvents>
+          )}
         </BlockAlpha>
       </PageMainContent>
     </Layout>
@@ -99,6 +106,9 @@ export const query = graphql`
           type
           room
           date
+          people {
+            ...AllEventPeople
+          }
         }
       }
     }
