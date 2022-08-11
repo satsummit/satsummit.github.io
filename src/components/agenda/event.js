@@ -23,20 +23,20 @@ const AgendaEntryHeader = styled.header`
   flex-direction: column;
 `;
 
-const AgendaEntryTitle = styled(VarHeading).attrs({
-  as: 'h4',
+const AgendaEntryTitle = styled(VarHeading).attrs((props) => ({
+  as: props.as || 'h2',
   size: 'xlarge'
-})`
+}))`
   a,
   a:visited {
     text-decoration: none;
   }
 `;
 
-const AgendaEntryOverline = styled(VarHeading).attrs({
-  as: 'p',
+const AgendaEntryOverline = styled(VarHeading).attrs((props) => ({
+  as: props.as || 'p',
   size: 'small'
-})`
+}))`
   order: -1;
 
   span {
@@ -65,27 +65,40 @@ const AgendaEntryFooter = styled.footer`
   gap: ${variableGlsp(0.5)};
 `;
 
-const AgendaEntryParticipants = styled.div`
+const AgendaEntryPeople = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: ${variableGlsp(0.25)};
 `;
 
-const AgendaEntryParticipantsTitle = styled(Heading).attrs({
-  as: 'h4',
+const AgendaEntryPeopleTitle = styled(Heading).attrs((props) => ({
+  as: props.as || 'h3',
   size: 'xsmall'
-})`
+}))`
   /* styled-component */
 `;
 
+const hl = (l) => l > 0 && `h${l}`;
+
 export function AgendaEvent(props) {
-  const { cId, title, type, date, room, lead, people } = props;
+  const {
+    cId,
+    title,
+    type,
+    date,
+    room,
+    lead,
+    people,
+    startingHLevel = -1
+  } = props;
   const time = timeFromDate(new Date(date));
+
+  console.log(startingHLevel);
 
   return (
     <AgendaEntry>
       <AgendaEntryHeader>
-        <AgendaEntryTitle id={cId}>
+        <AgendaEntryTitle as={hl(startingHLevel)} id={cId}>
           <Link to={`/agenda#${cId}`}>{title}</Link>
         </AgendaEntryTitle>
         <AgendaEntryOverline>
@@ -109,12 +122,12 @@ export function AgendaEvent(props) {
             }
 
             return (
-              <AgendaEntryParticipants key={key}>
-                <AgendaEntryParticipantsTitle>
+              <AgendaEntryPeople key={key}>
+                <AgendaEntryPeopleTitle as={hl(startingHLevel + 1)}>
                   {cat}
-                </AgendaEntryParticipantsTitle>
+                </AgendaEntryPeopleTitle>
                 <EventPeople list={people[key]} />
-              </AgendaEntryParticipants>
+              </AgendaEntryPeople>
             );
           })}
         </AgendaEntryFooter>
@@ -130,6 +143,7 @@ AgendaEvent.propTypes = {
   date: T.string,
   room: T.string,
   lead: T.string,
+  startingHLevel: T.number,
   people: T.shape({
     facilitators: T.array,
     hosts: T.array,
