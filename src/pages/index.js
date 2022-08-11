@@ -241,9 +241,9 @@ const FigureA = withReveal(
     grid-row: 2;
 
     ${media.largeUp`
-    grid-row: 1;
-    grid-column: content-start / content-7;
-  `}
+      grid-row: 1;
+      grid-column: content-start / content-7;
+    `}
   `,
   <Fade />
 );
@@ -254,17 +254,17 @@ const FigureB = withReveal(
     grid-row: 3;
 
     ${media.smallUp`
-    grid-column: content-start / content-4;
-  `}
+      grid-column: content-start / content-4;
+    `}
 
     ${media.mediumUp`
-    grid-column: content-start / content-5;
-  `}
+      grid-column: content-start / content-5;
+    `}
 
-  ${media.largeUp`
-    grid-column: content-start / content-5;
-    grid-row: 2;
-  `}
+    ${media.largeUp`
+      grid-column: content-start / content-5;
+      grid-row: 2;
+    `}
   `,
   <Fade />
 );
@@ -275,13 +275,13 @@ const FigureC = withReveal(
     grid-row: 5;
 
     ${media.mediumUp`
-    grid-column: content-2 / full-end;
-  `}
+      grid-column: content-2 / full-end;
+    `}
 
     ${media.largeUp`
-    grid-column: content-5 / content-end;
-    grid-row: 2;
-  `}
+      grid-column: content-5 / content-end;
+      grid-row: 2;
+    `}
   `,
   <Fade />
 );
@@ -292,13 +292,13 @@ const FigureD = withReveal(
     grid-row: 6;
 
     ${media.mediumUp`
-    grid-column: content-2 / content-8;
-  `}
+      grid-column: content-2 / content-8;
+    `}
 
     ${media.largeUp`
-    grid-column: content-7 / content-end;
-    grid-row: 3;
-  `}
+      grid-column: content-7 / content-end;
+      grid-row: 3;
+    `}
   `,
   <Fade />
 );
