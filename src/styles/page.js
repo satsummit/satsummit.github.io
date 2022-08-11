@@ -47,6 +47,13 @@ export const PageMainTitle = styled(VarHeading).attrs({
   /* styled-component */
 `;
 
+export const PageMainSubtitle = styled(VarHeading).attrs({
+  as: 'p',
+  size: 'small'
+})`
+  /* styled-component */
+`;
+
 export const PageLead = styled(VarLead)`
   color: inherit;
 `;

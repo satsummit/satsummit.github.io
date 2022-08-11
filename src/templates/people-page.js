@@ -2,46 +2,93 @@ import React from 'react';
 import T from 'prop-types';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+
+import { media, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
-import { PageMainContent, PageMainTitle } from '$styles/page';
-import { VarProse } from '$styles/variable-components';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 
+import { PageMainContent, PageMainSubtitle, PageMainTitle } from '$styles/page';
+import { VarProse } from '$styles/variable-components';
 import { PersonAvatar } from '$styles/people';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
-import { themeVal } from '@devseed-ui/theme-provider';
-
-const PeopleEvents = styled.div`
-  grid-column: content-start / content-end;
-`;
+import MenuLinkAppearance from '$styles/menu-link';
+import { CollecticonBrandTwitter } from '@devseed-ui/collecticons';
 
 const SinglePerson = styled(Hug)`
-  /* styled-component */
+  padding: ${variableGlsp(2, 0)};
 `;
 
-const SinglePersonContent = styled.div`
-  grid-column: content-5 / content-end;
+const SinglePersonMedia = styled.div`
+  grid-row: 1;
+  grid-column: content-start / content-5;
+  align-self: end;
+`;
+
+const SinglePersonHero = styled.div`
+  grid-column: content-start / content-end;
+  align-self: end;
   display: flex;
   flex-flow: column nowrap;
-  gap: ${variableGlsp()};
-  padding: ${variableGlsp(2, 0)};
+  gap: ${variableGlsp(0.5)};
+
+  ${media.mediumUp`
+    grid-row: 1;
+    grid-column: content-5 / content-end;
+    padding: ${variableGlsp(2)};
+  `}
 `;
 
 const SinglePersonHeadline = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  gap: ${variableGlsp()};
-  padding: ${variableGlsp(0, 0, 2, 0)};
-  border-bottom: 8px solid ${themeVal('color.secondary-500')};
 `;
 
-const SinglePersonMedia = styled.div`
-  grid-row: 1 / span 1;
-  grid-column: content-start / content-4;
-  padding: ${variableGlsp(2, 0)};
+const SinglePersonSocial = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  gap: ${variableGlsp()};
+`;
+
+const SinglePersonSocialLink = styled.a`
+  ${MenuLinkAppearance}
+`;
+
+const SinglePersonBody = styled.div`
+  grid-column: content-start / content-end;
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-2 / content-12;
+  `}
+
+  ${media.xlargeUp`
+    grid-column: content-3 / content-11;
+  `}
+`;
+
+const SinglePersonEvents = styled.div`
+  grid-column: content-start / content-end;
+  margin-top: ${variableGlsp(1.5)};
+  padding-top: ${variableGlsp(2)};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-2 / content-12;
+  `}
+
+  ${media.xlargeUp`
+    grid-column: content-3 / content-11;
+  `}
 `;
 
 const People = ({ data }) => {
@@ -52,6 +99,20 @@ const People = ({ data }) => {
     <Layout title={title}>
       <PageMainContent>
         <SinglePerson>
+          <SinglePersonHero>
+            <SinglePersonHeadline>
+              <PageMainTitle>{title}</PageMainTitle>
+              <PageMainSubtitle>
+                {role} at {company} • {pronouns}
+              </PageMainSubtitle>
+            </SinglePersonHeadline>
+            <SinglePersonSocial>
+              <SinglePersonSocialLink href={twitter}>
+                <CollecticonBrandTwitter /> @{twitter}
+              </SinglePersonSocialLink>
+            </SinglePersonSocial>
+          </SinglePersonHero>
+
           <SinglePersonMedia>
             <PersonAvatar>
               <GatsbyImage
@@ -62,40 +123,31 @@ const People = ({ data }) => {
             </PersonAvatar>
           </SinglePersonMedia>
 
-          <SinglePersonContent>
-            <SinglePersonHeadline>
-              <PageMainTitle>{title}</PageMainTitle>
-              <p>
-                {role} at {company}
-              </p>
-              <p>Twitter: {twitter}</p>
-              <p>Pronouns: {pronouns}</p>
-            </SinglePersonHeadline>
-
+          <SinglePersonBody>
             <VarProse dangerouslySetInnerHTML={{ __html: parent.html }} />
+          </SinglePersonBody>
 
-            {!!events?.length && (
-              <PeopleEvents>
-                <h2>Participating</h2>
+          {!!events?.length && (
+            <SinglePersonEvents>
+              <h2>Participating</h2>
 
-                <AgendaEventList>
-                  {events.map(({ event }) => (
-                    <AgendaEventListItem
-                      key={event.slug}
-                      startingHLevel={3}
-                      cId={event.cId}
-                      title={event.title}
-                      type={event.type}
-                      date={event.date}
-                      room={event.room}
-                      lead={event.lead}
-                      people={event.people}
-                    />
-                  ))}
-                </AgendaEventList>
-              </PeopleEvents>
-            )}
-          </SinglePersonContent>
+              <AgendaEventList>
+                {events.map(({ event }) => (
+                  <AgendaEventListItem
+                    key={event.slug}
+                    startingHLevel={3}
+                    cId={event.cId}
+                    title={event.title}
+                    type={event.type}
+                    date={event.date}
+                    room={event.room}
+                    lead={event.lead}
+                    people={event.people}
+                  />
+                ))}
+              </AgendaEventList>
+            </SinglePersonEvents>
+          )}
         </SinglePerson>
       </PageMainContent>
     </Layout>
