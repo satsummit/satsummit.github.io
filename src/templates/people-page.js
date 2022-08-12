@@ -23,8 +23,21 @@ const SinglePerson = styled(Hug)`
 
 const SinglePersonMedia = styled.div`
   grid-row: 1;
-  grid-column: content-start / content-5;
+  grid-column: content-start / content-end;
   align-self: end;
+
+  ${media.smallUp`
+    grid-column: content-start / content-3;
+    margin-bottom: ${variableGlsp()};
+  `}
+
+  ${media.mediumUp`
+    grid-column: content-start / content-4;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-5;
+  `}
 `;
 
 const SinglePersonHero = styled.div`
@@ -34,10 +47,19 @@ const SinglePersonHero = styled.div`
   flex-flow: column nowrap;
   gap: ${variableGlsp(0.5)};
 
+  ${media.smallUp`
+    grid-column: content-3 / content-end;
+    padding: ${variableGlsp(2)};
+    margin-bottom: ${variableGlsp()};
+  `}
+
   ${media.mediumUp`
     grid-row: 1;
+    grid-column: content-4 / content-end;
+  `}
+
+  ${media.largeUp`
     grid-column: content-5 / content-end;
-    padding: ${variableGlsp(2)};
   `}
 `;
 
