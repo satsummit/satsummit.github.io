@@ -54,6 +54,14 @@ const TimeSlot = styled(Hug).attrs({
   as: 'section',
   grid: { smallUp: ['content-start', 'content-end'] }
 })`
+  &:not(:first-of-type) > * {
+    ${media.mediumUp`
+      margin-top: 0;
+      padding-top: ${variableGlsp()};
+      border-top: 8px solid ${themeVal('color.secondary-500')};
+    `}
+  }
+
   &:not(:first-of-type) > *:first-child {
     margin-top: ${variableGlsp(0.75)};
     padding-top: ${variableGlsp(2)};
@@ -62,14 +70,6 @@ const TimeSlot = styled(Hug).attrs({
     ${media.mediumUp`
       margin-top: 0;
       padding-top: ${variableGlsp()};
-    `}
-  }
-
-  &:not(:first-of-type) > * {
-    ${media.mediumUp`
-      margin-top: 0;
-      padding-top: ${variableGlsp()};
-      border-top: 8px solid ${themeVal('color.secondary-500')};
     `}
   }
 `;
@@ -243,6 +243,7 @@ const TabsSecNavInner = styled(Hug).attrs({
   padding: ${variableGlsp(2, 0)};
   border-top: 8px solid ${themeVal('color.secondary-500')};
 
+  /* stylelint-disable no-descending-specificity */
   > * {
     ${media.mediumUp`
       grid-column-start: content-2;
@@ -252,6 +253,7 @@ const TabsSecNavInner = styled(Hug).attrs({
       grid-column-start: content-3;
     `}
   }
+  /* stylelint-enable no-descending-specificity */
 `;
 
 function TabsSecNav() {
