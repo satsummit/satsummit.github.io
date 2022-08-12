@@ -45,11 +45,13 @@ const SpeakersList = styled.ol`
 `;
 
 const Speaker = styled.article`
+  position: relative;
+  z-index: 1;
   background: ${themeVal('color.surface')};
   color: ${themeVal('color.base')};
   border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
   box-shadow: ${themeVal('boxShadow.elevationD')};
-  filter: drop-shadow(0 -8px 0 ${themeVal('color.secondary-500')});
+  border-top: 8px solid ${themeVal('color.secondary-500')};
 `;
 
 const SpeakerLink = styled(Link)`
