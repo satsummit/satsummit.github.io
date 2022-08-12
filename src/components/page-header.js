@@ -208,7 +208,9 @@ function PageHeader() {
                 <GlobalMenuLink to='/agenda'>Agenda</GlobalMenuLink>
               </li>
               <li>
-                <GlobalMenuLink to='/speakers'>Speakers</GlobalMenuLink>
+                <GlobalMenuLink to='/speakers' partiallyActive>
+                  Speakers
+                </GlobalMenuLink>
               </li>
               <li>
                 <GlobalMenuLink to='/code-of-conduct'>
