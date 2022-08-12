@@ -125,14 +125,16 @@ const People = ({ data }) => {
             <SinglePersonHeadline>
               <PageMainTitle>{title}</PageMainTitle>
               <PageMainSubtitle>
-                {role} at {company} • {pronouns}
+                {role} at {company} {pronouns && <span>• {pronouns}</span>}
               </PageMainSubtitle>
             </SinglePersonHeadline>
-            <SinglePersonSocial>
-              <SinglePersonSocialLink href={twitter}>
-                <CollecticonBrandTwitter /> @{twitter}
-              </SinglePersonSocialLink>
-            </SinglePersonSocial>
+            {twitter && (
+              <SinglePersonSocial>
+                <SinglePersonSocialLink href={`https://twitter.com/${twitter}`}>
+                  <CollecticonBrandTwitter /> @{twitter}
+                </SinglePersonSocialLink>
+              </SinglePersonSocial>
+            )}
           </SinglePersonHero>
 
           <SinglePersonMedia>
