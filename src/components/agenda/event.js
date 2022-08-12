@@ -11,6 +11,7 @@ import { variableGlsp } from '$styles/variable-utils';
 
 import { peopleCategories } from './utils';
 import { timeFromDate } from '$utils/date';
+import { format } from 'date-fns';
 
 const AgendaEntry = styled.article`
   display: flex;
@@ -23,20 +24,24 @@ const AgendaEntryHeader = styled.header`
   flex-direction: column;
 `;
 
-const AgendaEntryTitle = styled(VarHeading).attrs((props) => ({
-  as: props.as || 'h2',
-  size: 'xlarge'
-}))`
+const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
+  return {
+    as: props.as || 'h2',
+    size: 'xlarge'
+  };
+})`
   a,
   a:visited {
     text-decoration: none;
   }
 `;
 
-const AgendaEntryOverline = styled(VarHeading).attrs((props) => ({
-  as: props.as || 'p',
-  size: 'small'
-}))`
+const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
+  return {
+    as: props.as || 'p',
+    size: 'small'
+  };
+})`
   order: -1;
 
   span {
@@ -71,13 +76,16 @@ const AgendaEntryPeople = styled.div`
   gap: ${variableGlsp(0.25)};
 `;
 
-const AgendaEntryPeopleTitle = styled(Heading).attrs((props) => ({
-  as: props.as || 'h3',
-  size: 'xsmall'
-}))`
+const AgendaEntryPeopleTitle = styled(Heading).attrs((props) => {
+  return {
+    as: props.as || 'h3',
+    size: 'xsmall'
+  };
+})`
   /* styled-component */
 `;
 
+// Get the Heading tag.
 const hl = (l) => l > 0 && `h${l}`;
 
 export function AgendaEvent(props) {
@@ -89,11 +97,11 @@ export function AgendaEvent(props) {
     room,
     lead,
     people,
+    // Starting level for the highest heading on this component.
     startingHLevel = -1
   } = props;
-  const time = timeFromDate(new Date(date));
-
-  console.log(startingHLevel);
+  const dateObj = new Date(date);
+  const time = timeFromDate(dateObj);
 
   return (
     <AgendaEntry>
@@ -103,7 +111,10 @@ export function AgendaEvent(props) {
         </AgendaEntryTitle>
         <AgendaEntryOverline>
           {type}
-          <span> at {time} in </span>
+          <span>
+            {' '}
+            on {format(dateObj, 'MMM. dd')} at {time} in{' '}
+          </span>
           {room}
         </AgendaEntryOverline>
       </AgendaEntryHeader>
