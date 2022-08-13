@@ -7,19 +7,34 @@ import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
-import {
-  PageMainContent,
-  PageMainHero,
-  PageMainHeroHeadline,
-  PageMainTitle
-} from '$styles/page';
+import { PageMainContent, PageMainHero, PageMainTitle } from '$styles/page';
 import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import { PersonAvatar } from '$styles/people';
 
-const SpeakersBlock = styled(Hug)`
+export const SpeakersHubHeroHeadline = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp()};
+  grid-column: content-start / content-end;
   padding: ${variableGlsp(2, 0)};
+
+  ${media.mediumUp`
+    grid-column: content-start / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-12;
+  `}
+
+  ${media.xlargeUp`
+    grid-column: content-start / content-11;
+  `}
+`;
+
+const SpeakersBlock = styled(Hug)`
+  padding: ${variableGlsp(0, 0, 2, 0)};
 `;
 
 const SpeakersList = styled.ol`
@@ -29,7 +44,6 @@ const SpeakersList = styled.ol`
   gap: ${variableGlsp()};
   grid-template-columns: repeat(1, 1fr);
   background: ${themeVal('color.surface')};
-  margin-top: calc(8px - ${variableGlsp(2.875)});
 
   ${media.smallUp`
     grid-template-columns: repeat(2, 1fr);
@@ -97,7 +111,6 @@ const SpeakerSubtitle = styled(VarHeading).attrs({
   /* styled-component */
 `;
 
-
 const SpeakersPage = () => {
   const { allPeople } = useStaticQuery(graphql`
     query {
@@ -122,9 +135,9 @@ const SpeakersPage = () => {
     <Layout title='Speakers'>
       <PageMainContent>
         <PageMainHero>
-          <PageMainHeroHeadline>
+          <SpeakersHubHeroHeadline>
             <PageMainTitle>Speakers</PageMainTitle>
-          </PageMainHeroHeadline>
+          </SpeakersHubHeroHeadline>
         </PageMainHero>
 
         <SpeakersBlock>
