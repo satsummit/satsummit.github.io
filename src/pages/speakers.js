@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { listReset, media, themeVal } from '@devseed-ui/theme-provider';
+import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -52,6 +52,7 @@ const Speaker = styled.article`
   border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
   box-shadow: ${themeVal('boxShadow.elevationD')};
   border-top: 8px solid ${themeVal('color.secondary-500')};
+  height: 100%;
 `;
 
 const SpeakerLink = styled(Link)`
@@ -71,7 +72,10 @@ const SpeakerLink = styled(Link)`
 `;
 
 const SpeakerHeader = styled.header`
-  padding: ${variableGlsp()};
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${glsp(0.25)};
+  padding: ${variableGlsp(0.875, 1, 1, 1)};
 `;
 
 const SpeakerAvatar = styled(PersonAvatar)`
@@ -81,10 +85,18 @@ const SpeakerAvatar = styled(PersonAvatar)`
 
 const SpeakerTitle = styled(VarHeading).attrs({
   as: 'h2',
-  size: 'xlarge'
+  size: 'large'
 })`
   /* styled-component */
 `;
+
+const SpeakerSubtitle = styled(VarHeading).attrs({
+  as: 'p',
+  size: 'xxsmall'
+})`
+  /* styled-component */
+`;
+
 
 const SpeakersPage = () => {
   const { allPeople } = useStaticQuery(graphql`
@@ -123,9 +135,9 @@ const SpeakersPage = () => {
                   <SpeakerLink to={`/speakers/${speaker.slug}`}>
                     <SpeakerHeader>
                       <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                      <span>
-                        {speaker.role}, {speaker.company}
-                      </span>
+                      <SpeakerSubtitle>
+                        {speaker.role} at {speaker.company}
+                      </SpeakerSubtitle>
                     </SpeakerHeader>
                     <SpeakerAvatar>
                       <GatsbyImage
