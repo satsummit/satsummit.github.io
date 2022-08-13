@@ -1,9 +1,9 @@
 ---
 title: Person Placeholder
 company: Development Seed
-role: Pirate
+role: Project Manager
 twitter: developmentseed
-avatar: ./media/person-placehodler-avatar-01a.jpg
+avatar: ./media/person-placehodler-avatar-04.jpg
 pronouns: They/Them/Theirs
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae tincidunt metus. Pellentesque eu est id libero tincidunt elementum. Donec sed ornare mi. Phasellus vestibulum at ex in aliquam.
