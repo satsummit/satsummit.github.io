@@ -17,10 +17,8 @@ export const PersonAvatar = styled.figure`
     height: 100%;
     width: 100%;
     object-fit: cover;
-    /* stylelint-disable-next-line */
-    mix-blend-screen: luminosity;
     mix-blend-mode: screen;
-    filter: grayscale(100%) contrast(108%);
+    filter: grayscale(100%) contrast(112%);
   }
 
   &::after {
