@@ -15,7 +15,9 @@ import { PersonAvatar } from '$styles/people';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import MenuLinkAppearance from '$styles/menu-link';
-import { CollecticonBrandTwitter } from '@devseed-ui/collecticons';
+import { CollecticonArrowRight, CollecticonBrandTwitter } from '@devseed-ui/collecticons';
+import { useMediaQuery } from '$utils/use-media-query';
+import { Button } from '@devseed-ui/button';
 
 const SinglePerson = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
@@ -135,6 +137,25 @@ const SinglePersonEvents = styled.div`
   `}
 `;
 
+const SinglePersonActionsSelf = styled.div`
+  grid-column: content-start / content-end;
+  margin-top: ${variableGlsp(1.5)};
+  padding-top: ${variableGlsp(2)};
+  border-top: 8px solid ${themeVal('color.secondary-500')};
+
+  ${media.mediumUp`
+    grid-column: content-2 / content-8;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-2 / content-12;
+  `}
+
+  ${media.xlargeUp`
+    grid-column: content-3 / content-11;
+  `}
+`;
+
 const People = ({ data }) => {
   const { parent, title, avatar, role, company, twitter, pronouns, events } =
     data.people;
@@ -198,6 +219,7 @@ const People = ({ data }) => {
               </AgendaEventList>
             </SinglePersonEvents>
           )}
+          <SinglePersonActions />
         </SinglePerson>
       </PageMainContent>
     </Layout>
@@ -247,3 +269,21 @@ export const query = graphql`
     }
   }
 `;
+
+function SinglePersonActions() {
+  const { isLargeUp } = useMediaQuery();
+
+  return (
+    <SinglePersonActionsSelf>
+      <Button
+        forwardedAs={Link}
+        variation='base-fill'
+        to='/speakers'
+        size={isLargeUp ? 'xlarge' : 'large'}
+        fitting='relaxed'
+      >
+        View all speakers <CollecticonArrowRight />
+      </Button>
+    </SinglePersonActionsSelf>
+  );
+}
