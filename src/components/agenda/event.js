@@ -30,9 +30,14 @@ const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
     size: 'xlarge'
   };
 })`
-  a,
-  a:visited {
-    text-decoration: none;
+  /* styled-components */
+`;
+
+const AgendaEntryTitleLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
   }
 `;
 
@@ -107,7 +112,9 @@ export function AgendaEvent(props) {
     <AgendaEntry>
       <AgendaEntryHeader>
         <AgendaEntryTitle as={hl(startingHLevel)} id={cId}>
-          <Link to={`/agenda#${cId}`}>{title}</Link>
+          <AgendaEntryTitleLink to={`/agenda#${cId}`}>
+            {title}
+          </AgendaEntryTitleLink>
         </AgendaEntryTitle>
         <AgendaEntryOverline>
           {type}

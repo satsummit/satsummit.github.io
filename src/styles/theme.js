@@ -65,10 +65,15 @@ export default function themeOverrides() {
 }
 
 export const GlobalStyles = createGlobalStyle`
-  a:not([class]) {
+  a:not([class]),
+  a[class=""] {
     text-decoration: underline;
     text-decoration-color: ${themeVal('color.secondary-500')};
     text-decoration-thickness: 2px;
+  }
+
+  a:visited {
+    color: inherit;
   }
 
   :root {

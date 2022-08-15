@@ -23,10 +23,10 @@ const MenuLinkAppearance = css`
   text-decoration: none;
   height: 2rem;
   transition: opacity 0.24s ease;
+  color: ${themeVal('color.primary')};
 
-  &,
   &:visited {
-    color: ${themeVal('color.primary')};
+    color: inherit;
   }
 
   &:hover {

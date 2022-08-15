@@ -69,10 +69,10 @@ const TabbedContentListLink = styled(VarHeading).attrs({
   border: 8px solid transparent;
   margin-bottom: -8px;
   transition: all 0.24s ease;
+  color: ${themeVal('color.primary')};
 
-  &,
   &:visited {
-    color: ${themeVal('color.primary')};
+    color: inherit;
   }
 
   &:hover {

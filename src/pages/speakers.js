@@ -73,10 +73,9 @@ const SpeakerLink = styled(Link)`
   display: flex;
   flex-flow: column nowrap;
   transition: opacity 0.24s ease-in-out;
+  text-decoration: none;
 
-  &,
   &:visited {
-    text-decoration: none;
     color: inherit;
   }
 

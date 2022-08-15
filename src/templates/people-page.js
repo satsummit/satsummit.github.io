@@ -80,11 +80,7 @@ const SinglePersonTitle = styled(PageMainTitle)`
 
   a {
     font-size: 50%;
-
-    &,
-    &:visited {
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
 
   span {
@@ -94,6 +90,11 @@ const SinglePersonTitle = styled(PageMainTitle)`
   strong {
     font-weight: inherit;
   }
+`;
+
+const SinglePersonTitleLink = styled(Link)`
+  font-size: 50%;
+  text-decoration: none;
 `;
 
 const SinglePersonSocial = styled.div`
@@ -181,7 +182,9 @@ const People = ({ data }) => {
           <SinglePersonHero>
             <SinglePersonHeadline>
               <SinglePersonTitle>
-                <Link to='/speakers'>Speaker</Link>
+                <SinglePersonTitleLink to='/speakers'>
+                  Speaker
+                </SinglePersonTitleLink>
                 <span>: </span>
                 <strong>{title}</strong>
               </SinglePersonTitle>
