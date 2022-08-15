@@ -31,6 +31,7 @@ import { timeFromDate } from '$utils/date';
 import { useMediaQuery } from '$utils/use-media-query';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 import { agendaDays } from '$components/agenda/utils';
+import { AgendaEntryOverline } from '$components/agenda/event';
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -101,7 +102,11 @@ const TimeSlotBody = styled(Hug).attrs({
     largeUp: ['content-3', 'content-end']
   }
 })`
-  /* styled-component */
+  ${AgendaEntryOverline} {
+    span {
+      ${visuallyHidden()}
+    }
+  }
 `;
 
 const AgendaPage = ({ location }) => {

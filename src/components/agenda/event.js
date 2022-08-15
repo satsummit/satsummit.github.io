@@ -36,7 +36,7 @@ const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
   }
 `;
 
-const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
+export const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
   return {
     as: props.as || 'p',
     size: 'small'
@@ -44,7 +44,7 @@ const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
 })`
   order: -1;
 
-  span {
+  /* span {
     font-size: 0;
 
     &::before {
@@ -57,7 +57,7 @@ const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
       margin: 0 0.5rem;
     `}
     }
-  }
+  } */
 `;
 
 const AgendaEntryBody = styled.div`
@@ -113,9 +113,9 @@ export function AgendaEvent(props) {
           {type}
           <span>
             {' '}
-            on {format(dateObj, 'MMM. dd')} at {time} in{' '}
-          </span>
-          {room}
+            • {format(dateObj, 'MMM. dd')}, {time}
+          </span>{' '}
+          • {room}
         </AgendaEntryOverline>
       </AgendaEntryHeader>
       <AgendaEntryBody>

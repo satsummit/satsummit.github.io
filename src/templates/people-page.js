@@ -88,7 +88,7 @@ const SinglePersonTitle = styled(PageMainTitle)`
   }
 
   span {
-    ${visuallyHidden}
+    ${visuallyHidden()}
   }
 
   strong {
