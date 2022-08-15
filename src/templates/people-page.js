@@ -5,19 +5,23 @@ import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { Button } from '@devseed-ui/button';
+import {
+  CollecticonArrowRight,
+  CollecticonBrandTwitter
+} from '@devseed-ui/collecticons';
 
 import Layout from '$components/layout';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 
 import { PageMainContent, PageMainSubtitle, PageMainTitle } from '$styles/page';
-import { VarProse } from '$styles/variable-components';
+import { VarHeading, VarProse } from '$styles/variable-components';
 import { PersonAvatar } from '$styles/people';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import MenuLinkAppearance from '$styles/menu-link';
-import { CollecticonArrowRight, CollecticonBrandTwitter } from '@devseed-ui/collecticons';
+
 import { useMediaQuery } from '$utils/use-media-query';
-import { Button } from '@devseed-ui/button';
 
 const SinglePerson = styled(Hug)`
   padding: ${variableGlsp(2, 0)};
@@ -118,11 +122,14 @@ const SinglePersonBody = styled.div`
   `}
 `;
 
-const SinglePersonEvents = styled.div`
+const SinglePersonEvents = styled.section`
   grid-column: content-start / content-end;
   margin-top: ${variableGlsp(1.5)};
   padding-top: ${variableGlsp(2)};
   border-top: 8px solid ${themeVal('color.secondary-500')};
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp()};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
@@ -135,6 +142,13 @@ const SinglePersonEvents = styled.div`
   ${media.xlargeUp`
     grid-column: content-3 / content-11;
   `}
+`;
+
+const SinglePersonEventsTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'xlarge'
+})`
+  /* styled-component */
 `;
 
 const SinglePersonActionsSelf = styled.div`
@@ -200,7 +214,7 @@ const People = ({ data }) => {
 
           {!!events?.length && (
             <SinglePersonEvents>
-              <h2>Participating</h2>
+              <SinglePersonEventsTitle>On the agenda</SinglePersonEventsTitle>
 
               <AgendaEventList>
                 {events.map(({ event }) => (
