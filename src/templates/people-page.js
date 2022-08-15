@@ -1,10 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { media, themeVal } from '@devseed-ui/theme-provider';
+import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
@@ -68,6 +68,28 @@ const SinglePersonHeadline = styled.div`
   flex-flow: column nowrap;
 `;
 
+const SinglePersonTitle = styled(PageMainTitle)`
+  display: flex;
+  flex-flow: column nowrap;
+
+  a {
+    font-size: 50%;
+
+    &,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  span {
+    ${visuallyHidden}
+  }
+
+  strong {
+    font-weight: inherit;
+  }
+`;
+
 const SinglePersonSocial = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -123,7 +145,11 @@ const People = ({ data }) => {
         <SinglePerson>
           <SinglePersonHero>
             <SinglePersonHeadline>
-              <PageMainTitle>{title}</PageMainTitle>
+              <SinglePersonTitle>
+                <Link to='/speakers'>Speaker</Link>
+                <span>: </span>
+                <strong>{title}</strong>
+              </SinglePersonTitle>
               <PageMainSubtitle>
                 {role} at {company} {pronouns && <span>• {pronouns}</span>}
               </PageMainSubtitle>
