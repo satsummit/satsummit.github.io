@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-import { media } from '@devseed-ui/theme-provider';
 import { Heading } from '@devseed-ui/typography';
 
 import { EventPeople } from '$components/agenda/event-people';
@@ -48,21 +47,6 @@ export const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
   };
 })`
   order: -1;
-
-  /* span {
-    font-size: 0;
-
-    &::before {
-      content: '•';
-      font-size: 1.25rem;
-      margin: 0 0.25rem;
-
-      ${media.mediumUp`
-      font-size: 1.5rem;
-      margin: 0 0.5rem;
-    `}
-    }
-  } */
 `;
 
 const AgendaEntryBody = styled.div`
