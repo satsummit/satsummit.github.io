@@ -1,16 +1,37 @@
 ---
-title: Call for Lightning Talks
+title: Call for Lightning Talks & Session Ideas
 ---
-## Nullam ac ante vel sem
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum, dolor nec tincidunt ultricies, neque sem tincidunt est, eu aliquam tortor libero eu odio. Nulla sed ligula posuere nunc sollicitudin ultrices et eget mi. Morbi eget purus tincidunt, porttitor magna eget, pretium est. Etiam vel luctus lorem.
+[SUBMISSION FORM](https://forms.gle/Ma4AfoXkQqpnMj34A)
+## Call for Lightning Talks
 
-### Duis quis molestie risus
+We want to hear about how you are impacting earth observation data, applications, and community. What perspective can you share? Do you have lessons learned that others might benefit from? How are you challenging the status quo to push for progress and change that makes a difference in the world? We want to hear from you!
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed aliquam, libero ac vulputate congue, mauris metus malesuada risus, non ultrices lacus lectus quis orci. Mauris rutrum erat id tortor aliquet, sed tristique lorem vulputate.
+Lightning talks should be 5-7 minutes long
 
-Suspendisse dui sem, accumsan non eros vel, gravida porta orci. Ut porta cursus lacinia. Nulla aliquam ligula euismod ante auctor varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum efficitur gravida quam, id facilisis nisl rutrum sollicitudin.
+Please submit your idea with [this form](https://forms.gle/Ma4AfoXkQqpnMj34A).
 
-- Mauris ultrices
-- Libero non
-- Sollicitudin nisl
+Our planning committee will review all proposals and select talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit talks. 
+
+DEADLINE: September 2nd 12:00 ET
+## Call for Session Ideas
+
+We want these two days of SatSummit to be useful, insightful, and thought-provoking. We also hope that people will leave energized with actionable tools, connections, and guidance. The planning committee is finalizing the Agenda, but we have space to incorporate other ideas from the community. That is where you come in. Have an idea for SatSummit? 
+
+What do you think is important to the community? What talent, skill, or knowledge can you share? Below are some ideas, but we have flexibility in time and format to make the SatSummit of your dreams, into a reality.
+
+
+- Training or Workshop
+- Fireside Chat or Panel
+- Working Group
+- Demo
+- Fishbowl or other thematic group discussions
+
+What we’re looking for (aka: criteria): We’re looking for you to show demonstrations of useful applications of earth observation data applied to social and environmental problems. This could include new technological advances, models or science that are broadly interesting to the community. Show the art of the possible. These sessions are not intended as product or sales talks, but should be more in the spirit of sharing your experience with the community. 
+Our agenda from 2018 SatSummit might be helpful as your shape your session idea. You can find the agenda here.
+
+Please submit your idea with [this form](https://forms.gle/Ma4AfoXkQqpnMj34A).
+
+Our planning committee will review all proposals and do our best to accommodate as many ideas as possible in the time we have available. We are interested in talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit session ideas. 
+
+DEADLINE: September 2nd 12:00 ET
