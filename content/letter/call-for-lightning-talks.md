@@ -1,16 +1,11 @@
----
-title: Call for Lightning Talks & Session Ideas
----
-
-## Call for Lightning Talks
-
 We want to hear about how you are impacting earth observation data, applications, and community. What perspective can you share? Do you have lessons learned that others might benefit from? How are you challenging the status quo to push for progress and change that makes a difference in the world? We want to hear from you!
 
 Lightning talks should be 5-7 minutes long
 
 Our planning committee will review all proposals and select talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit talks. 
 
-DEADLINE: September 2nd 12:00 ET
+**DEADLINE**: September 2nd 12:00 ET
+
 ## Call for Session Ideas
 
 We want these two days of SatSummit to be useful, insightful, and thought-provoking. We also hope that people will leave energized with actionable tools, connections, and guidance. The planning committee is finalizing the Agenda, but we have space to incorporate other ideas from the community. That is where you come in. Have an idea for SatSummit? 
@@ -29,4 +24,4 @@ Our agenda from 2018 SatSummit might be helpful as your shape your session idea.
 
 Our planning committee will review all proposals and do our best to accommodate as many ideas as possible in the time we have available. We are interested in talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit session ideas. 
 
-DEADLINE: September 2nd 12:00 ET
+**DEADLINE**: September 2nd 12:00 ET
