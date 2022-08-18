@@ -28,7 +28,6 @@ import Brand from './brand';
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
-  border-top: 8px solid ${themeVal('color.secondary-500')};
   padding: ${variableGlsp(2, 0)};
 `;
 
