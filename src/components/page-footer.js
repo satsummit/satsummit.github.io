@@ -74,7 +74,7 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
-  margin-top: ${variableGlsp(-5)};
+  margin-top: ${variableGlsp(-7.25)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
@@ -168,6 +168,11 @@ function PageFooter() {
             <FooterMenuLinkPlaceholder>
               <CollecticonArrowRight /> Speakers
             </FooterMenuLinkPlaceholder>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
+            </FooterMenuLink>
           </li>
           <li>
             <FooterMenuLink as={Link} to='/tickets'>

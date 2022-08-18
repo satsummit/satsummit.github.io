@@ -112,18 +112,15 @@ const GlobalMenu = styled.ul`
   ${listReset()}
   display: flex;
   flex-flow: column nowrap;
+  justify-content: flex-start;
+
   gap: ${glsp(0.25)};
   padding-top: ${variableGlsp()};
   border-top: 4px solid ${themeVal('color.secondary-500')};
 
-  ${media.smallUp`
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: ${glsp()};
-  `}
-
   ${media.mediumUp`
+    flex-direction: row;
+    align-items: center;
     gap: ${glsp(1.5)};
   `}
 
@@ -136,7 +133,7 @@ const GlobalMenu = styled.ul`
   li:last-child {
     margin-top: ${glsp(0.75)};
 
-    ${media.smallUp`
+    ${media.mediumUp`
       margin: 0 0 0 auto;
     `}
 
@@ -227,6 +224,11 @@ function PageHeader() {
                 <GlobalMenuLinkPlaceholder aria-hidden='true'>
                   Speakers
                 </GlobalMenuLinkPlaceholder>
+              </li>
+              <li>
+                <GlobalMenuLink to='/call-for-lightning-talks'>
+                  Call for Lightning Talks
+                </GlobalMenuLink>
               </li>
               <li>
                 <GlobalMenuLink to='/code-of-conduct'>
