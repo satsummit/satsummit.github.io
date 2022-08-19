@@ -39,6 +39,7 @@ exports.onCreateNode = ({
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
     const nodeProps = {
+      published: true,
       ...node.frontmatter,
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
