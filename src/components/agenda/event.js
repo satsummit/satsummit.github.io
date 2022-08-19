@@ -56,7 +56,7 @@ const AgendaEntryBody = styled.div`
 const AgendaEntryFooter = styled.footer`
   display: flex;
   flex-flow: row wrap;
-  gap: ${variableGlsp(0.5)};
+  gap: ${variableGlsp(0.25, 0.75)};
 `;
 
 const AgendaEntryPeople = styled.div`
