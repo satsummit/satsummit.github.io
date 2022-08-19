@@ -81,6 +81,10 @@ const SinglePersonTitle = styled(PageMainTitle)`
   a {
     font-size: 50%;
     text-decoration: none;
+
+    &:visited {
+      color: inherit;
+    }
   }
 
   span {

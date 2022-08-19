@@ -34,9 +34,14 @@ const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
 
 const AgendaEntryTitleLink = styled(Link)`
   text-decoration: none;
+  transition: opacity 0.24s ease;
 
   &:visited {
     color: inherit;
+  }
+
+  &:hover {
+    opacity: 0.64;
   }
 `;
 

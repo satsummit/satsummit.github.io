@@ -70,10 +70,15 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: underline;
     text-decoration-color: ${themeVal('color.secondary-500')};
     text-decoration-thickness: 2px;
-  }
+    transition: opacity 0.24s ease;
 
-  a:visited {
-    color: inherit;
+    &:visited {
+      color: inherit;
+    }
+
+    &:hover {
+      opacity: 0.64;
+    }
   }
 
   :root {
