@@ -25,7 +25,7 @@ What do you think is important to the community? What talent, skill, or knowledg
 - Fishbowl or other thematic group discussions
 
 What we’re looking for (aka: criteria): We’re looking for you to show demonstrations of useful applications of earth observation data applied to social and environmental problems. This could include new technological advances, models or science that are broadly interesting to the community. Show the art of the possible. These sessions are not intended as product or sales talks, but should be more in the spirit of sharing your experience with the community. 
-Our agenda from 2018 SatSummit might be helpful as your shape your session idea. You can find the agenda [here](https://2018.satsummit.io/).
+Our [agenda from 2018 SatSummit]https://2018.satsummit.io/) might be helpful as your shape your session idea.
 
 Our planning committee will review all proposals and do our best to accommodate as many ideas as possible in the time we have available. We are interested in talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit session ideas. 
 
