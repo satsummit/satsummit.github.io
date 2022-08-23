@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {
   listReset,
   media,
+  multiply,
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
@@ -116,7 +117,8 @@ const FooterCredits = styled(FootBlock)`
   grid-row: 3;
   margin-top: ${variableGlsp()};
   padding-top: ${variableGlsp(1.5)};
-  border-top: 4px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 2)} solid
+    ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
@@ -160,6 +162,11 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
+            </FooterMenuLink>
+          </li>
+          <li>
             <FooterMenuLinkPlaceholder>
               <CollecticonArrowRight /> Agenda
             </FooterMenuLinkPlaceholder>
@@ -170,23 +177,18 @@ function PageFooter() {
             </FooterMenuLinkPlaceholder>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
-              <CollecticonArrowRight /> Call for Lightning Talks
-            </FooterMenuLink>
-          </li>
-          <li>
             <FooterMenuLink as={Link} to='/tickets'>
               <CollecticonArrowRight /> Tickets
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/code-of-conduct'>
-              <CollecticonArrowRight /> Code of Conduct
+            <FooterMenuLink as={Link} to='/health-protocols'>
+              <CollecticonArrowRight /> Health Protocols
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/health-protocols'>
-              <CollecticonArrowRight /> Health Protocols
+            <FooterMenuLink as={Link} to='/code-of-conduct'>
+              <CollecticonArrowRight /> Code of Conduct
             </FooterMenuLink>
           </li>
         </FooterMenu>

@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 
 import Layout from '$components/layout';
 import {
-  PageLead,
   PageMainContent,
   PageMainHero,
   PageMainHeroHeadline,
@@ -14,7 +13,7 @@ import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
 
 const LayoutLetter = ({ data }) => {
-  const { parent, title, lead } = data.letter;
+  const { parent, title } = data.letter;
 
   return (
     <Layout title={title}>
@@ -22,7 +21,6 @@ const LayoutLetter = ({ data }) => {
         <PageMainHero>
           <PageMainHeroHeadline>
             <PageMainTitle>{title}</PageMainTitle>
-            {lead && <PageLead>{lead}</PageLead>}
           </PageMainHeroHeadline>
         </PageMainHero>
         <BlockAlpha>
@@ -48,7 +46,6 @@ export const query = graphql`
         }
       }
       title
-      lead
     }
   }
 `;

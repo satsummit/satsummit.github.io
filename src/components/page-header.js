@@ -2,7 +2,13 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
+import {
+  glsp,
+  listReset,
+  media,
+  multiply,
+  themeVal
+} from '@devseed-ui/theme-provider';
 import {
   CollecticonArrowRight,
   CollecticonHamburgerMenu,
@@ -113,10 +119,10 @@ const GlobalMenu = styled.ul`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-
   gap: ${glsp(0.25)};
   padding-top: ${variableGlsp()};
-  border-top: 4px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 2)} solid
+    ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     flex-direction: row;
@@ -216,6 +222,11 @@ function PageHeader() {
                 <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
               </li>
               <li>
+                <GlobalMenuLink to='/call-for-lightning-talks'>
+                  Call for Lightning Talks
+                </GlobalMenuLink>
+              </li>
+              <li>
                 <GlobalMenuLinkPlaceholder aria-hidden='true'>
                   Agenda
                 </GlobalMenuLinkPlaceholder>
@@ -224,11 +235,6 @@ function PageHeader() {
                 <GlobalMenuLinkPlaceholder aria-hidden='true'>
                   Speakers
                 </GlobalMenuLinkPlaceholder>
-              </li>
-              <li>
-                <GlobalMenuLink to='/call-for-lightning-talks'>
-                  Call for Lightning Talks
-                </GlobalMenuLink>
               </li>
               <li>
                 <GlobalMenuLink to='/code-of-conduct'>

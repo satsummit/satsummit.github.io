@@ -209,28 +209,37 @@ const Sponsor = styled.a`
   }
 
   /* Adjust image optical size */
+
+  .sponsor-azavea {
+    transform: scale(0.92);
+  }
+
+  .sponsor-cyient {
+    transform: scale(0.72);
+  }
+
+  .sponsor-development-seed {
+    transform: scale(0.84);
+  }
+
+  .sponsor-nasa {
+    transform: scale(1.28);
+  }
+
+  .sponsor-picterra {
+    transform: scale(0.92);
+  }
+
   .sponsor-planet {
     transform: scale(1.2);
   }
 
   .sponsor-sparkgeo {
-    transform: scale(1.04);
-  }
-
-  .sponsor-azavea {
-    transform: scale(0.96);
+    transform: scale(1.02);
   }
 
   .sponsor-umbra {
-    transform: scale(0.72);
-  }
-
-  .sponsor-cyient {
-    transform: scale(0.8);
-  }
-
-  .sponsor-development-seed {
-    transform: scale(0.9);
+    transform: scale(0.68);
   }
 `;
 
