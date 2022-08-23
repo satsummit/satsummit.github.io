@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { media, multiply, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
@@ -176,7 +176,8 @@ const Block = withReveal(
 
     &:not(:first-child) {
       padding-top: ${variableGlsp()};
-      border-top: 8px solid ${themeVal('color.secondary-500')};
+      border-top: ${multiply(themeVal('layout.border'), 4)} solid
+        ${themeVal('color.secondary-500')};
       margin-top: ${variableGlsp(-0.75)};
     }
   `,
@@ -219,7 +220,8 @@ const BlockGroupBeta = styled(BlockGroup)`
 `;
 
 const FigureStyled = styled(Figure)`
-  border-top: 8px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
 
   .gatsby-image-wrapper {
     background: linear-gradient(
