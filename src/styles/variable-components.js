@@ -72,6 +72,11 @@ export const VarProse = styled(Prose)`
     ${renderHeadingSize({ size: 'xsmall' })}
   }
 
+  hr {
+    border: ${themeVal('layout.border')} solid
+      ${themeVal('color.secondary-500')};
+  }
+
   h1,
   h2,
   h3,
@@ -84,11 +89,6 @@ export const VarProse = styled(Prose)`
     &:not(:first-child) {
       margin-top: calc(${variableProseVSpace()} * 2);
     }
-  }
-
-  hr {
-    border: ${themeVal('layout.border')} solid
-      ${themeVal('color.secondary-500')};
   }
 
   > * {
