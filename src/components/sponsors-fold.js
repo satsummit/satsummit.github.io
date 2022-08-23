@@ -26,10 +26,6 @@ const SponsorsFoldSelf = styled.section`
   flex-flow: column;
   filter: drop-shadow(0 -8px 0 ${themeVal('color.secondary-500')});
   margin-top: ${variableGlsp(2)};
-
-  & + footer {
-    border: 0;
-  }
 `;
 
 const SponsorsFoldInner = styled(Hug).attrs({
@@ -37,16 +33,20 @@ const SponsorsFoldInner = styled(Hug).attrs({
 })`
   color: ${themeVal('color.surface')};
   background: ${themeVal('color.base')};
-  clip-path: polygon(0 0, 100% 28%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 16rem, 100% 100%, 0% 100%);
   padding: ${variableGlsp(22, 0, 2, 0)};
 
+  ${media.mediumUp`
+    padding-top: ${variableGlsp(18)};
+  `}
+
   ${media.largeUp`
+    clip-path: polygon(0 16rem, 100% 0, 100% 100%, 0% 100%);
     padding-top: ${variableGlsp(14)};
-    clip-path: polygon(0 28%, 100% 0, 100% 100%, 0% 100%);
   `}
 
   ${media.xlargeUp`
-    padding-top: ${variableGlsp(12)};
+    padding-top: ${variableGlsp(10)};
   `}
 `;
 
@@ -78,15 +78,15 @@ const SponsorsOutro = styled(Hug).attrs({
   `}
 
   ${media.mediumUp`
-    margin: ${variableGlsp(6, 0, -20, 0)};
+    margin: ${variableGlsp(2, 0, -16, 0)};
   `}
 
   ${media.largeUp`
-    margin: ${variableGlsp(0, 0, -16, 0)};
+    margin: ${variableGlsp(0, 0, -14, 0)};
   `}
 
   ${media.xlargeUp`
-    margin-bottom: ${variableGlsp(-14)};
+    margin-bottom: ${variableGlsp(-10)};
   `}
 `;
 
@@ -209,28 +209,37 @@ const Sponsor = styled.a`
   }
 
   /* Adjust image optical size */
+
+  .sponsor-azavea {
+    transform: scale(0.92);
+  }
+
+  .sponsor-cyient {
+    transform: scale(0.72);
+  }
+
+  .sponsor-development-seed {
+    transform: scale(0.84);
+  }
+
+  .sponsor-nasa {
+    transform: scale(1.28);
+  }
+
+  .sponsor-picterra {
+    transform: scale(0.92);
+  }
+
   .sponsor-planet {
     transform: scale(1.2);
   }
 
   .sponsor-sparkgeo {
-    transform: scale(1.04);
-  }
-
-  .sponsor-azavea {
-    transform: scale(0.96);
+    transform: scale(1.02);
   }
 
   .sponsor-umbra {
-    transform: scale(0.72);
-  }
-
-  .sponsor-cyient {
-    transform: scale(0.8);
-  }
-
-  .sponsor-development-seed {
-    transform: scale(0.9);
+    transform: scale(0.68);
   }
 `;
 
@@ -244,7 +253,10 @@ function SponsorsFold() {
   const { sponsors } = useStaticQuery(
     graphql`
       query {
-        sponsors: allSponsor(sort: { fields: [slug], order: ASC }) {
+        sponsors: allSponsor(
+          sort: { fields: [slug], order: ASC }
+          filter: { published: { eq: true } }
+        ) {
           nodes {
             id
             title

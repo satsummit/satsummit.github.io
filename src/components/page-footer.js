@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {
   listReset,
   media,
+  multiply,
   themeVal,
   visuallyHidden
 } from '@devseed-ui/theme-provider';
@@ -28,7 +29,6 @@ import Brand from './brand';
 const PageFooterSelf = styled(Hug).attrs({
   as: 'footer'
 })`
-  border-top: 8px solid ${themeVal('color.secondary-500')};
   padding: ${variableGlsp(2, 0)};
 `;
 
@@ -75,7 +75,7 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
-  margin-top: ${variableGlsp(-5)};
+  margin-top: ${variableGlsp(-7.25)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
@@ -107,7 +107,8 @@ const FooterCredits = styled(FootBlock)`
   grid-row: 3;
   margin-top: ${variableGlsp()};
   padding-top: ${variableGlsp(1.5)};
-  border-top: 4px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 2)} solid
+    ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
@@ -151,6 +152,11 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
+            </FooterMenuLink>
+          </li>
+          <li>
             <FooterMenuLink as={Link} to='/agenda'>
               <CollecticonArrowRight /> Agenda
             </FooterMenuLink>
@@ -166,13 +172,13 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/code-of-conduct'>
-              <CollecticonArrowRight /> Code of Conduct
+            <FooterMenuLink as={Link} to='/health-protocols'>
+              <CollecticonArrowRight /> Health Protocols
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/health-protocols'>
-              <CollecticonArrowRight /> Health Protocols
+            <FooterMenuLink as={Link} to='/code-of-conduct'>
+              <CollecticonArrowRight /> Code of Conduct
             </FooterMenuLink>
           </li>
         </FooterMenu>

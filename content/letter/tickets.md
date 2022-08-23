@@ -14,9 +14,16 @@ From climate change to population growth to natural resource availability, earth
 
 We want everyone to have a safe and enjoyable conference, and highly recommend COVID-19 vaccination or a negative test before attending **SatSummit**.
 
-We will follow any Washington, DC protocols that are in effect at the time, which can be followed closely on this website. We will also provide indoor face coverings and hand sanitizer.
+We will follow any Washington, DC protocols that are in effect at the time, which can be followed closely on the **[Health Protocols](/health-protocols)** section. We will also provide indoor face coverings and hand sanitizer.
 
+### Code of Conduct
 
-## Tickets
+We are committed to our community. We follow a **Code of Conduct** for our events in order to to offer a positive and safe environment for all attendees.
+
+Before you participate in **SatSummit**, we ask that you review the **[Code of Conduct](/code-of-conduct)**.
+
+---
+
+## Book your ticket
 
 All tickets include attendance for both September 28 and 29. There are no one day tickets offered at this time. The prices include breakfast and lunch during the conference and light fare at social events. Tickets are nonrefundable.
