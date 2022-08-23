@@ -193,7 +193,8 @@ const People = ({ data }) => {
                 <strong>{title}</strong>
               </SinglePersonTitle>
               <PageMainSubtitle>
-                {role} at {company} {pronouns && <span>• {pronouns}</span>}
+                {role} at {company}
+                {pronouns && <span> • {pronouns}</span>}
               </PageMainSubtitle>
             </SinglePersonHeadline>
             {twitter && (
