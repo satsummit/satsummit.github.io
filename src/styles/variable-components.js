@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { multiply, themeVal } from '@devseed-ui/theme-provider';
+import { themeVal } from '@devseed-ui/theme-provider';
 import { Heading, Lead, Prose } from '@devseed-ui/typography';
 
 import { variableBaseType, variableProseVSpace } from './variable-utils';

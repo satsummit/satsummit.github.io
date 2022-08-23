@@ -2,7 +2,13 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 
-import { glsp, listReset, media, multiply, themeVal } from '@devseed-ui/theme-provider';
+import {
+  glsp,
+  listReset,
+  media,
+  multiply,
+  themeVal
+} from '@devseed-ui/theme-provider';
 import {
   CollecticonArrowRight,
   CollecticonHamburgerMenu,

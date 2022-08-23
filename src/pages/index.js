@@ -4,7 +4,12 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { media, multiply, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  media,
+  multiply,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
