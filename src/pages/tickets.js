@@ -64,7 +64,6 @@ const TicketsPage = () => {
         <BlockAlpha>
           <VarProse dangerouslySetInnerHTML={{ __html: tickets.parent.html }} />
           <VarProse>
-            <h3>Book your ticket</h3>
             <EmbedWidget id='eb-widget' />
           </VarProse>
         </BlockAlpha>
