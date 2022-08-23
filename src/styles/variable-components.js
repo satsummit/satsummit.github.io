@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { themeVal } from '@devseed-ui/theme-provider';
+import { multiply, themeVal } from '@devseed-ui/theme-provider';
 import { Heading, Lead, Prose } from '@devseed-ui/typography';
 
 import { variableBaseType, variableProseVSpace } from './variable-utils';
@@ -77,12 +77,18 @@ export const VarProse = styled(Prose)`
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  hr {
     margin-bottom: calc(${variableProseVSpace()} / 2);
 
     &:not(:first-child) {
       margin-top: calc(${variableProseVSpace()} * 2);
     }
+  }
+
+  hr {
+    border: ${themeVal('layout.border')} solid
+      ${themeVal('color.secondary-500')};
   }
 
   > * {
