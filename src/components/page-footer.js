@@ -160,6 +160,11 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
+            </FooterMenuLink>
+          </li>
+          <li>
             <FooterMenuLinkPlaceholder>
               <CollecticonArrowRight /> Agenda
             </FooterMenuLinkPlaceholder>
@@ -170,23 +175,18 @@ function PageFooter() {
             </FooterMenuLinkPlaceholder>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
-              <CollecticonArrowRight /> Call for Lightning Talks
-            </FooterMenuLink>
-          </li>
-          <li>
             <FooterMenuLink as={Link} to='/tickets'>
               <CollecticonArrowRight /> Tickets
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/code-of-conduct'>
-              <CollecticonArrowRight /> Code of Conduct
+            <FooterMenuLink as={Link} to='/health-protocols'>
+              <CollecticonArrowRight /> Health Protocols
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/health-protocols'>
-              <CollecticonArrowRight /> Health Protocols
+            <FooterMenuLink as={Link} to='/code-of-conduct'>
+              <CollecticonArrowRight /> Code of Conduct
             </FooterMenuLink>
           </li>
         </FooterMenu>

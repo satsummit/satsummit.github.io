@@ -216,6 +216,11 @@ function PageHeader() {
                 <GlobalMenuLink to='/'>Welcome</GlobalMenuLink>
               </li>
               <li>
+                <GlobalMenuLink to='/call-for-lightning-talks'>
+                  Call for Lightning Talks
+                </GlobalMenuLink>
+              </li>
+              <li>
                 <GlobalMenuLinkPlaceholder aria-hidden='true'>
                   Agenda
                 </GlobalMenuLinkPlaceholder>
@@ -224,11 +229,6 @@ function PageHeader() {
                 <GlobalMenuLinkPlaceholder aria-hidden='true'>
                   Speakers
                 </GlobalMenuLinkPlaceholder>
-              </li>
-              <li>
-                <GlobalMenuLink to='/call-for-lightning-talks'>
-                  Call for Lightning Talks
-                </GlobalMenuLink>
               </li>
               <li>
                 <GlobalMenuLink to='/code-of-conduct'>
