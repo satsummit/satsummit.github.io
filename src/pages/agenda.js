@@ -245,8 +245,7 @@ const TabsSecNavSelf = styled(Hug)`
 const TabsSecNavInner = styled(Hug).attrs({
   grid: { smallUp: ['content-start', 'content-end'] }
 })`
-  padding: ${variableGlsp(2, 0)};
-  border-top: 8px solid ${themeVal('color.secondary-500')};
+  padding-bottom: ${variableGlsp(2)};
 
   /* stylelint-disable no-descending-specificity */
   > * {

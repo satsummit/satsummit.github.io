@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { listReset, media, themeVal } from '@devseed-ui/theme-provider';
+import { listReset, multiply, themeVal } from '@devseed-ui/theme-provider';
 
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
@@ -21,11 +21,8 @@ export const AgendaEventList = styled(Hug).attrs({
 
   > li:not(:first-child) {
     padding-top: ${variableGlsp()};
-    border-top: 4px solid ${themeVal('color.secondary-500')};
-
-    ${media.mediumUp`
-      border-width: 8px;
-    `}
+    border-top: ${multiply(themeVal('layout.border'), 2)} solid
+      ${themeVal('color.secondary-500')};
   }
 `;
 
