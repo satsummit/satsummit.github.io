@@ -61,7 +61,7 @@ exports.onCreateNode = ({
 
 exports.createPages = async function ({ actions, graphql }) {
   const {
-    data: { allLetter }
+    data: { allLetter, allPeople }
   } = await graphql(`
     query {
       allLetter(filter: { title: { ne: "" } }) {
