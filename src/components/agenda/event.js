@@ -15,7 +15,7 @@ import { format } from 'date-fns';
 const AgendaEntry = styled.article`
   display: flex;
   flex-direction: column;
-  gap: ${variableGlsp()};
+  gap: ${variableGlsp(0.5)};
 `;
 
 const AgendaEntryHeader = styled.header`
@@ -62,6 +62,7 @@ const AgendaEntryFooter = styled.footer`
   display: flex;
   flex-flow: row wrap;
   gap: ${variableGlsp(0.25, 0.75)};
+  margin-top: ${variableGlsp(0.5)};
 `;
 
 const AgendaEntryPeople = styled.div`
