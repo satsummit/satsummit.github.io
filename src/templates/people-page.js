@@ -76,14 +76,20 @@ const SinglePersonHeadline = styled.div`
 
 const SinglePersonTitle = styled(PageMainTitle)`
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
+  align-items: flex-start;
 
   a {
     font-size: 50%;
     text-decoration: none;
+    transition: opacity 0.24s ease-in-out;
 
     &:visited {
       color: inherit;
+    }
+
+    &:hover {
+      opacity: 0.64;
     }
   }
 
