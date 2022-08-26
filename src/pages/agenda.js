@@ -2,7 +2,12 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  media,
+  multiply,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 import {
   CollecticonArrowLeft,
   CollecticonArrowRight
@@ -59,14 +64,17 @@ const TimeSlot = styled(Hug).attrs({
     ${media.mediumUp`
       margin-top: 0;
       padding-top: ${variableGlsp()};
-      border-top: 8px solid ${themeVal('color.secondary-500')};
+      border-top: ${multiply(themeVal('layout.border'), 4)} solid ${themeVal(
+      'color.secondary-500'
+    )};
     `}
   }
 
   &:not(:first-of-type) > *:first-child {
     margin-top: ${variableGlsp(0.75)};
     padding-top: ${variableGlsp(2)};
-    border-top: 8px solid ${themeVal('color.secondary-500')};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
 
     ${media.mediumUp`
       margin-top: 0;

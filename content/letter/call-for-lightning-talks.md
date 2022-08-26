@@ -32,3 +32,7 @@ Our [agenda from 2018 SatSummit](https://2018.satsummit.io/agenda) might be help
 Our planning committee will review all proposals and do our best to accommodate as many ideas as possible in the time we have available. We are interested in talks that provide diversity & variety of people and topics. We encourage women and folks from other underrepresented groups to submit session ideas. 
 
 **Deadline**: September 2nd 12:00 ET.
+
+---
+
+## submit your Ideas

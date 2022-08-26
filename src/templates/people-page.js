@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { media, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import { media, multiply, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
@@ -131,7 +131,8 @@ const SinglePersonEvents = styled.section`
   grid-column: content-start / content-end;
   margin-top: ${variableGlsp(1.5)};
   padding-top: ${variableGlsp(2)};
-  border-top: 8px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
   display: flex;
   flex-flow: column nowrap;
   gap: ${variableGlsp()};

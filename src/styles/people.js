@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { themeVal } from '@devseed-ui/theme-provider';
+import { multiply, themeVal } from '@devseed-ui/theme-provider';
 
 export const PersonAvatar = styled.figure`
   position: relative;
@@ -11,7 +11,8 @@ export const PersonAvatar = styled.figure`
     ${themeVal('color.primary-500')} 0%,
     ${themeVal('color.secondary-500')}64 100%
   );
-  border-top: 8px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
 
   img {
     height: 100%;

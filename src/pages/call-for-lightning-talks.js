@@ -40,8 +40,6 @@ const TicketsPage = () => {
         <BlockAlpha>
           <VarProse dangerouslySetInnerHTML={{ __html: talks.parent.html }} />
           <VarProse>
-            <hr />
-            <h2>Submit your ideas</h2>
             <EmbedWidget>
               <iframe
                 src='https://docs.google.com/forms/d/e/1FAIpQLSd7N64dWSdFyRuL27gMBcKi5QoIXUXrygn_p1HsCORvo5Io3w/viewform?embedded=true'

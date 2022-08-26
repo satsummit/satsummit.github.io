@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { glsp, listReset, media, themeVal } from '@devseed-ui/theme-provider';
+import {
+  glsp,
+  listReset,
+  media,
+  multiply,
+  themeVal
+} from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -65,7 +71,8 @@ const Speaker = styled.article`
   color: ${themeVal('color.base')};
   border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
   box-shadow: ${themeVal('boxShadow.elevationD')};
-  border-top: 8px solid ${themeVal('color.secondary-500')};
+  border-top: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
   height: 100%;
 `;
 
