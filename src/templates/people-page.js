@@ -159,8 +159,6 @@ const SinglePersonEventsTitle = styled(VarHeading).attrs({
 const SinglePersonActionsSelf = styled.div`
   grid-column: content-start / content-end;
   margin-top: ${variableGlsp(1.5)};
-  padding-top: ${variableGlsp(2)};
-  border-top: 8px solid ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     grid-column: content-2 / content-8;
