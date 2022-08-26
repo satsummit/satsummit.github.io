@@ -4,7 +4,12 @@ import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-import { media, multiply, themeVal, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  media,
+  multiply,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonArrowRight,
@@ -31,18 +36,25 @@ const SinglePersonMedia = styled.div`
   grid-row: 1;
   grid-column: content-start / content-end;
   align-self: end;
+  margin-bottom: ${variableGlsp()};
 
   ${media.smallUp`
     grid-column: content-start / content-3;
-    margin-bottom: ${variableGlsp()};
+    padding-right: ${variableGlsp()};
+    margin-bottom: ${variableGlsp(2)};
   `}
 
   ${media.mediumUp`
     grid-column: content-start / content-4;
+    padding-right: ${variableGlsp()};
   `}
 
   ${media.largeUp`
     grid-column: content-start / content-5;
+  `}
+
+  ${media.xlargeUp`
+    padding-right: ${variableGlsp(2)};
   `}
 `;
 
@@ -52,20 +64,22 @@ const SinglePersonHero = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: ${variableGlsp(0.5)};
+  border-bottom: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
+  padding: ${variableGlsp(0, 0, 2, 0)};
+  margin-bottom: ${variableGlsp(2)};
 
   ${media.smallUp`
     grid-column: content-3 / content-end;
-    padding: ${variableGlsp(2)};
-    margin-bottom: ${variableGlsp()};
   `}
 
   ${media.mediumUp`
     grid-row: 1;
-    grid-column: content-4 / content-end;
+    grid-column: content-4 / content-8;
   `}
 
   ${media.largeUp`
-    grid-column: content-5 / content-end;
+    grid-column: content-5 / content-11;
   `}
 `;
 
