@@ -5,8 +5,11 @@ import styled from 'styled-components';
 import { listReset } from '@devseed-ui/theme-provider';
 import { variableGlsp } from '$styles/variable-utils';
 import { Link } from 'gatsby';
+import { VarProse } from '$styles/variable-components';
 
-const AgendaEntryPeopleList = styled.ol`
+const AgendaEntryPeopleList = styled(VarProse).attrs({
+  as: 'ol'
+})`
   ${listReset()};
   display: flex;
   flex-flow: row wrap;

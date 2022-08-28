@@ -71,7 +71,7 @@ const AgendaEntryPeople = styled.div`
   gap: ${variableGlsp(0.25)};
 `;
 
-const AgendaEntryPeopleTitle = styled(Heading).attrs((props) => {
+const AgendaEntryPeopleTitle = styled(VarHeading).attrs((props) => {
   return {
     as: props.as || 'h3',
     size: 'xsmall'
