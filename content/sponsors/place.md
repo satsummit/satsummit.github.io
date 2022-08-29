@@ -1,6 +1,6 @@
 ---
 title: Place
-url: https://umbra.space/
+url: https://www.thisisplace.org/
 image: ./media/place.png
 group: Bronze
 ---
