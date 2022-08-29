@@ -211,7 +211,7 @@ const Sponsor = styled.a`
   /* Adjust image optical size */
 
   .sponsor-azavea {
-    transform: scale(0.92);
+    transform: scale(0.9);
   }
 
   .sponsor-cyient {
@@ -222,12 +222,24 @@ const Sponsor = styled.a`
     transform: scale(0.84);
   }
 
+  .sponsor-esri {
+    transform: scale(1.08);
+  }
+
+  .sponsor-locana {
+    transform: scale(0.84);
+  }
+
   .sponsor-nasa {
     transform: scale(1.28);
   }
 
   .sponsor-picterra {
-    transform: scale(0.92);
+    transform: scale(0.9);
+  }
+
+  .sponsor-place {
+    transform: scale(0.78);
   }
 
   .sponsor-planet {
