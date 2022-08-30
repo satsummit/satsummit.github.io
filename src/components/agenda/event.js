@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import T from 'prop-types';
-import { Heading } from '@devseed-ui/typography';
 
 import { EventPeople } from '$components/agenda/event-people';
 import { VarHeading, VarProse } from '$styles/variable-components';
@@ -52,6 +51,11 @@ export const AgendaEntryOverline = styled(VarHeading).attrs((props) => {
   };
 })`
   order: -1;
+
+  i {
+    font-style: inherit;
+    margin: ${variableGlsp(0, 0.075)};
+  }
 `;
 
 const AgendaEntryBody = styled.div`
@@ -107,12 +111,10 @@ export function AgendaEvent(props) {
           </AgendaEntryTitleLink>
         </AgendaEntryTitle>
         <AgendaEntryOverline>
-          {type}
           <span>
-            {' '}
-            • {format(dateObj, 'MMM. dd')}, {time}
-          </span>{' '}
-          • {room}
+            {format(dateObj, 'MMM. dd')}, {time} <i>•</i>{' '}
+          </span>
+          {type} <i>•</i> {room}
         </AgendaEntryOverline>
       </AgendaEntryHeader>
       <AgendaEntryBody>
