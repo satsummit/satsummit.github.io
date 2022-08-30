@@ -34,12 +34,12 @@ const SinglePerson = styled(Hug)`
 
 const SinglePersonMedia = styled.div`
   grid-row: 1;
-  grid-column: content-start / content-end;
+  grid-column: content-start / content-4;
   align-self: end;
   margin-bottom: ${variableGlsp()};
 
   ${media.smallUp`
-    grid-column: content-start / content-3;
+    grid-column: full-start / content-3;
     padding-right: ${variableGlsp()};
     margin-bottom: ${variableGlsp(2)};
   `}
