@@ -48,12 +48,8 @@ const SpeakersList = styled.ol`
   grid-column: content-start / content-end;
   display: grid;
   gap: ${variableGlsp()};
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   background: ${themeVal('color.surface')};
-
-  ${media.smallUp`
-    grid-template-columns: repeat(2, 1fr);
-  `}
 
   ${media.mediumUp`
     grid-template-columns: repeat(3, 1fr);
