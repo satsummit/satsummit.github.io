@@ -79,6 +79,10 @@ const SinglePersonHero = styled.div`
   `}
 
   ${media.largeUp`
+    grid-column: content-5 / content-12;
+  `}
+
+  ${media.xlargeUp`
     grid-column: content-5 / content-11;
   `}
 `;
