@@ -19,7 +19,7 @@ import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import { PersonAvatar } from '$styles/people';
 
-export const SpeakersHubHeroHeadline = styled.div`
+const SpeakersHubHeroHeadline = styled.div`
   display: flex;
   flex-flow: column nowrap;
   gap: ${variableGlsp()};
