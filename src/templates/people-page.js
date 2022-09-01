@@ -5,6 +5,7 @@ import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import {
+  glsp,
   media,
   multiply,
   themeVal,
@@ -12,8 +13,9 @@ import {
 } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
-  CollecticonArrowRight,
-  CollecticonBrandTwitter
+  CollecticonArrowLeft,
+  CollecticonBrandTwitter,
+  CollecticonLayoutGrid3x3
 } from '@devseed-ui/collecticons';
 
 import Layout from '$components/layout';
@@ -96,20 +98,7 @@ const SinglePersonTitle = styled(PageMainTitle)`
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
-
-  a {
-    font-size: 50%;
-    text-decoration: none;
-    transition: opacity 0.24s ease-in-out;
-
-    &:visited {
-      color: inherit;
-    }
-
-    &:hover {
-      opacity: 0.64;
-    }
-  }
+  gap: ${variableGlsp(0.5)};
 
   span {
     ${visuallyHidden()}
@@ -121,8 +110,21 @@ const SinglePersonTitle = styled(PageMainTitle)`
 `;
 
 const SinglePersonTitleLink = styled(Link)`
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
   font-size: 50%;
   text-decoration: none;
+  gap: ${glsp(0.5)};
+  transition: opacity 0.24s ease-in-out;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover {
+    opacity: 0.64;
+  }
 `;
 
 const SinglePersonSocial = styled.div`
@@ -210,9 +212,8 @@ const People = ({ data }) => {
             <SinglePersonHeadline>
               <SinglePersonTitle>
                 <SinglePersonTitleLink to='/speakers'>
-                  Speaker
+                  <CollecticonArrowLeft /> Speakers<span>: </span>
                 </SinglePersonTitleLink>
-                <span>: </span>
                 <strong>{title}</strong>
               </SinglePersonTitle>
               <PageMainSubtitle>
@@ -327,7 +328,7 @@ function SinglePersonActions() {
         size={isLargeUp ? 'xlarge' : 'large'}
         fitting='relaxed'
       >
-        View all speakers <CollecticonArrowRight />
+        <CollecticonLayoutGrid3x3 /> View all speakers
       </Button>
     </SinglePersonActionsSelf>
   );
