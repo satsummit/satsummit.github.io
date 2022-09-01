@@ -2,7 +2,7 @@
 title: Therese Jones
 company: Satellite Industry Association
 role: Senior Director of Policy
-twitter: developmentseed
+twitter: theresejones0
 avatar: ./media/therese-jones.jpg
 pronouns: She/Her
 ---
