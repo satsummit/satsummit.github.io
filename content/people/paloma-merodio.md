@@ -2,7 +2,7 @@
 title: Paloma Merodio
 company: National Institute of Statistics and Geography (INEGI)
 role: Vice President
-avatar: ./media/paloma-merodio-gomez.jpg
+avatar: ./media/paloma-merodio.jpg
 pronouns: She/Her
 ---
 ## About

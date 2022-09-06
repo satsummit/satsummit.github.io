@@ -2,7 +2,7 @@
 title: David Williams
 company: African Wildlife Foundation
 role: Senior Director - Conservation Geography
-avatar: ./media/clinton-johnson.jpg
+avatar: ./media/david-williams.jpg
 pronouns: He/Him
 ---
 ## About
