@@ -2,7 +2,7 @@
 title: Benjamin Thelonious Fels
 company: MACRO-EYES
 role: CEO
-avatar: ./media/benjamin-thelonious-fels.jpg
+avatar: ./media/benjamin-fels.jpg
 pronouns: He/Him
 ---
 ## About
