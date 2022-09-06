@@ -2,7 +2,7 @@
 title: Yana Gevorgyan
 company: GEO 
 role: Secretariat Director
-avatar: ./media/pascual-gonzalez.jpg
+avatar: ./media/yana-gevorgyan.jpg
 pronouns: She/Her
 ---
 ## About
