@@ -214,12 +214,20 @@ const Sponsor = styled.a`
     transform: scale(0.9);
   }
 
+  .sponsor-capella-space {
+    transform: scale(1.2);
+  }
+
   .sponsor-cyient {
     transform: scale(0.72);
   }
 
   .sponsor-development-seed {
     transform: scale(0.84);
+  }
+
+  .sponsor-esa {
+    transform: scale(0.88);
   }
 
   .sponsor-esri {
@@ -248,6 +256,10 @@ const Sponsor = styled.a`
 
   .sponsor-sparkgeo {
     transform: scale(1.02);
+  }
+
+  .sponsor-tiledb {
+    transform: scale(0.74);
   }
 
   .sponsor-umbra {
