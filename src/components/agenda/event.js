@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import { useLocation } from '@reach/router';
+import styled, { css } from 'styled-components';
 import T from 'prop-types';
+import Clipboard from 'clipboard';
+import { Transition } from 'react-transition-group';
 
 import { glsp, themeVal } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
@@ -136,6 +139,22 @@ const AgendaEntryPeopleTitle = styled(VarHeading).attrs((props) => {
   /* styled-component */
 `;
 
+const CopyResult = styled.span`
+  align-self: center;
+  max-width: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: max-width 240ms ease-in-out, padding 240ms ease-in-out;
+  width: 100%;
+
+  ${({ transitionState }) =>
+    transitionState.includes('enter') &&
+    css`
+      padding: ${glsp(0, 0.5)};
+      max-width: 100px;
+    `}
+`;
+
 // Get the Heading tag.
 const hl = (l) => l > 0 && `h${l}`;
 
@@ -151,9 +170,33 @@ export function AgendaEvent(props) {
     // Starting level for the highest heading on this component.
     startingHLevel = -1
   } = props;
+
+  const { isLargeUp } = useMediaQuery();
+  const copyBtnRef = useRef();
+  const [showCopiedMsg, setShowCopiedMsg] = useState();
+  const { origin, pathname } = useLocation();
+
   const dateObj = new Date(date);
   const time = timeFromDate(dateObj);
-  const { isLargeUp } = useMediaQuery();
+
+  useEffect(() => {
+    let copiedMsgTimeout = null;
+    const clipboard = new Clipboard(copyBtnRef.current, {
+      text: () => `${origin}/agenda#${cId}`
+    });
+
+    clipboard.on('success', () => {
+      setShowCopiedMsg(true);
+      copiedMsgTimeout = setTimeout(() => {
+        setShowCopiedMsg(false);
+      }, 1000);
+    });
+
+    return () => {
+      clipboard.destroy();
+      if (copiedMsgTimeout) clearTimeout(copiedMsgTimeout);
+    };
+  }, [origin, cId]);
 
   return (
     <AgendaEntry>
@@ -176,9 +219,20 @@ export function AgendaEvent(props) {
             variation='primary-text'
             size={isLargeUp ? 'large' : 'medium'}
             fitting='skinny'
+            ref={copyBtnRef}
           >
             <CollecticonClipboard title='Copy link' meaningful />
           </Button>
+          <Transition
+            in={showCopiedMsg}
+            timeout={300}
+            mountOnEnter
+            unmountOnExit
+          >
+            {(state) => (
+              <CopyResult transitionState={state}>Copied!</CopyResult>
+            )}
+          </Transition>
           <Button
             variation='primary-text'
             size={isLargeUp ? 'large' : 'medium'}

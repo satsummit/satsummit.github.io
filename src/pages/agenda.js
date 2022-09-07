@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import T from 'prop-types';
 import {
   media,
@@ -37,6 +37,16 @@ import { useMediaQuery } from '$utils/use-media-query';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 import { agendaDays } from '$components/agenda/utils';
 import { AgendaEntryOverline } from '$components/agenda/event';
+
+const AgendaScrollPadding = createGlobalStyle`
+  html {
+    scroll-padding-top: 5rem;
+
+    ${media.mediumUp`
+      scroll-padding-top: 6rem;
+    `}
+  }
+`;
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -154,6 +164,7 @@ const AgendaPage = ({ location }) => {
 
   return (
     <Layout title='Agenda'>
+      <AgendaScrollPadding />
       <PageMainContent>
         <PageMainHero>
           <PageMainHeroHeadline>
