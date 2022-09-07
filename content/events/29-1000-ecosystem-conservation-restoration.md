@@ -2,7 +2,7 @@
 title: Ecosystem Conservation and Restoration
 type: Session
 date: '2022-09-29 10:00'
-room: North Hub
+room: The North Hub
 lead: Need Text
 
 people:
