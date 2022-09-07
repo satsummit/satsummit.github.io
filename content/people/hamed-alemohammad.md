@@ -1,5 +1,5 @@
 ---
-title: Dr. Hamed Alemohammad
+title: Hamed Alemohammad, PhD
 company: Radiant Earth Foundation
 role: Chief Data Scientist and Executive Director
 avatar: ./media/hamed-alemohammad.jpg

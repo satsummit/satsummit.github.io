@@ -2,7 +2,7 @@
 title: Sanjana Paul
 company: Earth Hacks
 role: Co-founder & Executive Director
-avatar: ./media/pascual-gonzalez.jpg
+avatar: ./media/sanjana-paul.jpg
 pronouns: She/Her
 ---
 ## About
