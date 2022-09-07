@@ -9,7 +9,7 @@ lead: Speakers from the front lines of the climate crisis will share the urgency
 people:
     speakers:
         - Angus Friday
-        - Aurélie Shapiro
+        - Aurélie Shapiro, PhD
         - Catherine Nakalembe, PhD
         - Brian Eyler
         - Ritwik Gupta
