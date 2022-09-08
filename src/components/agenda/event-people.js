@@ -15,6 +15,10 @@ const AgendaEntryPeopleList = styled(VarProse).attrs({
   flex-flow: row wrap;
   gap: ${variableGlsp(0.125)};
 
+  > * {
+    margin: 0;
+  }
+
   li:not(:last-child)::after {
     content: ', ';
   }
