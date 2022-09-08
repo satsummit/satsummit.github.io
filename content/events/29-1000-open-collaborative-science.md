@@ -6,7 +6,8 @@ room: The Central Hub
 lead: Need Text
 
 people:
-    moderators: Rahul Ramachandran
+    moderators:
+        - Rahul Ramachandran
     speakers:
         - Nadine Alameh
         - Aimee Barciauskas
