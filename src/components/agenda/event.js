@@ -10,7 +10,7 @@ import { glsp, themeVal } from '@devseed-ui/theme-provider';
 import { Button } from '@devseed-ui/button';
 import {
   CollecticonCirclePlay,
-  CollecticonClipboard
+  CollecticonLink
 } from '@devseed-ui/collecticons';
 
 import { EventPeople } from '$components/agenda/event-people';
@@ -221,7 +221,7 @@ export function AgendaEvent(props) {
             fitting='skinny'
             ref={copyBtnRef}
           >
-            <CollecticonClipboard title='Copy link' meaningful />
+            <CollecticonLink title='Copy link' meaningful />
           </Button>
           <Transition
             in={showCopiedMsg}
