@@ -75,6 +75,7 @@ const Speaker = styled.article`
 const SpeakerLink = styled(Link)`
   display: flex;
   flex-flow: column nowrap;
+  height: 100%;
   transition: opacity 0.24s ease-in-out;
   text-decoration: none;
 
