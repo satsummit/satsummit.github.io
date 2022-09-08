@@ -245,11 +245,13 @@ export function AgendaEvent(props) {
           </Button>
         </AgendaEntryActions>
       </AgendaEntryHeader>
-      <AgendaEntryBody>
-        <VarProse>
-          <p>{lead}</p>
-        </VarProse>
-      </AgendaEntryBody>
+      {lead && (
+        <AgendaEntryBody>
+          <VarProse>
+            <p>{lead}</p>
+          </VarProse>
+        </AgendaEntryBody>
+      )}
       {people && (
         <AgendaEntryFooter>
           {peopleCategories.map((cat) => {
