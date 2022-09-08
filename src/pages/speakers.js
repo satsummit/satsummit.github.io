@@ -75,6 +75,7 @@ const Speaker = styled.article`
 const SpeakerLink = styled(Link)`
   display: flex;
   flex-flow: column nowrap;
+  height: 100%;
   transition: opacity 0.24s ease-in-out;
   text-decoration: none;
 
@@ -90,7 +91,7 @@ const SpeakerLink = styled(Link)`
 const SpeakerHeader = styled.header`
   display: flex;
   flex-flow: column nowrap;
-  gap: ${glsp(0.25)};
+  gap: ${variableGlsp(0.25)};
   padding: ${variableGlsp(0.875, 1, 1, 1)};
 `;
 
@@ -104,13 +105,16 @@ const SpeakerTitle = styled(VarHeading).attrs({
   size: 'large'
 })`
   /* styled-component */
+  line-height: calc(0.5rem + 0.75em);
 `;
 
-const SpeakerSubtitle = styled(VarHeading).attrs({
-  as: 'p',
-  size: 'xxsmall'
-})`
-  /* styled-component */
+const SpeakerSubtitle = styled.p`
+  font-size: 0.75rem;
+
+  ${media.mediumUp`
+    font-size: 1rem;
+    line-height: 1.25rem;
+  `}
 `;
 
 const SpeakersPage = () => {
