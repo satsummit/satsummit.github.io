@@ -4,9 +4,6 @@ exports.onCreatePage = async ({ page, actions: { deletePage } }) => {
     if (page.path.match(/^\/sandbox/)) {
       deletePage(page);
     }
-    if (page.path.match(/^\/agenda/)) {
-      deletePage(page);
-    }
   }
 };
 
