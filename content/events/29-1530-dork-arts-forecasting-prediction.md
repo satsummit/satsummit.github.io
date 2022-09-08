@@ -9,7 +9,7 @@ people:
     moderators: 
         - Manil Maskey
     speakers:
-        - Bess Schwarz
+        - Bessie Schwarz
         - Raghu K. Ganti
         - Budhendra "Budhu" Bhaduri, PhD
         - Benjamin Thelonious Fels
