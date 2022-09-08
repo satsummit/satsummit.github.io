@@ -60,10 +60,12 @@ export const FigureAttributionSelf = styled.p`
   background: ${themeVal('color.base-400a')};
   overflow: hidden;
 
-  a,
+  a {
+    text-decoration: none;
+  }
+
   a:visited {
     color: inherit;
-    text-decoration: none;
   }
 `;
 

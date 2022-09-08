@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { media, themeVal } from '@devseed-ui/theme-provider';
+import { media, multiply, themeVal } from '@devseed-ui/theme-provider';
 
 import { VarHeading, VarLead } from './variable-components';
 import { variableGlsp } from './variable-utils';
@@ -25,7 +25,8 @@ export const PageMainHeroHeadline = styled.div`
   gap: ${variableGlsp()};
   grid-column: content-start / content-end;
   padding: ${variableGlsp(2, 0)};
-  border-bottom: 8px solid ${themeVal('color.secondary-500')};
+  border-bottom: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
 
   ${media.mediumUp`
     grid-column: content-start / content-8;
@@ -43,6 +44,13 @@ export const PageMainHeroHeadline = styled.div`
 export const PageMainTitle = styled(VarHeading).attrs({
   as: 'h1',
   size: 'jumbo'
+})`
+  /* styled-component */
+`;
+
+export const PageMainSubtitle = styled(VarHeading).attrs({
+  as: 'p',
+  size: 'small'
 })`
   /* styled-component */
 `;

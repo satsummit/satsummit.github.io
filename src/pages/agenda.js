@@ -1,14 +1,27 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import T from 'prop-types';
-import { format } from 'date-fns';
-
-import { listReset, visuallyHidden } from '@devseed-ui/theme-provider';
+import {
+  media,
+  multiply,
+  themeVal,
+  visuallyHidden
+} from '@devseed-ui/theme-provider';
+import {
+  CollecticonArrowLeft,
+  CollecticonArrowRight
+} from '@devseed-ui/collecticons';
+import { Button } from '@devseed-ui/button';
 
 import Layout from '$components/layout';
-import { TabContent, TabItem, TabsManager, TabsNav } from '$components/tabs';
-
+import {
+  TabContent,
+  TabItem,
+  TabsManager,
+  TabsNav,
+  useTabs
+} from '$components/tabs';
 import {
   PageMainContent,
   PageMainHero,
@@ -16,10 +29,24 @@ import {
   PageMainTitle
 } from '$styles/page';
 import Hug from '$styles/hug';
-import { VarHeading, VarProse } from '$styles/variable-components';
+import { VarHeading } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 
-const timeFromDate = (d) => format(d, 'hh:mmaaa');
+import { timeFromDate } from '$utils/date';
+import { useMediaQuery } from '$utils/use-media-query';
+import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
+import { agendaDays } from '$components/agenda/utils';
+import { AgendaEntryOverline } from '$components/agenda/event';
+
+const AgendaScrollPadding = createGlobalStyle`
+  html {
+    scroll-padding-top: 5rem;
+
+    ${media.mediumUp`
+      scroll-padding-top: 6rem;
+    `}
+  }
+`;
 
 const TabbedContent = styled(Hug).attrs({
   as: 'div'
@@ -28,6 +55,7 @@ const TabbedContent = styled(Hug).attrs({
 `;
 
 const TabHeader = styled.header`
+  ${visuallyHidden()}
   grid-column: content-start / content-end;
 `;
 
@@ -42,91 +70,67 @@ const TimeSlot = styled(Hug).attrs({
   as: 'section',
   grid: { smallUp: ['content-start', 'content-end'] }
 })`
-  /* styled-component */
+  &:not(:first-of-type) > * {
+    ${media.mediumUp`
+      margin-top: 0;
+      padding-top: ${variableGlsp()};
+      border-top: ${multiply(themeVal('layout.border'), 4)} solid ${themeVal(
+      'color.secondary-500'
+    )};
+    `}
+  }
+
+  &:not(:first-of-type) > *:first-child {
+    margin-top: ${variableGlsp(0.75)};
+    padding-top: ${variableGlsp(2)};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
+
+    ${media.mediumUp`
+      margin-top: 0;
+      padding-top: ${variableGlsp()};
+    `}
+  }
 `;
 
 const TimeSlotHeader = styled.header`
-  grid-column: content-start / span 3;
+  grid-column: content-start / content-end;
+
+  ${media.mediumUp`
+    grid-column: content-start / content-2;
+  `}
+
+  ${media.largeUp`
+    grid-column: content-start / content-3;
+  `}
 `;
 
 const TimeSlotTitle = styled(VarHeading).attrs({
   as: 'h3',
-  size: 'xsmall'
+  size: 'small'
 })`
   /* styled-component */
 `;
 
-const TimeSlotBody = styled.div`
-  grid-column: content-4 / content-end;
-`;
-
-const TimeSlotEntryList = styled.ol`
-  ${listReset()};
-  display: flex;
-  flex-flow: column nowrap;
-  gap: ${variableGlsp()};
-`;
-
-const AgendaEntry = styled.article`
-  display: flex;
-  flex-direction: column;
-  gap: ${variableGlsp(0.5)};
-`;
-
-const AgendaEntryHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-`;
-
-const AgendaEntryTitle = styled(VarHeading).attrs({
-  as: 'h4',
-  size: 'large'
+const TimeSlotBody = styled(Hug).attrs({
+  as: 'section',
+  grid: {
+    smallUp: ['content-start', 'content-end'],
+    mediumUp: ['content-2', 'content-end'],
+    largeUp: ['content-3', 'content-end']
+  }
 })`
-  /* styled-component */
-`;
-
-const AgendaEntryOverline = styled(VarHeading).attrs({
-  as: 'h3',
-  size: 'xsmall'
-})`
-  order: -1;
-
-  span {
-    ${visuallyHidden()}
+  ${AgendaEntryOverline} {
+    span {
+      ${visuallyHidden()}
+    }
   }
 `;
-
-const AgendaEntryBody = styled.div`
-  /* styled-component */
-`;
-
-const AgendaEntryFooter = styled.footer`
-  /* styled-component */
-`;
-
-const days = [
-  {
-    day: 28,
-    label: (
-      <span>
-        <span>Wednesday, </span>Sep. 28
-      </span>
-    )
-  },
-  {
-    day: 29,
-    label: (
-      <span>
-        <span>Thursday, </span>Sep. 29
-      </span>
-    )
-  }
-];
 
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
-      allEvent(sort: { fields: [date] }) {
+      allEvent(sort: { fields: [slug, date] }) {
         nodes {
           id
           cId
@@ -135,6 +139,9 @@ const AgendaPage = ({ location }) => {
           date
           room
           lead
+          people {
+            ...AllEventPeople
+          }
         }
       }
     }
@@ -157,6 +164,7 @@ const AgendaPage = ({ location }) => {
 
   return (
     <Layout title='Agenda'>
+      <AgendaScrollPadding />
       <PageMainContent>
         <PageMainHero>
           <PageMainHeroHeadline>
@@ -167,7 +175,7 @@ const AgendaPage = ({ location }) => {
         <TabsManager initialActive={initialTab}>
           <TabbedContent>
             <TabsNav role='tablist'>
-              {days.map((d, idx) => (
+              {agendaDays.map((d, idx) => (
                 <TabItem
                   key={d.day}
                   aria-controls={`sep-${d.day}`}
@@ -182,7 +190,7 @@ const AgendaPage = ({ location }) => {
               ))}
             </TabsNav>
 
-            {days.map((d) => {
+            {agendaDays.map((d) => {
               const dayEvents = allEvent.nodes.filter(
                 (n) => new Date(n.date).getDate() === d.day
               );
@@ -214,33 +222,21 @@ const AgendaPage = ({ location }) => {
                         <TimeSlotTitle>{time}</TimeSlotTitle>
                       </TimeSlotHeader>
                       <TimeSlotBody>
-                        <TimeSlotEntryList>
+                        <AgendaEventList>
                           {eventsByTime.map((node) => (
-                            <li key={node.id}>
-                              <AgendaEntry>
-                                <AgendaEntryHeader>
-                                  <AgendaEntryTitle id={node.cId}>
-                                    <a href={`#${node.cId}`}>{node.title}</a>
-                                  </AgendaEntryTitle>
-                                  <AgendaEntryOverline>
-                                    {node.type} <span>at {time}</span> in{' '}
-                                    {node.room}
-                                  </AgendaEntryOverline>
-                                </AgendaEntryHeader>
-                                <AgendaEntryBody>
-                                  <VarProse>
-                                    <p>{node.lead}</p>
-                                  </VarProse>
-                                </AgendaEntryBody>
-                                <AgendaEntryFooter>
-                                  <p>
-                                    Speakers: <a href='/'>Lorem Ipsum</a>
-                                  </p>
-                                </AgendaEntryFooter>
-                              </AgendaEntry>
-                            </li>
+                            <AgendaEventListItem
+                              key={node.id}
+                              startingHLevel={4}
+                              cId={node.cId}
+                              title={node.title}
+                              type={node.type}
+                              date={node.date}
+                              room={node.room}
+                              lead={node.lead}
+                              people={node.people}
+                            />
                           ))}
-                        </TimeSlotEntryList>
+                        </AgendaEventList>
                       </TimeSlotBody>
                     </TimeSlot>
                   ))}
@@ -248,6 +244,7 @@ const AgendaPage = ({ location }) => {
               );
             })}
           </TabbedContent>
+          <TabsSecNav />
         </TabsManager>
       </PageMainContent>
     </Layout>
@@ -259,3 +256,74 @@ AgendaPage.propTypes = {
 };
 
 export default AgendaPage;
+
+const TabsSecNavSelf = styled(Hug)`
+  /* styled-component */
+`;
+
+const TabsSecNavInner = styled(Hug).attrs({
+  grid: { smallUp: ['content-start', 'content-end'] }
+})`
+  margin-top: ${variableGlsp(0.5)};
+  padding-bottom: ${variableGlsp(2)};
+
+  /* stylelint-disable no-descending-specificity */
+  > * {
+    ${media.mediumUp`
+      grid-column-start: content-2;
+    `}
+
+    ${media.largeUp`
+      grid-column-start: content-3;
+    `}
+  }
+  /* stylelint-enable no-descending-specificity */
+`;
+
+function TabsSecNav() {
+  const { tabList, activeTab, setActiveTab } = useTabs();
+  const activeIdx = tabList.findIndex((t) => t.id === activeTab);
+  const { isLargeUp } = useMediaQuery();
+
+  const goToTab = useCallback(
+    (idx) => {
+      setActiveTab(tabList[idx].id);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    },
+    [setActiveTab, tabList]
+  );
+
+  return (
+    <TabsSecNavSelf>
+      <TabsSecNavInner>
+        {activeIdx < tabList.length - 1 && (
+          <Button
+            variation='base-fill'
+            size={isLargeUp ? 'xlarge' : 'large'}
+            fitting='relaxed'
+            onClick={() => {
+              goToTab(activeIdx + 1);
+            }}
+          >
+            View next day <CollecticonArrowRight />
+          </Button>
+        )}
+        {activeIdx > 0 && (
+          <Button
+            variation='base-fill'
+            size={isLargeUp ? 'xlarge' : 'large'}
+            fitting='relaxed'
+            onClick={() => {
+              goToTab(activeIdx - 1);
+            }}
+          >
+            <CollecticonArrowLeft /> View previous day
+          </Button>
+        )}
+      </TabsSecNavInner>
+    </TabsSecNavSelf>
+  );
+}
