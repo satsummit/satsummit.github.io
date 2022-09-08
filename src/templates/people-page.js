@@ -92,6 +92,7 @@ const SinglePersonHero = styled.div`
 const SinglePersonHeadline = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  gap: ${variableGlsp(0.25)};
 `;
 
 const SinglePersonTitle = styled(PageMainTitle)`
@@ -107,6 +108,14 @@ const SinglePersonTitle = styled(PageMainTitle)`
   strong {
     font-weight: inherit;
   }
+`;
+
+const SinglePersonSubtitle = styled.p`
+  font-size: 1.25rem;
+
+  ${media.mediumUp`
+    font-size: 1.5rem;
+  `}
 `;
 
 const SinglePersonTitleLink = styled(Link)`
@@ -216,10 +225,10 @@ const People = ({ data }) => {
                 </SinglePersonTitleLink>
                 <strong>{title}</strong>
               </SinglePersonTitle>
-              <PageMainSubtitle>
+              <SinglePersonSubtitle>
                 {role} at {company}
                 {pronouns && <span> • {pronouns}</span>}
-              </PageMainSubtitle>
+              </SinglePersonSubtitle>
             </SinglePersonHeadline>
             {twitter && (
               <SinglePersonSocial>
