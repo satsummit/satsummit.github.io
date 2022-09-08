@@ -1,9 +1,8 @@
 ---
 title: EO for Health - A Conversation with the CDC
-type: Rountable
-date: '2022-09-28 16:25'
+type: Roundtable
+date: '2022-09-28 16:15'
 room: The Central Hub
-lead: Need Text
 
 people:
     moderators: 
