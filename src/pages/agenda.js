@@ -120,7 +120,7 @@ const TimeSlotBody = styled(Hug).attrs({
 const AgendaPage = ({ location }) => {
   const { allEvent } = useStaticQuery(graphql`
     query {
-      allEvent(sort: { fields: [date, slug] }) {
+      allEvent(sort: { fields: [slug, date] }) {
         nodes {
           id
           cId
