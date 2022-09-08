@@ -159,20 +159,6 @@ const GlobalMenuLink = styled(Link).attrs({
   `}
 `;
 
-const GlobalMenuLinkPlaceholder = styled.span`
-  ${MenuLinkAppearance}
-  cursor: not-allowed;
-
-  ${media.largeUp`
-    height: 2.5rem;
-  `}
-
-  &,
-  &:hover {
-    opacity: 0.32;
-  }
-`;
-
 function PageHeader() {
   const { isLargeUp } = useMediaQuery();
   const [navRevealed, setNavRevealed] = useState(false);
@@ -227,14 +213,12 @@ function PageHeader() {
                 </GlobalMenuLink>
               </li>
               <li>
-                <GlobalMenuLinkPlaceholder aria-hidden='true'>
-                  Agenda
-                </GlobalMenuLinkPlaceholder>
+                <GlobalMenuLink to='/agenda'>Agenda</GlobalMenuLink>
               </li>
               <li>
-                <GlobalMenuLinkPlaceholder aria-hidden='true'>
+                <GlobalMenuLink to='/speakers' partiallyActive>
                   Speakers
-                </GlobalMenuLinkPlaceholder>
+                </GlobalMenuLink>
               </li>
               <li>
                 <GlobalMenuLink to='/code-of-conduct'>

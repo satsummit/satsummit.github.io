@@ -99,16 +99,6 @@ const FooterMenuLink = styled.a`
   ${MenuLinkAppearance}
 `;
 
-const FooterMenuLinkPlaceholder = styled.span`
-  ${MenuLinkAppearance}
-  cursor: not-allowed;
-
-  &,
-  &:hover {
-    opacity: 0.32;
-  }
-`;
-
 const FooterCredits = styled(FootBlock)`
   display: flex;
   flex-flow: column nowrap;
@@ -167,14 +157,14 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLinkPlaceholder>
+            <FooterMenuLink as={Link} to='/agenda'>
               <CollecticonArrowRight /> Agenda
-            </FooterMenuLinkPlaceholder>
+            </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLinkPlaceholder>
+            <FooterMenuLink as={Link} to='/speakers'>
               <CollecticonArrowRight /> Speakers
-            </FooterMenuLinkPlaceholder>
+            </FooterMenuLink>
           </li>
           <li>
             <FooterMenuLink as={Link} to='/tickets'>

@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import T from 'prop-types';
 import styled, { css } from 'styled-components';
-import { themeVal, listReset, media } from '@devseed-ui/theme-provider';
+import {
+  themeVal,
+  listReset,
+  media,
+  multiply
+} from '@devseed-ui/theme-provider';
 
 import { useTabs } from './tabs-context';
 import { variableGlsp } from '$styles/variable-utils';
@@ -32,14 +37,16 @@ const TabsList = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   background: ${themeVal('color.surface')};
-  border-bottom: 8px solid ${themeVal('color.secondary-500')};
-  margin-top: -8px;
+  border-bottom: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
+  margin-top: -${multiply(themeVal('layout.border'), 4)};
   grid-column: content-start / content-end;
 
   ${media.smallUp`
-    margin-top: -8px;
     justify-content: flex-end;
-    margin-top: calc(8px - ${variableGlsp(2.75)});
+    margin-top: calc(${multiply(themeVal('layout.border'), 4)} - ${variableGlsp(
+    2.75
+  )});
   `}
 
   li {
@@ -69,10 +76,10 @@ const TabbedContentListLink = styled(VarHeading).attrs({
   border: 8px solid transparent;
   margin-bottom: -8px;
   transition: all 0.24s ease;
+  color: ${themeVal('color.primary')};
 
-  &,
   &:visited {
-    color: ${themeVal('color.primary')};
+    color: inherit;
   }
 
   &:hover {

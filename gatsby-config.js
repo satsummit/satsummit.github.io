@@ -91,6 +91,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `people`,
+        path: `${__dirname}/content/people`
+      }
+    },
+    {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: pkg.alias,
