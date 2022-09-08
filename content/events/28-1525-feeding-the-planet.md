@@ -11,5 +11,5 @@ people:
         - Hanna Camp
         - Kiersten Johnson
         - Jawoo Koo
-        - Kunwar Singh
+        - Kunwar Singh, PhD
 ---
