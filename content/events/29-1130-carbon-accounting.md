@@ -7,6 +7,6 @@ room: The North Hub
 people:
     speakers:
         - Andres B. Espejo
-        - Carlos Silva
+        - Carlos Silva, PhD
 
 ---
