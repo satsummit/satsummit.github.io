@@ -1,8 +1,8 @@
 ---
-title: Jawoo Koo
-company: International Food Policy Research Institute (IFPRI)
-role: Senior Research Fellow of the Environment and Production Technology Division
-avatar: ./media/jawoo-koo.jpg
+title: Kevin Booth
+company: Radiant Earth Foundation
+role: Engineering Manager
+avatar: ./media/kevin-booth.jpg
 pronouns: He/Him
 ---
 ## About
