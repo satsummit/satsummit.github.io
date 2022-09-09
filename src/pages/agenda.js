@@ -32,7 +32,7 @@ import Hug from '$styles/hug';
 import { VarHeading } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 
-import { timeFromDate } from '$utils/date';
+import { parseEventDate, timeFromDate } from '$utils/date';
 import { useMediaQuery } from '$utils/use-media-query';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 import { agendaDays } from '$components/agenda/utils';
@@ -154,7 +154,7 @@ const AgendaPage = ({ location }) => {
 
   const initialTab = useMemo(() => {
     return hashActiveEvent
-      ? `tab-${new Date(hashActiveEvent.date).getDate()}`
+      ? `tab-${parseEventDate(hashActiveEvent.date).getDate()}`
       : undefined;
   }, [hashActiveEvent]);
 
@@ -192,11 +192,11 @@ const AgendaPage = ({ location }) => {
 
             {agendaDays.map((d) => {
               const dayEvents = allEvent.nodes.filter(
-                (n) => new Date(n.date).getDate() === d.day
+                (n) => parseEventDate(n.date).getDate() === d.day
               );
 
               const hourGroups = dayEvents.reduce((acc, event) => {
-                const t = timeFromDate(new Date(event.date));
+                const t = timeFromDate(parseEventDate(event.date));
                 return {
                   ...acc,
                   [t]: [...(acc[t] || []), event]
