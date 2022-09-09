@@ -10,6 +10,5 @@ people:
         - Jed Sundwall
     speakers:
         - Thembi Xaba, PhD
-        - Steven Ramage
         - Yana Gevorgyan
 ---
