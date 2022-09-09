@@ -6,6 +6,6 @@ room: The Central Hub
 
 people:
     speakers:
-        - Ryan Abernathy, PhD
+        - Ryan Abernathey, PhD
         - Aimee Barciauskas
 ---
