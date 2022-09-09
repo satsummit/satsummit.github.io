@@ -7,4 +7,6 @@ pronouns: He/Him
 ---
 ## About
 
-Jawoo Koo is a Senior Research Fellow of the Environment and Production Technology Division at the [International Food Policy Research Institute (IFPRI)](https://www.ifpri.org/). He has more than 20 years of experience in multidisciplinary geospatial data and integrated modeling analyses for assessing climate and technology impacts on agri-food systems. He coordinates [CGIAR’s](https://www.cgiar.org/) Geospatial Data Community of Practice, and currently leads the new CGIAR Research Initiative, “Digital Innovation and Transformation.
+Kevin Booth is the Engineering Manager at [Radiant Earth Foundation](https://www.radiant.earth/) where he helps lead the development of Radiant MLHub - the open repository for geospatial training data and models. Kevin has been with the team at Radiant Earth Foundation since the beginning of Radiant MLHub and has helped bring the repository from zero datasets to over sixty globally distributed high quality datasets spanning a wide range of applications. Prior to joining Radiant Earth Foundation, Kevin developed Android applications for Fortune 100 companies, wrote software for NASA’s Orion Spacecraft program, and taught GIS and Geoprogramming labs at Texas State University.
+
+Kevin is a graduate of Texas State University where he received a B.Sc in GIS and is currently enrolled in the M.Sc of Geography program. Outside of his work at Radiant Earth Foundation, Kevin is an avid skydiver and photographer.
