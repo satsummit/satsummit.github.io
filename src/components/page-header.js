@@ -226,6 +226,9 @@ function PageHeader() {
                 </GlobalMenuLink>
               </li>
               <li>
+                <GlobalMenuLink to='/info'>Info</GlobalMenuLink>
+              </li>
+              <li>
                 <Button
                   forwardedAs={Link}
                   variation='base-outline'
