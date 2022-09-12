@@ -15,5 +15,6 @@ people:
         - Amanda Marchetti
         - Kevin Bullock
         - Tara O'Shea
+        - Ryan McKinney
 
 ---
