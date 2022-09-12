@@ -2,6 +2,7 @@
 title: Carlos Silva, PhD
 company: Pachama
 role: Science Team Lead
+twitter: carlos_pachama
 avatar: ./media/carlos-silva.jpg
 pronouns: He/Him
 ---

@@ -2,6 +2,7 @@
 title: Carmen Tedesco
 company: Fraym
 role: Director of Analytics
+twitter: carmentedesco
 avatar: ./media/carmen-tedesco.jpg
 pronouns: She/Her
 ---
