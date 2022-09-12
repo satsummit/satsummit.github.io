@@ -7,5 +7,6 @@ room: The North Hub
 people:
     speakers:
         - Laura Duncanson
+        - Pascal van Dalen
 
 ---
