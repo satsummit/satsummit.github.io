@@ -11,4 +11,5 @@ people:
         - Asimina Syriou
         - Yvonne Ivey-Parker
         - Clinton Johnson
+        - Khristian Jones
 ---

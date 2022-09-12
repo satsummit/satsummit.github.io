@@ -9,7 +9,6 @@ people:
     moderators: 
         - Keith Masback
     speakers:
-        - Susan Wolfinbarger
         - Krystal Azelton
         - Tim Wallace
 ---

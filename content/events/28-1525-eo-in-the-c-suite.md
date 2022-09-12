@@ -8,6 +8,6 @@ lead: Get a glimpse into how large organizations make major policy decisions bac
 people:
     speakers:
         - Chelsey Walden-Schreiner, PhD
-        - Vivek Sahkrani, PhD
+        - Vivek Sakhrani, PhD
         - Carrie Stokes
 ---
