@@ -2,6 +2,7 @@
 title: Kevin Booth
 company: Radiant Earth Foundation
 role: Engineering Manager
+twitter: kbgg_
 avatar: ./media/kevin-booth.jpg
 pronouns: He/Him
 ---

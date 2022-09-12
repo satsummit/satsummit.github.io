@@ -2,6 +2,7 @@
 title: Ian Schuler
 company: Development Seed
 role: CEO
+twitter: ianschuler
 avatar: ./media/ian-schuler.jpg
 pronouns: He/Him
 ---

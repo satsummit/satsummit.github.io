@@ -2,6 +2,7 @@
 title: Jyotsna Budideti
 company: SpaceSense.ai
 role: Co-Founder & CEO
+twitter: BudidetiJyotsna
 avatar: ./media/jyotsna-budideti.jpg
 pronouns: She/Her
 ---

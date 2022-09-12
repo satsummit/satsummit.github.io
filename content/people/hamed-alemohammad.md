@@ -2,6 +2,7 @@
 title: Hamed Alemohammad, PhD
 company: Radiant Earth Foundation
 role: Chief Data Scientist and Executive Director
+twitter: HamedAlemo
 avatar: ./media/hamed-alemohammad.jpg
 pronouns: He/Him
 ---
