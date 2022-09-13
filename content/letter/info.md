@@ -1,6 +1,3 @@
----
-title: Info
----
 ## What is
 **SatSummit** is an event that gathers leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.
 
@@ -10,7 +7,7 @@ From climate change to population growth to natural resource availability, earth
 
 The 2022 edition takes place in September 28 & 29 at [**Convene**](https://convene.com/locations/washington-dc/600-14th-street-nw/), in Washington DC, or **virtually**! The two days will be filled with panel discussions and breakout sessions from some of the leading satellite experts from around the globe!
 
-[map]
+<div id="location-map"></div>
 
 ## How to get to the venue
 
