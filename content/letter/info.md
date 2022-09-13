@@ -33,3 +33,11 @@ The venue is fully ADA compliant. Should you need any accommodations to make thi
 
 Yes, we have a private and comfortable space available for nursing Mother's.
 
+### Is there a Code of Conduct in place?
+
+Yes, there is. In order to offer a positive and safe environment for all attendees, we ask that you review the **[Code of Conduct](/code-of-conduct)**.
+
+## Are you following any Health Protocols?
+
+Yes. We follow any Washington, DC protocols that are in effect at the time, which can be checked closely on the **[Health Protocols](/health-protocols)** section.
+
