@@ -126,6 +126,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           }
         },
         pronouns: 'String',
+        group: {
+          type: 'String',
+          resolve: (source) => source.group || 'main'
+        },
 
         // Foreign relationship between people and events. This is not a
         // straightforward relation because we need to know what is the role

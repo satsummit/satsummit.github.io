@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
@@ -117,6 +117,35 @@ const SpeakerSubtitle = styled.p`
   `}
 `;
 
+const SpeakerSecondaryTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'xlarge'
+})`
+  grid-column: content-start / content-end;
+`;
+
+const SpeakersListCondensed = styled(SpeakersList)`
+  grid-template-columns: repeat(3, 1fr);
+
+  ${media.mediumUp`
+    grid-template-columns: repeat(4, 1fr);
+  `}
+
+  ${media.xlargeUp`
+    grid-template-columns: repeat(6, 1fr);
+  `}
+
+  ${SpeakerTitle} {
+    font-size: 1.25rem;
+  }
+`;
+
+const SpeakerInner = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+`;
+
 const SpeakersPage = () => {
   const { allPeople } = useStaticQuery(graphql`
     query {
@@ -127,15 +156,32 @@ const SpeakersPage = () => {
           title
           avatar {
             childImageSharp {
-              gatsbyImageData(width: 640, placeholder: BLURRED)
+              gatsbyImageData(width: 640, height: 640, placeholder: BLURRED)
             }
           }
           role
           company
+          group
         }
       }
     }
   `);
+
+  const { main, other } = useMemo(
+    () =>
+      allPeople.nodes.reduce(
+        (acc, node) => {
+          if (node.group === 'main') {
+            acc.main.push(node);
+          } else {
+            acc.other.push(node);
+          }
+          return acc;
+        },
+        { main: [], other: [] }
+      ),
+    [allPeople.nodes]
+  );
 
   return (
     <Layout title='Speakers'>
@@ -148,7 +194,7 @@ const SpeakersPage = () => {
 
         <SpeakersBlock>
           <SpeakersList>
-            {allPeople.nodes.map((speaker) => (
+            {main.map((speaker) => (
               <li key={speaker.id}>
                 <Speaker>
                   <SpeakerLink to={`/speakers/${speaker.slug}`}>
@@ -170,6 +216,33 @@ const SpeakersPage = () => {
               </li>
             ))}
           </SpeakersList>
+        </SpeakersBlock>
+
+        <SpeakersBlock>
+          <SpeakerSecondaryTitle>Other</SpeakerSecondaryTitle>
+          <SpeakersListCondensed>
+            {other.map((speaker) => (
+              <li key={speaker.id}>
+                <Speaker>
+                  <SpeakerInner>
+                    <SpeakerHeader>
+                      <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                      <SpeakerSubtitle>
+                        {speaker.role} at {speaker.company}
+                      </SpeakerSubtitle>
+                    </SpeakerHeader>
+                    <SpeakerAvatar>
+                      <GatsbyImage
+                        image={getImage(speaker.avatar)}
+                        alt={`Picture of ${speaker.title}`}
+                        objectFit='contain'
+                      />
+                    </SpeakerAvatar>
+                  </SpeakerInner>
+                </Speaker>
+              </li>
+            ))}
+          </SpeakersListCondensed>
         </SpeakersBlock>
       </PageMainContent>
     </Layout>
