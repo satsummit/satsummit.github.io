@@ -4,7 +4,6 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import {
-  glsp,
   listReset,
   media,
   multiply,
