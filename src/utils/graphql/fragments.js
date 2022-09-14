@@ -5,6 +5,7 @@ export const peopleFields = graphql`
     ... on People {
       title
       slug
+      group
     }
     ... on VoidPeople {
       title
