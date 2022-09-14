@@ -2,7 +2,6 @@
 title: Ryan McKinney
 company: Satellogic North America
 role: General Manager
-twitter: rabernat
 avatar: ./media/ryan-mckinney.jpg
 ---
 ## About

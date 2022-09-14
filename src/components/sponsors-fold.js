@@ -211,7 +211,11 @@ const Sponsor = styled.a`
   /* Adjust image optical size */
 
   .sponsor-azavea {
-    transform: scale(0.92);
+    transform: scale(0.9);
+  }
+
+  .sponsor-capella-space {
+    transform: scale(1.2);
   }
 
   .sponsor-cyient {
@@ -222,12 +226,28 @@ const Sponsor = styled.a`
     transform: scale(0.84);
   }
 
+  .sponsor-esa {
+    transform: scale(0.88);
+  }
+
+  .sponsor-esri {
+    transform: scale(1.08);
+  }
+
+  .sponsor-locana {
+    transform: scale(0.84);
+  }
+
   .sponsor-nasa {
     transform: scale(1.28);
   }
 
   .sponsor-picterra {
-    transform: scale(0.92);
+    transform: scale(0.9);
+  }
+
+  .sponsor-place {
+    transform: scale(0.78);
   }
 
   .sponsor-planet {
@@ -236,6 +256,10 @@ const Sponsor = styled.a`
 
   .sponsor-sparkgeo {
     transform: scale(1.02);
+  }
+
+  .sponsor-tiledb {
+    transform: scale(0.74);
   }
 
   .sponsor-umbra {

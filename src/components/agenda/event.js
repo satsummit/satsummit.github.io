@@ -19,7 +19,7 @@ import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 
 import { peopleCategories } from './utils';
-import { timeFromDate } from '$utils/date';
+import { parseEventDate, timeFromDate } from '$utils/date';
 import { useMediaQuery } from '$utils/use-media-query';
 
 import { format } from 'date-fns';
@@ -83,7 +83,7 @@ const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
     size: 'xlarge'
   };
 })`
-  /* styled-components */
+  /* styled-component */
 `;
 
 const AgendaEntryTitleLink = styled(Link)`
@@ -174,9 +174,9 @@ export function AgendaEvent(props) {
   const { isLargeUp } = useMediaQuery();
   const copyBtnRef = useRef();
   const [showCopiedMsg, setShowCopiedMsg] = useState();
-  const { origin, pathname } = useLocation();
+  const { origin } = useLocation();
 
-  const dateObj = new Date(date);
+  const dateObj = parseEventDate(date);
   const time = timeFromDate(dateObj);
 
   useEffect(() => {

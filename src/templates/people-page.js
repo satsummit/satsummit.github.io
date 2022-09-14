@@ -21,7 +21,7 @@ import {
 import Layout from '$components/layout';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 
-import { PageMainContent, PageMainSubtitle, PageMainTitle } from '$styles/page';
+import { PageMainContent, PageMainTitle } from '$styles/page';
 import { VarHeading, VarProse } from '$styles/variable-components';
 import { PersonAvatar } from '$styles/people';
 import Hug from '$styles/hug';
