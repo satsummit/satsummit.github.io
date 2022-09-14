@@ -7,7 +7,8 @@ import {
   listReset,
   media,
   multiply,
-  themeVal
+  themeVal,
+  visuallyHidden
 } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
@@ -38,13 +39,43 @@ const SpeakersHubHeroHeadline = styled.div`
   `}
 `;
 
-const SpeakersBlock = styled(Hug)`
+const SpeakersContent = styled(Hug)`
   padding: ${variableGlsp(0, 0, 2, 0)};
 `;
 
-const SpeakersList = styled.ol`
-  ${listReset()};
+const SpeakersSection = styled.section`
   grid-column: content-start / content-end;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp()};
+
+  &:not(:first-child) {
+    margin-top: ${variableGlsp(1.5)};
+    padding-top: ${variableGlsp(2)};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
+  }
+`;
+
+const SpeakersSectionHeader = styled.header`
+  ${SpeakersSection}:first-child & {
+    ${visuallyHidden}()
+  }
+`;
+
+const SpeakersSectionBody = styled.div`
+  /* styled-components */
+`;
+
+const SpeakersSectionTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'xlarge'
+})`
+  grid-column: content-start / content-end;
+`;
+
+const SpeakersMainList = styled.ol`
+  ${listReset()};
   display: grid;
   gap: ${variableGlsp()};
   grid-template-columns: repeat(2, 1fr);
@@ -116,14 +147,7 @@ const SpeakerSubtitle = styled.p`
   `}
 `;
 
-const SpeakerSecondaryTitle = styled(VarHeading).attrs({
-  as: 'h2',
-  size: 'xlarge'
-})`
-  grid-column: content-start / content-end;
-`;
-
-const SpeakersListCondensed = styled(SpeakersList)`
+const SpeakersListCondensed = styled(SpeakersMainList)`
   grid-template-columns: repeat(3, 1fr);
 
   ${media.mediumUp`
@@ -191,58 +215,71 @@ const SpeakersPage = () => {
           </SpeakersHubHeroHeadline>
         </PageMainHero>
 
-        <SpeakersBlock>
-          <SpeakersList>
-            {main.map((speaker) => (
-              <li key={speaker.id}>
-                <Speaker>
-                  <SpeakerLink to={`/speakers/${speaker.slug}`}>
-                    <SpeakerHeader>
-                      <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                      <SpeakerSubtitle>
-                        {speaker.role} at {speaker.company}
-                      </SpeakerSubtitle>
-                    </SpeakerHeader>
-                    <SpeakerAvatar>
-                      <GatsbyImage
-                        image={getImage(speaker.avatar)}
-                        alt={`Picture of ${speaker.title}`}
-                        objectFit='contain'
-                      />
-                    </SpeakerAvatar>
-                  </SpeakerLink>
-                </Speaker>
-              </li>
-            ))}
-          </SpeakersList>
-        </SpeakersBlock>
+        <SpeakersContent>
+          <SpeakersSection>
+            <SpeakersSectionHeader>
+              <SpeakersSectionTitle>Main speakers</SpeakersSectionTitle>
+            </SpeakersSectionHeader>
+            <SpeakersSectionBody>
+              <SpeakersMainList>
+                {main.map((speaker) => (
+                  <li key={speaker.id}>
+                    <Speaker>
+                      <SpeakerLink to={`/speakers/${speaker.slug}`}>
+                        <SpeakerHeader>
+                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                          <SpeakerSubtitle>
+                            {speaker.role} at {speaker.company}
+                          </SpeakerSubtitle>
+                        </SpeakerHeader>
+                        <SpeakerAvatar>
+                          <GatsbyImage
+                            image={getImage(speaker.avatar)}
+                            alt={`Picture of ${speaker.title}`}
+                            objectFit='contain'
+                          />
+                        </SpeakerAvatar>
+                      </SpeakerLink>
+                    </Speaker>
+                  </li>
+                ))}
+              </SpeakersMainList>
+            </SpeakersSectionBody>
+          </SpeakersSection>
 
-        <SpeakersBlock>
-          <SpeakerSecondaryTitle>Other</SpeakerSecondaryTitle>
-          <SpeakersListCondensed>
-            {other.map((speaker) => (
-              <li key={speaker.id}>
-                <Speaker>
-                  <SpeakerInner>
-                    <SpeakerHeader>
-                      <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                      <SpeakerSubtitle>
-                        {speaker.role} at {speaker.company}
-                      </SpeakerSubtitle>
-                    </SpeakerHeader>
-                    <SpeakerAvatar>
-                      <GatsbyImage
-                        image={getImage(speaker.avatar)}
-                        alt={`Picture of ${speaker.title}`}
-                        objectFit='contain'
-                      />
-                    </SpeakerAvatar>
-                  </SpeakerInner>
-                </Speaker>
-              </li>
-            ))}
-          </SpeakersListCondensed>
-        </SpeakersBlock>
+          <SpeakersSection>
+            <SpeakersSectionHeader>
+              <SpeakersSectionTitle>
+                Other speakers include
+              </SpeakersSectionTitle>
+            </SpeakersSectionHeader>
+            <SpeakersSectionBody>
+              <SpeakersListCondensed>
+                {other.map((speaker) => (
+                  <li key={speaker.id}>
+                    <Speaker>
+                      <SpeakerInner>
+                        <SpeakerHeader>
+                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                          <SpeakerSubtitle>
+                            {speaker.role} at {speaker.company}
+                          </SpeakerSubtitle>
+                        </SpeakerHeader>
+                        <SpeakerAvatar>
+                          <GatsbyImage
+                            image={getImage(speaker.avatar)}
+                            alt={`Picture of ${speaker.title}`}
+                            objectFit='contain'
+                          />
+                        </SpeakerAvatar>
+                      </SpeakerInner>
+                    </Speaker>
+                  </li>
+                ))}
+              </SpeakersListCondensed>
+            </SpeakersSectionBody>
+          </SpeakersSection>
+        </SpeakersContent>
       </PageMainContent>
     </Layout>
   );

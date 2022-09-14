@@ -83,7 +83,7 @@ const AgendaEntryTitle = styled(VarHeading).attrs((props) => {
     size: 'xlarge'
   };
 })`
-  /* styled-components */
+  /* styled-component */
 `;
 
 const AgendaEntryTitleLink = styled(Link)`
