@@ -4,7 +4,6 @@ company: Columbia University and Lamont Doherty Earth Observatory
 role: Associate Professor and Physical Oceanographer
 twitter: rabernat
 avatar: ./media/ryan-abernathey.jpg
-pronouns: He/Him
 ---
 ## About
 

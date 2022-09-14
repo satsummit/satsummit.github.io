@@ -3,7 +3,6 @@ title: Ritwik Gupta
 company: University of California Berkeley, Neural Tangent
 role: Phd Student and Founder
 avatar: ./media/ritwik-gupta.jpg
-pronouns: He/Him
 ---
 ## About
 

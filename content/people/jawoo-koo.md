@@ -4,7 +4,6 @@ company: International Food Policy Research Institute (IFPRI)
 role: Senior Research Fellow of the Environment and Production Technology Division
 twitter: jawoo
 avatar: ./media/jawoo-koo.jpg
-pronouns: He/Him
 ---
 ## About
 

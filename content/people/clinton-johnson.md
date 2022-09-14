@@ -4,7 +4,6 @@ company: Esri
 role: Racial Equity & Social Justice Unified Team Lead, Director and Founder of North Star of GIS
 twitter: ClintonGJohnson
 avatar: ./media/clinton-johnson.jpg
-pronouns: He/Him
 ---
 ## About
 

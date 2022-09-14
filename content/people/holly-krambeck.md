@@ -4,7 +4,6 @@ company: World Bank Data Lab
 role: Program Manager
 twitter: HollyKrambeck
 avatar: ./media/holly-krambeck.jpg
-pronouns: She/Her
 ---
 ## About
 

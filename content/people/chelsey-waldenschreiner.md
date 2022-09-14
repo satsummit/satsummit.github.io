@@ -3,7 +3,6 @@ title: Chelsey Walden-Schreiner, PhD
 company: Patrick J. McGovern Foundation
 role: Geospatial Scientist
 avatar: ./media/chelsey-waldenschreiner.jpg
-pronouns: She/Her
 ---
 ## About
 

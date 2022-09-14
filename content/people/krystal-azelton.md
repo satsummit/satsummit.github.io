@@ -4,7 +4,6 @@ company: Secure World Foundation
 role: Director of Space Applications Programs
 twitter: AzeltonKrystal
 avatar: ./media/krystal-azelton.jpg
-pronouns: She/Her
 ---
 ## About
 

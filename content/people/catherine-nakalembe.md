@@ -4,7 +4,6 @@ company: University of Maryland
 role: Associate Research Professor and Africa Program Director under NASA Harvest and Member of the NASA SERVIR Applied Sciences Team
 twitter: CLNakalembe
 avatar: ./media/catherine-nakalembe.jpg
-pronouns: She/Her
 ---
 ## About
 

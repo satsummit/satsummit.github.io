@@ -3,7 +3,6 @@ title: Io Blair-Freese
 company: DevGlobal
 role: Advisor on Global Investments and Partnerships
 avatar: ./media/io-blair-freese.jpg
-pronouns: She/Her
 ---
 ## About
 

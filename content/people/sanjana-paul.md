@@ -3,7 +3,6 @@ title: Sanjana Paul
 company: Earth Hacks
 role: Co-founder & Executive Director
 avatar: ./media/sanjana-paul.jpg
-pronouns: She/Her
 ---
 ## About
 

@@ -4,7 +4,6 @@ company: Food and Agriculture Organization of the United Nations (FAO)
 role: Chief Technical Advisor
 twitter: aurelgrooves
 avatar: ./media/aurelie-shapiro.jpg
-pronouns: She/Her
 ---
 ## About
 

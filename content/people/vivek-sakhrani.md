@@ -3,7 +3,6 @@ title: Vivek Sakhrani, PhD
 company: AtlasAI
 role: Head of Applied Data Science
 avatar: ./media/vivek-sakhrani.jpg
-pronouns: He/Him
 ---
 ## About
 

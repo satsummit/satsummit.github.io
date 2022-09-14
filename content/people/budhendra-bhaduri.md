@@ -1,10 +1,9 @@
 ---
-title: Budhendra "Budhu" Bhaduri, PhD
+title: Budhu Bhaduri, PhD
 company: Oak Ridge National Laboratory
 role: Director-Geospatial Science and Human Securtity Division
 twitter: BudhuBhaduri
 avatar: ./media/budhendra-bhaduri.jpg
-pronouns: He/Him
 ---
 ## About
 
