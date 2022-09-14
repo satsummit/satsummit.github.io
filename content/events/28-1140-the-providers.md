@@ -8,12 +8,13 @@ lead: Leaders in public and commercial imagery providers discuss new capabilitie
 
 
 people:
+    moderators:
+        - Rhiannan Price
     speakers:
         - Asimina Syriou
         - Argyro Kavvada, PhD
         - Joseph Abakunda
         - Amanda Marchetti
-        - Kevin Bullock
         - Tara O'Shea
         - Ryan McKinney
 
