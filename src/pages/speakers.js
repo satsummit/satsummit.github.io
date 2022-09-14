@@ -58,8 +58,8 @@ const SpeakersSection = styled.section`
 `;
 
 const SpeakersSectionHeader = styled.header`
-  ${SpeakersSection}:first-child & {
-    ${visuallyHidden}()
+  ${/* sc-selector */ SpeakersSection}:first-child & {
+    ${visuallyHidden()}
   }
 `;
 
