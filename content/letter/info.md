@@ -5,17 +5,39 @@ From climate change to population growth to natural resource availability, earth
 
 ## When and where
 
-The 2022 edition takes place in September 28 & 29 at [**Convene**](https://convene.com/locations/washington-dc/600-14th-street-nw/), in Washington DC, or **virtually**! The two days will be filled with panel discussions and breakout sessions from some of the leading satellite experts from around the globe!
+The 2022 edition takes place in September 28 & 29 at [**Convene**](https://convene.com/locations/washington-dc/600-14th-street-nw/), in Washington DC. There will be panel discussions and breakout sessions from some of the leading satellite experts from around the globe!
+
+Select sessions on our main stage will be livestreamed. You can register [here](https://2022.satsummit.io/tickets) for livestream details and access.
 
 <div id="location-map"></div>
 
 ## How to get to the venue
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus elit sit amet venenatis consequat. Aliquam posuere hendrerit mauris, eget mattis felis sodales sed. Fusce pretium bibendum lectus, quis rhoncus erat volutpat quis. Donec ac urna massa. In hac habitasse platea dictumst.
+Convene is located at 600 14th Street NW, Washington, DC 20005. Access to the main entrance is between F St. and G St.
+
+Upon arrival, guests will check-in at the lobby desk, where a Convene team member will welcome and check-in participants prior to directing them to the elevator bank and up to the 4th floor to Convene. Guests arriving any time after the check-in process can still report to the lobby desk and will be directed by security to the elevators and up to the 4th floor, where they will find the Convene Welcome Desk for official check-in.
+
+### By Metro
+The nearest Metro Station is [Metro Center](https://www.wmata.com/rider-guide/stations/metro-center.cfm) and is 4 minutes away. This is a major transfer point in the Metrorail system and is accessed by the Red, Orange, Silver and Blue lines. Exit the Metro Station by following signs for the 13th and G St exit, then walk on G St. to cross 14th St. and take a left to proceed South to the main entrance of Convene.
+
+### Parking
+The nearest parking garages are located at:
+- 607 14th St NW
+- 675 15th St NW
+- 1325 G St NW
+
+Guests can utilize [SpotHero](https://spothero.com/search?latitude=38.8976548&longitude=-77.0322736&search_string=600%2014th%20St%20NW%2C%20Washington%2C%20DC%2C%20USA) to check real-time availability for the lots located in the surrounding area.
 
 ## Accomodation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus elit sit amet venenatis consequat. Aliquam posuere hendrerit mauris, eget mattis felis sodales sed. Fusce pretium bibendum lectus, quis rhoncus erat volutpat quis. Donec ac urna massa. In hac habitasse platea dictumst.
+There are no room blocks or codes for **SatSummit**.
+
+Closest Hotels: 
+- JW Marriott Washington, D.C. (1331 Pennsylvania Ave NW)
+
+- Sofitel Washington, D.C. Lafayette Square (806 15th Street NW)
+
+- Hotel Washington (515 15th St NW)
 
 ---
 
@@ -23,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus elit sit a
 
 ### Am I able to purchase tickets for only one day of the event?
 
-No, we have ticket levels that include access to both days of **SatSummit**.
+No, registration includes access to both days of **SatSummit**. Livestream of certain sessions will be available.
 
 ### Is the venue wheelchair accessible?
 
