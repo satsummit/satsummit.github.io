@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import {
-  glsp,
   listReset,
   media,
   multiply,
-  themeVal
+  themeVal,
+  visuallyHidden
 } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
@@ -39,13 +39,43 @@ const SpeakersHubHeroHeadline = styled.div`
   `}
 `;
 
-const SpeakersBlock = styled(Hug)`
+const SpeakersContent = styled(Hug)`
   padding: ${variableGlsp(0, 0, 2, 0)};
 `;
 
-const SpeakersList = styled.ol`
-  ${listReset()};
+const SpeakersSection = styled.section`
   grid-column: content-start / content-end;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp()};
+
+  &:not(:first-child) {
+    margin-top: ${variableGlsp(1.5)};
+    padding-top: ${variableGlsp(2)};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
+  }
+`;
+
+const SpeakersSectionHeader = styled.header`
+  ${/* sc-selector */ SpeakersSection}:first-child & {
+    ${visuallyHidden()}
+  }
+`;
+
+const SpeakersSectionBody = styled.div`
+  /* styled-components */
+`;
+
+const SpeakersSectionTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'xlarge'
+})`
+  grid-column: content-start / content-end;
+`;
+
+const SpeakersMainList = styled.ol`
+  ${listReset()};
   display: grid;
   gap: ${variableGlsp()};
   grid-template-columns: repeat(2, 1fr);
@@ -101,10 +131,9 @@ const SpeakerAvatar = styled(PersonAvatar)`
 `;
 
 const SpeakerTitle = styled(VarHeading).attrs({
-  as: 'h2',
+  as: 'h3',
   size: 'large'
 })`
-  /* styled-component */
   line-height: calc(0.5rem + 0.75em);
 `;
 
@@ -117,6 +146,32 @@ const SpeakerSubtitle = styled.p`
   `}
 `;
 
+const SpeakersOthersList = styled(SpeakersMainList)`
+  /* styled-component */
+`;
+
+const OthersSpeaker = styled.article`
+  display: flex;
+  flex-flow: column nowrap;
+`;
+
+const OthersSpeakerHeader = styled.header`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp(0.25)};
+`;
+
+const OthersSpeakerTitle = styled(VarHeading).attrs({
+  as: 'h3',
+  size: 'small'
+})`
+  line-height: calc(0.5rem + 0.75em);
+`;
+
+const OthersSpeakerSubtitle = styled(SpeakerSubtitle)`
+  /* styled-component */
+`;
+
 const SpeakersPage = () => {
   const { allPeople } = useStaticQuery(graphql`
     query {
@@ -127,15 +182,32 @@ const SpeakersPage = () => {
           title
           avatar {
             childImageSharp {
-              gatsbyImageData(width: 640, placeholder: BLURRED)
+              gatsbyImageData(width: 640, height: 640, placeholder: BLURRED)
             }
           }
           role
           company
+          group
         }
       }
     }
   `);
+
+  const { main, other } = useMemo(
+    () =>
+      allPeople.nodes.reduce(
+        (acc, node) => {
+          if (node.group === 'main') {
+            acc.main.push(node);
+          } else {
+            acc.other.push(node);
+          }
+          return acc;
+        },
+        { main: [], other: [] }
+      ),
+    [allPeople.nodes]
+  );
 
   return (
     <Layout title='Speakers'>
@@ -146,31 +218,62 @@ const SpeakersPage = () => {
           </SpeakersHubHeroHeadline>
         </PageMainHero>
 
-        <SpeakersBlock>
-          <SpeakersList>
-            {allPeople.nodes.map((speaker) => (
-              <li key={speaker.id}>
-                <Speaker>
-                  <SpeakerLink to={`/speakers/${speaker.slug}`}>
-                    <SpeakerHeader>
-                      <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                      <SpeakerSubtitle>
-                        {speaker.role} at {speaker.company}
-                      </SpeakerSubtitle>
-                    </SpeakerHeader>
-                    <SpeakerAvatar>
-                      <GatsbyImage
-                        image={getImage(speaker.avatar)}
-                        alt={`Picture of ${speaker.title}`}
-                        objectFit='contain'
-                      />
-                    </SpeakerAvatar>
-                  </SpeakerLink>
-                </Speaker>
-              </li>
-            ))}
-          </SpeakersList>
-        </SpeakersBlock>
+        <SpeakersContent>
+          <SpeakersSection>
+            <SpeakersSectionHeader>
+              <SpeakersSectionTitle>Main speakers</SpeakersSectionTitle>
+            </SpeakersSectionHeader>
+            <SpeakersSectionBody>
+              <SpeakersMainList>
+                {main.map((speaker) => (
+                  <li key={speaker.id}>
+                    <Speaker>
+                      <SpeakerLink to={`/speakers/${speaker.slug}`}>
+                        <SpeakerHeader>
+                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                          <SpeakerSubtitle>
+                            {speaker.role} at {speaker.company}
+                          </SpeakerSubtitle>
+                        </SpeakerHeader>
+                        <SpeakerAvatar>
+                          <GatsbyImage
+                            image={getImage(speaker.avatar)}
+                            alt={`Picture of ${speaker.title}`}
+                            objectFit='contain'
+                          />
+                        </SpeakerAvatar>
+                      </SpeakerLink>
+                    </Speaker>
+                  </li>
+                ))}
+              </SpeakersMainList>
+            </SpeakersSectionBody>
+          </SpeakersSection>
+
+          <SpeakersSection>
+            <SpeakersSectionHeader>
+              <SpeakersSectionTitle>
+                Other speakers include
+              </SpeakersSectionTitle>
+            </SpeakersSectionHeader>
+            <SpeakersSectionBody>
+              <SpeakersOthersList>
+                {other.map((speaker) => (
+                  <li key={speaker.id}>
+                    <OthersSpeaker>
+                      <OthersSpeakerHeader>
+                        <OthersSpeakerTitle>{speaker.title}</OthersSpeakerTitle>
+                        <OthersSpeakerSubtitle>
+                          {speaker.role} at {speaker.company}
+                        </OthersSpeakerSubtitle>
+                      </OthersSpeakerHeader>
+                    </OthersSpeaker>
+                  </li>
+                ))}
+              </SpeakersOthersList>
+            </SpeakersSectionBody>
+          </SpeakersSection>
+        </SpeakersContent>
       </PageMainContent>
     </Layout>
   );

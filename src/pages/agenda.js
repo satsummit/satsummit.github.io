@@ -160,6 +160,7 @@ const AgendaPage = ({ location }) => {
 
   useEffect(() => {
     document.getElementById(location.hash.slice(1))?.scrollIntoView();
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
   }, []);
 
   return (
