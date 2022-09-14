@@ -131,10 +131,9 @@ const SpeakerAvatar = styled(PersonAvatar)`
 `;
 
 const SpeakerTitle = styled(VarHeading).attrs({
-  as: 'h2',
+  as: 'h3',
   size: 'large'
 })`
-  /* styled-component */
   line-height: calc(0.5rem + 0.75em);
 `;
 
@@ -147,26 +146,30 @@ const SpeakerSubtitle = styled.p`
   `}
 `;
 
-const SpeakersListCondensed = styled(SpeakersMainList)`
-  grid-template-columns: repeat(3, 1fr);
-
-  ${media.mediumUp`
-    grid-template-columns: repeat(4, 1fr);
-  `}
-
-  ${media.xlargeUp`
-    grid-template-columns: repeat(6, 1fr);
-  `}
-
-  ${SpeakerTitle} {
-    font-size: 1.25rem;
-  }
+const SpeakersOthersList = styled(SpeakersMainList)`
+  /* styled-component */
 `;
 
-const SpeakerInner = styled.div`
+const OthersSpeaker = styled.article`
   display: flex;
   flex-flow: column nowrap;
-  height: 100%;
+`;
+
+const OthersSpeakerHeader = styled.header`
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp(0.25)};
+`;
+
+const OthersSpeakerTitle = styled(VarHeading).attrs({
+  as: 'h3',
+  size: 'small'
+})`
+  line-height: calc(0.5rem + 0.75em);
+`;
+
+const OthersSpeakerSubtitle = styled(SpeakerSubtitle)`
+  /* styled-component */
 `;
 
 const SpeakersPage = () => {
@@ -254,29 +257,20 @@ const SpeakersPage = () => {
               </SpeakersSectionTitle>
             </SpeakersSectionHeader>
             <SpeakersSectionBody>
-              <SpeakersListCondensed>
+              <SpeakersOthersList>
                 {other.map((speaker) => (
                   <li key={speaker.id}>
-                    <Speaker>
-                      <SpeakerInner>
-                        <SpeakerHeader>
-                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                          <SpeakerSubtitle>
-                            {speaker.role} at {speaker.company}
-                          </SpeakerSubtitle>
-                        </SpeakerHeader>
-                        <SpeakerAvatar>
-                          <GatsbyImage
-                            image={getImage(speaker.avatar)}
-                            alt={`Picture of ${speaker.title}`}
-                            objectFit='contain'
-                          />
-                        </SpeakerAvatar>
-                      </SpeakerInner>
-                    </Speaker>
+                    <OthersSpeaker>
+                      <OthersSpeakerHeader>
+                        <OthersSpeakerTitle>{speaker.title}</OthersSpeakerTitle>
+                        <OthersSpeakerSubtitle>
+                          {speaker.role} at {speaker.company}
+                        </OthersSpeakerSubtitle>
+                      </OthersSpeakerHeader>
+                    </OthersSpeaker>
                   </li>
                 ))}
-              </SpeakersListCondensed>
+              </SpeakersOthersList>
             </SpeakersSectionBody>
           </SpeakersSection>
         </SpeakersContent>
