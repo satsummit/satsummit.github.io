@@ -73,11 +73,11 @@ const InfoPage = () => {
   }, []);
 
   return (
-    <Layout title='Info'>
+    <Layout title='Practical Info'>
       <PageMainContent>
         <PageMainHero>
           <PageMainHeroHeadline>
-            <PageMainTitle>Info</PageMainTitle>
+            <PageMainTitle>Practical Info</PageMainTitle>
           </PageMainHeroHeadline>
         </PageMainHero>
         <BlockAlpha>
