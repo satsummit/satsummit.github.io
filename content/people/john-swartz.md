@@ -2,6 +2,7 @@
 title: John Swartz, PhD
 company: The Water Institute
 role: Research Scientist
+group: other
 avatar: ./media/john-swartz.jpg
 ---
 ## About

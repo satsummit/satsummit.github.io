@@ -2,6 +2,7 @@
 title: Kshitiz Khanal
 company: University of North Carolina at Chapel Hill
 role: PhD Student
+group: other 
 twitter: kshitizkhanal7
 avatar: ./media/kshitiz-khanal.jpg
 ---
