@@ -3,7 +3,6 @@ title: Pascual Gonzalez
 company: Amazon Conservation Team
 role: Coordinator, Mapping
 avatar: ./media/pascual-gonzalez.jpg
-pronouns: He/Him
 ---
 ## About
 

@@ -2,8 +2,8 @@
 title: Bessie Schwarz
 company: Cloud to Street
 role: CEO & Co-Founder
+twitter: BessieSchwarz
 avatar: ./media/bessie-schwarz.jpg
-pronouns: She/Her
 ---
 ## About
 

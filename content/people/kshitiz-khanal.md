@@ -2,8 +2,8 @@
 title: Kshitiz Khanal
 company: University of North Carolina at Chapel Hill
 role: PhD Student
+twitter: kshitizkhanal7
 avatar: ./media/kshitiz-khanal.jpg
-pronouns: He/Him
 ---
 ## About
 

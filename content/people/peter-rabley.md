@@ -3,7 +3,6 @@ title: Peter Rabley
 company: Place
 role: Managing Partner
 avatar: ./media/peter-rabley.jpg
-pronouns: He/Him
 ---
 ## About
 

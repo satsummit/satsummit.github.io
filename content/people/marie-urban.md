@@ -3,7 +3,6 @@ title: Marie L. Urban
 company: Oak Ridge National Laboratory
 role: Group Lead, Human Geography
 avatar: ./media/marie-urban.jpg
-pronouns: She/Her
 ---
 ## About
 

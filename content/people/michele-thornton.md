@@ -3,7 +3,6 @@ title: Michele Thornton
 company: Oak Ridge National Laboratory
 role: Project Lead - Daymet dataset & Lead - DAAC’s electronic Learning Resources
 avatar: ./media/michele-thornton.jpg
-pronouns: She/Her
 ---
 ## About
 

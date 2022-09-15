@@ -4,7 +4,6 @@ company: Satellite Industry Association
 role: Senior Director of Policy
 twitter: theresejones0
 avatar: ./media/therese-jones.jpg
-pronouns: She/Her
 ---
 ## About
 

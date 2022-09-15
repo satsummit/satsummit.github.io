@@ -9,7 +9,6 @@ people:
     speakers:
         - Michele Thornton
         - Monica Youngman
-        - Payam Banazadeh
         - Tom Augsperger
         - Vincent Sarago
 ---

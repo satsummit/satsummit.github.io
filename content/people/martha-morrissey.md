@@ -3,7 +3,6 @@ title: Martha Morrissey
 company: Pachama
 role: Machine Learning Engineer
 avatar: ./media/martha-morrissey.jpg
-pronouns: She/Her
 ---
 ## About
 

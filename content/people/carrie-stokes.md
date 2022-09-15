@@ -3,7 +3,6 @@ title: Carrie Stokes
 company: USAID
 role: Director of the GeoCenter
 avatar: ./media/carrie-stokes.jpg
-pronouns: She/Her
 ---
 ## About
 

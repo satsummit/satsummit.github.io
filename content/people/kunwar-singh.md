@@ -3,7 +3,6 @@ title: Kunwar Singh, PhD
 company: William and Mary
 role: Geospatial Scientist
 avatar: ./media/kunwar-singh.jpg
-pronouns: He/Him
 ---
 ## About
 

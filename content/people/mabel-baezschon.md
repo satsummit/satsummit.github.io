@@ -3,7 +3,6 @@ title: Mabel Baez-Schon, PhD
 company: University of Florida, Gainesville
 role: McKnight Fellow
 avatar: ./media/mabel-baezschon.jpg
-pronouns: She/Her
 ---
 ## About
 

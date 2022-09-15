@@ -2,8 +2,8 @@
 title: Gaige Kerr, PhD
 company: George Washington University
 role: Research Scientist at the Milken Institute School of Public Health
+twitter: weathergaige
 avatar: ./media/gaige-kerr.jpg
-pronouns: He/Him
 ---
 ## About
 
