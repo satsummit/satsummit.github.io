@@ -250,29 +250,33 @@ const SpeakersPage = () => {
             </SpeakersSectionBody>
           </SpeakersSection>
 
-          <SpeakersSection>
-            <SpeakersSectionHeader>
-              <SpeakersSectionTitle>
-                Other speakers include
-              </SpeakersSectionTitle>
-            </SpeakersSectionHeader>
-            <SpeakersSectionBody>
-              <SpeakersOthersList>
-                {other.map((speaker) => (
-                  <li key={speaker.id}>
-                    <OthersSpeaker>
-                      <OthersSpeakerHeader>
-                        <OthersSpeakerTitle>{speaker.title}</OthersSpeakerTitle>
-                        <OthersSpeakerSubtitle>
-                          {speaker.role} at {speaker.company}
-                        </OthersSpeakerSubtitle>
-                      </OthersSpeakerHeader>
-                    </OthersSpeaker>
-                  </li>
-                ))}
-              </SpeakersOthersList>
-            </SpeakersSectionBody>
-          </SpeakersSection>
+          {!!other.length && (
+            <SpeakersSection>
+              <SpeakersSectionHeader>
+                <SpeakersSectionTitle>
+                  Other speakers include
+                </SpeakersSectionTitle>
+              </SpeakersSectionHeader>
+              <SpeakersSectionBody>
+                <SpeakersOthersList>
+                  {other.map((speaker) => (
+                    <li key={speaker.id}>
+                      <OthersSpeaker>
+                        <OthersSpeakerHeader>
+                          <OthersSpeakerTitle>
+                            {speaker.title}
+                          </OthersSpeakerTitle>
+                          <OthersSpeakerSubtitle>
+                            {speaker.role} at {speaker.company}
+                          </OthersSpeakerSubtitle>
+                        </OthersSpeakerHeader>
+                      </OthersSpeaker>
+                    </li>
+                  ))}
+                </SpeakersOthersList>
+              </SpeakersSectionBody>
+            </SpeakersSection>
+          )}
         </SpeakersContent>
       </PageMainContent>
     </Layout>
