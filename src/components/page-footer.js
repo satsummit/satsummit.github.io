@@ -75,7 +75,7 @@ const EditionsBlock = styled(FootBlock)`
 const ConnectBlock = styled(FootBlock)`
   grid-column: content-3 / content-end;
   grid-row: 2;
-  margin-top: ${variableGlsp(-7.25)};
+  margin-top: ${variableGlsp(-9.25)};
 
   ${media.mediumUp`
     grid-column: content-6 / span 2;
@@ -152,11 +152,6 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
-              <CollecticonArrowRight /> Call for Lightning Talks
-            </FooterMenuLink>
-          </li>
-          <li>
             <FooterMenuLink as={Link} to='/agenda'>
               <CollecticonArrowRight /> Agenda
             </FooterMenuLink>
@@ -164,6 +159,11 @@ function PageFooter() {
           <li>
             <FooterMenuLink as={Link} to='/speakers'>
               <CollecticonArrowRight /> Speakers
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/practical-info'>
+              <CollecticonArrowRight /> Practical Info
             </FooterMenuLink>
           </li>
           <li>
@@ -179,6 +179,11 @@ function PageFooter() {
           <li>
             <FooterMenuLink as={Link} to='/code-of-conduct'>
               <CollecticonArrowRight /> Code of Conduct
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
             </FooterMenuLink>
           </li>
         </FooterMenu>

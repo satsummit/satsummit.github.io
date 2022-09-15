@@ -33,6 +33,7 @@ const AgendaEntryActions = styled.div`
   background: ${themeVal('color.surface')};
   padding: ${glsp(0.25)};
   box-shadow: ${themeVal('boxShadow.elevationD')};
+  border-radius: ${themeVal('shape.rounded')};
   opacity: 0;
   transform: translateY(25%);
   transition: opacity 0.16s ease 0.32s, transform 0.16s ease 0.32s;
