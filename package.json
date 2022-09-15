@@ -21,6 +21,7 @@
   "engines": {
     "node": "16.x"
   },
+  "browserslist": ">0.2%, not dead, not ie 11, not chrome < 51, not safari < 10, not android < 51",
   "scripts": {
     "serve": "gatsby develop -p 9000 -H 0.0.0.0",
     "build": "gatsby build",
