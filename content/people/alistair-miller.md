@@ -3,7 +3,6 @@ title: Alistair Miller
 company: Mapbox
 role: Imagery Product and Partnerships
 avatar: ./media/alistair-miller.jpg
-pronouns: He/Him
 ---
 ## About
 

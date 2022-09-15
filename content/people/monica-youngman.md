@@ -3,7 +3,6 @@ title: Monica Youngman
 company: NOAA
 role: Chief of National Centers for Environmental Information, Data Stewardship Division
 avatar: ./media/monica-youngman.jpg
-pronouns: She/Her
 ---
 ## About
 

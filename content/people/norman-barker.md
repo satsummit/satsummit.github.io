@@ -3,7 +3,6 @@ title: Norman Barker
 company: TileDB
 role: VP of Geospatial
 avatar: ./media/norman-barker.jpg
-pronouns: He/Him
 ---
 ## About
 

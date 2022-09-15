@@ -3,7 +3,6 @@ title: Megan Hansen
 company: Impact Observatory
 role: Machine Learning Scientist
 avatar: ./media/megan-hansen.jpg
-pronouns: She/Her
 ---
 ## About
 

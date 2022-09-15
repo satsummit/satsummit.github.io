@@ -13,4 +13,5 @@ people:
         - Martha Morrissey
         - Lilly Thomas
         - NaNa Yi
+        - Megan Hansen
 ---

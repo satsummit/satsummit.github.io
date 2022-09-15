@@ -2,8 +2,8 @@
 title: Janine Yoong
 company: _
 role: Geospatial Professional
+twitter: janineyoong
 avatar: ./media/janine-yoong.jpg
-pronouns: She/Her
 ---
 ## About
 

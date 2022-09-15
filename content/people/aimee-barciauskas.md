@@ -2,6 +2,7 @@
 title: Aimee Barciauskas
 company: Development Seed
 role: Data Engineer
+twitter: yayyyimee
 avatar: ./media/aimee-barciauskas.jpg
 pronouns: She/Her
 ---

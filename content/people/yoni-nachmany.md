@@ -3,7 +3,6 @@ title: Yoni Nachmany
 company: The New York Times
 role: R&D Engineer
 avatar: ./media/yoni-nachmany.jpg
-pronouns: He/Him
 ---
 ## About
 

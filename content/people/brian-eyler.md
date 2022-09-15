@@ -2,6 +2,7 @@
 title: Brian Eyler
 company: Stimson Center
 role: Director of the Southeast Asia Program and the Energy, Water, and Sustainability Program
+twitter: aikunming
 avatar: ./media/brian-eyler.jpg
 ---
 ## About

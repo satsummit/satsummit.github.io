@@ -3,7 +3,6 @@ title: Ryan McKinney
 company: Satellogic North America
 role: General Manager
 avatar: ./media/ryan-mckinney.jpg
-pronouns: He/Him
 ---
 ## About
 
