@@ -85,7 +85,7 @@ const MapboxStyleOverride = css`
 
     &,
     &:not(:empty) {
-      box-shadow: ${themeVal('boxShadow.elevationA')};
+      box-shadow: ${themeVal('boxShadow.elevationD')};
     }
 
     > button {

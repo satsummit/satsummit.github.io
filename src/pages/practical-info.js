@@ -23,7 +23,6 @@ mapboxgl.accessToken =
 const ProseWithMap = styled(VarProse)`
   #location-map {
     ${MapboxStyleOverride}
-
     aspect-ratio: 16/9;
     width: 100vw;
     position: relative;
@@ -31,6 +30,7 @@ const ProseWithMap = styled(VarProse)`
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    max-height: 44rem;
   }
 `;
 
