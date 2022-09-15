@@ -18,7 +18,7 @@ We will follow any Washington, DC protocols that are in effect at the time, whic
 
 ### Code of Conduct
 
-We are committed to our community. We follow a **Code of Conduct** for our events in order to to offer a positive and safe environment for all attendees.
+We are committed to our community. We follow a **Code of Conduct** for our events in order to offer a positive and safe environment for all attendees.
 
 Before you participate in **SatSummit**, we ask that you review the **[Code of Conduct](/code-of-conduct)**.
 

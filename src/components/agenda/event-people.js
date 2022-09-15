@@ -39,7 +39,7 @@ export function EventPeople(props) {
   return (
     <AgendaEntryPeopleList>
       {list.map((person) => {
-        if (person.isVoid) {
+        if (person.isVoid || person.group !== 'main') {
           return (
             <li key={person.title}>
               <strong>{person.title}</strong>
