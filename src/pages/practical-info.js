@@ -37,7 +37,7 @@ const ProseWithMap = styled(VarProse)`
 const InfoPage = () => {
   const { talks } = useStaticQuery(graphql`
     query {
-      talks: letter(slug: { in: "info" }) {
+      talks: letter(slug: { in: "practical-info" }) {
         parent {
           ... on MarkdownRemark {
             html
