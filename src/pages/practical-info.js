@@ -62,6 +62,7 @@ const ProseWithMap = styled(VarProse)`
         opacity: 0.64;
       }
     }
+
     &::after {
       position: absolute;
       top: 100%;

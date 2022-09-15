@@ -13,10 +13,8 @@ import { glsp, themeVal } from '@devseed-ui/theme-provider';
 import { variableGlsp } from '$styles/variable-utils';
 
 const MapboxStyleOverride = css`
-  & {
-    font: ${themeVal('type.base.style')} ${themeVal('type.base.weight')} 0.75rem/1.25rem
-      ${themeVal('type.base.family')};
-  }
+  font: ${themeVal('type.base.style')} ${themeVal('type.base.weight')} 0.75rem/1.25rem
+    ${themeVal('type.base.family')};
 
   .mapboxgl-control-container {
     position: absolute;
