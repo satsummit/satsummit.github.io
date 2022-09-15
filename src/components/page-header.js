@@ -216,12 +216,9 @@ function PageHeader() {
                 </GlobalMenuLink>
               </li>
               <li>
-                <GlobalMenuLink to='/code-of-conduct'>
-                  Code of Conduct
+                <GlobalMenuLink to='/practical-info'>
+                  Practical Info
                 </GlobalMenuLink>
-              </li>
-              <li>
-                <GlobalMenuLink to='/info'>Info</GlobalMenuLink>
               </li>
               <li>
                 <Button

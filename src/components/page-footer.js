@@ -152,11 +152,6 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
-              <CollecticonArrowRight /> Call for Lightning Talks
-            </FooterMenuLink>
-          </li>
-          <li>
             <FooterMenuLink as={Link} to='/agenda'>
               <CollecticonArrowRight /> Agenda
             </FooterMenuLink>
@@ -164,6 +159,11 @@ function PageFooter() {
           <li>
             <FooterMenuLink as={Link} to='/speakers'>
               <CollecticonArrowRight /> Speakers
+            </FooterMenuLink>
+          </li>
+          <li>
+            <FooterMenuLink as={Link} to='/practical-info'>
+              <CollecticonArrowRight /> Practical Info
             </FooterMenuLink>
           </li>
           <li>
@@ -182,8 +182,8 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
-            <FooterMenuLink as={Link} to='/info'>
-              <CollecticonArrowRight /> Info
+            <FooterMenuLink as={Link} to='/call-for-lightning-talks'>
+              <CollecticonArrowRight /> Call for Lightning Talks
             </FooterMenuLink>
           </li>
         </FooterMenu>
