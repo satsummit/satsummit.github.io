@@ -10,4 +10,6 @@ people:
     speakers:
         - Nadine Alameh
         - Aimee Barciauskas
+        - Lisa Rabelo
+        - Suresh Marru
 ---
