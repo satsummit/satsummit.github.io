@@ -6,9 +6,13 @@ room: The North Hub
 lead: Human dynamics - movements, behaviors, attitudes - are mapped with more confidence as data streams converge. Mapping humanity is more possible and more real-time than ever. 
 
 people:
+    moderators:
+        - Ed Anderson
     speakers:
         - Luis Bettencourt
         - Carmen Tedesco
         - Marie L. Urban
+        - Andy Tatem
+        - Jamon Van Den Hoek
 
 ---

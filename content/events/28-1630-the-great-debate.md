@@ -8,4 +8,5 @@ lead: We imagine a world where daily decisions are improved by data derived from
 people:
     speakers:
         - Joe Morrison
+        - Caitlin Kontgis, PhD
 ---

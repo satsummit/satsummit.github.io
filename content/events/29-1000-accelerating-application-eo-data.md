@@ -11,4 +11,6 @@ people:
     speakers:
         - Thembi Xaba, PhD
         - Yana Gevorgyan
+        - Aditya Agrawal
+        - Ashutosh Limaye
 ---
