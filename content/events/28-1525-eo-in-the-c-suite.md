@@ -6,8 +6,11 @@ room: The South Hub
 lead: Get a glimpse into how large organizations make major policy decisions backed by EO data.
 
 people:
+    moderators:
+        - Mike Spaeth
     speakers:
         - Chelsey Walden-Schreiner, PhD
         - Vivek Sakhrani, PhD
         - Carrie Stokes
+        - Andrew Wilcox
 ---

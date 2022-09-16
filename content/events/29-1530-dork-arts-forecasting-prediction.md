@@ -11,7 +11,7 @@ people:
     speakers:
         - Bessie Schwarz
         - Raghu K. Ganti
-        - Budhendra "Budhu" Bhaduri, PhD
+        - Budhu Bhaduri, PhD
         - Benjamin Thelonious Fels
 
 ---
