@@ -2,7 +2,6 @@
 title: Yvonne Ivey-Parker
 company: NASA Transform to Open Science Initiative (TOPS) 
 role: TOPS Equity Lead
-linkedin: https://www.linkedin.com/in/ypivey/
 avatar: ./media/yvonne-iveyparker.jpg
 pronouns: she/her
 ---
