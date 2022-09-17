@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Jonathan Markel, The University of Texas at Austin 
+        - Jonathan Markel
 ---

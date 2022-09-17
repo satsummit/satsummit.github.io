@@ -6,7 +6,7 @@ room: The North Hub
 
 people:
     moderators:
-        - Susan Wolfinbarger
+        - Susan Wolfinbarger, PhD
     speakers:
         - Holly Krambeck
 ---

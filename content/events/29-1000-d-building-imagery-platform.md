@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Beau Legeer, Esri
+        - Beau Legeer
 ---

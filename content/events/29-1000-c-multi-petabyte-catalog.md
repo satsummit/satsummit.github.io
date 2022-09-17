@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Rob Emanuele, Microsoft
+        - Rob Emanuele
 ---

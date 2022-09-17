@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - John Swartz, The Water Institute of the Gulf
+        - John Swartz
 
 ---

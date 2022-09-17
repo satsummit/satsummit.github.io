@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Robert Cheetham, Azavea
+        - Robert Cheetham
 ---

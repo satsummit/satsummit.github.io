@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Matt Hallas, DevGlobal
+        - Matt Hallas
 ---

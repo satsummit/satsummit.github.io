@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Anthony Louis D'Agostino, PhD, Mathematica
+        - Anthony Louis D'Agostino, PhD
 
 ---

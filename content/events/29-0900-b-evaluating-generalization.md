@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Kshitiz Khanal, University of North Carolina
+        - Kshitiz Khanal
 
 ---

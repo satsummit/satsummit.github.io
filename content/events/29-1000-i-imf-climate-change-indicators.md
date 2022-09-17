@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Alessandro Sozzi, International Monetary Fund
+        - Alessandro Sozzi
 ---

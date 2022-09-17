@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Nathan Zimmerman, Azavea
+        - Nathan Zimmerman
 ---

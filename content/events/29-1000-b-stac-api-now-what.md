@@ -6,5 +6,6 @@ room: The Forum North
 
 people:
     speakers:
-        - Leo Thomas & David Bitner, Development Seed
+        - Leo Thomas
+        - David Bitner
 ---

@@ -12,4 +12,5 @@ people:
         - Aimee Barciauskas
         - Lisa Rabelo
         - Suresh Marru
+        - Debbie Gordon
 ---

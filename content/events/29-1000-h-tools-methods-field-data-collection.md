@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Liana Zanarisoa Razafindrazay, World Bank
+        - Liana Zanarisoa Razafindrazay
 ---

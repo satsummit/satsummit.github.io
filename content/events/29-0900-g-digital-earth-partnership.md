@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Nuala Cowan, World Bank
+        - Nuala Cowan
 
 ---

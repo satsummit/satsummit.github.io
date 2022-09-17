@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Georgios Ouzounis, Atlas AI
+        - Georgios Ouzounis
 
 ---

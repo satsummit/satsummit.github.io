@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Jerome Maleski, University of Georgia
+        - Jerome Maleski
 ---

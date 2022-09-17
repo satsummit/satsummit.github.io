@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Seamus Geraty, DevGlobal
+        - Seamus Geraty
 
 ---

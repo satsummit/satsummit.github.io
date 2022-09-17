@@ -6,6 +6,6 @@ room: The Forum South
 
 people:
     speakers:
-        - Matthew Hanson, Element 84
+        - Matthew Hanson
 
 ---
