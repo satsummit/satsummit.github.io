@@ -7,6 +7,8 @@ lead: Speakers from the front lines of the climate crisis will share the urgency
 
 
 people:
+    moderators: 
+         - Kenny Malone
     speakers:
         - Angus Friday
         - Aurélie Shapiro, PhD

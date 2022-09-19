@@ -13,5 +13,6 @@ people:
         - David Moinina Sengeh
         - Carrie Stokes
         - Joseph Abakunda
+        - Hanna Camp
 
 ---

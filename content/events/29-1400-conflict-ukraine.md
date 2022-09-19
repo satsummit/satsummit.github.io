@@ -5,8 +5,9 @@ date: '2022-09-29 14:00'
 room: The North Hub
 
 people:
+    moderators:
+        - Susan Wolfinbarger, PhD
     speakers:
-        - Susan Wolfenbarger
         - Holly Krambeck
 ---
 
