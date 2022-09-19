@@ -8,7 +8,6 @@ lead: A candid conversation on diversity, equity and inclusion in the earth obse
 people:
     speakers:
         - Denise McKenzie
-        - Asimina Syriou
         - Yvonne Ivey-Parker
         - Clinton Johnson
         - Khristian Jones

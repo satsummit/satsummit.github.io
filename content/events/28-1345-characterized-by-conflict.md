@@ -11,4 +11,5 @@ people:
     speakers:
         - Krystal Azelton
         - Tim Wallace
+        - Matthew Steinhelfer
 ---
