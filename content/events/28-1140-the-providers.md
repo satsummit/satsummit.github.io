@@ -15,6 +15,6 @@ people:
         - Argyro Kavvada, PhD
         - Joseph Abakunda
         - Amanda Marchetti
-        - Ryan McKinney
+        - Caitlin Kontgis, Phd
 
 ---
