@@ -265,13 +265,21 @@ const Sponsor = styled.a`
   .sponsor-umbra {
     transform: scale(0.68);
   }
+
+  .sponsor-wbg {
+    transform: scale(1.2);
+  }
+
+  .sponsor-element84 {
+    transform: scale(0.9);
+  }
 `;
 
 const SponsorTitle = styled.h4`
   ${visuallyHidden()};
 `;
 
-const sponsorsGroups = ['Gold', 'Silver', 'Bronze', 'Hosts'];
+const sponsorsGroups = ['Gold', 'Silver', 'Bronze', 'Supporters', 'Hosts'];
 
 function SponsorsFold() {
   const { sponsors } = useStaticQuery(
