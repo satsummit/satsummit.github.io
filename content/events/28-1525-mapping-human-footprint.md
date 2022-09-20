@@ -12,7 +12,7 @@ people:
         - Luis Bettencourt
         - Carmen Tedesco
         - Marie L. Urban
-        - Andy Tatem
+        - Andy Tatem, PhD
         - Jamon Van Den Hoek
 
 ---

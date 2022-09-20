@@ -10,7 +10,7 @@ people:
         - Lauren Allognon
     speakers:
         - Talip Kilic
-        - Anuradha Swatantran
+        - Anu Swatantran, PhD
         - Kiersten Johnson
         - Jawoo Koo
         - Kunwar Singh, PhD
