@@ -5,7 +5,7 @@ import { variableGlsp } from '$styles/variable-utils';
 
 export const EmbedWidget = styled.div`
   margin-top: ${variableGlsp(0.75)};
-  border: ${themeVal('shape.border')} solid ${themeVal('color.base-100')};
+  border: ${themeVal('layout.border')} solid ${themeVal('color.base-100')};
   border-radius: ${themeVal('shape.rounded')};
   padding: ${variableGlsp()};
 `;
