@@ -11,5 +11,5 @@ people:
         - Manil Maskey
         - Io Blair-Freese
         - Peter Rabley
-        - Ben Stewart
+        - Benjamin P. Stewart
 ---
