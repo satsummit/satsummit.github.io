@@ -2,6 +2,7 @@
 title: Anthony Louis D'Agostino, PhD
 company: Mathematica
 role: Research Economist
+group: other 
 avatar: ./media/anthony-dagostino.jpg
 ---
 ## About
