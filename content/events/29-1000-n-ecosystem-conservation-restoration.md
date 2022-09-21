@@ -8,7 +8,7 @@ people:
     moderators:
         - Anusuya Datta
     speakers:
-        - Lilian Pintea
+        - Lilian Pintea, PhD
         - Ana Pinheiro Privette, PhD
         - Pascual Gonzalez
         - Conrad Muyaule
