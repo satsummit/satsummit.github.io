@@ -2,6 +2,7 @@
 title: Madison Musgrave
 company: Esri
 role: Account Manager-Nonprofit and Global Organizations
+group: other
 avatar: ./media/madison-musgrave.jpg
 ---
 ## About
