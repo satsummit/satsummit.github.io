@@ -10,7 +10,7 @@ people:
         - Manil Maskey, PhD
     speakers:
         - Bessie Schwarz
-        - Raghu K. Ganti
+        - Raghu Ganti
         - Budhu Bhaduri, PhD
         - Benjamin Thelonious Fels
 
