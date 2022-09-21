@@ -1,16 +1,15 @@
 ---
 title: Open and Collaborative Science
 type: Panel
-date: '2022-09-29 10:00'
+date: 2022-09-29 10:00
 room: The Central Hub
-
 people:
     moderators:
         - Rahul Ramachandran
     speakers:
-        - Nadine Alameh
+        - Nadine Alameh, PhD
         - Aimee Barciauskas
-        - Lisa Rabelo
+        - Lisa Rebelo
         - Suresh Marru
-        - Debbie Gordon
+        - Deborah Gordon
 ---

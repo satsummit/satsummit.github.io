@@ -166,7 +166,7 @@ export function AgendaEvent(props) {
     type,
     date,
     room,
-    lead,
+    htmlContent,
     people,
     // Starting level for the highest heading on this component.
     startingHLevel = -1
@@ -246,11 +246,9 @@ export function AgendaEvent(props) {
           </Button>
         </AgendaEntryActions>
       </AgendaEntryHeader>
-      {lead && (
+      {htmlContent && (
         <AgendaEntryBody>
-          <VarProse>
-            <p>{lead}</p>
-          </VarProse>
+          <VarProse dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </AgendaEntryBody>
       )}
       {people && (
@@ -283,7 +281,7 @@ AgendaEvent.propTypes = {
   type: T.string,
   date: T.string,
   room: T.string,
-  lead: T.string,
+  htmlContent: T.string,
   startingHLevel: T.number,
   people: T.shape({
     facilitators: T.array,
