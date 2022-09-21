@@ -7,6 +7,7 @@ room: The North Hub
 people:
     speakers:
         - Lilian Pintea
+        - Ana Pinheiro Privette, PhD
         - Pascual Gonzalez
         - Conrad Muyaule
         - David Williams
