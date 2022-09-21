@@ -1,10 +1,8 @@
 ---
 title: EO in the C Suite
 type: Panel
-date: '2022-09-28 15:25'
+date: 2022-09-28 15:25
 room: The South Hub
-lead: Get a glimpse into how large organizations make major policy decisions backed by EO data.
-
 people:
     moderators:
         - Mike Spaeth
@@ -14,3 +12,4 @@ people:
         - Carrie Stokes
         - Andrew Wilcox
 ---
+Get a glimpse into how large organizations make major policy decisions backed by EO data.
