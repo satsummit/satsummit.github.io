@@ -11,7 +11,7 @@ people:
         - Yana Gevorgyan
     speakers:
         - Healy Hamilton, PhD
-        - Susana Rodriguez
+        - Susana Rodriguez-Buriticá, PhD
         - Andria Rosado
         
 ---
