@@ -1,6 +1,6 @@
 ---
 title: Manil Maskey, PhD
-company: NASA Transform to Open Science Initiative (TOPS) 
+company: NASA Science Mission Directorate 
 role: Senior Research Scientist
 twitter: iammanil
 avatar: ./media/manil-maskey.jpg
