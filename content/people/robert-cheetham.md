@@ -2,6 +2,7 @@
 title: Robert Cheetham
 company: Azavea
 role: President & CEO
+group: other
 avatar: ./media/robert-cheetham.jpg
 ---
 ## About

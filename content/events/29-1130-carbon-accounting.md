@@ -8,5 +8,6 @@ people:
     speakers:
         - Andres B. Espejo
         - Carlos Silva, PhD
+        - David Gibbs
 
 ---

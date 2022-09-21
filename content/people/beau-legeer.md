@@ -2,6 +2,7 @@
 title: Beau Legeer
 company: Esri
 role: Director of the Imagery and Remote Sensing GBD team
+group: other
 avatar: ./media/beau-legeer.jpg
 ---
 ## About

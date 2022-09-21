@@ -8,9 +8,9 @@ people:
     moderators:
         - Rahul Ramachandran
     speakers:
-        - Nadine Alameh
+        - Nadine Alameh, PhD
         - Aimee Barciauskas
-        - Lisa Rabelo
+        - Lisa Rebelo
         - Suresh Marru
-        - Debbie Gordon
+        - Deborah Gordon
 ---

@@ -12,5 +12,5 @@ people:
         - Thembi Xaba, PhD
         - Yana Gevorgyan
         - Aditya Agrawal
-        - Ashutosh Limaye
+        - Ashutosh Limaye, PhD
 ---

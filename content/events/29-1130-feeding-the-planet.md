@@ -7,10 +7,10 @@ lead: EO has played a role in many food security decisions and interventions ove
 
 people:
     moderators: 
-        - Lauren Allognan
+        - Lauren Allognon
     speakers:
         - Talip Kilic
-        - Anuradha Swatantran
+        - Anu Swatantran, PhD
         - Kiersten Johnson
         - Jawoo Koo
         - Kunwar Singh, PhD

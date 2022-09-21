@@ -1,5 +1,5 @@
 ---
-title: Evaluating generalization of computer vision models on satellite images across geographies, resolutions and spectra
+title: Evaluating generalization of deep learning and computer vision for satellite data and global development
 type: Lightning Talks
 date: '2022-09-29 09:00'
 room: The Forum South

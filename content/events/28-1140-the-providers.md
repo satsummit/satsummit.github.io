@@ -11,10 +11,10 @@ people:
     moderators:
         - Rhiannan Price
     speakers:
-        - Asimina Syriou
+        - Mina Syriou
         - Argyro Kavvada, PhD
         - Joseph Abakunda
         - Amanda Marchetti
-        - Ryan McKinney
+        - Caitlin Kontgis, Phd
 
 ---

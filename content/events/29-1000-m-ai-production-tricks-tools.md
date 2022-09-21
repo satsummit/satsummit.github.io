@@ -9,7 +9,7 @@ people:
     moderators: 
         - Freddie Kalaitzis
     speakers:
-        - Carolyn Johnston
+        - Carolyn Johnston, PhD
         - Martha Morrissey
         - Lilly Thomas
         - NaNa Yi
