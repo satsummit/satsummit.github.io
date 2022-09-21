@@ -267,7 +267,7 @@ const People = ({ data }) => {
                     type={event.type}
                     date={event.date}
                     room={event.room}
-                    lead={event.lead}
+                    htmlContent={event.parent.html}
                     people={event.people}
                   />
                 ))}
@@ -309,9 +309,13 @@ export const query = graphql`
       events {
         role
         event {
+          parent {
+            ... on MarkdownRemark {
+              html
+            }
+          }
           cId
           title
-          lead
           slug
           type
           room

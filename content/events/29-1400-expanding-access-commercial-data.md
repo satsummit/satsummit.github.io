@@ -1,12 +1,10 @@
 ---
 title: Expanding Access to Commercial Data
 type: Roundtable
-date: '2022-09-29 14:00'
+date: 2022-09-29 14:00
 room: The South Hub
-lead: How can commercial data be sustainably provided to researchers, NGOs, and small governments working for societal benefit.
-
 people:
-    moderators: 
+    moderators:
         - Winston Tri
     speakers:
         - Manil Maskey, PhD
@@ -14,3 +12,4 @@ people:
         - Peter Rabley
         - Benjamin P. Stewart
 ---
+How can commercial data be sustainably provided to researchers, NGOs, and small governments working for societal benefit.

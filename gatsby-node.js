@@ -103,7 +103,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       title: String!
       date: Date!
       room: String
-      lead: String
       people: EventPeople
     }
 

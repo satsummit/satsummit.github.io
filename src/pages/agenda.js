@@ -132,13 +132,17 @@ const AgendaPage = ({ location }) => {
     query {
       allEvent(sort: { fields: [slug, date] }) {
         nodes {
+          parent {
+            ... on MarkdownRemark {
+              html
+            }
+          }
           id
           cId
           title
           type
           date
           room
-          lead
           people {
             ...AllEventPeople
           }
@@ -233,7 +237,7 @@ const AgendaPage = ({ location }) => {
                               type={node.type}
                               date={node.date}
                               room={node.room}
-                              lead={node.lead}
+                              htmlContent={node.parent.html}
                               people={node.people}
                             />
                           ))}
