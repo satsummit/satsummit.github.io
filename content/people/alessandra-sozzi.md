@@ -1,6 +1,6 @@
 ---
 title: Alessandra Sozzi
-company: Azavea
+company: International Monetary Fund (IMF)
 role: Data Analytics Officer
 group: other
 avatar: ./media/alessandra-sozzi.jpg
