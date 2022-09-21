@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Jerome Maleski
+        - Jerome Maleski, PhD
 ---
