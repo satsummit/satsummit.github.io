@@ -1,0 +1,9 @@
+---
+title: Thembi Xaba, PhD
+company: Digital Earth Africa
+role: Managing Director
+avatar: ./media/thembi-xaba.jpg
+---
+## About
+
+Dr. Xaba has established herself in the field of development economics as an executive and as an authoritative source in development finance. Her publishing credits include African Journal of Economic and Management Studies and American Journal of Economics, Finance and Management. She is the former CEO of the Deciduous Fruit Development Chamber, and currently the Managing Director for [Digital Earth Africa](https://www.digitalearthafrica.org/), leading an Earth Observation Program and a team in Africa. Dr. Xaba’s career path for over 20 years, illustrates an exemplary combination of development economics with agricultural financing and development as her core focus, extending expertise to food security and investment promotion. Her advice, opinion pieces, presentations and lectures draw from her wealth of knowledge gained from her qualifications and experience in her tenures. She has leveraged her development economics and agribusiness expertise in roles from both the public sector and the private sector. Dr. Xaba holds a PhD in Business Management Administration and MPhil in Development Finance from the University of Stellenbosch respectively. In addition, she also possesses post graduate qualifications in Agriculture and Economic Policy. She also guest lectures on Agricultural Finance, at the University of Stellenbosch Business School. Dr. Xaba currently serves on various Boards, in which one is a JSE listed Board. She was born and raised in Springs, east of Johannesburg, South Africa.
