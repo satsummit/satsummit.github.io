@@ -6,7 +6,8 @@ room: The South Hub
 lead: How can commercial data be sustainably provided to researchers, NGOs, and small governments working for societal benefit.
 
 people:
-    moderator: Winston Tri
+    moderator: 
+        - Winston Tri
     speakers:
         - Manil Maskey, PhD
         - Io Blair-Freese
