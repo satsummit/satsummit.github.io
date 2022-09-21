@@ -7,7 +7,7 @@ lead: Perspectives from cutting edge applications of EO data in forecasting and 
 
 people:
     moderators: 
-        - Manil Maskey
+        - Manil Maskey, PhD
     speakers:
         - Bessie Schwarz
         - Raghu K. Ganti

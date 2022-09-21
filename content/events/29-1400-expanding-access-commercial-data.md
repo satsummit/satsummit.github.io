@@ -8,7 +8,7 @@ lead: How can commercial data be sustainably provided to researchers, NGOs, and 
 people:
     moderator: Winston Tri
     speakers:
-        - Manil Maskey
+        - Manil Maskey, PhD
         - Io Blair-Freese
         - Peter Rabley
         - Benjamin P. Stewart
