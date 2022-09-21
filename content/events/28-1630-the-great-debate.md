@@ -4,6 +4,8 @@ type: Debate
 date: 2022-09-28 16:30
 room: The Forum
 people:
+    moderators:
+        - Ranu Baylor
     speakers:
         - Joe Morrison
         - Caitlin Kontgis, PhD

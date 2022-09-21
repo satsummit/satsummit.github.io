@@ -12,5 +12,6 @@ people:
         - Joseph Abakunda
         - Amanda Marchetti
         - Caitlin Kontgis, Phd
+        - Monica Weber
 ---
 Leaders in public and commercial imagery providers discuss new capabilities and distribution models and how they engage communities working directly on social and climate benefits.
