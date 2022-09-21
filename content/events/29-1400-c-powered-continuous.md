@@ -6,5 +6,5 @@ room: The Forum North
 
 people:
     speakers:
-        - Steve Brumby, PhD
+        - Steven Brumby, PhD
 ---
