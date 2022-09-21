@@ -13,6 +13,6 @@ people:
         - Carmen Tedesco
         - Marie L. Urban
         - Andy Tatem, PhD
-        - Jamon Van Den Hoek
+        - Jamon Van Den Hoek, PhD
 
 ---
