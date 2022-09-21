@@ -10,7 +10,7 @@ people:
     speakers:
         - Nadine Alameh
         - Aimee Barciauskas
-        - Lisa Rabelo
+        - Lisa Rebelo
         - Suresh Marru
         - Deborah Gordon
 ---

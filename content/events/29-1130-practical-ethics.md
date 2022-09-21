@@ -8,4 +8,6 @@ lead: In a world where data is increasingly becoming a form of currency and powe
 people:
     speakers:
         - Denise McKenzie
+        - Nicki McGoh
+        - Madeeha Merchant
 ---
