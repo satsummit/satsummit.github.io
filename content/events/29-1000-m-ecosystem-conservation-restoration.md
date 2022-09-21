@@ -6,7 +6,7 @@ room: The North Hub
 
 people:
     speakers:
-        - Lilian Pintera
+        - Lilian Pintea
         - Pascual Gonzalez
         - Conrad Muyaule
         - David Williams
