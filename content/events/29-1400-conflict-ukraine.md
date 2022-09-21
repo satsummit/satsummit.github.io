@@ -9,8 +9,8 @@ people:
     speakers:
         - Holly Krambeck
         - Caitlin Howarth
-        - Katharyn Hanson
+        - Katharyn Hanson, PhD
         - Hayden Bassett
         - Andrew Marx
 ---
-value/impact of rapid open source documentation to policy makers and the publicHow earth observation analysis can be complementary to both other groups doing similar work (Airwars, HRW, etc) but also how it can fit in alongside ground based documentation Combining other data sources with earth observation to take documentation further Looking to the future about the next developments in the earth observations How this data can be fed into reconstruction, legal cases, and other efforts in the future Ethics and safety concerns
+Ukraine is the most documented crime scene in history and earth observation technologies are playing a critical role in documenting Russia's war crimes and other atrocities. This session offers a discussion between members of the Conflict Observatory program, a new initiative from the US Department of State to use open source geospatial tools and data to document Russia's war crimes and other atrocities in Ukraine.
