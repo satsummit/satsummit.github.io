@@ -7,7 +7,7 @@ people:
     moderators:
         - Rhiannan Price
     speakers:
-        - Mina Syriou
+        - Asimina Syriou
         - Argyro Kavvada, PhD
         - Joseph Abakunda
         - Amanda Marchetti
