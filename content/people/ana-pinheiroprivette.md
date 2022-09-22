@@ -1,6 +1,6 @@
 ---
 title: Ana Pinheiro Privette, PhD
-company: AWS
+company: AWS Impact Computing
 role: Head for Sustainability
 avatar: ./media/ana-pinheiroprivette.jpg
 ---

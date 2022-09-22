@@ -8,4 +8,9 @@ people:
         - Susan Wolfinbarger, PhD
     speakers:
         - Holly Krambeck
+        - Caitlin Howarth
+        - Katharyn Hanson, PhD
+        - Hayden Bassett
+        - Andrew Marx
 ---
+Ukraine is the most documented crime scene in history and earth observation technologies are playing a critical role in documenting Russia's war crimes and other atrocities. This session offers a discussion between members of the Conflict Observatory program, a new initiative from the US Department of State to use open source geospatial tools and data to document Russia's war crimes and other atrocities in Ukraine.

@@ -2,7 +2,7 @@
 title: Lightning Talks
 type: Lighting Talks
 date: 2022-09-29 09:00
-room: The Forum North
+room: The Forum South
 
 ---
 - Satellite Tasking API (**Matthew Hanson**) 
