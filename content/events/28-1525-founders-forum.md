@@ -2,7 +2,7 @@
 title: Founders Forum
 type: Roundtable
 date: 2022-09-28 15:25
-room: The Forum South
+room: The Forum
 people:
     moderators:
         - Sean Gorman
