@@ -4,6 +4,8 @@ type: Roundtable
 date: 2022-09-28 14:35
 room: The Forum
 people:
+    moderators: 
+        - Io Blair-Freese
     speakers:
         - Denise McKenzie
         - Yvonne Ivey-Parker
