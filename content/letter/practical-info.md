@@ -47,6 +47,14 @@ Closest Hotels:
 
 No, registration includes access to both days of **SatSummit**. Livestream of certain sessions will be available.
 
+### Which sessions will be live-streamed?
+
+Only sessions in The Forum (Sept 28th) and The Forum South (Sept 29th) will be live-streamed.
+
+### Will session recordings be available after **SatSummit**?
+
+We will not be able to post recordings of the live-streamed sessions.
+
 ### Is the venue wheelchair accessible?
 
 The venue is fully ADA compliant. Should you need any accommodations to make this event accessible to you, please reach out to us at [**info@satsummit.io**](mailto:info@satsummit.io).

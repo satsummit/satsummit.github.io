@@ -11,7 +11,7 @@ people:
         - Argyro Kavvada, PhD
         - Joseph Abakunda
         - Amanda Marchetti
-        - Caitlin Kontgis, Phd
+        - Caitlin Kontgis, PhD
         - Monica Weber
 ---
 Leaders in public and commercial imagery providers discuss new capabilities and distribution models and how they engage communities working directly on social and climate benefits.
