@@ -13,3 +13,7 @@ people:
         - Suresh Marru
         - Deborah Gordon
 ---
+
+NASA has designated 2023 as the Year of Open Science. The shift to shared cloud data and services creates new opportunities for open, collaborative, and replicable science; accellerating the transition from research to application; and increasing transparency and confidence in science-based understanding.
+
+But a long path remains between the pricipals behind open science and FAIR (findability, accessibility, interoperability, and reusability) data and the actualization of this vision. The panelists will explore where we are on this journey and the path ahead.
