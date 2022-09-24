@@ -9,7 +9,7 @@ people:
     speakers:
         - Nadine Alameh, PhD
         - Aimee Barciauskas
-        - Lisa Rebelo
+        - Lisa Maria Rebelo, PhD
         - Suresh Marru
         - Deborah Gordon
 ---
