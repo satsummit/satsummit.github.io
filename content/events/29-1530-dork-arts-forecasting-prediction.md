@@ -5,7 +5,7 @@ date: 2022-09-29 15:30
 room: The Forum South
 people:
     moderators:
-        - Manil Maskey, PhD
+        - Carolyn Johnston, PhD
     speakers:
         - Subit Chakrabarti, PhD
         - Raghu Ganti
