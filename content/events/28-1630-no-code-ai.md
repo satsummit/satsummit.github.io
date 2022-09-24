@@ -8,5 +8,6 @@ people:
         - Sajjad Anwar
     speakers:
         - Janine Yoong
+        - Tyler Radford
 ---
 Details to come.
