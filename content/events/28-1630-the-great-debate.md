@@ -5,7 +5,7 @@ date: 2022-09-28 16:30
 room: The Forum
 people:
     moderators:
-        - Ranu Baylor
+        - KesUranNu Baylor
     speakers:
         - Joe Morrison
         - Caitlin Kontgis, PhD

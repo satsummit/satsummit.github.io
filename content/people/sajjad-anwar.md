@@ -1,7 +1,7 @@
 ---
 title: Sajjad Anwar
 company: Development Seed
-role: Developer & GeoAI Team Lead
+role: Developer & Project Strategist
 avatar: ./media/sajjad-anwar.jpg
 ---
 ## About
