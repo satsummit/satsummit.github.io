@@ -7,7 +7,7 @@ people:
     moderators:
         - Manil Maskey, PhD
     speakers:
-        - Subit Chakrabarti
+        - Subit Chakrabarti, PhD
         - Raghu Ganti
         - Budhu Bhaduri, PhD
         - Benjamin Thelonious Fels
