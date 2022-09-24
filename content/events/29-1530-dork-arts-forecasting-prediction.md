@@ -10,6 +10,5 @@ people:
         - Subit Chakrabarti, PhD
         - Raghu Ganti
         - Budhu Bhaduri, PhD
-        - Benjamin Thelonious Fels
 ---
 Perspectives from cutting edge applications of EO data in forecasting and prediction.
