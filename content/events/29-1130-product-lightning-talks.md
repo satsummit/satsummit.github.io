@@ -11,4 +11,3 @@ room: The Forum North
 - Understanding our Changing Planet with Global Scale Change Detection and Prediction (**Chris Rampersad**) 
 - Geo-enable your organization with MLOps (**Pascal Van Dalen**)
 - Human-in-the-loop Machine Learning with Realtime Model Predictions on Satellite Images (**Aaron Su**)
-- Placemark.io (**Tom McWright**)

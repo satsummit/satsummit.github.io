@@ -6,7 +6,7 @@ room: The North Hub
 people:
 
     speakers:
-        - Naikoa Aguilar-Amuchastegui
+        - Naikoa Aguilar Amuchastegui, PhD
         - Carlos Silva, PhD
         - David Gibbs
         - Melissa Weitz
