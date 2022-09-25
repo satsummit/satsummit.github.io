@@ -7,34 +7,33 @@ We can’t wait to see you at SatSummit on Wednesday. As grateful as we are for 
 
 To keep everyone safe we will require masks when not presenting, eating or drinking. **This is an update from our previous stance of highly recommending masks.**
 
-The tl;dr
-
-We expect everyone attending SatSummit to:
+#### We expect everyone attending SatSummit to:
 
 - Wear masks when not presenting, eating, or drinking
 - Test yourself before Wednesday
 - Not attend if you are experiencing Covid symptoms (or test positive)
 - Be vaccinated
 
-Our policy is informed by:
+#### Our policy is informed by:
 
 - Our Code of Conduct
 - Science
 
-You can expect the SatSummit organizers to:
+#### You can expect the SatSummit organizers to:
 
 - Provide masks to anyone who needs one
 - Enforce masking as we do all aspects of our Code of Conduct
 - Work with the venue to provide as safe a space as possible
 
-Guiding Principals
+#### Guiding Principals
 Building a safe, inclusive space
+#### The Specifics
 
-The Specifics
-Masks
+**Masks**
 
 Masks are the most effective way to limit risk at a large event. We require masks when not presenting, eating or drinking. We will provide masks to anyone needing one. Failure to respect our masking policy will be treated as a Code of Conduct violation.
 
+___
 ## Concerning Covid-19
 
 We're excited to welcome you to SatSummit 2022 in-person, but realize the COVID-19 pandemic is still an important consideration for many of you. We ask if you attend SatSummit 2022 that you help us create the safest environment we can as we reacquaint ourselves with in-person meetings.
