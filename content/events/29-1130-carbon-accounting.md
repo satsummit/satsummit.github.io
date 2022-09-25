@@ -11,3 +11,5 @@ people:
         - David Gibbs
         - Melissa Weitz
 ---
+
+Several big bets have been made on the ability of satellite data to improve carbon accounting. This panel will explore what is required for meaningful carbon accounting, where better earth data and better models will contribute, and what are their limitations.
