@@ -1,6 +1,6 @@
 ## Schedule
 
-Welcome to the **SatSummit 2022** Livestream! We're so happy you could join us virtually.
+Welcome to the **SatSummit 2022** livestream! We're so happy you could join us virtually.
  
 **SatSummit 2022** will be livestreaming all sessions happening in **The Forum** and **The Forum South** during these times:
  
