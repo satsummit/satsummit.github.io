@@ -12,5 +12,3 @@ The livestream is one, continuous stream of all sessions, so all you have to do 
 While we will not be hosting or monitoring a live chat feature, if you are having any technical issues or have questions about the stream, please feel free to email [**info@satsummit.io**](mailto:info@satsummit.io). We will get back to you as soon as we're able to.
  
 We hope you enjoy the show!
-
-## Watch

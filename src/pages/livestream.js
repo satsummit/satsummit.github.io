@@ -14,21 +14,17 @@ import {
 } from '$styles/page';
 
 import { BlockAlpha } from '$styles/blocks';
-import { VarProse } from '$styles/variable-components';
+import { VarHeading, VarProse } from '$styles/variable-components';
 
 import { variableGlsp } from '$styles/variable-utils';
 
 const LivestreamBlock = styled.div`
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   aspect-ratio: 16/9;
-  width: 100vw;
   max-height: 44rem;
   border-top: ${multiply(themeVal('layout.border'), 4)} solid
     ${themeVal('color.secondary-500')};
+  margin-top: -${multiply(themeVal('layout.border'), 4)};
 
   > * {
     width: 100%;
@@ -42,6 +38,7 @@ const LivestreamCountdown = styled.div`
   inset: 0;
   display: flex;
   flex-flow: column nowrap;
+  gap: ${variableGlsp()};
   justify-content: center;
   align-items: center;
   color: ${themeVal('color.surface')};
@@ -49,11 +46,17 @@ const LivestreamCountdown = styled.div`
   padding: ${variableGlsp()};
 `;
 
+const LivestreamCountdownTitle = styled(VarHeading).attrs({
+  as: 'h2',
+  size: 'medium'
+})`
+  /* styled-component */
+`;
+
 const Timer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   gap: ${variableGlsp(0.25)};
-  margin-top: ${variableGlsp(0.5)};
 `;
 
 const TimerBlock = styled.div`
@@ -66,13 +69,19 @@ const TimerBlock = styled.div`
   border: ${themeVal('layout.border')} solid ${themeVal('color.surface-100a')};
   border-radius: ${themeVal('shape.rounded')};
   padding: ${variableGlsp()};
+`;
 
-  strong {
-    font-family: ${themeVal('type.heading.family')};
-    font-weight: ${themeVal('type.heading.weight')};
-    font-size: clamp(1.25rem, 12vw, 8rem);
-    line-height: 1;
-  }
+const TimerBlockNumber = styled(VarHeading).attrs({
+  as: 'TimerBlockNumber',
+})`
+  font-size: clamp(1.25rem, 12vw, 8rem);
+  line-height: 1;
+`;
+
+const TimerBlockLabel = styled(VarProse).attrs({
+  as: 'p'
+})`
+  /* styled-component */
 `;
 
 const LivestreamPage = () => {
@@ -96,38 +105,36 @@ const LivestreamPage = () => {
             <PageMainTitle>Livestream</PageMainTitle>
           </PageMainHeroHeadline>
         </PageMainHero>
+        <LivestreamBlock>
+          <LivestreamCountdown>
+            <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
+            <Timer>
+              <TimerBlock>
+                <TimerBlockNumber>01</TimerBlockNumber>
+                <TimerBlockLabel>days</TimerBlockLabel>
+              </TimerBlock>
+              <TimerBlock>
+                <TimerBlockNumber>16</TimerBlockNumber>
+                <TimerBlockLabel>hours</TimerBlockLabel>
+              </TimerBlock>
+              <TimerBlock>
+                <TimerBlockNumber>56</TimerBlockNumber>
+                <TimerBlockLabel>minutes</TimerBlockLabel>
+              </TimerBlock>
+              <TimerBlock>
+                <TimerBlockNumber>24</TimerBlockNumber>
+                <TimerBlockLabel>seconds</TimerBlockLabel>
+              </TimerBlock>
+            </Timer>
+          </LivestreamCountdown>
+          <iframe
+            src='https://player.restream.io/?token=efbb246f3bf94543885adaf970929981'
+            allow='autoplay'
+            allowFullScreen
+          />
+        </LivestreamBlock>
         <BlockAlpha>
           <VarProse dangerouslySetInnerHTML={{ __html: talks.parent.html }} />
-          <VarProse>
-            <LivestreamBlock>
-              <LivestreamCountdown>
-                <h3>Livestreaming in</h3>
-                <Timer>
-                  <TimerBlock>
-                    <strong>01</strong>
-                    <span>days</span>
-                  </TimerBlock>
-                  <TimerBlock>
-                    <strong>16</strong>
-                    <span>hours</span>
-                  </TimerBlock>
-                  <TimerBlock>
-                    <strong>56</strong>
-                    <span>minutes</span>
-                  </TimerBlock>
-                  <TimerBlock>
-                    <strong>24</strong>
-                    <span>seconds</span>
-                  </TimerBlock>
-                </Timer>
-              </LivestreamCountdown>
-              <iframe
-                src='https://player.restream.io/?token=efbb246f3bf94543885adaf970929981'
-                allow='autoplay'
-                allowFullScreen
-              />
-            </LivestreamBlock>
-          </VarProse>
         </BlockAlpha>
       </PageMainContent>
     </Layout>
