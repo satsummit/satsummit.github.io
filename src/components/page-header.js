@@ -161,6 +161,31 @@ const GlobalAction = styled.div`
   `}
 `;
 
+const GlobalActionInfo = styled.p`
+  position: absolute;
+  top: calc(100% + ${glsp(0.5)});
+  right: 0;
+  background: ${themeVal('color.surface')};
+  padding: ${glsp(0.5, 1)};
+  box-shadow: ${themeVal('boxShadow.elevationD')};
+  border-radius: ${themeVal('shape.rounded')};
+  text-align: center;
+  white-space: nowrap;
+  min-width: 12rem;
+
+  &::after {
+    position: absolute;
+    bottom: 100%;
+    right: ${glsp()};
+    width: ${glsp(0.5)};
+    height: ${glsp(0.5)};
+    background: ${themeVal('color.surface')};
+    content: '';
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    pointer-events: none;
+  }
+`;
+
 const breath = keyframes`
   0% {
     opacity: 0;
@@ -232,6 +257,9 @@ function PageHeader() {
         <Brand />
         <GlobalAction>
           <LivestreamButton isLargeUp={isLargeUp} />
+          <GlobalActionInfo>
+            Live in <strong>01:16:56:24</strong>!
+          </GlobalActionInfo>
         </GlobalAction>
         {!isLargeUp && (
           <GlobalNavToggle

@@ -242,7 +242,7 @@ export function AgendaEvent(props) {
             href='/'
             disabled
           >
-            <CollecticonCirclePlay title='Watch livestream' meaningful />
+            <CollecticonCirclePlay title='Watch recording' meaningful />
           </Button>
         </AgendaEntryActions>
       </AgendaEntryHeader>
