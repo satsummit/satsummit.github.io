@@ -163,7 +163,7 @@ const GlobalAction = styled.div`
 
 const GlobalActionInfo = styled.p`
   position: absolute;
-  top: calc(100% + ${glsp(0.5)});
+  top: calc(100% + ${glsp(0.75)});
   right: 0;
   background: ${themeVal('color.surface')};
   padding: ${glsp(0.5, 1)};
@@ -176,7 +176,7 @@ const GlobalActionInfo = styled.p`
   &::after {
     position: absolute;
     bottom: 100%;
-    right: ${glsp()};
+    right: ${glsp(0.5)};
     width: ${glsp(0.5)};
     height: ${glsp(0.5)};
     background: ${themeVal('color.surface')};
