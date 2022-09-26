@@ -11,7 +11,6 @@ import {
   themeVal
 } from '@devseed-ui/theme-provider';
 import {
-  CollecticonArrowRight,
   CollecticonHamburgerMenu,
   CollecticonXmark
 } from '@devseed-ui/collecticons';
@@ -194,14 +193,18 @@ const LivestreamButtonSelf = styled(Button)`
     width: 1rem;
     fill: currentColor;
 
-    #stream-icon-outer {
-      animation: ${breath} 2s ease-in-out infinite;
-      animation-delay: -1.8s;
-    }
+    ${({ isAnimating }) =>
+      isAnimating &&
+      css`
+        #stream-icon-outer {
+          animation: ${breath} 2s ease-in-out infinite;
+          animation-delay: -1.8s;
+        }
 
-    #stream-icon-inner {
-      animation: ${breath} 2s ease-in-out infinite;
-    }
+        #stream-icon-inner {
+          animation: ${breath} 2s ease-in-out infinite;
+        }
+      `}
   }
 `;
 
@@ -324,16 +327,10 @@ function LivestreamButton({ isLargeUp }) {
       variation='base-outline'
       size={isLargeUp ? 'large' : 'medium'}
       to='/livestream'
+      isAnimating={isLive}
     >
-      {isLive ? (
-        <React.Fragment>
-          <StreamIcon /> Watch live now
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          Watch livestream <CollecticonArrowRight />
-        </React.Fragment>
-      )}
+      <StreamIcon />
+      {isLive ? 'Watch live now' : 'Watch livestream'}
     </LivestreamButtonSelf>
   );
 }
