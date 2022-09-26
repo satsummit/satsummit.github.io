@@ -26,6 +26,9 @@ const SponsorsFoldSelf = styled.section`
   flex-flow: column;
   filter: drop-shadow(0 -8px 0 ${themeVal('color.secondary-500')});
   margin-top: ${variableGlsp(2)};
+
+  /* Improve performance */
+  transform: translate3d(0, 0, 0);
 `;
 
 const SponsorsFoldInner = styled(Hug).attrs({
