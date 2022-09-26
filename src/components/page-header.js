@@ -48,17 +48,23 @@ const PageHeaderInner = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: ${variableGlsp()};
+  gap: ${variableGlsp(0.5)};
+
+  ${media.largeUp`
+    gap: ${variableGlsp()};
+  `}
 
   > * {
     position: relative;
     z-index: 60;
+
+    &:first-child {
+      margin-right: auto;
+    }
   }
 `;
 
 const GlobalNavToggle = styled(Button)`
-  margin-left: auto;
-
   ${media.largeUp`
     display: none;
   `}
@@ -82,7 +88,6 @@ const GlobalNav = styled.nav`
     height: auto;
     flex-direction: row;
     transform: translate(0, 0);
-    margin-left: auto;
   `}
 
   ${({ revealed }) =>
@@ -136,18 +141,6 @@ const GlobalMenu = styled.ul`
     padding: 0;
     border: 0;
   `}
-
-  li:last-child {
-    margin-top: ${glsp(0.75)};
-
-    ${media.mediumUp`
-      margin: 0 0 0 auto;
-    `}
-
-    ${media.largeUp`
-      margin: 0;
-    `}
-  }
 `;
 
 const GlobalMenuLink = styled(Link).attrs({
@@ -157,6 +150,14 @@ const GlobalMenuLink = styled(Link).attrs({
 
   ${media.largeUp`
     height: 2.5rem;
+  `}
+`;
+
+const GlobalAction = styled.div`
+  position: relative;
+
+  ${media.largeUp`
+    order: 3;
   `}
 `;
 
@@ -229,6 +230,9 @@ function PageHeader() {
     <PageHeaderSelf>
       <PageHeaderInner>
         <Brand />
+        <GlobalAction>
+          <LivestreamButton isLargeUp={isLargeUp} />
+        </GlobalAction>
         {!isLargeUp && (
           <GlobalNavToggle
             variation='base-text'
@@ -271,9 +275,6 @@ function PageHeader() {
                 <GlobalMenuLink to='/practical-info'>
                   Practical Info
                 </GlobalMenuLink>
-              </li>
-              <li>
-                <LivestreamButton isLargeUp={isLargeUp} />
               </li>
             </GlobalMenu>
           </GlobalNavInner>
