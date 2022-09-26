@@ -1,6 +1,7 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
+import T from 'prop-types';
+import styled, { css, keyframes } from 'styled-components';
 
 import {
   glsp,
@@ -10,7 +11,6 @@ import {
   themeVal
 } from '@devseed-ui/theme-provider';
 import {
-  CollecticonArrowRight,
   CollecticonHamburgerMenu,
   CollecticonXmark
 } from '@devseed-ui/collecticons';
@@ -22,6 +22,7 @@ import { variableGlsp } from '$styles/variable-utils';
 import { useMediaQuery } from '$utils/use-media-query';
 import Brand from './brand';
 import UnscrollableBody from './unscrollable-body';
+import { StreamIcon } from './icon-stream';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -159,6 +160,54 @@ const GlobalMenuLink = styled(Link).attrs({
   `}
 `;
 
+const breath = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+`;
+
+const LivestreamButtonSelf = styled(Button)`
+  display: flex;
+
+  svg {
+    width: 1rem;
+    fill: currentColor;
+
+    ${({ isAnimating }) =>
+      isAnimating &&
+      css`
+        #stream-icon-outer {
+          animation: ${breath} 2s ease-in-out infinite;
+          animation-delay: -1.8s;
+        }
+
+        #stream-icon-inner {
+          animation: ${breath} 2s ease-in-out infinite;
+        }
+      `}
+  }
+`;
+
 function PageHeader() {
   const { isLargeUp } = useMediaQuery();
   const [navRevealed, setNavRevealed] = useState(false);
@@ -216,19 +265,15 @@ function PageHeader() {
                 </GlobalMenuLink>
               </li>
               <li>
+                <GlobalMenuLink to='/tickets'>Tickets</GlobalMenuLink>
+              </li>
+              <li>
                 <GlobalMenuLink to='/practical-info'>
                   Practical Info
                 </GlobalMenuLink>
               </li>
               <li>
-                <Button
-                  forwardedAs={Link}
-                  variation='base-outline'
-                  size={isLargeUp ? 'large' : 'medium'}
-                  to='/tickets'
-                >
-                  Get tickets <CollecticonArrowRight />
-                </Button>
+                <LivestreamButton isLargeUp={isLargeUp} />
               </li>
             </GlobalMenu>
           </GlobalNavInner>
@@ -239,3 +284,57 @@ function PageHeader() {
 }
 
 export default PageHeader;
+
+const liveRanges = [
+  {
+    start: new Date('2022-09-28T08:00:00.000-04:00'),
+    end: new Date('2022-09-28T18:15:00.000-04:00')
+  },
+  {
+    start: new Date('2022-09-29T08:00:00.000-04:00'),
+    end: new Date('2022-09-29T17:00:00.000-04:00')
+  }
+];
+
+function LivestreamButton({ isLargeUp }) {
+  const [isLive, setLive] = useState(false);
+
+  useEffect(() => {
+    let reqId = null;
+    let lastTs = 0;
+    function tick(ts) {
+      const now = Date.now();
+      if (!lastTs || ts - lastTs >= 5000) {
+        lastTs = ts;
+        const live = liveRanges.some(
+          ({ start, end }) => now >= start.getTime() && now < end.getTime()
+        );
+        setLive(live);
+      }
+      reqId = window.requestAnimationFrame(tick);
+    }
+
+    reqId = window.requestAnimationFrame(tick);
+
+    return () => {
+      reqId && window.cancelAnimationFrame(reqId);
+    };
+  }, []);
+
+  return (
+    <LivestreamButtonSelf
+      forwardedAs={Link}
+      variation='base-outline'
+      size={isLargeUp ? 'large' : 'medium'}
+      to='/livestream'
+      isAnimating={isLive}
+    >
+      <StreamIcon />
+      {isLive ? 'Watch live now' : 'Watch livestream'}
+    </LivestreamButtonSelf>
+  );
+}
+
+LivestreamButton.propTypes = {
+  isLargeUp: T.bool
+};
