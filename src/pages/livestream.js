@@ -13,15 +13,16 @@ import {
 
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
+import { themeVal } from '@devseed-ui/theme-provider';
 
 const LivestreamBlock = styled.div`
-  aspect-ratio: 16/9;
-  width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  aspect-ratio: 16/9;
+  width: 100vw;
   max-height: 44rem;
 
   > * {
@@ -29,6 +30,27 @@ const LivestreamBlock = styled.div`
     height: 100%;
     border: 0;
   }
+`;
+
+const LivestreamCountdown = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  color: ${themeVal('color.surface')};
+  background: ${themeVal('color.primary')};
+`;
+
+const Timer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`;
+
+const TimerBlock = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
 const LivestreamPage = () => {
@@ -56,6 +78,27 @@ const LivestreamPage = () => {
           <VarProse dangerouslySetInnerHTML={{ __html: talks.parent.html }} />
           <VarProse>
             <LivestreamBlock>
+              <LivestreamCountdown>
+                <h3>Livestreaming in</h3>
+                <Timer>
+                  <TimerBlock>
+                    <strong>01</strong>
+                    <span>day</span>
+                  </TimerBlock>
+                  <TimerBlock>
+                    <strong>16</strong>
+                    <span>hours</span>
+                  </TimerBlock>
+                  <TimerBlock>
+                    <strong>56</strong>
+                    <span>minutes</span>
+                  </TimerBlock>
+                  <TimerBlock>
+                    <strong>24</strong>
+                    <span>seconds</span>
+                  </TimerBlock>
+                </Timer>
+              </LivestreamCountdown>
               <iframe
                 src='https://player.restream.io/?token=efbb246f3bf94543885adaf970929981'
                 allow='autoplay'
