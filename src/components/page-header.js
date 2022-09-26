@@ -216,6 +216,9 @@ function PageHeader() {
                 </GlobalMenuLink>
               </li>
               <li>
+                <GlobalMenuLink to='/tickets'>Tickets</GlobalMenuLink>
+              </li>
+              <li>
                 <GlobalMenuLink to='/practical-info'>
                   Practical Info
                 </GlobalMenuLink>
@@ -225,9 +228,9 @@ function PageHeader() {
                   forwardedAs={Link}
                   variation='base-outline'
                   size={isLargeUp ? 'large' : 'medium'}
-                  to='/tickets'
+                  to='/livestream'
                 >
-                  Get tickets <CollecticonArrowRight />
+                  Watch livestream <CollecticonArrowRight />
                 </Button>
               </li>
             </GlobalMenu>
