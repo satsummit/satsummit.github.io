@@ -66,7 +66,8 @@ const TimerBlock = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  border: ${themeVal('layout.border')} solid ${themeVal('color.surface-100a')};
+  border: ${multiply(themeVal('layout.border'), 2)} solid
+    ${themeVal('color.surface-100a')};
   border-radius: ${themeVal('shape.rounded')};
   padding: ${variableGlsp()};
 `;
