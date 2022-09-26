@@ -2,7 +2,6 @@
 title: Leo Thomas
 company: Development Seed
 role: Data Engineer
-group: other
 avatar: ./media/leo-thomas.jpg
 ---
 ## About
