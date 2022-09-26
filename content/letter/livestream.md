@@ -1,4 +1,18 @@
 ## Schedule
-Ut adipisicing veniam anim laboris dolore velit aliquip anim consectetur. Labore amet quis et fugiat pariatur ea proident proident pariatur esse. Et enim in adipisicing laboris cupidatat sit reprehenderit anim laboris laborum. Quis velit pariatur velit esse occaecat est culpa in. Sint sit deserunt ullamco anim qui. Quis non proident excepteur labore qui commodo. Minim nisi nisi enim ad Lorem.
 
-## Watch livestream
+Welcome to the **SatSummit 2022** Livestream! We're so happy you could join us virtually.
+ 
+**SatSummit 2022** will be livestreaming all sessions happening in **The Forum** and **The Forum South** during these times:
+ 
+1. **Wednesday, Sep. 28**: from 9:00 AM to 5:15 PM EST
+2. **Thursday, Sep. 29**: from 9:00 AM to 4:30 PM EST
+ 
+The livestream is one, continuous stream of all sessions, so all you have to do is stay in this single location to catch all the content. To see what sessions will be playing in The Forum and The Forum South, check out the **[agenda](/agenda.js)**.
+ 
+While we will not be hosting or monitoring a live chat feature, if you are having any technical issues or have questions about the stream, please feel free to email [**info@satsummit.io**](mailto:info@satsummit.io). We will get back to you as soon as we're able to.
+ 
+We hope you enjoy the show!
+
+---
+
+## Watch
