@@ -13,6 +13,4 @@ While we will not be hosting or monitoring a live chat feature, if you are havin
  
 We hope you enjoy the show!
 
----
-
 ## Watch

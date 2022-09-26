@@ -2,6 +2,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
+import { multiply, themeVal } from '@devseed-ui/theme-provider';
+
 import Layout from '$components/layout';
 
 import {
@@ -13,7 +15,8 @@ import {
 
 import { BlockAlpha } from '$styles/blocks';
 import { VarProse } from '$styles/variable-components';
-import { themeVal } from '@devseed-ui/theme-provider';
+
+import { variableGlsp } from '$styles/variable-utils';
 
 const LivestreamBlock = styled.div`
   position: relative;
@@ -24,6 +27,8 @@ const LivestreamBlock = styled.div`
   aspect-ratio: 16/9;
   width: 100vw;
   max-height: 44rem;
+  border-top: ${multiply(themeVal('layout.border'), 4)} solid
+    ${themeVal('color.secondary-500')};
 
   > * {
     width: 100%;
@@ -41,16 +46,33 @@ const LivestreamCountdown = styled.div`
   align-items: center;
   color: ${themeVal('color.surface')};
   background: ${themeVal('color.primary')};
+  padding: ${variableGlsp()};
 `;
 
 const Timer = styled.div`
   display: flex;
   flex-flow: row nowrap;
+  gap: ${variableGlsp(0.25)};
+  margin-top: ${variableGlsp(0.5)};
 `;
 
 const TimerBlock = styled.div`
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border: ${themeVal('layout.border')} solid ${themeVal('color.surface-100a')};
+  border-radius: ${themeVal('shape.rounded')};
+  padding: ${variableGlsp()};
+
+  strong {
+    font-family: ${themeVal('type.heading.family')};
+    font-weight: ${themeVal('type.heading.weight')};
+    font-size: clamp(1.25rem, 12vw, 8rem);
+    line-height: 1;
+  }
 `;
 
 const LivestreamPage = () => {
@@ -83,7 +105,7 @@ const LivestreamPage = () => {
                 <Timer>
                   <TimerBlock>
                     <strong>01</strong>
-                    <span>day</span>
+                    <span>days</span>
                   </TimerBlock>
                   <TimerBlock>
                     <strong>16</strong>
