@@ -172,6 +172,11 @@ function PageFooter() {
             </FooterMenuLink>
           </li>
           <li>
+            <FooterMenuLink as={Link} to='/livestream'>
+              <CollecticonArrowRight /> Livestream
+            </FooterMenuLink>
+          </li>
+          <li>
             <FooterMenuLink as={Link} to='/health-protocols'>
               <CollecticonArrowRight /> Health Protocols
             </FooterMenuLink>
