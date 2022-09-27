@@ -17,6 +17,8 @@ import { BlockAlpha } from '$styles/blocks';
 import { VarHeading, VarProse } from '$styles/variable-components';
 
 import { variableGlsp } from '$styles/variable-utils';
+import { time2Counter, useLive } from '$utils/use-live';
+import Pluralize from '$utils/pluralize';
 
 const LivestreamBlock = styled.div`
   position: relative;
@@ -97,6 +99,10 @@ const LivestreamPage = () => {
     }
   `);
 
+  const { isLive, nextIn } = useLive();
+
+  const [h, m, s] = nextIn ? time2Counter(nextIn) : [];
+
   return (
     <Layout title='Livestream'>
       <PageMainContent>
@@ -106,28 +112,49 @@ const LivestreamPage = () => {
           </PageMainHeroHeadline>
         </PageMainHero>
         <LivestreamBlock>
-          <LivestreamCountdown>
-            <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
-            <Timer>
-              <TimerBlock>
-                <TimerBlockNumber>16</TimerBlockNumber>
-                <TimerBlockLabel>hours</TimerBlockLabel>
-              </TimerBlock>
-              <TimerBlock>
-                <TimerBlockNumber>56</TimerBlockNumber>
-                <TimerBlockLabel>minutes</TimerBlockLabel>
-              </TimerBlock>
-              <TimerBlock>
-                <TimerBlockNumber>24</TimerBlockNumber>
-                <TimerBlockLabel>seconds</TimerBlockLabel>
-              </TimerBlock>
-            </Timer>
-          </LivestreamCountdown>
-          <iframe
-            src='https://player.restream.io/?token=efbb246f3bf94543885adaf970929981'
-            allow='autoplay'
-            allowFullScreen
-          />
+          {isLive ? (
+            <iframe
+              src='https://player.restream.io/?token=efbb246f3bf94543885adaf970929981'
+              allow='autoplay'
+              allowFullScreen
+            />
+          ) : nextIn ? (
+            <LivestreamCountdown>
+              <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
+              <Timer>
+                <TimerBlock>
+                  <TimerBlockNumber>{h}</TimerBlockNumber>
+                  <TimerBlockLabel>
+                    <Pluralize
+                      showCount={false}
+                      count={Number(h)}
+                      singular='hour'
+                    />
+                  </TimerBlockLabel>
+                </TimerBlock>
+                <TimerBlock>
+                  <TimerBlockNumber>{m}</TimerBlockNumber>
+                  <TimerBlockLabel>
+                    <Pluralize
+                      showCount={false}
+                      count={Number(m)}
+                      singular='minute'
+                    />
+                  </TimerBlockLabel>
+                </TimerBlock>
+                <TimerBlock>
+                  <TimerBlockNumber>{s}</TimerBlockNumber>
+                  <TimerBlockLabel>
+                    <Pluralize
+                      showCount={false}
+                      count={Number(s)}
+                      singular='second'
+                    />
+                  </TimerBlockLabel>
+                </TimerBlock>
+              </Timer>
+            </LivestreamCountdown>
+          ) : null}
         </LivestreamBlock>
         <BlockAlpha>
           <VarProse dangerouslySetInnerHTML={{ __html: talks.parent.html }} />

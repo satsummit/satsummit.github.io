@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import T from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
@@ -24,6 +24,7 @@ import { useMediaQuery } from '$utils/use-media-query';
 import Brand from './brand';
 import UnscrollableBody from './unscrollable-body';
 import { StreamIcon } from './icon-stream';
+import { time2Counter, useLive } from '$utils/use-live';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -197,8 +198,8 @@ const LivestreamCTAButton = styled(Button)`
     width: 1rem;
     fill: currentColor;
 
-    ${({ isAnimating }) =>
-      isAnimating &&
+    ${({ $isAnimating }) =>
+      $isAnimating &&
       css`
         #stream-icon-outer {
           animation: ${breath} 2s ease-in-out infinite;
@@ -321,41 +322,8 @@ function PageHeader() {
 
 export default PageHeader;
 
-const liveRanges = [
-  {
-    start: new Date('2022-09-28T08:00:00.000-04:00'),
-    end: new Date('2022-09-28T18:15:00.000-04:00')
-  },
-  {
-    start: new Date('2022-09-29T08:00:00.000-04:00'),
-    end: new Date('2022-09-29T17:00:00.000-04:00')
-  }
-];
-
 function LivestreamCTA({ isLargeUp }) {
-  const [isLive, setLive] = useState(false);
-
-  useEffect(() => {
-    let reqId = null;
-    let lastTs = 0;
-    function tick(ts) {
-      const now = Date.now();
-      if (!lastTs || ts - lastTs >= 5000) {
-        lastTs = ts;
-        const live = liveRanges.some(
-          ({ start, end }) => now >= start.getTime() && now < end.getTime()
-        );
-        setLive(live);
-      }
-      reqId = window.requestAnimationFrame(tick);
-    }
-
-    reqId = window.requestAnimationFrame(tick);
-
-    return () => {
-      reqId && window.cancelAnimationFrame(reqId);
-    };
-  }, []);
+  const { isLive, nextIn } = useLive();
 
   return (
     <LivestreamCTASelf>
@@ -365,7 +333,7 @@ function LivestreamCTA({ isLargeUp }) {
         size={isLargeUp ? 'large' : 'medium'}
         fitting={isLargeUp ? 'regular' : 'skinny'}
         to='/livestream'
-        isAnimating={isLive}
+        $isAnimating={isLive}
       >
         <StreamIcon />
         <span>Watch livestream</span>
@@ -374,11 +342,11 @@ function LivestreamCTA({ isLargeUp }) {
         Live{' '}
         {isLive ? (
           <strong>now</strong>
-        ) : (
+        ) : nextIn ? (
           <>
-            in <strong>16:56:24</strong>
+            in <strong>{time2Counter(nextIn).join(':')}</strong>
           </>
-        )}
+        ) : null}
         !
       </LivestreamCTAInfo>
     </LivestreamCTASelf>
