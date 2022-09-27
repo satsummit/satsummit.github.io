@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Fade } from 'react-reveal';
 
 import {
   listReset,
@@ -80,6 +81,10 @@ const SpeakersMainList = styled.ol`
   gap: ${variableGlsp()};
   grid-template-columns: repeat(2, 1fr);
   background: ${themeVal('color.surface')};
+
+  li > div {
+    height: 100%;
+  }
 
   ${media.mediumUp`
     grid-template-columns: repeat(3, 1fr);
@@ -225,25 +230,27 @@ const SpeakersPage = () => {
             </SpeakersSectionHeader>
             <SpeakersSectionBody>
               <SpeakersMainList>
-                {main.map((speaker) => (
+                {main.map((speaker, i) => (
                   <li key={speaker.id}>
-                    <Speaker>
-                      <SpeakerLink to={`/speakers/${speaker.slug}`}>
-                        <SpeakerHeader>
-                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                          <SpeakerSubtitle>
-                            {speaker.role} at {speaker.company}
-                          </SpeakerSubtitle>
-                        </SpeakerHeader>
-                        <SpeakerAvatar>
-                          <GatsbyImage
-                            image={getImage(speaker.avatar)}
-                            alt={`Picture of ${speaker.title}`}
-                            objectFit='contain'
-                          />
-                        </SpeakerAvatar>
-                      </SpeakerLink>
-                    </Speaker>
+                    <Fade bottom delay={(i % 4) * 100}>
+                      <Speaker>
+                        <SpeakerLink to={`/speakers/${speaker.slug}`}>
+                          <SpeakerHeader>
+                            <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                            <SpeakerSubtitle>
+                              {speaker.role} at {speaker.company}
+                            </SpeakerSubtitle>
+                          </SpeakerHeader>
+                          <SpeakerAvatar>
+                            <GatsbyImage
+                              image={getImage(speaker.avatar)}
+                              alt={`Picture of ${speaker.title}`}
+                              objectFit='contain'
+                            />
+                          </SpeakerAvatar>
+                        </SpeakerLink>
+                      </Speaker>
+                    </Fade>
                   </li>
                 ))}
               </SpeakersMainList>
