@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-import { multiply, themeVal } from '@devseed-ui/theme-provider';
+import { media, multiply, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -19,6 +19,7 @@ import { VarHeading, VarProse } from '$styles/variable-components';
 import { variableGlsp } from '$styles/variable-utils';
 import { time2Counter, useLive } from '$utils/use-live';
 import Pluralize from '$utils/pluralize';
+import { CollecticonCirclePlay } from '@devseed-ui/collecticons';
 
 const LivestreamBlock = styled.div`
   position: relative;
@@ -39,7 +40,6 @@ const LivestreamCountdown = styled.div`
   position: absolute;
   display: flex;
   flex-flow: column nowrap;
-  gap: ${variableGlsp()};
   justify-content: center;
   align-items: center;
   color: ${themeVal('color.surface')};
@@ -47,22 +47,51 @@ const LivestreamCountdown = styled.div`
   padding: ${variableGlsp()};
 `;
 
+const LivestreamCountdownInner = styled.div`
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: ${variableGlsp()};
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 const LivestreamCountdownTitle = styled(VarHeading).attrs({
   as: 'h2',
   size: 'medium'
 })`
-  /* styled-component */
+  position: absolute;
+  top: 0;
+  transform: translateY(-128%);
+
+  ${media.mediumUp`
+    transform: translateY(-200%);
+  `}
+`;
+
+const LivestreamCountdownIllu = styled(CollecticonCirclePlay)`
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.08;
+  width: 56%;
+  height: 56%;
 `;
 
 const Timer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   gap: ${variableGlsp(0.5)};
+  width: 100%;
+  justify-content: center;
 `;
 
 const TimerBlock = styled.div`
-  flex: 1;
-  min-width: 0;
+  flex: 0 1 12rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -120,39 +149,42 @@ const LivestreamPage = () => {
             />
           ) : nextIn ? (
             <LivestreamCountdown>
-              <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
-              <Timer>
-                <TimerBlock>
-                  <TimerBlockNumber>{h}</TimerBlockNumber>
-                  <TimerBlockLabel>
-                    <Pluralize
-                      showCount={false}
-                      count={Number(h)}
-                      singular='hour'
-                    />
-                  </TimerBlockLabel>
-                </TimerBlock>
-                <TimerBlock>
-                  <TimerBlockNumber>{m}</TimerBlockNumber>
-                  <TimerBlockLabel>
-                    <Pluralize
-                      showCount={false}
-                      count={Number(m)}
-                      singular='minute'
-                    />
-                  </TimerBlockLabel>
-                </TimerBlock>
-                <TimerBlock>
-                  <TimerBlockNumber>{s}</TimerBlockNumber>
-                  <TimerBlockLabel>
-                    <Pluralize
-                      showCount={false}
-                      count={Number(s)}
-                      singular='second'
-                    />
-                  </TimerBlockLabel>
-                </TimerBlock>
-              </Timer>
+              <LivestreamCountdownInner>
+                <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
+                <Timer>
+                  <TimerBlock>
+                    <TimerBlockNumber>{h}</TimerBlockNumber>
+                    <TimerBlockLabel>
+                      <Pluralize
+                        showCount={false}
+                        count={Number(h)}
+                        singular='hour'
+                      />
+                    </TimerBlockLabel>
+                  </TimerBlock>
+                  <TimerBlock>
+                    <TimerBlockNumber>{m}</TimerBlockNumber>
+                    <TimerBlockLabel>
+                      <Pluralize
+                        showCount={false}
+                        count={Number(m)}
+                        singular='minute'
+                      />
+                    </TimerBlockLabel>
+                  </TimerBlock>
+                  <TimerBlock>
+                    <TimerBlockNumber>{s}</TimerBlockNumber>
+                    <TimerBlockLabel>
+                      <Pluralize
+                        showCount={false}
+                        count={Number(s)}
+                        singular='second'
+                      />
+                    </TimerBlockLabel>
+                  </TimerBlock>
+                </Timer>
+              </LivestreamCountdownInner>
+              <LivestreamCountdownIllu />
             </LivestreamCountdown>
           ) : null}
         </LivestreamBlock>

@@ -168,6 +168,11 @@ const LivestreamCTASelf = styled.div`
   position: relative;
 `;
 
+const Counter = styled.strong`
+  display: inline-flex;
+  width: 3.875rem;
+`;
+
 const LivestreamCTAInfo = styled.p`
   position: absolute;
   top: calc(100% - ${glsp(0.25)});
@@ -358,7 +363,7 @@ function LivestreamCTA({ isLargeUp }) {
             <strong>now</strong>
           ) : nextIn ? (
             <>
-              in <strong>{time2Counter(nextIn).join(':')}</strong>
+              in <Counter>{time2Counter(nextIn).join(':')}</Counter>
             </>
           ) : null}
           !
