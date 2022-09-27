@@ -7,11 +7,12 @@ people:
     moderators:
         - Rahul Ramachandran, PhD
     speakers:
-        - Nadine Alameh, PhD
         - Aimee Barciauskas
-        - Lisa Maria Rebelo, PhD
-        - Suresh Marru
         - Deborah Gordon
+        - Lisa Maria Rebelo, PhD
+        - Nadine Alameh, PhD
+        - Ryan Abernathey, PhD
+        - Suresh Marru
 ---
 
 NASA has designated 2023 as the Year of Open Science. The shift to shared cloud data and services creates new opportunities for open, collaborative, and replicable science; accellerating the transition from research to application; and increasing transparency and confidence in science-based understanding.

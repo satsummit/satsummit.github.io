@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styled from 'styled-components';
 
-import { glsp, themeVal } from '@devseed-ui/theme-provider';
+import { glsp, multiply, themeVal } from '@devseed-ui/theme-provider';
 
 import Layout from '$components/layout';
 
@@ -34,6 +34,8 @@ const ProseWithMap = styled(VarProse)`
     margin-left: -50vw;
     margin-right: -50vw;
     max-height: 44rem;
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
   }
 
   .location-marker {

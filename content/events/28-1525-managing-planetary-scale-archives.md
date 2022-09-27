@@ -5,7 +5,7 @@ date: 2022-09-28 15:25
 room: The Central Hub
 people:
     moderators:
-        - Aimee Barciauskas
+        - Leo Thomas
     speakers:
         - Michele Thornton
         - Monica Youngman

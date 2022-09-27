@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 import T from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
@@ -8,7 +8,8 @@ import {
   listReset,
   media,
   multiply,
-  themeVal
+  themeVal,
+  visuallyHidden
 } from '@devseed-ui/theme-provider';
 import {
   CollecticonHamburgerMenu,
@@ -23,6 +24,7 @@ import { useMediaQuery } from '$utils/use-media-query';
 import Brand from './brand';
 import UnscrollableBody from './unscrollable-body';
 import { StreamIcon } from './icon-stream';
+import { time2Counter, useLive } from '$utils/use-live';
 
 const PageHeaderSelf = styled(Hug).attrs({
   as: 'header'
@@ -48,17 +50,26 @@ const PageHeaderInner = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: ${variableGlsp()};
+
+  ${media.mediumUp`
+    gap: ${variableGlsp(0.25)};
+  `}
+
+  ${media.largeUp`
+    gap: ${variableGlsp()};
+  `}
 
   > * {
     position: relative;
     z-index: 60;
+
+    &:first-child {
+      margin-right: auto;
+    }
   }
 `;
 
 const GlobalNavToggle = styled(Button)`
-  margin-left: auto;
-
   ${media.largeUp`
     display: none;
   `}
@@ -82,7 +93,6 @@ const GlobalNav = styled.nav`
     height: auto;
     flex-direction: row;
     transform: translate(0, 0);
-    margin-left: auto;
   `}
 
   ${({ revealed }) =>
@@ -136,18 +146,6 @@ const GlobalMenu = styled.ul`
     padding: 0;
     border: 0;
   `}
-
-  li:last-child {
-    margin-top: ${glsp(0.75)};
-
-    ${media.mediumUp`
-      margin: 0 0 0 auto;
-    `}
-
-    ${media.largeUp`
-      margin: 0;
-    `}
-  }
 `;
 
 const GlobalMenuLink = styled(Link).attrs({
@@ -158,6 +156,85 @@ const GlobalMenuLink = styled(Link).attrs({
   ${media.largeUp`
     height: 2.5rem;
   `}
+`;
+
+const GlobalAction = styled.div`
+  ${media.largeUp`
+    order: 3;
+  `}
+`;
+
+const LivestreamCTASelf = styled.div`
+  position: relative;
+`;
+
+const Counter = styled.strong`
+  display: inline-flex;
+  width: 3.875rem;
+`;
+
+const LivestreamCTAInfo = styled.p`
+  position: absolute;
+  top: calc(100% - ${glsp(0.25)});
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: end;
+  filter: drop-shadow(0 0 4px ${themeVal('color.base-100a')})
+    drop-shadow(0 12px 24px ${themeVal('color.base-100a')});
+
+  /* Improve performance */
+  transform: translate3d(0, 0, 0);
+
+  ${media.largeUp`
+    top: calc(100% + ${glsp(0.25)});
+  `}
+
+  &::after {
+    margin: ${glsp(0, 1)};
+    width: ${glsp(0.5)};
+    height: ${glsp(0.5)};
+    background: ${themeVal('color.surface')};
+    content: '';
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    pointer-events: none;
+    order: -1;
+  }
+
+  span {
+    background: ${themeVal('color.surface')};
+    padding: ${glsp(0.5, 1)};
+    border-radius: ${themeVal('shape.rounded')};
+    white-space: nowrap;
+  }
+`;
+
+const LivestreamCTAButton = styled(Button)`
+  display: flex;
+
+  svg {
+    width: 1rem;
+    fill: currentColor;
+
+    ${({ $isAnimating }) =>
+      $isAnimating &&
+      css`
+        #stream-icon-outer {
+          animation: ${breath} 2s ease-in-out infinite;
+          animation-delay: -1.8s;
+        }
+
+        #stream-icon-inner {
+          animation: ${breath} 2s ease-in-out infinite;
+        }
+      `}
+  }
+
+  span {
+    ${media.mediumDown`
+      ${visuallyHidden()}
+    `}
+  }
 `;
 
 const breath = keyframes`
@@ -186,28 +263,6 @@ const breath = keyframes`
   }
 `;
 
-const LivestreamButtonSelf = styled(Button)`
-  display: flex;
-
-  svg {
-    width: 1rem;
-    fill: currentColor;
-
-    ${({ isAnimating }) =>
-      isAnimating &&
-      css`
-        #stream-icon-outer {
-          animation: ${breath} 2s ease-in-out infinite;
-          animation-delay: -1.8s;
-        }
-
-        #stream-icon-inner {
-          animation: ${breath} 2s ease-in-out infinite;
-        }
-      `}
-  }
-`;
-
 function PageHeader() {
   const { isLargeUp } = useMediaQuery();
   const [navRevealed, setNavRevealed] = useState(false);
@@ -229,6 +284,9 @@ function PageHeader() {
     <PageHeaderSelf>
       <PageHeaderInner>
         <Brand />
+        <GlobalAction>
+          <LivestreamCTA isLargeUp={isLargeUp} />
+        </GlobalAction>
         {!isLargeUp && (
           <GlobalNavToggle
             variation='base-text'
@@ -272,9 +330,6 @@ function PageHeader() {
                   Practical Info
                 </GlobalMenuLink>
               </li>
-              <li>
-                <LivestreamButton isLargeUp={isLargeUp} />
-              </li>
             </GlobalMenu>
           </GlobalNavInner>
         </GlobalNav>
@@ -285,56 +340,39 @@ function PageHeader() {
 
 export default PageHeader;
 
-const liveRanges = [
-  {
-    start: new Date('2022-09-28T08:00:00.000-04:00'),
-    end: new Date('2022-09-28T18:15:00.000-04:00')
-  },
-  {
-    start: new Date('2022-09-29T08:00:00.000-04:00'),
-    end: new Date('2022-09-29T17:00:00.000-04:00')
-  }
-];
-
-function LivestreamButton({ isLargeUp }) {
-  const [isLive, setLive] = useState(false);
-
-  useEffect(() => {
-    let reqId = null;
-    let lastTs = 0;
-    function tick(ts) {
-      const now = Date.now();
-      if (!lastTs || ts - lastTs >= 5000) {
-        lastTs = ts;
-        const live = liveRanges.some(
-          ({ start, end }) => now >= start.getTime() && now < end.getTime()
-        );
-        setLive(live);
-      }
-      reqId = window.requestAnimationFrame(tick);
-    }
-
-    reqId = window.requestAnimationFrame(tick);
-
-    return () => {
-      reqId && window.cancelAnimationFrame(reqId);
-    };
-  }, []);
+function LivestreamCTA({ isLargeUp }) {
+  const { isLive, nextIn } = useLive();
 
   return (
-    <LivestreamButtonSelf
-      forwardedAs={Link}
-      variation='base-outline'
-      size={isLargeUp ? 'large' : 'medium'}
-      to='/livestream'
-      isAnimating={isLive}
-    >
-      <StreamIcon />
-      {isLive ? 'Watch live now' : 'Watch livestream'}
-    </LivestreamButtonSelf>
+    <LivestreamCTASelf>
+      <LivestreamCTAButton
+        forwardedAs={Link}
+        variation={isLargeUp ? 'base-outline' : 'base-text'}
+        size={isLargeUp ? 'large' : 'medium'}
+        fitting={isLargeUp ? 'regular' : 'skinny'}
+        to='/livestream'
+        $isAnimating={isLive}
+      >
+        <StreamIcon />
+        <span>Watch livestream</span>
+      </LivestreamCTAButton>
+      <LivestreamCTAInfo>
+        <span>
+          Live{' '}
+          {isLive ? (
+            <strong>now</strong>
+          ) : nextIn ? (
+            <>
+              in <Counter>{time2Counter(nextIn).join(':')}</Counter>
+            </>
+          ) : null}
+          !
+        </span>
+      </LivestreamCTAInfo>
+    </LivestreamCTASelf>
   );
 }
 
-LivestreamButton.propTypes = {
+LivestreamCTA.propTypes = {
   isLargeUp: T.bool
 };
