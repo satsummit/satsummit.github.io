@@ -78,14 +78,13 @@ const LivestreamCountdownIllu = styled(CollecticonCirclePlay)`
   transform: translate(-50%, -50%);
   pointer-events: none;
   opacity: 0.08;
-  width: 56%;
-  height: 56%;
+  width: 64%;
+  height: 64%;
 `;
 
 const Timer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  gap: ${variableGlsp(0.5)};
   width: 100%;
   justify-content: center;
 `;
@@ -96,10 +95,6 @@ const TimerBlock = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  border: ${multiply(themeVal('layout.border'), 2)} solid
-    ${themeVal('color.surface-100a')};
-  border-radius: ${themeVal('shape.rounded')};
-  padding: ${variableGlsp()};
 `;
 
 const TimerBlockNumber = styled(VarHeading).attrs({
