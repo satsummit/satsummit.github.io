@@ -6,7 +6,7 @@ room: The Forum North
 
 ---
 - Accessing a Multi-Petabyte catalog of Global Environmental Open Data by using The Planetary Computer (**Rob Emanuele**) 
-- So you've got a STAC API. Now what? (**Leo Thomas & David Bitner**) 
+- eoAPI: the lego approach to serving earth observation data (**Leo Thomas**) 
 - Building an Imagery Platform - Collaboration and New Ways to Access Data (**Beau Legeer**) 
 - Lessons Learned from our Work with NASA Hyperspectral Data (**Robert Cheetham**) 
 - Space-based lidar for global shallow water mapping (**Jonathan Markel**)
