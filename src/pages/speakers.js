@@ -19,6 +19,7 @@ import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import { PersonAvatar } from '$styles/people';
+import withReveal from '$utils/with-reveal';
 
 const SpeakersHubHeroHeadline = styled.div`
   display: flex;
@@ -82,10 +83,6 @@ const SpeakersMainList = styled.ol`
   grid-template-columns: repeat(2, 1fr);
   background: ${themeVal('color.surface')};
 
-  li > div {
-    height: 100%;
-  }
-
   ${media.mediumUp`
     grid-template-columns: repeat(3, 1fr);
   `}
@@ -95,17 +92,20 @@ const SpeakersMainList = styled.ol`
   `}
 `;
 
-const Speaker = styled.article`
-  position: relative;
-  z-index: 1;
-  background: ${themeVal('color.surface')};
-  color: ${themeVal('color.base')};
-  border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
-  box-shadow: ${themeVal('boxShadow.elevationD')};
-  border-top: ${multiply(themeVal('layout.border'), 4)} solid
-    ${themeVal('color.secondary-500')};
-  height: 100%;
-`;
+const Speaker = withReveal(
+  styled.article`
+    position: relative;
+    z-index: 1;
+    background: ${themeVal('color.surface')};
+    color: ${themeVal('color.base')};
+    border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
+    box-shadow: ${themeVal('boxShadow.elevationD')};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
+    height: 100%;
+  `,
+  <Fade bottom distance='8rem' />
+);
 
 const SpeakerLink = styled(Link)`
   display: flex;
@@ -232,25 +232,23 @@ const SpeakersPage = () => {
               <SpeakersMainList>
                 {main.map((speaker, i) => (
                   <li key={speaker.id}>
-                    <Fade bottom delay={(i % 4) * 100}>
-                      <Speaker>
-                        <SpeakerLink to={`/speakers/${speaker.slug}`}>
-                          <SpeakerHeader>
-                            <SpeakerTitle>{speaker.title}</SpeakerTitle>
-                            <SpeakerSubtitle>
-                              {speaker.role} at {speaker.company}
-                            </SpeakerSubtitle>
-                          </SpeakerHeader>
-                          <SpeakerAvatar>
-                            <GatsbyImage
-                              image={getImage(speaker.avatar)}
-                              alt={`Picture of ${speaker.title}`}
-                              objectFit='contain'
-                            />
-                          </SpeakerAvatar>
-                        </SpeakerLink>
-                      </Speaker>
-                    </Fade>
+                    <Speaker>
+                      <SpeakerLink to={`/speakers/${speaker.slug}`}>
+                        <SpeakerHeader>
+                          <SpeakerTitle>{speaker.title}</SpeakerTitle>
+                          <SpeakerSubtitle>
+                            {speaker.role} at {speaker.company}
+                          </SpeakerSubtitle>
+                        </SpeakerHeader>
+                        <SpeakerAvatar>
+                          <GatsbyImage
+                            image={getImage(speaker.avatar)}
+                            alt={`Picture of ${speaker.title}`}
+                            objectFit='contain'
+                          />
+                        </SpeakerAvatar>
+                      </SpeakerLink>
+                    </Speaker>
                   </li>
                 ))}
               </SpeakersMainList>

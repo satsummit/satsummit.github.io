@@ -95,7 +95,7 @@ const TimeSlot = withReveal(
     `}
     }
   `,
-  <Fade bottom />
+  <Fade bottom distance='8rem' />
 );
 
 const TimeSlotHeader = styled.header`
