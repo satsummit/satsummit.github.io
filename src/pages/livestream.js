@@ -35,7 +35,6 @@ const LivestreamBlock = styled.div`
 
 const LivestreamCountdown = styled.div`
   position: absolute;
-  inset: 0;
   display: flex;
   flex-flow: column nowrap;
   gap: ${variableGlsp()};
@@ -56,7 +55,7 @@ const LivestreamCountdownTitle = styled(VarHeading).attrs({
 const Timer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  gap: ${variableGlsp(0.25)};
+  gap: ${variableGlsp(0.5)};
 `;
 
 const TimerBlock = styled.div`
@@ -73,7 +72,7 @@ const TimerBlock = styled.div`
 `;
 
 const TimerBlockNumber = styled(VarHeading).attrs({
-  as: 'TimerBlockNumber',
+  as: 'strong'
 })`
   font-size: clamp(1.25rem, 12vw, 8rem);
   line-height: 1;
@@ -110,10 +109,6 @@ const LivestreamPage = () => {
           <LivestreamCountdown>
             <LivestreamCountdownTitle>Live in</LivestreamCountdownTitle>
             <Timer>
-              <TimerBlock>
-                <TimerBlockNumber>01</TimerBlockNumber>
-                <TimerBlockLabel>days</TimerBlockLabel>
-              </TimerBlock>
               <TimerBlock>
                 <TimerBlockNumber>16</TimerBlockNumber>
                 <TimerBlockLabel>hours</TimerBlockLabel>

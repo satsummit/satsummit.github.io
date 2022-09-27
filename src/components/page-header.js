@@ -8,7 +8,8 @@ import {
   listReset,
   media,
   multiply,
-  themeVal
+  themeVal,
+  visuallyHidden
 } from '@devseed-ui/theme-provider';
 import {
   CollecticonHamburgerMenu,
@@ -48,7 +49,10 @@ const PageHeaderInner = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  gap: ${variableGlsp(0.5)};
+
+  ${media.mediumUp`
+    gap: ${variableGlsp(0.25)};
+  `}
 
   ${media.largeUp`
     gap: ${variableGlsp()};
@@ -154,14 +158,16 @@ const GlobalMenuLink = styled(Link).attrs({
 `;
 
 const GlobalAction = styled.div`
-  position: relative;
-
   ${media.largeUp`
     order: 3;
   `}
 `;
 
-const GlobalActionInfo = styled.p`
+const LivestreamCTASelf = styled.div`
+  position: relative;
+`;
+
+const LivestreamCTAInfo = styled.p`
   position: absolute;
   top: calc(100% + ${glsp(0.75)});
   right: 0;
@@ -169,9 +175,7 @@ const GlobalActionInfo = styled.p`
   padding: ${glsp(0.5, 1)};
   box-shadow: ${themeVal('boxShadow.elevationD')};
   border-radius: ${themeVal('shape.rounded')};
-  text-align: center;
   white-space: nowrap;
-  min-width: 12rem;
 
   &::after {
     position: absolute;
@@ -183,6 +187,34 @@ const GlobalActionInfo = styled.p`
     content: '';
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     pointer-events: none;
+  }
+`;
+
+const LivestreamCTAButton = styled(Button)`
+  display: flex;
+
+  svg {
+    width: 1rem;
+    fill: currentColor;
+
+    ${({ isAnimating }) =>
+      isAnimating &&
+      css`
+        #stream-icon-outer {
+          animation: ${breath} 2s ease-in-out infinite;
+          animation-delay: -1.8s;
+        }
+
+        #stream-icon-inner {
+          animation: ${breath} 2s ease-in-out infinite;
+        }
+      `}
+  }
+
+  span {
+    ${media.mediumDown`
+      ${visuallyHidden()}
+    `}
   }
 `;
 
@@ -212,28 +244,6 @@ const breath = keyframes`
   }
 `;
 
-const LivestreamButtonSelf = styled(Button)`
-  display: flex;
-
-  svg {
-    width: 1rem;
-    fill: currentColor;
-
-    ${({ isAnimating }) =>
-      isAnimating &&
-      css`
-        #stream-icon-outer {
-          animation: ${breath} 2s ease-in-out infinite;
-          animation-delay: -1.8s;
-        }
-
-        #stream-icon-inner {
-          animation: ${breath} 2s ease-in-out infinite;
-        }
-      `}
-  }
-`;
-
 function PageHeader() {
   const { isLargeUp } = useMediaQuery();
   const [navRevealed, setNavRevealed] = useState(false);
@@ -256,10 +266,7 @@ function PageHeader() {
       <PageHeaderInner>
         <Brand />
         <GlobalAction>
-          <LivestreamButton isLargeUp={isLargeUp} />
-          <GlobalActionInfo>
-            Live in <strong>01:16:56:24</strong>!
-          </GlobalActionInfo>
+          <LivestreamCTA isLargeUp={isLargeUp} />
         </GlobalAction>
         {!isLargeUp && (
           <GlobalNavToggle
@@ -325,7 +332,7 @@ const liveRanges = [
   }
 ];
 
-function LivestreamButton({ isLargeUp }) {
+function LivestreamCTA({ isLargeUp }) {
   const [isLive, setLive] = useState(false);
 
   useEffect(() => {
@@ -351,19 +358,33 @@ function LivestreamButton({ isLargeUp }) {
   }, []);
 
   return (
-    <LivestreamButtonSelf
-      forwardedAs={Link}
-      variation='base-outline'
-      size={isLargeUp ? 'large' : 'medium'}
-      to='/livestream'
-      isAnimating={isLive}
-    >
-      <StreamIcon />
-      {isLive ? 'Watch live now' : 'Watch livestream'}
-    </LivestreamButtonSelf>
+    <LivestreamCTASelf>
+      <LivestreamCTAButton
+        forwardedAs={Link}
+        variation={isLargeUp ? 'base-outline' : 'base-text'}
+        size={isLargeUp ? 'large' : 'medium'}
+        fitting={isLargeUp ? 'regular' : 'skinny'}
+        to='/livestream'
+        isAnimating={isLive}
+      >
+        <StreamIcon />
+        <span>Watch livestream</span>
+      </LivestreamCTAButton>
+      <LivestreamCTAInfo>
+        Live{' '}
+        {isLive ? (
+          <strong>now</strong>
+        ) : (
+          <>
+            in <strong>16:56:24</strong>
+          </>
+        )}
+        !
+      </LivestreamCTAInfo>
+    </LivestreamCTASelf>
   );
 }
 
-LivestreamButton.propTypes = {
+LivestreamCTA.propTypes = {
   isLargeUp: T.bool
 };
