@@ -20,6 +20,9 @@ export const PersonAvatar = styled.figure`
     object-fit: cover;
     mix-blend-mode: screen;
     filter: grayscale(100%) contrast(112%);
+
+    /* Improve performance */
+    transform: translate3d(0, 0, 0);
   }
 
   &::after {

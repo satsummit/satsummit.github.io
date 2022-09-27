@@ -44,6 +44,9 @@ const satTranslation = keyframes`
 
 const Intro = styled.div`
   filter: drop-shadow(0 8px 0 ${themeVal('color.secondary-500')});
+
+  /* Improve performance */
+  transform: translate3d(0, 0, 0);
 `;
 
 const IntroInner = styled.div`
