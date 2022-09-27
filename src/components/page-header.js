@@ -170,24 +170,37 @@ const LivestreamCTASelf = styled.div`
 
 const LivestreamCTAInfo = styled.p`
   position: absolute;
-  top: calc(100% + ${glsp(0.75)});
+  top: calc(100% - ${glsp(0.25)});
   right: 0;
-  background: ${themeVal('color.surface')};
-  padding: ${glsp(0.5, 1)};
-  box-shadow: ${themeVal('boxShadow.elevationD')};
-  border-radius: ${themeVal('shape.rounded')};
-  white-space: nowrap;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: end;
+  filter: drop-shadow(0 0 4px ${themeVal('color.base-100a')})
+    drop-shadow(0 12px 24px ${themeVal('color.base-100a')});
+
+  /* Improve performance */
+  transform: translate3d(0, 0, 0);
+
+  ${media.largeUp`
+    top: calc(100% + ${glsp(0.25)});
+  `}
 
   &::after {
-    position: absolute;
-    bottom: 100%;
-    right: ${glsp(0.5)};
+    margin: ${glsp(0, 1)};
     width: ${glsp(0.5)};
     height: ${glsp(0.5)};
     background: ${themeVal('color.surface')};
     content: '';
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     pointer-events: none;
+    order: -1;
+  }
+
+  span {
+    background: ${themeVal('color.surface')};
+    padding: ${glsp(0.5, 1)};
+    border-radius: ${themeVal('shape.rounded')};
+    white-space: nowrap;
   }
 `;
 
@@ -339,15 +352,17 @@ function LivestreamCTA({ isLargeUp }) {
         <span>Watch livestream</span>
       </LivestreamCTAButton>
       <LivestreamCTAInfo>
-        Live{' '}
-        {isLive ? (
-          <strong>now</strong>
-        ) : nextIn ? (
-          <>
-            in <strong>{time2Counter(nextIn).join(':')}</strong>
-          </>
-        ) : null}
-        !
+        <span>
+          Live{' '}
+          {isLive ? (
+            <strong>now</strong>
+          ) : nextIn ? (
+            <>
+              in <strong>{time2Counter(nextIn).join(':')}</strong>
+            </>
+          ) : null}
+          !
+        </span>
       </LivestreamCTAInfo>
     </LivestreamCTASelf>
   );
