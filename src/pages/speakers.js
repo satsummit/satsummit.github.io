@@ -103,6 +103,9 @@ const Speaker = withReveal(
     border-top: ${multiply(themeVal('layout.border'), 4)} solid
       ${themeVal('color.secondary-500')};
     height: 100%;
+
+    /* Improve performance */
+    transform: translate3d(0, 0, 0);
   `,
   <Fade bottom distance='8rem' />
 );
