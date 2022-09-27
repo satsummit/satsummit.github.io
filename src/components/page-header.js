@@ -170,7 +170,7 @@ const LivestreamCTASelf = styled.div`
 
 const Counter = styled.strong`
   display: inline-flex;
-  min-width: 4rem;
+  width: 4.125rem;
 `;
 
 const LivestreamCTAInfo = styled.p`
