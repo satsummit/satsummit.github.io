@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Fade } from 'react-reveal';
 
 import {
   listReset,
@@ -18,6 +19,7 @@ import { VarHeading } from '$styles/variable-components';
 import Hug from '$styles/hug';
 import { variableGlsp } from '$styles/variable-utils';
 import { PersonAvatar } from '$styles/people';
+import withReveal from '$utils/with-reveal';
 
 const SpeakersHubHeroHeadline = styled.div`
   display: flex;
@@ -90,17 +92,23 @@ const SpeakersMainList = styled.ol`
   `}
 `;
 
-const Speaker = styled.article`
-  position: relative;
-  z-index: 1;
-  background: ${themeVal('color.surface')};
-  color: ${themeVal('color.base')};
-  border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
-  box-shadow: ${themeVal('boxShadow.elevationD')};
-  border-top: ${multiply(themeVal('layout.border'), 4)} solid
-    ${themeVal('color.secondary-500')};
-  height: 100%;
-`;
+const Speaker = withReveal(
+  styled.article`
+    position: relative;
+    z-index: 1;
+    background: ${themeVal('color.surface')};
+    color: ${themeVal('color.base')};
+    border-radius: 0 0 ${themeVal('shape.rounded')} ${themeVal('shape.rounded')};
+    box-shadow: ${themeVal('boxShadow.elevationD')};
+    border-top: ${multiply(themeVal('layout.border'), 4)} solid
+      ${themeVal('color.secondary-500')};
+    height: 100%;
+
+    /* Improve performance */
+    transform: translate3d(0, 0, 0);
+  `,
+  <Fade bottom distance='8rem' />
+);
 
 const SpeakerLink = styled(Link)`
   display: flex;
@@ -225,7 +233,7 @@ const SpeakersPage = () => {
             </SpeakersSectionHeader>
             <SpeakersSectionBody>
               <SpeakersMainList>
-                {main.map((speaker) => (
+                {main.map((speaker, i) => (
                   <li key={speaker.id}>
                     <Speaker>
                       <SpeakerLink to={`/speakers/${speaker.slug}`}>

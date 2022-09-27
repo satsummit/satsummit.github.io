@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 import T from 'prop-types';
+import { Fade } from 'react-reveal';
 import {
   media,
   multiply,
@@ -37,6 +38,7 @@ import { useMediaQuery } from '$utils/use-media-query';
 import { AgendaEventList, AgendaEventListItem } from '$components/agenda';
 import { agendaDays } from '$components/agenda/utils';
 import { AgendaEntryOverline } from '$components/agenda/event';
+import withReveal from '$utils/with-reveal';
 
 const AgendaScrollPadding = createGlobalStyle`
   html {
@@ -66,32 +68,35 @@ const TabTitle = styled(VarHeading).attrs({
   /* styled-component */
 `;
 
-const TimeSlot = styled(Hug).attrs({
-  as: 'section',
-  grid: { smallUp: ['content-start', 'content-end'] }
-})`
-  &:not(:first-of-type) > * {
-    ${media.mediumUp`
+const TimeSlot = withReveal(
+  styled(Hug).attrs({
+    as: 'section',
+    grid: { smallUp: ['content-start', 'content-end'] }
+  })`
+    &:not(:first-of-type) > * {
+      ${media.mediumUp`
       margin-top: 0;
       padding-top: ${variableGlsp()};
       border-top: ${multiply(themeVal('layout.border'), 4)} solid ${themeVal(
-      'color.secondary-500'
-    )};
+        'color.secondary-500'
+      )};
     `}
-  }
+    }
 
-  &:not(:first-of-type) > *:first-child {
-    margin-top: ${variableGlsp(0.75)};
-    padding-top: ${variableGlsp(2)};
-    border-top: ${multiply(themeVal('layout.border'), 4)} solid
-      ${themeVal('color.secondary-500')};
+    &:not(:first-of-type) > *:first-child {
+      margin-top: ${variableGlsp(0.75)};
+      padding-top: ${variableGlsp(2)};
+      border-top: ${multiply(themeVal('layout.border'), 4)} solid
+        ${themeVal('color.secondary-500')};
 
-    ${media.mediumUp`
+      ${media.mediumUp`
       margin-top: 0;
       padding-top: ${variableGlsp()};
     `}
-  }
-`;
+    }
+  `,
+  <Fade bottom distance='8rem' />
+);
 
 const TimeSlotHeader = styled.header`
   grid-column: content-start / content-end;
