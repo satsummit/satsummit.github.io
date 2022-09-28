@@ -233,7 +233,7 @@ const SpeakersPage = () => {
             </SpeakersSectionHeader>
             <SpeakersSectionBody>
               <SpeakersMainList>
-                {main.map((speaker, i) => (
+                {main.map((speaker) => (
                   <li key={speaker.id}>
                     <Speaker>
                       <SpeakerLink to={`/speakers/${speaker.slug}`}>
