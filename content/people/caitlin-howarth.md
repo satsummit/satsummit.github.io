@@ -1,0 +1,9 @@
+---
+title: Caitlin Howarth
+company: Yale Humanitarian Research Lab
+role: Director of Operations - Conflict Observatory team
+avatar: ./media/caitlin-howarth.jpg
+---
+## About
+
+Caitlin Howarth is Director of Operations for the Conflict Observatory team based at Yale Humanitarian Research Lab. The Humanitarian Research Lab is dedicated to supporting humanitarian action and civilian protection through open source analysis and reporting. From 2016-2021, she worked with the Signal Program on Human Security and Technology at Harvard Humanitarian Initiative (HHI), where she specialized in atrocity warning and led research in applied IHL and humanitarian ethics, teledemography, and remote sensing. She co-authored The Signal Code: A Human Rights-Based Approach to Information During Crisis. Howarth was formerly Reports Manager for the Satellite Sentinel Project at HHI from 2011-2012. She has served as Director of Leadership Development at the Truman National Security Project, Deputy Director of the Telecommunications Equality Project at the Roosevelt Institute, and COO and National Policy Director at the Roosevelt Institute Campus Network. Howarth’s consultant work includes operational leadership for mass atrocity early warning and rapid response, research on weaponized information ecosystems, the design of the award-winning MediCapt mobile forensic evidence collection app, and training and consultation in strategic communication; past clients include Physicians for Human Rights, Internews, Vigil Monitor, and New Leaders Council. A Washington, DC native, she holds a BA in Political and Social Thought from the University of Virginia and an MPP in International & Global Affairs from the Harvard Kennedy School.
