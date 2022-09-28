@@ -2,7 +2,7 @@
 title: Rens Masselink, PhD
 company: Satelligence
 role: Head of R&D
-avatar: ./media/no-photo-placeholder.jpg
+avatar: ./media/rens-masselink.jpg
 ---
 ## About
 

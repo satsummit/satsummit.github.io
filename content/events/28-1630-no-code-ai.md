@@ -2,7 +2,7 @@
 title: Localizing AI
 type: Panel
 date: 2022-09-28 16:30
-room: The Forum
+room: South Hub
 people:
     moderators:
         - Sajjad Anwar
