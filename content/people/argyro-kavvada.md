@@ -2,7 +2,7 @@
 title: Argyro Kavvada, PhD
 company: NASA
 role: Program Manager for Earth Sciences Division's Sustainable Development Goals
-avatar: ./media/no-photo-placeholder.jpg
+avatar: ./media/argyro-kavvada.jpg
 ---
 ## About
 
