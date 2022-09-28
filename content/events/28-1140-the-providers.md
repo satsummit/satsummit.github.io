@@ -9,7 +9,6 @@ people:
     speakers:
         - Asimina Syriou
         - Argyro Kavvada, PhD
-        - Joseph Abakunda
         - Amanda Marchetti
         - Caitlin Kontgis, PhD
         - Monica Weber
