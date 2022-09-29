@@ -356,19 +356,19 @@ function LivestreamCTA({ isLargeUp }) {
         <StreamIcon />
         <span>Watch livestream</span>
       </LivestreamCTAButton>
-      <LivestreamCTAInfo>
-        <span>
-          Live{' '}
-          {isLive ? (
-            <strong>now</strong>
-          ) : nextIn ? (
-            <>
-              in <Counter>{time2Counter(nextIn).join(':')}</Counter>
-            </>
-          ) : null}
-          !
-        </span>
-      </LivestreamCTAInfo>
+      {isLive ? (
+        <LivestreamCTAInfo>
+          <span>
+            Live <strong>now</strong>!
+          </span>
+        </LivestreamCTAInfo>
+      ) : nextIn ? (
+        <LivestreamCTAInfo>
+          <span>
+            Live in <Counter>{time2Counter(nextIn).join(':')}</Counter>!
+          </span>
+        </LivestreamCTAInfo>
+      ) : null}
     </LivestreamCTASelf>
   );
 }

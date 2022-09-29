@@ -234,7 +234,7 @@ export function AgendaEvent(props) {
               <CopyResult transitionState={state}>Copied!</CopyResult>
             )}
           </Transition>
-          <Button
+          {/* <Button
             variation='primary-text'
             size={isLargeUp ? 'large' : 'medium'}
             fitting='skinny'
@@ -243,7 +243,7 @@ export function AgendaEvent(props) {
             disabled
           >
             <CollecticonCirclePlay title='Watch recording' meaningful />
-          </Button>
+          </Button> */}
         </AgendaEntryActions>
       </AgendaEntryHeader>
       {htmlContent && (

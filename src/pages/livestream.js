@@ -181,7 +181,17 @@ const LivestreamPage = () => {
               </LivestreamCountdownInner>
               <LivestreamCountdownIllu />
             </LivestreamCountdown>
-          ) : null}
+          ) : (
+            <LivestreamCountdown>
+              <LivestreamCountdownInner>
+                <VarHeading as='h2' size='medium'>
+                  SatSummit 2022 has ended
+                </VarHeading>
+                <p>Thank you all for join us virtually!</p>
+              </LivestreamCountdownInner>
+              <LivestreamCountdownIllu />
+            </LivestreamCountdown>
+          )}
         </LivestreamBlock>
         <BlockAlpha>
           <VarProse dangerouslySetInnerHTML={{ __html: talks.parent.html }} />
