@@ -5,7 +5,7 @@ date: 2022-09-28 13:45
 room: The Forum
 people:
     moderators:
-        - Keith Masback
+        - Susan Wolfinbarger, PhD
     speakers:
         - Krystal Azelton
         - Tim Wallace, PhD
