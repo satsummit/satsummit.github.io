@@ -1,9 +1,19 @@
 import type { GatsbyConfig } from 'gatsby';
+import pkg from './package.json';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `2024.satsummit.io`,
-    siteUrl: `https://2024.satsummit.io`
+    siteUrl: 'https://2024.satsummit.io',
+    title: 'SatSummit',
+    subtitle: `Satellite data for global development`,
+    edition: '2024',
+    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
+    author: {
+      name: `Development Seed & DevGlobal`
+    },
+    social: {
+      twitter: `@sat_summit`
+    }
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -32,6 +42,23 @@ const config: GatsbyConfig = {
       }
     },
     {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google2: [
+            {
+              family: 'Barlow',
+              axes: 'ital,wght@0,400;0,700;1,400;1,700'
+            },
+            {
+              family: 'Barlow Condensed',
+              axes: 'ital,wght@0,500;0,600;1,600;1,700'
+            }
+          ]
+        }
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
@@ -46,6 +73,28 @@ const config: GatsbyConfig = {
         path: './src/pages/'
       },
       __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'letter',
+        path: './content/letter/'
+      }
+    },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `sponsor`,
+        path: `${__dirname}/content/sponsors`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: pkg.alias,
+        extensions: ['js', 'jsx', 'ts', 'tsx']
+      }
     }
   ]
 };
