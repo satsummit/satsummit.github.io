@@ -28,7 +28,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
+    "ts-check": "tsc --noEmit",
     "lint": "eslint ./src/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern"
   },
   "dependencies": {
@@ -39,12 +39,16 @@
     "@mdx-js/react": "^2.3.0",
     "framer-motion": "^10.16.4",
     "gatsby": "^5.12.4",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-gtag": "^5.12.1",
+    "gatsby-plugin-google-tagmanager": "^5.12.3",
     "gatsby-plugin-image": "^3.12.1",
     "gatsby-plugin-mdx": "^5.12.1",
     "gatsby-plugin-sharp": "^5.12.1",
+    "gatsby-plugin-webfonts": "^2.3.2",
     "gatsby-source-filesystem": "^5.12.0",
     "gatsby-transformer-sharp": "^5.12.1",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -66,7 +70,6 @@
   },
   "alias": {
     "$components": "./src/components",
-    "$styles": "./src/styles",
     "$utils": "./src/utils"
   }
 }

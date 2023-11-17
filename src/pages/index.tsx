@@ -1,68 +1,105 @@
 import * as React from 'react';
-import type { HeadFC, PageProps } from 'gatsby';
-import {
-  Box,
-  Center,
-  Heading,
-  Highlight,
-  Text,
-  calc,
-  Flex,
-  Link as ChakraLink,
-  Badge
-} from '@chakra-ui/react';
+import type { HeadFC } from 'gatsby';
+import { Button, Divider, Flex, Text, Heading } from '@chakra-ui/react';
+import { StaticImage } from 'gatsby-plugin-image';
 
-const $lineHeight = '1.4375rem';
+import PageLayout from '$components/page-layout';
+import HomeHero from '$components/home/page-hero';
+import { Fold, FoldMedia, FoldProse } from '$components/fold';
+import Seo from '$components/seo';
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function IndexPage() {
   return (
-    <Box as='main'>
-      <Center height='100vh' textAlign='center'>
-        <Flex gap={$lineHeight} flexDir='column'>
-          <Heading
-            as='h1'
-            size='4xl'
-            maxW='16ch'
-            lineHeight={calc($lineHeight).multiply(4).toString()}
+    <PageLayout>
+      <HomeHero />
+      <Flex flexFlow='column' gap='8' py='12' px='4' position='relative'>
+        <Fold>
+          <FoldMedia gridColumn={{ base: '1/-1', lg: '1/ span 6' }}>
+            <StaticImage
+              src='../images/home/home-vibe-2.jpg'
+              alt='Four people sitting in line with the second one talking to a microphone'
+            />
+          </FoldMedia>
+          <FoldProse
+            gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
+            mt={{ base: '0', lg: '-40' }}
           >
-            <Highlight
-              query='Satsummit 2024'
-              styles={{ color: 'primary.600', _dark: { color: 'primary.400' } }}
+            <Heading>Save the Date</Heading>
+            <Text>
+              <strong>SatSummit</strong> convenes leaders in the satellite
+              industry and experts in global development for 2 days of
+              presentations and in-depth conversations on solving the
+              world&apos;s most critical development challenges with satellite
+              data.
+            </Text>
+            <Divider size='0.5' />
+            <Heading>Stay Tuned</Heading>
+            <Text>
+              From climate change to population growth to natural resource
+              availability, earth observation data offers insights into
+              today&apos;s biggest global issues. Subscribe the newsletter for
+              more information on <strong>SatSummit 2024</strong>!
+            </Text>
+            <Text>
+              Get in touch for more information on{' '}
+              <strong>SatSummit 2024</strong>!
+            </Text>
+            <Button
+              as='a'
+              href='mailto:info@satsummit.io'
+              colorScheme='primary'
+              alignSelf='start'
             >
-              Satsummit 2024 is coming soon!
-            </Highlight>
-          </Heading>
-          <Text fontSize='2xl' mb={$lineHeight}>
-            In the mean time check out the previous editions:
-          </Text>
-          <Flex gap={3} justifyContent='center'>
-            <Badge>
-              <ChakraLink href='https://2022.satsummit.io'>
-                2022 edition
-              </ChakraLink>
-            </Badge>
-            <Badge>
-              <ChakraLink href='https://2018.satsummit.io'>
-                2018 edition
-              </ChakraLink>
-            </Badge>
-            <Badge>
-              <ChakraLink href='https://2017.satsummit.io'>
-                2017 edition
-              </ChakraLink>
-            </Badge>
-            <Badge>
-              <ChakraLink href='https://2015.satsummit.io'>
-                2015 edition
-              </ChakraLink>
-            </Badge>
-          </Flex>
-        </Flex>
-      </Center>
-    </Box>
+              Get in Touch
+            </Button>
+          </FoldProse>
+        </Fold>
+        <Fold>
+          <FoldMedia
+            gridColumn={{ base: '1/-1', md: 'span 4', lg: '1/ span 4' }}
+          >
+            <StaticImage
+              src='../images/home/home-vibe-4.jpg'
+              alt='Group of people happily talking to each other'
+            />
+          </FoldMedia>
+          <FoldMedia
+            gridColumn={{ base: '1/-1', md: 'span 4', lg: '5/ span 8' }}
+          >
+            <StaticImage
+              src='../images/home/home-vibe-3.jpg'
+              alt='Person on a stage talking to an audience seen from the audience perspective'
+            />
+          </FoldMedia>
+        </Fold>
+        <Fold>
+          <FoldProse gridColumn={{ base: '1/-1', lg: '1/ span 6' }}>
+            <Heading>Become a Sponsor</Heading>
+            <Text>
+              We&apos;re excited to partner with thought and industry leaders in
+              the satellite and development communities, and through their
+              sponsorship and support of SatSummit, we are solving real-world
+              and global development challenges.
+            </Text>
+            <Button
+              as='a'
+              colorScheme='primary'
+              alignSelf='start'
+              href='/2024-sponsor-kit.pdf'
+            >
+              Download the kit
+            </Button>
+          </FoldProse>
+          <FoldMedia gridColumn={{ base: '1/-1', lg: '7/ span 6' }}>
+            <StaticImage
+              src='../images/home/home-vibe-1.jpg'
+              alt='Group of people grabbing snacks during a break'
+            />
+          </FoldMedia>
+        </Fold>
+      </Flex>
+    </PageLayout>
   );
-};
+}
 
-export default IndexPage;
-
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <Seo title='Welcome' />;

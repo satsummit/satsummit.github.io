@@ -1,45 +1,37 @@
 import * as React from 'react';
-import { Link, HeadFC, PageProps } from 'gatsby';
-import {
-  Box,
-  Code,
-  Heading,
-  Link as ChakraLink,
-  Text,
-  Button
-} from '@chakra-ui/react';
+import { HeadFC } from 'gatsby';
+import { Container, Text } from '@chakra-ui/react';
 
-const NotFoundPage: React.FC<PageProps> = () => {
+import Seo from '$components/seo';
+import PageLayout from '$components/page-layout';
+import PageHero from '$components/page-hero';
+import SmartLink from '$components/smart-link';
+
+export default function NotFoundPage() {
   return (
-    <Box p={24} fontFamily='-apple-system, Roboto, sans-serif, serif'>
-      <Heading as='h1' mt={0} mb={16} maxW='container.sm'>
-        Page not found
-      </Heading>
-      <Text mb={12}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === 'development' ? (
-          <>
-            <br />
-            Try creating a page in{' '}
-            <Code colorScheme='yellow' p={1} fontSize='lg' borderRadius='base'>
-              src/pages/
-            </Code>
-            .
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Button>
-          <ChakraLink as={Link} to='/'>
-            Go home
-          </ChakraLink>
-        </Button>
-      </Text>
-    </Box>
+    <PageLayout>
+      <PageHero title='Page not found' lead="That's a 404 error." />
+      <Container
+        py={{ base: '8', lg: '16' }}
+        px='8'
+        maxW='container.md'
+        display='flex'
+        flexFlow='column'
+        gap='8'
+      >
+        <Text fontSize='lg'>
+          We were not able to find the page you are looking for. It may have
+          been archived or removed.
+        </Text>
+        <Text fontSize='lg'>
+          If you think this page should be here let us know via{' '}
+          <SmartLink to='mailto:info@satsummit.io' title='Send us an email'>
+            <strong>info@satsummit.io</strong>
+          </SmartLink>.
+        </Text>
+      </Container>
+    </PageLayout>
   );
-};
+}
 
-export default NotFoundPage;
-
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => <Seo title='Not Found' />;
