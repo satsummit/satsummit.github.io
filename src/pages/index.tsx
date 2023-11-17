@@ -81,7 +81,12 @@ export default function IndexPage() {
               sponsorship and support of SatSummit, we are solving real-world
               and global development challenges.
             </Text>
-            <Button as='a' colorScheme='primary' alignSelf='start'>
+            <Button
+              as='a'
+              colorScheme='primary'
+              alignSelf='start'
+              href='/2024-sponsor-kit.pdf'
+            >
               Download the kit
             </Button>
           </FoldProse>

@@ -13,10 +13,12 @@ export default function PageHeader() {
           <Flex ml='auto'>
             <Box as='nav'>
               <Button
+                as='a'
                 colorScheme='white'
                 variant='outline'
                 textTransform='uppercase'
                 borderColor='surface.200a'
+                href='/2024-sponsor-kit.pdf'
               >
                 Become a Sponsor
               </Button>

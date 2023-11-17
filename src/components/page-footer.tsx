@@ -106,6 +106,11 @@ export default function PageHeader() {
                 Find us on Github
               </FooterLink>
             </ListItem>
+            <ListItem>
+              <FooterLink to='https://www.linkedin.com/showcase/satsummit'>
+                Connect through LinkedIn
+              </FooterLink>
+            </ListItem>
           </UnorderedList>
         </FooterBlock>
         <FooterBlock
