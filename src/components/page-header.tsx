@@ -1,37 +1,25 @@
 import React from 'react';
-import {
-  Box,
-  Container,
-  Flex,
-  ListItem,
-  UnorderedList
-} from '@chakra-ui/react';
-import { Link } from 'gatsby';
+import { Box, Button, Container, Flex } from '@chakra-ui/react';
+import Brand from './brand';
 
 export default function PageHeader() {
   return (
     <Box bg='primary.500' as='header'>
       <Container maxW='container.xl' py='12' color='white'>
         <Flex>
-          <Box>logo</Box>
+          <Box>
+            <Brand />
+          </Box>
           <Flex ml='auto'>
             <Box as='nav'>
-              <UnorderedList
-                display='flex'
-                styleType='none'
-                gap='4'
+              <Button
+                colorScheme='white'
+                variant='outline'
                 textTransform='uppercase'
+                borderColor='surface.200a'
               >
-                <ListItem>
-                  <Link to='/sponsorship'>Sponsorship</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to='/code-of-conduct'>Code of conduct</Link>
-                </ListItem>
-                <ListItem>
-                  <Link to='/ye'>Another link</Link>
-                </ListItem>
-              </UnorderedList>
+                Become a Sponsor
+              </Button>
             </Box>
           </Flex>
         </Flex>
