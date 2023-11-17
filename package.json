@@ -28,7 +28,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
+    "ts-check": "tsc --noEmit",
     "lint": "eslint ./src/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern"
   },
   "dependencies": {
@@ -41,6 +41,7 @@
     "gatsby": "^5.12.4",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-gtag": "^5.12.1",
+    "gatsby-plugin-google-tagmanager": "^5.12.3",
     "gatsby-plugin-image": "^3.12.1",
     "gatsby-plugin-mdx": "^5.12.1",
     "gatsby-plugin-sharp": "^5.12.1",

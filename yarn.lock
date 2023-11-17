@@ -6842,6 +6842,14 @@ gatsby-plugin-google-gtag@^5.12.1:
     "@babel/runtime" "^7.20.13"
     minimatch "^3.1.2"
 
+gatsby-plugin-google-tagmanager@^5.12.3:
+  version "5.12.3"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-5.12.3.tgz#b9e3a9825c4afb77b60d5da20d6091cc55b8c11d"
+  integrity sha512-qq5S+YmyZkC4LM6eRG24r3CqeIzdUZhcsR/x4MwJOYbIsy/X+Ify43YpQWlCrG2Mkbd0vMuyiRsv4IMELaB38g==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    web-vitals "^1.1.2"
+
 gatsby-plugin-image@^3.12.1:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-3.12.1.tgz#1c33a855d7e8349da6b976fcfdd56bafb9a5635e"
@@ -12352,6 +12360,11 @@ weak-lru-cache@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/weak-lru-cache/-/weak-lru-cache-1.2.2.tgz#fdbb6741f36bae9540d12f480ce8254060dccd19"
   integrity sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==
+
+web-vitals@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-1.1.2.tgz#06535308168986096239aa84716e68b4c6ae6d1c"
+  integrity sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
