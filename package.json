@@ -1,7 +1,8 @@
 {
-  "name": "2022.satsummit.io",
+  "name": "2024.satsummit.io",
   "version": "1.0.0",
-  "description": "A one day of presentations and discussions about satellite imagery and data processing capabilities that brings together the satellite industry and the global development leaders.",
+  "private": true,
+  "description": "2024.satsummit.io",
   "keywords": [
     "gatsby"
   ],
@@ -19,82 +20,56 @@
   },
   "homepage": "http://satsummit.io/",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
-  "browserslist": ">0.2%, not dead, not ie 11, not chrome < 51, not safari < 10, not android < 51",
   "scripts": {
-    "serve": "gatsby develop -p 9000 -H 0.0.0.0",
+    "develop": "gatsby develop -p 9000 -H 0.0.0.0",
+    "start": "gatsby develop",
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "eslint ./src/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern",
-    "lint:css": "stylelint './src/**/*.{js,ts,jsx,tsx}' ",
-    "test": "echo No tests && exit 0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.18.2",
-    "@babel/eslint-parser": "^7.18.2",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "@babel/preset-typescript": "^7.16.7",
-    "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^5.12.0",
-    "eslint": "^8.16.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-inclusive-language": "^2.2.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.5.0",
-    "prettier": "^2.6.2",
-    "stream-browserify": "^3.0.0",
-    "stylelint": "^14.8.5",
-    "stylelint-config-recommended": "^7.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.10.0",
-    "surge": "^0.23.1",
-    "typescript": "^4.5.5"
+    "ts-check": "tsc --noEmit",
+    "lint": "eslint ./src/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern"
   },
   "dependencies": {
-    "@devseed-ui/button": "^4.1.0",
-    "@devseed-ui/collecticons": "^4.1.0",
-    "@devseed-ui/form": "^4.1.0",
-    "@devseed-ui/theme-provider": "^4.1.0",
-    "@devseed-ui/typography": "^4.1.0",
-    "babel-plugin-styled-components": "^2.0.7",
-    "clipboard": "^2.0.11",
-    "date-fns": "^2.29.1",
-    "gatsby": "^4.15.1",
+    "@chakra-ui/gatsby-plugin": "^3.1.3",
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mdx-js/react": "^2.3.0",
+    "framer-motion": "^10.16.4",
+    "gatsby": "^5.12.4",
     "gatsby-plugin-alias-imports": "^1.0.5",
-    "gatsby-plugin-google-gtag": "^4.15.0",
-    "gatsby-plugin-image": "^2.15.0",
-    "gatsby-plugin-mailchimp": "^5.2.2",
-    "gatsby-plugin-react-helmet": "^5.15.0",
-    "gatsby-plugin-sharp": "^4.15.0",
-    "gatsby-plugin-styled-components": "^5.15.0",
-    "gatsby-plugin-webfonts": "^2.2.2",
-    "gatsby-source-filesystem": "^4.15.0",
-    "gatsby-transformer-remark": "^5.18.0",
-    "gatsby-transformer-sharp": "^4.15.0",
-    "gatsby-transformer-yaml": "^4.15.0",
-    "lodash.get": "^4.4.2",
-    "mapbox-gl": "^2.10.0",
+    "gatsby-plugin-google-gtag": "^5.12.1",
+    "gatsby-plugin-google-tagmanager": "^5.12.3",
+    "gatsby-plugin-image": "^3.12.1",
+    "gatsby-plugin-mdx": "^5.12.1",
+    "gatsby-plugin-sharp": "^5.12.1",
+    "gatsby-plugin-webfonts": "^2.3.2",
+    "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-transformer-sharp": "^5.12.1",
     "polished": "^4.2.2",
-    "react": "^17.0.1",
-    "react-cool-dimensions": "^2.0.7",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-reveal": "^1.2.2",
-    "react-transition-group": "^4.4.5",
-    "styled-components": "^5.3.5"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-inclusive-language": "^2.2.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.1.6"
   },
   "alias": {
     "$components": "./src/components",
-    "$styles": "./src/styles",
     "$utils": "./src/utils"
-  },
-  "overrides": {
-    "gatsby": {
-      "devcert": "1.2.0"
-    }
   }
 }
