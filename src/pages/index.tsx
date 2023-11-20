@@ -37,20 +37,19 @@ export default function IndexPage() {
             <Text>
               From climate change to population growth to natural resource
               availability, earth observation data offers insights into
-              today&apos;s biggest global issues. Subscribe the newsletter for
-              more information on <strong>SatSummit 2024</strong>!
+              today&apos;s biggest global issues.
             </Text>
             <Text>
-              Get in touch for more information on{' '}
+              Subscribe to the newsletter for more information on{' '}
               <strong>SatSummit 2024</strong>!
             </Text>
             <Button
               as='a'
-              href='mailto:info@satsummit.io'
+              href='https://23425005.hs-sites.com/satsummit-2024'
               colorScheme='primary'
               alignSelf='start'
             >
-              Get in Touch
+              Subscribe
             </Button>
           </FoldProse>
         </Fold>
