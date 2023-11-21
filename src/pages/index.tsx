@@ -7,6 +7,10 @@ import PageLayout from '$components/page-layout';
 import HomeHero from '$components/home/page-hero';
 import { Fold, FoldMedia, FoldProse } from '$components/fold';
 import Seo from '$components/seo';
+import {
+  CollecticonArrowUpRight,
+  CollecticonDownload2
+} from '@devseed-ui/collecticons-chakra';
 
 export default function IndexPage() {
   return (
@@ -48,6 +52,7 @@ export default function IndexPage() {
               href='https://23425005.hs-sites.com/satsummit-2024'
               colorScheme='primary'
               alignSelf='start'
+              rightIcon={<CollecticonArrowUpRight />}
             >
               Subscribe
             </Button>
@@ -85,6 +90,7 @@ export default function IndexPage() {
               colorScheme='primary'
               alignSelf='start'
               href='/2024-sponsor-kit.pdf'
+              rightIcon={<CollecticonDownload2 />}
             >
               Download the kit
             </Button>
