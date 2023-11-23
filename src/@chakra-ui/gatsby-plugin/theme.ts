@@ -19,6 +19,8 @@ const theme = {
   styles: {
     global: {
       body: {
+        fontSize: ['1rem', null, null, '1.25rem'],
+        lineHeight: 'calc(0.5rem + 1em)',
         color: 'base.500'
       }
     }
@@ -40,37 +42,37 @@ const theme = {
         textTransform: 'uppercase'
       },
       sizes: {
-        xxs: {
-          fontSize: '1rem',
-          lineHeight: '1.5rem'
-        },
         xs: {
-          fontSize: '1.25rem',
-          lineHeight: '1.75rem'
+          fontSize: ['0.75rem', null, null, '1rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
         sm: {
-          fontSize: '1.5rem',
-          lineHeight: '2rem'
+          fontSize: ['1rem', null, null, '1.25rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
         md: {
-          fontSize: '1.75rem',
-          lineHeight: '2.25rem'
+          fontSize: ['1.25rem', null, null, '1.5rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
         lg: {
-          fontSize: '2rem',
-          lineHeight: '2.5rem'
+          fontSize: ['1.5rem', null, null, '1.75rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
         xl: {
-          fontSize: '2.25rem',
-          lineHeight: '2.75rem'
+          fontSize: ['1.75rem', null, null, '2rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
-        xxl: {
-          fontSize: '2.5rem',
-          lineHeight: '3rem'
+        '2xlg': {
+          fontSize: ['2rem', null, null, '2.25rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         },
-        jumbo: {
-          fontSize: '3.25rem',
-          lineHeight: '3.75rem'
+        '3xlg': {
+          fontSize: ['2.25rem', null, null, '2.5rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
+        },
+        '4xl': {
+          fontSize: ['2.5rem', null, null, '2.75rem'],
+          lineHeight: 'calc(0.5rem + 1em)'
         }
       }
     },
