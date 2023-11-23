@@ -16,10 +16,26 @@ const theme = {
     body: 'Barlow, sans-serif',
     heading: 'Barlow Condensed, serif'
   },
+  fontSizes: {
+    xs: '0.75rem',
+    sm: '1rem',
+    md: '1.25rem',
+    lg: '1.5rem',
+    xl: '1.75rem',
+    '2xl': '2rem',
+    '3xl': '2.25rem',
+    '4xl': '2.5rem',
+    '5xl': '2.75rem',
+    '6xl': '3rem',
+    '7xl': '3.25rem',
+    '8xl': '3.5rem',
+    '9xl': '3.75rem',
+    '10xl': '4rem'
+  },
   styles: {
     global: {
       body: {
-        fontSize: ['1rem', null, null, '1.25rem'],
+        fontSize: ['sm', null, null, 'md'],
         lineHeight: 'calc(0.5rem + 1em)',
         color: 'base.500'
       }
@@ -28,10 +44,10 @@ const theme = {
   textStyles: {
     lead: {
       sm: {
-        fontSize: '1.25rem'
+        fontSize: 'md'
       },
       lg: {
-        fontSize: '1.5rem'
+        fontSize: 'lg'
       }
     }
   },
@@ -43,35 +59,35 @@ const theme = {
       },
       sizes: {
         xs: {
-          fontSize: ['0.75rem', null, null, '1rem'],
+          fontSize: ['xs', null, null, 'sm'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
         sm: {
-          fontSize: ['1rem', null, null, '1.25rem'],
+          fontSize: ['sm', null, null, 'md'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
         md: {
-          fontSize: ['1.25rem', null, null, '1.5rem'],
+          fontSize: ['md', null, null, 'lg'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
         lg: {
-          fontSize: ['1.5rem', null, null, '1.75rem'],
+          fontSize: ['lg', null, null, 'xl'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
         xl: {
-          fontSize: ['1.75rem', null, null, '2rem'],
+          fontSize: ['xl', null, null, '2xl'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
-        '2xlg': {
-          fontSize: ['2rem', null, null, '2.25rem'],
+        '2xl': {
+          fontSize: ['2xl', null, null, '3xl'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
-        '3xlg': {
-          fontSize: ['2.25rem', null, null, '2.5rem'],
+        '3xl': {
+          fontSize: ['3xl', null, null, '4xl'],
           lineHeight: 'calc(0.5rem + 1em)'
         },
         '4xl': {
-          fontSize: ['2.5rem', null, null, '2.75rem'],
+          fontSize: ['4xl', null, null, '5xl'],
           lineHeight: 'calc(0.5rem + 1em)'
         }
       }

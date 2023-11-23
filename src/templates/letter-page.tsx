@@ -33,12 +33,12 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
       >
         <MDXProvider
           components={{
-            h1: (props) => <Heading as='h1' size='xl' {...props} />,
-            h2: (props) => <Heading as='h2' size='xl' {...props} />,
-            h3: (props) => <Heading as='h3' size='lg' {...props} />,
-            h4: (props) => <Heading as='h4' size='lg' {...props} />,
+            h1: (props) => <Heading as='h1' size='4xl' {...props} />,
+            h2: (props) => <Heading as='h2' size='3xl' {...props} />,
+            h3: (props) => <Heading as='h3' size='2xl' {...props} />,
+            h4: (props) => <Heading as='h4' size='xl' {...props} />,
             h5: (props) => <Heading as='h5' size='lg' {...props} />,
-            h6: (props) => <Heading as='h6' size='lg' {...props} />,
+            h6: (props) => <Heading as='h6' size='md' {...props} />,
             p: (props) => <Text {...props} />,
             ul: (props) => <UnorderedList {...props} />,
             ol: (props) => <OrderedList {...props} />,
