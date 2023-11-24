@@ -19,6 +19,7 @@ export default function PageHeader() {
                 textTransform='uppercase'
                 borderColor='surface.200a'
                 href='/2024-sponsor-kit.pdf'
+                size={{base: 'sm', lg: 'md'}}
               >
                 Become a Sponsor
               </Button>

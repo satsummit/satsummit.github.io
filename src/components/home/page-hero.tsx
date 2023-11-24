@@ -18,7 +18,6 @@ export default function HomeHero() {
   return (
     <Box
       position='relative'
-      as='header'
       background={{
         base: primary,
         // Can't use tokens with this bg notation.
@@ -52,6 +51,7 @@ export default function HomeHero() {
         justifyContent='center'
         flexFlow={{ base: 'column', md: 'row' }}
         gap='4'
+        mx='auto'
       >
         <Heading
           as='h1'
@@ -73,20 +73,20 @@ export default function HomeHero() {
             alignSelf={{
               md: 'end'
             }}
-            fontSize={{ base: '2rem', md: '4rem' }}
+            fontSize={{ base: '2rem', sm: '2rem', md: '4rem' }}
           >
             This is
           </Text>
           <Text
             as='span'
-            fontSize={{ base: '5rem', md: '8rem' }}
+            fontSize={{ base: '4rem', md: '8rem' }}
             mt={{ md: '-4' }}
           >
             Satsummit
           </Text>
           <Text
             as='span'
-            fontSize={{ base: '5rem', md: '8rem' }}
+            fontSize={{ base: '4rem', md: '8rem' }}
             alignSelf='start'
             mt={{ md: '-4' }}
             position='relative'
@@ -116,28 +116,24 @@ export default function HomeHero() {
           position='relative'
           alignSelf={{ base: 'start', md: 'center' }}
           p='4'
-          ml={{ md: '-17rem', lg: '-18rem' }}
-          mt={{ md: '19rem', lg: '4rem' }}
+          ml={{ base: '7.5rem', md: '-17rem', lg: '-18rem' }}
+          mt={{ base: '-1.75rem', md: '19rem', lg: '4rem' }}
           order={{ base: '2', lg: '-1' }}
           _after={{
-            display: {
-              base: 'none',
-              md: 'block'
-            },
             position: 'absolute',
             content: '""',
             width: '0',
             height: '0',
-            right: { md: 'auto', lg: '0' },
-            left: { md: '0', lg: 'auto' },
-            bottom: { md: 'auto', lg: '-1rem' },
-            top: { md: '-1rem', lg: 'auto' },
+            right: { base: 'auto', lg: '0' },
+            left: { base: '0', lg: 'auto' },
+            bottom: { base: 'auto', lg: '-1rem' },
+            top: { base: '-1rem', lg: 'auto' },
             borderTop: { lg: '1rem solid' },
             borderTopColor: { lg: 'base.500' },
             borderLeft: { lg: '1.5rem solid transparent' },
-            borderBottom: { md: '1rem solid', lg: 'none' },
-            borderBottomColor: { md: 'base.500', lg: 'none' },
-            borderRight: { md: '1.5rem solid transparent', lg: 'none' }
+            borderBottom: { base: '1rem solid', lg: 'none' },
+            borderBottomColor: { base: 'base.500', lg: 'none' },
+            borderRight: { base: '1.5rem solid transparent', lg: 'none' }
           }}
         >
           <Heading
