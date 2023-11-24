@@ -18,7 +18,6 @@ export default function HomeHero() {
   return (
     <Box
       position='relative'
-      as='header'
       background={{
         base: primary,
         // Can't use tokens with this bg notation.
@@ -52,6 +51,7 @@ export default function HomeHero() {
         justifyContent='center'
         flexFlow={{ base: 'column', md: 'row' }}
         gap='4'
+        mx='auto'
       >
         <Heading
           as='h1'
