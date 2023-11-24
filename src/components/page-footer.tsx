@@ -10,7 +10,7 @@ import {
   List
 } from '@chakra-ui/react';
 import { Fold } from './fold';
-import SmartLink, { SmartLinkProps } from './smart-link';
+import SmartLink from './smart-link';
 import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
