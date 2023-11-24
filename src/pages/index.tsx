@@ -18,7 +18,7 @@ export default function IndexPage() {
       <HomeHero />
       <Flex flexFlow='column' gap='8' py='12' px='4' position='relative'>
         <Fold>
-          <FoldMedia gridColumn={{ base: '1/-1', lg: '1/ span 6' }}>
+          <FoldMedia gridColumn={{ base: '1/-1', lg: '1/ span 6' }} alignSelf='end'>
             <StaticImage
               src='../images/home/home-vibe-2.jpg'
               alt='Four people sitting in line with the second one talking to a microphone'
