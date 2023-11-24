@@ -28,7 +28,7 @@ export default function IndexPage() {
             gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
             mt={{ base: '0', lg: '-40' }}
           >
-            <Heading>Save the Date</Heading>
+            <Heading size='3xl'>Save the Date</Heading>
             <Text>
               <strong>SatSummit</strong> convenes leaders in the satellite
               industry and experts in global development for 2 days of
@@ -37,7 +37,7 @@ export default function IndexPage() {
               data.
             </Text>
             <Divider size='0.5' />
-            <Heading>Stay Tuned</Heading>
+            <Heading size='3xl'>Stay Tuned</Heading>
             <Text>
               From climate change to population growth to natural resource
               availability, earth observation data offers insights into
@@ -78,7 +78,7 @@ export default function IndexPage() {
         </Fold>
         <Fold>
           <FoldProse gridColumn={{ base: '1/-1', lg: '1/ span 6' }}>
-            <Heading>Become a Sponsor</Heading>
+            <Heading size='3xl'>Become a Sponsor</Heading>
             <Text>
               We&apos;re excited to partner with thought and industry leaders in
               the satellite and development communities, and through their
