@@ -55,7 +55,7 @@ export default function Brand(props: BrandProps) {
             _before={{
               content: '""',
               backgroundColor:
-                variation === 'positive' ? 'base.100a' : 'base.400a',
+                variation === 'positive' ? 'base.200a' : 'base.400a',
               position: 'absolute',
               width: '100%',
               height: '0.5em',
