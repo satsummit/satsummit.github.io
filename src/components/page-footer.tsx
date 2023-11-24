@@ -12,7 +12,6 @@ import {
 import { Fold } from './fold';
 import SmartLink, { SmartLinkProps } from './smart-link';
 import { graphql, useStaticQuery } from 'gatsby';
-import LogoIcon from './logo-icon';
 import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
@@ -21,6 +20,7 @@ import {
   CollecticonEnvelope,
   CollecticonExpandTopRight
 } from '@devseed-ui/collecticons-chakra';
+import Brand from './brand';
 
 function FooterLink(props: SmartLinkProps) {
   return (
@@ -40,17 +40,6 @@ function FooterBlock(props: FlexProps) {
 }
 
 export default function PageHeader() {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          edition
-        }
-      }
-    }
-  `);
-
   return (
     <Box bg='base.50' as='footer'>
       <Fold py={{ base: '8', md: '12', lg: '16' }} px='4' spacingY='8'>
@@ -161,10 +150,7 @@ export default function PageHeader() {
             lg: '10/ span 3'
           }}
         >
-          <Heading size='sm' display='flex' gap='2' alignItems='center'>
-            <LogoIcon color='base.500' />
-            {data.site.siteMetadata.title} {data.site.siteMetadata.edition}
-          </Heading>
+          <Brand variation='positive' />
           <Text>
             An event by{' '}
             <SmartLink to='https://developmentseed.org' fontWeight='bold'>

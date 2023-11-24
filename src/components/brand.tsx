@@ -1,9 +1,15 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { Text, Link as ChLink } from '@chakra-ui/react';
-import LogoIcon from './logo-icon';
+import { Heading, Text, Link as ChLink } from '@chakra-ui/react';
+import LogoMark from './logo-mark';
 
-export default function Brand() {
+interface BrandProps {
+  variation?: 'positive' | 'negative';
+}
+
+export default function Brand(props: BrandProps) {
+  const { variation = 'positive' } = props;
+
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -16,34 +22,45 @@ export default function Brand() {
   `);
 
   return (
-    <Text as='strong'>
+    <Heading
+      as='strong'
+      size='md'
+      display='inline-flex'
+      color={variation === 'positive' ? 'base.500' : 'surface.500'}
+    >
       <ChLink
         as={Link}
         to='/'
         display='inline-flex'
         alignItems='center'
-        gap='2'
+        gap='3'
         textDecoration='none'
-        textTransform='uppercase'
-        fontSize='2xl'
+        transition='opacity 0.24s ease 0s'
         _hover={{
-          textDecoration: 'none'
+          opacity: '0.64'
         }}
       >
-        <LogoIcon color='white' />
-        <Text as='span'>
-          <span>{data.site.siteMetadata.title}</span>{' '}
+        <LogoMark color='currentColor' />
+        <Text
+          as='span'
+          lineHeight='1'
+          display='inline-flex'
+          alignItems='center'
+          gap='1'
+        >
+          <Text as='span'>{data.site.siteMetadata.title}</Text>{' '}
           <Text
             as='span'
             position='relative'
             zIndex='1'
             _before={{
               content: '""',
-              backgroundColor: 'base.500',
+              backgroundColor:
+                variation === 'positive' ? 'base.100a' : 'base.400a',
               position: 'absolute',
               width: '100%',
-              height: '3',
-              bottom: '4px',
+              height: '0.5em',
+              bottom: '0',
               zIndex: '-1'
             }}
           >
@@ -51,6 +68,6 @@ export default function Brand() {
           </Text>
         </Text>
       </ChLink>
-    </Text>
+    </Heading>
   );
 }
