@@ -16,7 +16,6 @@ export default React.forwardRef<HTMLLinkElement, SmartLinkProps>(
         fontFamily='Barlow Condensed, serif'
         fontWeight='600'
         fontSize='sm'
-        lineHeight='calc(0.5rem + 1em)'
         textTransform='uppercase'
         transition='opacity 0.24s ease 0s'
         _hover={{

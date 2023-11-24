@@ -36,8 +36,10 @@ const theme = {
     global: {
       body: {
         fontSize: ['sm', null, null, 'md'],
-        lineHeight: 'calc(0.5rem + 1em)',
         color: 'base.500'
+      },
+      '*': {
+        lineHeight: 'calc(0.5rem + 1em)'
       }
     }
   },

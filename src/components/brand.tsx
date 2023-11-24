@@ -43,7 +43,6 @@ export default function Brand(props: BrandProps) {
         <LogoMark color='currentColor' />
         <Text
           as='span'
-          lineHeight='1'
           display='inline-flex'
           alignItems='center'
           gap='1'
@@ -60,7 +59,7 @@ export default function Brand(props: BrandProps) {
               position: 'absolute',
               width: '100%',
               height: '0.5em',
-              bottom: '0',
+              bottom: '0.25em',
               zIndex: '-1'
             }}
           >

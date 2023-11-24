@@ -38,7 +38,7 @@ export default function PageHeader() {
             lg: '1/ span 3'
           }}
         >
-          <Heading size='sm'>Browse</Heading>
+          <Heading size='md'>Browse</Heading>
           <List>
             <ListItem>
               <MenuLink to='/'>
@@ -65,7 +65,7 @@ export default function PageHeader() {
             lg: '4/ span 3'
           }}
         >
-          <Heading size='sm'>Past Editions</Heading>
+          <Heading size='md'>Past Editions</Heading>
           <List as='ol'>
             <ListItem>
               <MenuLink to='https://2022.satsummit.io'>
@@ -101,7 +101,7 @@ export default function PageHeader() {
             lg: '7/ span 3'
           }}
         >
-          <Heading size='sm'>Let&apos;s Connect</Heading>
+          <Heading size='md'>Let&apos;s Connect</Heading>
           <List>
             <ListItem>
               <MenuLink to='mailto:info@satsummit.io'>
@@ -144,26 +144,18 @@ export default function PageHeader() {
           }}
         >
           <Brand variation='positive' />
-          <Text>
+          <Text fontSize='sm'>
             An event by{' '}
-            <SmartLink
-              to='https://developmentseed.org'
-              fontWeight='bold'
-            >
+            <SmartLink to='https://developmentseed.org' fontWeight='bold'>
               Development Seed
             </SmartLink>{' '}
             and{' '}
-            <SmartLink
-              to='https://dev.global/'
-              fontWeight='bold'
-            >
+            <SmartLink to='https://dev.global/' fontWeight='bold'>
               DevGlobal
             </SmartLink>
             .
           </Text>
-          <Text fontSize='sm'>
-            Terms & Conditions &copy; 2015-{new Date().getFullYear()}
-          </Text>
+          <Text fontSize='xs'>&copy; 2015-{new Date().getFullYear()}</Text>
         </FooterBlock>
       </Fold>
     </Box>
