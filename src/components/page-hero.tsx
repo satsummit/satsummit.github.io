@@ -42,7 +42,7 @@ export default function PageHero(props: PageHeroProps) {
         p='0'
       >
         <Flex flexFlow='column' gap='4'>
-          <Heading size='jumbo'>{title}</Heading>
+          <Heading size='4xl' as='h1'>{title}</Heading>
           {lead && (
             <Text textStyle='lead.lg' maxW='container.sm'>
               {lead}

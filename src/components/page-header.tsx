@@ -6,9 +6,9 @@ export default function PageHeader() {
   return (
     <Box bg='primary.500' as='header'>
       <Container maxW='container.xl' py='12' color='white'>
-        <Flex>
+        <Flex alignItems='center'>
           <Box>
-            <Brand />
+            <Brand variation='negative' />
           </Box>
           <Flex ml='auto'>
             <Box as='nav'>
@@ -19,6 +19,7 @@ export default function PageHeader() {
                 textTransform='uppercase'
                 borderColor='surface.200a'
                 href='/2024-sponsor-kit.pdf'
+                size={{base: 'sm', lg: 'md'}}
               >
                 Become a Sponsor
               </Button>

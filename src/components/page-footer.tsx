@@ -5,122 +5,146 @@ import {
   FlexProps,
   Heading,
   ListItem,
-  UnorderedList,
-  Text
+  Text,
+  ListIcon,
+  List
 } from '@chakra-ui/react';
 import { Fold } from './fold';
-import SmartLink, { SmartLinkProps } from './smart-link';
-import { graphql, useStaticQuery } from 'gatsby';
-import LogoIcon from './logo-icon';
-
-function FooterLink(props: SmartLinkProps) {
-  return (
-    <SmartLink
-      textTransform='uppercase'
-      fontFamily='Barlow Condensed, sans-serif'
-      _hover={{ textDecoration: 'underline' }}
-      {...props}
-    />
-  );
-}
+import SmartLink from './smart-link';
+import {
+  CollecticonArrowRight,
+  CollecticonBrandLinkedin,
+  CollecticonBrandSatsummit,
+  CollecticonBrandTwitter,
+  CollecticonEnvelope,
+  CollecticonExpandTopRight
+} from '@devseed-ui/collecticons-chakra';
+import Brand from './brand';
+import MenuLink from './menu-link';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
 }
 
 export default function PageHeader() {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          edition
-        }
-      }
-    }
-  `);
-
   return (
     <Box bg='base.50' as='footer'>
-      <Fold py={{base: '8', md: '12', lg:'16'}} px='4' spacingY='8'>
+      <Fold py={{ base: '8', md: '12', lg: '16' }} px='4' spacingY='8'>
         <FooterBlock
-          gridColumn={{ base: '1/-1', sm: '1 / span 2', md: '1/ span 4', lg: '1/ span 3' }}
+          gridColumn={{
+            base: '1/-1',
+            sm: '1 / span 2',
+            md: '1/ span 4',
+            lg: '1/ span 3'
+          }}
         >
-          <Heading size='sm'>Browse</Heading>
-          <UnorderedList>
+          <Heading size='md'>Browse</Heading>
+          <List>
             <ListItem>
-              <FooterLink to='/'>Welcome</FooterLink>
+              <MenuLink to='/'>
+                <ListIcon as={CollecticonArrowRight} /> Welcome
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='/code-of-conduct'>Code of conduct</FooterLink>
+              <MenuLink to='/code-of-conduct'>
+                <ListIcon as={CollecticonArrowRight} /> Code of conduct
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='/terms-conditions'>Terms & Conditions</FooterLink>
+              <MenuLink to='/terms-conditions'>
+                <ListIcon as={CollecticonArrowRight} /> Terms & Conditions
+              </MenuLink>
             </ListItem>
-          </UnorderedList>
+          </List>
         </FooterBlock>
         <FooterBlock
-          gridColumn={{ base: '1/-1', sm: '3 / span 2', md: '5/ span 4', lg: '4/ span 3' }}
+          gridColumn={{
+            base: '1/-1',
+            sm: '3 / span 2',
+            md: '5/ span 4',
+            lg: '4/ span 3'
+          }}
         >
-          <Heading size='sm'>Past Editions</Heading>
-          <UnorderedList>
+          <Heading size='md'>Past Editions</Heading>
+          <List as='ol'>
             <ListItem>
-              <FooterLink to='https://2022.satsummit.io'>
+              <MenuLink to='https://2022.satsummit.io'>
+                <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2022
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2018.satsummit.io'>
+              <MenuLink to='https://2018.satsummit.io'>
+                <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2018
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2017.satsummit.io'>
+              <MenuLink to='https://2017.satsummit.io'>
+                <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2017
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2015.satsummit.io'>
+              <MenuLink to='https://2015.satsummit.io'>
+                <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2015
-              </FooterLink>
+              </MenuLink>
             </ListItem>
-          </UnorderedList>
+          </List>
         </FooterBlock>
         <FooterBlock
-          gridColumn={{ base: '1/-1', sm: '1 / span 2', md: '1/ span 4', lg: '7/ span 3' }}
+          gridColumn={{
+            base: '1/-1',
+            sm: '1 / span 2',
+            md: '1/ span 4',
+            lg: '7/ span 3'
+          }}
         >
-          <Heading size='sm'>Let&apos;s Connect</Heading>
-          <UnorderedList>
+          <Heading size='md'>Let&apos;s Connect</Heading>
+          <List>
             <ListItem>
-              <FooterLink to='mailto:info@satsummit.io'>
+              <MenuLink to='mailto:info@satsummit.io'>
+                <ListIcon as={CollecticonEnvelope} />
                 Get in Touch
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://twitter.com/intent/user?screen_name=sat_summit'>
+              <MenuLink
+                textStyle='menuLink'
+                to='https://twitter.com/intent/user?screen_name=sat_summit'
+              >
+                <ListIcon as={CollecticonBrandTwitter} />
                 Follow us on X
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://github.com/satsummit'>
+              <MenuLink to='https://github.com/satsummit'>
+                <ListIcon as={CollecticonBrandSatsummit} />
                 Find us on Github
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://www.linkedin.com/showcase/satsummit'>
+              <MenuLink
+                textStyle='menuLink'
+                to='https://www.linkedin.com/showcase/satsummit'
+              >
+                <ListIcon as={CollecticonBrandLinkedin} />
                 Connect through LinkedIn
-              </FooterLink>
+              </MenuLink>
             </ListItem>
-          </UnorderedList>
+          </List>
         </FooterBlock>
         <FooterBlock
-          gridColumn={{ base: '1/-1', sm: '3 / span 2', md: '5/ span 4', lg: '10/ span 3' }}
+          gridColumn={{
+            base: '1/-1',
+            sm: '3 / span 2',
+            md: '5/ span 4',
+            lg: '10/ span 3'
+          }}
         >
-          <Heading size='sm' display='flex' gap='2' alignItems='center'>
-            <LogoIcon color='base.500' />
-            {data.site.siteMetadata.title} {data.site.siteMetadata.edition}
-          </Heading>
-          <Text>
+          <Brand variation='positive' />
+          <Text fontSize='sm'>
             An event by{' '}
             <SmartLink to='https://developmentseed.org' fontWeight='bold'>
               Development Seed
@@ -131,7 +155,7 @@ export default function PageHeader() {
             </SmartLink>
             .
           </Text>
-          <Text fontSize='sm'>Terms & Conditions &copy; 2015-{new Date().getFullYear()}</Text>
+          <Text fontSize='xs'>&copy; 2015-{new Date().getFullYear()}</Text>
         </FooterBlock>
       </Fold>
     </Box>
