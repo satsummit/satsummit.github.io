@@ -6,9 +6,9 @@ export default function PageHeader() {
   return (
     <Box bg='primary.500' as='header'>
       <Container maxW='container.xl' py='12' color='white'>
-        <Flex>
+        <Flex alignItems='center'>
           <Box>
-            <Brand />
+            <Brand variation='negative' />
           </Box>
           <Flex ml='auto'>
             <Box as='nav'>
