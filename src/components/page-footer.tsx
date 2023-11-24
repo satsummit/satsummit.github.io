@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import { Fold } from './fold';
 import SmartLink, { SmartLinkProps } from './smart-link';
-import { graphql, useStaticQuery } from 'gatsby';
 import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
@@ -21,19 +20,7 @@ import {
   CollecticonExpandTopRight
 } from '@devseed-ui/collecticons-chakra';
 import Brand from './brand';
-
-function FooterLink(props: SmartLinkProps) {
-  return (
-    <SmartLink
-      textTransform='uppercase'
-      fontFamily='Barlow Condensed, sans-serif'
-      _hover={{ textDecoration: 'underline' }}
-      display='flex'
-      alignItems='center'
-      {...props}
-    />
-  );
-}
+import MenuLink from './menu-link';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -54,19 +41,19 @@ export default function PageHeader() {
           <Heading size='sm'>Browse</Heading>
           <List>
             <ListItem>
-              <FooterLink to='/'>
+              <MenuLink to='/'>
                 <ListIcon as={CollecticonArrowRight} /> Welcome
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='/code-of-conduct'>
+              <MenuLink to='/code-of-conduct'>
                 <ListIcon as={CollecticonArrowRight} /> Code of conduct
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='/terms-conditions'>
+              <MenuLink to='/terms-conditions'>
                 <ListIcon as={CollecticonArrowRight} /> Terms & Conditions
-              </FooterLink>
+              </MenuLink>
             </ListItem>
           </List>
         </FooterBlock>
@@ -81,28 +68,28 @@ export default function PageHeader() {
           <Heading size='sm'>Past Editions</Heading>
           <List as='ol'>
             <ListItem>
-              <FooterLink to='https://2022.satsummit.io'>
+              <MenuLink to='https://2022.satsummit.io'>
                 <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2022
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2018.satsummit.io'>
+              <MenuLink to='https://2018.satsummit.io'>
                 <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2018
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2017.satsummit.io'>
+              <MenuLink to='https://2017.satsummit.io'>
                 <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2017
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://2015.satsummit.io'>
+              <MenuLink to='https://2015.satsummit.io'>
                 <ListIcon as={CollecticonExpandTopRight} />
                 Satsummit 2015
-              </FooterLink>
+              </MenuLink>
             </ListItem>
           </List>
         </FooterBlock>
@@ -117,28 +104,34 @@ export default function PageHeader() {
           <Heading size='sm'>Let&apos;s Connect</Heading>
           <List>
             <ListItem>
-              <FooterLink to='mailto:info@satsummit.io'>
+              <MenuLink to='mailto:info@satsummit.io'>
                 <ListIcon as={CollecticonEnvelope} />
                 Get in Touch
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://twitter.com/intent/user?screen_name=sat_summit'>
+              <MenuLink
+                textStyle='menuLink'
+                to='https://twitter.com/intent/user?screen_name=sat_summit'
+              >
                 <ListIcon as={CollecticonBrandTwitter} />
                 Follow us on X
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://github.com/satsummit'>
+              <MenuLink to='https://github.com/satsummit'>
                 <ListIcon as={CollecticonBrandSatsummit} />
                 Find us on Github
-              </FooterLink>
+              </MenuLink>
             </ListItem>
             <ListItem>
-              <FooterLink to='https://www.linkedin.com/showcase/satsummit'>
+              <MenuLink
+                textStyle='menuLink'
+                to='https://www.linkedin.com/showcase/satsummit'
+              >
                 <ListIcon as={CollecticonBrandLinkedin} />
                 Connect through LinkedIn
-              </FooterLink>
+              </MenuLink>
             </ListItem>
           </List>
         </FooterBlock>
@@ -153,11 +146,17 @@ export default function PageHeader() {
           <Brand variation='positive' />
           <Text>
             An event by{' '}
-            <SmartLink to='https://developmentseed.org' fontWeight='bold'>
+            <SmartLink
+              to='https://developmentseed.org'
+              fontWeight='bold'
+            >
               Development Seed
             </SmartLink>{' '}
             and{' '}
-            <SmartLink to='https://dev.global/' fontWeight='bold'>
+            <SmartLink
+              to='https://dev.global/'
+              fontWeight='bold'
+            >
               DevGlobal
             </SmartLink>
             .
