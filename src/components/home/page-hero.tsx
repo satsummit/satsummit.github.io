@@ -6,13 +6,44 @@ import mountainUrl from '../../images/home-hero-mountains.svg';
 import sunUrl from '../../images/home-hero-sun.svg';
 import satelitteUrl from '../../images/home-hero-satellite.png';
 
+import astroUrl from '../../images/banner/banner--astro@2x.png';
+import cloudBigUrl from '../../images/banner/banner--cloud-big@2x.png';
+import cloudSmallUrl from '../../images/banner/banner--cloud-small@2x.png';
+import mountainBigUrl from '../../images/banner/banner--mountain-big@2x.png';
+import mountainMediumUrl from '../../images/banner/banner--mountain-medium@2x.png';
+import mountainSmallUrl from '../../images/banner/banner--mountain-small@2x.png';
+import satelliteUrl from '../../images/banner/banner--satellite@2x.png';
+
+export default function HomeHero() {
+  return (
+    <Box position='relative' bg='primary.500'>
+      <Image
+        src={astroUrl}
+        alt='Illustration of a sun.'
+        position='absolute'
+        width={{ base: '400px', md: '200px' }}
+      />
+      <Image
+        src={cloudBigUrl}
+        position='absolute'
+        width={{ base: '400px', md: '200px' }}
+      />
+      {/* <Image src={cloudSmallUrl} position='absolute' />
+      <Image src={mountainBigUrl} position='absolute' />
+      <Image src={mountainMediumUrl} position='absolute' />
+      <Image src={mountainSmallUrl} position='absolute' />
+      <Image src={satelliteUrl} position='absolute' /> */}
+    </Box>
+  );
+}
+
 const heroBg = [
   `url('${mountainUrl}') center bottom / auto 35rem no-repeat`,
   `url('${cloudsUrl}') center bottom / auto 45rem no-repeat`,
   `url('${sunUrl}') calc(50% + 11rem) calc(50% - 5rem) / 12rem no-repeat`
 ].join(', ');
 
-export default function HomeHero() {
+function HomeHero2() {
   const primary = useToken('colors', 'primary.500');
 
   return (
