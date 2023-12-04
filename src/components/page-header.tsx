@@ -14,10 +14,8 @@ export default function PageHeader() {
             <Box as='nav'>
               <Button
                 as='a'
-                colorScheme='white'
-                variant='outline'
-                textTransform='uppercase'
-                borderColor='surface.200a'
+                colorScheme='surface'
+                variant='soft-outline'
                 href='/2024-sponsor-kit.pdf'
                 size={{base: 'sm', lg: 'md'}}
               >
