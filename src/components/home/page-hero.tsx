@@ -16,8 +16,18 @@ import satelliteUrl from '../../images/banner/banner--satellite@2x.png';
 
 export default function HomeHero() {
   return (
-    <Box position='relative' bg='primary.500' minHeight='36rem'>
+    <Box
+      position='relative'
+      bg='primary.500'
+      minHeight='36rem'
+      padding='16'
+      display='flex'
+      alignItems='center'
+    >
       <Flex
+        id='headline'
+        position='relative'
+        zIndex='5'
         maxW='container.xl'
         height='100%'
         alignItems={{ md: 'center' }}
@@ -120,18 +130,33 @@ export default function HomeHero() {
           </Heading>
         </Box>
       </Flex>
+
       <Image
         src={astroUrl}
         alt='A plain yellow shape illustrating the sun over a deep blue sky.'
         position='absolute'
+        zIndex='1'
         bottom='19rem'
         left='calc(50% + 5.5rem)'
         width={{ base: '8rem', md: '10rem', lg: '12rem' }}
       />
-      <Box inset='0' overflow='hidden' border='1px solid red'>
+
+      <Image
+        src={satelliteUrl}
+        alt='A piece of collage illustrating a satellite.'
+        position='absolute'
+        zIndex='2'
+        top={{ base: '-1rem', md: '-2rem', lg: '-4rem' }}
+        right='calc(50% + 8rem)'
+        width={{ base: '16rem', md: '18rem', lg: '20rem' }}
+        pointerEvents='none'
+      />
+
+      <Box id='banner--background' position='absolute' inset='0' overflowX='hidden'>
         <Box
           id='banner--clouds'
           position='absolute'
+          zIndex='2'
           bottom='0'
           left='calc(50%)'
           transform='translateX(-50%)'
@@ -159,6 +184,7 @@ export default function HomeHero() {
         <Box
           id='banner--mountains'
           position='absolute'
+          zIndex='3'
           bottom='0'
           left='calc(50%)'
           transform='translateX(-50%)'
@@ -193,15 +219,6 @@ export default function HomeHero() {
           />
         </Box>
       </Box>
-      <Image
-        src={satelliteUrl}
-        alt='A piece of collage illustrating a satellite.'
-        position='absolute'
-        top={{ base: '-1rem', md: '-2rem', lg: '-4rem' }}
-        right='calc(50% + 8rem)'
-        width={{ base: '16rem', md: '18rem', lg: '20rem' }}
-        pointerEvents='none'
-      />
     </Box>
   );
 }

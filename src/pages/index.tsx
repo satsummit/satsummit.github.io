@@ -16,7 +16,7 @@ export default function IndexPage() {
   return (
     <PageLayout>
       <HomeHero />
-      <Flex flexFlow='column' gap='8' py='12' px='4' position='relative'>
+      <Flex flexFlow='column' gap='8' py='12' px='4' position='relative' zIndex='30'>
         <Fold>
           <FoldMedia gridColumn={{ base: '1/-1', lg: '1/ span 6' }} alignSelf='end'>
             <StaticImage
