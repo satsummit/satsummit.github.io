@@ -100,6 +100,20 @@ const theme = {
         borderRadius: 'sm',
         fontFamily: 'Barlow Condensed, serif'
       },
+      sizes: {
+        xs: {
+          fontSize: 'xs'
+        },
+        sm: {
+          fontSize: 'xs'
+        },
+        md: {
+          fontSize: 'sm'
+        },
+        lg: {
+          fontSize: 'sm'
+        }
+      },
       variants: {
         outline: {
           border: '2px solid',
