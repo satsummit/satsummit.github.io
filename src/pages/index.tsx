@@ -1,16 +1,17 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
-import { Button, Divider, Flex, Text, Heading } from '@chakra-ui/react';
+import { Button, Flex, Text, Heading } from '@chakra-ui/react';
 import { StaticImage } from 'gatsby-plugin-image';
+import {
+  CollecticonArrowUpRight,
+  CollecticonDownload2
+} from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
 import HomeHero from '$components/home/page-hero';
 import { Fold, FoldMedia, FoldProse } from '$components/fold';
 import Seo from '$components/seo';
-import {
-  CollecticonArrowUpRight,
-  CollecticonDownload2
-} from '@devseed-ui/collecticons-chakra';
+import { Separator } from '$components/separator';
 
 export default function IndexPage() {
   return (
@@ -36,7 +37,7 @@ export default function IndexPage() {
               world&apos;s most critical development challenges with satellite
               data.
             </Text>
-            <Divider size='0.5' />
+            <Separator bg='base.200a' size='2' />
             <Heading size='3xl'>Stay Tuned</Heading>
             <Text>
               From climate change to population growth to natural resource
