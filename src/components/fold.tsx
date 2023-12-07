@@ -13,7 +13,8 @@ export function Fold(props: SimpleGridProps) {
   return (
     <SimpleGrid
       columns={{ base: 4, md: 8, lg: 12 }}
-      spacing={{ base: '4', lg: '8' }}
+      spacingX={{ base: '4', lg: '8' }}
+      spacingY={{ base: '4', lg: '8' }}
       maxW='container.lg'
       mx='auto'
       {...props}
