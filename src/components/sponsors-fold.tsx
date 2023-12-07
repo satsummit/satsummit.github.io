@@ -76,9 +76,9 @@ export default function SponsorsFold() {
               key={group}
               gridColumn={{ base: '1/-1', lg: 'span 6' }}
               flexFlow='column'
-              gap='8'
+              gap='4'
             >
-              <Heading as='h3' size='sm'>
+              <Heading as='h3' size='md'>
                 {group}
               </Heading>
               <List
