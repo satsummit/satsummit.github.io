@@ -5,7 +5,11 @@ import Brand from './brand';
 export default function PageHeader() {
   return (
     <Box bg='primary.500' as='header'>
-      <Container maxW='container.xl' py='12' color='white'>
+      <Container
+        maxW='container.xl'
+        py={{ base: '8', lg: '12' }}
+        color='white'
+      >
         <Flex alignItems='center'>
           <Box>
             <Brand variation='negative' />
@@ -17,7 +21,7 @@ export default function PageHeader() {
                 colorScheme='surface'
                 variant='soft-outline'
                 href='/2024-sponsor-kit.pdf'
-                size={{base: 'sm', lg: 'md'}}
+                size={{ base: 'sm', lg: 'md' }}
               >
                 Become a Sponsor
               </Button>
