@@ -19,6 +19,7 @@ export default function HomeHero() {
       paddingY={{ base: '12', md: '16' }}
       display='flex'
       flexFlow='column'
+      justifyContent='center'
       alignItems={{ base: 'start', md: 'center' }}
     >
       <Flex
@@ -70,7 +71,7 @@ export default function HomeHero() {
               position: 'absolute',
               width: '100%',
               height: '0.5em',
-              bottom: '0.10em',
+              bottom: '0.05em',
               zIndex: '-1'
             }}
           >
@@ -80,33 +81,34 @@ export default function HomeHero() {
         <Box
           bg='base.500'
           color='white'
-          position='relative'
+          position='absolute'
+          bottom={{ base: '-5rem', md: '-5rem', lg: '3.5rem' }}
+          left={{ base: '8rem', md: '15.5rem', lg: '0' }}
+          transform={{ lg: 'translateX(calc(-100% - 1rem))' }}
           alignSelf={{ base: 'start', md: 'center' }}
           p='4'
-          ml={{ base: '7.5rem', md: '-17rem', lg: '-18rem' }}
-          mt={{ base: '-1.75rem', md: '19rem', lg: '4rem' }}
-          order={{ base: '2', lg: '-1' }}
           _after={{
             position: 'absolute',
             content: '""',
-            width: '0',
-            height: '0',
-            right: { base: 'auto', lg: '0' },
+            width: '1.5rem',
+            height: '1rem',
+            background: 'base.500',
+            top: { lg: '100%' },
             left: { base: '0', lg: 'auto' },
-            bottom: { base: 'auto', lg: '-1rem' },
-            top: { base: '-1rem', lg: 'auto' },
-            borderTop: { lg: '1rem solid' },
-            borderTopColor: { lg: 'base.500' },
-            borderLeft: { lg: '1.5rem solid transparent' },
-            borderBottom: { base: '1rem solid', lg: 'none' },
-            borderBottomColor: { base: 'base.500', lg: 'none' },
-            borderRight: { base: '1.5rem solid transparent', lg: 'none' }
+            right: { lg: '0' },
+            bottom: { base: '100%', lg: 'auto' },
+            clipPath: {
+              base: 'polygon(0 0, 0% 100%, 100% 100%)',
+              lg: 'polygon(0 0, 100% 0, 100% 100%)'
+            }
           }}
         >
           <Heading
             as='p'
             textTransform='uppercase'
             fontSize={{ base: '1.5rem', md: '2rem' }}
+            lineHeight='1'
+            whiteSpace='nowrap'
           >
             May 16 & 17th
             <br />
@@ -120,21 +122,20 @@ export default function HomeHero() {
         alt='A plain yellow shape illustrating the sun over a deep blue sky.'
         position='absolute'
         zIndex='1'
-        top={{ base: '2rem', md: 'auto' }}
+        top={{ base: '3rem', md: 'auto' }}
         bottom={{ base: 'auto', md: '19rem' }}
-        left={{ base: '2rem', md: 'calc(50% + 5.5rem)' }}
-        width={{ base: '6rem', md: '10rem', lg: '12rem' }}
+        left={{ base: '1rem', md: 'calc(50% + 6rem)' }}
+        width={{ base: '6rem', md: '12rem' }}
       />
 
       <Image
         src={satelliteUrl}
         alt='A piece of collage illustrating a satellite.'
         position='absolute'
-        zIndex='2'
-        top={{ base: '-1rem', md: '-2rem', lg: '-4rem' }}
-        right={{ base: '1rem', sm: '3rem', md: 'calc(50% + 8rem)' }}
-        width={{ base: '10rem', md: '18rem', lg: '20rem' }}
-        pointerEvents='none'
+        zIndex='6'
+        top={{ base: '-1.5rem', md: '-2rem', lg: '-4rem' }}
+        right={{ base: '4%', sm: '8%', md: 'calc(50% + 8rem)' }}
+        width={{ base: '10rem', sm: '12rem', md: '16rem', lg: '20rem' }}
       />
 
       <Box
@@ -165,7 +166,7 @@ export default function HomeHero() {
             alt='A piece of collage illustrating small clouds.'
             position='absolute'
             bottom='0'
-            left={{ base: '20rem', md: 'calc(50% + 24rem)' }}
+            left={{ base: '22rem', md: 'calc(50% + 24rem)' }}
             width={{ base: '26rem', md: '42rem', lg: '44rem' }}
           />
         </Box>
@@ -190,7 +191,7 @@ export default function HomeHero() {
             src={mountainMediumUrl}
             alt='A plain white triangle shape illustrating an average mountain next to a summit.'
             position='absolute'
-            left={{ base: '8rem', md: 'calc(50% - 3rem)' }}
+            left={{ base: '10rem', md: 'calc(50% - 3rem)' }}
             bottom='0'
             width={{ base: '28rem', md: '50rem', lg: '52rem' }}
           />
@@ -198,7 +199,7 @@ export default function HomeHero() {
             src={mountainBigUrl}
             alt='A plain white triangle shape illustrating a summit.'
             position='absolute'
-            left={{ base: '-14rem', md: '50%' }}
+            left={{ base: '-12rem', md: '50%' }}
             transform={{ base: 'none', md: 'translateX(-50%)' }}
             bottom='0'
             width={{ base: '46rem', md: '78rem', lg: '80rem' }}

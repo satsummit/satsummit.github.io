@@ -7,6 +7,7 @@ export default function PageHeader() {
     <Box bg='primary.500' as='header'>
       <Container
         maxW='container.xl'
+        px={{ base: '4', md: '8' }}
         py={{ base: '8', lg: '12' }}
         color='white'
       >
