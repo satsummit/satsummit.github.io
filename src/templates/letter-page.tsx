@@ -26,7 +26,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
       <Container
         py={{ base: '8', lg: '16' }}
         px='8'
-        maxW='container.md'
+        maxW='container.lg'
         display='flex'
         flexFlow='column'
         gap='8'

@@ -8,14 +8,14 @@ import {
   useToken
 } from '@chakra-ui/react';
 
-import cloudUrl from '../images/cloud.png';
+import cloudSmallUrl from '../images/banner/banner--cloud-small@2x.png';
 
 interface PageHeroProps {
   title: string;
   lead?: string;
 }
 
-const heroBg = `url('${cloudUrl}') calc(100% + 10rem) bottom / auto 16rem no-repeat`;
+const heroBg = `url('${cloudSmallUrl}') calc(100% + 20rem) bottom / auto 16rem no-repeat`;
 
 export default function PageHero(props: PageHeroProps) {
   const { title, lead } = props;

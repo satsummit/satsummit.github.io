@@ -21,6 +21,7 @@ export default function HomeHero() {
       flexFlow='column'
       justifyContent='center'
       alignItems={{ base: 'start', md: 'center' }}
+      pointerEvents='none'
     >
       <Flex
         id='banner--headline'
@@ -29,6 +30,7 @@ export default function HomeHero() {
         height='100%'
         flexFlow={{ base: 'column', md: 'row' }}
         gap='4'
+        pointerEvents='auto'
       >
         <Heading
           as='h1'
