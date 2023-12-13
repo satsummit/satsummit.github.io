@@ -5,8 +5,7 @@ import {
   Flex,
   FlexProps,
   SimpleGrid,
-  SimpleGridProps,
-  useToken
+  SimpleGridProps
 } from '@chakra-ui/react';
 
 export function Fold(props: SimpleGridProps) {
