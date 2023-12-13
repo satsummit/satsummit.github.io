@@ -25,7 +25,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
       <PageHero title={title} lead={lead} />
       <Container
         py={{ base: '8', lg: '16' }}
-        px='8'
+        px={{ base: '4', md: '8' }}
         maxW='container.lg'
         display='flex'
         flexFlow='column'

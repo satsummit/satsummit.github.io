@@ -26,6 +26,9 @@ export default function IndexPage() {
             />
           </FoldMedia>
           <FoldProse
+            display='flex'
+            flexFlow='column'
+            gap={{ base: '4', lg: '8' }}
             gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
             mt={{ base: '0', lg: '-40' }}
           >

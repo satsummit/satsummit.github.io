@@ -24,25 +24,25 @@ export default function PageHero(props: PageHeroProps) {
 
   return (
     <Box
-      as='header'
       background={{
         base: primary,
         // Can't use tokens with this bg notation.
         lg: `${heroBg}, ${primary}`
       }}
-      px='8'
-      pb='8'
+      px={{ base: '4', md: '8' }}
+      py={{ base: '8', lg: '16' }}
     >
       <Container
         maxW='container.xl'
         color='white'
-        minHeight='14rem'
         display='flex'
         alignItems='center'
         p='0'
       >
         <Flex flexFlow='column' gap='4'>
-          <Heading size='4xl' as='h1'>{title}</Heading>
+          <Heading size='4xl' as='h1'>
+            {title}
+          </Heading>
           {lead && (
             <Text textStyle='lead.lg' maxW='container.sm'>
               {lead}

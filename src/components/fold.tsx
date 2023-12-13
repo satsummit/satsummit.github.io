@@ -15,7 +15,7 @@ export function Fold(props: SimpleGridProps) {
       columns={{ base: 4, md: 8, lg: 12 }}
       spacingX={{ base: '4', lg: '8' }}
       spacingY={{ base: '4', lg: '8' }}
-      maxW='container.lg'
+      maxW='container.xl'
       mx='auto'
       {...props}
     />
@@ -27,7 +27,5 @@ export function FoldProse(props: FlexProps) {
 }
 
 export function FoldMedia(props: BoxProps) {
-  const primary = useToken('colors', 'primary.500');
-
-  return <Box boxShadow={`0 -4px 0 0 ${primary}`} {...props} />;
+  return <Box borderRadius='sm' overflow='hidden' {...props} />;
 }
