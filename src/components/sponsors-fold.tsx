@@ -59,8 +59,16 @@ export default function SponsorsFold() {
   );
 
   return (
-    <Box bg='base.50' as='section'>
-      <Fold py={{ base: '8', md: '12', lg: '16' }} px='4' spacingY='12'>
+    <Box
+      as='section'
+      bg='base.50'
+      px={{ base: '4', md: '8' }}
+      pt={{ base: '8', lg: '16' }}
+      display='flex'
+      flexFlow='column'
+      gap={{ base: '8', lg: '16' }}
+    >
+      <Fold spacingY={{ base: '4', lg: '8' }}>
         <Heading as='h2' gridColumn='1/-1'>
           Sponsors
         </Heading>
@@ -84,7 +92,7 @@ export default function SponsorsFold() {
               <List
                 as='ol'
                 display='grid'
-                gap='8'
+                gap={{ base: '4', lg: '8' }}
                 gridTemplateColumns='repeat(2, 1fr)'
               >
                 {items.map((node) => {
@@ -100,8 +108,8 @@ export default function SponsorsFold() {
                         justifyContent='center'
                         height='100%'
                         padding='4'
+                        borderRadius='sm'
                         background='surface.500'
-                        boxShadow='sm'
                         _hover={{
                           '> *': {
                             opacity: 0.64
@@ -129,7 +137,7 @@ export default function SponsorsFold() {
           );
         })}
       </Fold>
-      <Separator m='auto' maxW='container.lg' bg='base.200a' size='2' />
+      <Separator m='auto' maxW='container.xl' bg='base.200a' size='2' />
     </Box>
   );
 }
