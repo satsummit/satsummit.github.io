@@ -29,7 +29,10 @@ function FooterBlock(props: FlexProps) {
 export default function PageHeader() {
   return (
     <Box bg='base.50' as='footer'>
-      <Fold py={{ base: '8', lg: '16' }} px='0' spacingY='8'>
+      <Fold
+        p={{ base: '8', lg: '16' }}
+        spacingY='8'
+      >
         <FooterBlock
           gridColumn={{
             base: '1/-1',

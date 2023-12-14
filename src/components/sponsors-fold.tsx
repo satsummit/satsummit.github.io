@@ -92,7 +92,7 @@ export default function SponsorsFold() {
               <List
                 as='ol'
                 display='grid'
-                gap='8'
+                gap={{ base: '4', lg: '8' }}
                 gridTemplateColumns='repeat(2, 1fr)'
               >
                 {items.map((node) => {
