@@ -29,7 +29,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
         maxW='container.lg'
         display='flex'
         flexFlow='column'
-        gap='8'
+        gap={{ base: '4', md: '8' }}
       >
         <MDXProvider
           components={{

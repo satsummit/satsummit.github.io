@@ -17,9 +17,19 @@ export default function IndexPage() {
   return (
     <PageLayout>
       <HomeHero />
-      <Flex flexFlow='column' gap='8' py='12' px='4' position='relative' zIndex='30'>
+      <Flex
+        flexFlow='column'
+        gap='8'
+        py='12'
+        px='4'
+        position='relative'
+        zIndex='30'
+      >
         <Fold>
-          <FoldMedia gridColumn={{ base: '1/-1', lg: '1/ span 6' }} alignSelf='end'>
+          <FoldMedia
+            gridColumn={{ base: '1/-1', lg: '1/ span 6' }}
+            alignSelf='end'
+          >
             <StaticImage
               src='../images/home/home-vibe-2.jpg'
               alt='Four people sitting in line with the second one talking to a microphone'
@@ -45,10 +55,7 @@ export default function IndexPage() {
             <Text>
               From climate change to population growth to natural resource
               availability, earth observation data offers insights into
-              today&apos;s biggest global issues.
-            </Text>
-            <Text>
-              Subscribe to the newsletter for more information on{' '}
+              today&apos;s biggest global issues. Subscribe to the newsletter for more information on{' '}
               <strong>SatSummit 2024</strong>!
             </Text>
             <Button
@@ -57,8 +64,9 @@ export default function IndexPage() {
               colorScheme='primary'
               alignSelf='start'
               rightIcon={<CollecticonArrowUpRight />}
+              size={{ base: 'md', lg: 'lg' }}
             >
-              Subscribe
+              Subscribe newsletter
             </Button>
           </FoldProse>
         </Fold>
@@ -81,7 +89,12 @@ export default function IndexPage() {
           </FoldMedia>
         </Fold>
         <Fold>
-          <FoldProse gridColumn={{ base: '1/-1', lg: '1/ span 6' }}>
+          <FoldProse
+            gridColumn={{ base: '1/-1', lg: '1/ span 6' }}
+            display='flex'
+            flexFlow='column'
+            gap={{ base: '4', lg: '8' }}
+          >
             <Heading size='3xl'>Become a Sponsor</Heading>
             <Text>
               We&apos;re excited to partner with thought and industry leaders in
@@ -95,6 +108,7 @@ export default function IndexPage() {
               alignSelf='start'
               href='/2024-sponsor-kit.pdf'
               rightIcon={<CollecticonDownload2 />}
+              size={{ base: 'md', lg: 'lg' }}
             >
               Download the kit
             </Button>
