@@ -2,11 +2,12 @@ import * as React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { Container, Heading, ListItem, OrderedList, Text, UnorderedList } from '@chakra-ui/react';
 
-import PageLayout from '../components/page-layout';
-import PageHero from '../components/page-hero';
+import PageLayout from '$components/page-layout';
+import PageHero from '$components/page-hero';
 import { Letter } from '../types';
 import { MDXProvider } from '@mdx-js/react';
 import Seo from '$components/seo';
+import { Separator } from '$components/separator';
 
 interface LetterPageProps {
   letter: Letter;
@@ -42,7 +43,8 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
             p: (props) => <Text {...props} />,
             ul: (props) => <UnorderedList {...props} />,
             ol: (props) => <OrderedList {...props} />,
-            li: (props) => <ListItem {...props} />
+            li: (props) => <ListItem {...props} />,
+            hr: (props) => <Separator bg='base.200a' size='1' {...props} />
           }}
         >
           {children}
