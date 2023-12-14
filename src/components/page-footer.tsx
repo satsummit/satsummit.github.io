@@ -32,7 +32,7 @@ export default function PageHeader() {
       as='footer'
       bg='base.50'
       px={{ base: '4', md: '8' }}
-      pt={{ base: '8', lg: '16' }}
+      py={{ base: '8', lg: '16' }}
     >
       <Fold spacingY={{ base: '6', md: '8' }}>
         <FooterBlock
