@@ -13,21 +13,22 @@ export default function NotFoundPage() {
       <PageHero title='Page not found' lead="That's a 404 error." />
       <Container
         py={{ base: '8', lg: '16' }}
-        px='8'
-        maxW='container.md'
+        px={{ base: '4', md: '8' }}
+        maxW='container.lg'
         display='flex'
         flexFlow='column'
-        gap='8'
+        gap={{ base: '4', md: '8' }}
       >
-        <Text fontSize='lg'>
-          We were not able to find the page you are looking for. It may have
+        <Text fontSize={{ base: 'sm', lg: 'md' }}>
+          We were not able to find the page you are looking for. <br />It may have
           been archived or removed.
         </Text>
-        <Text fontSize='lg'>
+        <Text fontSize={{ base: 'sm', lg: 'md' }}>
           If you think this page should be here let us know via{' '}
           <SmartLink to='mailto:info@satsummit.io' title='Send us an email'>
             <strong>info@satsummit.io</strong>
-          </SmartLink>.
+          </SmartLink>
+          .
         </Text>
       </Container>
     </PageLayout>

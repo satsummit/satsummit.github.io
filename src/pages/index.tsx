@@ -55,8 +55,10 @@ export default function IndexPage() {
             <Text>
               From climate change to population growth to natural resource
               availability, earth observation data offers insights into
-              today&apos;s biggest global issues. Subscribe to the newsletter for more information on{' '}
-              <strong>SatSummit 2024</strong>!
+              today&apos;s biggest global issues.
+            </Text>
+            <Text>
+              Stay tuned for more information on <strong>SatSummit 2024</strong>!
             </Text>
             <Button
               as='a'
@@ -66,7 +68,7 @@ export default function IndexPage() {
               rightIcon={<CollecticonArrowUpRight />}
               size={{ base: 'md', lg: 'lg' }}
             >
-              Subscribe newsletter
+              Get the newsletter
             </Button>
           </FoldProse>
         </Fold>
@@ -99,8 +101,8 @@ export default function IndexPage() {
             <Text>
               We&apos;re excited to partner with thought and industry leaders in
               the satellite and development communities, and through their
-              sponsorship and support of SatSummit, we are solving real-world
-              and global development challenges.
+              sponsorship and support of <strong>SatSummit</strong>, we are
+              solving real-world and global development challenges.
             </Text>
             <Button
               as='a'
