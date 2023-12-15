@@ -99,6 +99,46 @@ const theme = {
         textTransform: 'uppercase',
         borderRadius: 'sm',
         fontFamily: 'Barlow Condensed, serif'
+      },
+      sizes: {
+        xs: {
+          fontSize: 'xs'
+        },
+        sm: {
+          fontSize: 'xs'
+        },
+        md: {
+          fontSize: 'sm'
+        },
+        lg: {
+          fontSize: 'sm'
+        }
+      },
+      variants: {
+        outline: {
+          border: '2px solid',
+          '.chakra-button__group[data-attached][data-orientation=horizontal] > &:not(:last-of-type)':
+            { marginEnd: '-2px' },
+          '.chakra-button__group[data-attached][data-orientation=vertical] > &:not(:last-of-type)':
+            { marginBottom: '-2px' }
+        },
+        'soft-outline': (props) => {
+          const { colorScheme: c } = props;
+          return {
+            border: '2px solid',
+            borderColor: `${c}.200a`,
+            '.chakra-button__group[data-attached][data-orientation=horizontal] > &:not(:last-of-type)':
+              { marginEnd: '-2px' },
+            '.chakra-button__group[data-attached][data-orientation=vertical] > &:not(:last-of-type)':
+              { marginBottom: '-2px' },
+            _hover: {
+              bg: `${c}.50a`
+            },
+            _active: {
+              bg: `${c}.100a`
+            }
+          };
+        }
       }
     }
   }
