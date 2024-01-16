@@ -21,10 +21,10 @@ export default function PageHeader() {
                 as='a'
                 colorScheme='surface'
                 variant='soft-outline'
-                href='/2024-sponsor-kit.pdf'
+                href='https://forms.gle/Y9QnbzVcJuTpkMpX8'
                 size={{ base: 'sm', lg: 'md' }}
               >
-                Become a Sponsor
+                Call for Speakers
               </Button>
             </Box>
           </Flex>
