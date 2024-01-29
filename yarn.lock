@@ -1976,6 +1976,11 @@
   resolved "https://registry.yarnpkg.com/@devseed-ui/collecticons-chakra/-/collecticons-chakra-0.1.0-beta.tgz#e5ba538ddde42bca33a8f7c73868eb6184be5138"
   integrity sha512-MMgwK3mTjFnDWN3mVNki7vEixg5TBhdfdAffugjGoVzOPdwL8+/r8ud9672W/BTctfgKDQbJKtMZNEanv4oIJQ==
 
+"@devseed-ui/hug-chakra@^0.1.0-beta":
+  version "0.1.0-beta"
+  resolved "https://registry.yarnpkg.com/@devseed-ui/hug-chakra/-/hug-chakra-0.1.0-beta.tgz#5bec80a1c43362c4aef4200d918796c3daf0b532"
+  integrity sha512-GcD4KHJ14kdEv+1w7HxcTlxN/3tLHx75tsqk7cmVl9pggV3Ik6yetdRYYr+fde7DOu9M/sTLRiHVgr5Alci+hA==
+
 "@emotion/babel-plugin@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz#c2d872b6a7767a9d176d007f5b31f7d504bb5d6c"
