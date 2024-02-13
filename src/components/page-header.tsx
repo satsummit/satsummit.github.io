@@ -37,7 +37,7 @@ function NavMenu(props: NavMenuProps) {
   );
 
   return (
-    <List display='flex' columnGap={4} {...props}>
+    <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
       <ListItem>
         <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
           <MenuLink to='/schedule' {...visuallyDisableProps()}>
@@ -80,7 +80,7 @@ export default function PageHeader() {
               as='nav'
               display='flex'
               flexFlow='row'
-              gap={4}
+              gap={{ base: '2', md: '4', lg: '8' }}
               alignItems='center'
             >
               <Show above={menuBreakpoint}>
@@ -99,9 +99,10 @@ export default function PageHeader() {
               <Hide above={menuBreakpoint}>
                 <Button
                   variant='ghost'
-                  colorScheme='surface'
+                  colorScheme='whiteAlpha'
                   size={{ base: 'sm', lg: 'md' }}
                   onClick={onOpen}
+                  color='currentcolor'
                 >
                   <CollecticonHamburgerMenu
                     title='Open menu drawer'
@@ -117,11 +118,11 @@ export default function PageHeader() {
         <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerCloseButton top={4} right={4} size='sm' />
-            <DrawerHeader display='flex'>
-              <Heading as='span' size='sm'>
+            <DrawerHeader display='flex' gap='4' alignItems='center'>
+              <Heading as='span' size='md' width='100%'>
                 Menu
               </Heading>
+              <DrawerCloseButton position='initial' size='md' />
             </DrawerHeader>
 
             <DrawerBody>
