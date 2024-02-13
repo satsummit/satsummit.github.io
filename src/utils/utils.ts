@@ -13,6 +13,6 @@ export function visuallyDisableProps({
 
   return {
     onClick: clickHandler,
-    opacity: 0.8
+    opacity: 0.64
   };
 }

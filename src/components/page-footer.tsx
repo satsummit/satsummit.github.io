@@ -7,10 +7,9 @@ import {
   ListItem,
   Text,
   ListIcon,
-  List
+  List,
+  Tooltip
 } from '@chakra-ui/react';
-import { Fold } from './fold';
-import SmartLink from './smart-link';
 import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
@@ -19,8 +18,13 @@ import {
   CollecticonEnvelope,
   CollecticonExpandTopRight
 } from '@devseed-ui/collecticons-chakra';
+
+import { Fold } from './fold';
+import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
+
+import { visuallyDisableProps } from '$utils/utils';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -48,6 +52,25 @@ export default function PageHeader() {
             <ListItem>
               <MenuLink to='/'>
                 <ListIcon as={CollecticonArrowRight} /> Welcome
+              </MenuLink>
+            </ListItem>
+            <ListItem>
+              <Tooltip label='Coming soon' placement='right' hasArrow>
+                <MenuLink to='/agenda' {...visuallyDisableProps()}>
+                  <ListIcon as={CollecticonArrowRight} /> Agenda
+                </MenuLink>
+              </Tooltip>
+            </ListItem>
+            <ListItem>
+              <Tooltip label='Coming soon' placement='right' hasArrow>
+                <MenuLink to='/speakers' {...visuallyDisableProps()}>
+                  <ListIcon as={CollecticonArrowRight} /> Speakers
+                </MenuLink>
+              </Tooltip>
+            </ListItem>
+            <ListItem>
+              <MenuLink to='/tickets'>
+                <ListIcon as={CollecticonArrowRight} /> Tickets
               </MenuLink>
             </ListItem>
             <ListItem>
