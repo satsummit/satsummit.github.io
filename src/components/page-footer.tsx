@@ -47,7 +47,7 @@ export default function PageHeader() {
             lg: '1/ span 3'
           }}
         >
-          <Heading size='md'>Browse</Heading>
+          <Heading size='md'>This edition</Heading>
           <List>
             <ListItem>
               <MenuLink to='/'>
