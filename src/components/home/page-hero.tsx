@@ -1,13 +1,13 @@
 import React from 'react';
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 
-import astroUrl from '../../images/banner/banner--astro@2x.png';
-import cloudBigUrl from '../../images/banner/banner--cloud-big@2x.png';
-import cloudSmallUrl from '../../images/banner/banner--cloud-small@2x.png';
-import mountainBigUrl from '../../images/banner/banner--mountain-big@2x.png';
-import mountainMediumUrl from '../../images/banner/banner--mountain-medium@2x.png';
-import mountainSmallUrl from '../../images/banner/banner--mountain-small@2x.png';
-import satelliteUrl from '../../images/banner/banner--satellite@2x.png';
+import astroUrl from '$images/banner/banner--astro@2x.png';
+import cloudBigUrl from '$images/banner/banner--cloud-big@2x.png';
+import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
+import mountainBigUrl from '$images/banner/banner--mountain-big@2x.png';
+import mountainMediumUrl from '$images/banner/banner--mountain-medium@2x.png';
+import mountainSmallUrl from '$images/banner/banner--mountain-small@2x.png';
+import satelliteUrl from '$images/banner/banner--satellite@2x.png';
 
 export default function HomeHero() {
   return (

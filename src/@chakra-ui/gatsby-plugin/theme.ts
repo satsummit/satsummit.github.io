@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
+import { extendHugConfig } from '@devseed-ui/hug-chakra';
 import { createColorPalette } from './color-palette';
 
 const theme = {
@@ -141,6 +142,11 @@ const theme = {
         }
       }
     }
+  },
+  config: {
+    ...extendHugConfig({
+      layoutMax: 'container.xl'
+    })
   }
 };
 
