@@ -74,13 +74,18 @@ export default function PageHeader() {
               </MenuLink>
             </ListItem>
             <ListItem>
+              <MenuLink to='/practical-info'>
+                <ListIcon as={CollecticonArrowRight} /> Practical info
+              </MenuLink>
+            </ListItem>
+            <ListItem>
               <MenuLink to='/code-of-conduct'>
                 <ListIcon as={CollecticonArrowRight} /> Code of conduct
               </MenuLink>
             </ListItem>
             <ListItem>
               <MenuLink to='/terms-conditions'>
-                <ListIcon as={CollecticonArrowRight} /> Terms & Conditions
+                <ListIcon as={CollecticonArrowRight} /> Terms & conditions
               </MenuLink>
             </ListItem>
           </List>
