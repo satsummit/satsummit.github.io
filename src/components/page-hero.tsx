@@ -8,7 +8,7 @@ import {
   useToken
 } from '@chakra-ui/react';
 
-import cloudSmallUrl from '../images/banner/banner--cloud-small@2x.png';
+import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
 
 interface PageHeroProps {
   title: string;
