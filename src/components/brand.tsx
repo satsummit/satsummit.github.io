@@ -36,6 +36,7 @@ export default function Brand(props: BrandProps) {
         gap='3'
         textDecoration='none'
         transition='opacity 0.24s ease 0s'
+        color='currentcolor'
         _hover={{
           opacity: '0.64'
         }}
