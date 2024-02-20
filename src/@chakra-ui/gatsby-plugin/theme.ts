@@ -95,6 +95,11 @@ const theme = {
         }
       }
     },
+    Link: {
+      baseStyle: {
+        color: 'primary.500'
+      }
+    },
     Button: {
       baseStyle: {
         textTransform: 'uppercase',
