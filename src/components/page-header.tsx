@@ -122,7 +122,12 @@ export default function PageHeader() {
         <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerHeader display='flex' gap='4' alignItems='center'>
+            <DrawerHeader
+              display='flex'
+              gap='4'
+              alignItems='center'
+              py={{ base: '8', lg: '12' }}
+            >
               <Heading as='span' size='md' width='100%'>
                 Menu
               </Heading>
