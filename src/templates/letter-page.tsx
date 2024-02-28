@@ -54,7 +54,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
             ol: (props) => <OrderedList {...props} />,
             li: (props) => <ListItem {...props} />,
             hr: (props) => <Separator bg='base.200a' size='1' {...props} />,
-            a: (props) => <Link color='primary.500' {...props} />
+            a: (props) => <Link {...props} />
           }}
         >
           {children}

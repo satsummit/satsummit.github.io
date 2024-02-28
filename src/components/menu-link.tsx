@@ -18,6 +18,7 @@ export default React.forwardRef<HTMLLinkElement, SmartLinkProps>(
         fontSize='sm'
         textTransform='uppercase'
         transition='opacity 0.24s ease 0s'
+        color='currentColor'
         _hover={{
           opacity: '0.64',
           textDecoration: 'none'
