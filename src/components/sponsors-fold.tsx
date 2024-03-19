@@ -14,7 +14,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Separator } from './separator';
 import { Sponsor } from '../types';
 
-const sponsorsGroups = ['Hosts', 'Platinum', 'Gold', 'Silver', 'Bronze'];
+const sponsorsGroups = ['Platinum', 'Gold', 'Silver', 'Bronze', 'Hosts'];
 
 const opticalLogoAdjustments = {
   /* Adjust image optical size */
