@@ -78,6 +78,8 @@ export default function PracticalInfoMap() {
             boxShadow='md'
             fontSize='sm'
             borderRadius='md'
+            whiteSpace='nowrap'
+            textAlign='center'
             _visited={{
               color: 'inherit',
               textDecoration: 'none'
@@ -106,7 +108,10 @@ export default function PracticalInfoMap() {
               }
             }}
           >
-            <Heading as='strong' size='sm'>Convene</Heading>
+            <Heading as='strong' size='sm'>
+              SatSummit 2024
+              <br /> <small>at Convene</small>
+            </Heading>
           </SmartLink>,
           markerContainer
         )}
