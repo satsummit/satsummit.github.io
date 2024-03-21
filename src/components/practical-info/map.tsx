@@ -18,7 +18,7 @@ export default function PracticalInfoMap() {
 
     const mbMap = new mapboxgl.Map({
       container: mapRef.current,
-      style: 'mapbox://styles/devseed/cl803wr4400eh15n04usidflr',
+      style: 'mapbox://styles/devseed/cltwvo1u300bv01qsbkli6jcz',
       logoPosition: 'bottom-left',
       attributionControl: false,
       trackResize: true,
