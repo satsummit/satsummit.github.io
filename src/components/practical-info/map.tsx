@@ -26,7 +26,8 @@ export default function PracticalInfoMap() {
       dragRotate: false,
       scrollZoom: false,
       center: [-77.03228, 38.89786],
-      zoom: 14
+      zoom: 14,
+      minZoom: 12.5
     });
 
     // Include attribution.
