@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { createPortal } from 'react-dom';
 import SmartLink from '$components/smart-link';
 
@@ -109,8 +109,7 @@ export default function PracticalInfoMap() {
             }}
           >
             <Heading as='strong' size='sm'>
-              SatSummit 2024
-              <br /> <small>at Convene</small>
+              SatSummit 2024 <Text as='small' display='block' lineHeight='1'>at Convene</Text>
             </Heading>
           </SmartLink>,
           markerContainer
