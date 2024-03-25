@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { createPortal } from 'react-dom';
 import SmartLink from '$components/smart-link';
 
@@ -18,7 +18,7 @@ export default function PracticalInfoMap() {
 
     const mbMap = new mapboxgl.Map({
       container: mapRef.current,
-      style: 'mapbox://styles/devseed/cl803wr4400eh15n04usidflr',
+      style: 'mapbox://styles/devseed/cltwvo1u300bv01qsbkli6jcz',
       logoPosition: 'bottom-left',
       attributionControl: false,
       trackResize: true,
@@ -26,7 +26,8 @@ export default function PracticalInfoMap() {
       dragRotate: false,
       scrollZoom: false,
       center: [-77.03228, 38.89786],
-      zoom: 14
+      zoom: 14,
+      minZoom: 12.5
     });
 
     // Include attribution.
@@ -77,6 +78,8 @@ export default function PracticalInfoMap() {
             boxShadow='md'
             fontSize='sm'
             borderRadius='md'
+            whiteSpace='nowrap'
+            textAlign='center'
             _visited={{
               color: 'inherit',
               textDecoration: 'none'
@@ -105,7 +108,9 @@ export default function PracticalInfoMap() {
               }
             }}
           >
-            <Heading as='strong' size='sm'>Convene</Heading>
+            <Heading as='strong' size='sm'>
+              SatSummit 2024 <Text as='small' display='block' lineHeight='1'>at Convene</Text>
+            </Heading>
           </SmartLink>,
           markerContainer
         )}
