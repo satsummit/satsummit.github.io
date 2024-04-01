@@ -14,7 +14,14 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Separator } from './separator';
 import { Sponsor } from '../types';
 
-const sponsorsGroups = ['Platinum', 'Gold', 'Silver', 'Bronze', 'Hosts'];
+const sponsorsGroups = [
+  'Platinum',
+  'Gold',
+  'Silver',
+  'Bronze',
+  'Hosts',
+  'Media Partner'
+];
 
 const opticalLogoAdjustments = {
   /* Adjust image optical size */
@@ -82,7 +89,10 @@ export default function SponsorsFold() {
           return (
             <Flex
               key={group}
-              gridColumn={{ base: '1/-1', lg: 'span 6' }}
+              gridColumn={{
+                base: '1/-1',
+                lg: group === 'Hosts' ? '1 / span 6' : 'span 6'
+              }}
               flexFlow='column'
               gap='4'
             >
