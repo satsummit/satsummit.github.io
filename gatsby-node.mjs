@@ -3,6 +3,7 @@ import { add } from 'date-fns';
 import { generateEventsMDXIndex } from './plugins/events-mdx-index.mjs';
 
 const letterTemplate = path.resolve('./src/templates/letter-page.tsx');
+const peopleTemplate = path.resolve('./src/templates/people-page.tsx');
 const agendaHubTemplate = path.resolve('./src/templates/agenda-hub.tsx');
 
 const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
@@ -70,6 +71,14 @@ export const createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      allPeople(filter: { title: { ne: "" }, published: { eq: true } }) {
+        nodes {
+          slug
+          internal {
+            contentFilePath
+          }
+        }
+      }
     }
   `);
 
@@ -79,6 +88,16 @@ export const createPages = async ({ actions, graphql }) => {
       path: `/${slug}`,
       // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
       component: `${letterTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: { slug }
+    });
+  });
+
+  data?.allPeople.nodes.forEach((node) => {
+    const { slug } = node;
+    actions.createPage({
+      path: `/speakers/${slug}`,
+      // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
+      component: `${peopleTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: { slug }
     });
   });
