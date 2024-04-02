@@ -15,9 +15,10 @@ const config: GatsbyConfig = {
       twitter: `@sat_summit`
     }
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
+  // More easily incorporate content into your pages through automatic
+  // TypeScript type generation and better GraphQL IntelliSense. If you use
+  // VSCode you can also use the GraphQL plugin Learn more at:
+  // https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     {
@@ -91,7 +92,21 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `sponsor`,
-        path: `${__dirname}/content/sponsors`
+        path: `./content/sponsors`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `event`,
+        path: `./content/events`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `people`,
+        path: `./content/people`
       }
     },
     {

@@ -39,7 +39,10 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mdx-js/react": "^2.3.0",
+    "@nikolovlazar/chakra-ui-prose": "^1.2.1",
     "@types/mapbox-gl": "^2.7.21",
+    "@types/mdx": "^2.0.12",
+    "date-fns": "^3.6.0",
     "framer-motion": "^10.18.0",
     "gatsby": "^5.13.3",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -74,6 +77,8 @@
   },
   "alias": {
     "$components": "./src/components",
+    "$templates": "./src/templates",
+    "$pages": "./src/pages",
     "$images": "./src/images",
     "$utils": "./src/utils"
   }
