@@ -1,5 +1,4 @@
 import fs from 'fs';
-import { CreatePagesArgs } from 'gatsby';
 
 // 🧑‍🏫 🧑‍🏫 🧑‍🏫
 // Right! Let's go over the shennanigans that are happening here.
@@ -45,10 +44,8 @@ import { CreatePagesArgs } from 'gatsby';
 
 // The only other thing is that we use `lazy` so that the file is lighter.
 
-export async function generateEventsMDXIndex(
-  graphql: CreatePagesArgs['graphql']
-) {
-  const { data } = await graphql<{ allEvent: { nodes: Queries.Event[] } }>(`
+export async function generateEventsMDXIndex(graphql) {
+  const { data } = await graphql(`
     query {
       allEvent {
         nodes {
