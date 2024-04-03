@@ -39,11 +39,7 @@ function NavMenu(props: NavMenuProps) {
   return (
     <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
       <ListItem>
-        <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
-          <MenuLink to='/agenda' {...visuallyDisableProps()}>
-            Agenda
-          </MenuLink>
-        </Tooltip>
+        <MenuLink to='/agenda'>Agenda</MenuLink>
       </ListItem>
       <ListItem>
         <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>

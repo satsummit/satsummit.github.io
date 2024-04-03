@@ -63,6 +63,11 @@ export const createPages = async ({ actions, graphql }) => {
 
   const { data } = await graphql(`
     query {
+      site {
+        siteMetadata {
+          eventDates
+        }
+      }
       allLetter(filter: { title: { ne: "" }, published: { eq: true } }) {
         nodes {
           slug
@@ -103,7 +108,9 @@ export const createPages = async ({ actions, graphql }) => {
   });
 
   // Agenda pages for the different days.
-  const evenDates = [new Date('2022-09-28'), new Date('2022-09-29')];
+  const evenDates = data.site.siteMetadata.eventDates.map(
+    (date) => new Date(date)
+  );
   evenDates.forEach((date, i) => {
     actions.createPage({
       path: i ? `/agenda/${i + 1}` : `/agenda`,

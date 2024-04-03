@@ -3196,6 +3196,7 @@ type SiteSiteMetadata = {
   readonly author: Maybe<SiteSiteMetadataAuthor>;
   readonly description: Maybe<Scalars['String']>;
   readonly edition: Maybe<Scalars['Date']>;
+  readonly eventDates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly social: Maybe<SiteSiteMetadataSocial>;
   readonly subtitle: Maybe<Scalars['String']>;
@@ -3204,6 +3205,14 @@ type SiteSiteMetadata = {
 
 
 type SiteSiteMetadata_editionArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type SiteSiteMetadata_eventDatesArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -3230,6 +3239,7 @@ type SiteSiteMetadataFieldSelector = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFieldSelector>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly edition: InputMaybe<FieldSelectorEnum>;
+  readonly eventDates: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFieldSelector>;
   readonly subtitle: InputMaybe<FieldSelectorEnum>;
@@ -3240,6 +3250,7 @@ type SiteSiteMetadataFilterInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFilterInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly edition: InputMaybe<DateQueryOperatorInput>;
+  readonly eventDates: InputMaybe<DateQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFilterInput>;
   readonly subtitle: InputMaybe<StringQueryOperatorInput>;
@@ -3266,6 +3277,7 @@ type SiteSiteMetadataSortInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorSortInput>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly edition: InputMaybe<SortOrderEnum>;
+  readonly eventDates: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialSortInput>;
   readonly subtitle: InputMaybe<SortOrderEnum>;

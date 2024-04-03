@@ -1,13 +1,29 @@
-import React from 'react';
-import { HeadFC, PageProps, graphql } from 'gatsby';
+import React, { useCallback, useEffect } from 'react';
+import { HeadFC, PageProps, graphql, navigate } from 'gatsby';
 import { format, parse } from 'date-fns';
-import { Box, Heading, ListItem, OrderedList } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Container,
+  Flex,
+  Heading,
+  ListItem,
+  OrderedList,
+  Text,
+  useBreakpointValue
+} from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
 
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
 import { AgendaEvent } from '$components/agenda/event';
+import SmartLink from '$components/smart-link';
+import { Global } from '@emotion/react';
+import {
+  CollecticonArrowLeft,
+  CollecticonArrowRight
+} from '@devseed-ui/collecticons-chakra';
 
 export const timeFromDate = (d: Date) => format(d, 'hh:mmaaa');
 
@@ -31,9 +47,12 @@ interface AgendaPageQuery {
   allEvent: {
     nodes: AgendaEvent[];
   };
+  site: { siteMetadata: { eventDates: string[] } };
 }
 
-export default function AgendaPage(props: PageProps<AgendaPageQuery>) {
+export default function AgendaPage(
+  props: PageProps<AgendaPageQuery, { start: string; end: string }>
+) {
   const hourGroups = props.data.allEvent.nodes.reduce<
     Record<string, AgendaEvent[]>
   >((acc, event) => {
@@ -44,9 +63,77 @@ export default function AgendaPage(props: PageProps<AgendaPageQuery>) {
     };
   }, {});
 
+  useEffect(() => {
+    document.getElementById(location.hash.slice(1))?.scrollIntoView();
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, []);
+
+  const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
+
+  const eventDates = props.data.site.siteMetadata.eventDates.map(
+    (d) => new Date(d)
+  );
+  const currentDay = new Date(props.pageContext.start);
+
   return (
     <PageLayout>
-      <PageHero title='Agenda' lead='Everything you can see at satsummit' />
+      <Global
+        styles={{
+          html: {
+            scrollPaddingTop: scrollPad
+          }
+        }}
+      />
+      <Box
+        background='primary.500'
+        px={{ base: '4', md: '8' }}
+        py={{ base: '8', lg: '16' }}
+      >
+        <Container
+          maxW='container.xl'
+          color='white'
+          display='flex'
+          flexFlow={{ base: 'column', md: 'row' }}
+          gap={8}
+          p='0'
+        >
+          <Flex flexFlow='column' gap='4'>
+            <Heading size='4xl' as='h1'>
+              Agenda
+            </Heading>
+            <Text textStyle='lead.lg' maxW='container.sm'>
+              2 days of presentations and in-depth conversations
+            </Text>
+          </Flex>
+          <Flex
+            alignSelf={{ base: 'flex-start', md: 'flex-end' }}
+            ml={{ md: 'auto' }}
+          >
+            <ButtonGroup
+              isAttached
+              colorScheme='surface'
+              variant='soft-outline'
+              size={{ base: 'sm', md: 'md' }}
+            >
+              {eventDates.map((date, i) => (
+                <Button
+                  key={date.getTime()}
+                  as={SmartLink}
+                  to={!i ? '/agenda/' : `/agenda/${i + 1}`}
+                  isActive={date.getTime() === currentDay.getTime()}
+                  color='currentColor'
+                  _hover={{
+                    textDecoration: 'none',
+                    bg: 'surface.50a'
+                  }}
+                >
+                  {format(date, 'EEEE, LLL dd')}
+                </Button>
+              ))}
+            </ButtonGroup>
+          </Flex>
+        </Container>
+      </Box>
 
       <Hug>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
@@ -104,7 +191,57 @@ export default function AgendaPage(props: PageProps<AgendaPageQuery>) {
           </Hug>
         ))}
       </Hug>
+
+      <TabsSecNav dates={eventDates} currentDay={currentDay} />
     </PageLayout>
+  );
+}
+
+function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
+  const { dates, currentDay } = props;
+
+  const activeIdx = dates.findIndex(
+    (d) => d.getTime() === currentDay.getTime()
+  );
+
+  const goToTab = useCallback((idx: number) => {
+    navigate(!idx ? '/agenda/' : `/agenda/${idx + 1}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
+  return (
+    <Hug>
+      <Flex gridColumn='content-start / content-end'>
+        {activeIdx > 0 && (
+          <Button
+            variant='solid'
+            colorScheme='primary'
+            size={{ base: 'md', md: 'lg' }}
+            onClick={() => {
+              goToTab(activeIdx - 1);
+            }}
+          >
+            <CollecticonArrowLeft /> View previous day
+          </Button>
+        )}
+        {activeIdx < dates.length - 1 && (
+          <Button
+            variant='solid'
+            colorScheme='primary'
+            size={{ base: 'md', md: 'lg' }}
+            ml='auto'
+            onClick={() => {
+              goToTab(activeIdx + 1);
+            }}
+          >
+            View next day <CollecticonArrowRight />
+          </Button>
+        )}
+      </Flex>
+    </Hug>
   );
 }
 
@@ -129,7 +266,17 @@ export const query = graphql`
         }
       }
     }
+    site {
+      siteMetadata {
+        eventDates
+      }
+    }
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Agenda' />;
+export const Head: HeadFC = () => (
+  <Seo
+    title='Agenda'
+    description='2 days of presentations and in-depth conversations.'
+  />
+);

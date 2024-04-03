@@ -35,6 +35,11 @@ const theme = {
   },
   styles: {
     global: {
+      html:{
+        '&:focus-within': {
+          scrollBehavior: 'smooth'
+        }
+      },
       body: {
         fontSize: ['sm', null, null, 'md'],
         color: 'base.500'
