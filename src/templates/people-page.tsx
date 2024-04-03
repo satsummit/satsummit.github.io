@@ -1,17 +1,29 @@
 import * as React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
-import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
-import { Container, Text } from '@chakra-ui/react';
+import { getImage, ImageDataLike } from 'gatsby-plugin-image';
+import {
+  Box,
+  Container,
+  Heading,
+  ListItem,
+  OrderedList
+} from '@chakra-ui/react';
+import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
 import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';
+import SpeakerHero from '$components/speakers/speaker-hero';
+import { AgendaEvent } from '$components/agenda/event';
 
 interface PeoplePageProps {
   people: Queries.People;
 }
+
+type Sure<T> = {
+  [P in keyof T]: NonNullable<T[P]>;
+};
 
 export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
   const {
@@ -23,17 +35,13 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
 
   return (
     <PageLayout>
-      <PageHero title={title!} />
-
-      <Text>
-        {role} at {company}
-        {pronouns && <span> • {pronouns}</span>}
-      </Text>
-
-      <GatsbyImage
+      <SpeakerHero
+        title={title!}
+        role={role}
+        company={company}
+        pronouns={pronouns}
+        twitter={twitter}
         image={getImage(avatar as unknown as ImageDataLike)!}
-        alt={`Picture of ${title}`}
-        objectFit='contain'
       />
 
       <Container
@@ -46,6 +54,52 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
       >
         <MDXProse>{children}</MDXProse>
       </Container>
+
+      {!!events?.length && (
+        <Hug>
+          <Box
+            gridColumn={{
+              base: 'content-start / content-end',
+              md: 'content-2 / content-8',
+              lg: 'content-2 / content-12',
+              xl: 'content-3 / content-11'
+            }}
+          >
+            <Heading as='h2' size='xl'>
+              On the agenda
+            </Heading>
+
+            <Hug
+              as={OrderedList}
+              listStyleType='none'
+              hugGrid={{
+                base: ['content-start', 'content-end'],
+                md: ['content-2', 'content-8'],
+                lg: ['content-3', 'content-11']
+              }}
+              display='flex'
+              flexFlow='column nowrap'
+            >
+              {events.map(({ event }) => {
+                const eventData = event as Sure<Queries.Event>;
+                return (
+                  <ListItem key={eventData.cId} gridColumn='1/-1'>
+                    <AgendaEvent
+                      startingHLevel={3}
+                      cId={eventData.cId}
+                      title={eventData.title}
+                      type={eventData.type}
+                      date={eventData.date}
+                      room={eventData.room}
+                      people={eventData.people}
+                    />
+                  </ListItem>
+                );
+              })}
+            </Hug>
+          </Box>
+        </Hug>
+      )}
     </PageLayout>
   );
 }
@@ -61,7 +115,7 @@ export const query = graphql`
       pronouns
       avatar {
         childImageSharp {
-          gatsbyImageData(width: 640, placeholder: BLURRED)
+          gatsbyImageData(width: 296, placeholder: BLURRED, aspectRatio: 1)
         }
       }
       events {

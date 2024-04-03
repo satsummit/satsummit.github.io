@@ -119,13 +119,10 @@ export default function AgendaPage(
                 <Button
                   key={date.getTime()}
                   as={SmartLink}
+                  noLinkStyles
                   to={!i ? '/agenda/' : `/agenda/${i + 1}`}
                   isActive={date.getTime() === currentDay.getTime()}
                   color='currentColor'
-                  _hover={{
-                    textDecoration: 'none',
-                    bg: 'surface.50a'
-                  }}
                 >
                   {format(date, 'EEEE, LLL dd')}
                 </Button>

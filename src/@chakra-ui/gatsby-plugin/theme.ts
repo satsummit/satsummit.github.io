@@ -1,5 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 import { extendHugConfig } from '@devseed-ui/hug-chakra';
+import { withProse } from '@nikolovlazar/chakra-ui-prose';
+
 import { createColorPalette } from './color-palette';
 
 const theme = {
@@ -35,8 +37,8 @@ const theme = {
   },
   styles: {
     global: {
-      html:{
-        '&:focus-within': {
+      html: {
+        '&': {
           scrollBehavior: 'smooth'
         }
       },
@@ -133,6 +135,7 @@ const theme = {
           '.chakra-button__group[data-attached][data-orientation=vertical] > &:not(:last-of-type)':
             { marginBottom: '-2px' }
         },
+        // @ts-expect-error no type for props
         'soft-outline': (props) => {
           const { colorScheme: c } = props;
           return {
@@ -160,4 +163,13 @@ const theme = {
   }
 };
 
-export default extendTheme(theme);
+export default extendTheme(
+  theme,
+  withProse({
+    baseStyle: {
+      a: {
+        color: 'primary.500'
+      }
+    }
+  })
+);

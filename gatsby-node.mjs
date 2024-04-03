@@ -129,6 +129,8 @@ export const createSchemaCustomization = ({ actions, schema }) => {
     `
     type Event implements Node {
       # type
+      cid: String!
+      slug: String!
       title: String!
       date: Date!
       room: String
@@ -163,7 +165,7 @@ export const createSchemaCustomization = ({ actions, schema }) => {
         // straightforward relation because we need to know what is the role
         // that the person plays in the event.
         events: {
-          type: '[RoleInEvent]',
+          type: '[RoleInEvent!]',
           resolve: async (source, args, context) => {
             const results = await Promise.all([
               searchEventForRole('hosts', source.title, context),

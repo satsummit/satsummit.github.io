@@ -1877,7 +1877,7 @@ type People = Node & {
   readonly cId: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly company: Scalars['String'];
-  readonly events: Maybe<ReadonlyArray<Maybe<RoleInEvent>>>;
+  readonly events: Maybe<ReadonlyArray<RoleInEvent>>;
   readonly group: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
