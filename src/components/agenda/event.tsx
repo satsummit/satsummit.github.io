@@ -1,14 +1,14 @@
 import React from 'react';
-import { As, Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { As, Box, Flex, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
 import { format } from 'date-fns';
 
 import { peopleCategories } from './utils';
 import SmartLink from '../smart-link';
-import { parseEventDate, timeFromDate } from '../../templates/agenda-hub';
 
 import { EventPeople } from '$components/agenda/event-people';
 import { events } from '$components/agenda/events-gen';
 import { MDXProse } from '$components/mdx-prose';
+import { parseEventDate, timeFromDate } from '$utils/utils';
 
 // Get the Heading tag.
 const hl = (l: number) => (l > 0 ? (`h${l}` as As) : undefined);
@@ -21,6 +21,7 @@ interface AgendaEventProps {
   room: string;
   people: Queries.EventPeople;
   startingHLevel?: number;
+  linkTo?: string;
 }
 
 export function AgendaEvent(props: AgendaEventProps) {
@@ -32,7 +33,8 @@ export function AgendaEvent(props: AgendaEventProps) {
     room,
     people,
     // Starting level for the highest heading on this component.
-    startingHLevel = -1
+    startingHLevel = -1,
+    linkTo = '/agenda/'
   } = props;
 
   const dateObj = parseEventDate(date);
@@ -45,12 +47,12 @@ export function AgendaEvent(props: AgendaEventProps) {
       <Flex pos='relative' align='flex-end' gap={4}>
         <Flex flexDir='column'>
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
-            <SmartLink to={`/agenda#${cId}`}>{title}</SmartLink>
+            <SmartLink to={`${linkTo}#${cId}`}>{title}</SmartLink>
           </Heading>
           <Heading as='p' size='sm' order={-1}>
-            <span>
+            <VisuallyHidden>
               {format(dateObj, 'MMM. dd')}, {time} <i>•</i>{' '}
-            </span>
+            </VisuallyHidden>
             {type} <Text as='i'>•</Text> {room}
           </Heading>
         </Flex>

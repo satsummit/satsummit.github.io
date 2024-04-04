@@ -1,4 +1,5 @@
 import { MouseEvent, MouseEventHandler } from 'react';
+import { format, parse } from 'date-fns';
 
 export function visuallyDisableProps({
   onClick
@@ -16,3 +17,8 @@ export function visuallyDisableProps({
     opacity: 0.64
   };
 }
+
+export const timeFromDate = (d: Date) => format(d, 'hh:mmaaa');
+
+export const parseEventDate = (d: string) =>
+  parse(d, 'yyyy-MM-dd HH:mm', new Date());

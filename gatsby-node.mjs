@@ -127,21 +127,27 @@ export const createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `
-    type Event implements Node {
-      # type
-      cid: String!
-      slug: String!
-      title: String!
-      date: Date!
-      room: String
-      people: EventPeople
-    }
-
     type RoleInEvent {
       role: String!
       event: Event
     }
   `,
+    schema.buildObjectType({
+      name: 'Event',
+      fields: {
+        cid: 'String!',
+        slug: 'String!',
+        title: 'String!',
+        fringe: {
+          type: 'Boolean!',
+          resolve: (source) => !!source.fringe
+        },
+        date: 'Date!',
+        room: 'String',
+        people: 'EventPeople'
+      },
+      interfaces: ['Node']
+    }),
     schema.buildObjectType({
       name: 'People',
       fields: {

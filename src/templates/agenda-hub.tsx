@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { HeadFC, PageProps, graphql, navigate } from 'gatsby';
-import { format, parse } from 'date-fns';
+import { format } from 'date-fns';
 import {
   Box,
   Button,
@@ -14,21 +14,17 @@ import {
   useBreakpointValue
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
-
-import Seo from '$components/seo';
-import PageLayout from '$components/page-layout';
-import { AgendaEvent } from '$components/agenda/event';
-import SmartLink from '$components/smart-link';
 import { Global } from '@emotion/react';
 import {
   CollecticonArrowLeft,
   CollecticonArrowRight
 } from '@devseed-ui/collecticons-chakra';
 
-export const timeFromDate = (d: Date) => format(d, 'hh:mmaaa');
-
-export const parseEventDate = (d: string) =>
-  parse(d, 'yyyy-MM-dd HH:mm', new Date());
+import Seo from '$components/seo';
+import PageLayout from '$components/page-layout';
+import { AgendaEvent } from '$components/agenda/event';
+import SmartLink from '$components/smart-link';
+import { parseEventDate, timeFromDate } from '$utils/utils';
 
 interface AgendaEvent {
   parent: {
@@ -133,6 +129,9 @@ export default function AgendaPage(
       </Box>
 
       <Hug>
+        <Heading gridColumn='content-start/content-end'>
+          {format(currentDay, 'EEEE, LLL dd')}
+        </Heading>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <Hug
             as='section'
@@ -245,7 +244,11 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
 export const query = graphql`
   query ($start: Date, $end: Date) {
     allEvent(
-      filter: { date: { gt: $start, lt: $end } }
+      filter: {
+        date: { gt: $start, lt: $end }
+        published: { eq: true }
+        fringe: { eq: false }
+      }
       sort: [{ slug: ASC }, { date: ASC }]
     ) {
       nodes {
@@ -258,6 +261,7 @@ export const query = graphql`
         type
         date
         room
+        fringe
         people {
           ...AllEventPeople
         }

@@ -366,14 +366,16 @@ type DuotoneGradient = {
 type Event = Node & {
   readonly cId: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
+  readonly cid: Scalars['String'];
   readonly date: Scalars['Date'];
+  readonly fringe: Scalars['Boolean'];
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly people: Maybe<EventPeople>;
   readonly published: Maybe<Scalars['Boolean']>;
   readonly room: Maybe<Scalars['String']>;
-  readonly slug: Maybe<Scalars['String']>;
+  readonly slug: Scalars['String'];
   readonly title: Scalars['String'];
   readonly type: Maybe<Scalars['String']>;
 };
@@ -426,7 +428,9 @@ type EventEdge = {
 type EventFieldSelector = {
   readonly cId: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly cid: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fringe: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -440,7 +444,9 @@ type EventFieldSelector = {
 type EventFilterInput = {
   readonly cId: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly cid: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fringe: InputMaybe<BooleanQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -507,7 +513,9 @@ type EventPeople = {
 type EventSortInput = {
   readonly cId: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly cid: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fringe: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -1668,6 +1676,7 @@ type MdxFrontmatter = {
   readonly avatar: Maybe<File>;
   readonly company: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
+  readonly fringe: Maybe<Scalars['Boolean']>;
   readonly group: Maybe<Scalars['String']>;
   readonly image: Maybe<File>;
   readonly lead: Maybe<Scalars['String']>;
@@ -1693,6 +1702,7 @@ type MdxFrontmatterFieldSelector = {
   readonly avatar: InputMaybe<FileFieldSelector>;
   readonly company: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fringe: InputMaybe<FieldSelectorEnum>;
   readonly group: InputMaybe<FieldSelectorEnum>;
   readonly image: InputMaybe<FileFieldSelector>;
   readonly lead: InputMaybe<FieldSelectorEnum>;
@@ -1710,6 +1720,7 @@ type MdxFrontmatterFilterInput = {
   readonly avatar: InputMaybe<FileFilterInput>;
   readonly company: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fringe: InputMaybe<BooleanQueryOperatorInput>;
   readonly group: InputMaybe<StringQueryOperatorInput>;
   readonly image: InputMaybe<FileFilterInput>;
   readonly lead: InputMaybe<StringQueryOperatorInput>;
@@ -1725,25 +1736,21 @@ type MdxFrontmatterFilterInput = {
 
 type MdxFrontmatterPeople = {
   readonly moderators: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly panelists: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly speakers: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
 };
 
 type MdxFrontmatterPeopleFieldSelector = {
   readonly moderators: InputMaybe<FieldSelectorEnum>;
-  readonly panelists: InputMaybe<FieldSelectorEnum>;
   readonly speakers: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFrontmatterPeopleFilterInput = {
   readonly moderators: InputMaybe<StringQueryOperatorInput>;
-  readonly panelists: InputMaybe<StringQueryOperatorInput>;
   readonly speakers: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MdxFrontmatterPeopleSortInput = {
   readonly moderators: InputMaybe<SortOrderEnum>;
-  readonly panelists: InputMaybe<SortOrderEnum>;
   readonly speakers: InputMaybe<SortOrderEnum>;
 };
 
@@ -1751,6 +1758,7 @@ type MdxFrontmatterSortInput = {
   readonly avatar: InputMaybe<FileSortInput>;
   readonly company: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fringe: InputMaybe<SortOrderEnum>;
   readonly group: InputMaybe<SortOrderEnum>;
   readonly image: InputMaybe<FileSortInput>;
   readonly lead: InputMaybe<SortOrderEnum>;
@@ -2242,7 +2250,9 @@ type Query_directoryArgs = {
 type Query_eventArgs = {
   cId: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
+  cid: InputMaybe<StringQueryOperatorInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fringe: InputMaybe<BooleanQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;

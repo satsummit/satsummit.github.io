@@ -42,6 +42,9 @@ function NavMenu(props: NavMenuProps) {
         <MenuLink to='/agenda'>Agenda</MenuLink>
       </ListItem>
       <ListItem>
+        <MenuLink to='/fringe'>Fringe</MenuLink>
+      </ListItem>
+      <ListItem>
         <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
           <MenuLink to='/speakers' {...visuallyDisableProps()}>
             Speakers
