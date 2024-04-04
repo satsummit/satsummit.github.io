@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { As, Box, Flex, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
 import { format } from 'date-fns';
 
@@ -22,6 +22,7 @@ interface AgendaEventProps {
   people: Queries.EventPeople;
   startingHLevel?: number;
   linkTo?: string;
+  showDate?: boolean;
 }
 
 export function AgendaEvent(props: AgendaEventProps) {
@@ -34,13 +35,16 @@ export function AgendaEvent(props: AgendaEventProps) {
     people,
     // Starting level for the highest heading on this component.
     startingHLevel = -1,
-    linkTo = '/agenda/'
+    linkTo = '/agenda/',
+    showDate = false
   } = props;
 
   const dateObj = parseEventDate(date);
   const time = timeFromDate(dateObj);
 
   const EventMDXContent = events[cId];
+
+  const DateWrapper = showDate ? Fragment : VisuallyHidden;
 
   return (
     <Flex as='article' flexDir='column' gap={2}>
@@ -50,9 +54,9 @@ export function AgendaEvent(props: AgendaEventProps) {
             <SmartLink to={`${linkTo}#${cId}`}>{title}</SmartLink>
           </Heading>
           <Heading as='p' size='sm' order={-1}>
-            <VisuallyHidden>
+            <DateWrapper>
               {format(dateObj, 'MMM. dd')}, {time} <i>•</i>{' '}
-            </VisuallyHidden>
+            </DateWrapper>
             {type} <Text as='i'>•</Text> {room}
           </Heading>
         </Flex>

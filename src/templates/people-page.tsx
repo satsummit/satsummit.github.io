@@ -86,6 +86,7 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
                   <ListItem key={eventData.cId} gridColumn='1/-1'>
                     <AgendaEvent
                       startingHLevel={3}
+                      showDate
                       cId={eventData.cId}
                       title={eventData.title}
                       type={eventData.type}
