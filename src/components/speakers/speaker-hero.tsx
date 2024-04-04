@@ -9,24 +9,26 @@ import {
   useToken
 } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { CollecticonBrandLinkedin } from '@devseed-ui/collecticons-chakra';
 
 import SmartLink from '$components/smart-link';
+import { CollecticonBrandX } from '$components/icons/brand-x';
+
 import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
-import { CollecticonBrandTwitter } from '@devseed-ui/collecticons-chakra';
 
 interface SpeakerHeroProps {
   title: string;
   role: string;
   company: string;
   pronouns?: string | null;
-  twitter?: string | null;
+  social?: Record<string, string | null> | null;
   image: IGatsbyImageData;
 }
 
 const heroBg = `url('${cloudSmallUrl}') calc(100% + 20rem) bottom / auto 16rem no-repeat`;
 
 export default function SpeakerHero(props: SpeakerHeroProps) {
-  const { title, role, company, pronouns, twitter, image } = props;
+  const { title, role, company, pronouns, social, image } = props;
 
   const primary = useToken('colors', 'primary.500');
 
@@ -73,17 +75,32 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
             {pronouns && <span> • {pronouns}</span>}
           </Text>
 
-          {twitter && (
-            <Flex gap={{ base: 4, md: 8 }}>
-              <Button
-                as={SmartLink}
-                noLinkStyles
-                variant='soft-outline'
-                colorScheme='surface'
-                to={`https://twitter.com/${twitter}`}
-              >
-                <CollecticonBrandTwitter /> @{twitter}
-              </Button>
+          {social && (
+            <Flex gap={{ base: 2, md: 4 }}>
+              {social.x && (
+                <Button
+                  as={SmartLink}
+                  noLinkStyles
+                  variant='soft-outline'
+                  colorScheme='surface'
+                  to={`https://twitter.com/${social.x}`}
+                  leftIcon={<CollecticonBrandX />}
+                >
+                  @{social.x}
+                </Button>
+              )}
+              {social.linkedin && (
+                <Button
+                  as={SmartLink}
+                  noLinkStyles
+                  variant='soft-outline'
+                  colorScheme='surface'
+                  to={`https://www.linkedin.com/in/${social.linkedin}`}
+                  leftIcon={<CollecticonBrandLinkedin />}
+                >
+                  {social.linkedin}
+                </Button>
+              )}
             </Flex>
           )}
         </Flex>

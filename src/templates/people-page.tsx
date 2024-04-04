@@ -28,7 +28,7 @@ type Sure<T> = {
 export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
   const {
     data: {
-      people: { title, avatar, role, company, twitter, pronouns, events }
+      people: { title, avatar, role, company, social, pronouns, events }
     },
     children
   } = props;
@@ -40,7 +40,7 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
         role={role}
         company={company}
         pronouns={pronouns}
-        twitter={twitter}
+        social={social}
         image={getImage(avatar as unknown as ImageDataLike)!}
       />
 
@@ -111,7 +111,10 @@ export const query = graphql`
       title
       company
       role
-      twitter
+      social {
+        x
+        linkedin
+      }
       pronouns
       avatar {
         childImageSharp {

@@ -131,6 +131,11 @@ export const createSchemaCustomization = ({ actions, schema }) => {
       role: String!
       event: Event
     }
+
+    type SocialConnections {
+      x: String
+      linkedin: String
+    }
   `,
     schema.buildObjectType({
       name: 'Event',
@@ -154,7 +159,7 @@ export const createSchemaCustomization = ({ actions, schema }) => {
         title: 'String!',
         company: 'String!',
         role: 'String!',
-        twitter: 'String',
+        social: 'SocialConnections',
         avatar: {
           type: 'File',
           extensions: {
