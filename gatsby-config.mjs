@@ -22,7 +22,7 @@ const config = {
     social: {
       twitter: `@sat_summit`
     },
-    eventDates: ['2022-09-28', '2022-09-29']
+    eventDates: ['2024-05-16', '2024-05-17']
   },
   // More easily incorporate content into your pages through automatic
   // TypeScript type generation and better GraphQL IntelliSense. If you use
