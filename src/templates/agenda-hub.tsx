@@ -129,7 +129,7 @@ export default function AgendaPage(
         </Container>
       </Box>
 
-      <Hug>
+      <Hug py={{ base: 8, md: 16 }}>
         <VisuallyHidden>
           <Heading as='h2'>{format(currentDay, 'EEEE, LLL dd')}</Heading>
         </VisuallyHidden>
@@ -138,6 +138,19 @@ export default function AgendaPage(
             as='section'
             key={time}
             hugGrid={{ base: ['content-start', 'content-end'] }}
+            _notFirst={{
+              '& > header': {
+                borderTop: '8px solid',
+                borderTopColor: 'base.200a',
+                paddingTop: 8,
+                mt: { base: 2, md: 0 }
+              },
+              '& > section': {
+                borderTop: { md: '8px solid' },
+                borderTopColor: { md: 'base.200a' },
+                paddingTop: { md: 8 }
+              }
+            }}
           >
             <Box
               as='header'
@@ -169,9 +182,18 @@ export default function AgendaPage(
                 }}
                 display='flex'
                 flexFlow='column nowrap'
+                ml={0}
               >
                 {eventsByTime.map((node) => (
-                  <ListItem key={node.id} gridColumn='1/-1'>
+                  <ListItem
+                    key={node.id}
+                    gridColumn='1/-1'
+                    _notFirst={{
+                      borderTop: '4px solid',
+                      borderTopColor: 'base.200a',
+                      pt: {base:4, md: 8, lg: 10}
+                    }}
+                  >
                     <AgendaEvent
                       startingHLevel={4}
                       cId={node.cId}
@@ -210,7 +232,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
   }, []);
 
   return (
-    <Hug>
+    <Hug pb={16}>
       <Flex gridColumn='content-start / content-end'>
         {activeIdx > 0 && (
           <Button

@@ -3,7 +3,6 @@ import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { getImage, ImageDataLike } from 'gatsby-plugin-image';
 import {
   Box,
-  Container,
   Heading,
   ListItem,
   OrderedList
@@ -44,28 +43,28 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
         image={getImage(avatar as unknown as ImageDataLike)!}
       />
 
-      <Container
-        py={{ base: '8', lg: '16' }}
-        px={{ base: '4', md: '8' }}
-        maxW='container.lg'
-        display='flex'
-        flexFlow='column'
-        gap={{ base: '4', md: '8' }}
-      >
-        <MDXProse>{children}</MDXProse>
-      </Container>
+      <Hug pb={16}>
+        <MDXProse
+          gridColumn={{
+            base: 'content-start / content-end',
+            md: 'content-2 / content-8',
+            lg: 'content-2 / content-12',
+          }}
+        >
+          {children}
+        </MDXProse>
+      </Hug>
 
       {!!events?.length && (
-        <Hug>
+        <Hug pb={16}>
           <Box
             gridColumn={{
               base: 'content-start / content-end',
               md: 'content-2 / content-8',
-              lg: 'content-2 / content-12',
-              xl: 'content-3 / content-11'
+              lg: 'content-2 / content-11',
             }}
           >
-            <Heading as='h2' size='xl'>
+            <Heading as='h2' size='xl' mb={4}>
               On the agenda
             </Heading>
 
@@ -75,15 +74,24 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
               hugGrid={{
                 base: ['content-start', 'content-end'],
                 md: ['content-2', 'content-8'],
-                lg: ['content-3', 'content-11']
+                lg: ['content-2', 'content-11']
               }}
               display='flex'
               flexFlow='column nowrap'
+              ml={0}
             >
               {events.map(({ event }) => {
                 const eventData = event as Sure<Queries.Event>;
                 return (
-                  <ListItem key={eventData.cId} gridColumn='1/-1'>
+                  <ListItem
+                    key={eventData.cId}
+                    gridColumn='1/-1'
+                    _notFirst={{
+                      borderTop: '4px solid',
+                      borderTopColor: 'base.200a',
+                      pt: { base: 4, md: 8, lg: 10 }
+                    }}
+                  >
                     <AgendaEvent
                       startingHLevel={3}
                       showDate

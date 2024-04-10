@@ -1,5 +1,13 @@
 import React, { Fragment } from 'react';
-import { As, Box, Flex, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
+import {
+  As,
+  Box,
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  VisuallyHidden
+} from '@chakra-ui/react';
 import { format } from 'date-fns';
 
 import { peopleCategories } from './utils';
@@ -47,7 +55,7 @@ export function AgendaEvent(props: AgendaEventProps) {
   const DateWrapper = showDate ? Fragment : VisuallyHidden;
 
   return (
-    <Flex as='article' flexDir='column' gap={2}>
+    <Flex as='article' flexDir='column' gap={{ base: 4, md: 6 }}>
       <Flex pos='relative' align='flex-end' gap={4}>
         <Flex flexDir='column'>
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
@@ -63,13 +71,23 @@ export function AgendaEvent(props: AgendaEventProps) {
       </Flex>
       {EventMDXContent && (
         <Box>
-          <MDXProse>
+          <MDXProse
+            sx={{
+              '& >:first-child': { mt: 0 },
+              '& >:last-child': { mb: 0 }
+            }}
+          >
             <EventMDXContent />
           </MDXProse>
         </Box>
       )}
       {people && (
-        <Flex as='footer' flexFlow='row wrap'>
+        <Grid
+          as='footer'
+          templateColumns='min-content auto'
+          rowGap={{ base: 1, lg: 2 }}
+          columnGap={{ base: 2, md: 4 }}
+        >
           {peopleCategories.map((cat) => {
             const key = cat.toLowerCase() as keyof Queries.EventPeople;
             const eventPeople = people[key] as
@@ -81,19 +99,15 @@ export function AgendaEvent(props: AgendaEventProps) {
             }
 
             return (
-              <Flex
-                flexFlow='row wrap'
-                key={key}
-                gap={{ base: 1, md: 1.5, lg: 2 }}
-              >
-                <Heading as={hl(startingHLevel + 1)} size='xs'>
+              <>
+                <Heading as={hl(startingHLevel + 1)} size='sm'>
                   {cat}
                 </Heading>
                 <EventPeople list={eventPeople!} />
-              </Flex>
+              </>
             );
           })}
-        </Flex>
+        </Grid>
       )}
     </Flex>
   );

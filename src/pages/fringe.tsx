@@ -102,11 +102,25 @@ export default function FringePage(
         </Container>
       </Box>
 
-      <Hug>
+      <Hug py={16}>
         {Object.entries(eventsTimeGroups).map(([day, eventsByHour]) => {
           return (
             <Fragment key={day}>
-              <Heading gridColumn='content-start/content-end'>
+              <Heading
+                gridColumn='content-start/content-end'
+                _notFirst={{
+                  pt: 8
+                }}
+                // Needed to override the border set around each event section.
+                sx={{
+                  '& + section': {
+                    '> header, > section': {
+                      border: 'none !important',
+                      paddingTop: '0 !important'
+                    }
+                  }
+                }}
+              >
                 {format(new Date(day), 'EEEE, LLL dd')}
               </Heading>
 
@@ -115,6 +129,19 @@ export default function FringePage(
                   as='section'
                   key={time}
                   hugGrid={{ base: ['content-start', 'content-end'] }}
+                  _notFirst={{
+                    '& > header': {
+                      borderTop: '8px solid',
+                      borderTopColor: 'base.200a',
+                      paddingTop: 8,
+                      mt: { base: 2, md: 0 }
+                    },
+                    '& > section': {
+                      borderTop: { md: '8px solid' },
+                      borderTopColor: { md: 'base.200a' },
+                      paddingTop: { md: 8 }
+                    }
+                  }}
                 >
                   <Box
                     as='header'
@@ -146,9 +173,18 @@ export default function FringePage(
                       }}
                       display='flex'
                       flexFlow='column nowrap'
+                      ml={0}
                     >
                       {events.map((node) => (
-                        <ListItem key={node.id} gridColumn='1/-1'>
+                        <ListItem
+                          key={node.id}
+                          gridColumn='1/-1'
+                          _notFirst={{
+                            borderTop: '4px solid',
+                            borderTopColor: 'base.200a',
+                            pt: { base: 4, md: 8, lg: 10 }
+                          }}
+                        >
                           <AgendaEvent
                             linkTo='/fringe/'
                             startingHLevel={4}

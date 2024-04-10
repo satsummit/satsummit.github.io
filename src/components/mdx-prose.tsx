@@ -1,12 +1,16 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Prose } from '@nikolovlazar/chakra-ui-prose';
+import { Prose, ProseProps } from '@nikolovlazar/chakra-ui-prose';
 
 import { Separator } from './separator';
 import SmartLink from './smart-link';
 import { LinkedSpeaker } from './agenda/linked-speaker';
 
-export function MDXProse(props: React.ComponentProps<typeof MDXProvider>) {
+export function MDXProse(
+  props: React.ComponentProps<typeof MDXProvider> & ProseProps
+) {
+  const { children, ...rest } = props;
+
   return (
     <MDXProvider
       components={{
@@ -27,7 +31,7 @@ export function MDXProse(props: React.ComponentProps<typeof MDXProvider>) {
         )
       }}
     >
-      <Prose>{props.children}</Prose>
+      <Prose {...rest}>{children}</Prose>
     </MDXProvider>
   );
 }
