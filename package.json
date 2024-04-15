@@ -25,7 +25,7 @@
   "scripts": {
     "develop": "gatsby develop -p 9000 -H 0.0.0.0",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "node people-avatar-process.mjs && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "ts-check": "tsc --noEmit",
@@ -39,7 +39,10 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mdx-js/react": "^2.3.0",
+    "@nikolovlazar/chakra-ui-prose": "^1.2.1",
     "@types/mapbox-gl": "^2.7.21",
+    "@types/mdx": "^2.0.12",
+    "date-fns": "^3.6.0",
     "framer-motion": "^10.18.0",
     "gatsby": "^5.13.3",
     "gatsby-plugin-alias-imports": "^1.0.5",
@@ -49,12 +52,20 @@
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
     "gatsby-plugin-webfonts": "^2.3.2",
+    "gatsby-remark-copy-linked-files": "^6.13.1",
+    "gatsby-remark-images": "^7.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "mapbox-gl": "^3.1.2",
     "polished": "^4.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-awesome-reveal": "^4.2.8",
+    "react-dom": "^18.2.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-external-links": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@types/node": "^20.11.10",
@@ -74,6 +85,8 @@
   },
   "alias": {
     "$components": "./src/components",
+    "$templates": "./src/templates",
+    "$pages": "./src/pages",
     "$images": "./src/images",
     "$utils": "./src/utils"
   }
