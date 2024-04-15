@@ -26,6 +26,7 @@ import PageLayout from '$components/page-layout';
 import { AgendaEvent } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
 import { parseEventDate, timeFromDate } from '$utils/utils';
+import { utcString2userTzDate } from '$utils/date';
 
 interface AgendaEvent {
   parent: {
@@ -68,9 +69,9 @@ export default function AgendaPage(
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
   const eventDates = props.data.site.siteMetadata.eventDates.map(
-    (d) => new Date(d)
+    (d) => utcString2userTzDate(d)
   );
-  const currentDay = new Date(props.pageContext.start);
+  const currentDay = utcString2userTzDate(props.pageContext.start);
 
   return (
     <PageLayout>

@@ -18,6 +18,7 @@ import PageLayout from '$components/page-layout';
 import { AgendaEvent } from '$components/agenda/event';
 import { Global } from '@emotion/react';
 import { parseEventDate, timeFromDate } from '$utils/utils';
+import { utcString2userTzDate } from '$utils/date';
 
 interface AgendaEvent {
   parent: {
@@ -121,7 +122,7 @@ export default function FringePage(
                   }
                 }}
               >
-                {format(new Date(day), 'EEEE, LLL dd')}
+                {format(utcString2userTzDate(day), 'EEEE, LLL dd')}
               </Heading>
 
               {Object.entries(eventsByHour).map(([time, events]) => (
