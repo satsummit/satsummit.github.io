@@ -40,3 +40,5 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+src/components/agenda/events-gen.ts

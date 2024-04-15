@@ -39,7 +39,7 @@ The Satsummit website is built using [Gatsby](https://www.gatsbyjs.org/).
     This assumes that you already cloned the repository and have yarn installed globally on your machine.
 
     ```shell
-    yarn install
+    yarn install --ignore-engines
     ```
 
     **Note**: On Apple Silicon M1, you need to [install libvips first](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241). 

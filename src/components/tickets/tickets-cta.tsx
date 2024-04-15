@@ -47,11 +47,11 @@ export function TicketsCta() {
         <Box>
           <Button
             as={SmartLink}
+            noLinkStyles
             to='https://app.tickettailor.com/events/satsummit2024/1151624'
             colorScheme='primary'
             rightIcon={<CollecticonArrowUpRight />}
             size={{ base: 'md', lg: 'lg' }}
-            textDecoration='none !important'
           >
             Book ticket
           </Button>

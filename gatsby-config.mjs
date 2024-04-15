@@ -1,7 +1,15 @@
-import type { GatsbyConfig } from 'gatsby';
-import pkg from './package.json';
+import { createRequire } from 'module';
 
-const config: GatsbyConfig = {
+import remarkGfm from 'remark-gfm';
+import remarkExternalLinks from 'remark-external-links';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+
+const require = createRequire(import.meta.url);
+
+const pkg = require('./package.json');
+
+const config = {
   siteMetadata: {
     siteUrl: 'https://2024.satsummit.io',
     title: 'SatSummit',
@@ -13,11 +21,13 @@ const config: GatsbyConfig = {
     },
     social: {
       twitter: `@sat_summit`
-    }
+    },
+    eventDates: ['2024-05-16', '2024-05-17']
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
+  // More easily incorporate content into your pages through automatic
+  // TypeScript type generation and better GraphQL IntelliSense. If you use
+  // VSCode you can also use the GraphQL plugin Learn more at:
+  // https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     {
@@ -27,7 +37,43 @@ const config: GatsbyConfig = {
       }
     },
     'gatsby-plugin-image',
-    'gatsby-plugin-mdx',
+    // 'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-copy-linked-files',
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
+              quality: 75
+            }
+          }
+        ],
+        mdxOptions: {
+          remarkPlugins: [
+            // Add GitHub Flavored Markdown (GFM) support
+            remarkGfm,
+            // To pass options, use a 2-element array with the
+            // configuration in an object in the second element
+            [remarkExternalLinks, { target: false }]
+          ],
+          rehypePlugins: [
+            // Generate heading ids for rehype-autolink-headings
+            rehypeSlug,
+            // To pass options, use a 2-element array with the
+            // configuration in an object in the second element
+            [
+              rehypeAutolinkHeadings,
+              { behavior: `wrap`, properties: { class: 'anchor-heading' } }
+            ]
+          ]
+        }
+      }
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -91,7 +137,21 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: `sponsor`,
-        path: `${__dirname}/content/sponsors`
+        path: `./content/sponsors`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `event`,
+        path: `./content/events`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `people`,
+        path: `./content/people`
       }
     },
     {

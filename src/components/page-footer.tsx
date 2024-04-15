@@ -14,7 +14,6 @@ import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
   CollecticonBrandSatsummit,
-  CollecticonBrandTwitter,
   CollecticonEnvelope,
   CollecticonExpandTopRight
 } from '@devseed-ui/collecticons-chakra';
@@ -23,6 +22,7 @@ import { Fold } from './fold';
 import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
+import { CollecticonBrandX } from './icons/brand-x';
 
 import { visuallyDisableProps } from '$utils/utils';
 
@@ -147,7 +147,7 @@ export default function PageHeader() {
                 textStyle='menuLink'
                 to='https://twitter.com/intent/user?screen_name=sat_summit'
               >
-                <ListIcon as={CollecticonBrandTwitter} />
+                <ListIcon as={CollecticonBrandX} />
                 Follow us on X
               </MenuLink>
             </ListItem>
