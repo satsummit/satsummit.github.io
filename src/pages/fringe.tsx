@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { HeadFC, PageProps, graphql } from 'gatsby';
+import { Global } from '@emotion/react';
 import { format } from 'date-fns';
 import {
   Box,
@@ -16,7 +17,7 @@ import { Hug } from '@devseed-ui/hug-chakra';
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
 import { AgendaEvent } from '$components/agenda/event';
-import { Global } from '@emotion/react';
+import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
 
@@ -114,8 +115,8 @@ export default function FringePage(
                 }}
                 // Needed to override the border set around each event section.
                 sx={{
-                  '& + section': {
-                    '> header, > section': {
+                  '& + .agenda-time-group': {
+                    '.agenda-time, .agenda-events': {
                       border: 'none !important',
                       paddingTop: '0 !important'
                     }
@@ -126,81 +127,90 @@ export default function FringePage(
               </Heading>
 
               {Object.entries(eventsByHour).map(([time, events]) => (
-                <Hug
-                  as='section'
+                <ChakraFade
                   key={time}
-                  hugGrid={{ base: ['content-start', 'content-end'] }}
+                  className='agenda-time-group'
+                  direction='up'
+                  triggerOnce
+                  gridColumn='content-start / content-end'
                   _notFirst={{
-                    '& > header': {
+                    '.agenda-time': {
                       borderTop: '8px solid',
                       borderTopColor: 'base.200a',
                       paddingTop: 8,
                       mt: { base: 2, md: 0 }
                     },
-                    '& > section': {
+                    '.agenda-events': {
                       borderTop: { md: '8px solid' },
                       borderTopColor: { md: 'base.200a' },
                       paddingTop: { md: 8 }
                     }
                   }}
                 >
-                  <Box
-                    as='header'
-                    gridColumn={{
-                      base: 'content-start/content-end',
-                      md: 'content-start/content-2',
-                      lg: 'content-start/content-3'
-                    }}
-                  >
-                    <Heading as='h3' size='sm'>
-                      {time}
-                    </Heading>
-                  </Box>
                   <Hug
                     as='section'
-                    hugGrid={{
-                      base: ['content-start', 'content-end'],
-                      md: ['content-2', 'content-end'],
-                      lg: ['content-3', 'content-end']
-                    }}
+                    hugGrid={{ base: ['content-start', 'content-end'] }}
                   >
+                    <Box
+                      as='header'
+                      className='agenda-time'
+                      gridColumn={{
+                        base: 'content-start/content-end',
+                        md: 'content-start/content-2',
+                        lg: 'content-start/content-3'
+                      }}
+                    >
+                      <Heading as='h3' size='sm'>
+                        {time}
+                      </Heading>
+                    </Box>
                     <Hug
-                      as={OrderedList}
-                      listStyleType='none'
+                      as='section'
+                      className='agenda-events'
                       hugGrid={{
                         base: ['content-start', 'content-end'],
-                        md: ['content-2', 'content-8'],
-                        lg: ['content-3', 'content-11']
+                        md: ['content-2', 'content-end'],
+                        lg: ['content-3', 'content-end']
                       }}
-                      display='flex'
-                      flexFlow='column nowrap'
-                      ml={0}
                     >
-                      {events.map((node) => (
-                        <ListItem
-                          key={node.id}
-                          gridColumn='1/-1'
-                          _notFirst={{
-                            borderTop: '4px solid',
-                            borderTopColor: 'base.200a',
-                            pt: { base: 4, md: 8, lg: 10 }
-                          }}
-                        >
-                          <AgendaEvent
-                            linkTo='/fringe/'
-                            startingHLevel={4}
-                            cId={node.cId}
-                            title={node.title}
-                            type={node.type}
-                            date={node.date}
-                            room={node.room}
-                            people={node.people}
-                          />
-                        </ListItem>
-                      ))}
+                      <Hug
+                        as={OrderedList}
+                        listStyleType='none'
+                        hugGrid={{
+                          base: ['content-start', 'content-end'],
+                          md: ['content-2', 'content-8'],
+                          lg: ['content-3', 'content-11']
+                        }}
+                        display='flex'
+                        flexFlow='column nowrap'
+                        ml={0}
+                      >
+                        {events.map((node) => (
+                          <ListItem
+                            key={node.id}
+                            gridColumn='1/-1'
+                            _notFirst={{
+                              borderTop: '4px solid',
+                              borderTopColor: 'base.200a',
+                              pt: { base: 4, md: 8, lg: 10 }
+                            }}
+                          >
+                            <AgendaEvent
+                              linkTo='/fringe/'
+                              startingHLevel={4}
+                              cId={node.cId}
+                              title={node.title}
+                              type={node.type}
+                              date={node.date}
+                              room={node.room}
+                              people={node.people}
+                            />
+                          </ListItem>
+                        ))}
+                      </Hug>
                     </Hug>
                   </Hug>
-                </Hug>
+                </ChakraFade>
               ))}
             </Fragment>
           );
