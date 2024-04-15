@@ -28,11 +28,13 @@ import MenuLink from './menu-link';
 
 import { visuallyDisableProps } from '$utils/utils';
 
+const MENU_BRKPOINT = 'lg';
+
 interface NavMenuProps extends ListProps {}
 
 function NavMenu(props: NavMenuProps) {
   const popoverPosition: PlacementWithLogical | undefined = useBreakpointValue(
-    { base: 'right', md: 'bottom' },
+    { base: 'right', [MENU_BRKPOINT]: 'bottom' },
     { fallback: 'bottom' }
   );
 
@@ -42,7 +44,7 @@ function NavMenu(props: NavMenuProps) {
         <MenuLink to='/agenda'>Agenda</MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink to='/fringe'>Fringe</MenuLink>
+        <MenuLink to='/fringe'>Fringe Events</MenuLink>
       </ListItem>
       <ListItem>
         <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
@@ -60,8 +62,6 @@ function NavMenu(props: NavMenuProps) {
     </List>
   );
 }
-
-const menuBreakpoint = 'md';
 
 export default function PageHeader() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -86,7 +86,7 @@ export default function PageHeader() {
               gap={{ base: '2', md: '4', lg: '8' }}
               alignItems='center'
             >
-              <Show above={menuBreakpoint}>
+              <Show above={MENU_BRKPOINT}>
                 <NavMenu />
               </Show>
               <Button
@@ -99,7 +99,7 @@ export default function PageHeader() {
                 Become a Sponsor
               </Button>
 
-              <Hide above={menuBreakpoint}>
+              <Hide above={MENU_BRKPOINT}>
                 <Button
                   variant='ghost'
                   colorScheme='whiteAlpha'
@@ -117,7 +117,7 @@ export default function PageHeader() {
           </Flex>
         </Flex>
       </Container>
-      <Hide above={menuBreakpoint}>
+      <Hide above={MENU_BRKPOINT}>
         <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
           <DrawerOverlay />
           <DrawerContent>

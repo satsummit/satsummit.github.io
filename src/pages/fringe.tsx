@@ -95,10 +95,10 @@ export default function FringePage(
         >
           <Flex flexFlow='column' gap='4'>
             <Heading size='4xl' as='h1'>
-              Fringe
+              Fringe Events
             </Heading>
             <Text textStyle='lead.lg' maxW='container.sm'>
-              Because SatSummit is not just the conference.
+              Happenings for the SatSummit Community.
             </Text>
           </Flex>
         </Container>
@@ -251,7 +251,7 @@ export const query = graphql`
 
 export const Head: HeadFC = () => (
   <Seo
-    title='Fringe'
-    description='Because SatSummit is not just the conference.'
+    title='Fringe Events'
+    description='Happenings for the SatSummit Community.'
   />
 );
