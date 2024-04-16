@@ -109,6 +109,7 @@ export default function FringePage(
           return (
             <Fragment key={day}>
               <Heading
+                size='2xl'
                 gridColumn='content-start/content-end'
                 _notFirst={{
                   pt: 8
@@ -160,7 +161,7 @@ export default function FringePage(
                         lg: 'content-start/content-3'
                       }}
                     >
-                      <Heading as='h3' size='sm'>
+                      <Heading as='h3' size='md'>
                         {time}
                       </Heading>
                     </Box>

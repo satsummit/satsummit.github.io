@@ -36,7 +36,7 @@ export function TicketsCta() {
         gap={{ base: '4', md: '8' }}
         maxW='container.sm'
       >
-        <Heading as='h2' size='3xl'>
+        <Heading as='h2' size='2xl'>
           Get your ticket
         </Heading>
         <p>

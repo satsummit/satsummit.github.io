@@ -40,11 +40,14 @@ export default function PageHero(props: PageHeroProps) {
         p='0'
       >
         <Flex flexFlow='column' gap='4'>
-          <Heading size='4xl' as='h1'>
+          <Heading size='3xl' as='h1'>
             {title}
           </Heading>
           {lead && (
-            <Text textStyle='lead.lg' maxW='container.sm'>
+            <Text
+              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
+              maxW='container.sm'
+            >
               {lead}
             </Text>
           )}

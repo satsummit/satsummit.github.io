@@ -95,6 +95,9 @@ const theme = {
   textStyles: {
     lead: {
       sm: {
+        fontSize: 'sm'
+      },
+      md: {
         fontSize: 'md'
       },
       lg: {
@@ -185,13 +188,13 @@ const proseThemeOverrides: (
         fontFamily: 'heading'
       },
       h1: {
-        ...headingStyles.sizes['4xl']
+        ...headingStyles.sizes['3xl']
       },
       h2: {
         ...headingStyles.sizes['2xl']
       },
       h3: {
-        ...headingStyles.sizes['xl']
+        ...headingStyles.sizes.xl
       },
       h4: {
         ...headingStyles.sizes.lg

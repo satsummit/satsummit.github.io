@@ -76,7 +76,7 @@ export default function SponsorsFold() {
       gap={{ base: '8', lg: '16' }}
     >
       <Fold spacingY={{ base: '4', lg: '8' }}>
-        <Heading as='h2' gridColumn='1/-1'>
+        <Heading as='h2' size='2xl' gridColumn='1/-1'>
           Sponsors
         </Heading>
         {sponsorsGroups.map((group) => {
