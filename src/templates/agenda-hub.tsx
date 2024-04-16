@@ -168,7 +168,7 @@ export default function AgendaPage(
                   lg: 'content-start/content-3'
                 }}
               >
-                <Heading as='h3' size='sm'>
+                <Heading as='h3' size='md'>
                   {time}
                 </Heading>
               </Box>

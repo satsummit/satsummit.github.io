@@ -51,6 +51,7 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
             lg: 'content-2 / content-12',
           }}
         >
+          <Heading as='h2' size='xl'>About</Heading>
           {children}
         </MDXProse>
       </Hug>
