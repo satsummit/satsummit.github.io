@@ -208,6 +208,10 @@ const proseThemeOverrides: (
       },
       'h5 + *, h6 + *': {
         mt: 0
+      },
+      p: {
+        fontSize: 'inherit',
+        lineHeight: 'inherit'
       }
     }
   })(chakraTheme);
