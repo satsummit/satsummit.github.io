@@ -4,6 +4,47 @@ import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
 import { createColorPalette } from './color-palette';
 
+const headingStyles = {
+  baseStyle: {
+    fontWeight: '600',
+    textTransform: 'uppercase'
+  },
+  sizes: {
+    xs: {
+      fontSize: ['xs', null, null, 'sm'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    sm: {
+      fontSize: ['sm', null, null, 'md'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    md: {
+      fontSize: ['md', null, null, 'lg'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    lg: {
+      fontSize: ['lg', null, null, 'xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    xl: {
+      fontSize: ['xl', null, null, '2xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '2xl': {
+      fontSize: ['2xl', null, null, '3xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '3xl': {
+      fontSize: ['3xl', null, null, '4xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '4xl': {
+      fontSize: ['4xl', null, null, '5xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    }
+  }
+};
+
 const theme = {
   colors: {
     primary: createColorPalette('#1a5bdb'),
@@ -62,46 +103,7 @@ const theme = {
     }
   },
   components: {
-    Heading: {
-      baseStyle: {
-        fontWeight: '600',
-        textTransform: 'uppercase'
-      },
-      sizes: {
-        xs: {
-          fontSize: ['xs', null, null, 'sm'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        sm: {
-          fontSize: ['sm', null, null, 'md'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        md: {
-          fontSize: ['md', null, null, 'lg'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        lg: {
-          fontSize: ['lg', null, null, 'xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        xl: {
-          fontSize: ['xl', null, null, '2xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '2xl': {
-          fontSize: ['2xl', null, null, '3xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '3xl': {
-          fontSize: ['3xl', null, null, '4xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '4xl': {
-          fontSize: ['4xl', null, null, '5xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        }
-      }
-    },
+    Heading: headingStyles,
     Link: {
       baseStyle: {
         color: 'primary.500'
@@ -168,7 +170,37 @@ export default extendTheme(
   withProse({
     baseStyle: {
       a: {
-        color: 'primary.500'
+        color: 'primary.500',
+        fontWeight: 'inherit'
+      },
+      'h1, h2, h3, h4, h5, h6': {
+        ...headingStyles.baseStyle,
+        fontFamily: 'heading'
+      },
+      h1: {
+        ...headingStyles.sizes['4xl']
+      },
+      h2: {
+        ...headingStyles.sizes['2xl']
+      },
+      h3: {
+        ...headingStyles.sizes['xl']
+      },
+      h4: {
+        ...headingStyles.sizes.lg
+      },
+      h5: {
+        ...headingStyles.sizes.md,
+        mt: { base: 6, md: 8 },
+        mb: 2
+      },
+      h6: {
+        ...headingStyles.sizes.sm,
+        mt: { base: 6, md: 8 },
+        mb: 2
+      },
+      'h5 + *, h6 + *': {
+        mt: 0
       }
     }
   })
