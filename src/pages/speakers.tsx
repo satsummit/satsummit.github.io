@@ -82,7 +82,7 @@ export default function SpeakersPage() {
         >
           <Flex flexFlow='column' gap='4'>
             <Heading size='4xl' as='h1'>
-              Fringe Events
+             Speakers
             </Heading>
             <Text textStyle='lead.lg' maxW='container.sm'>
               All the wonderful people presenting at SatSummit.
