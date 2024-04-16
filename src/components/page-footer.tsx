@@ -50,11 +50,6 @@ export default function PageHeader() {
           <Heading size='md'>This edition</Heading>
           <List>
             <ListItem>
-              <MenuLink to='/'>
-                <ListIcon as={CollecticonArrowRight} /> Welcome
-              </MenuLink>
-            </ListItem>
-            <ListItem>
               <MenuLink to='/agenda'>
                 <ListIcon as={CollecticonArrowRight} /> Agenda
               </MenuLink>

@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, mergeThemeOverride } from '@chakra-ui/react';
 import { extendHugConfig } from '@devseed-ui/hug-chakra';
 import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
@@ -165,10 +165,17 @@ const theme = {
   }
 };
 
-export default extendTheme(
-  theme,
-  withProse({
+const proseThemeOverrides: (
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  theme: Record<string, any>
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+) => Record<string, any> = (chakraTheme) => {
+  // Override Prose theme.
+  const proseTheme = withProse({
     baseStyle: {
+      ':first-child': {
+        mt: 0
+      },
       a: {
         color: 'primary.500',
         fontWeight: 'inherit'
@@ -203,5 +210,35 @@ export default extendTheme(
         mt: 0
       }
     }
-  })
-);
+  })(chakraTheme);
+
+  // Get the style of the Prose component after the override. We need this because
+  // the chakra-ui-prose package does not export the base theme.
+  // https://github.com/nikolovlazar/chakra-ui-prose/blob/main/packages/chakra-ui-prose/src/theme.ts
+  // @ts-expect-error This is possible to do but it is hackish.
+  const proseStyles = proseTheme.components.Prose.baseStyle();
+
+  // We want to apply the style to all elements in the mdx file, except if
+  // they're inside a custom component.
+  const proseFinalTheme = {
+    baseStyle: {
+      ':not(.not-mdx, .not-mdx *)': {
+        ...Object.entries(proseStyles).reduce(
+          (acc, [k, v]) => ({
+            ...acc,
+            [`> :is(${k})`]: v
+          }),
+          {}
+        )
+      }
+    }
+  };
+
+  return mergeThemeOverride(chakraTheme, {
+    components: {
+      Prose: proseFinalTheme
+    }
+  });
+};
+
+export default extendTheme(theme, proseThemeOverrides);

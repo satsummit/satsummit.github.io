@@ -12,6 +12,7 @@ export function TicketsCta() {
   return (
     <Box
       as='section'
+      className='not-mdx'
       position='relative'
       padding={{ base: '4', md: '8', lg: '16' }}
       pt={{ base: '8', md: '16', lg: '32' }}
