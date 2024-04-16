@@ -106,6 +106,22 @@ const theme = {
     }
   },
   components: {
+    Divider: {
+      baseStyle: {
+        opacity: 1
+      },
+      sizes: {
+        xs: {
+          borderWidth: '2px'
+        },
+        sm: {
+          borderWidth: '4px'
+        },
+        md: {
+          borderWidth: '6px'
+        }
+      }
+    },
     Heading: headingStyles,
     Link: {
       baseStyle: {
