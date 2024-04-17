@@ -1,4 +1,4 @@
-name: Deploy PR for Preview
+name: S3 Preview Bucket - Deploy
 
 on:
   pull_request:

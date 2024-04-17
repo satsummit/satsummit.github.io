@@ -1,8 +1,7 @@
-name: Remove PR Preview Bucket
+name: S3 Preview Bucket - Remove
 
 on:
   pull_request:
-    branches: '**'
     types: [ closed ]
 
 env:
