@@ -108,7 +108,8 @@ const theme = {
   components: {
     Divider: {
       baseStyle: {
-        opacity: 1
+        opacity: 1,
+        borderRadius: '2px'
       },
       sizes: {
         xs: {
@@ -118,7 +119,7 @@ const theme = {
           borderWidth: '4px'
         },
         md: {
-          borderWidth: '6px'
+          borderWidth: '8px'
         }
       }
     },

@@ -148,7 +148,7 @@ export default function SponsorsFold() {
           );
         })}
       </Fold>
-      <Divider color='base.200a' size='md' maxW='container.xl' m='auto' />
+      <Divider borderColor='base.200a' size='md' maxW='container.xl' m='auto' />
     </Box>
   );
 }
