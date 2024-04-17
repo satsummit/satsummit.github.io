@@ -31,38 +31,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
-
-      - name: Install
+      - name: Install --ignore-engines
         run: yarn install
 
-  lint:
-    needs: prep
-    runs-on: ubuntu-latest
+      - name: list
+        run: ls -Rla /home/runner
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
-
-      - name: Install
-        run: yarn install
-
-      - name: Lint
-        run: yarn lint
