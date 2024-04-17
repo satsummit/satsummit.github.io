@@ -11,7 +11,7 @@ const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
 export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
-    if (page.path.match(/^\/sandbox/)) {
+    if (page.path.match(/^\/sandbox/) || page.path.match(/^\/speakers/)) {
       deletePage(page);
     }
   }
