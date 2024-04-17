@@ -24,7 +24,7 @@ type Sure<T> = {
   [P in keyof T]: NonNullable<T[P]>;
 };
 
-export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
+export default function PeoplePage(props: PageProps<PeoplePageProps>) {
   const {
     data: {
       people: { title, avatar, role, company, social, pronouns, events }
