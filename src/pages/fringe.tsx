@@ -94,10 +94,13 @@ export default function FringePage(
           p='0'
         >
           <Flex flexFlow='column' gap='4'>
-            <Heading size='4xl' as='h1'>
+            <Heading size='3xl' as='h1'>
               Fringe Events
             </Heading>
-            <Text textStyle='lead.lg' maxW='container.sm'>
+            <Text
+              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
+              maxW='container.sm'
+            >
               Happenings for the SatSummit Community.
             </Text>
           </Flex>
@@ -109,6 +112,7 @@ export default function FringePage(
           return (
             <Fragment key={day}>
               <Heading
+                size='2xl'
                 gridColumn='content-start/content-end'
                 _notFirst={{
                   pt: 8
@@ -160,7 +164,7 @@ export default function FringePage(
                         lg: 'content-start/content-3'
                       }}
                     >
-                      <Heading as='h3' size='sm'>
+                      <Heading as='h3' size='md'>
                         {time}
                       </Heading>
                     </Box>

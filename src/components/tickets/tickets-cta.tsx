@@ -12,6 +12,7 @@ export function TicketsCta() {
   return (
     <Box
       as='section'
+      className='not-mdx'
       position='relative'
       padding={{ base: '4', md: '8', lg: '16' }}
       pt={{ base: '8', md: '16', lg: '32' }}
@@ -35,7 +36,7 @@ export function TicketsCta() {
         gap={{ base: '4', md: '8' }}
         maxW='container.sm'
       >
-        <Heading as='h2' size='3xl'>
+        <Heading as='h2' size='2xl'>
           Get your ticket
         </Heading>
         <p>

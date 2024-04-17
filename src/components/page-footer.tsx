@@ -30,7 +30,7 @@ function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
 }
 
-export default function PageHeader() {
+export default function PageFooter() {
   return (
     <Box
       as='footer'
@@ -50,16 +50,14 @@ export default function PageHeader() {
           <Heading size='md'>This edition</Heading>
           <List>
             <ListItem>
-              <MenuLink to='/'>
-                <ListIcon as={CollecticonArrowRight} /> Welcome
+              <MenuLink to='/agenda'>
+                <ListIcon as={CollecticonArrowRight} /> Agenda
               </MenuLink>
             </ListItem>
             <ListItem>
-              <Tooltip label='Coming soon' placement='right' hasArrow>
-                <MenuLink to='/agenda' {...visuallyDisableProps()}>
-                  <ListIcon as={CollecticonArrowRight} /> Agenda
-                </MenuLink>
-              </Tooltip>
+              <MenuLink to='/fringe'>
+                <ListIcon as={CollecticonArrowRight} /> Fringe Events
+              </MenuLink>
             </ListItem>
             <ListItem>
               <Tooltip label='Coming soon' placement='right' hasArrow>

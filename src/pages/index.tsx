@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
-import { Button, Flex, Text, Heading } from '@chakra-ui/react';
+import { Button, Flex, Text, Heading, Divider } from '@chakra-ui/react';
 import { StaticImage } from 'gatsby-plugin-image';
 import {
   CollecticonArrowUpRight,
@@ -11,7 +11,6 @@ import PageLayout from '$components/page-layout';
 import HomeHero from '$components/home/page-hero';
 import { Fold, FoldMedia, FoldProse } from '$components/fold';
 import Seo from '$components/seo';
-import { Separator } from '$components/separator';
 import { ChakraFade } from '$components/reveal';
 
 export default function IndexPage() {
@@ -52,7 +51,7 @@ export default function IndexPage() {
               gap={{ base: '4', lg: '8' }}
               mt={{ base: '0', lg: '-40' }}
             >
-              <Heading size='3xl'>Save the Date</Heading>
+              <Heading size='2xl'>Save the Date</Heading>
               <Text>
                 <strong>SatSummit</strong> convenes leaders in the satellite
                 industry and experts in global development for 2 days of
@@ -60,8 +59,8 @@ export default function IndexPage() {
                 world&apos;s most critical development challenges with satellite
                 data.
               </Text>
-              <Separator bg='base.200a' size='2' />
-              <Heading size='3xl'>Stay Tuned</Heading>
+              <Divider borderColor='base.200a' size='md' />
+              <Heading size='2xl'>Stay Tuned</Heading>
               <Text>
                 From climate change to population growth to natural resource
                 availability, earth observation data offers insights into
@@ -122,7 +121,7 @@ export default function IndexPage() {
               flexFlow='column'
               gap={{ base: '4', lg: '8' }}
             >
-              <Heading size='3xl'>Become a Sponsor</Heading>
+              <Heading size='2xl'>Become a Sponsor</Heading>
               <Text>
                 We&apos;re excited to partner with thought and industry leaders
                 in the satellite and development communities, and through their

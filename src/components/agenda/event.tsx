@@ -61,7 +61,7 @@ export function AgendaEvent(props: AgendaEventProps) {
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
             <SmartLink to={`${linkTo}#${cId}`}>{title}</SmartLink>
           </Heading>
-          <Heading as='p' size='sm' order={-1}>
+          <Heading as='p' size='md' order={-1}>
             <DateWrapper>
               {format(dateObj, 'MMM. dd')}, {time} <i>•</i>{' '}
             </DateWrapper>
@@ -99,12 +99,12 @@ export function AgendaEvent(props: AgendaEventProps) {
             }
 
             return (
-              <>
+              <Fragment key={key}>
                 <Heading as={hl(startingHLevel + 1)} size='sm'>
                   {cat}
                 </Heading>
                 <EventPeople list={eventPeople!} />
-              </>
+              </Fragment>
             );
           })}
         </Grid>

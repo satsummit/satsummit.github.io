@@ -1,8 +1,49 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, mergeThemeOverride } from '@chakra-ui/react';
 import { extendHugConfig } from '@devseed-ui/hug-chakra';
 import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
 import { createColorPalette } from './color-palette';
+
+const headingStyles = {
+  baseStyle: {
+    fontWeight: '600',
+    textTransform: 'uppercase'
+  },
+  sizes: {
+    xs: {
+      fontSize: ['xs', null, null, 'sm'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    sm: {
+      fontSize: ['sm', null, null, 'md'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    md: {
+      fontSize: ['md', null, null, 'lg'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    lg: {
+      fontSize: ['lg', null, null, 'xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    xl: {
+      fontSize: ['xl', null, null, '2xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '2xl': {
+      fontSize: ['2xl', null, null, '3xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '3xl': {
+      fontSize: ['3xl', null, null, '4xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    },
+    '4xl': {
+      fontSize: ['4xl', null, null, '5xl'],
+      lineHeight: 'calc(0.5rem + 1em)'
+    }
+  }
+};
 
 const theme = {
   colors: {
@@ -54,6 +95,9 @@ const theme = {
   textStyles: {
     lead: {
       sm: {
+        fontSize: 'sm'
+      },
+      md: {
         fontSize: 'md'
       },
       lg: {
@@ -62,46 +106,24 @@ const theme = {
     }
   },
   components: {
-    Heading: {
+    Divider: {
       baseStyle: {
-        fontWeight: '600',
-        textTransform: 'uppercase'
+        opacity: 1,
+        borderRadius: '2px'
       },
       sizes: {
         xs: {
-          fontSize: ['xs', null, null, 'sm'],
-          lineHeight: 'calc(0.5rem + 1em)'
+          borderWidth: '2px'
         },
         sm: {
-          fontSize: ['sm', null, null, 'md'],
-          lineHeight: 'calc(0.5rem + 1em)'
+          borderWidth: '4px'
         },
         md: {
-          fontSize: ['md', null, null, 'lg'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        lg: {
-          fontSize: ['lg', null, null, 'xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        xl: {
-          fontSize: ['xl', null, null, '2xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '2xl': {
-          fontSize: ['2xl', null, null, '3xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '3xl': {
-          fontSize: ['3xl', null, null, '4xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
-        },
-        '4xl': {
-          fontSize: ['4xl', null, null, '5xl'],
-          lineHeight: 'calc(0.5rem + 1em)'
+          borderWidth: '8px'
         }
       }
     },
+    Heading: headingStyles,
     Link: {
       baseStyle: {
         color: 'primary.500'
@@ -163,13 +185,84 @@ const theme = {
   }
 };
 
-export default extendTheme(
-  theme,
-  withProse({
+const proseThemeOverrides: (
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  theme: Record<string, any>
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+) => Record<string, any> = (chakraTheme) => {
+  // Override Prose theme.
+  const proseTheme = withProse({
     baseStyle: {
+      ':first-child': {
+        mt: 0
+      },
       a: {
-        color: 'primary.500'
+        color: 'primary.500',
+        fontWeight: 'inherit'
+      },
+      'h1, h2, h3, h4, h5, h6': {
+        ...headingStyles.baseStyle,
+        fontFamily: 'heading'
+      },
+      h1: {
+        ...headingStyles.sizes['3xl']
+      },
+      h2: {
+        ...headingStyles.sizes['2xl']
+      },
+      h3: {
+        ...headingStyles.sizes.xl
+      },
+      h4: {
+        ...headingStyles.sizes.lg
+      },
+      h5: {
+        ...headingStyles.sizes.md,
+        mt: { base: 6, md: 8 },
+        mb: 2
+      },
+      h6: {
+        ...headingStyles.sizes.sm,
+        mt: { base: 6, md: 8 },
+        mb: 2
+      },
+      'h5 + *, h6 + *': {
+        mt: 0
+      },
+      p: {
+        fontSize: 'inherit',
+        lineHeight: 'inherit'
       }
     }
-  })
-);
+  })(chakraTheme);
+
+  // Get the style of the Prose component after the override. We need this because
+  // the chakra-ui-prose package does not export the base theme.
+  // https://github.com/nikolovlazar/chakra-ui-prose/blob/main/packages/chakra-ui-prose/src/theme.ts
+  // @ts-expect-error This is possible to do but it is hackish.
+  const proseStyles = proseTheme.components.Prose.baseStyle();
+
+  // We want to apply the style to all elements in the mdx file, except if
+  // they're inside a custom component.
+  const proseFinalTheme = {
+    baseStyle: {
+      ':not(.not-mdx, .not-mdx *)': {
+        ...Object.entries(proseStyles).reduce(
+          (acc, [k, v]) => ({
+            ...acc,
+            [`> :is(${k})`]: v
+          }),
+          {}
+        )
+      }
+    }
+  };
+
+  return mergeThemeOverride(chakraTheme, {
+    components: {
+      Prose: proseFinalTheme
+    }
+  });
+};
+
+export default extendTheme(theme, proseThemeOverrides);

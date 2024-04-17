@@ -97,11 +97,14 @@ export default function AgendaPage(
           p='0'
         >
           <Flex flexFlow='column' gap='4'>
-            <Heading size='4xl' as='h1'>
+            <Heading size='3xl' as='h1'>
               Agenda
             </Heading>
-            <Text textStyle='lead.lg' maxW='container.sm'>
-              2 days of presentations and in-depth conversations
+            <Text
+              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
+              maxW='container.sm'
+            >
+              2 days of presentations and in-depth conversations.
             </Text>
           </Flex>
           <Flex
@@ -168,7 +171,7 @@ export default function AgendaPage(
                   lg: 'content-start/content-3'
                 }}
               >
-                <Heading as='h3' size='sm'>
+                <Heading as='h3' size='md'>
                   {time}
                 </Heading>
               </Box>
