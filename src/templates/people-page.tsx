@@ -55,7 +55,7 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
             lg: 'content-2 / content-12'
           }}
         >
-          <Heading as='h2' size='3xl'>
+          <Heading as='h2' size='2xl'>
             About
           </Heading>
           {children}
@@ -79,7 +79,7 @@ export default function PeoplerPage(props: PageProps<PeoplePageProps>) {
                 lg: 'content-2 / content-11'
               }}
             >
-              <Heading as='h2' size='3xl' mb={4}>
+              <Heading as='h2' size='2xl' mb={4}>
                 On the agenda
               </Heading>
 
