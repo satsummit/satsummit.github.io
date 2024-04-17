@@ -135,7 +135,7 @@ export default function SpeakersPage() {
                         flexFlow='column nowrap'
                         p={{ base: 4, md: 8 }}
                       >
-                        <Heading as='h3' size='lg'>
+                        <Heading as='h3' size='xl'>
                           {speaker.title}
                         </Heading>
                         <Text fontSize={{ base: 'sm', md: 'md' }}>
@@ -198,7 +198,7 @@ export default function SpeakersPage() {
                           flexFlow='column nowrap'
                           gap={{ base: 1, md: 2 }}
                         >
-                          <Heading as='h3' size='2xl'>
+                          <Heading as='h3' size='xl'>
                             {speaker.title}
                           </Heading>
                           <Text fontSize={{ base: 'sm', md: 'md' }}>
