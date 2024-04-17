@@ -29,7 +29,7 @@ jobs:
         uses: actions/cache@v4
         id: cache-npm
         with:
-          path: ~/.npm
+          path: /home/runner/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
       - name: Cache node_modules
