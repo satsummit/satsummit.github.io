@@ -66,11 +66,14 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
             >
               Speakers
             </Heading>
-            <Heading size='4xl' as='h1'>
+            <Heading size='3xl' as='h1'>
               {title}
             </Heading>
           </Box>
-          <Text textStyle='lead.lg' maxW='container.sm'>
+          <Text
+            textStyle={{ base: 'lead.md', md: 'lead.lg' }}
+            maxW='container.sm'
+          >
             {role} at {company}
             {pronouns && <span> • {pronouns}</span>}
           </Text>

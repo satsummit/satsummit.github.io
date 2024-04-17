@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Divider,
   Flex,
   Heading,
   List,
@@ -10,9 +11,7 @@ import {
 import { Fold } from './fold';
 import SmartLink from './smart-link';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Separator } from './separator';
-import { Sponsor } from '../types';
+import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
 
 const sponsorsGroups = [
   'Platinum',
@@ -35,35 +34,35 @@ const opticalLogoAdjustments = {
 };
 
 export default function SponsorsFold() {
-  const { sponsors } = useStaticQuery<{ sponsors: { nodes: Sponsor[] } }>(
-    graphql`
-      query {
-        sponsors: allSponsor(
-          sort: { slug: ASC }
-          filter: { published: { eq: true } }
-        ) {
-          nodes {
-            id
-            title
-            slug
-            url
-            group
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  height: 56
-                  placeholder: BLURRED
-                  transformOptions: { fit: CONTAIN }
-                  formats: PNG
-                  backgroundColor: "#FFFFFF"
-                )
-              }
+  const { sponsors } = useStaticQuery<{
+    sponsors: { nodes: Queries.Sponsor[] };
+  }>(graphql`
+    query {
+      sponsors: allSponsor(
+        sort: { slug: ASC }
+        filter: { published: { eq: true } }
+      ) {
+        nodes {
+          id
+          title
+          slug
+          url
+          group
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                height: 56
+                placeholder: BLURRED
+                transformOptions: { fit: CONTAIN }
+                formats: PNG
+                backgroundColor: "#FFFFFF"
+              )
             }
           }
         }
       }
-    `
-  );
+    }
+  `);
 
   return (
     <Box
@@ -106,12 +105,14 @@ export default function SponsorsFold() {
                 gridTemplateColumns='repeat(2, 1fr)'
               >
                 {items.map((node) => {
-                  const image = getImage(node.image)!;
+                  const image = getImage(
+                    node.image as unknown as ImageDataLike
+                  )!;
 
                   return (
                     <ListItem key={node.id} gridColumn='span 1'>
                       <SmartLink
-                        to={node.url}
+                        to={node.url!}
                         flexGrow={1}
                         display='flex'
                         alignItems='center'
@@ -147,7 +148,7 @@ export default function SponsorsFold() {
           );
         })}
       </Fold>
-      <Separator m='auto' maxW='container.xl' bg='base.200a' size='2' />
+      <Divider borderColor='base.200a' size='md' maxW='container.xl' m='auto' />
     </Box>
   );
 }

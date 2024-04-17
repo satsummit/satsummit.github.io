@@ -7,7 +7,7 @@ import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
 import PageHero from '$components/page-hero';
 
-import NotFoundPage from './404';
+import NotFoundPage from '../404';
 
 export default function HugPage() {
   if (process.env.NODE_ENV !== 'development') return <NotFoundPage />;

@@ -99,12 +99,12 @@ export function AgendaEvent(props: AgendaEventProps) {
             }
 
             return (
-              <>
+              <Fragment key={key}>
                 <Heading as={hl(startingHLevel + 1)} size='sm'>
                   {cat}
                 </Heading>
                 <EventPeople list={eventPeople!} />
-              </>
+              </Fragment>
             );
           })}
         </Grid>

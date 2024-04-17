@@ -30,7 +30,7 @@ function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
 }
 
-export default function PageHeader() {
+export default function PageFooter() {
   return (
     <Box
       as='footer'
