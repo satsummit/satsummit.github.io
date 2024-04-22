@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import {
   As,
   Box,
+  Divider,
   Flex,
   Grid,
   Heading,
-  Text,
   VisuallyHidden
 } from '@chakra-ui/react';
 import { format } from 'date-fns';
@@ -61,11 +61,31 @@ export function AgendaEvent(props: AgendaEventProps) {
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
             <SmartLink to={`${linkTo}#${cId}`}>{title}</SmartLink>
           </Heading>
-          <Heading as='p' size='md' order={-1}>
+          <Heading
+            as='p'
+            size='md'
+            order={-1}
+            display='flex'
+            alignItems='center'
+            gap={2}
+          >
             <DateWrapper>
-              {format(dateObj, 'MMM. dd')}, {time} <i>•</i>{' '}
+              {format(dateObj, 'MMM. dd')}, {time}{' '}
+              <Divider
+                borderColor='base.200a'
+                size='xs'
+                h='5'
+                orientation='vertical'
+              />
             </DateWrapper>
-            {type} <Text as='i'>•</Text> {room}
+            {type}{' '}
+            <Divider
+              borderColor='base.200a'
+              size='xs'
+              h='5'
+              orientation='vertical'
+            />{' '}
+            {room}
           </Heading>
         </Flex>
       </Flex>

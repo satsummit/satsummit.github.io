@@ -1,0 +1,49 @@
+name: S3 Preview Bucket - Remove
+
+on:
+  pull_request_target:
+    types: [ closed ]
+
+env:
+  # The bucket name must follow the pattern ds-preview-<REPO_ID>-${{ github.event.number }}
+  # The AWS Role only has permissions to manage buckets that start with ds-preview.
+  BUCKET_NAME: ds-preview-satsummit-${{ github.event.number }}
+  # The ARN of the role created in AWS.
+  AWS_ROLE_ARN: arn:aws:iam::552819999234:role/ds-preview-satsummit
+  # The AWS region where the bucket will be created.
+  AWS_REGION: us-east-1
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Check if bucket exists
+        id: check_bucket
+        run: |
+          if aws s3 ls "s3://${{ env.BUCKET_NAME }}" 2>&1 | grep -q 'NoSuchBucket'; then
+            echo "Bucket does not exist."
+            echo "::set-output name=exists::false"
+          else
+            echo "Bucket exists."
+            echo "::set-output name=exists::true"
+          fi
+
+      - name: Empty the bucket
+        if: steps.check_bucket.outputs.exists == 'true'
+        run: |
+          aws s3 rm s3://$BUCKET_NAME --recursive --quiet
+
+      - name: Remove the bucket
+        if: steps.check_bucket.outputs.exists == 'true'
+        run: |
+          aws s3 rb s3://$BUCKET_NAME
