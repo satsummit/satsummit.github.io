@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { HeadFC, PageProps, graphql, navigate } from 'gatsby';
 import { format } from 'date-fns';
 import {
@@ -6,6 +6,7 @@ import {
   Button,
   ButtonGroup,
   Container,
+  Divider,
   Flex,
   Heading,
   ListItem,
@@ -139,93 +140,162 @@ export default function AgendaPage(
           <Heading as='h2'>{format(currentDay, 'EEEE, LLL dd')}</Heading>
         </VisuallyHidden>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
-          <ChakraFade
+          <EventHourGroup
             key={time}
-            direction='up'
-            triggerOnce
-            gridColumn='content-start / content-end'
-            _notFirst={{
-              '.agenda-time': {
-                borderTop: '8px solid',
-                borderTopColor: 'base.200a',
-                paddingTop: 8,
-                mt: { base: 2, md: 0 }
-              },
-              '.agenda-events': {
-                borderTop: { md: '8px solid' },
-                borderTopColor: { md: 'base.200a' },
-                paddingTop: { md: 8 }
-              }
-            }}
-          >
-            <Hug
-              as='section'
-              hugGrid={{ base: ['content-start', 'content-end'] }}
-            >
-              <Box
-                as='header'
-                className='agenda-time'
-                gridColumn={{
-                  base: 'content-start/content-end',
-                  md: 'content-start/content-2',
-                  lg: 'content-start/content-3'
-                }}
-              >
-                <Heading as='h3' size='md'>
-                  {time}
-                </Heading>
-              </Box>
-              <Hug
-                as='section'
-                className='agenda-events'
-                hugGrid={{
-                  base: ['content-start', 'content-end'],
-                  md: ['content-2', 'content-end'],
-                  lg: ['content-3', 'content-end']
-                }}
-              >
-                <Hug
-                  as={OrderedList}
-                  listStyleType='none'
-                  hugGrid={{
-                    base: ['content-start', 'content-end'],
-                    md: ['content-2', 'content-8'],
-                    lg: ['content-3', 'content-11']
-                  }}
-                  display='flex'
-                  flexFlow='column nowrap'
-                  ml={0}
-                >
-                  {eventsByTime.map((node) => (
-                    <ListItem
-                      key={node.id}
-                      gridColumn='1/-1'
-                      _notFirst={{
-                        borderTop: '4px solid',
-                        borderTopColor: 'base.200a',
-                        pt: { base: 4, md: 8, lg: 10 }
-                      }}
-                    >
-                      <AgendaEvent
-                        startingHLevel={4}
-                        cId={node.cId}
-                        title={node.title}
-                        type={node.type}
-                        date={node.date}
-                        room={node.room}
-                        people={node.people}
-                      />
-                    </ListItem>
-                  ))}
-                </Hug>
-              </Hug>
-            </Hug>
-          </ChakraFade>
+            time={time}
+            day={format(currentDay, 'EEE, LLL dd')}
+            events={eventsByTime}
+          />
         ))}
       </Hug>
 
       <TabsSecNav dates={eventDates} currentDay={currentDay} />
     </PageLayout>
+  );
+}
+
+interface EventHourGroup {
+  time: string;
+  day: string;
+  events: AgendaEvent[];
+}
+
+function EventHourGroup(props: EventHourGroup) {
+  const { time, day, events } = props;
+
+  const timeRef = useRef<HTMLDivElement>(null);
+  const [isStuck, setStuck] = useState(false);
+
+  useEffect(() => {
+    if (!timeRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([e]) => setStuck(e.intersectionRatio < 1),
+      { threshold: [1] }
+    );
+
+    observer.observe(timeRef.current);
+
+    return () => observer.disconnect();
+  });
+
+  return (
+    <ChakraFade
+      direction='up'
+      triggerOnce
+      gridColumn='content-start / content-end'
+      _notFirst={{
+        '.agenda-time': {
+          borderTop: '8px solid',
+          borderTopColor: 'base.200a',
+          paddingTop: 8,
+          mt: { base: 2, md: 0 },
+          top: { base: '-2rem', md: '-1rem' }
+        },
+        '.agenda-events': {
+          borderTop: { md: '8px solid' },
+          borderTopColor: { md: 'base.200a' },
+          paddingTop: { md: 8 }
+        }
+      }}
+    >
+      <Hug as='section' hugGrid={{ base: ['content-start', 'content-end'] }}>
+        <Box
+          as='header'
+          ref={timeRef}
+          className='agenda-time'
+          gridColumn={{
+            base: 'content-start/content-end',
+            md: 'content-start/content-2',
+            lg: 'content-start/content-3'
+          }}
+          position='sticky'
+          top={{ base: '-1px' }}
+          zIndex={10}
+          alignSelf='flex-start'
+          margin={{
+            base: '0 -1rem',
+            md: 0
+          }}
+          px={{
+            base: 4,
+            md: 0
+          }}
+          py={{
+            base: isStuck ? 2 : 0,
+            md: isStuck ? 4 : 0
+          }}
+          background='surface.500'
+          boxShadow={{ base: isStuck ? 'md' : undefined, md: 'none' }}
+        >
+          <Heading
+            as='h3'
+            size='md'
+            display={{ base: 'flex', md: 'block' }}
+            alignItems='center'
+            gap={2}
+          >
+            {isStuck ? (
+              <>
+                {day}
+                <Divider
+                  borderColor='base.200a'
+                  size='xs'
+                  h='5'
+                  orientation='vertical'
+                  display={{ md: 'none' }}
+                />{' '}
+              </>
+            ) : null}
+            {time}
+          </Heading>
+        </Box>
+        <Hug
+          as='section'
+          className='agenda-events'
+          hugGrid={{
+            base: ['content-start', 'content-end'],
+            md: ['content-2', 'content-end'],
+            lg: ['content-3', 'content-end']
+          }}
+        >
+          <Hug
+            as={OrderedList}
+            listStyleType='none'
+            hugGrid={{
+              base: ['content-start', 'content-end'],
+              md: ['content-2', 'content-8'],
+              lg: ['content-3', 'content-11']
+            }}
+            display='flex'
+            flexFlow='column nowrap'
+            ml={0}
+          >
+            {events.map((node) => (
+              <ListItem
+                key={node.id}
+                gridColumn='1/-1'
+                _notFirst={{
+                  borderTop: '4px solid',
+                  borderTopColor: 'base.200a',
+                  pt: { base: 4, md: 8, lg: 10 }
+                }}
+              >
+                <AgendaEvent
+                  startingHLevel={4}
+                  cId={node.cId}
+                  title={node.title}
+                  type={node.type}
+                  date={node.date}
+                  room={node.room}
+                  people={node.people}
+                />
+              </ListItem>
+            ))}
+          </Hug>
+        </Hug>
+      </Hug>
+    </ChakraFade>
   );
 }
 
