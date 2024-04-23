@@ -47,3 +47,11 @@ jobs:
         if: steps.check_bucket.outputs.exists == 'true'
         run: |
           aws s3 rb s3://$BUCKET_NAME
+
+      - name: Remove PR comment
+        uses: actions/github-script@v6
+        if: success()
+        with:
+          script: |
+            const { deleteComment } = require('./.github/workflows/github-pr-update.js')
+            await deleteComment({ github, context, core })

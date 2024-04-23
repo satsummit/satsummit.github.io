@@ -81,8 +81,21 @@ ${PR_MARKER}
   await setComment({ github, context, commentId, body: comment });
 }
 
+async function deleteComment({ github, context, core }) {
+  const commentId = await findComment({ github, context, core });
+
+  if (commentId) {
+    await github.rest.issues.deleteComment({
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      comment_id: commentId
+    });
+  }
+}
+
 module.exports = {
   createDeployingComment,
   createFailedComment,
-  createSuccessComment
+  createSuccessComment,
+  deleteComment
 };
