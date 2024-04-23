@@ -40,7 +40,7 @@ ${PR_MARKER}
 
 |  Name | Link |
 |:-:|------------------------|
-|<span aria-hidden="true">🔨</span> Latest commit | ${context.sha} |
+|<span aria-hidden="true">🔨</span> Latest commit | ${context.payload.pull_request.head.sha} |
 `;
 
   await setComment({ github, context, commentId, body: comment });
@@ -57,7 +57,7 @@ _Check the action logs for more information._
 
 |  Name | Link |
 |:-:|------------------------|
-|<span aria-hidden="true">🔨</span> Latest commit | ${context.sha} |
+|<span aria-hidden="true">🔨</span> Latest commit | ${context.payload.pull_request.head.sha} |
 `;
 
   await setComment({ github, context, commentId, body: comment });
@@ -74,7 +74,7 @@ ${PR_MARKER}
 
 |  Name | Link |
 |:-:|------------------------|
-|<span aria-hidden="true">🔨</span> Latest commit | ${context.sha} |
+|<span aria-hidden="true">🔨</span> Latest commit | ${context.payload.pull_request.head.sha} |
 |<span aria-hidden="true">😎</span> Deploy Preview | ${websiteUrl} |
 `;
 
