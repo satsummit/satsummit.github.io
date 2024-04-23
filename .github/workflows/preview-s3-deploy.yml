@@ -48,11 +48,26 @@ jobs:
           path: ${{env.DIST_DIRECTORY}}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ github.sha }}
 
+      - name: Post building comment
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { createDeployingComment } = require('./.github/workflows/github-pr-update.js')
+            await createDeployingComment({ github, context, core })
+
       - name: Install
         run: yarn install  --ignore-engines
 
       - name: Build
         run: yarn build
+
+      - name: Post error comment
+        uses: actions/github-script@v6
+        if: failure()
+        with:
+          script: |
+            const { createFailedComment } = require('./.github/workflows/github-pr-update.js')
+            await createFailedComment({ github, context, core })
 
   deploy:
     runs-on: ubuntu-latest
@@ -126,39 +141,18 @@ jobs:
           }' > bucket-policy.json
           aws s3api put-bucket-policy --bucket ${{ env.BUCKET_NAME }} --policy file://bucket-policy.json
 
-      - name: Check for existing preview comment
-        id: check_comment
+      - name: Post error comment
         uses: actions/github-script@v6
+        if: success()
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.pull_request.number,
-            });
-            const existingComment = comments.data.find(comment => comment.body.includes('Preview deployed to S3!'));
-            if (existingComment) {
-              console.log('Deployment comment already exists:', existingComment.html_url);
-              core.setOutput('should_post_comment', 'false');
-              return existingComment.html_url;
-            } else {
-              core.setOutput('should_post_comment', 'true');
-              return '';
-            }
+            const { createSuccessComment } = require('./.github/workflows/github-pr-update.js')
+            await createSuccessComment({ github, context, core })
 
       - name: Post comment with preview URL
-        if: steps.check_comment.outputs.should_post_comment == 'true'
         uses: actions/github-script@v6
+        if: failure()
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const websiteUrl = `http://${{ env.BUCKET_NAME }}.s3-website-${{ env.AWS_REGION }}.amazonaws.com/`;
-            const pullRequestNumber = context.payload.pull_request.number;
-            const message = `✨ Preview deployed to S3! Visit ${websiteUrl}`;
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: pullRequestNumber,
-              body: message
-            });
+            const { createFailedComment } = require('./.github/workflows/github-pr-update.js')
+            await createFailedComment({ github, context, core })
