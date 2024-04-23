@@ -18,6 +18,7 @@ const sponsorsGroups = [
   'Gold',
   'Silver',
   'Bronze',
+  'Community',
   'Hosts',
   'Media Partner'
 ];
