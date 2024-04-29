@@ -50,7 +50,7 @@ export function AgendaEvent(props: AgendaEventProps) {
   const dateObj = parseEventDate(date);
   const time = timeFromDate(dateObj);
 
-  const EventMDXContent = events[cId];
+  const eventMDXContent = events[cId];
 
   const DateWrapper = showDate ? Fragment : VisuallyHidden;
 
@@ -89,15 +89,15 @@ export function AgendaEvent(props: AgendaEventProps) {
           </Heading>
         </Flex>
       </Flex>
-      {EventMDXContent && (
+      {!eventMDXContent.empty && (
         <Box>
           <MDXProse
             sx={{
-              '& >:first-child': { mt: 0 },
-              '& >:last-child': { mb: 0 }
+              '& >:first-child': { mt: '0 !important' },
+              '& >:last-child': { mb: '0 !important' }
             }}
           >
-            <EventMDXContent />
+            <eventMDXContent.component />
           </MDXProse>
         </Box>
       )}
