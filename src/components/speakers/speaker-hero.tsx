@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Flex,
   Heading,
   Text,
@@ -77,8 +78,12 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
             textStyle={{ base: 'lead.md', md: 'lead.lg' }}
             maxW='container.sm'
           >
-            {role} at {company}
-            {pronouns && <span> • {pronouns}</span>}
+            {role} at {company}.
+            {pronouns && (
+              <>
+                {' '}{pronouns}.
+              </>
+            )}
           </Text>
 
           {social && (
