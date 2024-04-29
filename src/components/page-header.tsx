@@ -25,6 +25,7 @@ import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 
 import Brand from './brand';
 import MenuLink from './menu-link';
+import SmartLink from './smart-link';
 
 import { visuallyDisableProps } from '$utils/utils';
 
@@ -90,13 +91,14 @@ export default function PageHeader() {
                 <NavMenu />
               </Show>
               <Button
-                as='a'
+                as={SmartLink}
+                noLinkStyles
                 colorScheme='surface'
                 variant='soft-outline'
-                href='/2024-sponsor-kit.pdf'
+                to='/tickets/'
                 size={{ base: 'sm', lg: 'md' }}
               >
-                Become a Sponsor
+                Get your Ticket
               </Button>
 
               <Hide above={MENU_BRKPOINT}>
