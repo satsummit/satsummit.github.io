@@ -135,7 +135,7 @@ export default function AgendaPage(
       </Box>
 
       <Hug py={{ base: 8, md: 16 }}>
-        <Heading as='h2' gridColumn='content-start/content-end'>
+        <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
           {format(currentDay, 'EEEE, LLL dd')}
         </Heading>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
