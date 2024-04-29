@@ -324,8 +324,9 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
             onClick={() => {
               goToTab(activeIdx - 1);
             }}
+            leftIcon={<CollecticonArrowLeft />}
           >
-            <CollecticonArrowLeft /> View previous day
+            View previous day
           </Button>
         )}
         {activeIdx < dates.length - 1 && (
@@ -337,8 +338,9 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
             onClick={() => {
               goToTab(activeIdx + 1);
             }}
+            rightIcon={<CollecticonArrowRight />}
           >
-            View next day <CollecticonArrowRight />
+            View next day
           </Button>
         )}
       </Flex>
