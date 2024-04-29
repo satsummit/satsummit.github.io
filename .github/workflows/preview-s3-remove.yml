@@ -16,11 +16,16 @@ env:
 permissions:
   id-token: write
   contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   remove:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -47,3 +52,11 @@ jobs:
         if: steps.check_bucket.outputs.exists == 'true'
         run: |
           aws s3 rb s3://$BUCKET_NAME
+
+      - name: Remove PR comment
+        uses: actions/github-script@v6
+        if: success()
+        with:
+          script: |
+            const { deleteComment } = require('./.github/workflows/github-pr-update.js')
+            await deleteComment({ github, context, core })
