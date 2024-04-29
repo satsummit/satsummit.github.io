@@ -12,7 +12,6 @@ import {
   ListItem,
   OrderedList,
   Text,
-  VisuallyHidden,
   useBreakpointValue
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
@@ -136,9 +135,9 @@ export default function AgendaPage(
       </Box>
 
       <Hug py={{ base: 8, md: 16 }}>
-        <VisuallyHidden>
-          <Heading as='h2'>{format(currentDay, 'EEEE, LLL dd')}</Heading>
-        </VisuallyHidden>
+        <Heading as='h2' gridColumn='content-start/content-end'>
+          {format(currentDay, 'EEEE, LLL dd')}
+        </Heading>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
