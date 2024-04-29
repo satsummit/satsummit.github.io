@@ -55,9 +55,6 @@ function NavMenu(props: NavMenuProps) {
         </Tooltip>
       </ListItem>
       <ListItem>
-        <MenuLink to='/tickets'>Tickets</MenuLink>
-      </ListItem>
-      <ListItem>
         <MenuLink to='/practical-info'>Practical Info</MenuLink>
       </ListItem>
     </List>
