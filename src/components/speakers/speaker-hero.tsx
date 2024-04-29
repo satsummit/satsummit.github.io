@@ -51,10 +51,13 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
         gap={8}
         p='0'
       >
-        <GatsbyImage
+        <Box
+          as={GatsbyImage}
           image={image}
           alt={`Picture of ${title}`}
           objectFit='contain'
+          borderRadius='sm'
+          overflow='hidden'
         />
         <Flex flexFlow='column' gap='4'>
           <Box>

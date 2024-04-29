@@ -121,7 +121,7 @@ export default function SpeakersPage() {
                     as='article'
                     bg='base.50'
                     h='100%'
-                    borderRadius='md'
+                    borderRadius='sm'
                     overflow='hidden'
                   >
                     <SmartLink
@@ -148,17 +148,17 @@ export default function SpeakersPage() {
                           {speaker.role} at {speaker.company}
                         </Text>
                       </Flex>
-                      <Box order={-1}>
-                        <GatsbyImage
-                          image={
-                            getImage(
-                              speaker.avatar as unknown as ImageDataLike
-                            )!
-                          }
-                          alt={`Picture of ${speaker.title}`}
-                          objectFit='contain'
-                        />
-                      </Box>
+                      <Box
+                        as={GatsbyImage}
+                        image={
+                          getImage(speaker.avatar as unknown as ImageDataLike)!
+                        }
+                        alt={`Picture of ${speaker.title}`}
+                        objectFit='contain'
+                        borderRadius='sm'
+                        overflow='hidden'
+                        order={-1}
+                      />
                     </SmartLink>
                   </Box>
                 </ListItem>
