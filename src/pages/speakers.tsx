@@ -117,7 +117,13 @@ export default function SpeakersPage() {
             >
               {main.map((speaker) => (
                 <ListItem key={speaker.id} h='100%'>
-                  <Box as='article' bg='base.50' h='100%'>
+                  <Box
+                    as='article'
+                    bg='base.50'
+                    h='100%'
+                    borderRadius='md'
+                    overflow='hidden'
+                  >
                     <SmartLink
                       to={`/speakers/${speaker.slug}`}
                       display='flex'
