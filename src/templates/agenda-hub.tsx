@@ -12,7 +12,6 @@ import {
   ListItem,
   OrderedList,
   Text,
-  VisuallyHidden,
   useBreakpointValue
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
@@ -136,9 +135,9 @@ export default function AgendaPage(
       </Box>
 
       <Hug py={{ base: 8, md: 16 }}>
-        <VisuallyHidden>
-          <Heading as='h2'>{format(currentDay, 'EEEE, LLL dd')}</Heading>
-        </VisuallyHidden>
+        <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
+          {format(currentDay, 'EEEE, LLL dd')}
+        </Heading>
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
@@ -325,8 +324,9 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
             onClick={() => {
               goToTab(activeIdx - 1);
             }}
+            leftIcon={<CollecticonArrowLeft />}
           >
-            <CollecticonArrowLeft /> View previous day
+            View previous day
           </Button>
         )}
         {activeIdx < dates.length - 1 && (
@@ -338,8 +338,9 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
             onClick={() => {
               goToTab(activeIdx + 1);
             }}
+            rightIcon={<CollecticonArrowRight />}
           >
-            View next day <CollecticonArrowRight />
+            View next day
           </Button>
         )}
       </Flex>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { Divider } from '@chakra-ui/react';
+import { Box, Divider } from '@chakra-ui/react';
 import { Prose, ProseProps } from '@nikolovlazar/chakra-ui-prose';
 
 import SmartLink from './smart-link';
@@ -31,7 +31,7 @@ export function MDXProse(
         )
       }}
     >
-      <Prose {...rest}>{children}</Prose>
+      <Box as={Prose} {...rest}>{children}</Box>
     </MDXProvider>
   );
 }

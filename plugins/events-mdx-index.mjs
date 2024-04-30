@@ -39,8 +39,8 @@ import fs from 'fs';
 // Then we query the events and load the MDX content by importing it from this
 // file. Example:
 //   import { events } from 'this file';
-//   const Content = events[cId];
-//   return <Content />;
+//   const content = events[cId];
+//   return <content.component />;
 
 // The only other thing is that we use `lazy` so that the file is lighter.
 
@@ -53,23 +53,33 @@ export async function generateEventsMDXIndex(graphql) {
           internal {
             contentFilePath
           }
+          parent {
+            ... on Mdx {
+              excerpt(pruneLength: 1)
+            }
+          }
         }
       }
     }
   `);
 
   const jsContent = data?.allEvent.nodes
-    .map(
-      (node) =>
-        `'${node.cId}': lazy(() => import('${node.internal.contentFilePath}')),`
-    )
+    .map((node) => {
+      const isEmpty = node.parent.excerpt === '';
+      return `'${node.cId}': {empty: ${isEmpty}, component: lazy(() => import('${node.internal.contentFilePath}'))},`;
+    })
     .join('\n');
 
   const moduleContent = `
 import React, { lazy } from 'react';
 import { MDXContent } from 'mdx/types';
 
-export const events: Record<string, React.LazyExoticComponent<MDXContent>> = {
+interface EventContent {
+  empty: boolean;
+  component: React.LazyExoticComponent<MDXContent>
+}
+
+export const events: Record<string, EventContent> = {
   ${jsContent}
 };`;
 
