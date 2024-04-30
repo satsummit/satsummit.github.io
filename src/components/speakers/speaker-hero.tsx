@@ -51,10 +51,13 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
         gap={8}
         p='0'
       >
-        <GatsbyImage
+        <Box
+          as={GatsbyImage}
           image={image}
           alt={`Picture of ${title}`}
           objectFit='contain'
+          borderRadius='sm'
+          overflow='hidden'
         />
         <Flex flexFlow='column' gap='4'>
           <Box>
@@ -74,12 +77,11 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
             textStyle={{ base: 'lead.md', md: 'lead.lg' }}
             maxW='container.sm'
           >
-            {role} at {company}
-            {pronouns && <span> • {pronouns}</span>}
+            {role} at {company}.{pronouns && <> {pronouns}.</>}
           </Text>
 
           {social && (
-            <Flex gap={{ base: 2, md: 4 }}>
+            <Flex gap={{ base: 2, md: 3, lg: 4 }}>
               {social.x && (
                 <Button
                   as={SmartLink}
@@ -88,6 +90,7 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
                   colorScheme='surface'
                   to={`https://twitter.com/${social.x}`}
                   leftIcon={<CollecticonBrandX />}
+                  size={{ base: 'sm', lg: 'md' }}
                 >
                   @{social.x}
                 </Button>
@@ -100,6 +103,7 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
                   colorScheme='surface'
                   to={`https://www.linkedin.com/in/${social.linkedin}`}
                   leftIcon={<CollecticonBrandLinkedin />}
+                  size={{ base: 'sm', lg: 'md' }}
                 >
                   {social.linkedin}
                 </Button>
