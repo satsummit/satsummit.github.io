@@ -17,6 +17,7 @@ import { EventPeople } from '$components/agenda/event-people';
 import { events } from '$components/agenda/events-gen';
 import { MDXProse } from '$components/mdx-prose';
 import { parseEventDate, timeFromDate } from '$utils/utils';
+import { graphql, useStaticQuery } from 'gatsby';
 
 // Get the Heading tag.
 const hl = (l: number) => (l > 0 ? (`h${l}` as As) : undefined);
@@ -43,7 +44,7 @@ export function AgendaEvent(props: AgendaEventProps) {
     people,
     // Starting level for the highest heading on this component.
     startingHLevel = -1,
-    linkTo = '/agenda/',
+    linkTo,
     showDate = false
   } = props;
 
@@ -54,15 +55,35 @@ export function AgendaEvent(props: AgendaEventProps) {
 
   const DateWrapper = showDate ? Fragment : VisuallyHidden;
 
+  const siteData = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          eventDates
+        }
+      }
+    }
+  `);
+
+  // If the linkTo prop is not provided, the link will be to the agenda page.
+  // Therefore we need to know the day's index to generate the link.
+  let eventBaseLink = linkTo;
+  if (!linkTo) {
+    const eventDates = siteData.site.siteMetadata.eventDates;
+    const eventDate = format(dateObj, 'yyyy-MM-dd');
+    const dayIndex = eventDates.indexOf(eventDate);
+    eventBaseLink = dayIndex > 0 ? `/agenda/${dayIndex + 1}` : '/agenda';
+  }
+
   return (
     <Flex as='article' flexDir='column' gap={{ base: 4, md: 6 }}>
       <Flex pos='relative' align='flex-end' gap={4}>
         <Flex flexDir='column'>
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
-            <SmartLink to={`${linkTo}#${cId}`}>{title}</SmartLink>
+            <SmartLink to={`${eventBaseLink}#${cId}`}>{title}</SmartLink>
           </Heading>
           <Heading
-            as='p'
+            as='div'
             size='md'
             order={-1}
             display='flex'
