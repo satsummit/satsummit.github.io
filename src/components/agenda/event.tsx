@@ -19,6 +19,8 @@ import { MDXProse } from '$components/mdx-prose';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { graphql, useStaticQuery } from 'gatsby';
 
+export const EVENT_DISPLAY_DURATION = 640;
+
 // Get the Heading tag.
 const hl = (l: number) => (l > 0 ? (`h${l}` as As) : undefined);
 
