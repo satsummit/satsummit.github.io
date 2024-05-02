@@ -43,6 +43,8 @@ import fs from 'fs';
 //   return <content.component />;
 
 // The only other thing is that we use `lazy` so that the file is lighter.
+// UPDATE: Removed lazy loading since it was generating too many files that were
+// too small, and the performance gain was minimal.
 
 export async function generateEventsMDXIndex(graphql) {
   const { data } = await graphql(`
@@ -63,24 +65,28 @@ export async function generateEventsMDXIndex(graphql) {
     }
   `);
 
-  const jsContent = data?.allEvent.nodes
-    .map((node) => {
-      const isEmpty = node.parent.excerpt === '';
-      return `'${node.cId}': {empty: ${isEmpty}, component: lazy(() => import('${node.internal.contentFilePath}'))},`;
-    })
-    .join('\n');
+  const jsContent = data?.allEvent.nodes.map((node) => {
+    const isEmpty = node.parent.excerpt === '';
+
+    const importName = `C${node.cId.replace(/-/g, '')}`;
+    const importStatement = `import ${importName} from '${node.internal.contentFilePath}';`;
+    const reference = `'${node.cId}': {empty: ${isEmpty}, component: ${importName}},`;
+
+    return [importStatement, reference];
+  });
 
   const moduleContent = `
-import React, { lazy } from 'react';
 import { MDXContent } from 'mdx/types';
+
+${jsContent.map((c) => c[0]).join('\n')}
 
 interface EventContent {
   empty: boolean;
-  component: React.LazyExoticComponent<MDXContent>
+  component: MDXContent
 }
 
 export const events: Record<string, EventContent> = {
-  ${jsContent}
+  ${jsContent.map((c) => c[1]).join('\n')}
 };`;
 
   fs.writeFileSync('./src/components/agenda/events-gen.ts', moduleContent);
