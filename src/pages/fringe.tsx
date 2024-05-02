@@ -16,7 +16,7 @@ import { Hug } from '@devseed-ui/hug-chakra';
 
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
-import { AgendaEvent } from '$components/agenda/event';
+import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
@@ -64,12 +64,16 @@ export default function FringePage(
     };
   }, {});
 
-  useEffect(() => {
-    document.getElementById(location.hash.slice(1))?.scrollIntoView();
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  }, []);
-
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // When the page loads the animation has to run before being able to scroll,
+    // otherwise the position will be off.
+    setTimeout(() => {
+      document.getElementById(location.hash.slice(1))?.scrollIntoView();
+    }, EVENT_DISPLAY_DURATION + 100);
+  }, []);
 
   return (
     <PageLayout>
@@ -136,6 +140,7 @@ export default function FringePage(
                   className='agenda-time-group'
                   direction='up'
                   triggerOnce
+                  duration={EVENT_DISPLAY_DURATION}
                   gridColumn='content-start / content-end'
                   _notFirst={{
                     '.agenda-time': {
