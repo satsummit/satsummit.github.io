@@ -7,8 +7,7 @@ import {
   ListItem,
   Text,
   ListIcon,
-  List,
-  Tooltip
+  List
 } from '@chakra-ui/react';
 import {
   CollecticonArrowRight,
@@ -23,8 +22,6 @@ import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import { CollecticonBrandX } from './icons/brand-x';
-
-import { visuallyDisableProps } from '$utils/utils';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -60,11 +57,9 @@ export default function PageFooter() {
               </MenuLink>
             </ListItem>
             <ListItem>
-              <Tooltip label='Coming soon' placement='right' hasArrow>
-                <MenuLink to='/speakers' {...visuallyDisableProps()}>
-                  <ListIcon as={CollecticonArrowRight} /> Speakers
-                </MenuLink>
-              </Tooltip>
+              <MenuLink to='/speakers'>
+                <ListIcon as={CollecticonArrowRight} /> Speakers
+              </MenuLink>
             </ListItem>
             <ListItem>
               <MenuLink to='/tickets'>

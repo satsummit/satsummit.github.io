@@ -15,10 +15,7 @@ import {
   List,
   ListItem,
   ListProps,
-  PlacementWithLogical,
   Show,
-  Tooltip,
-  useBreakpointValue,
   useDisclosure
 } from '@chakra-ui/react';
 import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
@@ -27,18 +24,11 @@ import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
 
-import { visuallyDisableProps } from '$utils/utils';
-
 const MENU_BRKPOINT = 'lg';
 
 interface NavMenuProps extends ListProps {}
 
 function NavMenu(props: NavMenuProps) {
-  const popoverPosition: PlacementWithLogical | undefined = useBreakpointValue(
-    { base: 'right', [MENU_BRKPOINT]: 'bottom' },
-    { fallback: 'bottom' }
-  );
-
   return (
     <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
       <ListItem>
@@ -48,11 +38,7 @@ function NavMenu(props: NavMenuProps) {
         <MenuLink to='/fringe'>Fringe Events</MenuLink>
       </ListItem>
       <ListItem>
-        <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
-          <MenuLink to='/speakers' {...visuallyDisableProps()}>
-            Speakers
-          </MenuLink>
-        </Tooltip>
+        <MenuLink to='/speakers'>Speakers</MenuLink>
       </ListItem>
       <ListItem>
         <MenuLink to='/practical-info'>Practical Info</MenuLink>
