@@ -23,7 +23,7 @@ import {
 
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
-import { AgendaEvent } from '$components/agenda/event';
+import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
@@ -62,17 +62,21 @@ export default function AgendaPage(
     };
   }, {});
 
-  useEffect(() => {
-    document.getElementById(location.hash.slice(1))?.scrollIntoView();
-    /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  }, []);
-
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
   const eventDates = props.data.site.siteMetadata.eventDates.map((d) =>
     utcString2userTzDate(d)
   );
   const currentDay = utcString2userTzDate(props.pageContext.start);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // When the page loads the animation has to run before being able to scroll,
+    // otherwise the position will be off.
+    setTimeout(() => {
+      document.getElementById(location.hash.slice(1))?.scrollIntoView();
+    }, EVENT_DISPLAY_DURATION + 100);
+  }, []);
 
   return (
     <PageLayout>
@@ -183,6 +187,7 @@ function EventHourGroup(props: EventHourGroup) {
       direction='up'
       triggerOnce
       gridColumn='content-start / content-end'
+      duration={EVENT_DISPLAY_DURATION}
       _notFirst={{
         '.agenda-time': {
           borderTop: '8px solid',
@@ -356,7 +361,7 @@ export const query = graphql`
         published: { eq: true }
         fringe: { eq: false }
       }
-      sort: [{ slug: ASC }, { date: ASC }]
+      sort: [{ date: ASC }, { weight: DESC }, { slug: ASC }]
     ) {
       nodes {
         internal {

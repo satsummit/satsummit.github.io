@@ -378,6 +378,7 @@ type Event = Node & {
   readonly slug: Scalars['String'];
   readonly title: Scalars['String'];
   readonly type: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 type EventConnection = {
@@ -439,6 +440,7 @@ type EventFieldSelector = {
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type EventFilterInput = {
@@ -455,6 +457,7 @@ type EventFilterInput = {
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type EventFilterListInput = {
@@ -524,6 +527,7 @@ type EventSortInput = {
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type FieldSelectorEnum =
@@ -1420,6 +1424,7 @@ type Letter = Node & {
   readonly published: Maybe<Scalars['Boolean']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 type LetterConnection = {
@@ -1477,6 +1482,7 @@ type LetterFieldSelector = {
   readonly published: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type LetterFilterInput = {
@@ -1489,6 +1495,7 @@ type LetterFilterInput = {
   readonly published: InputMaybe<BooleanQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type LetterFilterListInput = {
@@ -1546,6 +1553,7 @@ type LetterSortInput = {
   readonly published: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type Mdx = Node & {
@@ -1688,6 +1696,7 @@ type MdxFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 
@@ -1714,6 +1723,7 @@ type MdxFrontmatterFieldSelector = {
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFrontmatterFilterInput = {
@@ -1732,6 +1742,7 @@ type MdxFrontmatterFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type MdxFrontmatterSocial = {
@@ -1770,6 +1781,7 @@ type MdxFrontmatterSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type MdxGroupConnection = {
@@ -1897,6 +1909,7 @@ type People = Node & {
   readonly slug: Maybe<Scalars['String']>;
   readonly social: Maybe<SocialConnections>;
   readonly title: Scalars['String'];
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 type PeopleConnection = {
@@ -1961,6 +1974,7 @@ type PeopleFieldSelector = {
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<SocialConnectionsFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type PeopleFilterInput = {
@@ -1980,6 +1994,7 @@ type PeopleFilterInput = {
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<SocialConnectionsFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type PeopleFilterListInput = {
@@ -2046,6 +2061,7 @@ type PeopleSortInput = {
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<SocialConnectionsSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type Potrace = {
@@ -2265,6 +2281,7 @@ type Query_eventArgs = {
   slug: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   type: InputMaybe<StringQueryOperatorInput>;
+  weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -2337,6 +2354,7 @@ type Query_letterArgs = {
   published: InputMaybe<BooleanQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -2377,6 +2395,7 @@ type Query_peopleArgs = {
   slug: InputMaybe<StringQueryOperatorInput>;
   social: InputMaybe<SocialConnectionsFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -2465,6 +2484,7 @@ type Query_sponsorArgs = {
   slug: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
+  weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -3401,6 +3421,7 @@ type Sponsor = Node & {
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 type SponsorConnection = {
@@ -3460,6 +3481,7 @@ type SponsorFieldSelector = {
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type SponsorFilterInput = {
@@ -3474,6 +3496,7 @@ type SponsorFilterInput = {
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type SponsorFilterListInput = {
@@ -3533,6 +3556,7 @@ type SponsorSortInput = {
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type StaticImage = Node & {

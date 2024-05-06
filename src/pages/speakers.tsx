@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { graphql, HeadFC, useStaticQuery } from 'gatsby';
+import { graphql, HeadFC, PageProps } from 'gatsby';
 import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import {
   Box,
@@ -25,26 +25,8 @@ interface SpeakersPageQuery {
   };
 }
 
-export default function SpeakersPage() {
-  const { allPeople } = useStaticQuery<SpeakersPageQuery>(graphql`
-    query {
-      allPeople(sort: { slug: ASC }) {
-        nodes {
-          id
-          slug
-          title
-          avatar {
-            childImageSharp {
-              gatsbyImageData(width: 640, height: 640, placeholder: BLURRED)
-            }
-          }
-          role
-          company
-          group
-        }
-      }
-    }
-  `);
+export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
+  const { allPeople } = props.data;
 
   const { main, other } = useMemo(
     () =>
@@ -223,6 +205,29 @@ export default function SpeakersPage() {
     </PageLayout>
   );
 }
+
+export const query = graphql`
+  query {
+    allPeople(
+      filter: { published: { eq: true } }
+      sort: [{ weight: DESC }, { slug: ASC }]
+    ) {
+      nodes {
+        id
+        slug
+        title
+        avatar {
+          childImageSharp {
+            gatsbyImageData(width: 640, height: 640, placeholder: BLURRED)
+          }
+        }
+        role
+        company
+        group
+      }
+    }
+  }
+`;
 
 export const Head: HeadFC = () => (
   <Seo

@@ -11,7 +11,7 @@ const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
 export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
-    if (page.path.match(/^\/sandbox/) || page.path.match(/^\/speakers/)) {
+    if (page.path.match(/^\/sandbox/)) {
       deletePage(page);
     }
   }
@@ -36,6 +36,7 @@ export const onCreateNode = ({
     const nodeProps = {
       published: true,
       ...node.frontmatter,
+      weight: node.frontmatter.weight || 0,
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
