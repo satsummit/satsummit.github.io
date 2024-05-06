@@ -233,7 +233,7 @@ export const query = graphql`
   query {
     allEvent(
       filter: { published: { eq: true }, fringe: { eq: true } }
-      sort: [{ slug: ASC }, { date: ASC }]
+      sort: [{ weight: DESC }, { slug: ASC }, { date: ASC }]
     ) {
       nodes {
         internal {
