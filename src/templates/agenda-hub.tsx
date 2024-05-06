@@ -62,7 +62,6 @@ export default function AgendaPage(
     };
   }, {});
 
-
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
   const eventDates = props.data.site.siteMetadata.eventDates.map((d) =>
@@ -362,7 +361,7 @@ export const query = graphql`
         published: { eq: true }
         fringe: { eq: false }
       }
-      sort: [{ slug: ASC }, { date: ASC }]
+      sort: [{ date: ASC }, { weight: DESC }, { slug: ASC }]
     ) {
       nodes {
         internal {

@@ -36,6 +36,7 @@ export const onCreateNode = ({
     const nodeProps = {
       published: true,
       ...node.frontmatter,
+      weight: node.frontmatter.weight || 0,
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
