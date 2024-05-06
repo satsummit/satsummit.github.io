@@ -92,7 +92,9 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
                   leftIcon={<CollecticonBrandX />}
                   size={{ base: 'sm', lg: 'md' }}
                 >
-                  @{social.x}
+                  <Text as='span' maxW={24} isTruncated>
+                    @{social.x}
+                  </Text>
                 </Button>
               )}
               {social.linkedin && (
@@ -105,7 +107,9 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
                   leftIcon={<CollecticonBrandLinkedin />}
                   size={{ base: 'sm', lg: 'md' }}
                 >
-                  {social.linkedin}
+                  <Text as='span' maxW={24} isTruncated>
+                    {social.linkedin}
+                  </Text>
                 </Button>
               )}
             </Flex>
