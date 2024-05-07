@@ -1689,6 +1689,7 @@ type MdxFrontmatter = {
   readonly image: Maybe<File>;
   readonly lead: Maybe<Scalars['String']>;
   readonly linkedin: Maybe<Scalars['String']>;
+  readonly people: Maybe<MdxFrontmatterPeople>;
   readonly pronouns: Maybe<Scalars['String']>;
   readonly role: Maybe<Scalars['String']>;
   readonly room: Maybe<Scalars['String']>;
@@ -1716,6 +1717,7 @@ type MdxFrontmatterFieldSelector = {
   readonly image: InputMaybe<FileFieldSelector>;
   readonly lead: InputMaybe<FieldSelectorEnum>;
   readonly linkedin: InputMaybe<FieldSelectorEnum>;
+  readonly people: InputMaybe<MdxFrontmatterPeopleFieldSelector>;
   readonly pronouns: InputMaybe<FieldSelectorEnum>;
   readonly role: InputMaybe<FieldSelectorEnum>;
   readonly room: InputMaybe<FieldSelectorEnum>;
@@ -1735,6 +1737,7 @@ type MdxFrontmatterFilterInput = {
   readonly image: InputMaybe<FileFilterInput>;
   readonly lead: InputMaybe<StringQueryOperatorInput>;
   readonly linkedin: InputMaybe<StringQueryOperatorInput>;
+  readonly people: InputMaybe<MdxFrontmatterPeopleFilterInput>;
   readonly pronouns: InputMaybe<StringQueryOperatorInput>;
   readonly role: InputMaybe<StringQueryOperatorInput>;
   readonly room: InputMaybe<StringQueryOperatorInput>;
@@ -1743,6 +1746,26 @@ type MdxFrontmatterFilterInput = {
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
   readonly weight: InputMaybe<IntQueryOperatorInput>;
+};
+
+type MdxFrontmatterPeople = {
+  readonly moderators: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly speakers: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+};
+
+type MdxFrontmatterPeopleFieldSelector = {
+  readonly moderators: InputMaybe<FieldSelectorEnum>;
+  readonly speakers: InputMaybe<FieldSelectorEnum>;
+};
+
+type MdxFrontmatterPeopleFilterInput = {
+  readonly moderators: InputMaybe<StringQueryOperatorInput>;
+  readonly speakers: InputMaybe<StringQueryOperatorInput>;
+};
+
+type MdxFrontmatterPeopleSortInput = {
+  readonly moderators: InputMaybe<SortOrderEnum>;
+  readonly speakers: InputMaybe<SortOrderEnum>;
 };
 
 type MdxFrontmatterSocial = {
@@ -1774,6 +1797,7 @@ type MdxFrontmatterSortInput = {
   readonly image: InputMaybe<FileSortInput>;
   readonly lead: InputMaybe<SortOrderEnum>;
   readonly linkedin: InputMaybe<SortOrderEnum>;
+  readonly people: InputMaybe<MdxFrontmatterPeopleSortInput>;
   readonly pronouns: InputMaybe<SortOrderEnum>;
   readonly role: InputMaybe<SortOrderEnum>;
   readonly room: InputMaybe<SortOrderEnum>;
