@@ -91,11 +91,10 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
             }}
           >
             <ChakraFade
-              cascade
               direction='up'
               triggerOnce
               duration={500}
-              damping={0.2}
+              delay={100}
             >
               {main.map((speaker) => (
                 <ListItem key={speaker.id} h='100%'>
