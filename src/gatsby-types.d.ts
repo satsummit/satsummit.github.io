@@ -1681,7 +1681,7 @@ type MdxFilterListInput = {
 };
 
 type MdxFrontmatter = {
-  readonly avatar: Maybe<Scalars['String']>;
+  readonly avatar: Maybe<File>;
   readonly company: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly fringe: Maybe<Scalars['Boolean']>;
@@ -1709,7 +1709,7 @@ type MdxFrontmatter_dateArgs = {
 };
 
 type MdxFrontmatterFieldSelector = {
-  readonly avatar: InputMaybe<FieldSelectorEnum>;
+  readonly avatar: InputMaybe<FileFieldSelector>;
   readonly company: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly fringe: InputMaybe<FieldSelectorEnum>;
@@ -1729,7 +1729,7 @@ type MdxFrontmatterFieldSelector = {
 };
 
 type MdxFrontmatterFilterInput = {
-  readonly avatar: InputMaybe<StringQueryOperatorInput>;
+  readonly avatar: InputMaybe<FileFilterInput>;
   readonly company: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly fringe: InputMaybe<BooleanQueryOperatorInput>;
@@ -1789,7 +1789,7 @@ type MdxFrontmatterSocialSortInput = {
 };
 
 type MdxFrontmatterSortInput = {
-  readonly avatar: InputMaybe<SortOrderEnum>;
+  readonly avatar: InputMaybe<FileSortInput>;
   readonly company: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly fringe: InputMaybe<SortOrderEnum>;
