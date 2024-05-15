@@ -1,6 +1,11 @@
 import React, { useMemo } from 'react';
 import { graphql, HeadFC, PageProps } from 'gatsby';
-import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
+import {
+  GatsbyImage,
+  getImage,
+  ImageDataLike,
+  StaticImage
+} from 'gatsby-plugin-image';
 import {
   Box,
   Container,
@@ -90,12 +95,7 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
               xl: 'repeat(4, 1fr)'
             }}
           >
-            <ChakraFade
-              direction='up'
-              triggerOnce
-              duration={500}
-              delay={100}
-            >
+            <ChakraFade direction='up' triggerOnce duration={500} delay={100}>
               {main.map((speaker) => (
                 <ListItem key={speaker.id} h='100%'>
                   <Box
@@ -129,17 +129,32 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
                           {speaker.role} at {speaker.company}
                         </Text>
                       </Flex>
-                      <Box
-                        as={GatsbyImage}
-                        image={
-                          getImage(speaker.avatar as unknown as ImageDataLike)!
-                        }
-                        alt={`Picture of ${speaker.title}`}
-                        objectFit='contain'
-                        borderRadius='sm'
-                        overflow='hidden'
-                        order={-1}
-                      />
+                      {speaker.avatar ? (
+                        <Box
+                          as={GatsbyImage}
+                          image={
+                            getImage(
+                              speaker.avatar as unknown as ImageDataLike
+                            )!
+                          }
+                          alt={`Picture of ${speaker.title}`}
+                          objectFit='contain'
+                          borderRadius='sm'
+                          overflow='hidden'
+                          order={-1}
+                        />
+                      ) : (
+                        <StaticImage
+                          src='../components/speakers/user-pic-placeholder.png'
+                          alt={`Placeholder satellite icon for ${speaker.title}`}
+                          layout='fullWidth'
+                          placeholder='blurred'
+                          style={{
+                            width: '100%',
+                            order: -1
+                          }}
+                        />
+                      )}
                     </SmartLink>
                   </Box>
                 </ListItem>
