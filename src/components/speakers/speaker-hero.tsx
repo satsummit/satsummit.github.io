@@ -8,7 +8,11 @@ import {
   Text,
   useToken
 } from '@chakra-ui/react';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage
+} from 'gatsby-plugin-image';
 import { CollecticonBrandLinkedin } from '@devseed-ui/collecticons-chakra';
 
 import SmartLink from '$components/smart-link';
@@ -22,7 +26,7 @@ interface SpeakerHeroProps {
   company: string;
   pronouns?: string | null;
   social?: Record<string, string | null> | null;
-  image: IGatsbyImageData;
+  image?: IGatsbyImageData;
 }
 
 const heroBg = `url('${cloudSmallUrl}') calc(100% + 20rem) bottom / auto 16rem no-repeat`;
@@ -51,14 +55,26 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
         gap={8}
         p='0'
       >
-        <Box
-          as={GatsbyImage}
-          image={image}
-          alt={`Picture of ${title}`}
-          objectFit='contain'
-          borderRadius='sm'
-          overflow='hidden'
-        />
+        {image ? (
+          <Box
+            as={GatsbyImage}
+            image={image}
+            alt={`Picture of ${title}`}
+            objectFit='contain'
+            borderRadius='sm'
+            overflow='hidden'
+          />
+        ) : (
+          <StaticImage
+            src='./user-pic-placeholder.png'
+            alt={`Placeholder satellite icon for ${title}`}
+            layout='fullWidth'
+            placeholder='blurred'
+            style={{
+              width: '256px',
+            }}
+          />
+        )}
         <Flex flexFlow='column' gap='4'>
           <Box>
             <Heading

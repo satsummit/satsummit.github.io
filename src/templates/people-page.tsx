@@ -44,7 +44,9 @@ export default function PeoplePage(props: PageProps<PeoplePageProps>) {
         company={company}
         pronouns={pronouns}
         social={social}
-        image={getImage(avatar as unknown as ImageDataLike)!}
+        image={
+          avatar ? getImage(avatar as unknown as ImageDataLike)! : undefined
+        }
       />
 
       <Hug py={16}>
