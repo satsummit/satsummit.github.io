@@ -122,7 +122,7 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
                         flexFlow='column nowrap'
                         p={{ base: 4, md: 8 }}
                       >
-                        <Heading as='h3' size='xl'>
+                        <Heading as='h3' size={{ base: 'md', sm: 'xl' }}>
                           {speaker.title}
                         </Heading>
                         <Text fontSize={{ base: 'sm', md: 'md' }}>
