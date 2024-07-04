@@ -1,14 +1,25 @@
-import path from 'path';
-import { add } from 'date-fns';
-import { generateEventsMDXIndex } from './plugins/events-mdx-index.mjs';
+import { generateEventsMDXIndex } from './gatsby-node/events-mdx-index.mjs';
+import {
+  createEditionPages,
+  updateEditionPagesContext
+} from './gatsby-node/edition-pages.mjs';
+import {
+  createEventPeopleRelSchema,
+  createEventSchema,
+  createLetterSchema,
+  createPeopleSchema,
+  createSponsorSchema
+} from './gatsby-node/schema.mjs';
+import { capitalize, pageComponent } from './gatsby-node/utils.mjs';
 
-const letterTemplate = path.resolve('./src/templates/letter-page.tsx');
-const peopleTemplate = path.resolve('./src/templates/people-page.tsx');
-const agendaHubTemplate = path.resolve('./src/templates/agenda-hub.tsx');
+export const onCreatePage = async (helpers) => {
+  const {
+    page,
+    actions: { deletePage }
+  } = helpers;
 
-const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
+  updateEditionPagesContext(helpers);
 
-export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
     if (page.path.match(/^\/sandbox/)) {
@@ -95,28 +106,34 @@ export const onCreateNode = async ({
 
 // Implement createPages api since we only want to create pages for published
 // content and it is not possible to do with the File routing API.
-export const createPages = async ({ actions, graphql }) => {
-  // Create events index. See (./plugins/events-mdx-index) for details.
-  generateEventsMDXIndex(graphql);
+export const createPages = async (helpers) => {
+  const { actions, graphql } = helpers;
+  // Create events index. See (./gatsby-node/events-mdx-index) for details.
+  await generateEventsMDXIndex(helpers);
 
+  // Edition specific pages.
+  await createEditionPages(helpers);
+
+  // --------------------------------------------------------------
+  // Global pages that are not edition specific.
   const { data } = await graphql(`
     query {
-      site {
-        siteMetadata {
-          eventDates
+      # Global letter pages that are not edition specific.
+      allLetter(
+        filter: {
+          title: { ne: "" }
+          published: { eq: true }
+          editions: { elemMatch: { edition: { cId: { eq: null } } } }
         }
-      }
-      allLetter(filter: { title: { ne: "" }, published: { eq: true } }) {
+      ) {
         nodes {
+          id
           slug
-          internal {
-            contentFilePath
+          editions {
+            edition {
+              cId
+            }
           }
-        }
-      }
-      allPeople(filter: { title: { ne: "" }, published: { eq: true } }) {
-        nodes {
-          slug
           internal {
             contentFilePath
           }
@@ -125,38 +142,17 @@ export const createPages = async ({ actions, graphql }) => {
     }
   `);
 
+  // Create global letter pages
   data?.allLetter.nodes.forEach((node) => {
-    const { slug } = node;
+    const { slug, id } = node;
     actions.createPage({
       path: `/${slug}`,
       // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
-      component: `${letterTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: { slug }
-    });
-  });
-
-  data?.allPeople.nodes.forEach((node) => {
-    const { slug } = node;
-    actions.createPage({
-      path: `/speakers/${slug}`,
-      // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
-      component: `${peopleTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: { slug }
-    });
-  });
-
-  // Agenda pages for the different days.
-  const evenDates = data.site.siteMetadata.eventDates.map(
-    (date) => new Date(date)
-  );
-  evenDates.forEach((date, i) => {
-    actions.createPage({
-      path: i ? `/agenda/${i + 1}` : `/agenda`,
-      component: agendaHubTemplate,
-      context: {
-        start: date.toISOString().slice(0, 10),
-        end: add(date, { days: 1 }).toISOString().slice(0, 10)
-      }
+      component: pageComponent(
+        'letter-page.tsx',
+        node.internal.contentFilePath
+      ),
+      context: { slug, id }
     });
   });
 };
