@@ -37,7 +37,7 @@ export default function PeoplePage(props: PageProps<PeoplePageProps>) {
   } = props;
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <SpeakerHero
         title={title!}
         role={role}
@@ -162,8 +162,8 @@ export default function PeoplePage(props: PageProps<PeoplePageProps>) {
 }
 
 export const query = graphql`
-  query ($slug: String!) {
-    people(slug: { eq: $slug }) {
+  query ($id: String, $editionCId: String) {
+    people(id: { eq: $id }) {
       id
       title
       company
@@ -178,7 +178,7 @@ export const query = graphql`
           gatsbyImageData(width: 296, placeholder: BLURRED, aspectRatio: 1)
         }
       }
-      events {
+      events(editionCId: $editionCId) {
         role
         event {
           cId
@@ -193,6 +193,7 @@ export const query = graphql`
         }
       }
     }
+    ...SponsorsData
   }
 `;
 

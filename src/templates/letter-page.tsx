@@ -21,7 +21,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
   } = props;
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <PageHero title={title!} lead={lead!} />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -38,11 +38,12 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    letter(slug: { eq: $slug }) {
+  query ($id: String, $editionCId: String) {
+    letter(id: { eq: $id }) {
       title
       lead
     }
+    ...SponsorsData
   }
 `;
 

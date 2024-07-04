@@ -38,14 +38,13 @@ interface FringePageQuery {
   allEvent: {
     nodes: AgendaEvent[];
   };
-  site: { siteMetadata: { eventDates: string[] } };
 }
 
-export default function FringePage(
-  props: PageProps<FringePageQuery, { start: string; end: string }>
-) {
+export default function FringePage(props: PageProps<FringePageQuery>) {
+  const { allEvent } = props.data;
+
   // Create day and hour groups for the events.
-  const eventsTimeGroups = props.data.allEvent.nodes.reduce<
+  const eventsTimeGroups = allEvent.nodes.reduce<
     Record<string, Record<string, AgendaEvent[]>>
   >((acc, event) => {
     const date = parseEventDate(event.date);
@@ -76,7 +75,7 @@ export default function FringePage(
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <Global
         styles={{
           html: {
@@ -230,9 +229,13 @@ export default function FringePage(
 }
 
 export const query = graphql`
-  query {
+  query ($editionCId: String) {
     allEvent(
-      filter: { published: { eq: true }, fringe: { eq: true } }
+      filter: {
+        published: { eq: true }
+        fringe: { eq: true }
+        edition: { cId: { eq: $editionCId } }
+      }
       sort: [{ weight: DESC }, { slug: ASC }, { date: ASC }]
     ) {
       nodes {
@@ -248,11 +251,6 @@ export const query = graphql`
         people {
           ...AllEventPeople
         }
-      }
-    }
-    site {
-      siteMetadata {
-        eventDates
       }
     }
   }

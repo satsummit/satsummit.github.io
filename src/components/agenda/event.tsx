@@ -17,7 +17,7 @@ import { EventPeople } from '$components/agenda/event-people';
 import { events } from '$components/agenda/events-gen';
 import { MDXProse } from '$components/mdx-prose';
 import { parseEventDate, timeFromDate } from '$utils/utils';
-import { graphql, useStaticQuery } from 'gatsby';
+import { useEditionCId } from '$context/global';
 
 export const EVENT_DISPLAY_DURATION = 640;
 
@@ -33,6 +33,7 @@ interface AgendaEventProps {
   people: Queries.EventPeople;
   startingHLevel?: number;
   linkTo?: string;
+  dayIndex?: number;
   showDate?: boolean;
 }
 
@@ -47,35 +48,25 @@ export function AgendaEvent(props: AgendaEventProps) {
     // Starting level for the highest heading on this component.
     startingHLevel = -1,
     linkTo,
+    dayIndex = 0,
     showDate = false
   } = props;
 
   const dateObj = parseEventDate(date);
   const time = timeFromDate(dateObj);
 
-  const eventMDXContent = events[cId];
+  const editionCId = useEditionCId();
+
+  const eventMDXContent = events[`${editionCId}-${cId}`];
 
   const DateWrapper = showDate ? Fragment : VisuallyHidden;
 
-  const siteData = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          eventDates
-        }
-      }
-    }
-  `);
-
   // If the linkTo prop is not provided, the link will be to the agenda page.
   // Therefore we need to know the day's index to generate the link.
-  let eventBaseLink = linkTo;
-  if (!linkTo) {
-    const eventDates = siteData.site.siteMetadata.eventDates;
-    const eventDate = format(dateObj, 'yyyy-MM-dd');
-    const dayIndex = eventDates.indexOf(eventDate);
-    eventBaseLink = dayIndex > 0 ? `/agenda/${dayIndex + 1}` : '/agenda';
-  }
+  const eventBaseLink =
+    linkTo || dayIndex > 0
+      ? `/${editionCId}/agenda/${dayIndex + 1}`
+      : `/${editionCId}/agenda`;
 
   return (
     <Flex as='article' flexDir='column' gap={{ base: 4, md: 6 }}>

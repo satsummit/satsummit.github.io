@@ -30,8 +30,15 @@ interface SpeakersPageQuery {
   };
 }
 
-export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
+interface SpeakerPageContext {
+  editionCId: string;
+}
+
+export default function SpeakersPage(
+  props: PageProps<SpeakersPageQuery, SpeakerPageContext>
+) {
   const { allPeople } = props.data;
+  const { editionCId } = props.pageContext;
 
   const { main, other } = useMemo(
     () =>
@@ -53,7 +60,7 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
   );
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <Box
         background='primary.500'
         px={{ base: '4', md: '8' }}
@@ -106,7 +113,7 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
                     overflow='hidden'
                   >
                     <SmartLink
-                      to={`/speakers/${speaker.slug}`}
+                      to={`/${editionCId}/speakers/${speaker.slug}`}
                       display='flex'
                       flexFlow='column nowrap'
                       height='100%'
@@ -221,9 +228,14 @@ export default function SpeakersPage(props: PageProps<SpeakersPageQuery>) {
 }
 
 export const query = graphql`
-  query {
+  query ($editionCId: String) {
     allPeople(
-      filter: { published: { eq: true } }
+      filter: {
+        published: { eq: true }
+        events: {
+          elemMatch: { event: { edition: { cId: { eq: $editionCId } } } }
+        }
+      }
       sort: [{ weight: DESC }, { slug: ASC }]
     ) {
       nodes {

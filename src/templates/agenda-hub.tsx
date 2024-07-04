@@ -28,6 +28,7 @@ import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
+import { useEditionCId } from '$context/global';
 
 interface AgendaEvent {
   parent: {
@@ -46,28 +47,39 @@ interface AgendaPageQuery {
   allEvent: {
     nodes: AgendaEvent[];
   };
-  site: { siteMetadata: { eventDates: string[] } };
+  edition: {
+    dates: string[];
+  };
+}
+
+interface AgendaPageContext {
+  start: string;
+  end: string;
+  dayIndex: number;
+  editionCId: string;
 }
 
 export default function AgendaPage(
-  props: PageProps<AgendaPageQuery, { start: string; end: string }>
+  props: PageProps<AgendaPageQuery, AgendaPageContext>
 ) {
-  const hourGroups = props.data.allEvent.nodes.reduce<
-    Record<string, AgendaEvent[]>
-  >((acc, event) => {
-    const t = timeFromDate(parseEventDate(event.date));
-    return {
-      ...acc,
-      [t]: [...(acc[t] || []), event]
-    };
-  }, {});
+  const { allEvent, edition } = props.data;
+  const { start, editionCId, dayIndex } = props.pageContext;
+
+  const hourGroups = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
+    (acc, event) => {
+      const t = timeFromDate(parseEventDate(event.date));
+      return {
+        ...acc,
+        [t]: [...(acc[t] || []), event]
+      };
+    },
+    {}
+  );
 
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
-  const eventDates = props.data.site.siteMetadata.eventDates.map((d) =>
-    utcString2userTzDate(d)
-  );
-  const currentDay = utcString2userTzDate(props.pageContext.start);
+  const eventDates = edition.dates.map((d) => utcString2userTzDate(d));
+  const currentDay = utcString2userTzDate(start);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -79,7 +91,7 @@ export default function AgendaPage(
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <Global
         styles={{
           html: {
@@ -126,7 +138,11 @@ export default function AgendaPage(
                   key={date.getTime()}
                   as={SmartLink}
                   noLinkStyles
-                  to={!i ? '/agenda/' : `/agenda/${i + 1}`}
+                  to={
+                    !i
+                      ? `/${editionCId}/agenda/`
+                      : `/${editionCId}/agenda/${i + 1}`
+                  }
                   isActive={date.getTime() === currentDay.getTime()}
                   color='currentColor'
                 >
@@ -145,6 +161,7 @@ export default function AgendaPage(
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
+            dayIndex={dayIndex}
             time={time}
             day={format(currentDay, 'EEE, LLL dd')}
             events={eventsByTime}
@@ -158,13 +175,14 @@ export default function AgendaPage(
 }
 
 interface EventHourGroup {
+  dayIndex: number;
   time: string;
   day: string;
   events: AgendaEvent[];
 }
 
 function EventHourGroup(props: EventHourGroup) {
-  const { time, day, events } = props;
+  const { dayIndex, time, day, events } = props;
 
   const timeRef = useRef<HTMLDivElement>(null);
   const [isStuck, setStuck] = useState(false);
@@ -287,6 +305,7 @@ function EventHourGroup(props: EventHourGroup) {
               >
                 <AgendaEvent
                   startingHLevel={4}
+                  dayIndex={dayIndex}
                   cId={node.cId}
                   title={node.title}
                   type={node.type}
@@ -306,12 +325,16 @@ function EventHourGroup(props: EventHourGroup) {
 function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
   const { dates, currentDay } = props;
 
+  const editionCId = useEditionCId();
+
   const activeIdx = dates.findIndex(
     (d) => d.getTime() === currentDay.getTime()
   );
 
   const goToTab = useCallback((idx: number) => {
-    navigate(!idx ? '/agenda/' : `/agenda/${idx + 1}`);
+    navigate(
+      !idx ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${idx + 1}`
+    );
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -354,12 +377,13 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
 }
 
 export const query = graphql`
-  query ($start: Date, $end: Date) {
+  query ($start: Date, $end: Date, $editionCId: String) {
     allEvent(
       filter: {
         date: { gt: $start, lt: $end }
         published: { eq: true }
         fringe: { eq: false }
+        edition: { cId: { eq: $editionCId } }
       }
       sort: [{ date: ASC }, { weight: DESC }, { slug: ASC }]
     ) {
@@ -379,10 +403,8 @@ export const query = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        eventDates
-      }
+    edition(cId: { eq: $editionCId }) {
+      dates
     }
   }
 `;
