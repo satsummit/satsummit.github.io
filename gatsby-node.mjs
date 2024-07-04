@@ -17,7 +17,7 @@ export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   }
 };
 
-export const onCreateNode = ({
+export const onCreateNode = async ({
   node,
   actions,
   createNodeId,
@@ -26,11 +26,36 @@ export const onCreateNode = ({
 }) => {
   const { createNode, createParentChildLink } = actions;
 
+  const fileNode = getNode(node.parent);
+  if (!fileNode?.name) return;
+
+  const slug = fileNode.name.toLowerCase();
+
+  if (node.internal.type === `EditionsYaml` && node.parent) {
+    const nodeProps = {
+      published: true,
+      ...node,
+      weight: node.weight || 0,
+      cId: slug
+    };
+
+    const newNode = {
+      ...nodeProps,
+      id: createNodeId(`${node.id} >>> Edition`),
+      parent: fileNode.id,
+      internal: {
+        type: 'Edition',
+        contentDigest: createContentDigest(nodeProps)
+      }
+    };
+
+    await createNode(newNode);
+    createParentChildLink({ parent: fileNode, child: newNode });
+  }
+
   // Create a new node type for all the content pieces based on the folder name.
   // This allows us to easily get content by type, rather than all MDX together.
   if (node.internal.type === `Mdx` && node.parent) {
-    const fileNode = getNode(node.parent);
-    const slug = fileNode.name.toLowerCase();
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
     const nodeProps = {
@@ -40,6 +65,18 @@ export const onCreateNode = ({
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
+
+    if (nodeType === 'Event') {
+      // The relative directory is the path to the file from the event content
+      // directory. We are structuring the content in a way that the events are
+      // in a folder with the edition name.
+      // events /
+      //   edition-id /
+      //     event-id.mdx
+      //   edition-id /
+      //     event-id.mdx
+      nodeProps.edition = fileNode.relativeDirectory;
+    }
 
     const newNode = {
       ...nodeProps,
