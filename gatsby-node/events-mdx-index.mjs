@@ -46,12 +46,20 @@ import fs from 'fs';
 // UPDATE: Removed lazy loading since it was generating too many files that were
 // too small, and the performance gain was minimal.
 
-export async function generateEventsMDXIndex(graphql) {
+export async function generateEventsMDXIndex({ graphql }) {
   const { data } = await graphql(`
     query {
-      allEvent {
+      allEvent(
+        filter: {
+          published: { eq: true }
+          edition: { published: { eq: true } }
+        }
+      ) {
         nodes {
           cId
+          edition {
+            cId
+          }
           internal {
             contentFilePath
           }
@@ -67,10 +75,11 @@ export async function generateEventsMDXIndex(graphql) {
 
   const jsContent = data?.allEvent.nodes.map((node) => {
     const isEmpty = node.parent.excerpt === '';
+    const uniqId = `${node.edition.cId}-${node.cId}`;
 
-    const importName = `C${node.cId.replace(/-/g, '')}`;
+    const importName = `C${uniqId.replace(/-/g, '')}`;
     const importStatement = `import ${importName} from '${node.internal.contentFilePath}';`;
-    const reference = `'${node.cId}': {empty: ${isEmpty}, component: ${importName}},`;
+    const reference = `'${uniqId}': {empty: ${isEmpty}, component: ${importName}},`;
 
     return [importStatement, reference];
   });
