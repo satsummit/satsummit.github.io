@@ -89,6 +89,7 @@
     "$templates": "./src/templates",
     "$pages": "./src/pages",
     "$images": "./src/images",
+    "$context": "./src/context",
     "$utils": "./src/utils"
   }
 }
