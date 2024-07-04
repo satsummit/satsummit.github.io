@@ -37,7 +37,7 @@ const config = {
       }
     },
     'gatsby-plugin-image',
-    // 'gatsby-plugin-mdx',
+    'gatsby-transformer-yaml-full',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -152,6 +152,13 @@ const config = {
       options: {
         name: `people`,
         path: `./content/people`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `edition`,
+        path: `./content/editions`
       }
     },
     {
