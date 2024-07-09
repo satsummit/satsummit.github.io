@@ -162,6 +162,13 @@ const config = {
       }
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'insights',
+        path: './content/insights/'
+      }
+    },
+    {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: pkg.alias,

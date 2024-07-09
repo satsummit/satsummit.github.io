@@ -11,6 +11,7 @@ import {
   createSponsorSchema
 } from './gatsby-node/schema.mjs';
 import { capitalize, pageComponent } from './gatsby-node/utils.mjs';
+import { createInsightsPages } from './gatsby-node/insights-pages.mjs';
 
 export const onCreatePage = async (helpers) => {
   const {
@@ -33,7 +34,8 @@ export const onCreateNode = async ({
   actions,
   createNodeId,
   createContentDigest,
-  getNode
+  getNode,
+  reporter
 }) => {
   const { createNode, createParentChildLink } = actions;
 
@@ -69,7 +71,7 @@ export const onCreateNode = async ({
   if (node.internal.type === `Mdx` && node.parent) {
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
-    const nodeProps = {
+    let nodeProps = {
       published: true,
       ...node.frontmatter,
       weight: node.frontmatter.weight || 0,
@@ -86,7 +88,30 @@ export const onCreateNode = async ({
       //     event-id.mdx
       //   edition-id /
       //     event-id.mdx
-      nodeProps.edition = fileNode.relativeDirectory;
+      nodeProps = {
+        ...nodeProps,
+        edition: fileNode.relativeDirectory
+      };
+    } else if (nodeType === 'Insights') {
+      const dir = fileNode.relativeDirectory;
+      const match = dir.match(/(\d{4}-\d{2}-\d{2})-(.*)/);
+      if (!match) {
+        reporter.panicOnBuild(
+          `Blog post directory name is not valid: ${dir}. It should be in the format of YYYY-MM-DD-title.`
+        );
+        return;
+      }
+      const [, date, name] = match;
+      const finalDate = new Date(node.frontmatter.date || date);
+      const formattedDate = finalDate.toISOString().split('T')[0];
+      const finalSlug = `${formattedDate}-${name}`;
+
+      nodeProps = {
+        ...nodeProps,
+        cId: finalSlug,
+        slug: finalSlug,
+        date: finalDate
+      };
     }
 
     const newNode = {
@@ -113,6 +138,9 @@ export const createPages = async (helpers) => {
 
   // Edition specific pages.
   await createEditionPages(helpers);
+
+  // Insights pages.
+  await createInsightsPages(helpers);
 
   // --------------------------------------------------------------
   // Global pages that are not edition specific.

@@ -11,6 +11,18 @@ export const createLetterSchema = ({ actions }) => {
       lead: String
       editions: [LetterEdition]
     }
+
+    type InsightsEdition {
+      edition: Edition! @link(by: "cId")
+    }
+
+    type Insights implements Node {
+      cId: String!
+      title: String!
+      date: Date @dateformat
+      description: String
+      editions: [InsightsEdition]
+    }
     `
   ];
 
