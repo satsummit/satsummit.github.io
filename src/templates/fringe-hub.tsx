@@ -229,7 +229,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
 }
 
 export const query = graphql`
-  query ($editionCId: String) {
+  query ($editionCId: String = "") {
     ...EditionContextualData
     allEvent(
       filter: {

@@ -162,7 +162,7 @@ export default function PeoplePage(props: PageProps<PeoplePageProps>) {
 }
 
 export const query = graphql`
-  query ($id: String, $editionCId: String) {
+  query ($id: String, $editionCId: String = "") {
     ...EditionContextualData
     people(id: { eq: $id }) {
       id

@@ -2,7 +2,7 @@ import { PageProps } from 'gatsby';
 import React, { createContext, useContext } from 'react';
 
 interface GlobalContextProps {
-  sponsors?: Queries.SponsorsDataFragment['sponsors']['nodes'];
+  sponsors?: Queries.EditionContextualDataFragment['sponsors']['nodes'];
   navigation?: Queries.EditionNavigation[]
   editionCId?: string;
 }

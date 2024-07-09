@@ -377,7 +377,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
 }
 
 export const query = graphql`
-  query ($start: Date, $end: Date, $editionCId: String) {
+  query ($start: Date, $end: Date, $editionCId: String = "") {
     ...EditionContextualData
     allEvent(
       filter: {
