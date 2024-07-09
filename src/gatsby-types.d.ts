@@ -370,6 +370,7 @@ type Edition = Node & {
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
+  readonly navigation: Maybe<ReadonlyArray<Maybe<EditionNavigation>>>;
   readonly parent: Maybe<Node>;
   readonly published: Maybe<Scalars['Boolean']>;
   readonly weight: Maybe<Scalars['Int']>;
@@ -435,6 +436,7 @@ type EditionFieldSelector = {
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly navigation: InputMaybe<EditionNavigationFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly published: InputMaybe<FieldSelectorEnum>;
   readonly weight: InputMaybe<FieldSelectorEnum>;
@@ -447,6 +449,7 @@ type EditionFilterInput = {
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly navigation: InputMaybe<EditionNavigationFilterListInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly published: InputMaybe<BooleanQueryOperatorInput>;
   readonly weight: InputMaybe<IntQueryOperatorInput>;
@@ -497,6 +500,34 @@ type EditionGroupConnection_sumArgs = {
   field: EditionFieldSelector;
 };
 
+type EditionNavigation = {
+  readonly menu: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type EditionNavigationFieldSelector = {
+  readonly menu: InputMaybe<FieldSelectorEnum>;
+  readonly path: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionNavigationFilterInput = {
+  readonly menu: InputMaybe<StringQueryOperatorInput>;
+  readonly path: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionNavigationFilterListInput = {
+  readonly elemMatch: InputMaybe<EditionNavigationFilterInput>;
+};
+
+type EditionNavigationSortInput = {
+  readonly menu: InputMaybe<SortOrderEnum>;
+  readonly path: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
 type EditionSortInput = {
   readonly cId: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -504,6 +535,7 @@ type EditionSortInput = {
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
+  readonly navigation: InputMaybe<EditionNavigationSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly published: InputMaybe<SortOrderEnum>;
   readonly weight: InputMaybe<SortOrderEnum>;
@@ -515,6 +547,7 @@ type EditionsYaml = Node & {
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
+  readonly navigation: Maybe<ReadonlyArray<Maybe<EditionsYamlNavigation>>>;
   readonly parent: Maybe<Node>;
 };
 
@@ -577,6 +610,7 @@ type EditionsYamlFieldSelector = {
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly navigation: InputMaybe<EditionsYamlNavigationFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
 };
 
@@ -586,6 +620,7 @@ type EditionsYamlFilterInput = {
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly navigation: InputMaybe<EditionsYamlNavigationFilterListInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
 };
 
@@ -634,12 +669,41 @@ type EditionsYamlGroupConnection_sumArgs = {
   field: EditionsYamlFieldSelector;
 };
 
+type EditionsYamlNavigation = {
+  readonly menu: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
+  readonly title: Maybe<Scalars['String']>;
+};
+
+type EditionsYamlNavigationFieldSelector = {
+  readonly menu: InputMaybe<FieldSelectorEnum>;
+  readonly path: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionsYamlNavigationFilterInput = {
+  readonly menu: InputMaybe<StringQueryOperatorInput>;
+  readonly path: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionsYamlNavigationFilterListInput = {
+  readonly elemMatch: InputMaybe<EditionsYamlNavigationFilterInput>;
+};
+
+type EditionsYamlNavigationSortInput = {
+  readonly menu: InputMaybe<SortOrderEnum>;
+  readonly path: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
 type EditionsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
+  readonly navigation: InputMaybe<EditionsYamlNavigationSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
@@ -2653,6 +2717,7 @@ type Query_editionArgs = {
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
+  navigation: InputMaybe<EditionNavigationFilterListInput>;
   parent: InputMaybe<NodeFilterInput>;
   published: InputMaybe<BooleanQueryOperatorInput>;
   weight: InputMaybe<IntQueryOperatorInput>;
@@ -2665,6 +2730,7 @@ type Query_editionsYamlArgs = {
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
+  navigation: InputMaybe<EditionsYamlNavigationFilterListInput>;
   parent: InputMaybe<NodeFilterInput>;
 };
 
@@ -3989,6 +4055,8 @@ type WebPOptions = {
 
 type AllEventPeopleFragment = { readonly hosts: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly moderators: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly panelists: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly facilitators: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly speakers: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null };
 
+type EditionContextualDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string | null, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly navigation: ReadonlyArray<{ readonly title: string | null, readonly path: string | null, readonly menu: string | null } | null> | null } | null };
+
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
 type GatsbyImageSharpFixed_noBase64Fragment = { readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
@@ -4020,8 +4088,6 @@ type PeopleFields_People_Fragment = { readonly title: string, readonly slug: str
 type PeopleFields_VoidPeople_Fragment = { readonly title: string, readonly isVoid: boolean | null };
 
 type PeopleFieldsFragment = PeopleFields_People_Fragment | PeopleFields_VoidPeople_Fragment;
-
-type SponsorsDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string | null, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
 
 
 }

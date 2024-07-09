@@ -229,6 +229,7 @@ export default function SpeakersPage(
 
 export const query = graphql`
   query ($editionCId: String) {
+    ...EditionContextualData
     allPeople(
       filter: {
         published: { eq: true }

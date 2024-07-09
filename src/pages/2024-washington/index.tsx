@@ -37,7 +37,7 @@ export default function IndexPage(props: PageProps) {
 
 export const pageQuery = graphql`
   query ($editionCId: String) {
-    ...SponsorsData
+    ...EditionContextualData
   }
 `;
 

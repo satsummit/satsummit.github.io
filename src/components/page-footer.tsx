@@ -22,6 +22,7 @@ import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import { CollecticonBrandX } from './icons/brand-x';
+import { useGlobalContext } from '$context/global';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -36,53 +37,7 @@ export default function PageFooter() {
       py={{ base: '8', lg: '16' }}
     >
       <Fold spacingY={{ base: '6', md: '8' }}>
-        <FooterBlock
-          gridColumn={{
-            base: '1/-1',
-            sm: '1 / span 2',
-            md: '1/ span 4',
-            lg: '1/ span 3'
-          }}
-        >
-          <Heading size='md'>This edition</Heading>
-          <List>
-            <ListItem>
-              <MenuLink to='/agenda'>
-                <ListIcon as={CollecticonArrowRight} /> Agenda
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/fringe'>
-                <ListIcon as={CollecticonArrowRight} /> Fringe Events
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/speakers'>
-                <ListIcon as={CollecticonArrowRight} /> Speakers
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/tickets'>
-                <ListIcon as={CollecticonArrowRight} /> Tickets
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/practical-info'>
-                <ListIcon as={CollecticonArrowRight} /> Practical info
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/code-of-conduct'>
-                <ListIcon as={CollecticonArrowRight} /> Code of conduct
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/terms-conditions'>
-                <ListIcon as={CollecticonArrowRight} /> Terms & conditions
-              </MenuLink>
-            </ListItem>
-          </List>
-        </FooterBlock>
+        <EditionFooterNavigation />
         <FooterBlock
           gridColumn={{
             base: '1/-1',
@@ -185,5 +140,38 @@ export default function PageFooter() {
         </FooterBlock>
       </Fold>
     </Box>
+  );
+}
+
+function EditionFooterNavigation() {
+  const { navigation } = useGlobalContext();
+
+  const navItems = navigation?.filter(
+    (item) =>
+      !item.menu || ['footer', 'both'].includes(item.menu.toLowerCase())
+  );
+
+  if (!navItems?.length) return null;
+
+  return (
+    <FooterBlock
+      gridColumn={{
+        base: '1/-1',
+        sm: '1 / span 2',
+        md: '1/ span 4',
+        lg: '1/ span 3'
+      }}
+    >
+      <Heading size='md'>This edition</Heading>
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.path}>
+            <MenuLink to={item.path!}>
+              <ListIcon as={CollecticonArrowRight} /> {item.title}
+            </MenuLink>
+          </ListItem>
+        ))}
+      </List>
+    </FooterBlock>
   );
 }

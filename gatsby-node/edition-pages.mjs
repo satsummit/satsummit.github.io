@@ -99,6 +99,19 @@ export const createEditionPages = async (helpers) => {
           }
         }
       }
+      allEvent(
+        filter: {
+          fringe: { eq: true }
+          title: { ne: "" }
+          published: { eq: true }
+          edition: { cId: { ne: null } }
+        }
+      ) {
+        group(field: { edition: { cId: SELECT } }) {
+          totalCount
+          fieldValue
+        }
+      }
     }
   `);
 
@@ -134,13 +147,19 @@ export const createEditionPages = async (helpers) => {
       });
     });
 
-    actions.createPage({
-      path: `/${editionCId}/fringe`,
-      component: template('fringe-hub.tsx'),
-      context: {
-        editionCId
-      }
-    });
+    const hasFringe =
+      data?.allEvent.group.find((g) => g.fieldValue === editionCId)
+        ?.totalCount > 0;
+
+    if (hasFringe) {
+      actions.createPage({
+        path: `/${editionCId}/fringe`,
+        component: template('fringe-hub.tsx'),
+        context: {
+          editionCId
+        }
+      });
+    }
 
     actions.createPage({
       path: `/${editionCId}/speakers`,

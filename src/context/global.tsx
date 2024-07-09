@@ -3,6 +3,7 @@ import React, { createContext, useContext } from 'react';
 
 interface GlobalContextProps {
   sponsors?: Queries.SponsorsDataFragment['sponsors']['nodes'];
+  navigation?: Queries.EditionNavigation[]
   editionCId?: string;
 }
 
@@ -17,7 +18,8 @@ export function GlobalContextProvider(props: {
   const { pageProps, children } = props;
   const context = {
     editionCId: pageProps?.pageContext.editionCId,
-    sponsors: pageProps?.data?.sponsors?.nodes
+    sponsors: pageProps?.data?.sponsors?.nodes,
+    navigation: pageProps?.data?.edition?.navigation,
   };
 
   return (
@@ -25,10 +27,10 @@ export function GlobalContextProvider(props: {
   );
 }
 
-export function useGlobalContext() {
+export function useGlobalContext(throwIfUndefined = false) {
   const ctx = useContext(GlobalContext);
 
-  if (!ctx.editionCId) {
+  if (throwIfUndefined && !ctx.editionCId) {
     throw new Error(
       'No editionCId set in the global context. Did you forget to pass pageProps={props} to <Layout>?'
     );

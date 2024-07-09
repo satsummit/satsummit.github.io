@@ -23,25 +23,18 @@ import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
+import { useGlobalContext } from '$context/global';
 
 const MENU_BRKPOINT = 'lg';
 
-interface NavMenuProps extends ListProps {}
-
-function NavMenu(props: NavMenuProps) {
+function NavMenu(props: ListProps) {
   return (
     <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
       <ListItem>
-        <MenuLink to='/agenda'>Agenda</MenuLink>
+        <MenuLink to='/about'>About</MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink to='/fringe'>Fringe Events</MenuLink>
-      </ListItem>
-      <ListItem>
-        <MenuLink to='/speakers'>Speakers</MenuLink>
-      </ListItem>
-      <ListItem>
-        <MenuLink to='/practical-info'>Practical Info</MenuLink>
+        <MenuLink to='/fringe'>News</MenuLink>
       </ListItem>
     </List>
   );
@@ -61,6 +54,7 @@ export default function PageHeader() {
         <Flex alignItems='center'>
           <Box>
             <Brand variation='negative' />
+            <EditionLocalNavigation />
           </Box>
           <Flex ml='auto'>
             <Box
@@ -125,5 +119,25 @@ export default function PageHeader() {
         </Drawer>
       </Hide>
     </Box>
+  );
+}
+
+function EditionLocalNavigation() {
+  const { navigation } = useGlobalContext();
+
+  const navItems = navigation?.filter(
+    (item) => !item.menu || ['header', 'both'].includes(item.menu.toLowerCase())
+  );
+
+  if (!navItems?.length) return null;
+
+  return (
+    <List display='flex' gap={{ base: '2', sm: '8' }}>
+      {navItems.map((item) => (
+        <ListItem key={item.path}>
+          <MenuLink to={item.path!}>{item.title}</MenuLink>
+        </ListItem>
+      ))}
+    </List>
   );
 }

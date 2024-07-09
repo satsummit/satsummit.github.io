@@ -2,3 +2,16 @@ name: Lisbon
 dates:
   - '2024-11-16'
   - '2024-11-18'
+navigation:
+  - title: Agenda
+    path: /2024-lisbon/agenda
+    menu: both
+  - title: Fringe events
+    path: /2024-lisbon/fringe
+    menu: both
+  - title: Speakers
+    path: /2024-lisbon/speakers
+    menu: both
+  - title: Practical info
+    path: /2024-lisbon/practical-info
+    menu: footer

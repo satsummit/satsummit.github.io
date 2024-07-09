@@ -34,8 +34,8 @@ export const allEventPeople = graphql`
   }
 `;
 
-export const sponsorsData = graphql`
-  fragment SponsorsData on Query {
+export const editionContextualData = graphql`
+  fragment EditionContextualData on Query {
     sponsors: allSponsor(
       sort: { slug: ASC }
       filter: {
@@ -60,6 +60,13 @@ export const sponsorsData = graphql`
             )
           }
         }
+      }
+    }
+    edition: edition(cId: { eq: $editionCId }) {
+      navigation {
+        title
+        path
+        menu
       }
     }
   }

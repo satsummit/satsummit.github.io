@@ -39,11 +39,11 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
 
 export const query = graphql`
   query ($id: String, $editionCId: String) {
+    ...EditionContextualData
     letter(id: { eq: $id }) {
       title
       lead
     }
-    ...SponsorsData
   }
 `;
 
