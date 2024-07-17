@@ -23,7 +23,7 @@ import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
-import { useGlobalContext } from '$context/global';
+import { useEditionContext } from '$context/edition';
 
 const MENU_BRKPOINT = 'lg';
 
@@ -123,7 +123,7 @@ export default function PageHeader() {
 }
 
 function EditionLocalNavigation() {
-  const { navigation } = useGlobalContext();
+  const { edition } = useEditionContext();
 
   const navItems = navigation?.filter(
     (item) => !item.menu || ['header', 'both'].includes(item.menu.toLowerCase())

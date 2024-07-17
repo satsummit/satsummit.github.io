@@ -1,34 +1,35 @@
 import { PageProps } from 'gatsby';
 import React, { createContext, useContext } from 'react';
 
-interface GlobalContextProps {
+interface EditionContextProps {
   sponsors?: Queries.EditionContextualDataFragment['sponsors']['nodes'];
-  navigation?: Queries.EditionNavigation[]
+  edition?: Queries.EditionContextualDataFragment['edition'];
   editionCId?: string;
 }
 
-const GlobalContext = createContext<GlobalContextProps>({});
+const EditionContext = createContext<EditionContextProps>({});
 
-export function GlobalContextProvider(props: {
+export function EditionContextProvider(props: {
   children: React.ReactNode;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   pageProps?: PageProps<any, any>;
 }) {
-
   const { pageProps, children } = props;
-  const context = {
+  const context: EditionContextProps = {
     editionCId: pageProps?.pageContext.editionCId,
     sponsors: pageProps?.data?.sponsors?.nodes,
-    navigation: pageProps?.data?.edition?.navigation,
+    edition: pageProps?.data?.edition
   };
 
   return (
-    <GlobalContext.Provider value={context}>{children}</GlobalContext.Provider>
+    <EditionContext.Provider value={context}>
+      {children}
+    </EditionContext.Provider>
   );
 }
 
-export function useGlobalContext(throwIfUndefined = false) {
-  const ctx = useContext(GlobalContext);
+export function useEditionContext(throwIfUndefined = false) {
+  const ctx = useContext(EditionContext);
 
   if (throwIfUndefined && !ctx.editionCId) {
     throw new Error(
@@ -40,5 +41,5 @@ export function useGlobalContext(throwIfUndefined = false) {
 }
 
 export function useEditionCId() {
-  return useGlobalContext().editionCId;
+  return useEditionContext().editionCId;
 }

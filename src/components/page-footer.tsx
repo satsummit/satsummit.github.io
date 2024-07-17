@@ -22,7 +22,7 @@ import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import { CollecticonBrandX } from './icons/brand-x';
-import { useGlobalContext } from '$context/global';
+import { useEditionContext } from '$context/edition';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -144,7 +144,7 @@ export default function PageFooter() {
 }
 
 function EditionFooterNavigation() {
-  const { navigation } = useGlobalContext();
+  const { navigation } = useEditionContext();
 
   const navItems = navigation?.filter(
     (item) =>

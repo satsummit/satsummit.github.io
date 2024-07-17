@@ -17,7 +17,7 @@ import { EventPeople } from '$components/agenda/event-people';
 import { events } from '$components/agenda/events-gen';
 import { MDXProse } from '$components/mdx-prose';
 import { parseEventDate, timeFromDate } from '$utils/utils';
-import { useEditionCId } from '$context/global';
+import { useEditionCId } from '$context/edition';
 
 export const EVENT_DISPLAY_DURATION = 640;
 

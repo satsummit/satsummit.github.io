@@ -28,7 +28,7 @@ import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
-import { useEditionCId } from '$context/global';
+import { useEditionCId } from '$context/edition';
 
 interface AgendaEvent {
   parent: {

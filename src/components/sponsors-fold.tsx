@@ -11,7 +11,7 @@ import {
 import { Fold } from './fold';
 import SmartLink from './smart-link';
 import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
-import { useGlobalContext } from '../context/global';
+import { useEditionContext } from '../context/edition';
 
 const sponsorsGroups = [
   'Platinum',
@@ -35,7 +35,7 @@ const opticalLogoAdjustments = {
 };
 
 export default function SponsorsFold() {
-  const { sponsors } = useGlobalContext();
+  const { sponsors } = useEditionContext();
 
   if (!sponsors?.length) return null;
 
