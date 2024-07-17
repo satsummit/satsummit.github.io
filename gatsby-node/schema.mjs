@@ -2,6 +2,19 @@ export const createLetterSchema = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `
+    type EditionNavigation {
+      title: String!
+      path: String!
+      menu: String
+    }
+
+    type Edition implements Node {
+      name: String!
+      edition: String!
+      dates: [Date!] @dateformat
+      navigation: [EditionNavigation!]
+    }
+
     type LetterEdition {
       edition: Edition! @link(by: "cId")
     }

@@ -1,4 +1,12 @@
 name: Wahsington
+edition: 2024
 dates:
   - '2024-02-16'
   - '2024-02-18'
+navigation:
+  - title: Agenda
+    path: /2024-washington/agenda
+    menu: both
+  - title: Speakers
+    path: /2024-washington/speakers
+    menu: both

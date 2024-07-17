@@ -366,11 +366,12 @@ type DuotoneGradient = {
 type Edition = Node & {
   readonly cId: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
-  readonly dates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
+  readonly dates: Maybe<ReadonlyArray<Scalars['Date']>>;
+  readonly edition: Maybe<Scalars['Int']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly name: Maybe<Scalars['String']>;
-  readonly navigation: Maybe<ReadonlyArray<Maybe<EditionNavigation>>>;
+  readonly name: Scalars['String'];
+  readonly navigation: Maybe<ReadonlyArray<EditionNavigation>>;
   readonly parent: Maybe<Node>;
   readonly published: Maybe<Scalars['Boolean']>;
   readonly weight: Maybe<Scalars['Int']>;
@@ -433,6 +434,7 @@ type EditionFieldSelector = {
   readonly cId: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
+  readonly edition: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
@@ -446,6 +448,7 @@ type EditionFilterInput = {
   readonly cId: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
+  readonly edition: InputMaybe<IntQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -502,8 +505,8 @@ type EditionGroupConnection_sumArgs = {
 
 type EditionNavigation = {
   readonly menu: Maybe<Scalars['String']>;
-  readonly path: Maybe<Scalars['String']>;
-  readonly title: Maybe<Scalars['String']>;
+  readonly path: Scalars['String'];
+  readonly title: Scalars['String'];
 };
 
 type EditionNavigationFieldSelector = {
@@ -532,6 +535,7 @@ type EditionSortInput = {
   readonly cId: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
+  readonly edition: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
@@ -544,6 +548,7 @@ type EditionSortInput = {
 type EditionsYaml = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly dates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
+  readonly edition: Maybe<Scalars['Int']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
@@ -607,6 +612,7 @@ type EditionsYamlEdge = {
 type EditionsYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
+  readonly edition: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
@@ -617,6 +623,7 @@ type EditionsYamlFieldSelector = {
 type EditionsYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
+  readonly edition: InputMaybe<IntQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -700,6 +707,7 @@ type EditionsYamlNavigationSortInput = {
 type EditionsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
+  readonly edition: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
@@ -2926,6 +2934,7 @@ type Query_editionArgs = {
   cId: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
+  edition: InputMaybe<IntQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -2939,6 +2948,7 @@ type Query_editionArgs = {
 type Query_editionsYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
+  edition: InputMaybe<IntQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -4631,7 +4641,7 @@ type WebPOptions = {
 
 type AllEventPeopleFragment = { readonly hosts: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly moderators: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly panelists: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly facilitators: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly speakers: ReadonlyArray<{ readonly title: string, readonly slug: string | null, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null };
 
-type EditionContextualDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string | null, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly navigation: ReadonlyArray<{ readonly title: string | null, readonly path: string | null, readonly menu: string | null } | null> | null } | null };
+type EditionContextualDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string | null, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly name: string, readonly edition: number | null, readonly navigation: ReadonlyArray<{ readonly title: string, readonly path: string, readonly menu: string | null }> | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
