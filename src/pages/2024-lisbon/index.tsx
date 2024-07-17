@@ -76,7 +76,7 @@ export const pageQuery = graphql`
     ...EditionContextualData
     insights: allInsights(
       filter: {
-        editions: { elemMatch: { edition: { cId: { eq: "2024-lisbon" } } } }
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
         title: { ne: "" }
         published: { eq: true }
       }

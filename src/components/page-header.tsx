@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -27,14 +28,22 @@ import { useEditionContext } from '$context/edition';
 
 const MENU_BRKPOINT = 'lg';
 
-function NavMenu(props: ListProps) {
+function NavMenu(props: { inDrawer?: boolean }) {
   return (
-    <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
+    <List
+      display='flex'
+      gap={props.inDrawer ? 2 : 8}
+      flexFlow={props.inDrawer ? 'column' : 'row'}
+    >
       <ListItem>
-        <MenuLink to='/about'>About</MenuLink>
+        <MenuLink display='block' to='/about'>
+          About
+        </MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink to='/fringe'>News</MenuLink>
+        <MenuLink display='block' to='/insights'>
+          Insights
+        </MenuLink>
       </ListItem>
     </List>
   );
@@ -52,10 +61,18 @@ export default function PageHeader() {
     >
       <Container maxW='container.xl' color='white' p='0'>
         <Flex alignItems='center'>
-          <Box>
+          <Flex alignItems='center' gap={6}>
             <Brand variation='negative' />
-            <EditionLocalNavigation />
-          </Box>
+            <Divider
+              borderColor='surface.300a'
+              size='xs'
+              h='6'
+              orientation='vertical'
+            />
+            <Show above={MENU_BRKPOINT}>
+              <NavMenu />
+            </Show>
+          </Flex>
           <Flex ml='auto'>
             <Box
               as='nav'
@@ -65,7 +82,7 @@ export default function PageHeader() {
               alignItems='center'
             >
               <Show above={MENU_BRKPOINT}>
-                <NavMenu />
+                <EditionLocalNavigation />
               </Show>
               <Button
                 as={SmartLink}
@@ -113,7 +130,8 @@ export default function PageHeader() {
             </DrawerHeader>
 
             <DrawerBody>
-              <NavMenu flexFlow='column' gap={2} />
+              <NavMenu inDrawer />
+              <EditionLocalNavigation inDrawer />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
@@ -122,22 +140,61 @@ export default function PageHeader() {
   );
 }
 
-function EditionLocalNavigation() {
+function EditionLocalNavigation(props: { inDrawer?: boolean }) {
   const { edition } = useEditionContext();
 
-  const navItems = navigation?.filter(
+  const navItems = edition?.navigation?.filter(
     (item) => !item.menu || ['header', 'both'].includes(item.menu.toLowerCase())
   );
 
   if (!navItems?.length) return null;
 
   return (
-    <List display='flex' gap={{ base: '2', sm: '8' }}>
-      {navItems.map((item) => (
-        <ListItem key={item.path}>
-          <MenuLink to={item.path!}>{item.title}</MenuLink>
-        </ListItem>
-      ))}
-    </List>
+    <Box pos='relative'>
+      <Box
+        bg='base.500'
+        color='white'
+        pos='absolute'
+        top='-2rem'
+        left='-1.5rem'
+        p='2'
+        _after={{
+          position: 'absolute',
+          content: '""',
+          width: '1rem',
+          height: '0.75rem',
+          background: 'base.500',
+          top: '100%',
+          left: '0',
+          right: 'auto',
+          bottom: 'auto',
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
+        }}
+      >
+        <Heading
+          as='p'
+          textTransform='uppercase'
+          fontSize='1rem'
+          lineHeight='1'
+          whiteSpace='nowrap'
+        >
+          {edition?.name} {edition?.edition}
+        </Heading>
+      </Box>
+      <List
+        display='flex'
+        gap={props.inDrawer ? 2 : 8}
+        flexFlow={props.inDrawer ? 'column' : 'row'}
+        mt={props.inDrawer ? 16 : 0}
+      >
+        {navItems.map((item) => (
+          <ListItem key={item.path}>
+            <MenuLink display='block' to={item.path!}>
+              {item.title}
+            </MenuLink>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 }
