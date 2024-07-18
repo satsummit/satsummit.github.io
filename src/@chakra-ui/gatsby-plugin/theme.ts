@@ -176,6 +176,21 @@ const theme = {
           };
         }
       }
+    },
+    Tag: {
+      variants: {
+        'satsummit-dark': {
+          container: {
+            fontFamily: 'Barlow Condensed, serif',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            borderRadius: 'sm',
+            bg: 'base.400a',
+            color: 'white',
+            fontSize: '0.875rem'
+          }
+        }
+      }
     }
   },
   config: {

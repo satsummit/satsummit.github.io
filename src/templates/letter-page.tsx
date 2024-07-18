@@ -3,7 +3,7 @@ import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { Container } from '@chakra-ui/react';
 
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
+import { PageHero } from '$components/page-hero';
 import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';

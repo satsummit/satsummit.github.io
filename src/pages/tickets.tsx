@@ -10,7 +10,7 @@ import {
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 import SmartLink from '$components/smart-link';
-import PageHero from '$components/page-hero';
+import { PageHero } from '$components/page-hero';
 
 interface PageQuery {
   allEdition: {

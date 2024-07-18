@@ -19,14 +19,11 @@ import { MDXProse } from '$components/mdx-prose';
 import SpeakerHero from '$components/speakers/speaker-hero';
 import { AgendaEvent } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
+import { Sure } from '$utils/utils';
 
 interface PeoplePageProps {
   people: Queries.People;
 }
-
-type Sure<T> = {
-  [P in keyof T]: NonNullable<T[P]>;
-};
 
 export default function PeoplePage(props: PageProps<PeoplePageProps>) {
   const {

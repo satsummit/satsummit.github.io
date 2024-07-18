@@ -7,8 +7,7 @@ import {
   Divider,
   Flex,
   Heading,
-  Text,
-  useToken
+  Text
 } from '@chakra-ui/react';
 
 import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
@@ -47,17 +46,22 @@ interface PageHeroFoundationProps {
 }
 
 export function PageHeroFoundation(props: PageHeroFoundationProps) {
-  const primary = useToken('colors', 'primary.500');
   return (
     <Box
-      background={{
-        base: primary,
-        // Can't use tokens with this bg notation.
-        lg: `${heroBg}, ${primary}`
-      }}
+      background='primary.500'
       px={{ base: '4', md: '8' }}
       py={{ base: '8', lg: '16' }}
+      position='relative'
       {...props.wrapperProps}
+      _after={{
+        content: '""',
+        position: 'absolute',
+        inset: 0,
+        background: heroBg,
+        zIndex: 100,
+        pointerEvents: 'none',
+        display: { base: 'none', lg: 'block' }
+      }}
     >
       <Container
         maxW='container.xl'

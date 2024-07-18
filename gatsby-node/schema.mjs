@@ -38,6 +38,10 @@ export const createLetterSchema = ({ actions }) => {
       edition: Edition! @link(by: "cId")
     }
 
+    type MediaUrl {
+      url: File! @fileByRelativePath
+    }
+
     type Insights implements Node {
       cId: String!
       published: Boolean!
@@ -47,7 +51,8 @@ export const createLetterSchema = ({ actions }) => {
       title: String!
       date: Date @dateformat
       description: String
-      editions: [InsightsEdition]
+      editions: [InsightsEdition!]
+      cover: MediaUrl
     }
     `
   ];

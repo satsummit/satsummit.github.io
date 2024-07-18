@@ -3,36 +3,38 @@ import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { Container } from '@chakra-ui/react';
 
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
 import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';
+import InsightsHero from '$components/insights/insights-hero';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface InsightsPageProps {
   insights: {
     title: string;
-    description: string;
+    description?: string;
     ago: string;
+    editions?: { edition: { name: string } }[];
+    cover?: { url: IGatsbyImageData };
   };
 }
 
 export default function InsightsPage(props: PageProps<InsightsPageProps>) {
   const {
     data: {
-      insights: { title, ago }
+      insights: { title, ago, description, editions, cover }
     },
     children
   } = props;
 
   return (
     <PageLayout>
-      <PageHero
+      <InsightsHero
         title={title}
-        lead={`Published ${ago}`}
-        parent={{
-          title: 'Insights',
-          url: '/insights'
-        }}
+        lead={description}
+        published={ago}
+        tags={editions?.map(({ edition }) => edition.name) || []}
+        image={cover && getImage(cover.url)}
       />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -49,11 +51,27 @@ export default function InsightsPage(props: PageProps<InsightsPageProps>) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
+  query InsightPage($slug: String) {
     insights(slug: { eq: $slug }) {
       title
       description
       ago: date(fromNow: true)
+      editions {
+        edition {
+          name
+        }
+      }
+      cover {
+        url {
+          childImageSharp {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              width: 200
+              placeholder: BLURRED
+            )
+          }
+        }
+      }
     }
   }
 `;
