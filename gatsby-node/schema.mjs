@@ -9,8 +9,12 @@ export const createLetterSchema = ({ actions }) => {
     }
 
     type Edition implements Node {
+      cId: String!
+      published: Boolean!
+      slug: String!
+      weight: Int!
+
       name: String!
-      edition: String!
       dates: [Date!] @dateformat
       navigation: [EditionNavigation!]
     }
@@ -20,6 +24,11 @@ export const createLetterSchema = ({ actions }) => {
     }
 
     type Letter implements Node {
+      cId: String!
+      published: Boolean!
+      slug: String!
+      weight: Int!
+
       title: String!
       lead: String
       editions: [LetterEdition]
@@ -31,6 +40,10 @@ export const createLetterSchema = ({ actions }) => {
 
     type Insights implements Node {
       cId: String!
+      published: Boolean!
+      slug: String!
+      weight: Int!
+
       title: String!
       date: Date @dateformat
       description: String
@@ -48,8 +61,10 @@ export const createEventSchema = ({ actions, schema }) => {
     schema.buildObjectType({
       name: 'Event',
       fields: {
-        cid: 'String!',
+        cId: 'String!',
+        published: 'Boolean!',
         slug: 'String!',
+        weight: 'Int!',
         title: 'String!',
         fringe: {
           type: 'Boolean!',
@@ -91,6 +106,10 @@ export const createPeopleSchema = ({ actions, schema }) => {
     schema.buildObjectType({
       name: 'People',
       fields: {
+        cId: 'String!',
+        published: 'Boolean!',
+        slug: 'String!',
+        weight: 'Int!',
         title: 'String!',
         company: 'String!',
         role: 'String!',
@@ -222,6 +241,10 @@ export const createSponsorSchema = ({ actions, schema }) => {
     schema.buildObjectType({
       name: 'Sponsor',
       fields: {
+        cId: 'String!',
+        published: 'Boolean!',
+        slug: 'String!',
+        weight: 'Int!',
         title: 'String',
         url: 'String',
         image: {

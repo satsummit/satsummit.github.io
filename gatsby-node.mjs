@@ -49,7 +49,8 @@ export const onCreateNode = async ({
       published: true,
       ...node,
       weight: node.weight || 0,
-      cId: slug
+      cId: slug,
+      slug
     };
 
     const newNode = {

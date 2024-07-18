@@ -64,7 +64,6 @@ export const editionContextualData = graphql`
     }
     edition: edition(cId: { eq: $editionCId }) {
       name
-      edition
       navigation {
         title
         path

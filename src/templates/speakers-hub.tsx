@@ -8,7 +8,6 @@ import {
 } from 'gatsby-plugin-image';
 import {
   Box,
-  Container,
   Divider,
   Flex,
   Heading,
@@ -23,6 +22,7 @@ import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
+import { PageHero } from '$components/page-hero';
 
 interface SpeakersPageQuery {
   allPeople: {
@@ -61,32 +61,10 @@ export default function SpeakersPage(
 
   return (
     <PageLayout pageProps={props}>
-      <Box
-        background='primary.500'
-        px={{ base: '4', md: '8' }}
-        py={{ base: '8', lg: '16' }}
-      >
-        <Container
-          maxW='container.xl'
-          color='white'
-          display='flex'
-          flexFlow={{ base: 'column', md: 'row' }}
-          gap={8}
-          p='0'
-        >
-          <Flex flexFlow='column' gap='4'>
-            <Heading size='3xl' as='h1'>
-              Speakers
-            </Heading>
-            <Text
-              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
-              maxW='container.sm'
-            >
-              All the wonderful people presenting at SatSummit.
-            </Text>
-          </Flex>
-        </Container>
-      </Box>
+      <PageHero
+        title='Speakers'
+        lead='All the wonderful people presenting at SatSummit.'
+      />
 
       <Hug py={16}>
         <Box gridColumn='content-start / content-end'>

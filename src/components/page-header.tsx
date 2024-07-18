@@ -15,7 +15,6 @@ import {
   Hide,
   List,
   ListItem,
-  ListProps,
   Show,
   useDisclosure
 } from '@chakra-ui/react';
@@ -66,7 +65,7 @@ export default function PageHeader() {
             <Divider
               borderColor='surface.300a'
               size='xs'
-              h='6'
+              h='4'
               orientation='vertical'
             />
             <Show above={MENU_BRKPOINT}>
@@ -178,7 +177,7 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
           lineHeight='1'
           whiteSpace='nowrap'
         >
-          {edition?.name} {edition?.edition}
+          {edition?.name}
         </Heading>
       </Box>
       <List
