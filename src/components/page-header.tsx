@@ -35,13 +35,13 @@ function NavMenu(props: { inDrawer?: boolean }) {
       flexFlow={props.inDrawer ? 'column' : 'row'}
     >
       <ListItem>
-        <MenuLink display='block' to='/about'>
-          About
+        <MenuLink display='block' to='/insights'>
+          Insights
         </MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink display='block' to='/insights'>
-          Insights
+        <MenuLink display='block' to='/editions'>
+          Editions
         </MenuLink>
       </ListItem>
     </List>
