@@ -15,7 +15,6 @@ export default function Brand(props: BrandProps) {
       site {
         siteMetadata {
           title
-          edition
         }
       }
     }
@@ -42,30 +41,8 @@ export default function Brand(props: BrandProps) {
         }}
       >
         <LogoMark color='currentColor' />
-        <Text
-          as='span'
-          display='inline-flex'
-          alignItems='center'
-          gap='1'
-        >
-          <Text as='span'>{data.site.siteMetadata.title}</Text>{' '}
-          <Text
-            as='span'
-            position='relative'
-            zIndex='1'
-            _before={{
-              content: '""',
-              backgroundColor:
-                variation === 'positive' ? 'base.200a' : 'base.400a',
-              position: 'absolute',
-              width: '100%',
-              height: '0.5em',
-              bottom: '0.25em',
-              zIndex: '-1'
-            }}
-          >
-            {data.site.siteMetadata.edition}
-          </Text>
+        <Text as='span' display='inline-flex' alignItems='center' gap='1'>
+          <Text as='span'>{data.site.siteMetadata.title}</Text>
         </Text>
       </ChLink>
     </Heading>

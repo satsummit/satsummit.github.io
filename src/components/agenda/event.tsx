@@ -84,7 +84,7 @@ export function AgendaEvent(props: AgendaEventProps) {
             gap={2}
           >
             <DateWrapper>
-              {format(dateObj, 'MMM. dd')}, {time}{' '}
+              {format(dateObj, `MMM. dd ''yy`)}, {time}{' '}
               <Divider
                 borderColor='base.200a'
                 size='xs'

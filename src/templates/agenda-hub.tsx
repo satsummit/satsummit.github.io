@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Container,
   Divider,
   Flex,
   Heading,
@@ -29,6 +28,7 @@ import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
 import { useEditionCId } from '$context/edition';
+import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
 
 interface AgendaEvent {
   parent: {
@@ -99,60 +99,44 @@ export default function AgendaPage(
           }
         }}
       />
-      <Box
-        background='primary.500'
-        px={{ base: '4', md: '8' }}
-        py={{ base: '8', lg: '16' }}
+      <PageHeroFoundation
+        innerProps={{
+          gap: 8,
+          flexFlow: 'column',
+          alignItems: 'start'
+        }}
       >
-        <Container
-          maxW='container.xl'
-          color='white'
-          display='flex'
-          flexFlow={{ base: 'column', md: 'row' }}
-          gap={8}
-          p='0'
+        <PageHeroHeadline
+          title='Agenda'
+          parent={{ url: `/${editionCId}/agenda`, title: 'Agenda' }}
+        />
+
+        <Text textStyle='lead.lg' maxW='container.sm'>
+          2 days of presentations and in-depth conversations.
+        </Text>
+
+        <ButtonGroup
+          isAttached
+          colorScheme='surface'
+          variant='soft-outline'
+          size={{ base: 'sm', md: 'md' }}
         >
-          <Flex flexFlow='column' gap='4'>
-            <Heading size='3xl' as='h1'>
-              Agenda
-            </Heading>
-            <Text
-              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
-              maxW='container.sm'
+          {eventDates.map((date, i) => (
+            <Button
+              key={date.getTime()}
+              as={SmartLink}
+              noLinkStyles
+              to={
+                !i ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${i + 1}`
+              }
+              isActive={date.getTime() === currentDay.getTime()}
+              color='currentColor'
             >
-              2 days of presentations and in-depth conversations.
-            </Text>
-          </Flex>
-          <Flex
-            alignSelf={{ base: 'flex-start', md: 'flex-end' }}
-            ml={{ md: 'auto' }}
-          >
-            <ButtonGroup
-              isAttached
-              colorScheme='surface'
-              variant='soft-outline'
-              size={{ base: 'sm', md: 'md' }}
-            >
-              {eventDates.map((date, i) => (
-                <Button
-                  key={date.getTime()}
-                  as={SmartLink}
-                  noLinkStyles
-                  to={
-                    !i
-                      ? `/${editionCId}/agenda/`
-                      : `/${editionCId}/agenda/${i + 1}`
-                  }
-                  isActive={date.getTime() === currentDay.getTime()}
-                  color='currentColor'
-                >
-                  {format(date, 'EEEE, LLL dd')}
-                </Button>
-              ))}
-            </ButtonGroup>
-          </Flex>
-        </Container>
-      </Box>
+              {format(date, 'EEEE, LLL dd')}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </PageHeroFoundation>
 
       <Hug py={{ base: 8, md: 16 }}>
         <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>

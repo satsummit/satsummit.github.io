@@ -2,9 +2,12 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import SmartLink from '$components/smart-link';
+import { useEditionCId } from '$context/edition';
 
 export function LinkedSpeaker(props: { name: string }) {
   const { name } = props;
+
+  const editionCId = useEditionCId();
 
   const data = useStaticQuery<{
     allPeople: { nodes: Queries.People[] };
@@ -26,8 +29,11 @@ export function LinkedSpeaker(props: { name: string }) {
     return <strong>{name}</strong>;
   }
 
+  // If there's an edition, use it.
+  const prefix = editionCId ? `/${editionCId}` : '';
+
   return (
-    <SmartLink to={`/speakers/${person.slug}`}>
+    <SmartLink to={`${prefix}/speakers/${person.slug}`}>
       <strong>{name}</strong>
     </SmartLink>
   );
