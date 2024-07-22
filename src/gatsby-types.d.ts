@@ -2272,6 +2272,7 @@ type MdxFrontmatter = {
   readonly fringe: Maybe<Scalars['Boolean']>;
   readonly image: Maybe<File>;
   readonly lead: Maybe<Scalars['String']>;
+  readonly linkedin: Maybe<Scalars['String']>;
   readonly people: Maybe<MdxFrontmatterPeople>;
   readonly pronouns: Maybe<Scalars['String']>;
   readonly role: Maybe<Scalars['String']>;
@@ -2280,6 +2281,7 @@ type MdxFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 
@@ -2340,6 +2342,7 @@ type MdxFrontmatterFieldSelector = {
   readonly fringe: InputMaybe<FieldSelectorEnum>;
   readonly image: InputMaybe<FileFieldSelector>;
   readonly lead: InputMaybe<FieldSelectorEnum>;
+  readonly linkedin: InputMaybe<FieldSelectorEnum>;
   readonly people: InputMaybe<MdxFrontmatterPeopleFieldSelector>;
   readonly pronouns: InputMaybe<FieldSelectorEnum>;
   readonly role: InputMaybe<FieldSelectorEnum>;
@@ -2348,6 +2351,7 @@ type MdxFrontmatterFieldSelector = {
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFrontmatterFilterInput = {
@@ -2360,6 +2364,7 @@ type MdxFrontmatterFilterInput = {
   readonly fringe: InputMaybe<BooleanQueryOperatorInput>;
   readonly image: InputMaybe<FileFilterInput>;
   readonly lead: InputMaybe<StringQueryOperatorInput>;
+  readonly linkedin: InputMaybe<StringQueryOperatorInput>;
   readonly people: InputMaybe<MdxFrontmatterPeopleFilterInput>;
   readonly pronouns: InputMaybe<StringQueryOperatorInput>;
   readonly role: InputMaybe<StringQueryOperatorInput>;
@@ -2368,6 +2373,7 @@ type MdxFrontmatterFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type MdxFrontmatterPeople = {
@@ -2420,6 +2426,7 @@ type MdxFrontmatterSortInput = {
   readonly fringe: InputMaybe<SortOrderEnum>;
   readonly image: InputMaybe<FileSortInput>;
   readonly lead: InputMaybe<SortOrderEnum>;
+  readonly linkedin: InputMaybe<SortOrderEnum>;
   readonly people: InputMaybe<MdxFrontmatterPeopleSortInput>;
   readonly pronouns: InputMaybe<SortOrderEnum>;
   readonly role: InputMaybe<SortOrderEnum>;
@@ -2428,6 +2435,7 @@ type MdxFrontmatterSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type MdxGroupConnection = {
@@ -2561,10 +2569,12 @@ type People = Node & {
   readonly cId: Scalars['String'];
   readonly children: ReadonlyArray<Node>;
   readonly company: Scalars['String'];
+  readonly edition: Maybe<Edition>;
   readonly events: Maybe<ReadonlyArray<RoleInEvent>>;
   readonly group: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
+  readonly linkedin: Maybe<Scalars['String']>;
   readonly parent: Maybe<Node>;
   readonly pronouns: Maybe<Scalars['String']>;
   readonly published: Scalars['Boolean'];
@@ -2630,10 +2640,12 @@ type PeopleFieldSelector = {
   readonly cId: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly company: InputMaybe<FieldSelectorEnum>;
+  readonly edition: InputMaybe<EditionFieldSelector>;
   readonly events: InputMaybe<RoleInEventFieldSelector>;
   readonly group: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly linkedin: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly pronouns: InputMaybe<FieldSelectorEnum>;
   readonly published: InputMaybe<FieldSelectorEnum>;
@@ -2649,10 +2661,12 @@ type PeopleFilterInput = {
   readonly cId: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly company: InputMaybe<StringQueryOperatorInput>;
+  readonly edition: InputMaybe<EditionFilterInput>;
   readonly events: InputMaybe<RoleInEventFilterListInput>;
   readonly group: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
+  readonly linkedin: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly pronouns: InputMaybe<StringQueryOperatorInput>;
   readonly published: InputMaybe<BooleanQueryOperatorInput>;
@@ -2715,10 +2729,12 @@ type PeopleSortInput = {
   readonly cId: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly company: InputMaybe<SortOrderEnum>;
+  readonly edition: InputMaybe<EditionSortInput>;
   readonly events: InputMaybe<RoleInEventSortInput>;
   readonly group: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
+  readonly linkedin: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly pronouns: InputMaybe<SortOrderEnum>;
   readonly published: InputMaybe<SortOrderEnum>;
@@ -3128,10 +3144,12 @@ type Query_peopleArgs = {
   cId: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   company: InputMaybe<StringQueryOperatorInput>;
+  edition: InputMaybe<EditionFilterInput>;
   events: InputMaybe<RoleInEventFilterListInput>;
   group: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  linkedin: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   pronouns: InputMaybe<StringQueryOperatorInput>;
   published: InputMaybe<BooleanQueryOperatorInput>;
@@ -4025,28 +4043,10 @@ type SitePluginSortInput = {
 type SiteSiteMetadata = {
   readonly author: Maybe<SiteSiteMetadataAuthor>;
   readonly description: Maybe<Scalars['String']>;
-  readonly edition: Maybe<Scalars['Date']>;
-  readonly eventDates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly social: Maybe<SiteSiteMetadataSocial>;
   readonly subtitle: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
-};
-
-
-type SiteSiteMetadata_editionArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type SiteSiteMetadata_eventDatesArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataAuthor = {
@@ -4068,8 +4068,6 @@ type SiteSiteMetadataAuthorSortInput = {
 type SiteSiteMetadataFieldSelector = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFieldSelector>;
   readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly edition: InputMaybe<FieldSelectorEnum>;
-  readonly eventDates: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFieldSelector>;
   readonly subtitle: InputMaybe<FieldSelectorEnum>;
@@ -4079,8 +4077,6 @@ type SiteSiteMetadataFieldSelector = {
 type SiteSiteMetadataFilterInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorFilterInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly edition: InputMaybe<DateQueryOperatorInput>;
-  readonly eventDates: InputMaybe<DateQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<SiteSiteMetadataSocialFilterInput>;
   readonly subtitle: InputMaybe<StringQueryOperatorInput>;
@@ -4106,8 +4102,6 @@ type SiteSiteMetadataSocialSortInput = {
 type SiteSiteMetadataSortInput = {
   readonly author: InputMaybe<SiteSiteMetadataAuthorSortInput>;
   readonly description: InputMaybe<SortOrderEnum>;
-  readonly edition: InputMaybe<SortOrderEnum>;
-  readonly eventDates: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<SiteSiteMetadataSocialSortInput>;
   readonly subtitle: InputMaybe<SortOrderEnum>;

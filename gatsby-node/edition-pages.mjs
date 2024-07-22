@@ -83,16 +83,18 @@ export const createEditionPages = async (helpers) => {
           }
         }
       }
-      allPeople(filter: { title: { ne: "" }, published: { eq: true } }) {
+      allPeople(
+        filter: {
+          title: { ne: "" }
+          published: { eq: true }
+          edition: { cId: { ne: null } }
+        }
+      ) {
         nodes {
           id
           slug
-          events {
-            event {
-              edition {
-                cId
-              }
-            }
+          edition {
+            cId
           }
           internal {
             contentFilePath
@@ -173,9 +175,7 @@ export const createEditionPages = async (helpers) => {
     // the agenda is correctly displayed.
     data?.allPeople.nodes
       // Get only people that participate in an event of the current edition.
-      .filter((n) =>
-        n.events?.some(({ event }) => event.edition.cId === editionCId)
-      )
+      .filter((n) => n.edition.cId === editionCId)
       .forEach((node) => {
         const { slug, id } = node;
         actions.createPage({

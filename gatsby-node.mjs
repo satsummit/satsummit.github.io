@@ -80,7 +80,8 @@ export const onCreateNode = async ({
       slug
     };
 
-    if (nodeType === 'Event') {
+    if (nodeType === 'Event' || nodeType === 'People') {
+      // The following applies to events and people content types.
       // The relative directory is the path to the file from the event content
       // directory. We are structuring the content in a way that the events are
       // in a folder with the edition name.
@@ -89,9 +90,11 @@ export const onCreateNode = async ({
       //     event-id.mdx
       //   edition-id /
       //     event-id.mdx
+      const edition = fileNode.relativeDirectory;
       nodeProps = {
         ...nodeProps,
-        edition: fileNode.relativeDirectory
+        cId: `${edition}-${nodeProps.cId}`,
+        edition
       };
     } else if (nodeType === 'Insights') {
       const dir = fileNode.relativeDirectory;

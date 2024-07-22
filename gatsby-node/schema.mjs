@@ -62,6 +62,7 @@ export const createLetterSchema = ({ actions }) => {
 
 export const createEventSchema = ({ actions, schema }) => {
   const { createTypes } = actions;
+
   const typeDefs = [
     schema.buildObjectType({
       name: 'Event',
@@ -85,7 +86,15 @@ export const createEventSchema = ({ actions, schema }) => {
             }
           }
         },
-        people: 'EventPeople'
+        people: {
+          type: 'EventPeople',
+          // Attach the edition so that the EventPeople interface can filter
+          // by edition.
+          resolve: (source) => ({
+            ...source.people,
+            __edition: source.edition
+          })
+        }
       },
       interfaces: ['Node']
     })
@@ -130,6 +139,14 @@ export const createPeopleSchema = ({ actions, schema }) => {
           type: 'String',
           resolve: (source) => source.group || 'main'
         },
+        edition: {
+          type: 'Edition',
+          extensions: {
+            link: {
+              by: 'cId'
+            }
+          }
+        },
 
         // Foreign relationship between people and events. This is not a
         // straightforward relation because we need to know what is the role
@@ -141,11 +158,11 @@ export const createPeopleSchema = ({ actions, schema }) => {
           },
           resolve: async (source, args, context) => {
             const results = await Promise.all([
-              searchEventForRole('hosts', source.title, context),
-              searchEventForRole('moderators', source.title, context),
-              searchEventForRole('panelists', source.title, context),
-              searchEventForRole('facilitators', source.title, context),
-              searchEventForRole('speakers', source.title, context)
+              searchEventForRole('hosts', source, context),
+              searchEventForRole('moderators', source, context),
+              searchEventForRole('panelists', source, context),
+              searchEventForRole('facilitators', source, context),
+              searchEventForRole('speakers', source, context)
             ]);
 
             const sorted = [...results.flat()].sort((a, b) => {
@@ -280,13 +297,17 @@ export const createSponsorSchema = ({ actions, schema }) => {
 };
 
 /**
- * Search for all the Events where a given person (name), plays the given role
+ * Search for all the Events where a given person (person.title), plays the given role
  */
-const searchEventForRole = async (role, name, context) => {
+const searchEventForRole = async (role, person, context) => {
   const { entries } = await context.nodeModel.findAll({
     type: 'Event',
-    query: {},
-    sort: { fields: ['date'], order: ['ASC'] }
+    query: {
+      filter: {
+        edition: { cId: { eq: person.edition } }
+      },
+      sort: { date: 'ASC' }
+    }
   });
 
   const events = Array.from(entries);
@@ -295,7 +316,7 @@ const searchEventForRole = async (role, name, context) => {
   // it. Doing it manually.
   const filtered = events.filter((event) =>
     // The raw event object still has people as simple arrays of strings.
-    event.people?.[role]?.includes(name)
+    event.people?.[role]?.includes(person.title)
   );
 
   return filtered.map((event) => ({ role, event }));
@@ -316,7 +337,10 @@ const eventPeopleResolver = (role) => {
       const { entries } = await context.nodeModel.findAll({
         type: 'People',
         query: {
-          filter: { title: { in: peopleList } }
+          filter: {
+            title: { in: peopleList },
+            edition: { cId: { eq: source.__edition } }
+          }
         }
       });
 

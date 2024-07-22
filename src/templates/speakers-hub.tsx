@@ -209,12 +209,7 @@ export const query = graphql`
   query ($editionCId: String = "") {
     ...EditionContextualData
     allPeople(
-      filter: {
-        published: { eq: true }
-        events: {
-          elemMatch: { event: { edition: { cId: { eq: $editionCId } } } }
-        }
-      }
+      filter: { published: { eq: true }, edition: { cId: { eq: $editionCId } } }
       sort: [{ weight: DESC }, { slug: ASC }]
     ) {
       nodes {
