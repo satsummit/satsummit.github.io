@@ -17,8 +17,7 @@ export default function Seo(props: SeoProps) {
       site {
         siteMetadata {
           title
-          description
-          edition
+          description          
           siteUrl
           social {
             twitter
@@ -34,7 +33,7 @@ export default function Seo(props: SeoProps) {
     ? metaImage
     : `${site.siteMetadata.siteUrl}${metaImage}`;
 
-  const formattedTitle = `${title} — ${site.siteMetadata.title} ${site.siteMetadata.edition}`;
+  const formattedTitle = `${title} — ${site.siteMetadata.title}`;
 
   const themeColor = useToken('colors', 'primary.500');
 

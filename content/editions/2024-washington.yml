@@ -1,7 +1,7 @@
 name: Wahsington '24
 dates:
-  - '2024-02-16'
-  - '2024-02-18'
+  - '2024-05-16'
+  - '2024-05-17'
 navigation:
   - title: Agenda
     path: /2024-washington/agenda
@@ -9,3 +9,15 @@ navigation:
   - title: Speakers
     path: /2024-washington/speakers
     menu: both
+  - title: Fringe events
+    path: /2024-washington/fringe
+    menu: both
+  - title: Practical info
+    path: /2024-washington/practical-info
+    menu: both
+  - title: Code of conduct
+    path: /2024-washington/code-of-conduct
+    menu: footer
+  - title: Terms & Conditions
+    path: /2024-washington/terms-conditions
+    menu: footer
