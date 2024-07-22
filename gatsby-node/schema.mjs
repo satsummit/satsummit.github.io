@@ -2,6 +2,10 @@ export const createLetterSchema = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `
+    type MediaUrl {
+      url: File! @fileByRelativePath
+    }
+
     type EditionNavigation {
       title: String!
       path: String!
@@ -16,6 +20,7 @@ export const createLetterSchema = ({ actions }) => {
 
       name: String!
       dates: [Date!] @dateformat
+      media: MediaUrl
       navigation: [EditionNavigation!]
     }
 
@@ -36,10 +41,6 @@ export const createLetterSchema = ({ actions }) => {
 
     type InsightsEdition {
       edition: Edition! @link(by: "cId")
-    }
-
-    type MediaUrl {
-      url: File! @fileByRelativePath
     }
 
     type Insights implements Node {

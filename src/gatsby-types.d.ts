@@ -365,6 +365,7 @@ type DuotoneGradient = {
 
 type Edition = Node & {
   readonly cId: Scalars['String'];
+  readonly card: Maybe<EditionCard>;
   readonly children: ReadonlyArray<Node>;
   readonly dates: Maybe<ReadonlyArray<Scalars['Date']>>;
   readonly id: Scalars['ID'];
@@ -383,6 +384,22 @@ type Edition_datesArgs = {
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
   locale: InputMaybe<Scalars['String']>;
+};
+
+type EditionCard = {
+  readonly url: Maybe<File>;
+};
+
+type EditionCardFieldSelector = {
+  readonly url: InputMaybe<FileFieldSelector>;
+};
+
+type EditionCardFilterInput = {
+  readonly url: InputMaybe<FileFilterInput>;
+};
+
+type EditionCardSortInput = {
+  readonly url: InputMaybe<FileSortInput>;
 };
 
 type EditionConnection = {
@@ -432,6 +449,7 @@ type EditionEdge = {
 
 type EditionFieldSelector = {
   readonly cId: InputMaybe<FieldSelectorEnum>;
+  readonly card: InputMaybe<EditionCardFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
@@ -446,6 +464,7 @@ type EditionFieldSelector = {
 
 type EditionFilterInput = {
   readonly cId: InputMaybe<StringQueryOperatorInput>;
+  readonly card: InputMaybe<EditionCardFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -533,6 +552,7 @@ type EditionNavigationSortInput = {
 
 type EditionSortInput = {
   readonly cId: InputMaybe<SortOrderEnum>;
+  readonly card: InputMaybe<EditionCardSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
@@ -546,6 +566,7 @@ type EditionSortInput = {
 };
 
 type EditionsYaml = Node & {
+  readonly card: Maybe<EditionsYamlCard>;
   readonly children: ReadonlyArray<Node>;
   readonly dates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
   readonly id: Scalars['ID'];
@@ -561,6 +582,22 @@ type EditionsYaml_datesArgs = {
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
   locale: InputMaybe<Scalars['String']>;
+};
+
+type EditionsYamlCard = {
+  readonly url: Maybe<File>;
+};
+
+type EditionsYamlCardFieldSelector = {
+  readonly url: InputMaybe<FileFieldSelector>;
+};
+
+type EditionsYamlCardFilterInput = {
+  readonly url: InputMaybe<FileFilterInput>;
+};
+
+type EditionsYamlCardSortInput = {
+  readonly url: InputMaybe<FileSortInput>;
 };
 
 type EditionsYamlConnection = {
@@ -609,6 +646,7 @@ type EditionsYamlEdge = {
 };
 
 type EditionsYamlFieldSelector = {
+  readonly card: InputMaybe<EditionsYamlCardFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
@@ -619,6 +657,7 @@ type EditionsYamlFieldSelector = {
 };
 
 type EditionsYamlFilterInput = {
+  readonly card: InputMaybe<EditionsYamlCardFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -702,6 +741,7 @@ type EditionsYamlNavigationSortInput = {
 };
 
 type EditionsYamlSortInput = {
+  readonly card: InputMaybe<EditionsYamlCardSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
@@ -2980,6 +3020,7 @@ type Query_directoryArgs = {
 
 type Query_editionArgs = {
   cId: InputMaybe<StringQueryOperatorInput>;
+  card: InputMaybe<EditionCardFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
@@ -2994,6 +3035,7 @@ type Query_editionArgs = {
 
 
 type Query_editionsYamlArgs = {
+  card: InputMaybe<EditionsYamlCardFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
