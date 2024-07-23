@@ -16,7 +16,7 @@
 
 To set up the development environment for this website, you'll need to install the following on your system:
 
-- [Node](http://nodejs.org/) v18 (To manage multiple node versions we recommend [nvm](https://github.com/creationix/nvm))
+- [Node](http://nodejs.org/) v20 LTS (To manage multiple node versions we recommend [nvm](https://github.com/creationix/nvm))
 - [Yarn](https://yarnpkg.com/) Package manager
 
 1.  **Make sure to use the correct node version.**
