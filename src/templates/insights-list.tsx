@@ -99,7 +99,7 @@ function InsightCard(
   const { slug, cover, title, date, ago, description, parent, editions } =
     props;
 
-  const gatsbyImage = getImage(cover?.url as unknown as IGatsbyImageData);
+  const gatsbyImage = getImage(cover?.src as unknown as IGatsbyImageData);
 
   return (
     <SmartLink
@@ -171,7 +171,7 @@ export const query = graphql`
         id
         description
         cover {
-          url {
+          src {
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH

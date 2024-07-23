@@ -3,23 +3,23 @@ dates:
   - '2024-05-16'
   - '2024-05-17'
 card:
-  url: ../../src/images/editions/washington22.jpg
+  src: ../../src/images/editions/washington22.jpg
 navigation:
   - title: Agenda
-    path: /2024-washington/agenda
+    url: /2024-washington/agenda
     menu: both
   - title: Speakers
-    path: /2024-washington/speakers
+    url: /2024-washington/speakers
     menu: both
   - title: Fringe events
-    path: /2024-washington/fringe
+    url: /2024-washington/fringe
     menu: both
   - title: Practical info
-    path: /2024-washington/practical-info
+    url: /2024-washington/practical-info
     menu: both
   - title: Code of conduct
-    path: /2024-washington/code-of-conduct
+    url: /2024-washington/code-of-conduct
     menu: footer
   - title: Terms & Conditions
-    path: /2024-washington/terms-conditions
+    url: /2024-washington/terms-conditions
     menu: footer

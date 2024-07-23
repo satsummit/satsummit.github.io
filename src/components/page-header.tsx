@@ -187,8 +187,8 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
         mt={props.inDrawer ? 16 : 0}
       >
         {navItems.map((item) => (
-          <ListItem key={item.path}>
-            <MenuLink display='block' to={item.path!}>
+          <ListItem key={item.url}>
+            <MenuLink display='block' to={item.url!}>
               {item.title}
             </MenuLink>
           </ListItem>

@@ -15,7 +15,7 @@ interface InsightsPageProps {
     description?: string;
     ago: string;
     editions?: { edition: { name: string } }[];
-    cover?: { url: IGatsbyImageData };
+    cover?: { src: IGatsbyImageData };
   };
 }
 
@@ -34,7 +34,7 @@ export default function InsightsPage(props: PageProps<InsightsPageProps>) {
         lead={description}
         published={ago}
         tags={editions?.map(({ edition }) => edition.name) || []}
-        image={cover && getImage(cover.url)}
+        image={cover && getImage(cover.src)}
       />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -62,7 +62,7 @@ export const query = graphql`
         }
       }
       cover {
-        url {
+        src {
           childImageSharp {
             gatsbyImageData(
               layout: FULL_WIDTH

@@ -3,11 +3,11 @@ dates:
   - '2024-11-16'
   - '2024-11-18'
 card:
-  url: ../../src/images/editions/washington22.jpg
+  src: ../../src/images/editions/washington22.jpg
 navigation:
   - title: Agenda
-    path: /2024-lisbon/agenda
+    url: /2024-lisbon/agenda
     menu: both
   - title: Speakers
-    path: /2024-lisbon/speakers
+    url: /2024-lisbon/speakers
     menu: both

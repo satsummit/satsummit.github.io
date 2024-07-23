@@ -3,7 +3,7 @@ export const createLetterSchema = ({ actions }) => {
   const typeDefs = [
     `
     type MediaUrl {
-      url: File! @fileByRelativePath
+      src: File! @fileByRelativePath
     }
 
     type EditionNavigation {

@@ -144,11 +144,10 @@ export default function PageFooter() {
 }
 
 function EditionFooterNavigation() {
-  const { navigation } = useEditionContext();
+  const { edition } = useEditionContext();
 
-  const navItems = navigation?.filter(
-    (item) =>
-      !item.menu || ['footer', 'both'].includes(item.menu.toLowerCase())
+  const navItems = edition?.navigation?.filter(
+    (item) => !item.menu || ['footer', 'both'].includes(item.menu.toLowerCase())
   );
 
   if (!navItems?.length) return null;
@@ -165,8 +164,8 @@ function EditionFooterNavigation() {
       <Heading size='md'>This edition</Heading>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item.path}>
-            <MenuLink to={item.path!}>
+          <ListItem key={item.url}>
+            <MenuLink to={item.url!}>
               <ListIcon as={CollecticonArrowRight} /> {item.title}
             </MenuLink>
           </ListItem>

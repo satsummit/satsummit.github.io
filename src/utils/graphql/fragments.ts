@@ -66,7 +66,7 @@ export const editionContextualData = graphql`
       name
       navigation {
         title
-        path
+        url
         menu
       }
     }

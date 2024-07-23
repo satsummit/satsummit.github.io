@@ -29,7 +29,7 @@ interface PageQueryEdition {
   cId: string;
   dates?: string[];
   card: {
-    url: IGatsbyImageData;
+    src: IGatsbyImageData;
   };
 }
 
@@ -83,16 +83,12 @@ export default function IndexPage(props: PageProps<PageQuery>) {
                 title={edition.name}
                 url={`/${edition.cId}`}
                 dates={edition.dates?.map(utcString2userTzDate) || []}
-                image={getImage(edition.card?.url)}
+                image={getImage(edition.card?.src)}
               />
             </ListItem>
           ))}
         </List>
-        <Divider
-          borderColor='base.200a'
-          size='sm'
-          orientation='horizontal'
-        />
+        <Divider borderColor='base.200a' size='sm' orientation='horizontal' />
         <List display='grid' gap={4} gridTemplateColumns='1fr 1fr'>
           {past.map((edition) => (
             <ListItem key={edition.cId}>
@@ -100,7 +96,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
                 title={edition.name}
                 url={`/${edition.cId}`}
                 dates={edition.dates?.map(utcString2userTzDate) || []}
-                image={getImage(edition.card?.url)}
+                image={getImage(edition.card?.src)}
               />
             </ListItem>
           ))}
@@ -180,7 +176,7 @@ export const pageQuery = graphql`
         cId
         dates
         card {
-          url {
+          src {
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
