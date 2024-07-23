@@ -71,81 +71,88 @@ export default function SpeakersPage(
           <VisuallyHidden>
             <Heading size='xl'>Main speakers</Heading>
           </VisuallyHidden>
-          <List
-            display='grid'
-            gap={{ base: 4, md: 8 }}
-            gridTemplateColumns={{
-              base: 'repeat(2, 1fr)',
-              md: 'repeat(3, 1fr)',
-              xl: 'repeat(4, 1fr)'
-            }}
-          >
-            <ChakraFade direction='up' triggerOnce duration={500} delay={100}>
-              {main.map((speaker) => (
-                <ListItem key={speaker.id} h='100%'>
-                  <Box
-                    as='article'
-                    bg='base.50'
-                    h='100%'
-                    borderRadius='sm'
-                    overflow='hidden'
-                  >
-                    <SmartLink
-                      to={`/${editionCId}/speakers/${speaker.slug}`}
-                      display='flex'
-                      flexFlow='column nowrap'
-                      height='100%'
-                      transition='opacity 0.24s ease-in-out'
-                      color='inherit'
-                      _hover={{
-                        textDecoration: 'none',
-                        opacity: 0.64
-                      }}
+          {main.length === 0 ? (
+            <Text>
+              No one is speaking at this event yet. Check back later for
+              updates.
+            </Text>
+          ) : (
+            <List
+              display='grid'
+              gap={{ base: 4, md: 8 }}
+              gridTemplateColumns={{
+                base: 'repeat(2, 1fr)',
+                md: 'repeat(3, 1fr)',
+                xl: 'repeat(4, 1fr)'
+              }}
+            >
+              <ChakraFade direction='up' triggerOnce duration={500} delay={100}>
+                {main.map((speaker) => (
+                  <ListItem key={speaker.id} h='100%'>
+                    <Box
+                      as='article'
+                      bg='base.50'
+                      h='100%'
+                      borderRadius='sm'
+                      overflow='hidden'
                     >
-                      <Flex
-                        as='header'
+                      <SmartLink
+                        to={`/${editionCId}/speakers/${speaker.slug}`}
+                        display='flex'
                         flexFlow='column nowrap'
-                        p={{ base: 4, md: 8 }}
+                        height='100%'
+                        transition='opacity 0.24s ease-in-out'
+                        color='inherit'
+                        _hover={{
+                          textDecoration: 'none',
+                          opacity: 0.64
+                        }}
                       >
-                        <Heading as='h3' size={{ base: 'md', sm: 'xl' }}>
-                          {speaker.title}
-                        </Heading>
-                        <Text fontSize={{ base: 'sm', md: 'md' }}>
-                          {speaker.role} at {speaker.company}
-                        </Text>
-                      </Flex>
-                      {speaker.avatar ? (
-                        <Box
-                          as={GatsbyImage}
-                          image={
-                            getImage(
-                              speaker.avatar as unknown as ImageDataLike
-                            )!
-                          }
-                          alt={`Picture of ${speaker.title}`}
-                          objectFit='contain'
-                          borderRadius='sm'
-                          overflow='hidden'
-                          order={-1}
-                        />
-                      ) : (
-                        <StaticImage
-                          src='../components/speakers/user-pic-placeholder.png'
-                          alt={`Placeholder satellite icon for ${speaker.title}`}
-                          layout='fullWidth'
-                          placeholder='blurred'
-                          style={{
-                            width: '100%',
-                            order: -1
-                          }}
-                        />
-                      )}
-                    </SmartLink>
-                  </Box>
-                </ListItem>
-              ))}
-            </ChakraFade>
-          </List>
+                        <Flex
+                          as='header'
+                          flexFlow='column nowrap'
+                          p={{ base: 4, md: 8 }}
+                        >
+                          <Heading as='h3' size={{ base: 'md', sm: 'xl' }}>
+                            {speaker.title}
+                          </Heading>
+                          <Text fontSize={{ base: 'sm', md: 'md' }}>
+                            {speaker.role} at {speaker.company}
+                          </Text>
+                        </Flex>
+                        {speaker.avatar ? (
+                          <Box
+                            as={GatsbyImage}
+                            image={
+                              getImage(
+                                speaker.avatar as unknown as ImageDataLike
+                              )!
+                            }
+                            alt={`Picture of ${speaker.title}`}
+                            objectFit='contain'
+                            borderRadius='sm'
+                            overflow='hidden'
+                            order={-1}
+                          />
+                        ) : (
+                          <StaticImage
+                            src='../components/speakers/user-pic-placeholder.png'
+                            alt={`Placeholder satellite icon for ${speaker.title}`}
+                            layout='fullWidth'
+                            placeholder='blurred'
+                            style={{
+                              width: '100%',
+                              order: -1
+                            }}
+                          />
+                        )}
+                      </SmartLink>
+                    </Box>
+                  </ListItem>
+                ))}
+              </ChakraFade>
+            </List>
+          )}
         </Box>
 
         {!!other.length && (

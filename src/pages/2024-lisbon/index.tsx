@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PageProps, graphql, type HeadFC } from 'gatsby';
 import { Flex, Text, Heading, List, ListItem } from '@chakra-ui/react';
 

@@ -56,7 +56,6 @@ These pages are just MDX pages and can be global or edition specific. This is co
 Editions are the main content type for the website.  
 They are defined using a yaml file in `content/editions` with the name `<year>-<location>.yml`. This will become the `cId` (content Id) of the edition and is used to link content to a specific edition.
 
-
 | Property           | Description                                                                                                 |
 | ------------------ | ----------------------------------------------------------------------------------------------------------- |
 | name               | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).                              |
@@ -66,6 +65,21 @@ They are defined using a yaml file in `content/editions` with the name `<year>-<
 | navigation[].title | Title of the menu link.                                                                                     |
 | navigation[].url   | Url for the menu link. Can be internal or external.                                                         |
 | navigation[].menu  | Which menu to show this link on. One of "header", "footer", "both".                                         |
+
+Starter template for an edition yaml file:
+
+```yaml
+name: 
+dates:
+  - 'YYYY-MM-DD'
+navigation:
+  - title: Agenda
+    url: /<EDITION_CID>/agenda
+    menu: both
+  - title: Speakers
+    url: /<EDITION_CID>/speakers
+    menu: both
+```
 
 ### Letters
 
@@ -116,18 +130,19 @@ The event's content is written in MDX.
 
 Frontmatter fields:
 
-| Property            | Description                                                                                          |
-| ------------------- | ---------------------------------------------------------------------------------------------------- |
-| title               | Name of the event.                                                                                   |
-| type                | Type of the event. This is not fixed and may change from edition to edition.                         |
-| date                | Date and time of the event.                                                                          |
-| room                | Name of the space where the event happens. This is not fixed and may change from edition to edition. |
-| people              | Participants of the event grouped by their role. Use the participant's slug (the file name),         |
-| people.speakers     | Participants with the role of speakers.                                                              |
-| people.moderators   | Participants with the role of moderators.                                                            |
-| people.panelists    | Participants with the role of panelists.                                                             |
-| people.facilitators | Participants with the role of facilitators.                                                          |
-| people.hosts        | Participants with the role of hosts.                                                                 |
+| Property            | Description                                                                                                                                    |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | Name of the event.                                                                                                                             |
+| type                | Type of the event. This is not fixed and may change from edition to edition.                                                                   |
+| date                | Date and time of the event.                                                                                                                    |
+| fringe              | Whether or not the event is a fringe event. <br/> Fringe events are shown under `<edition cId>/fringe` and do not belong to the main schedule. |
+| room                | Name of the space where the event happens. This is not fixed and may change from edition to edition.                                           |
+| people              | Participants of the event grouped by their role. Use the participant's slug (the file name),                                                   |
+| people.speakers     | Participants with the role of speakers.                                                                                                        |
+| people.moderators   | Participants with the role of moderators.                                                                                                      |
+| people.panelists    | Participants with the role of panelists.                                                                                                       |
+| people.facilitators | Participants with the role of facilitators.                                                                                                    |
+| people.hosts        | Participants with the role of hosts.                                                                                                           |
 
 
 ### Sponsors
@@ -191,7 +206,7 @@ import { PageProps, graphql, type HeadFC } from 'gatsby';
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 
-export function EditionPage(props: PageProps) {
+export default function EditionPage(props: PageProps) {
   return (
     <PageLayout pageProps={props}>
       content goes here
@@ -200,7 +215,7 @@ export function EditionPage(props: PageProps) {
 }
 
 export const pageQuery = graphql`
-  query ($editionCId: String = ''') {
+  query ($editionCId: String = "") {
     ...EditionContextualData
   }
 `;

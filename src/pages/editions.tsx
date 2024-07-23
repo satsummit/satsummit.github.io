@@ -18,6 +18,8 @@ import {
 } from '@chakra-ui/react';
 import { CollecticonExpandTopRight } from '@devseed-ui/collecticons-chakra';
 
+import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
+
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 import SmartLink from '$components/smart-link';
@@ -76,7 +78,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
-        <List>
+        <Heading size='lg'>Upcoming</Heading>
+        <List display='flex' flexDir='column' gap={4}>
           {upcoming.map((edition) => (
             <ListItem key={edition.cId}>
               <EditionCard
@@ -89,6 +92,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
           ))}
         </List>
         <Divider borderColor='base.200a' size='sm' orientation='horizontal' />
+        <Heading size='lg'>Past</Heading>
         <List display='grid' gap={4} gridTemplateColumns='1fr 1fr'>
           {past.map((edition) => (
             <ListItem key={edition.cId}>
@@ -229,6 +233,13 @@ function EditionCard(props: EditionCardProps) {
       }}
       minH='12rem'
       overflow='hidden'
+      bgColor='primary.800'
+      bgImage={`url('${cloudSmallUrl}')`}
+      bgRepeat='no-repeat'
+      bgSize='auto 70%'
+      bgPosition='calc(100% + 8rem) bottom'
+      // Override background if image is provided.
+      bg={image ? 'none' : undefined}
     >
       {image ? (
         React.isValidElement(image) ? (

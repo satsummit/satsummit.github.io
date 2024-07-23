@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { HeadFC, PageProps, graphql, navigate } from 'gatsby';
+import { HeadProps, PageProps, graphql, navigate } from 'gatsby';
 import { format } from 'date-fns';
 import {
   Box,
@@ -112,7 +112,7 @@ export default function AgendaPage(
         />
 
         <Text textStyle='lead.lg' maxW='container.sm'>
-          2 days of presentations and in-depth conversations.
+          {edition.dates.length} days of presentations and in-depth conversations.
         </Text>
 
         <ButtonGroup
@@ -142,6 +142,11 @@ export default function AgendaPage(
         <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
           {format(currentDay, 'EEEE, LLL dd')}
         </Heading>
+        {Object.entries(hourGroups).length === 0 && (
+          <Text gridColumn='content-start/content-end'>
+            No events scheduled for this day.
+          </Text>
+        )}
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
@@ -361,7 +366,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
 }
 
 export const query = graphql`
-  query ($start: Date, $end: Date, $editionCId: String = "") {
+  query AgendaHub($start: Date, $end: Date, $editionCId: String = "") {
     ...EditionContextualData
     allEvent(
       filter: {
@@ -394,9 +399,9 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
+export const Head = (props: HeadProps<AgendaPageQuery>) => (
   <Seo
     title='Agenda'
-    description='2 days of presentations and in-depth conversations.'
+    description={`${props.data.edition.dates.length} days of presentations and in-depth conversations.`}
   />
 );
