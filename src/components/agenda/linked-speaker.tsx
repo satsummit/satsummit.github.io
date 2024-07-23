@@ -23,10 +23,10 @@ export function LinkedSpeaker(props: { name: string }) {
     }
   `);
 
-  const person = data.allPeople.nodes.find((p) => p.title === name);
+  const person = data.allPeople.nodes.find((p) => p.slug === name);
 
   if (!person || person.group !== 'main') {
-    return <strong>{name}</strong>;
+    return <strong>{person?.title || name}</strong>;
   }
 
   // If there's an edition, use it.
@@ -34,7 +34,7 @@ export function LinkedSpeaker(props: { name: string }) {
 
   return (
     <SmartLink to={`${prefix}/speakers/${person.slug}`}>
-      <strong>{name}</strong>
+      <strong>{person.title}</strong>
     </SmartLink>
   );
 }

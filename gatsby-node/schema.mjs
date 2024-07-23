@@ -298,7 +298,7 @@ export const createSponsorSchema = ({ actions, schema }) => {
 };
 
 /**
- * Search for all the Events where a given person (person.title), plays the given role
+ * Search for all the Events where a given person (person.slug), plays the given role
  */
 const searchEventForRole = async (role, person, context) => {
   const { entries } = await context.nodeModel.findAll({
@@ -317,7 +317,7 @@ const searchEventForRole = async (role, person, context) => {
   // it. Doing it manually.
   const filtered = events.filter((event) =>
     // The raw event object still has people as simple arrays of strings.
-    event.people?.[role]?.includes(person.title)
+    event.people?.[role]?.includes(person.slug)
   );
 
   return filtered.map((event) => ({ role, event }));

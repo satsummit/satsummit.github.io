@@ -2,8 +2,6 @@ name: Lisbon '24
 dates:
   - '2024-11-16'
   - '2024-11-18'
-card:
-  src: ../../src/images/editions/washington22.jpg
 navigation:
   - title: Agenda
     url: /2024-lisbon/agenda

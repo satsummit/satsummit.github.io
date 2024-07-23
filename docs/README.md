@@ -137,13 +137,15 @@ Frontmatter fields:
 | date                | Date and time of the event.                                                                                                                    |
 | fringe              | Whether or not the event is a fringe event. <br/> Fringe events are shown under `<edition cId>/fringe` and do not belong to the main schedule. |
 | room                | Name of the space where the event happens. This is not fixed and may change from edition to edition.                                           |
-| people              | Participants of the event grouped by their role. Use the participant's slug (the file name),                                                   |
+| people              | Participants of the event grouped by their role. Use the participant's slug (the file name).                                                   |
 | people.speakers     | Participants with the role of speakers.                                                                                                        |
 | people.moderators   | Participants with the role of moderators.                                                                                                      |
 | people.panelists    | Participants with the role of panelists.                                                                                                       |
 | people.facilitators | Participants with the role of facilitators.                                                                                                    |
 | people.hosts        | Participants with the role of hosts.                                                                                                           |
 
+> [!IMPORTANT]
+> It is possible to have a participant without a dedicated speaker page. In that case use the person's name as you want it to be displayed.
 
 ### Sponsors
 
