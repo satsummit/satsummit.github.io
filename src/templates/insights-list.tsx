@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { graphql, type PageProps } from 'gatsby';
-import { Button, Container, Flex, List, ListItem } from '@chakra-ui/react';
+import {
+  Button,
+  Container,
+  Flex,
+  List,
+  ListItem,
+  Text
+} from '@chakra-ui/react';
 import { CollecticonLayoutGrid3x3 } from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
@@ -32,32 +39,36 @@ export default function InsightsPage(
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
-        <List
-          display='grid'
-          gap={{ base: 4, md: 8 }}
-          gridTemplateColumns={{
-            base: '1fr',
-            sm: 'repeat(2, 1fr)',
-            lg: 'repeat(3, 1fr)'
-          }}
-        >
-          {insights.map((insight) => (
-            <ListItem key={insight.id}>
-              <InsightCard
-                slug={insight.slug}
-                title={insight.title}
-                date={insight.date || undefined}
-                ago={insight.ago || undefined}
-                description={insight.description || undefined}
-                parent={insight.parent as { excerpt: string } | undefined}
-                editions={insight.editions || []}
-                cover={getImage(
-                  insight.cover?.src as unknown as IGatsbyImageData
-                )}
-              />
-            </ListItem>
-          ))}
-        </List>
+        {insights.length ? (
+          <List
+            display='grid'
+            gap={{ base: 4, md: 8 }}
+            gridTemplateColumns={{
+              base: '1fr',
+              sm: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)'
+            }}
+          >
+            {insights.map((insight) => (
+              <ListItem key={insight.id}>
+                <InsightCard
+                  slug={insight.slug}
+                  title={insight.title}
+                  date={insight.date || undefined}
+                  ago={insight.ago || undefined}
+                  description={insight.description || undefined}
+                  parent={insight.parent as { excerpt: string } | undefined}
+                  editions={insight.editions || []}
+                  cover={getImage(
+                    insight.cover?.src as unknown as IGatsbyImageData
+                  )}
+                />
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <Text>No insights found.</Text>
+        )}
         {numPages > 1 && (
           <Flex mt={8}>
             {currentPage > 1 && (

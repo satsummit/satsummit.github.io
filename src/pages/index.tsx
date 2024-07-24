@@ -112,54 +112,58 @@ export default function IndexPage(props: PageProps<PageQuery>) {
             </ListItem>
           ))}
         </List>
-        <Divider
-          borderColor='base.200a'
-          size='sm'
-          orientation='horizontal'
-          gridColumn='content-start/content-end'
-        />
-        <Flex
-          justifyContent='space-between'
-          gridColumn='content-start/content-end'
-        >
-          <Heading size='lg'>Insights</Heading>
-          <Button
-            as={SmartLink}
-            to='/insights'
-            variant='solid'
-            colorScheme='primary'
-          >
-            View all
-          </Button>
-        </Flex>
+        {!!allInsights.nodes.length && (
+          <>
+            <Divider
+              borderColor='base.200a'
+              size='sm'
+              orientation='horizontal'
+              gridColumn='content-start/content-end'
+            />
+            <Flex
+              justifyContent='space-between'
+              gridColumn='content-start/content-end'
+            >
+              <Heading size='lg'>Insights</Heading>
+              <Button
+                as={SmartLink}
+                to='/insights'
+                variant='solid'
+                colorScheme='primary'
+              >
+                View all
+              </Button>
+            </Flex>
 
-        <List
-          gridColumn='content-start/content-end'
-          display='grid'
-          gap={{ base: 4, md: 8 }}
-          gridTemplateColumns={{
-            base: '1fr',
-            sm: 'repeat(2, 1fr)',
-            lg: 'repeat(3, 1fr)'
-          }}
-        >
-          {allInsights.nodes.map((insight) => (
-            <ListItem key={insight.id}>
-              <InsightCard
-                slug={insight.slug}
-                title={insight.title}
-                date={insight.date || undefined}
-                ago={insight.ago || undefined}
-                description={insight.description || undefined}
-                parent={insight.parent as { excerpt: string } | undefined}
-                editions={insight.editions || []}
-                cover={getImage(
-                  insight.cover?.src as unknown as IGatsbyImageData
-                )}
-              />
-            </ListItem>
-          ))}
-        </List>
+            <List
+              gridColumn='content-start/content-end'
+              display='grid'
+              gap={{ base: 4, md: 8 }}
+              gridTemplateColumns={{
+                base: '1fr',
+                sm: 'repeat(2, 1fr)',
+                lg: 'repeat(3, 1fr)'
+              }}
+            >
+              {allInsights.nodes.map((insight) => (
+                <ListItem key={insight.id}>
+                  <InsightCard
+                    slug={insight.slug}
+                    title={insight.title}
+                    date={insight.date || undefined}
+                    ago={insight.ago || undefined}
+                    description={insight.description || undefined}
+                    parent={insight.parent as { excerpt: string } | undefined}
+                    editions={insight.editions || []}
+                    cover={getImage(
+                      insight.cover?.src as unknown as IGatsbyImageData
+                    )}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </>
+        )}
       </Hug>
     </PageLayout>
   );
