@@ -24,6 +24,7 @@ import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
 import { useEditionContext } from '$context/edition';
+import { ItemMarker } from './item-marker';
 
 const MENU_BRKPOINT = 'lg';
 
@@ -62,13 +63,13 @@ export default function PageHeader() {
         <Flex alignItems='center'>
           <Flex alignItems='center' gap={6}>
             <Brand variation='negative' />
-            <Divider
-              borderColor='surface.300a'
-              size='xs'
-              h='4'
-              orientation='vertical'
-            />
             <Show above={MENU_BRKPOINT}>
+              <Divider
+                borderColor='surface.300a'
+                size='xs'
+                h='4'
+                orientation='vertical'
+              />
               <NavMenu />
             </Show>
           </Flex>
@@ -150,36 +151,9 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
 
   return (
     <Box pos='relative'>
-      <Box
-        bg='base.500'
-        color='white'
-        pos='absolute'
-        top='-2rem'
-        left='-1.5rem'
-        p='2'
-        _after={{
-          position: 'absolute',
-          content: '""',
-          width: '1rem',
-          height: '0.75rem',
-          background: 'base.500',
-          top: '100%',
-          left: '0',
-          right: 'auto',
-          bottom: 'auto',
-          clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
-        }}
-      >
-        <Heading
-          as='p'
-          textTransform='uppercase'
-          fontSize='1rem'
-          lineHeight='1'
-          whiteSpace='nowrap'
-        >
-          {edition?.name}
-        </Heading>
-      </Box>
+      <ItemMarker pos='absolute' top='-2rem' left='-1.5rem'>
+        {edition?.name}
+      </ItemMarker>
       <List
         display='flex'
         gap={props.inDrawer ? 2 : 8}

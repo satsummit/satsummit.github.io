@@ -1,24 +1,14 @@
 import * as React from 'react';
 import { graphql, type PageProps } from 'gatsby';
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  List,
-  ListItem,
-  Tag,
-  Text
-} from '@chakra-ui/react';
-import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { Button, Container, Flex, List, ListItem } from '@chakra-ui/react';
 import { CollecticonLayoutGrid3x3 } from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 import { PageHero } from '$components/page-hero';
-
 import SmartLink from '$components/smart-link';
+import { InsightCard } from '$components/insights/insight-card';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface InsightsHubCtxProps {
   currentPage: number;
@@ -44,7 +34,7 @@ export default function InsightsPage(
       >
         <List
           display='grid'
-          gap={10}
+          gap={{ base: 4, md: 8 }}
           gridTemplateColumns={{
             base: '1fr',
             sm: 'repeat(2, 1fr)',
@@ -53,7 +43,18 @@ export default function InsightsPage(
         >
           {insights.map((insight) => (
             <ListItem key={insight.id}>
-              <InsightCard {...insight} />
+              <InsightCard
+                slug={insight.slug}
+                title={insight.title}
+                date={insight.date || undefined}
+                ago={insight.ago || undefined}
+                description={insight.description || undefined}
+                parent={insight.parent as { excerpt: string } | undefined}
+                editions={insight.editions || []}
+                cover={getImage(
+                  insight.cover?.src as unknown as IGatsbyImageData
+                )}
+              />
             </ListItem>
           ))}
         </List>
@@ -90,68 +91,6 @@ export default function InsightsPage(
         )}
       </Container>
     </PageLayout>
-  );
-}
-
-function InsightCard(
-  props: Queries.InsightsListQuery['allInsights']['nodes'][number]
-) {
-  const { slug, cover, title, date, ago, description, parent, editions } =
-    props;
-
-  const gatsbyImage = getImage(cover?.src as unknown as IGatsbyImageData);
-
-  return (
-    <SmartLink
-      to={`/insights/${slug}`}
-      borderRadius='sm'
-      display='flex'
-      flexDir='column'
-      h='100%'
-      color='base.500'
-      bg='base.50'
-      _hover={{
-        textDecoration: 'none',
-        transform: 'translateY(-2px)'
-      }}
-      p={{ base: 4, md: 8 }}
-      gap={4}
-    >
-      {gatsbyImage && (
-        <Box
-          mx={{ base: -4, md: -8 }}
-          mt={{ base: -4, md: -8 }}
-          overflow='hidden'
-          borderRadius='sm'
-        >
-          <GatsbyImage image={gatsbyImage} alt='Post decorative cover' />
-        </Box>
-      )}
-      <Box>
-        <Heading size='xl'>{title}</Heading>
-        <Text
-          as='time'
-          dateTime={date || undefined}
-          fontSize='sm'
-          fontStyle='initial'
-        >
-          {ago}
-        </Text>
-      </Box>
-      <Text>
-        {description || (parent as { excerpt: string } | undefined)?.excerpt}
-      </Text>
-
-      {editions && (
-        <Flex gap={2} mt='auto'>
-          {editions.map((edition) => (
-            <Tag key={edition.edition.name} variant='satsummit-dark'>
-              {edition.edition.name}
-            </Tag>
-          ))}
-        </Flex>
-      )}
-    </SmartLink>
   );
 }
 
