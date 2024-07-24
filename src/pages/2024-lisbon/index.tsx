@@ -3,7 +3,6 @@ import { PageProps, graphql, type HeadFC } from 'gatsby';
 import { Flex, Text, Heading, List, ListItem } from '@chakra-ui/react';
 
 import PageLayout from '$components/page-layout';
-import HomeHero from '$components/home/page-hero';
 import { Fold, FoldProse } from '$components/fold';
 import Seo from '$components/seo';
 import SmartLink from '$components/smart-link';
@@ -26,7 +25,6 @@ interface InsightsPageQuery {
 export default function IndexPage(props: PageProps<InsightsPageQuery>) {
   return (
     <PageLayout pageProps={props}>
-      <HomeHero />
       <Flex
         flexFlow='column'
         gap='8'
