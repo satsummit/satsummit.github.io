@@ -1,30 +1,25 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { PageProps, graphql, type HeadFC } from 'gatsby';
 import {
-  GatsbyImage,
   getImage,
   IGatsbyImageData,
   StaticImage
 } from 'gatsby-plugin-image';
-import { format, isFuture, isToday } from 'date-fns';
 import {
-  Box,
   Container,
   Divider,
   Heading,
   List,
   ListItem,
-  Text
 } from '@chakra-ui/react';
-import { CollecticonExpandTopRight } from '@devseed-ui/collecticons-chakra';
 
-import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
-import SmartLink from '$components/smart-link';
 import { PageHero } from '$components/page-hero';
 import { utcString2userTzDate } from '$utils/date';
+import { useFuturePastEditions } from '$utils/use-future-past-edition';
+import { EditionCard } from '$components/editions/edition-card';
 
 interface PageQueryEdition {
   name: string;
@@ -45,23 +40,8 @@ interface PageQuery {
 export default function IndexPage(props: PageProps<PageQuery>) {
   const { data } = props;
 
-  const [upcoming, past] = useMemo(
-    () =>
-      data.allEdition.nodes.reduce(
-        (acc, edition) => {
-          const current = edition.dates?.some((date) => {
-            const d = utcString2userTzDate(date);
-            return isToday(d) || isFuture(d);
-          });
-          if (current) {
-            return [[...acc[0], edition], acc[1]];
-          } else {
-            return [acc[0], [...acc[1], edition]];
-          }
-        },
-        [[], []] as PageQueryEdition[][]
-      ),
-    [data.allEdition.nodes]
+  const [future, past] = useFuturePastEditions<PageQueryEdition>(
+    data.allEdition.nodes
   );
 
   return (
@@ -73,14 +53,14 @@ export default function IndexPage(props: PageProps<PageQuery>) {
       <Container
         py={{ base: '8', lg: '16' }}
         px={{ base: '4', md: '8' }}
-        maxW='container.lg'
+        maxW='container.xl'
         display='flex'
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
         <Heading size='lg'>Upcoming</Heading>
         <List display='flex' flexDir='column' gap={4}>
-          {upcoming.map((edition) => (
+          {future.map((edition) => (
             <ListItem key={edition.cId}>
               <EditionCard
                 title={edition.name}
@@ -93,7 +73,11 @@ export default function IndexPage(props: PageProps<PageQuery>) {
         </List>
         <Divider borderColor='base.200a' size='sm' orientation='horizontal' />
         <Heading size='lg'>Past</Heading>
-        <List display='grid' gap={4} gridTemplateColumns='1fr 1fr'>
+        <List
+          display='grid'
+          gap={{ base: 4, md: 8 }}
+          gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+        >
           {past.map((edition) => (
             <ListItem key={edition.cId}>
               <EditionCard
@@ -114,7 +98,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               ]}
               image={
                 <StaticImage
-                  src='../images/editions/washington22.jpg'
+                  src='../images/editions/external-edition.jpg'
                   alt='Washington DC 2022'
                 />
               }
@@ -131,7 +115,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               ]}
               image={
                 <StaticImage
-                  src='../images/editions/washington22.jpg'
+                  src='../images/editions/external-edition.jpg'
                   alt='Washington DC 2018'
                 />
               }
@@ -145,7 +129,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               dates={[utcString2userTzDate('2017-01-31T00:00:00Z')]}
               image={
                 <StaticImage
-                  src='../images/editions/washington22.jpg'
+                  src='../images/editions/external-edition.jpg'
                   alt='Washington DC 2017'
                 />
               }
@@ -159,7 +143,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               dates={[utcString2userTzDate('2015-11-09T00:00:00Z')]}
               image={
                 <StaticImage
-                  src='../images/editions/washington22.jpg'
+                  src='../images/editions/external-edition.jpg'
                   alt='Washington DC 2015'
                 />
               }
@@ -196,108 +180,3 @@ export const pageQuery = graphql`
 `;
 
 export const Head: HeadFC = () => <Seo title='Welcome' />;
-
-interface EditionCardProps {
-  title: string;
-  url: string;
-  isExternal?: boolean;
-  dates: Date[];
-  image?: React.ReactElement | IGatsbyImageData;
-}
-function EditionCard(props: EditionCardProps) {
-  const { title, url, isExternal, dates, image } = props;
-
-  return (
-    <SmartLink
-      to={url}
-      borderRadius='sm'
-      display='flex'
-      flexDir='column'
-      justifyContent='end'
-      h='100%'
-      color='surface.500'
-      _hover={{
-        textDecoration: 'none',
-        transform: 'translateY(-2px)'
-      }}
-      p={{ base: 4, md: 8 }}
-      gap={4}
-      position='relative'
-      sx={{
-        '.gatsby-image-wrapper': {
-          position: 'absolute',
-          inset: 0,
-          zIndex: -1,
-          pointerEvents: 'none'
-        }
-      }}
-      minH='12rem'
-      overflow='hidden'
-      bgColor='primary.800'
-      bgImage={`url('${cloudSmallUrl}')`}
-      bgRepeat='no-repeat'
-      bgSize='auto 70%'
-      bgPosition='calc(100% + 8rem) bottom'
-      // Override background if image is provided.
-      bg={image ? 'none' : undefined}
-    >
-      {image ? (
-        React.isValidElement(image) ? (
-          image
-        ) : (
-          <GatsbyImage image={image as IGatsbyImageData} alt={title} />
-        )
-      ) : null}
-      {isExternal && (
-        <Box position='absolute' right={0} top={0} p={4} bg='primary.500'>
-          <CollecticonExpandTopRight display='block' />
-        </Box>
-      )}
-      <Box>
-        <Heading size='xl'>{title}</Heading>
-        <Text fontSize='sm' fontStyle='initial'>
-          {multiDateDisplay(dates)}
-        </Text>
-      </Box>
-      <Text>Satellite data for global development.</Text>
-    </SmartLink>
-  );
-}
-
-// Creates a human readable string of dates without much repetition.
-// Groups by year and month, then lists the days.
-// Example:
-// The dates: [2022-09-28, 2022-09-29, 2022-10-01, 2022-01-01]
-// Will be displayed as:
-// September 28 & 29 & October 01, 2022 & January 01, 2022
-function multiDateDisplay(dates: Date[]) {
-  const group = dates.reduce(
-    (acc, date) => {
-      // Group by month and year
-      const y = date.getFullYear();
-      const m = date.getMonth();
-
-      const yGroup = acc[y] || {};
-      const mGroup = yGroup[m] || [];
-
-      return {
-        ...acc,
-        [y]: {
-          ...yGroup,
-          [m]: [...mGroup, date]
-        }
-      };
-    },
-    {} as Record<number, Record<number, Date[]>>
-  );
-
-  return Object.entries(group)
-    .map(([y, yGroup]) => {
-      const months = Object.entries(yGroup).map(([, mGroup]) => {
-        const days = mGroup.map((d) => format(d, 'dd')).join(' & ');
-        return `${format(mGroup[0], 'MMMM')} ${days}`;
-      });
-      return `${months.join(' & ')}, ${y}`;
-    })
-    .join(' & ');
-}

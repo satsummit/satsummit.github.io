@@ -20,7 +20,7 @@ export const createLetterSchema = ({ actions }) => {
 
       name: String!
       dates: [Date!] @dateformat
-      media: MediaUrl
+      card: MediaUrl
       navigation: [EditionNavigation!]
     }
 
