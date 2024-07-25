@@ -7,8 +7,8 @@ import { Fold, FoldProse } from '$components/fold';
 import Seo from '$components/seo';
 import SmartLink from '$components/smart-link';
 
-interface InsightsPageQuery {
-  insights: {
+interface UpdatesPageQuery {
+  updates: {
     nodes: {
       title: string;
       ago: string;
@@ -22,7 +22,7 @@ interface InsightsPageQuery {
   };
 }
 
-export default function IndexPage(props: PageProps<InsightsPageQuery>) {
+export default function IndexPage(props: PageProps<UpdatesPageQuery>) {
   return (
     <PageLayout pageProps={props}>
       <Flex
@@ -43,22 +43,22 @@ export default function IndexPage(props: PageProps<InsightsPageQuery>) {
             <Heading size='2xl'>Lisbon edition</Heading>
             <Text>This is the lisbon edition of the SatSummit.</Text>
             <List display='flex' gap={10} flexDir='column'>
-              {props.data.insights.nodes.map((insight) => (
-                <ListItem key={insight.id}>
+              {props.data.updates.nodes.map((update) => (
+                <ListItem key={update.id}>
                   <Heading size='xl'>
-                    <SmartLink to={`/insights/${insight.slug}`}>
-                      {insight.title}
+                    <SmartLink to={`/updates/${update.slug}`}>
+                      {update.title}
                     </SmartLink>
                   </Heading>
                   <Text
                     as='time'
-                    dateTime={insight.date}
+                    dateTime={update.date}
                     fontSize='sm'
                     fontStyle='initial'
                   >
-                    {insight.ago}
+                    {update.ago}
                   </Text>
-                  <Text>{insight.parent.excerpt}</Text>
+                  <Text>{update.parent.excerpt}</Text>
                 </ListItem>
               ))}
             </List>
@@ -72,7 +72,7 @@ export default function IndexPage(props: PageProps<InsightsPageQuery>) {
 export const pageQuery = graphql`
   query ($editionCId: String = "") {
     ...EditionContextualData
-    insights: allInsights(
+    updates: allUpdates(
       filter: {
         editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
         title: { ne: "" }

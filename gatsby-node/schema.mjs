@@ -39,11 +39,11 @@ export const createLetterSchema = ({ actions }) => {
       editions: [LetterEdition]
     }
 
-    type InsightsEdition {
+    type UpdatesEdition {
       edition: Edition! @link(by: "cId")
     }
 
-    type Insights implements Node {
+    type Updates implements Node {
       cId: String!
       published: Boolean!
       slug: String!
@@ -52,8 +52,9 @@ export const createLetterSchema = ({ actions }) => {
       title: String!
       date: Date @dateformat
       description: String
-      editions: [InsightsEdition!]
+      editions: [UpdatesEdition!]
       cover: MediaUrl
+      tags: [String!]
     }
     `
   ];

@@ -6,34 +6,40 @@ import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';
-import InsightsHero from '$components/insights/insights-hero';
+import UpdatesHero from '$components/updates/updates-hero';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
-interface InsightsPageProps {
-  insights: {
+interface UpdatesPageProps {
+  updates: {
     title: string;
     description?: string;
     ago: string;
     editions?: { edition: { name: string } }[];
     cover?: { src: IGatsbyImageData };
+    tags?: string[];
   };
 }
 
-export default function InsightsPage(props: PageProps<InsightsPageProps>) {
+export default function UpdatesPage(props: PageProps<UpdatesPageProps>) {
   const {
     data: {
-      insights: { title, ago, description, editions, cover }
+      updates: { title, ago, description, editions, tags, cover }
     },
     children
   } = props;
 
+  const allTags = [
+    ...(editions?.map(({ edition }) => edition.name) || []),
+    ...(tags || [])
+  ];
+
   return (
     <PageLayout>
-      <InsightsHero
+      <UpdatesHero
         title={title}
         lead={description}
         published={ago}
-        tags={editions?.map(({ edition }) => edition.name) || []}
+        tags={allTags}
         image={cover && getImage(cover.src)}
       />
       <Container
@@ -51,11 +57,12 @@ export default function InsightsPage(props: PageProps<InsightsPageProps>) {
 }
 
 export const query = graphql`
-  query InsightPage($slug: String) {
-    insights(slug: { eq: $slug }) {
+  query UpdatesPage($slug: String) {
+    updates(slug: { eq: $slug }) {
       title
       description
       ago: date(fromNow: true)
+      tags
       editions {
         edition {
           name
@@ -64,11 +71,7 @@ export const query = graphql`
       cover {
         src {
           childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              width: 200
-              placeholder: BLURRED
-            )
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
@@ -76,9 +79,9 @@ export const query = graphql`
   }
 `;
 
-export const Head = (props: HeadProps<InsightsPageProps>) => (
+export const Head = (props: HeadProps<UpdatesPageProps>) => (
   <Seo
-    title={props.data.insights.title}
-    description={props.data.insights.description}
+    title={props.data.updates.title}
+    description={props.data.updates.description}
   />
 );

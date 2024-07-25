@@ -21,7 +21,7 @@ This is written with the developer in mind, so some technical knowledge is assum
   - [People](#people)
   - [Events](#events)
   - [Sponsors](#sponsors)
-  - [Insights](#insights)
+  - [Updates](#updates)
 - [Creating a new edition](#creating-a-new-edition)
 - [Edition pages and context data](#edition-pages-and-context-data)
 
@@ -35,7 +35,7 @@ The Satsummit website is a hub for all the Satsummit editions. Some pages refer 
 The global pages belong to the event itself and can be seen as meta pages.  
 Any page in `src/pages` is a global page unless under a specific edition directory.
 
-There are also some dynamic global pages (the insights pages), created through the `createPages` API. See `gatsby-node/insights-pages.mjs`.
+There are also some dynamic global pages (the updates pages), created through the `createPages` API. See `gatsby-node/updates-pages.mjs`.
 
 ### Edition pages
 
@@ -166,12 +166,12 @@ Frontmatter fields:
 > [!IMPORTANT]
 > If the sponsor's groups are different for a given edition, the sponsors fold needs to be updates to accommodate them. This is done in `src/components/sponsors-fold.tsx`.
 
-### Insights
+### Updates
 
-Insights are the chronological content for the website (a.k.a. blog posts).  
+Updates are the chronological content for the website (a.k.a. blog posts).  
 This content type is global, but can be linked to an edition for context. Content is written in MDX.
 
-Each insight should be created as an `index.mdx` file in a directory named `<date>-<slug>` under `content/insights`.  
+Each update should be created as an `index.mdx` file in a directory named `<date>-<slug>` under `content/updates`.  
 Within this directory, you can add any assets or additional content needed for the post.
 
 Frontmatter fields:

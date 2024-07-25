@@ -18,7 +18,7 @@ import { EditionCard } from '$components/editions/edition-card';
 import { Hug } from '@devseed-ui/hug-chakra';
 import { ItemMarker } from '$components/item-marker';
 import SmartLink from '$components/smart-link';
-import { InsightCard } from '$components/insights/insight-card';
+import { UpdatesCard } from '$components/updates/updates-card';
 
 interface PageQueryEdition {
   name: string;
@@ -33,7 +33,7 @@ interface PageQuery {
   allEdition: {
     nodes: PageQueryEdition[];
   };
-  allInsights: {
+  allUpdates: {
     nodes: {
       title: string;
       ago: string;
@@ -41,6 +41,7 @@ interface PageQuery {
       slug: string;
       id: string;
       description: string;
+      tags: string[]
       cover: {
         src: IGatsbyImageData;
       };
@@ -58,7 +59,7 @@ interface PageQuery {
 
 export default function IndexPage(props: PageProps<PageQuery>) {
   const {
-    data: { allEdition, allInsights }
+    data: { allEdition, allUpdates }
   } = props;
 
   const [future, past] = useFuturePastEditions<PageQueryEdition>(
@@ -112,7 +113,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
             </ListItem>
           ))}
         </List>
-        {!!allInsights.nodes.length && (
+        {!!allUpdates.nodes.length && (
           <>
             <Divider
               borderColor='base.200a'
@@ -124,10 +125,10 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               justifyContent='space-between'
               gridColumn='content-start/content-end'
             >
-              <Heading size='lg'>Insights</Heading>
+              <Heading size='lg'>Updates</Heading>
               <Button
                 as={SmartLink}
-                to='/insights'
+                to='/updates'
                 variant='solid'
                 colorScheme='primary'
               >
@@ -145,18 +146,19 @@ export default function IndexPage(props: PageProps<PageQuery>) {
                 lg: 'repeat(3, 1fr)'
               }}
             >
-              {allInsights.nodes.map((insight) => (
-                <ListItem key={insight.id}>
-                  <InsightCard
-                    slug={insight.slug}
-                    title={insight.title}
-                    date={insight.date || undefined}
-                    ago={insight.ago || undefined}
-                    description={insight.description || undefined}
-                    parent={insight.parent as { excerpt: string } | undefined}
-                    editions={insight.editions || []}
+              {allUpdates.nodes.map((update) => (
+                <ListItem key={update.id}>
+                  <UpdatesCard
+                    slug={update.slug}
+                    title={update.title}
+                    date={update.date || undefined}
+                    ago={update.ago || undefined}
+                    description={update.description || undefined}
+                    parent={update.parent as { excerpt: string } | undefined}
+                    editions={update.editions || []}
+                    tags={update.tags || []}
                     cover={getImage(
-                      insight.cover?.src as unknown as IGatsbyImageData
+                      update.cover?.src as unknown as IGatsbyImageData
                     )}
                   />
                 </ListItem>
@@ -181,7 +183,6 @@ export const pageQuery = graphql`
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
-                width: 700
                 placeholder: BLURRED
               )
             }
@@ -189,7 +190,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allInsights(
+    allUpdates(
       filter: { published: { eq: true } }
       sort: { date: DESC }
       limit: 3
@@ -201,12 +202,12 @@ export const pageQuery = graphql`
         slug
         id
         description
+        tags
         cover {
           src {
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
-                width: 200
                 placeholder: BLURRED
               )
             }

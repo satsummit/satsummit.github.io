@@ -11,7 +11,7 @@ import {
   createSponsorSchema
 } from './gatsby-node/schema.mjs';
 import { capitalize, pageComponent } from './gatsby-node/utils.mjs';
-import { createInsightsPages } from './gatsby-node/insights-pages.mjs';
+import { createUpdatesPages } from './gatsby-node/updates-pages.mjs';
 
 export const onCreatePage = async (helpers) => {
   const {
@@ -96,7 +96,7 @@ export const onCreateNode = async ({
         cId: `${edition}-${nodeProps.cId}`,
         edition
       };
-    } else if (nodeType === 'Insights') {
+    } else if (nodeType === 'Updates') {
       const dir = fileNode.relativeDirectory;
       const match = dir.match(/(\d{4}-\d{2}-\d{2})-(.*)/);
       if (!match) {
@@ -143,8 +143,8 @@ export const createPages = async (helpers) => {
   // Edition specific pages.
   await createEditionPages(helpers);
 
-  // Insights pages.
-  await createInsightsPages(helpers);
+  // Updates pages.
+  await createUpdatesPages(helpers);
 
   // --------------------------------------------------------------
   // Global pages that are not edition specific.
@@ -195,4 +195,48 @@ export const createSchemaCustomization = (helpers) => {
   createPeopleSchema(helpers);
   createEventPeopleRelSchema(helpers);
   createSponsorSchema(helpers);
+};
+
+export const createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    Query: {
+      updatesByTag: {
+        type: ['Updates!'],
+        args: {
+          tag: 'String',
+          limit: 'Int',
+          skip: 'Int'
+        },
+        resolve: async (source, args, context) => {
+          const { tag, limit, skip } = args;
+
+          const getEntries = async (filter = {}) => {
+            const { entries } = await context.nodeModel.findAll({
+              query: {
+                filter,
+                limit,
+                skip,
+                sort: { date: 'DESC' }
+              },
+              type: 'Updates'
+            });
+
+            return Array.from(entries);
+          };
+
+          if (!tag || tag === 'all') {
+            return getEntries();
+          }
+
+          const entriesByTag = await getEntries({ tags: { eq: tag } });
+          const entriesByEdition = await getEntries({
+            editions: { elemMatch: { edition: { name: { eq: tag } } } }
+          });
+
+          return entriesByEdition.concat(entriesByTag);
+        }
+      }
+    }
+  };
+  createResolvers(resolvers);
 };

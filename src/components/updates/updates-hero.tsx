@@ -4,7 +4,7 @@ import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
 
-interface InsightsHeroProps {
+interface UpdatesHeroProps {
   title: string;
   lead?: string;
   published: string;
@@ -12,7 +12,7 @@ interface InsightsHeroProps {
   tags?: string[];
 }
 
-export default function InsightsHero(props: InsightsHeroProps) {
+export default function UpdatesHero(props: UpdatesHeroProps) {
   const { title, lead, published, tags, image } = props;
 
   return (
@@ -32,8 +32,8 @@ export default function InsightsHero(props: InsightsHeroProps) {
           <PageHeroHeadline
             title={title}
             parent={{
-              url: `/insights`,
-              title: 'Insights'
+              url: `/updates`,
+              title: 'Updates'
             }}
           />
           {published}
@@ -43,7 +43,7 @@ export default function InsightsHero(props: InsightsHeroProps) {
         )}
 
         {!!tags?.length && (
-          <Flex gap={2} mt='auto'>
+          <Flex gap={2} mt={4}>
             {tags.map((tag) => (
               <Tag key={tag} variant='satsummit-dark'>
                 {tag}

@@ -162,8 +162,8 @@ const config = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'insights',
-        path: './content/insights/'
+        name: 'updates',
+        path: './content/updates/'
       }
     },
     {

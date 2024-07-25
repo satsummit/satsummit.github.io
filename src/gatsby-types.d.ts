@@ -1737,188 +1737,6 @@ type ImageSharpSortInput = {
   readonly resize: InputMaybe<ImageSharpResizeSortInput>;
 };
 
-type Insights = Node & {
-  readonly cId: Scalars['String'];
-  readonly children: ReadonlyArray<Node>;
-  readonly cover: Maybe<MediaUrl>;
-  readonly date: Maybe<Scalars['Date']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly editions: Maybe<ReadonlyArray<InsightsEdition>>;
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly parent: Maybe<Node>;
-  readonly published: Scalars['Boolean'];
-  readonly slug: Scalars['String'];
-  readonly title: Scalars['String'];
-  readonly weight: Scalars['Int'];
-};
-
-
-type Insights_dateArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-type InsightsConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<InsightsEdge>;
-  readonly group: ReadonlyArray<InsightsGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Insights>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type InsightsConnection_distinctArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsConnection_groupArgs = {
-  field: InsightsFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type InsightsConnection_maxArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsConnection_minArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsConnection_sumArgs = {
-  field: InsightsFieldSelector;
-};
-
-type InsightsEdge = {
-  readonly next: Maybe<Insights>;
-  readonly node: Insights;
-  readonly previous: Maybe<Insights>;
-};
-
-type InsightsEdition = {
-  readonly edition: Edition;
-};
-
-type InsightsEditionFieldSelector = {
-  readonly edition: InputMaybe<EditionFieldSelector>;
-};
-
-type InsightsEditionFilterInput = {
-  readonly edition: InputMaybe<EditionFilterInput>;
-};
-
-type InsightsEditionFilterListInput = {
-  readonly elemMatch: InputMaybe<InsightsEditionFilterInput>;
-};
-
-type InsightsEditionSortInput = {
-  readonly edition: InputMaybe<EditionSortInput>;
-};
-
-type InsightsFieldSelector = {
-  readonly cId: InputMaybe<FieldSelectorEnum>;
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly cover: InputMaybe<MediaUrlFieldSelector>;
-  readonly date: InputMaybe<FieldSelectorEnum>;
-  readonly description: InputMaybe<FieldSelectorEnum>;
-  readonly editions: InputMaybe<InsightsEditionFieldSelector>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly published: InputMaybe<FieldSelectorEnum>;
-  readonly slug: InputMaybe<FieldSelectorEnum>;
-  readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly weight: InputMaybe<FieldSelectorEnum>;
-};
-
-type InsightsFilterInput = {
-  readonly cId: InputMaybe<StringQueryOperatorInput>;
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly cover: InputMaybe<MediaUrlFilterInput>;
-  readonly date: InputMaybe<DateQueryOperatorInput>;
-  readonly description: InputMaybe<StringQueryOperatorInput>;
-  readonly editions: InputMaybe<InsightsEditionFilterListInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly published: InputMaybe<BooleanQueryOperatorInput>;
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-  readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly weight: InputMaybe<IntQueryOperatorInput>;
-};
-
-type InsightsFilterListInput = {
-  readonly elemMatch: InputMaybe<InsightsFilterInput>;
-};
-
-type InsightsGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<InsightsEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<InsightsGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Insights>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type InsightsGroupConnection_distinctArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsGroupConnection_groupArgs = {
-  field: InsightsFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type InsightsGroupConnection_maxArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsGroupConnection_minArgs = {
-  field: InsightsFieldSelector;
-};
-
-
-type InsightsGroupConnection_sumArgs = {
-  field: InsightsFieldSelector;
-};
-
-type InsightsSortInput = {
-  readonly cId: InputMaybe<SortOrderEnum>;
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly cover: InputMaybe<MediaUrlSortInput>;
-  readonly date: InputMaybe<SortOrderEnum>;
-  readonly description: InputMaybe<SortOrderEnum>;
-  readonly editions: InputMaybe<InsightsEditionSortInput>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly parent: InputMaybe<NodeSortInput>;
-  readonly published: InputMaybe<SortOrderEnum>;
-  readonly slug: InputMaybe<SortOrderEnum>;
-  readonly title: InputMaybe<SortOrderEnum>;
-  readonly weight: InputMaybe<SortOrderEnum>;
-};
-
 type IntQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['Int']>;
   readonly gt: InputMaybe<Scalars['Int']>;
@@ -2162,25 +1980,25 @@ type Mdx = Node & {
   readonly body: Maybe<Scalars['String']>;
   /** Returns the first child node of type Event or null if there are no children of given type on this node */
   readonly childEvent: Maybe<Event>;
-  /** Returns the first child node of type Insights or null if there are no children of given type on this node */
-  readonly childInsights: Maybe<Insights>;
   /** Returns the first child node of type Letter or null if there are no children of given type on this node */
   readonly childLetter: Maybe<Letter>;
   /** Returns the first child node of type People or null if there are no children of given type on this node */
   readonly childPeople: Maybe<People>;
   /** Returns the first child node of type Sponsor or null if there are no children of given type on this node */
   readonly childSponsor: Maybe<Sponsor>;
+  /** Returns the first child node of type Updates or null if there are no children of given type on this node */
+  readonly childUpdates: Maybe<Updates>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Event */
   readonly childrenEvent: Maybe<ReadonlyArray<Maybe<Event>>>;
-  /** Returns all children nodes filtered by type Insights */
-  readonly childrenInsights: Maybe<ReadonlyArray<Maybe<Insights>>>;
   /** Returns all children nodes filtered by type Letter */
   readonly childrenLetter: Maybe<ReadonlyArray<Maybe<Letter>>>;
   /** Returns all children nodes filtered by type People */
   readonly childrenPeople: Maybe<ReadonlyArray<Maybe<People>>>;
   /** Returns all children nodes filtered by type Sponsor */
   readonly childrenSponsor: Maybe<ReadonlyArray<Maybe<Sponsor>>>;
+  /** Returns all children nodes filtered by type Updates */
+  readonly childrenUpdates: Maybe<ReadonlyArray<Maybe<Updates>>>;
   readonly excerpt: Maybe<Scalars['String']>;
   readonly frontmatter: Maybe<MdxFrontmatter>;
   readonly id: Scalars['ID'];
@@ -2247,16 +2065,16 @@ type MdxEdge = {
 type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
   readonly childEvent: InputMaybe<EventFieldSelector>;
-  readonly childInsights: InputMaybe<InsightsFieldSelector>;
   readonly childLetter: InputMaybe<LetterFieldSelector>;
   readonly childPeople: InputMaybe<PeopleFieldSelector>;
   readonly childSponsor: InputMaybe<SponsorFieldSelector>;
+  readonly childUpdates: InputMaybe<UpdatesFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenEvent: InputMaybe<EventFieldSelector>;
-  readonly childrenInsights: InputMaybe<InsightsFieldSelector>;
   readonly childrenLetter: InputMaybe<LetterFieldSelector>;
   readonly childrenPeople: InputMaybe<PeopleFieldSelector>;
   readonly childrenSponsor: InputMaybe<SponsorFieldSelector>;
+  readonly childrenUpdates: InputMaybe<UpdatesFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
@@ -2268,16 +2086,16 @@ type MdxFieldSelector = {
 type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly childEvent: InputMaybe<EventFilterInput>;
-  readonly childInsights: InputMaybe<InsightsFilterInput>;
   readonly childLetter: InputMaybe<LetterFilterInput>;
   readonly childPeople: InputMaybe<PeopleFilterInput>;
   readonly childSponsor: InputMaybe<SponsorFilterInput>;
+  readonly childUpdates: InputMaybe<UpdatesFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenEvent: InputMaybe<EventFilterListInput>;
-  readonly childrenInsights: InputMaybe<InsightsFilterListInput>;
   readonly childrenLetter: InputMaybe<LetterFilterListInput>;
   readonly childrenPeople: InputMaybe<PeopleFilterListInput>;
   readonly childrenSponsor: InputMaybe<SponsorFilterListInput>;
+  readonly childrenUpdates: InputMaybe<UpdatesFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -2305,6 +2123,7 @@ type MdxFrontmatter = {
   readonly role: Maybe<Scalars['String']>;
   readonly room: Maybe<Scalars['String']>;
   readonly social: Maybe<MdxFrontmatterSocial>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly title: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
@@ -2374,6 +2193,7 @@ type MdxFrontmatterFieldSelector = {
   readonly role: InputMaybe<FieldSelectorEnum>;
   readonly room: InputMaybe<FieldSelectorEnum>;
   readonly social: InputMaybe<MdxFrontmatterSocialFieldSelector>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
@@ -2395,6 +2215,7 @@ type MdxFrontmatterFilterInput = {
   readonly role: InputMaybe<StringQueryOperatorInput>;
   readonly room: InputMaybe<StringQueryOperatorInput>;
   readonly social: InputMaybe<MdxFrontmatterSocialFilterInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
@@ -2456,6 +2277,7 @@ type MdxFrontmatterSortInput = {
   readonly role: InputMaybe<SortOrderEnum>;
   readonly room: InputMaybe<SortOrderEnum>;
   readonly social: InputMaybe<MdxFrontmatterSocialSortInput>;
+  readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
@@ -2506,16 +2328,16 @@ type MdxGroupConnection_sumArgs = {
 type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
   readonly childEvent: InputMaybe<EventSortInput>;
-  readonly childInsights: InputMaybe<InsightsSortInput>;
   readonly childLetter: InputMaybe<LetterSortInput>;
   readonly childPeople: InputMaybe<PeopleSortInput>;
   readonly childSponsor: InputMaybe<SponsorSortInput>;
+  readonly childUpdates: InputMaybe<UpdatesSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenEvent: InputMaybe<EventSortInput>;
-  readonly childrenInsights: InputMaybe<InsightsSortInput>;
   readonly childrenLetter: InputMaybe<LetterSortInput>;
   readonly childrenPeople: InputMaybe<PeopleSortInput>;
   readonly childrenSponsor: InputMaybe<SponsorSortInput>;
+  readonly childrenUpdates: InputMaybe<UpdatesSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
@@ -2792,7 +2614,6 @@ type Query = {
   readonly allEvent: EventConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
-  readonly allInsights: InsightsConnection;
   readonly allLetter: LetterConnection;
   readonly allMdx: MdxConnection;
   readonly allPeople: PeopleConnection;
@@ -2802,14 +2623,13 @@ type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly allSponsor: SponsorConnection;
-  readonly allStaticImage: StaticImageConnection;
+  readonly allUpdates: UpdatesConnection;
   readonly directory: Maybe<Directory>;
   readonly edition: Maybe<Edition>;
   readonly editionsYaml: Maybe<EditionsYaml>;
   readonly event: Maybe<Event>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
-  readonly insights: Maybe<Insights>;
   readonly letter: Maybe<Letter>;
   readonly mdx: Maybe<Mdx>;
   readonly people: Maybe<People>;
@@ -2819,7 +2639,8 @@ type Query = {
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
   readonly sponsor: Maybe<Sponsor>;
-  readonly staticImage: Maybe<StaticImage>;
+  readonly updates: Maybe<Updates>;
+  readonly updatesByTag: Maybe<ReadonlyArray<Maybe<Updates>>>;
 };
 
 
@@ -2868,14 +2689,6 @@ type Query_allImageSharpArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpSortInput>>>;
-};
-
-
-type Query_allInsightsArgs = {
-  filter: InputMaybe<InsightsFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<InsightsSortInput>>>;
 };
 
 
@@ -2951,11 +2764,11 @@ type Query_allSponsorArgs = {
 };
 
 
-type Query_allStaticImageArgs = {
-  filter: InputMaybe<StaticImageFilterInput>;
+type Query_allUpdatesArgs = {
+  filter: InputMaybe<UpdatesFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<StaticImageSortInput>>>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<UpdatesSortInput>>>;
 };
 
 
@@ -3107,23 +2920,6 @@ type Query_imageSharpArgs = {
 };
 
 
-type Query_insightsArgs = {
-  cId: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  cover: InputMaybe<MediaUrlFilterInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  editions: InputMaybe<InsightsEditionFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  published: InputMaybe<BooleanQueryOperatorInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
-  weight: InputMaybe<IntQueryOperatorInput>;
-};
-
-
 type Query_letterArgs = {
   cId: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
@@ -3142,16 +2938,16 @@ type Query_letterArgs = {
 type Query_mdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
   childEvent: InputMaybe<EventFilterInput>;
-  childInsights: InputMaybe<InsightsFilterInput>;
   childLetter: InputMaybe<LetterFilterInput>;
   childPeople: InputMaybe<PeopleFilterInput>;
   childSponsor: InputMaybe<SponsorFilterInput>;
+  childUpdates: InputMaybe<UpdatesFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenEvent: InputMaybe<EventFilterListInput>;
-  childrenInsights: InputMaybe<InsightsFilterListInput>;
   childrenLetter: InputMaybe<LetterFilterListInput>;
   childrenPeople: InputMaybe<PeopleFilterListInput>;
   childrenSponsor: InputMaybe<SponsorFilterListInput>;
+  childrenUpdates: InputMaybe<UpdatesFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
@@ -3272,43 +3068,28 @@ type Query_sponsorArgs = {
 };
 
 
-type Query_staticImageArgs = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  blksize: InputMaybe<IntQueryOperatorInput>;
-  blocks: InputMaybe<IntQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
+type Query_updatesArgs = {
+  cId: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
+  cover: InputMaybe<MediaUrlFilterInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  editions: InputMaybe<UpdatesEditionFilterListInput>;
   id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<IntQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
+  published: InputMaybe<BooleanQueryOperatorInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
+  tags: InputMaybe<StringQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  weight: InputMaybe<IntQueryOperatorInput>;
+};
+
+
+type Query_updatesByTagArgs = {
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  tag: InputMaybe<Scalars['String']>;
 };
 
 type RoleInEvent = {
@@ -4352,312 +4133,6 @@ type SponsorSortInput = {
   readonly weight: InputMaybe<SortOrderEnum>;
 };
 
-type StaticImage = Node & {
-  readonly absolutePath: Maybe<Scalars['String']>;
-  readonly accessTime: Maybe<Scalars['Date']>;
-  readonly atime: Maybe<Scalars['Date']>;
-  readonly atimeMs: Maybe<Scalars['Float']>;
-  readonly base: Maybe<Scalars['String']>;
-  readonly birthTime: Maybe<Scalars['Date']>;
-  readonly birthtime: Maybe<Scalars['Date']>;
-  readonly birthtimeMs: Maybe<Scalars['Float']>;
-  readonly blksize: Maybe<Scalars['Int']>;
-  readonly blocks: Maybe<Scalars['Int']>;
-  readonly changeTime: Maybe<Scalars['Date']>;
-  readonly children: ReadonlyArray<Node>;
-  readonly ctime: Maybe<Scalars['Date']>;
-  readonly ctimeMs: Maybe<Scalars['Float']>;
-  readonly dev: Maybe<Scalars['Int']>;
-  readonly dir: Maybe<Scalars['String']>;
-  readonly ext: Maybe<Scalars['String']>;
-  readonly extension: Maybe<Scalars['String']>;
-  readonly id: Scalars['ID'];
-  readonly ino: Maybe<Scalars['Int']>;
-  readonly internal: Internal;
-  readonly mode: Maybe<Scalars['Int']>;
-  readonly modifiedTime: Maybe<Scalars['Date']>;
-  readonly mtime: Maybe<Scalars['Date']>;
-  readonly mtimeMs: Maybe<Scalars['Float']>;
-  readonly name: Maybe<Scalars['String']>;
-  readonly nlink: Maybe<Scalars['Int']>;
-  readonly parent: Maybe<Node>;
-  readonly prettySize: Maybe<Scalars['String']>;
-  readonly rdev: Maybe<Scalars['Int']>;
-  readonly relativeDirectory: Maybe<Scalars['String']>;
-  readonly relativePath: Maybe<Scalars['String']>;
-  readonly root: Maybe<Scalars['String']>;
-  readonly size: Maybe<Scalars['Int']>;
-  readonly sourceInstanceName: Maybe<Scalars['String']>;
-  readonly uid: Maybe<Scalars['Int']>;
-};
-
-
-type StaticImage_accessTimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_atimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_birthTimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_birthtimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_changeTimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_ctimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_modifiedTimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type StaticImage_mtimeArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-type StaticImageConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<StaticImageEdge>;
-  readonly group: ReadonlyArray<StaticImageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<StaticImage>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type StaticImageConnection_distinctArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageConnection_groupArgs = {
-  field: StaticImageFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type StaticImageConnection_maxArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageConnection_minArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageConnection_sumArgs = {
-  field: StaticImageFieldSelector;
-};
-
-type StaticImageEdge = {
-  readonly next: Maybe<StaticImage>;
-  readonly node: StaticImage;
-  readonly previous: Maybe<StaticImage>;
-};
-
-type StaticImageFieldSelector = {
-  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
-  readonly accessTime: InputMaybe<FieldSelectorEnum>;
-  readonly atime: InputMaybe<FieldSelectorEnum>;
-  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly base: InputMaybe<FieldSelectorEnum>;
-  readonly birthTime: InputMaybe<FieldSelectorEnum>;
-  readonly birthtime: InputMaybe<FieldSelectorEnum>;
-  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly blksize: InputMaybe<FieldSelectorEnum>;
-  readonly blocks: InputMaybe<FieldSelectorEnum>;
-  readonly changeTime: InputMaybe<FieldSelectorEnum>;
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly ctime: InputMaybe<FieldSelectorEnum>;
-  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly dev: InputMaybe<FieldSelectorEnum>;
-  readonly dir: InputMaybe<FieldSelectorEnum>;
-  readonly ext: InputMaybe<FieldSelectorEnum>;
-  readonly extension: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly ino: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly mode: InputMaybe<FieldSelectorEnum>;
-  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
-  readonly mtime: InputMaybe<FieldSelectorEnum>;
-  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
-  readonly nlink: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly prettySize: InputMaybe<FieldSelectorEnum>;
-  readonly rdev: InputMaybe<FieldSelectorEnum>;
-  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
-  readonly relativePath: InputMaybe<FieldSelectorEnum>;
-  readonly root: InputMaybe<FieldSelectorEnum>;
-  readonly size: InputMaybe<FieldSelectorEnum>;
-  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
-  readonly uid: InputMaybe<FieldSelectorEnum>;
-};
-
-type StaticImageFilterInput = {
-  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
-  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
-  readonly atime: InputMaybe<DateQueryOperatorInput>;
-  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly base: InputMaybe<StringQueryOperatorInput>;
-  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
-  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
-  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly blksize: InputMaybe<IntQueryOperatorInput>;
-  readonly blocks: InputMaybe<IntQueryOperatorInput>;
-  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly ctime: InputMaybe<DateQueryOperatorInput>;
-  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly dev: InputMaybe<IntQueryOperatorInput>;
-  readonly dir: InputMaybe<StringQueryOperatorInput>;
-  readonly ext: InputMaybe<StringQueryOperatorInput>;
-  readonly extension: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly ino: InputMaybe<IntQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly mode: InputMaybe<IntQueryOperatorInput>;
-  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  readonly mtime: InputMaybe<DateQueryOperatorInput>;
-  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
-  readonly nlink: InputMaybe<IntQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
-  readonly rdev: InputMaybe<IntQueryOperatorInput>;
-  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
-  readonly root: InputMaybe<StringQueryOperatorInput>;
-  readonly size: InputMaybe<IntQueryOperatorInput>;
-  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  readonly uid: InputMaybe<IntQueryOperatorInput>;
-};
-
-type StaticImageGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<StaticImageEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<StaticImageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<StaticImage>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type StaticImageGroupConnection_distinctArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageGroupConnection_groupArgs = {
-  field: StaticImageFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type StaticImageGroupConnection_maxArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageGroupConnection_minArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-type StaticImageGroupConnection_sumArgs = {
-  field: StaticImageFieldSelector;
-};
-
-type StaticImageSortInput = {
-  readonly absolutePath: InputMaybe<SortOrderEnum>;
-  readonly accessTime: InputMaybe<SortOrderEnum>;
-  readonly atime: InputMaybe<SortOrderEnum>;
-  readonly atimeMs: InputMaybe<SortOrderEnum>;
-  readonly base: InputMaybe<SortOrderEnum>;
-  readonly birthTime: InputMaybe<SortOrderEnum>;
-  readonly birthtime: InputMaybe<SortOrderEnum>;
-  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
-  readonly blksize: InputMaybe<SortOrderEnum>;
-  readonly blocks: InputMaybe<SortOrderEnum>;
-  readonly changeTime: InputMaybe<SortOrderEnum>;
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly ctime: InputMaybe<SortOrderEnum>;
-  readonly ctimeMs: InputMaybe<SortOrderEnum>;
-  readonly dev: InputMaybe<SortOrderEnum>;
-  readonly dir: InputMaybe<SortOrderEnum>;
-  readonly ext: InputMaybe<SortOrderEnum>;
-  readonly extension: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly ino: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly mode: InputMaybe<SortOrderEnum>;
-  readonly modifiedTime: InputMaybe<SortOrderEnum>;
-  readonly mtime: InputMaybe<SortOrderEnum>;
-  readonly mtimeMs: InputMaybe<SortOrderEnum>;
-  readonly name: InputMaybe<SortOrderEnum>;
-  readonly nlink: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
-  readonly prettySize: InputMaybe<SortOrderEnum>;
-  readonly rdev: InputMaybe<SortOrderEnum>;
-  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
-  readonly relativePath: InputMaybe<SortOrderEnum>;
-  readonly root: InputMaybe<SortOrderEnum>;
-  readonly size: InputMaybe<SortOrderEnum>;
-  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
-  readonly uid: InputMaybe<SortOrderEnum>;
-};
-
 type StringQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['String']>;
   readonly glob: InputMaybe<Scalars['String']>;
@@ -4674,6 +4149,192 @@ type TransformOptions = {
   readonly grayscale: InputMaybe<Scalars['Boolean']>;
   readonly rotate: InputMaybe<Scalars['Int']>;
   readonly trim: InputMaybe<Scalars['Float']>;
+};
+
+type Updates = Node & {
+  readonly cId: Scalars['String'];
+  readonly children: ReadonlyArray<Node>;
+  readonly cover: Maybe<MediaUrl>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly editions: Maybe<ReadonlyArray<UpdatesEdition>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly published: Scalars['Boolean'];
+  readonly slug: Scalars['String'];
+  readonly tags: Maybe<ReadonlyArray<Scalars['String']>>;
+  readonly title: Scalars['String'];
+  readonly weight: Scalars['Int'];
+};
+
+
+type Updates_dateArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type UpdatesConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<UpdatesEdge>;
+  readonly group: ReadonlyArray<UpdatesGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Updates>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type UpdatesConnection_distinctArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesConnection_groupArgs = {
+  field: UpdatesFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type UpdatesConnection_maxArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesConnection_minArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesConnection_sumArgs = {
+  field: UpdatesFieldSelector;
+};
+
+type UpdatesEdge = {
+  readonly next: Maybe<Updates>;
+  readonly node: Updates;
+  readonly previous: Maybe<Updates>;
+};
+
+type UpdatesEdition = {
+  readonly edition: Edition;
+};
+
+type UpdatesEditionFieldSelector = {
+  readonly edition: InputMaybe<EditionFieldSelector>;
+};
+
+type UpdatesEditionFilterInput = {
+  readonly edition: InputMaybe<EditionFilterInput>;
+};
+
+type UpdatesEditionFilterListInput = {
+  readonly elemMatch: InputMaybe<UpdatesEditionFilterInput>;
+};
+
+type UpdatesEditionSortInput = {
+  readonly edition: InputMaybe<EditionSortInput>;
+};
+
+type UpdatesFieldSelector = {
+  readonly cId: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly cover: InputMaybe<MediaUrlFieldSelector>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly editions: InputMaybe<UpdatesEditionFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly published: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
+};
+
+type UpdatesFilterInput = {
+  readonly cId: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly cover: InputMaybe<MediaUrlFilterInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly editions: InputMaybe<UpdatesEditionFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly published: InputMaybe<BooleanQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
+};
+
+type UpdatesFilterListInput = {
+  readonly elemMatch: InputMaybe<UpdatesFilterInput>;
+};
+
+type UpdatesGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<UpdatesEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<UpdatesGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Updates>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type UpdatesGroupConnection_distinctArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesGroupConnection_groupArgs = {
+  field: UpdatesFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type UpdatesGroupConnection_maxArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesGroupConnection_minArgs = {
+  field: UpdatesFieldSelector;
+};
+
+
+type UpdatesGroupConnection_sumArgs = {
+  field: UpdatesFieldSelector;
+};
+
+type UpdatesSortInput = {
+  readonly cId: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly cover: InputMaybe<MediaUrlSortInput>;
+  readonly date: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly editions: InputMaybe<UpdatesEditionSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly published: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type VoidPeople = {
@@ -4727,28 +4388,29 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type IndexPageQuery = { readonly allEdition: { readonly nodes: ReadonlyArray<{ readonly name: string, readonly cId: string, readonly dates: ReadonlyArray<string> | null, readonly card: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null }> }, readonly allInsights: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> } };
-
-type InsightPageQueryVariables = Exact<{
-  slug: InputMaybe<Scalars['String']>;
-}>;
-
-
-type InsightPageQuery = { readonly insights: { readonly title: string, readonly description: string | null, readonly ago: string | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null } | null };
-
-type InsightsListQueryVariables = Exact<{
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-}>;
-
-
-type InsightsListQuery = { readonly allInsights: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> } };
+type IndexPageQuery = { readonly allEdition: { readonly nodes: ReadonlyArray<{ readonly name: string, readonly cId: string, readonly dates: ReadonlyArray<string> | null, readonly card: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null }> }, readonly allUpdates: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> } };
 
 type PeopleFields_People_Fragment = { readonly title: string, readonly slug: string, readonly group: string | null };
 
 type PeopleFields_VoidPeople_Fragment = { readonly title: string, readonly isVoid: boolean | null };
 
 type PeopleFieldsFragment = PeopleFields_People_Fragment | PeopleFields_VoidPeople_Fragment;
+
+type UpdatesListQueryVariables = Exact<{
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+  currentTag: InputMaybe<Scalars['String']>;
+}>;
+
+
+type UpdatesListQuery = { readonly updatesByTag: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null } | null> | null };
+
+type UpdatesPageQueryVariables = Exact<{
+  slug: InputMaybe<Scalars['String']>;
+}>;
+
+
+type UpdatesPageQuery = { readonly updates: { readonly title: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null } | null };
 
 
 }
