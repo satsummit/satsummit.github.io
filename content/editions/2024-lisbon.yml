@@ -7,7 +7,5 @@ card:
 navigation:
   - title: Agenda
     url: /2024-lisbon/agenda
-    menu: both
   - title: Speakers
     url: /2024-lisbon/speakers
-    menu: both

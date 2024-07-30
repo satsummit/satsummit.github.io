@@ -56,15 +56,14 @@ These pages are just MDX pages and can be global or edition specific. This is co
 Editions are the main content type for the website.  
 They are defined using a yaml file in `content/editions` with the name `<year>-<location>.yml`. This will become the `cId` (content Id) of the edition and is used to link content to a specific edition.
 
-| Property           | Description                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------- |
-| name               | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).                              |
-| dates[]            | List of dates for the event.                                                                                |
-| card.src           | Relative url for the image to use in the edition card.                                                      |
-| navigation         | List of menu items for this edition. This controls what navigation is shown on the header and footer menus. |
-| navigation[].title | Title of the menu link.                                                                                     |
-| navigation[].url   | Url for the menu link. Can be internal or external.                                                         |
-| navigation[].menu  | Which menu to show this link on. One of "header", "footer", "both".                                         |
+| Property           | Description                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| name               | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).             |
+| dates[]            | List of dates for the event.                                                               |
+| card.src           | Relative url for the image to use in the edition card.                                     |
+| navigation         | List of menu items for this edition. This controls what navigation is shown on the header. |
+| navigation[].title | Title of the menu link.                                                                    |
+| navigation[].url   | Url for the menu link. Can be internal or external.                                        |
 
 Starter template for an edition yaml file:
 
@@ -75,10 +74,8 @@ dates:
 navigation:
   - title: Agenda
     url: /<EDITION_CID>/agenda
-    menu: both
   - title: Speakers
     url: /<EDITION_CID>/speakers
-    menu: both
 ```
 
 ### Letters
@@ -97,7 +94,7 @@ Frontmatter fields:
 | ------------------ | --------------------------------------------------------------------------- |
 | title              | Name of the page.                                                           |
 | lead               | Description of the page to show in the page hero and as a meta description. |
-| editions           | Editions this letter belongs to.                                            |
+| editions           | Editions this letter belongs to.<br/>(Leave out for global pages)           |
 | editions[].edition | cId of the edition.                                                         |
 
 ### People

@@ -67,7 +67,6 @@ export const editionContextualData = graphql`
       navigation {
         title
         url
-        menu
       }
     }
   }

@@ -13,16 +13,15 @@ import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
   CollecticonBrandSatsummit,
-  CollecticonEnvelope,
-  CollecticonExpandTopRight
+  CollecticonEnvelope
 } from '@devseed-ui/collecticons-chakra';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { Fold } from './fold';
 import SmartLink from './smart-link';
 import Brand from './brand';
 import MenuLink from './menu-link';
 import { CollecticonBrandX } from './icons/brand-x';
-import { useEditionContext } from '$context/edition';
 
 function FooterBlock(props: FlexProps) {
   return <Flex flexFlow='column' gap='4' {...props} />;
@@ -37,49 +36,13 @@ export default function PageFooter() {
       py={{ base: '8', lg: '16' }}
     >
       <Fold spacingY={{ base: '6', md: '8' }}>
-        <EditionFooterNavigation />
+        <GlobalFooterNavigation />
         <FooterBlock
           gridColumn={{
             base: '1/-1',
             sm: '3 / span 2',
             md: '5/ span 4',
             lg: '4/ span 3'
-          }}
-        >
-          <Heading size='md'>Past Editions</Heading>
-          <List as='ol'>
-            <ListItem>
-              <MenuLink to='https://2022.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2022
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2018.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2018
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2017.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2017
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2015.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2015
-              </MenuLink>
-            </ListItem>
-          </List>
-        </FooterBlock>
-        <FooterBlock
-          gridColumn={{
-            base: '1/-1',
-            sm: '1 / span 2',
-            md: '1/ span 4',
-            lg: '7/ span 3'
           }}
         >
           <Heading size='md'>Let&apos;s Connect</Heading>
@@ -119,8 +82,8 @@ export default function PageFooter() {
         <FooterBlock
           gridColumn={{
             base: '1/-1',
-            sm: '3 / span 2',
-            md: '5/ span 4',
+            sm: '1 / span 2',
+            md: '1/ span 4',
             lg: '10/ span 3'
           }}
         >
@@ -143,14 +106,17 @@ export default function PageFooter() {
   );
 }
 
-function EditionFooterNavigation() {
-  const { edition } = useEditionContext();
-
-  const navItems = edition?.navigation?.filter(
-    (item) => !item.menu || ['footer', 'both'].includes(item.menu.toLowerCase())
-  );
-
-  if (!navItems?.length) return null;
+function GlobalFooterNavigation() {
+  const data = useStaticQuery<{
+    allLetterGlobal: { title: string; slug: string }[];
+  }>(graphql`
+    query {
+      allLetterGlobal {
+        title
+        slug
+      }
+    }
+  `);
 
   return (
     <FooterBlock
@@ -163,10 +129,25 @@ function EditionFooterNavigation() {
     >
       <Heading size='md'>This edition</Heading>
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item.url}>
-            <MenuLink to={item.url!}>
-              <ListIcon as={CollecticonArrowRight} /> {item.title}
+        <ListItem>
+          <MenuLink to='/updates'>
+            <ListIcon as={CollecticonArrowRight} /> Updates
+          </MenuLink>
+        </ListItem>
+        <ListItem>
+          <MenuLink to='/editions'>
+            <ListIcon as={CollecticonArrowRight} /> Editions
+          </MenuLink>
+        </ListItem>
+        <ListItem>
+          <MenuLink to='/tickets'>
+            <ListIcon as={CollecticonArrowRight} /> Tickets
+          </MenuLink>
+        </ListItem>
+        {data.allLetterGlobal.map(({ title, slug }) => (
+          <ListItem key={slug}>
+            <MenuLink to={`/${slug}`}>
+              <ListIcon as={CollecticonArrowRight} /> {title}
             </MenuLink>
           </ListItem>
         ))}

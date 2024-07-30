@@ -7,19 +7,9 @@ card:
 navigation:
   - title: Agenda
     url: /2024-washington/agenda
-    menu: both
   - title: Speakers
     url: /2024-washington/speakers
-    menu: both
   - title: Fringe events
     url: /2024-washington/fringe
-    menu: both
   - title: Practical info
     url: /2024-washington/practical-info
-    menu: both
-  - title: Code of conduct
-    url: /2024-washington/code-of-conduct
-    menu: footer
-  - title: Terms & Conditions
-    url: /2024-washington/terms-conditions
-    menu: footer

@@ -143,9 +143,7 @@ export default function PageHeader() {
 function EditionLocalNavigation(props: { inDrawer?: boolean }) {
   const { edition } = useEditionContext();
 
-  const navItems = edition?.navigation?.filter(
-    (item) => !item.menu || ['header', 'both'].includes(item.menu.toLowerCase())
-  );
+  const navItems = edition?.navigation;
 
   if (!navItems?.length) return null;
 
