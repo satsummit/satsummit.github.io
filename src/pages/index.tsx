@@ -1,14 +1,7 @@
 import React from 'react';
 import { graphql, PageProps, type HeadFC } from 'gatsby';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import {
-  Button,
-  Divider,
-  Flex,
-  Heading,
-  List,
-  ListItem
-} from '@chakra-ui/react';
+import { Button, Flex, Heading, List, ListItem } from '@chakra-ui/react';
 
 import { useFuturePastEditions } from '$utils/use-future-past-edition';
 import { utcString2userTzDate } from '$utils/date';
@@ -19,6 +12,7 @@ import { Hug } from '@devseed-ui/hug-chakra';
 import { ItemMarker } from '$components/item-marker';
 import SmartLink from '$components/smart-link';
 import { UpdatesCard } from '$components/updates/updates-card';
+import { PageHero } from '$components/page-hero';
 
 interface PageQueryEdition {
   name: string;
@@ -41,7 +35,7 @@ interface PageQuery {
       slug: string;
       id: string;
       description: string;
-      tags: string[]
+      tags: string[];
       cover: {
         src: IGatsbyImageData;
       };
@@ -68,12 +62,16 @@ export default function IndexPage(props: PageProps<PageQuery>) {
 
   return (
     <PageLayout>
+      <PageHero
+        title='Welcome to SatSummit'
+        lead='An event by Development Seed & DevGlobal. Since 2015.'
+      />
       <Hug py={{ base: 8, md: 12 }}>
         <Flex
           justifyContent='space-between'
           gridColumn='content-start/content-end'
         >
-          <Heading size='lg'>Upcoming</Heading>
+          <Heading size='lg'>Editions</Heading>
           <Button
             as={SmartLink}
             to='/editions'

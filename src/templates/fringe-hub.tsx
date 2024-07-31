@@ -4,12 +4,9 @@ import { Global } from '@emotion/react';
 import { format } from 'date-fns';
 import {
   Box,
-  Container,
-  Flex,
   Heading,
   ListItem,
   OrderedList,
-  Text,
   useBreakpointValue
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
@@ -20,6 +17,7 @@ import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
+import { PageHero } from '$components/page-hero';
 
 interface AgendaEvent {
   parent: {
@@ -83,32 +81,10 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
           }
         }}
       />
-      <Box
-        background='primary.500'
-        px={{ base: '4', md: '8' }}
-        py={{ base: '8', lg: '16' }}
-      >
-        <Container
-          maxW='container.xl'
-          color='white'
-          display='flex'
-          flexFlow={{ base: 'column', md: 'row' }}
-          gap={8}
-          p='0'
-        >
-          <Flex flexFlow='column' gap='4'>
-            <Heading size='3xl' as='h1'>
-              Fringe Events
-            </Heading>
-            <Text
-              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
-              maxW='container.sm'
-            >
-              Happenings for the SatSummit Community.
-            </Text>
-          </Flex>
-        </Container>
-      </Box>
+      <PageHero
+        title='Fringe Events'
+        lead='Happenings for the SatSummit Community.'
+      />
 
       <Hug py={16}>
         {Object.entries(eventsTimeGroups).map(([day, eventsByHour]) => {

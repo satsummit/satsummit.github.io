@@ -7,6 +7,8 @@ card:
 navigation:
   - title: Agenda
     url: /2024-washington/agenda
+  - title: Fringe
+    url: /2024-washington/fringe
   - title: Speakers
     url: /2024-washington/speakers
   - title: Fringe events
