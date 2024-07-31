@@ -11,7 +11,7 @@ import { EditionCard } from '$components/editions/edition-card';
 import { Hug } from '@devseed-ui/hug-chakra';
 import { ItemMarker } from '$components/item-marker';
 import SmartLink from '$components/smart-link';
-import { UpdatesCard } from '$components/updates/updates-card';
+import { UpdatesFold } from '$components/updates-fold';
 import { PageHero } from '$components/page-hero';
 
 interface PageQueryEdition {
@@ -111,59 +111,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
             </ListItem>
           ))}
         </List>
-        {!!allUpdates.nodes.length && (
-          <>
-            <Divider
-              borderColor='base.200a'
-              size='sm'
-              orientation='horizontal'
-              gridColumn='content-start/content-end'
-            />
-            <Flex
-              justifyContent='space-between'
-              gridColumn='content-start/content-end'
-            >
-              <Heading size='lg'>Updates</Heading>
-              <Button
-                as={SmartLink}
-                to='/updates'
-                variant='solid'
-                colorScheme='primary'
-              >
-                View all
-              </Button>
-            </Flex>
-
-            <List
-              gridColumn='content-start/content-end'
-              display='grid'
-              gap={{ base: 4, md: 8 }}
-              gridTemplateColumns={{
-                base: '1fr',
-                sm: 'repeat(2, 1fr)',
-                lg: 'repeat(3, 1fr)'
-              }}
-            >
-              {allUpdates.nodes.map((update) => (
-                <ListItem key={update.id}>
-                  <UpdatesCard
-                    slug={update.slug}
-                    title={update.title}
-                    date={update.date || undefined}
-                    ago={update.ago || undefined}
-                    description={update.description || undefined}
-                    parent={update.parent as { excerpt: string } | undefined}
-                    editions={update.editions || []}
-                    tags={update.tags || []}
-                    cover={getImage(
-                      update.cover?.src as unknown as IGatsbyImageData
-                    )}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </>
-        )}
+        <UpdatesFold updates={allUpdates.nodes} />
       </Hug>
     </PageLayout>
   );
@@ -179,10 +127,7 @@ export const pageQuery = graphql`
         card {
           src {
             childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-              )
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }
@@ -204,10 +149,7 @@ export const pageQuery = graphql`
         cover {
           src {
             childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-              )
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }
