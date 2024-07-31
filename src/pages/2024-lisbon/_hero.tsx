@@ -77,7 +77,7 @@ export default function HomeHero() {
               zIndex: '-1'
             }}
           >
-            Was 24
+            Lx 24
           </Text>
         </Heading>
         <Box
@@ -112,9 +112,9 @@ export default function HomeHero() {
             lineHeight='1'
             whiteSpace='nowrap'
           >
-            May 16 & 17th
+            November 18 & 19th
             <br />
-            Washington, D.C.
+            Lisbon
           </Heading>
         </Box>
       </Flex>

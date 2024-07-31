@@ -2,7 +2,11 @@ import React from 'react';
 import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Flex, Text, Heading, Button, Divider } from '@chakra-ui/react';
-import { CollecticonArrowUpRight, CollecticonDownload2 } from '@devseed-ui/collecticons-chakra';
+import {
+  CollecticonArrowUpRight,
+  CollecticonDownload2
+} from '@devseed-ui/collecticons-chakra';
+import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
 import { Fold, FoldMedia, FoldProse } from '$components/fold';
@@ -10,6 +14,7 @@ import Seo from '$components/seo';
 import { ChakraFade } from '$components/reveal';
 
 import HomeHero from './_hero';
+import { UpdatesFold } from '$components/updates-fold';
 
 export default function IndexPage(props: PageProps) {
   return (
@@ -152,6 +157,10 @@ export default function IndexPage(props: PageProps) {
             </FoldMedia>
           </ChakraFade>
         </Fold>
+        <Hug>
+          {/* @ts-expect-error allUpdates exists */}
+          <UpdatesFold updates={props.data.allUpdates.nodes} />
+        </Hug>
       </Flex>
     </PageLayout>
   );
@@ -160,6 +169,41 @@ export default function IndexPage(props: PageProps) {
 export const pageQuery = graphql`
   query ($editionCId: String = "") {
     ...EditionContextualData
+    allUpdates(
+      filter: {
+        published: { eq: true }
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId }}}}
+      }
+      sort: { date: DESC }
+      limit: 3
+    ) {
+      nodes {
+        title
+        ago: date(fromNow: true)
+        date
+        slug
+        id
+        description
+        tags
+        cover {
+          src {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
+          }
+        }
+        editions {
+          edition {
+            name
+          }
+        }
+        parent {
+          ... on Mdx {
+            excerpt
+          }
+        }
+      }
+    }
   }
 `;
 
