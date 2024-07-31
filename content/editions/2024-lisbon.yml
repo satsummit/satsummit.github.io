@@ -1,7 +1,7 @@
 name: Lisbon '24
 dates:
-  - '2024-11-16'
   - '2024-11-18'
+  - '2024-11-19'
 card:
   src: ./2024-lisbon-card.jpg
 navigation:
@@ -9,3 +9,5 @@ navigation:
     url: /2024-lisbon/agenda
   - title: Speakers
     url: /2024-lisbon/speakers
+  - title: Practical info
+    url: /2024-lisbon/practical-info

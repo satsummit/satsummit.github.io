@@ -4,14 +4,25 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { createPortal } from 'react-dom';
 import SmartLink from '$components/smart-link';
+import { useEditionContext } from '$context/edition';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZGV2c2VlZCIsImEiOiJjbDgwM2xra3kwMmJpM3dyMTNwODVoZjZwIn0.e-ZxA8VIcxhCmR1kprskpQ';
 
-export default function PracticalInfoMap() {
+interface LocationMapProps {
+  coordinates: [number, number];
+  url: string;
+  location: string;
+}
+
+export default function LocationMap(props: LocationMapProps) {
+  const { coordinates, url, location, ...options} = props;
+
   const mapRef = useRef<HTMLDivElement>(null);
 
   const [markerContainer, setMarkerContainer] = useState<HTMLDivElement>();
+
+  const { edition } = useEditionContext();
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -25,9 +36,8 @@ export default function PracticalInfoMap() {
       pitchWithRotate: false,
       dragRotate: false,
       scrollZoom: false,
-      center: [-77.03228, 38.89786],
-      zoom: 14,
-      minZoom: 12.5
+      center: coordinates,
+      ...(options || {})
     });
 
     // Include attribution.
@@ -45,7 +55,7 @@ export default function PracticalInfoMap() {
     new mapboxgl.Marker({
       element: el
     })
-      .setLngLat([-77.03228, 38.89786])
+      .setLngLat(coordinates)
       .addTo(mbMap);
 
     return () => {
@@ -69,7 +79,7 @@ export default function PracticalInfoMap() {
       {markerContainer &&
         createPortal(
           <SmartLink
-            to='https://convene.com/locations/washington-dc/600-14th-street-nw/'
+            to={url}
             position='absolute'
             display='flex'
             backgroundColor='surface.500'
@@ -80,6 +90,7 @@ export default function PracticalInfoMap() {
             borderRadius='md'
             whiteSpace='nowrap'
             textAlign='center'
+            transform='translate(-50%, -100%)'
             _visited={{
               color: 'inherit',
               textDecoration: 'none'
@@ -109,7 +120,10 @@ export default function PracticalInfoMap() {
             }}
           >
             <Heading as='strong' size='sm'>
-              SatSummit 2024 <Text as='small' display='block' lineHeight='1'>at Convene</Text>
+              SatSummit {edition?.name}{' '}
+              <Text as='small' display='block' lineHeight='1'>
+                at {location}
+              </Text>
             </Heading>
           </SmartLink>,
           markerContainer

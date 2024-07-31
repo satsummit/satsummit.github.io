@@ -507,21 +507,18 @@ type EditionGroupConnection_sumArgs = {
 };
 
 type EditionNavigation = {
-  readonly menu: Maybe<Scalars['String']>;
   readonly path: Scalars['String'];
   readonly title: Scalars['String'];
   readonly url: Maybe<Scalars['String']>;
 };
 
 type EditionNavigationFieldSelector = {
-  readonly menu: InputMaybe<FieldSelectorEnum>;
   readonly path: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type EditionNavigationFilterInput = {
-  readonly menu: InputMaybe<StringQueryOperatorInput>;
   readonly path: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
@@ -532,7 +529,6 @@ type EditionNavigationFilterListInput = {
 };
 
 type EditionNavigationSortInput = {
-  readonly menu: InputMaybe<SortOrderEnum>;
   readonly path: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
