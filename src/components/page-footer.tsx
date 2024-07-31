@@ -130,7 +130,7 @@ function GlobalFooterNavigation() {
       <Heading size='md'>This edition</Heading>
       <List>
         <ListItem>
-          <MenuLink to='/updates'>
+          <MenuLink to='/updates' showComingSoon tooltipPos={{ base: 'right' }}>
             <ListIcon as={CollecticonArrowRight} /> Updates
           </MenuLink>
         </ListItem>
@@ -140,7 +140,7 @@ function GlobalFooterNavigation() {
           </MenuLink>
         </ListItem>
         <ListItem>
-          <MenuLink to='/tickets'>
+          <MenuLink to='/tickets' showComingSoon tooltipPos={{ base: 'right' }}>
             <ListIcon as={CollecticonArrowRight} /> Tickets
           </MenuLink>
         </ListItem>

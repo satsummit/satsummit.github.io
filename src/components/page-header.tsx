@@ -16,17 +16,19 @@ import {
   List,
   ListItem,
   Show,
+  Tooltip,
   useDisclosure
 } from '@chakra-ui/react';
 import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 
+import { MENU_BRKPOINT } from '../@chakra-ui/gatsby-plugin/theme';
+
 import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
-import { useEditionContext } from '$context/edition';
 import { ItemMarker } from './item-marker';
-
-const MENU_BRKPOINT = 'lg';
+import { useEditionContext } from '$context/edition';
+import { visuallyDisableProps } from '$utils/utils';
 
 function NavMenu(props: { inDrawer?: boolean }) {
   return (
@@ -36,12 +38,16 @@ function NavMenu(props: { inDrawer?: boolean }) {
       flexFlow={props.inDrawer ? 'column' : 'row'}
     >
       <ListItem>
-        <MenuLink display='block' to='/updates'>
+        <MenuLink
+          display={{ [MENU_BRKPOINT]: 'block' }}
+          to='/updates'
+          showComingSoon
+        >
           Updates
         </MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink display='block' to='/editions'>
+        <MenuLink display={{ [MENU_BRKPOINT]: 'block' }} to='/editions'>
           Editions
         </MenuLink>
       </ListItem>
@@ -84,16 +90,20 @@ export default function PageHeader() {
               <Show above={MENU_BRKPOINT}>
                 <EditionLocalNavigation />
               </Show>
-              <Button
-                as={SmartLink}
-                noLinkStyles
-                colorScheme='surface'
-                variant='soft-outline'
-                to='/tickets/'
-                size={{ base: 'sm', lg: 'md' }}
-              >
-                Get your Ticket
-              </Button>
+
+              <Tooltip label='Coming soon' placement='bottom' hasArrow>
+                <Button
+                  as={SmartLink}
+                  noLinkStyles
+                  colorScheme='surface'
+                  variant='soft-outline'
+                  to='/tickets/'
+                  size={{ base: 'sm', lg: 'md' }}
+                  {...visuallyDisableProps()}
+                >
+                  Get your Ticket
+                </Button>
+              </Tooltip>
 
               <Hide above={MENU_BRKPOINT}>
                 <Button
@@ -160,7 +170,11 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
       >
         {navItems.map((item) => (
           <ListItem key={item.url}>
-            <MenuLink display='block' to={item.url!}>
+            <MenuLink
+              display={{ [MENU_BRKPOINT]: 'block' }}
+              to={item.url!}
+              showComingSoon={!!item.comingSoon}
+            >
               {item.title}
             </MenuLink>
           </ListItem>

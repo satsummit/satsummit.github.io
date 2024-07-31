@@ -4,6 +4,8 @@ import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
 import { createColorPalette } from './color-palette';
 
+export const MENU_BRKPOINT = 'lg';
+
 const headingStyles = {
   baseStyle: {
     fontWeight: '600',

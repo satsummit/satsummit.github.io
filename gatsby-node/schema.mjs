@@ -9,6 +9,7 @@ export const createLetterSchema = ({ actions }) => {
     type EditionNavigation {
       title: String!
       path: String!
+      comingSoon: Boolean
     }
 
     type Edition implements Node {
