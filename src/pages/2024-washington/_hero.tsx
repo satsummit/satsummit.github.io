@@ -77,7 +77,7 @@ export default function HomeHero() {
               zIndex: '-1'
             }}
           >
-            Was 24
+            2024
           </Text>
         </Heading>
         <Box
