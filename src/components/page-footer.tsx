@@ -108,12 +108,20 @@ export default function PageFooter() {
 
 function GlobalFooterNavigation() {
   const data = useStaticQuery<{
-    allLetterGlobal: { title: string; slug: string }[];
+    allLetter: { nodes: { title: string; slug: string }[] };
   }>(graphql`
     query {
-      allLetterGlobal {
-        title
-        slug
+      allLetter(
+        filter: {
+          title: { ne: "" }
+          published: { eq: true }
+          editions: { elemMatch: { edition: { cId: { eq: null } } } }
+        }
+      ) {
+        nodes {
+          title
+          slug
+        }
       }
     }
   `);
@@ -144,7 +152,7 @@ function GlobalFooterNavigation() {
             <ListIcon as={CollecticonArrowRight} /> Tickets
           </MenuLink>
         </ListItem>
-        {data.allLetterGlobal.map(({ title, slug }) => (
+        {data.allLetter.nodes.map(({ title, slug }) => (
           <ListItem key={slug}>
             <MenuLink to={`/${slug}`}>
               <ListIcon as={CollecticonArrowRight} /> {title}

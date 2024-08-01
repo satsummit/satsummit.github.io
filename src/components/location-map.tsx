@@ -16,7 +16,7 @@ interface LocationMapProps {
 }
 
 export default function LocationMap(props: LocationMapProps) {
-  const { coordinates, url, location, ...options} = props;
+  const { coordinates, url, location, ...options } = props;
 
   const mapRef = useRef<HTMLDivElement>(null);
 
@@ -27,8 +27,10 @@ export default function LocationMap(props: LocationMapProps) {
   useEffect(() => {
     if (!mapRef.current) return;
 
+    const container = mapRef.current;
+
     const mbMap = new mapboxgl.Map({
-      container: mapRef.current,
+      container,
       style: 'mapbox://styles/devseed/cltwvo1u300bv01qsbkli6jcz',
       logoPosition: 'bottom-left',
       attributionControl: false,
@@ -58,8 +60,15 @@ export default function LocationMap(props: LocationMapProps) {
       .setLngLat(coordinates)
       .addTo(mbMap);
 
+    const sizeObserver = new ResizeObserver(() => {
+      mbMap.resize();
+    });
+
+    sizeObserver.observe(container);
+
     return () => {
       mbMap.remove();
+      sizeObserver.disconnect();
     };
   }, []);
 
@@ -68,12 +77,12 @@ export default function LocationMap(props: LocationMapProps) {
       <Box
         ref={mapRef}
         aspectRatio={16 / 9}
-        width='100vw'
+        width='calc(100vw - var(--scrollbar-width))'
         position='relative'
         left='50%'
         right='50%'
-        marginLeft='-50vw'
-        marginRight='-50vw'
+        marginLeft='calc(-50vw + var(--scrollbar-width) / 2)'
+        marginRight='calc(-50vw + var(--scrollbar-width) / 2)'
         maxH='44rem'
       />
       {markerContainer &&

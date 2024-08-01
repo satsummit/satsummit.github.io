@@ -200,16 +200,6 @@ export const createSchemaCustomization = (helpers) => {
 export const createResolvers = ({ createResolvers }) => {
   const resolvers = {
     Query: {
-      allLetterGlobal: {
-        type: '[Letter!]',
-        resolve: async (source, args, context) => {
-          const { entries } = await context.nodeModel.findAll({
-            type: 'Letter'
-          });
-
-          return Array.from(entries).filter((entry) => !entry.editions);
-        }
-      },
       updatesByTag: {
         type: ['Updates!'],
         args: {

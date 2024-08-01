@@ -119,8 +119,12 @@ export const createEditionPages = async (helpers) => {
 
   // Create edition specific pages.
   data?.allEdition.nodes.forEach(({ cId: editionCId, dates }) => {
+    // Letter pages for the edition.
+    const editionLetters = data?.allLetter.nodes.filter((letter) =>
+      letter.editions.some((e) => e.edition.cId === editionCId)
+    );
     // Create letter pages for the edition.
-    data?.allLetter.nodes.forEach((node) => {
+    editionLetters.forEach((node) => {
       const { slug, id } = node;
       actions.createPage({
         path: `/${editionCId}/${slug}`,

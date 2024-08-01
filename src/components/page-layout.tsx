@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageProps } from 'gatsby';
 import { Box, Flex } from '@chakra-ui/react';
 
@@ -12,6 +12,12 @@ export default function PageLayout(props: {
   children: React.ReactNode;
   pageProps?: PageProps;
 }) {
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
+  }, []);
   return (
     <EditionContextProvider pageProps={props.pageProps}>
       <Flex direction='column' minHeight='100vh'>

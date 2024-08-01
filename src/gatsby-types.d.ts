@@ -2619,7 +2619,6 @@ type Query = {
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
   readonly allLetter: LetterConnection;
-  readonly allLetterGlobal: Maybe<ReadonlyArray<Letter>>;
   readonly allMdx: MdxConnection;
   readonly allPeople: PeopleConnection;
   readonly allSite: SiteConnection;
