@@ -98,7 +98,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               ]}
               image={
                 <StaticImage
-                  src='../images/editions/external-edition.jpg'
+                  src='../images/editions/2022-washington-card.png'
                   alt='Washington DC 2022'
                 />
               }
@@ -115,7 +115,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               ]}
               image={
                 <StaticImage
-                  src='../images/editions/external-edition.jpg'
+                  src='../images/editions/2018-washington-card.png'
                   alt='Washington DC 2018'
                 />
               }
@@ -129,7 +129,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               dates={[utcString2userTzDate('2017-01-31T00:00:00Z')]}
               image={
                 <StaticImage
-                  src='../images/editions/external-edition.jpg'
+                  src='../images/editions/2017-washington-card.png'
                   alt='Washington DC 2017'
                 />
               }
@@ -143,7 +143,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               dates={[utcString2userTzDate('2015-11-09T00:00:00Z')]}
               image={
                 <StaticImage
-                  src='../images/editions/external-edition.jpg'
+                  src='../images/editions/2015-washington-card.png'
                   alt='Washington DC 2015'
                 />
               }
