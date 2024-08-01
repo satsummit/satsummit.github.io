@@ -138,6 +138,7 @@ export function Newsletter() {
       display='flex'
       flexFlow='column'
       gap={{ base: '8', lg: '16' }}
+      id='newsletter-fold'
     >
       <Fold spacingY={{ base: '4', lg: '8' }} w='100%'>
         <Heading as='h2' size='2xl' gridColumn='1/-1'>
