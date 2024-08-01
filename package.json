@@ -23,9 +23,9 @@
     "node": "20.15"
   },
   "scripts": {
-    "develop": "gatsby develop -p 9000 -H 0.0.0.0",
+    "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -p 9000 -H 0.0.0.0",
     "start": "gatsby develop",
-    "build": "node people-avatar-process.mjs && gatsby build",
+    "build": "node people-avatar-process.mjs && NODE_OPTIONS=--max-old-space-size=8192 gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "ts-check": "tsc --noEmit",
