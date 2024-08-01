@@ -45,7 +45,7 @@ export default function PageFooter() {
             lg: '4/ span 3'
           }}
         >
-          <Heading size='md'>Let&apos;s Connect</Heading>
+          <Heading size='md'>Connect</Heading>
           <List>
             <ListItem>
               <MenuLink to='mailto:info@satsummit.io'>
@@ -135,7 +135,7 @@ function GlobalFooterNavigation() {
         lg: '1/ span 3'
       }}
     >
-      <Heading size='md'>This edition</Heading>
+      <Heading size='md'>Browse</Heading>
       <List>
         <ListItem>
           <MenuLink to='/updates' showComingSoon tooltipPos={{ base: 'right' }}>
