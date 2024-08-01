@@ -54,7 +54,7 @@ export default function IndexPage(props: PageProps) {
               gap={{ base: '4', lg: '8' }}
               mt={{ base: '0', lg: '-40' }}
             >
-              <Heading size='2xl'>Save the Date</Heading>
+              <Heading size='2xl'>About</Heading>
               <Text>
                 <strong>SatSummit</strong> convenes leaders in the satellite
                 industry and experts in global development for 2 days of
@@ -70,15 +70,14 @@ export default function IndexPage(props: PageProps) {
                 today&apos;s biggest global issues.
               </Text>
               <Text>
-                Stay tuned for more information on{' '}
-                <strong>SatSummit 2024</strong>!
+                Stay tuned for more information on the{' '}
+                <strong>Lisbon &apos;24 edition</strong>!
               </Text>
               <Button
                 as='a'
-                href='https://23425005.hs-sites.com/satsummit-2024'
+                href='#newsletter-fold'
                 colorScheme='primary'
                 alignSelf='start'
-                rightIcon={<CollecticonArrowUpRight />}
                 size={{ base: 'md', lg: 'lg' }}
               >
                 Get the newsletter
