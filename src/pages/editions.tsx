@@ -58,7 +58,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
-        <Heading size='lg'>Upcoming</Heading>
+        <Heading size='2xl'>Upcoming</Heading>
         <List display='flex' flexDir='column' gap={4}>
           {future.map((edition) => (
             <ListItem key={edition.cId}>
@@ -71,8 +71,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
             </ListItem>
           ))}
         </List>
-        <Divider borderColor='base.200a' size='sm' orientation='horizontal' />
-        <Heading size='lg'>Past</Heading>
+        <Divider borderColor='base.200a' size='md' orientation='horizontal' />
+        <Heading size='2xl'>Past</Heading>
         <List
           display='grid'
           gap={{ base: 4, md: 8 }}

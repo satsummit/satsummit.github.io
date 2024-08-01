@@ -69,14 +69,16 @@ export default function IndexPage(props: PageProps<PageQuery>) {
       <Hug py={{ base: 8, md: 12 }}>
         <Flex
           justifyContent='space-between'
+          alignItems='center'
           gridColumn='content-start/content-end'
         >
-          <Heading size='lg'>Editions</Heading>
+          <Heading size='2xl'>Editions</Heading>
           <Button
             as={SmartLink}
             to='/editions'
             variant='solid'
             colorScheme='primary'
+            size={{ base: 'sm', lg: 'md' }}
           >
             View all
           </Button>
