@@ -48,7 +48,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
     <PageLayout>
       <PageHero
         title='Editions'
-        lead='Every place where you can find satsummit'
+        lead='Nine years of SatSummit. And counting.'
       />
       <Container
         py={{ base: '8', lg: '16' }}
