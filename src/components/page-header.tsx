@@ -27,7 +27,7 @@ import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
 import { ItemMarker } from './item-marker';
-import { useEditionContext } from '$context/edition';
+import { useEditionCId, useEditionContext } from '$context/edition';
 import { visuallyDisableProps } from '$utils/utils';
 
 function NavMenu(props: { inDrawer?: boolean }) {
@@ -152,6 +152,7 @@ export default function PageHeader() {
 
 function EditionLocalNavigation(props: { inDrawer?: boolean }) {
   const { edition } = useEditionContext();
+  const editionCId = useEditionCId();
 
   const navItems = edition?.navigation;
 
@@ -160,7 +161,18 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
   return (
     <Box pos='relative'>
       <ItemMarker pos='absolute' top='-2rem' left='-1.5rem'>
-        {edition?.name}
+        <SmartLink
+          to={`/${editionCId}`}
+          color='inherit'
+          lineHeight='inherit'
+          transition='opacity 0.24s ease 0s'
+          _hover={{
+            opacity: '0.64',
+            textDecoration: 'none'
+          }}
+        >
+          {edition?.name}
+        </SmartLink>
       </ItemMarker>
       <List
         display='flex'
