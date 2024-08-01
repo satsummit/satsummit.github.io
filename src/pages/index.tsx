@@ -64,7 +64,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
     <PageLayout>
       <PageHero
         title='Welcome to SatSummit'
-        lead='An event by Development Seed & DevGlobal. Since 2015.'
+        lead='Since 2015. An event by Development Seed & DevGlobal. '
       />
       <Hug py={{ base: 8, md: 12 }}>
         <Flex
