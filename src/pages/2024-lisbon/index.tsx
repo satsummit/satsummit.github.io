@@ -56,14 +56,12 @@ export default function IndexPage(props: PageProps) {
             >
               <Heading size='2xl'>About</Heading>
               <Text>
-                <strong>SatSummit</strong> convenes leaders in the satellite
-                industry and experts in global development for 2 days of
-                presentations and in-depth conversations on solving the
-                world&apos;s most critical development challenges with satellite
-                data.
+                <strong>SatSummit</strong> is heading to <strong>Lisbon, Portugal</strong>{' '}
+                to convene leaders in the satellite industry and experts in
+                global development for 2 days of presentations and in-depth
+                conversations on solving the world&apos;s most critical
+                development challenges with satellite data.
               </Text>
-              <Divider borderColor='base.200a' size='md' />
-              <Heading size='2xl'>Stay Tuned</Heading>
               <Text>
                 From climate change to population growth to natural resource
                 availability, earth observation data offers insights into
