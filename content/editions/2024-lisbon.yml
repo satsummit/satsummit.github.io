@@ -3,7 +3,7 @@ dates:
   - '2024-11-18'
   - '2024-11-19'
 card:
-  src: ./2024-lisbon-card.jpg
+  src: ./2024-lisbon-card.png
 navigation:
   - title: Agenda
     url: /2024-lisbon/agenda
