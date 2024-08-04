@@ -38,9 +38,10 @@ export default function HomeHero() {
           display='inline-flex'
           flexFlow='column'
           color='base.500'
+          mt={{ base: '0', md: '-3rem', md: '-2rem' }}
           sx={{
             '> *': {
-              lineHeight: { base: '0.875', md: '1' }
+              mt: { base: '-1rem', md: '-1rem' }
             }
           }}
         >
@@ -53,18 +54,13 @@ export default function HomeHero() {
           >
             This is
           </Text>
-          <Text
-            as='span'
-            fontSize={{ base: '4rem', md: '8rem' }}
-            mt={{ md: '-4' }}
-          >
-            Satsummit
+          <Text as='span' fontSize={{ base: '4rem', md: '8rem' }}>
+            SatSummit
           </Text>
           <Text
             as='span'
-            fontSize={{ base: '4rem', md: '8rem' }}
+            fontSize={{ base: '3rem', md: '4rem', lg: '5rem' }}
             alignSelf='start'
-            mt={{ md: '-4' }}
             position='relative'
             zIndex='1'
             _before={{
@@ -77,45 +73,60 @@ export default function HomeHero() {
               zIndex: '-1'
             }}
           >
-            Lx 24
+            Lisbon &apos;24
           </Text>
         </Heading>
         <Box
-          bg='base.500'
-          color='white'
           position='absolute'
-          bottom={{ base: '-5rem', md: '-5rem', lg: '3.5rem' }}
-          left={{ base: '8rem', md: '15.5rem', lg: '0' }}
-          transform={{ lg: 'translateX(calc(-100% - 1rem))' }}
-          alignSelf={{ base: 'start', md: 'center' }}
-          p='4'
+          top={{
+            base: 'calc(100% - 0.5rem)',
+            lg: 'auto'
+          }}
+          right={{
+            base: 'auto',
+            lg: 'calc(100% + 1rem)'
+          }}
+          bottom={{
+            base: 'auto',
+            lg: '2rem'
+          }}
+          left={{ base: '-2rem', sm: '4.5rem', md: '6.5rem', lg: 'auto' }}
+          display='flex'
+          flexDirection='column'
+          minWidth={{ lg: '13rem' }}
           _after={{
-            position: 'absolute',
             content: '""',
             width: '1.5rem',
             height: '1rem',
             background: 'base.500',
-            top: { lg: '100%' },
-            left: { base: '0', lg: 'auto' },
-            right: { lg: '0' },
-            bottom: { base: '100%', lg: 'auto' },
             clipPath: {
-              base: 'polygon(0 0, 0% 100%, 100% 100%)',
+              base: 'polygon(100% 0, 0% 100%, 100% 100%)',
+              sm: 'polygon(0 0, 0% 100%, 100% 100%)',
               lg: 'polygon(0 0, 100% 0, 100% 100%)'
-            }
+            },
+            order: { base: '-1', md: '-1', lg: '1' },
+            alignSelf: { base: 'start', sm: 'end' }
           }}
         >
-          <Heading
-            as='p'
-            textTransform='uppercase'
-            fontSize={{ base: '1.5rem', md: '2rem' }}
-            lineHeight='1'
-            whiteSpace='nowrap'
+          <Box
+            as='span'
+            display='block'
+            bg='base.500'
+            color='surface.500'
+            p='4'
           >
-            November 18 & 19th
-            <br />
-            Lisbon
-          </Heading>
+            <Heading
+              as='p'
+              textTransform='uppercase'
+              fontSize={{ base: '1.5rem', md: '2rem' }}
+              lineHeight='1'
+              whiteSpace='nowrap'
+            >
+              November
+              <br />
+              18 & 19, 2024
+            </Heading>
+          </Box>
         </Box>
       </Flex>
 
@@ -135,8 +146,8 @@ export default function HomeHero() {
         alt='A piece of collage illustrating a satellite.'
         position='absolute'
         zIndex='6'
-        top={{ base: '-1.5rem', md: '-2rem', lg: '-4rem' }}
-        right={{ base: '4%', sm: '8%', md: 'calc(50% + 8rem)' }}
+        top={{ base: '-1.5rem', md: '-2rem', lg: '-5rem' }}
+        right={{ base: '4%', sm: '8%', md: 'calc(50% + 6rem)' }}
         width={{ base: '10rem', sm: '12rem', md: '16rem', lg: '20rem' }}
       />
 
