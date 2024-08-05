@@ -25,13 +25,17 @@ interface PeoplePageProps {
   people: Queries.People;
 }
 
-export default function PeoplePage(props: PageProps<PeoplePageProps>) {
+export default function PeoplePage(
+  props: PageProps<PeoplePageProps, { editionCId: string }>
+) {
   const {
     data: {
       people: { title, avatar, role, company, social, pronouns, events }
     },
     children
   } = props;
+
+  const { editionCId } = props.pageContext;
 
   return (
     <PageLayout pageProps={props}>
@@ -144,7 +148,7 @@ export default function PeoplePage(props: PageProps<PeoplePageProps>) {
           <Button
             as={SmartLink}
             noLinkStyles
-            to='/speakers'
+            to={`/${editionCId}/speakers`}
             variant='solid'
             colorScheme='primary'
             size={{ base: 'md', md: 'lg' }}
