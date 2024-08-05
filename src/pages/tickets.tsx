@@ -58,4 +58,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Welcome' />;
+export const Head: HeadFC = () => <Seo title='Tickets' description='Get your SatSummit ticket.' />;

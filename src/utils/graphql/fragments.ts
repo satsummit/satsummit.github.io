@@ -63,6 +63,7 @@ export const editionContextualData = graphql`
       }
     }
     edition: edition(cId: { eq: $editionCId }) {
+      cId
       name
       navigation {
         title

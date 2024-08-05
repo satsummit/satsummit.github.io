@@ -14,7 +14,7 @@ const config = {
     siteUrl: 'https://satsummit.io',
     title: 'SatSummit',
     subtitle: `Satellite data for global development`,
-    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
+    description: `SatSummit convenes leaders in the satellite industry and experts in global development for presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
       name: `Development Seed & DevGlobal`
     },

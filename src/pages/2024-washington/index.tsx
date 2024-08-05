@@ -1,11 +1,8 @@
 import React from 'react';
-import { graphql, type HeadFC, type PageProps } from 'gatsby';
+import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Flex, Text, Heading, Button, Divider } from '@chakra-ui/react';
-import {
-  CollecticonArrowUpRight,
-  CollecticonDownload2
-} from '@devseed-ui/collecticons-chakra';
+import { CollecticonDownload2 } from '@devseed-ui/collecticons-chakra';
 import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
@@ -171,7 +168,7 @@ export const pageQuery = graphql`
     allUpdates(
       filter: {
         published: { eq: true }
-        editions: { elemMatch: { edition: { cId: { eq: $editionCId }}}}
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
       }
       sort: { date: DESC }
       limit: 3
@@ -206,4 +203,6 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Welcome' />;
+export const Head = (
+  props: HeadProps<Queries.EditionContextualDataFragment>
+) => <Seo title='Welcome' edition={props.data.edition} />;

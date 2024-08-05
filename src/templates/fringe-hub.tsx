@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { HeadFC, PageProps, graphql } from 'gatsby';
+import { HeadProps, PageProps, graphql } from 'gatsby';
 import { Global } from '@emotion/react';
 import { format } from 'date-fns';
 import {
@@ -32,7 +32,7 @@ interface AgendaEvent {
   people: Queries.EventPeople;
 }
 
-interface FringePageQuery {
+interface FringePageQuery extends Queries.EditionContextualDataFragment {
   allEvent: {
     nodes: AgendaEvent[];
   };
@@ -233,9 +233,10 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
+export const Head = (props: HeadProps<FringePageQuery>) => (
   <Seo
     title='Fringe Events'
     description='Happenings for the SatSummit Community.'
+    edition={props.data.edition}
   />
 );

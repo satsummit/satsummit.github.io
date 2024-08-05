@@ -8,7 +8,7 @@ import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';
 
-interface LetterPageProps {
+interface LetterPageProps extends Queries.EditionContextualDataFragment {
   letter: Queries.Letter;
 }
 
@@ -48,5 +48,9 @@ export const query = graphql`
 `;
 
 export const Head = (props: HeadProps<LetterPageProps>) => (
-  <Seo title={props.data.letter.title!} description={props.data.letter.lead!} />
+  <Seo
+    title={props.data.letter.title!}
+    description={props.data.letter.lead!}
+    edition={props.data.edition}
+  />
 );

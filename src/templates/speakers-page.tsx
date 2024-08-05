@@ -21,7 +21,7 @@ import { AgendaEvent } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
 import { Sure } from '$utils/utils';
 
-interface PeoplePageProps {
+interface PeoplePageProps extends Queries.EditionContextualDataFragment {
   people: Queries.People;
 }
 
@@ -198,6 +198,8 @@ export const query = graphql`
   }
 `;
 
-export const Head = (props: HeadProps<PeoplePageProps>) => (
-  <Seo title={props.data.people.title!} />
-);
+export const Head = (
+  props: HeadProps<PeoplePageProps, Queries.EditionContextualDataFragment>
+) => {
+  return <Seo title={props.data.people.title!} edition={props.data.edition} />;
+};

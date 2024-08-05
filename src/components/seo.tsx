@@ -6,18 +6,31 @@ interface SeoProps {
   description?: string;
   image?: string;
   title: string;
+  edition?: Queries.EditionContextualDataFragment['edition'];
   children?: React.ReactNode;
 }
 
+const getMetaImage = (
+  siteUrl: string,
+  image?: string,
+  edition?: SeoProps['edition']
+) => {
+  const metaImage =
+    image ||
+    (edition && `/meta/meta-${edition.cId}.png`) ||
+    '/meta/meta-image.png';
+  return metaImage.match(/^https?:\/\//) ? metaImage : `${siteUrl}${metaImage}`;
+};
+
 export default function Seo(props: SeoProps) {
-  const { description, image, title, children } = props;
+  const { description, title, image, edition, children } = props;
 
   const { site } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
-          description          
+          description
           siteUrl
           social {
             twitter
@@ -28,12 +41,11 @@ export default function Seo(props: SeoProps) {
   `);
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || '/meta/meta-image.png';
-  const metaImageUrl = metaImage.match(/^https?:\/\//)
-    ? metaImage
-    : `${site.siteMetadata.siteUrl}${metaImage}`;
+  const metaImageUrl = getMetaImage(site.siteMetadata.siteUrl, image, edition);
 
-  const formattedTitle = `${title} — ${site.siteMetadata.title}`;
+  const formattedTitle =
+    `${title} — ${site.siteMetadata.title}` +
+    (edition ? ` ${edition.name}` : '');
 
   const themeColor = useToken('colors', 'primary.500');
 

@@ -43,11 +43,11 @@ interface AgendaEvent {
   people: Queries.EventPeople;
 }
 
-interface AgendaPageQuery {
+interface AgendaPageQuery extends Queries.EditionContextualDataFragment {
   allEvent: {
     nodes: AgendaEvent[];
   };
-  edition: {
+  edition: Queries.EditionContextualDataFragment['edition'] & {
     dates: string[];
   };
 }
@@ -112,7 +112,8 @@ export default function AgendaPage(
         />
 
         <Text textStyle='lead.lg' maxW='container.sm'>
-          {edition.dates.length} days of presentations and in-depth conversations.
+          {edition.dates.length} days of presentations and in-depth
+          conversations.
         </Text>
 
         <ButtonGroup
@@ -403,5 +404,6 @@ export const Head = (props: HeadProps<AgendaPageQuery>) => (
   <Seo
     title='Agenda'
     description={`${props.data.edition.dates.length} days of presentations and in-depth conversations.`}
+    edition={props.data.edition}
   />
 );

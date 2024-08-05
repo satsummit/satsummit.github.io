@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, type HeadFC, type PageProps } from 'gatsby';
+import { graphql,  HeadProps,  type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { Flex, Text, Heading, Button } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
@@ -157,4 +157,6 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Welcome' />;
+export const Head = (
+  props: HeadProps<Queries.EditionContextualDataFragment>
+) => <Seo title='Welcome' edition={props.data.edition} />;

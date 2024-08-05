@@ -37,6 +37,8 @@ interface PageQuery {
   site: { siteMetadata: { eventDates: string[] } };
 }
 
+const PAGE_DESCRIPTION = 'Nine years of SatSummit. And counting.';
+
 export default function IndexPage(props: PageProps<PageQuery>) {
   const { data } = props;
 
@@ -48,7 +50,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
     <PageLayout>
       <PageHero
         title='Editions'
-        lead='Nine years of SatSummit. And counting.'
+        lead={PAGE_DESCRIPTION}
       />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -178,4 +180,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Welcome' />;
+export const Head: HeadFC = () => <Seo title='Editions' description={PAGE_DESCRIPTION} />;

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { graphql, HeadFC, PageProps } from 'gatsby';
+import { graphql, HeadProps, PageProps } from 'gatsby';
 import {
   GatsbyImage,
   getImage,
@@ -24,7 +24,7 @@ import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
 import { PageHero } from '$components/page-hero';
 
-interface SpeakersPageQuery {
+interface SpeakersPageQuery extends Queries.EditionContextualDataFragment {
   allPeople: {
     nodes: Queries.People[];
   };
@@ -236,9 +236,10 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
+export const Head = (props: HeadProps<SpeakersPageQuery>) => (
   <Seo
     title='Speakers'
     description='All the wonderful people presenting at SatSummit.'
+    edition={props.data.edition}
   />
 );
