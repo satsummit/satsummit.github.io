@@ -329,7 +329,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
       top: 0,
       behavior: 'smooth'
     });
-  }, []);
+  }, [editionCId]);
 
   return (
     <Hug pb={16}>
