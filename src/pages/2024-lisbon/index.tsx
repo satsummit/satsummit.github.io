@@ -1,11 +1,7 @@
 import React from 'react';
 import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Flex, Text, Heading, Button, Divider } from '@chakra-ui/react';
-import {
-  CollecticonArrowUpRight,
-  CollecticonDownload2
-} from '@devseed-ui/collecticons-chakra';
+import { Flex, Text, Heading, Button } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
@@ -38,8 +34,8 @@ export default function IndexPage(props: PageProps) {
           >
             <FoldMedia>
               <StaticImage
-                src='../../images/home/home-vibe-2.jpg'
-                alt='Four people sitting in line with the second one talking to a microphone'
+                src='../../images/home/2024-lisbon--home-vibe-1.jpg'
+                alt='Speaker on stage at the Washington DC 2024 edition.'
               />
             </FoldMedia>
           </ChakraFade>
@@ -56,11 +52,12 @@ export default function IndexPage(props: PageProps) {
             >
               <Heading size='2xl'>About</Heading>
               <Text>
-                <strong>SatSummit</strong> is heading to <strong>Lisbon, Portugal</strong>{' '}
-                to convene leaders in the satellite industry and experts in
-                global development for 2 days of presentations and in-depth
-                conversations on solving the world&apos;s most critical
-                development challenges with satellite data.
+                <strong>SatSummit</strong> is heading to{' '}
+                <strong>Lisbon, Portugal</strong> to convene leaders in the
+                satellite industry and experts in global development for 2 days
+                of presentations and in-depth conversations on solving the
+                world&apos;s most critical development challenges with satellite
+                data.
               </Text>
               <Text>
                 From climate change to population growth to natural resource
@@ -91,8 +88,8 @@ export default function IndexPage(props: PageProps) {
           >
             <FoldMedia>
               <StaticImage
-                src='../../images/home/home-vibe-4.jpg'
-                alt='Group of people happily talking to each other'
+                src='../../images/home/2024-lisbon--home-vibe-2.jpg'
+                alt='NOVA SBE building in Carcavelos, Lisbon.'
               />
             </FoldMedia>
           </ChakraFade>
@@ -106,50 +103,6 @@ export default function IndexPage(props: PageProps) {
               <StaticImage
                 src='../../images/home/home-vibe-3.jpg'
                 alt='Person on a stage talking to an audience seen from the audience perspective'
-              />
-            </FoldMedia>
-          </ChakraFade>
-        </Fold>
-        <Fold>
-          <ChakraFade
-            direction='up'
-            triggerOnce
-            gridColumn={{ base: '1/-1', lg: '1/ span 6' }}
-          >
-            <FoldProse
-              display='flex'
-              flexFlow='column'
-              gap={{ base: '4', lg: '8' }}
-            >
-              <Heading size='2xl'>Become a Sponsor</Heading>
-              <Text>
-                We&apos;re excited to partner with thought and industry leaders
-                in the satellite and development communities, and through their
-                sponsorship and support of <strong>SatSummit</strong>, we are
-                solving real-world and global development challenges.
-              </Text>
-              <Button
-                as='a'
-                colorScheme='primary'
-                alignSelf='start'
-                href='/2024-sponsor-kit.pdf'
-                rightIcon={<CollecticonDownload2 />}
-                size={{ base: 'md', lg: 'lg' }}
-              >
-                Download the kit
-              </Button>
-            </FoldProse>
-          </ChakraFade>
-          <ChakraFade
-            direction='up'
-            triggerOnce
-            gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
-            delay={200}
-          >
-            <FoldMedia>
-              <StaticImage
-                src='../../images/home/home-vibe-1.jpg'
-                alt='Group of people grabbing snacks during a break'
               />
             </FoldMedia>
           </ChakraFade>
