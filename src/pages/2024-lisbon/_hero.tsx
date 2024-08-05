@@ -38,7 +38,7 @@ export default function HomeHero() {
           display='inline-flex'
           flexFlow='column'
           color='base.500'
-          mt={{ base: '0', md: '-3rem', md: '-2rem' }}
+          mt={{ base: '0', md: '-3rem', lg: '0' }}
           sx={{
             '> *': {
               mt: { base: '-1rem', md: '-1rem' }
@@ -59,7 +59,7 @@ export default function HomeHero() {
           </Text>
           <Text
             as='span'
-            fontSize={{ base: '3rem', md: '4rem', lg: '5rem' }}
+            fontSize={{ base: '3rem', md: '4rem', lg: '6rem' }}
             alignSelf='start'
             position='relative'
             zIndex='1'
