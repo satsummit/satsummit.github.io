@@ -33,3 +33,43 @@ export const allEventPeople = graphql`
     }
   }
 `;
+
+export const editionContextualData = graphql`
+  fragment EditionContextualData on Query {
+    sponsors: allSponsor(
+      sort: { slug: ASC }
+      filter: {
+        published: { eq: true }
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
+      }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        url
+        groupInEdition(editionCId: $editionCId)
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              height: 56
+              placeholder: BLURRED
+              transformOptions: { fit: CONTAIN }
+              formats: PNG
+              backgroundColor: "#FFFFFF"
+            )
+          }
+        }
+      }
+    }
+    edition: edition(cId: { eq: $editionCId }) {
+      cId
+      name
+      navigation {
+        title
+        url
+        comingSoon
+      }
+    }
+  }
+`;

@@ -11,18 +11,16 @@ const pkg = require('./package.json');
 
 const config = {
   siteMetadata: {
-    siteUrl: 'https://2024.satsummit.io',
+    siteUrl: 'https://satsummit.io',
     title: 'SatSummit',
     subtitle: `Satellite data for global development`,
-    edition: '2024',
-    description: `SatSummit convenes leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
+    description: `SatSummit convenes leaders in the satellite industry and experts in global development for presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
     author: {
       name: `Development Seed & DevGlobal`
     },
     social: {
       twitter: `@sat_summit`
-    },
-    eventDates: ['2024-05-16', '2024-05-17']
+    }
   },
   // More easily incorporate content into your pages through automatic
   // TypeScript type generation and better GraphQL IntelliSense. If you use
@@ -37,7 +35,7 @@ const config = {
       }
     },
     'gatsby-plugin-image',
-    // 'gatsby-plugin-mdx',
+    'gatsby-transformer-yaml-full',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -152,6 +150,20 @@ const config = {
       options: {
         name: `people`,
         path: `./content/people`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `edition`,
+        path: `./content/editions`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'updates',
+        path: './content/updates/'
       }
     },
     {

@@ -4,7 +4,7 @@ import { Container, Text } from '@chakra-ui/react';
 
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
+import { PageHero } from '$components/page-hero';
 import SmartLink from '$components/smart-link';
 
 export default function NotFoundPage() {

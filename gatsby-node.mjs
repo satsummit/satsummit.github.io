@@ -1,14 +1,26 @@
-import path from 'path';
-import { add } from 'date-fns';
-import { generateEventsMDXIndex } from './plugins/events-mdx-index.mjs';
+import { generateEventsMDXIndex } from './gatsby-node/events-mdx-index.mjs';
+import {
+  createEditionPages,
+  updateEditionPagesContext
+} from './gatsby-node/edition-pages.mjs';
+import {
+  createEventPeopleRelSchema,
+  createEventSchema,
+  createLetterSchema,
+  createPeopleSchema,
+  createSponsorSchema
+} from './gatsby-node/schema.mjs';
+import { capitalize, pageComponent } from './gatsby-node/utils.mjs';
+import { createUpdatesPages } from './gatsby-node/updates-pages.mjs';
 
-const letterTemplate = path.resolve('./src/templates/letter-page.tsx');
-const peopleTemplate = path.resolve('./src/templates/people-page.tsx');
-const agendaHubTemplate = path.resolve('./src/templates/agenda-hub.tsx');
+export const onCreatePage = async (helpers) => {
+  const {
+    page,
+    actions: { deletePage }
+  } = helpers;
 
-const capitalize = (v) => `${v[0].toUpperCase()}${v.slice(1)}`;
+  updateEditionPagesContext(helpers);
 
-export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
     if (page.path.match(/^\/sandbox/)) {
@@ -17,29 +29,94 @@ export const onCreatePage = async ({ page, actions: { deletePage } }) => {
   }
 };
 
-export const onCreateNode = ({
+export const onCreateNode = async ({
   node,
   actions,
   createNodeId,
   createContentDigest,
-  getNode
+  getNode,
+  reporter
 }) => {
   const { createNode, createParentChildLink } = actions;
+
+  const fileNode = getNode(node.parent);
+  if (!fileNode?.name) return;
+
+  const slug = fileNode.name.toLowerCase();
+
+  if (node.internal.type === `EditionsYaml` && node.parent) {
+    const nodeProps = {
+      published: true,
+      ...node,
+      weight: node.weight || 0,
+      cId: slug,
+      slug
+    };
+
+    const newNode = {
+      ...nodeProps,
+      id: createNodeId(`${node.id} >>> Edition`),
+      parent: fileNode.id,
+      internal: {
+        type: 'Edition',
+        contentDigest: createContentDigest(nodeProps)
+      }
+    };
+
+    await createNode(newNode);
+    createParentChildLink({ parent: fileNode, child: newNode });
+  }
 
   // Create a new node type for all the content pieces based on the folder name.
   // This allows us to easily get content by type, rather than all MDX together.
   if (node.internal.type === `Mdx` && node.parent) {
-    const fileNode = getNode(node.parent);
-    const slug = fileNode.name.toLowerCase();
     const nodeType = capitalize(fileNode.sourceInstanceName);
 
-    const nodeProps = {
+    let nodeProps = {
       published: true,
       ...node.frontmatter,
       weight: node.frontmatter.weight || 0,
       cId: slug.replace(/(^\/|\/$)/g, ''),
       slug
     };
+
+    if (nodeType === 'Event' || nodeType === 'People') {
+      // The following applies to events and people content types.
+      // The relative directory is the path to the file from the event content
+      // directory. We are structuring the content in a way that the events are
+      // in a folder with the edition name.
+      // events /
+      //   edition-id /
+      //     event-id.mdx
+      //   edition-id /
+      //     event-id.mdx
+      const edition = fileNode.relativeDirectory;
+      nodeProps = {
+        ...nodeProps,
+        cId: `${edition}-${nodeProps.cId}`,
+        edition
+      };
+    } else if (nodeType === 'Updates') {
+      const dir = fileNode.relativeDirectory;
+      const match = dir.match(/(\d{4}-\d{2}-\d{2})-(.*)/);
+      if (!match) {
+        reporter.panicOnBuild(
+          `Blog post directory name is not valid: ${dir}. It should be in the format of YYYY-MM-DD-title.`
+        );
+        return;
+      }
+      const [, date, name] = match;
+      const finalDate = new Date(node.frontmatter.date || date);
+      const formattedDate = finalDate.toISOString().split('T')[0];
+      const finalSlug = `${formattedDate}-${name}`;
+
+      nodeProps = {
+        ...nodeProps,
+        cId: finalSlug,
+        slug: finalSlug,
+        date: finalDate
+      };
+    }
 
     const newNode = {
       ...nodeProps,
@@ -58,28 +135,37 @@ export const onCreateNode = ({
 
 // Implement createPages api since we only want to create pages for published
 // content and it is not possible to do with the File routing API.
-export const createPages = async ({ actions, graphql }) => {
-  // Create events index. See (./plugins/events-mdx-index) for details.
-  generateEventsMDXIndex(graphql);
+export const createPages = async (helpers) => {
+  const { actions, graphql } = helpers;
+  // Create events index. See (./gatsby-node/events-mdx-index) for details.
+  await generateEventsMDXIndex(helpers);
 
+  // Edition specific pages.
+  await createEditionPages(helpers);
+
+  // Updates pages.
+  await createUpdatesPages(helpers);
+
+  // --------------------------------------------------------------
+  // Global pages that are not edition specific.
   const { data } = await graphql(`
     query {
-      site {
-        siteMetadata {
-          eventDates
+      # Global letter pages that are not edition specific.
+      allLetter(
+        filter: {
+          title: { ne: "" }
+          published: { eq: true }
+          editions: { elemMatch: { edition: { cId: { eq: null } } } }
         }
-      }
-      allLetter(filter: { title: { ne: "" }, published: { eq: true } }) {
+      ) {
         nodes {
+          id
           slug
-          internal {
-            contentFilePath
+          editions {
+            edition {
+              cId
+            }
           }
-        }
-      }
-      allPeople(filter: { title: { ne: "" }, published: { eq: true } }) {
-        nodes {
-          slug
           internal {
             contentFilePath
           }
@@ -88,230 +174,69 @@ export const createPages = async ({ actions, graphql }) => {
     }
   `);
 
+  // Create global letter pages
   data?.allLetter.nodes.forEach((node) => {
-    const { slug } = node;
+    const { slug, id } = node;
     actions.createPage({
       path: `/${slug}`,
       // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
-      component: `${letterTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: { slug }
-    });
-  });
-
-  data?.allPeople.nodes.forEach((node) => {
-    const { slug } = node;
-    actions.createPage({
-      path: `/speakers/${slug}`,
-      // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
-      component: `${peopleTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: { slug }
-    });
-  });
-
-  // Agenda pages for the different days.
-  const evenDates = data.site.siteMetadata.eventDates.map(
-    (date) => new Date(date)
-  );
-  evenDates.forEach((date, i) => {
-    actions.createPage({
-      path: i ? `/agenda/${i + 1}` : `/agenda`,
-      component: agendaHubTemplate,
-      context: {
-        start: date.toISOString().slice(0, 10),
-        end: add(date, { days: 1 }).toISOString().slice(0, 10)
-      }
+      component: pageComponent(
+        'letter-page.tsx',
+        node.internal.contentFilePath
+      ),
+      context: { slug, id }
     });
   });
 };
 
-export const createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes } = actions;
-  const typeDefs = [
-    `
-    type RoleInEvent {
-      role: String!
-      event: Event
-    }
+export const createSchemaCustomization = (helpers) => {
+  createLetterSchema(helpers);
+  createEventSchema(helpers);
+  createPeopleSchema(helpers);
+  createEventPeopleRelSchema(helpers);
+  createSponsorSchema(helpers);
+};
 
-    type SocialConnections {
-      x: String
-      linkedin: String
-    }
-  `,
-    schema.buildObjectType({
-      name: 'Event',
-      fields: {
-        cid: 'String!',
-        slug: 'String!',
-        title: 'String!',
-        fringe: {
-          type: 'Boolean!',
-          resolve: (source) => !!source.fringe
+export const createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    Query: {
+      updatesByTag: {
+        type: ['Updates!'],
+        args: {
+          tag: 'String',
+          limit: 'Int',
+          skip: 'Int'
         },
-        date: 'Date!',
-        room: 'String',
-        people: 'EventPeople'
-      },
-      interfaces: ['Node']
-    }),
-    schema.buildObjectType({
-      name: 'People',
-      fields: {
-        title: 'String!',
-        company: 'String!',
-        role: 'String!',
-        social: 'SocialConnections',
-        avatar: {
-          type: 'File',
-          extensions: {
-            fileByRelativePath: {}
-          }
-        },
-        pronouns: 'String',
-        group: {
-          type: 'String',
-          resolve: (source) => source.group || 'main'
-        },
+        resolve: async (source, args, context) => {
+          const { tag, limit, skip } = args;
 
-        // Foreign relationship between people and events. This is not a
-        // straightforward relation because we need to know what is the role
-        // that the person plays in the event.
-        events: {
-          type: '[RoleInEvent!]',
-          resolve: async (source, args, context) => {
-            const results = await Promise.all([
-              searchEventForRole('hosts', source.title, context),
-              searchEventForRole('moderators', source.title, context),
-              searchEventForRole('panelists', source.title, context),
-              searchEventForRole('facilitators', source.title, context),
-              searchEventForRole('speakers', source.title, context)
-            ]);
-
-            return [...results.flat()].sort((a, b) => {
-              const dateA = a.event.date;
-              const dateB = b.event.date;
-
-              return dateA < dateB ? -1 : dateA > dateB ? 1 : 0;
+          const getEntries = async (filter = {}) => {
+            const { entries } = await context.nodeModel.findAll({
+              query: {
+                filter,
+                limit,
+                skip,
+                sort: { date: 'DESC' }
+              },
+              type: 'Updates'
             });
+
+            return Array.from(entries);
+          };
+
+          if (!tag || tag === 'all') {
+            return getEntries();
           }
-        }
-      },
-      interfaces: ['Node']
-    }),
 
-    // Each event has people associated to it in one of the following roles:
-    // hosts, moderators, panelists, facilitators, speakers.
-    // Each one of these is a list of people names:
-    // people:
-    //   hosts:
-    //     - name 1
-    //     - name 2
-    //
-    // The names are then used to establish a relationship with the People
-    // content-type to be able to link to a person's page.
-    // However, there may be names for which there is no page. In these cases we
-    // want to display the name as well, but not link it to anywhere. By default
-    // Gatsby will return null when a relationship is not found.
+          const entriesByTag = await getEntries({ tags: { eq: tag } });
+          const entriesByEdition = await getEntries({
+            editions: { elemMatch: { edition: { name: { eq: tag } } } }
+          });
 
-    // The ideal solution would be to return a People if found, and leave the
-    // name string untouched if the relationship is not found. This would
-    // require the return type to be a union between People and String which is
-    // not possible because graphQl doesn't allow unions with Scalar types (like
-    // String, Boolean).
-
-    // The alternative is to return a union between 2 interfaces:
-    // - People for when a relationship if found;
-    // - VoidPeople when it is just a name with no relationship.
-
-    // The VoidPeople is just defined by a `isVoid` field and the name of the
-    // person under `title`.
-    schema.buildObjectType({
-      name: 'VoidPeople',
-      fields: {
-        title: 'String!',
-        isVoid: {
-          type: 'Boolean',
-          resolve: () => true
+          return entriesByEdition.concat(entriesByTag);
         }
       }
-    }),
-
-    // The union is resolved taking the `isVoid` property into account.
-    schema.buildUnionType({
-      name: 'PeopleOrVoid',
-      types: ['People', 'VoidPeople'],
-      resolveType: (value) => (value?.isVoid ? 'VoidPeople' : 'People')
-    }),
-
-    // The resolver is the same for each people role. For each entry, search for
-    // a relationship. Return it if found, otherwise return the structure of a
-    // VoidPeople.
-    schema.buildObjectType({
-      name: 'EventPeople',
-      fields: {
-        hosts: eventPeopleResolver('hosts'),
-        moderators: eventPeopleResolver('moderators'),
-        panelists: eventPeopleResolver('panelists'),
-        facilitators: eventPeopleResolver('facilitators'),
-        speakers: eventPeopleResolver('speakers')
-      }
-    })
-  ];
-
-  createTypes(typeDefs);
-};
-
-/**
- * Search for all the Events where a given person (name), plays the given role
- */
-const searchEventForRole = async (role, name, context) => {
-  const { entries } = await context.nodeModel.findAll({
-    type: 'Event',
-    query: {},
-    sort: { fields: ['date'], order: ['ASC'] }
-  });
-
-  const events = Array.from(entries);
-
-  // Since people on the Event type is a Union it is not possible to filter on
-  // it. Doing it manually.
-  const filtered = events.filter((event) =>
-    // The raw event object still has people as simple arrays of strings.
-    event.people?.[role]?.includes(name)
-  );
-
-  return filtered.map((event) => ({ role, event }));
-};
-
-/**
- * For each name, search for a corresponding People object. Return it if found,
- * otherwise map the missing value to a VoidPeople.
- */
-const eventPeopleResolver = (role) => {
-  return {
-    type: '[PeopleOrVoid]',
-    resolve: async (source, args, context) => {
-      const peopleList = source[role];
-
-      if (!peopleList) return [];
-
-      const { entries } = await context.nodeModel.findAll({
-        type: 'People',
-        query: {
-          filter: { title: { in: peopleList } }
-        }
-      });
-
-      const queryResult = Array.from(entries);
-
-      return peopleList.map((title) => {
-        return (
-          queryResult.find((obj) => obj.title === title) || {
-            title,
-            isVoid: true
-          }
-        );
-      });
     }
   };
+  createResolvers(resolvers);
 };

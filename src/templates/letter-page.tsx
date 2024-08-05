@@ -3,12 +3,12 @@ import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { Container } from '@chakra-ui/react';
 
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
+import { PageHero } from '$components/page-hero';
 import Seo from '$components/seo';
 
 import { MDXProse } from '$components/mdx-prose';
 
-interface LetterPageProps {
+interface LetterPageProps extends Queries.EditionContextualDataFragment {
   letter: Queries.Letter;
 }
 
@@ -21,7 +21,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
   } = props;
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <PageHero title={title!} lead={lead!} />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -38,8 +38,9 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
 }
 
 export const query = graphql`
-  query ($slug: String) {
-    letter(slug: { eq: $slug }) {
+  query ($id: String, $editionCId: String = "") {
+    ...EditionContextualData
+    letter(id: { eq: $id }) {
       title
       lead
     }
@@ -47,5 +48,9 @@ export const query = graphql`
 `;
 
 export const Head = (props: HeadProps<LetterPageProps>) => (
-  <Seo title={props.data.letter.title!} description={props.data.letter.lead!} />
+  <Seo
+    title={props.data.letter.title!}
+    description={props.data.letter.lead!}
+    edition={props.data.edition}
+  />
 );

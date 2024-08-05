@@ -1,6 +1,16 @@
 import { MouseEvent, MouseEventHandler } from 'react';
 import { format, parse } from 'date-fns';
 
+type SureProps<T> = {
+  [P in keyof T]: NonNullable<T[P]>;
+};
+
+export type Sure<T> = T extends T
+  ? object extends T
+    ? never
+    : SureProps<NonNullable<T>>
+  : SureProps<NonNullable<T>>;
+
 export function visuallyDisableProps({
   onClick
 }: {

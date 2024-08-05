@@ -1,0 +1,15 @@
+name: Washington DC '24
+dates:
+  - '2024-05-16'
+  - '2024-05-17'
+card:
+  src: ./2024-washington-card.png
+navigation:
+  - title: Agenda
+    url: /2024-washington/agenda
+  - title: Fringe events
+    url: /2024-washington/fringe
+  - title: Speakers
+    url: /2024-washington/speakers
+  - title: Practical info
+    url: /2024-washington/practical-info

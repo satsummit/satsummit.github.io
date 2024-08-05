@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -14,34 +15,41 @@ import {
   Hide,
   List,
   ListItem,
-  ListProps,
   Show,
+  Tooltip,
   useDisclosure
 } from '@chakra-ui/react';
 import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 
+import { MENU_BRKPOINT } from '../@chakra-ui/gatsby-plugin/theme';
+
 import Brand from './brand';
 import MenuLink from './menu-link';
 import SmartLink from './smart-link';
+import { ItemMarker } from './item-marker';
+import { useEditionCId, useEditionContext } from '$context/edition';
+import { visuallyDisableProps } from '$utils/utils';
 
-const MENU_BRKPOINT = 'lg';
-
-interface NavMenuProps extends ListProps {}
-
-function NavMenu(props: NavMenuProps) {
+function NavMenu(props: { inDrawer?: boolean }) {
   return (
-    <List display='flex' gap={{ base: '2', sm: '8' }} {...props}>
+    <List
+      display='flex'
+      gap={props.inDrawer ? 2 : 8}
+      flexFlow={props.inDrawer ? 'column' : 'row'}
+    >
       <ListItem>
-        <MenuLink to='/agenda'>Agenda</MenuLink>
+        <MenuLink
+          display={{ [MENU_BRKPOINT]: 'block' }}
+          to='/updates'
+          showComingSoon
+        >
+          Updates
+        </MenuLink>
       </ListItem>
       <ListItem>
-        <MenuLink to='/fringe'>Fringe Events</MenuLink>
-      </ListItem>
-      <ListItem>
-        <MenuLink to='/speakers'>Speakers</MenuLink>
-      </ListItem>
-      <ListItem>
-        <MenuLink to='/practical-info'>Practical Info</MenuLink>
+        <MenuLink display={{ [MENU_BRKPOINT]: 'block' }} to='/editions'>
+          Editions
+        </MenuLink>
       </ListItem>
     </List>
   );
@@ -59,9 +67,18 @@ export default function PageHeader() {
     >
       <Container maxW='container.xl' color='white' p='0'>
         <Flex alignItems='center'>
-          <Box>
+          <Flex alignItems='center' gap={6}>
             <Brand variation='negative' />
-          </Box>
+            <Show above={MENU_BRKPOINT}>
+              <Divider
+                borderColor='surface.300a'
+                size='xs'
+                h='4'
+                orientation='vertical'
+              />
+              <NavMenu />
+            </Show>
+          </Flex>
           <Flex ml='auto'>
             <Box
               as='nav'
@@ -71,18 +88,22 @@ export default function PageHeader() {
               alignItems='center'
             >
               <Show above={MENU_BRKPOINT}>
-                <NavMenu />
+                <EditionLocalNavigation />
               </Show>
-              <Button
-                as={SmartLink}
-                noLinkStyles
-                colorScheme='surface'
-                variant='soft-outline'
-                to='/tickets/'
-                size={{ base: 'sm', lg: 'md' }}
-              >
-                Get your Ticket
-              </Button>
+
+              <Tooltip label='Coming soon' placement='bottom' hasArrow>
+                <Button
+                  as={SmartLink}
+                  noLinkStyles
+                  colorScheme='surface'
+                  variant='soft-outline'
+                  to='/tickets/'
+                  size={{ base: 'sm', lg: 'md' }}
+                  {...visuallyDisableProps()}
+                >
+                  Get your Ticket
+                </Button>
+              </Tooltip>
 
               <Hide above={MENU_BRKPOINT}>
                 <Button
@@ -119,11 +140,58 @@ export default function PageHeader() {
             </DrawerHeader>
 
             <DrawerBody>
-              <NavMenu flexFlow='column' gap={2} />
+              <NavMenu inDrawer />
+              <EditionLocalNavigation inDrawer />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
       </Hide>
+    </Box>
+  );
+}
+
+function EditionLocalNavigation(props: { inDrawer?: boolean }) {
+  const { edition } = useEditionContext();
+  const editionCId = useEditionCId();
+
+  const navItems = edition?.navigation;
+
+  if (!navItems?.length) return null;
+
+  return (
+    <Box pos='relative'>
+      <ItemMarker pos='absolute' top='-2rem' left='-1.5rem'>
+        <SmartLink
+          to={`/${editionCId}`}
+          color='inherit'
+          lineHeight='inherit'
+          transition='opacity 0.24s ease 0s'
+          _hover={{
+            opacity: '0.64',
+            textDecoration: 'none'
+          }}
+        >
+          {edition?.name}
+        </SmartLink>
+      </ItemMarker>
+      <List
+        display='flex'
+        gap={props.inDrawer ? 2 : 8}
+        flexFlow={props.inDrawer ? 'column' : 'row'}
+        mt={props.inDrawer ? 16 : 0}
+      >
+        {navItems.map((item) => (
+          <ListItem key={item.url}>
+            <MenuLink
+              display={{ [MENU_BRKPOINT]: 'block' }}
+              to={item.url!}
+              showComingSoon={!!item.comingSoon}
+            >
+              {item.title}
+            </MenuLink>
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
 }

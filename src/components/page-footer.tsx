@@ -13,9 +13,9 @@ import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
   CollecticonBrandSatsummit,
-  CollecticonEnvelope,
-  CollecticonExpandTopRight
+  CollecticonEnvelope
 } from '@devseed-ui/collecticons-chakra';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { Fold } from './fold';
 import SmartLink from './smart-link';
@@ -36,53 +36,7 @@ export default function PageFooter() {
       py={{ base: '8', lg: '16' }}
     >
       <Fold spacingY={{ base: '6', md: '8' }}>
-        <FooterBlock
-          gridColumn={{
-            base: '1/-1',
-            sm: '1 / span 2',
-            md: '1/ span 4',
-            lg: '1/ span 3'
-          }}
-        >
-          <Heading size='md'>This edition</Heading>
-          <List>
-            <ListItem>
-              <MenuLink to='/agenda'>
-                <ListIcon as={CollecticonArrowRight} /> Agenda
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/fringe'>
-                <ListIcon as={CollecticonArrowRight} /> Fringe Events
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/speakers'>
-                <ListIcon as={CollecticonArrowRight} /> Speakers
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/tickets'>
-                <ListIcon as={CollecticonArrowRight} /> Tickets
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/practical-info'>
-                <ListIcon as={CollecticonArrowRight} /> Practical info
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/code-of-conduct'>
-                <ListIcon as={CollecticonArrowRight} /> Code of conduct
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='/terms-conditions'>
-                <ListIcon as={CollecticonArrowRight} /> Terms & conditions
-              </MenuLink>
-            </ListItem>
-          </List>
-        </FooterBlock>
+        <GlobalFooterNavigation />
         <FooterBlock
           gridColumn={{
             base: '1/-1',
@@ -91,43 +45,7 @@ export default function PageFooter() {
             lg: '4/ span 3'
           }}
         >
-          <Heading size='md'>Past Editions</Heading>
-          <List as='ol'>
-            <ListItem>
-              <MenuLink to='https://2022.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2022
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2018.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2018
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2017.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2017
-              </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://2015.satsummit.io'>
-                <ListIcon as={CollecticonExpandTopRight} />
-                Satsummit 2015
-              </MenuLink>
-            </ListItem>
-          </List>
-        </FooterBlock>
-        <FooterBlock
-          gridColumn={{
-            base: '1/-1',
-            sm: '1 / span 2',
-            md: '1/ span 4',
-            lg: '7/ span 3'
-          }}
-        >
-          <Heading size='md'>Let&apos;s Connect</Heading>
+          <Heading size='md'>Connect</Heading>
           <List>
             <ListItem>
               <MenuLink to='mailto:info@satsummit.io'>
@@ -164,8 +82,8 @@ export default function PageFooter() {
         <FooterBlock
           gridColumn={{
             base: '1/-1',
-            sm: '3 / span 2',
-            md: '5/ span 4',
+            sm: '1 / span 2',
+            md: '1/ span 4',
             lg: '10/ span 3'
           }}
         >
@@ -185,5 +103,63 @@ export default function PageFooter() {
         </FooterBlock>
       </Fold>
     </Box>
+  );
+}
+
+function GlobalFooterNavigation() {
+  const data = useStaticQuery<{
+    allLetter: { nodes: { title: string; slug: string }[] };
+  }>(graphql`
+    query {
+      allLetter(
+        filter: {
+          title: { ne: "" }
+          published: { eq: true }
+          editions: { elemMatch: { edition: { cId: { eq: null } } } }
+        }
+      ) {
+        nodes {
+          title
+          slug
+        }
+      }
+    }
+  `);
+
+  return (
+    <FooterBlock
+      gridColumn={{
+        base: '1/-1',
+        sm: '1 / span 2',
+        md: '1/ span 4',
+        lg: '1/ span 3'
+      }}
+    >
+      <Heading size='md'>Browse</Heading>
+      <List>
+        <ListItem>
+          <MenuLink to='/updates' showComingSoon tooltipPos={{ base: 'right' }}>
+            <ListIcon as={CollecticonArrowRight} /> Updates
+          </MenuLink>
+        </ListItem>
+        <ListItem>
+          <MenuLink to='/editions'>
+            <ListIcon as={CollecticonArrowRight} /> Editions
+          </MenuLink>
+        </ListItem>
+        <ListItem>
+          <MenuLink to='/tickets' showComingSoon tooltipPos={{ base: 'right' }}>
+            <ListIcon as={CollecticonArrowRight} /> Tickets
+          </MenuLink>
+        </ListItem>
+        {data.allLetter.nodes.map(({ title, slug }) => (
+          <ListItem key={slug}>
+            <MenuLink to={`/${slug}`}>
+              <ListIcon as={CollecticonArrowRight} /> {title}
+            </MenuLink>
+          </ListItem>
+        ))}
+      </List>
+    </FooterBlock>
   );
 }

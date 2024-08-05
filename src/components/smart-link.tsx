@@ -18,7 +18,7 @@ export default React.forwardRef<HTMLLinkElement, SmartLinkProps>(
     const { to, noLinkStyles, ...rest } = props;
 
     const isExternal =
-      to.match(/^(https?:)?\/\//) || to.match(/^(mailto|tel):/);
+      !!to.match(/^(https?:)?\/\//) || !!to.match(/^(mailto|tel):/);
 
     const Cmp = noLinkStyles ? chakra.a : ChLink;
 

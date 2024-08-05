@@ -10,8 +10,8 @@ import {
 } from '@chakra-ui/react';
 import { Fold } from './fold';
 import SmartLink from './smart-link';
-import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
+import { useEditionContext } from '../context/edition';
 
 const sponsorsGroups = [
   'Platinum',
@@ -35,35 +35,9 @@ const opticalLogoAdjustments = {
 };
 
 export default function SponsorsFold() {
-  const { sponsors } = useStaticQuery<{
-    sponsors: { nodes: Queries.Sponsor[] };
-  }>(graphql`
-    query {
-      sponsors: allSponsor(
-        sort: { slug: ASC }
-        filter: { published: { eq: true } }
-      ) {
-        nodes {
-          id
-          title
-          slug
-          url
-          group
-          image {
-            childImageSharp {
-              gatsbyImageData(
-                height: 56
-                placeholder: BLURRED
-                transformOptions: { fit: CONTAIN }
-                formats: PNG
-                backgroundColor: "#FFFFFF"
-              )
-            }
-          }
-        }
-      }
-    }
-  `);
+  const { sponsors } = useEditionContext();
+
+  if (!sponsors?.length) return null;
 
   return (
     <Box
@@ -80,7 +54,7 @@ export default function SponsorsFold() {
           Sponsors
         </Heading>
         {sponsorsGroups.map((group) => {
-          const items = sponsors.nodes.filter((node) => node.group === group);
+          const items = sponsors.filter((node) => node.groupInEdition === group);
 
           if (!items.length) {
             return null;

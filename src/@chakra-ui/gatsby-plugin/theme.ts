@@ -4,6 +4,8 @@ import { withProse } from '@nikolovlazar/chakra-ui-prose';
 
 import { createColorPalette } from './color-palette';
 
+export const MENU_BRKPOINT = 'lg';
+
 const headingStyles = {
   baseStyle: {
     fontWeight: '600',
@@ -174,6 +176,21 @@ const theme = {
               bg: `${c}.100a`
             }
           };
+        }
+      }
+    },
+    Tag: {
+      variants: {
+        'satsummit-dark': {
+          container: {
+            fontFamily: 'Barlow Condensed, serif',
+            fontWeight: '600',
+            textTransform: 'uppercase',
+            borderRadius: 'sm',
+            bg: 'base.400a',
+            color: 'white',
+            fontSize: '0.875rem'
+          }
         }
       }
     }

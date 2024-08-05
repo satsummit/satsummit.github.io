@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { HeadFC, PageProps, graphql, navigate } from 'gatsby';
+import { HeadProps, PageProps, graphql, navigate } from 'gatsby';
 import { format } from 'date-fns';
 import {
   Box,
   Button,
   ButtonGroup,
-  Container,
   Divider,
   Flex,
   Heading,
@@ -28,6 +27,8 @@ import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
 import { parseEventDate, timeFromDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
+import { useEditionCId } from '$context/edition';
+import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
 
 interface AgendaEvent {
   parent: {
@@ -42,32 +43,43 @@ interface AgendaEvent {
   people: Queries.EventPeople;
 }
 
-interface AgendaPageQuery {
+interface AgendaPageQuery extends Queries.EditionContextualDataFragment {
   allEvent: {
     nodes: AgendaEvent[];
   };
-  site: { siteMetadata: { eventDates: string[] } };
+  edition: Queries.EditionContextualDataFragment['edition'] & {
+    dates: string[];
+  };
+}
+
+interface AgendaPageContext {
+  start: string;
+  end: string;
+  dayIndex: number;
+  editionCId: string;
 }
 
 export default function AgendaPage(
-  props: PageProps<AgendaPageQuery, { start: string; end: string }>
+  props: PageProps<AgendaPageQuery, AgendaPageContext>
 ) {
-  const hourGroups = props.data.allEvent.nodes.reduce<
-    Record<string, AgendaEvent[]>
-  >((acc, event) => {
-    const t = timeFromDate(parseEventDate(event.date));
-    return {
-      ...acc,
-      [t]: [...(acc[t] || []), event]
-    };
-  }, {});
+  const { allEvent, edition } = props.data;
+  const { start, editionCId, dayIndex } = props.pageContext;
+
+  const hourGroups = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
+    (acc, event) => {
+      const t = timeFromDate(parseEventDate(event.date));
+      return {
+        ...acc,
+        [t]: [...(acc[t] || []), event]
+      };
+    },
+    {}
+  );
 
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
-  const eventDates = props.data.site.siteMetadata.eventDates.map((d) =>
-    utcString2userTzDate(d)
-  );
-  const currentDay = utcString2userTzDate(props.pageContext.start);
+  const eventDates = edition.dates.map((d) => utcString2userTzDate(d));
+  const currentDay = utcString2userTzDate(start);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -79,7 +91,7 @@ export default function AgendaPage(
   }, []);
 
   return (
-    <PageLayout>
+    <PageLayout pageProps={props}>
       <Global
         styles={{
           html: {
@@ -87,64 +99,59 @@ export default function AgendaPage(
           }
         }}
       />
-      <Box
-        background='primary.500'
-        px={{ base: '4', md: '8' }}
-        py={{ base: '8', lg: '16' }}
+      <PageHeroFoundation
+        innerProps={{
+          gap: 8,
+          flexFlow: 'column',
+          alignItems: 'start'
+        }}
       >
-        <Container
-          maxW='container.xl'
-          color='white'
-          display='flex'
-          flexFlow={{ base: 'column', md: 'row' }}
-          gap={8}
-          p='0'
+        <PageHeroHeadline
+          title='Agenda'
+          parent={{ url: `/${editionCId}/agenda`, title: 'Agenda' }}
+        />
+
+        <Text textStyle='lead.lg' maxW='container.sm'>
+          {edition.dates.length} days of presentations and in-depth
+          conversations.
+        </Text>
+
+        <ButtonGroup
+          isAttached
+          colorScheme='surface'
+          variant='soft-outline'
+          size={{ base: 'sm', md: 'md' }}
         >
-          <Flex flexFlow='column' gap='4'>
-            <Heading size='3xl' as='h1'>
-              Agenda
-            </Heading>
-            <Text
-              textStyle={{ base: 'lead.md', md: 'lead.lg' }}
-              maxW='container.sm'
+          {eventDates.map((date, i) => (
+            <Button
+              key={date.getTime()}
+              as={SmartLink}
+              noLinkStyles
+              to={
+                !i ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${i + 1}`
+              }
+              isActive={date.getTime() === currentDay.getTime()}
+              color='currentColor'
             >
-              2 days of presentations and in-depth conversations.
-            </Text>
-          </Flex>
-          <Flex
-            alignSelf={{ base: 'flex-start', md: 'flex-end' }}
-            ml={{ md: 'auto' }}
-          >
-            <ButtonGroup
-              isAttached
-              colorScheme='surface'
-              variant='soft-outline'
-              size={{ base: 'sm', md: 'md' }}
-            >
-              {eventDates.map((date, i) => (
-                <Button
-                  key={date.getTime()}
-                  as={SmartLink}
-                  noLinkStyles
-                  to={!i ? '/agenda/' : `/agenda/${i + 1}`}
-                  isActive={date.getTime() === currentDay.getTime()}
-                  color='currentColor'
-                >
-                  {format(date, 'EEEE, LLL dd')}
-                </Button>
-              ))}
-            </ButtonGroup>
-          </Flex>
-        </Container>
-      </Box>
+              {format(date, 'EEEE, LLL dd')}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </PageHeroFoundation>
 
       <Hug py={{ base: 8, md: 16 }}>
         <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
           {format(currentDay, 'EEEE, LLL dd')}
         </Heading>
+        {Object.entries(hourGroups).length === 0 && (
+          <Text gridColumn='content-start/content-end'>
+            No events scheduled for this day.
+          </Text>
+        )}
         {Object.entries(hourGroups).map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
+            dayIndex={dayIndex}
             time={time}
             day={format(currentDay, 'EEE, LLL dd')}
             events={eventsByTime}
@@ -158,13 +165,14 @@ export default function AgendaPage(
 }
 
 interface EventHourGroup {
+  dayIndex: number;
   time: string;
   day: string;
   events: AgendaEvent[];
 }
 
 function EventHourGroup(props: EventHourGroup) {
-  const { time, day, events } = props;
+  const { dayIndex, time, day, events } = props;
 
   const timeRef = useRef<HTMLDivElement>(null);
   const [isStuck, setStuck] = useState(false);
@@ -287,6 +295,7 @@ function EventHourGroup(props: EventHourGroup) {
               >
                 <AgendaEvent
                   startingHLevel={4}
+                  dayIndex={dayIndex}
                   cId={node.cId}
                   title={node.title}
                   type={node.type}
@@ -306,17 +315,21 @@ function EventHourGroup(props: EventHourGroup) {
 function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
   const { dates, currentDay } = props;
 
+  const editionCId = useEditionCId();
+
   const activeIdx = dates.findIndex(
     (d) => d.getTime() === currentDay.getTime()
   );
 
   const goToTab = useCallback((idx: number) => {
-    navigate(!idx ? '/agenda/' : `/agenda/${idx + 1}`);
+    navigate(
+      !idx ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${idx + 1}`
+    );
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
-  }, []);
+  }, [editionCId]);
 
   return (
     <Hug pb={16}>
@@ -354,12 +367,14 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
 }
 
 export const query = graphql`
-  query ($start: Date, $end: Date) {
+  query AgendaHub($start: Date, $end: Date, $editionCId: String = "") {
+    ...EditionContextualData
     allEvent(
       filter: {
         date: { gt: $start, lt: $end }
         published: { eq: true }
         fringe: { eq: false }
+        edition: { cId: { eq: $editionCId } }
       }
       sort: [{ date: ASC }, { weight: DESC }, { slug: ASC }]
     ) {
@@ -379,17 +394,16 @@ export const query = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        eventDates
-      }
+    edition(cId: { eq: $editionCId }) {
+      dates
     }
   }
 `;
 
-export const Head: HeadFC = () => (
+export const Head = (props: HeadProps<AgendaPageQuery>) => (
   <Seo
     title='Agenda'
-    description='2 days of presentations and in-depth conversations.'
+    description={`${props.data.edition.dates.length} days of presentations and in-depth conversations.`}
+    edition={props.data.edition}
   />
 );

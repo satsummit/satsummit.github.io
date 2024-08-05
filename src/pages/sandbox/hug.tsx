@@ -5,7 +5,7 @@ import { Hug } from '@devseed-ui/hug-chakra';
 
 import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
-import PageHero from '$components/page-hero';
+import { PageHero } from '$components/page-hero';
 
 import NotFoundPage from '../404';
 

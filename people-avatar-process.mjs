@@ -1,16 +1,12 @@
-import fs from 'fs';
-import path from 'path';
 import sharp from 'sharp';
+import { glob } from 'glob';
 
 async function main() {
-  const dir = './content/people/media';
-  const dirContent = fs.readdirSync(dir);
+  const dirContent = await glob('content/people/**/media/*');
 
   await Promise.all(
     dirContent.map(async (file) => {
-      const p = path.join(dir, file);
-
-      const img = sharp(p);
+      const img = sharp(file);
       const metadata = await img.metadata();
 
       const { width, height } = metadata;
@@ -35,10 +31,10 @@ async function main() {
         .toBuffer();
 
       // To be able to replace the original file.
-      await sharp(buff).toFile(p);
+      await sharp(buff).toFile(file);
 
       /* eslint-disable-next-line no-console */
-      console.log('Processed', p);
+      console.log('Processed', file);
     })
   );
 }
