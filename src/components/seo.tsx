@@ -17,7 +17,7 @@ const getMetaImage = (
 ) => {
   const metaImage =
     image ||
-    (edition && `/meta/meta-${edition.cId}.png`) ||
+    (edition && `/meta/meta-image-${edition.cId}.png`) ||
     '/meta/meta-image.png';
   return metaImage.match(/^https?:\/\//) ? metaImage : `${siteUrl}${metaImage}`;
 };

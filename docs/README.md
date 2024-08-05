@@ -191,6 +191,9 @@ To add a new edition to the event, follow these steps:
 2. Create a new edition index page under `src/pages/<edition cId>`. Use the template below.
 3. Start adding content to the new edition.
 
+> [!IMPORTANT]
+> Do not forget to add meta images for the edition. Place them in `static/meta` with the name `meta-image-<edition cId>.png`.
+
 
 ## Edition pages and context data
 
@@ -200,7 +203,7 @@ To add a new edition to the event, follow these steps:
 
 ```jsx
 import React from 'react';
-import { PageProps, graphql, type HeadFC } from 'gatsby';
+import { PageProps, graphql, type HeadProps } from 'gatsby';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
@@ -219,7 +222,11 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Edition Page' />;
+
+export const Head = (
+  props: HeadProps<Queries.EditionContextualDataFragment>
+) => <Seo title='Edition Page' edition={props.data.edition} />;
+
 ```
 
 The page layout component will then store this data in the edition context for use in components that are common to all edition pages, like the sponsors fold, or to show the edition name in the navigation.  
