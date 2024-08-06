@@ -106,10 +106,7 @@ export default function AgendaPage(
           alignItems: 'start'
         }}
       >
-        <PageHeroHeadline
-          title='Agenda'
-          parent={{ url: `/${editionCId}/agenda`, title: 'Agenda' }}
-        />
+        <PageHeroHeadline title='Agenda' />
 
         <Text textStyle='lead.lg' maxW='container.sm'>
           {edition.dates.length} days of presentations and in-depth
@@ -321,15 +318,18 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
     (d) => d.getTime() === currentDay.getTime()
   );
 
-  const goToTab = useCallback((idx: number) => {
-    navigate(
-      !idx ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${idx + 1}`
-    );
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }, [editionCId]);
+  const goToTab = useCallback(
+    (idx: number) => {
+      navigate(
+        !idx ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${idx + 1}`
+      );
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    },
+    [editionCId]
+  );
 
   return (
     <Hug pb={16}>
