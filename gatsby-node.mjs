@@ -205,15 +205,20 @@ export const createResolvers = ({ createResolvers }) => {
         args: {
           tag: 'String',
           limit: 'Int',
-          skip: 'Int'
+          skip: 'Int',
+          filter: 'UpdatesFilterInput'
         },
         resolve: async (source, args, context) => {
-          const { tag, limit, skip } = args;
+          const { tag, limit, skip, filter: userFilter = {} } = args;
 
           const getEntries = async (filter = {}) => {
             const { entries } = await context.nodeModel.findAll({
               query: {
-                filter,
+                filter: {
+                  published: { eq: true },
+                  ...filter,
+                  ...userFilter
+                },
                 limit,
                 skip,
                 sort: { date: 'DESC' }
@@ -229,6 +234,7 @@ export const createResolvers = ({ createResolvers }) => {
           }
 
           const entriesByTag = await getEntries({ tags: { eq: tag } });
+
           const entriesByEdition = await getEntries({
             editions: { elemMatch: { edition: { name: { eq: tag } } } }
           });

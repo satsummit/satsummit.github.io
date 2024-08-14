@@ -138,7 +138,7 @@ function GlobalFooterNavigation() {
       <Heading size='md'>Browse</Heading>
       <List>
         <ListItem>
-          <MenuLink to='/updates' showComingSoon tooltipPos={{ base: 'right' }}>
+          <MenuLink to='/updates'>
             <ListIcon as={CollecticonArrowRight} /> Updates
           </MenuLink>
         </ListItem>
