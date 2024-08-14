@@ -178,7 +178,7 @@ Frontmatter fields:
 | title              | The title of the blog post.                                                                                                            |
 | description        | Description to be shown on the post card if defined. When not defined an excerpt is used.                                              |
 | date               | The file name should define the post date, but in case of need it can be overridden with this property.                                |
-| cover.url          | Relative url for the image to use in the post card and page hero.                                                                      |
+| cover.src          | Relative url for the image to use in the post card and page hero.                                                                      |
 | editions           | Editions this post relates to. <br/> Used to show an edition tag on the post header and to link the content on the edition's homepage. |
 | editions[].edition | cId of the edition.                                                                                                                    |
 

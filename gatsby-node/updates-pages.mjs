@@ -70,7 +70,7 @@ export const createUpdatesPages = async (helpers) => {
   }));
 
   // Create updates list page with pagination
-  const updatesPerPage = 2;
+  const updatesPerPage = 12;
   const numPages = Math.ceil(updates.length / updatesPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
     actions.createPage({

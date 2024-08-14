@@ -38,11 +38,7 @@ function NavMenu(props: { inDrawer?: boolean }) {
       flexFlow={props.inDrawer ? 'column' : 'row'}
     >
       <ListItem>
-        <MenuLink
-          display={{ [MENU_BRKPOINT]: 'block' }}
-          to='/updates'
-          showComingSoon
-        >
+        <MenuLink display={{ [MENU_BRKPOINT]: 'block' }} to='/updates'>
           Updates
         </MenuLink>
       </ListItem>
