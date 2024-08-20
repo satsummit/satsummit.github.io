@@ -375,6 +375,7 @@ type Edition = Node & {
   readonly parent: Maybe<Node>;
   readonly published: Scalars['Boolean'];
   readonly slug: Scalars['String'];
+  readonly tickets: Maybe<EditionTicketInfo>;
   readonly weight: Scalars['Int'];
 };
 
@@ -443,6 +444,7 @@ type EditionFieldSelector = {
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly published: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly tickets: InputMaybe<EditionTicketInfoFieldSelector>;
   readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -458,6 +460,7 @@ type EditionFilterInput = {
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly published: InputMaybe<BooleanQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tickets: InputMaybe<EditionTicketInfoFilterInput>;
   readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
@@ -550,7 +553,32 @@ type EditionSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly published: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
+  readonly tickets: InputMaybe<EditionTicketInfoSortInput>;
   readonly weight: InputMaybe<SortOrderEnum>;
+};
+
+type EditionTicketInfo = {
+  readonly description: Maybe<Scalars['String']>;
+  readonly status: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type EditionTicketInfoFieldSelector = {
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionTicketInfoFilterInput = {
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly status: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionTicketInfoSortInput = {
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type EditionsYaml = Node & {
@@ -562,6 +590,7 @@ type EditionsYaml = Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly navigation: Maybe<ReadonlyArray<Maybe<EditionsYamlNavigation>>>;
   readonly parent: Maybe<Node>;
+  readonly tickets: Maybe<EditionsYamlTickets>;
 };
 
 
@@ -642,6 +671,7 @@ type EditionsYamlFieldSelector = {
   readonly name: InputMaybe<FieldSelectorEnum>;
   readonly navigation: InputMaybe<EditionsYamlNavigationFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly tickets: InputMaybe<EditionsYamlTicketsFieldSelector>;
 };
 
 type EditionsYamlFilterInput = {
@@ -653,6 +683,7 @@ type EditionsYamlFilterInput = {
   readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly navigation: InputMaybe<EditionsYamlNavigationFilterListInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly tickets: InputMaybe<EditionsYamlTicketsFilterInput>;
 };
 
 type EditionsYamlFilterListInput = {
@@ -737,6 +768,31 @@ type EditionsYamlSortInput = {
   readonly name: InputMaybe<SortOrderEnum>;
   readonly navigation: InputMaybe<EditionsYamlNavigationSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly tickets: InputMaybe<EditionsYamlTicketsSortInput>;
+};
+
+type EditionsYamlTickets = {
+  readonly description: Maybe<Scalars['String']>;
+  readonly status: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type EditionsYamlTicketsFieldSelector = {
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionsYamlTicketsFilterInput = {
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly status: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionsYamlTicketsSortInput = {
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type Event = Node & {
@@ -2837,6 +2893,7 @@ type Query_editionArgs = {
   parent: InputMaybe<NodeFilterInput>;
   published: InputMaybe<BooleanQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
+  tickets: InputMaybe<EditionTicketInfoFilterInput>;
   weight: InputMaybe<IntQueryOperatorInput>;
 };
 
@@ -2850,6 +2907,7 @@ type Query_editionsYamlArgs = {
   name: InputMaybe<StringQueryOperatorInput>;
   navigation: InputMaybe<EditionsYamlNavigationFilterListInput>;
   parent: InputMaybe<NodeFilterInput>;
+  tickets: InputMaybe<EditionsYamlTicketsFilterInput>;
 };
 
 

@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 /**
  * Create a date which matches the input date offsetting the timezone to match
  * the user's.
@@ -73,4 +75,42 @@ export function userTzDate2utcString(date: Date) {
   const tz = date.getTimezoneOffset();
   const d = new Date(date.getTime() - tz * 60000);
   return d.toISOString();
+}
+
+// Creates a human readable string of dates without much repetition.
+// Groups by year and month, then lists the days.
+// Example:
+// The dates: [2022-09-28, 2022-09-29, 2022-10-01, 2022-01-01]
+// Will be displayed as:
+// September 28 & 29 & October 01, 2022 & January 01, 2022
+export function multiDateDisplay(dates: Date[]) {
+  const group = dates.reduce(
+    (acc, date) => {
+      // Group by month and year
+      const y = date.getFullYear();
+      const m = date.getMonth();
+
+      const yGroup = acc[y] || {};
+      const mGroup = yGroup[m] || [];
+
+      return {
+        ...acc,
+        [y]: {
+          ...yGroup,
+          [m]: [...mGroup, date]
+        }
+      };
+    },
+    {} as Record<number, Record<number, Date[]>>
+  );
+
+  return Object.entries(group)
+    .map(([y, yGroup]) => {
+      const months = Object.entries(yGroup).map(([, mGroup]) => {
+        const days = mGroup.map((d) => format(d, 'dd')).join(' & ');
+        return `${format(mGroup[0], 'MMMM')} ${days}`;
+      });
+      return `${months.join(' & ')}, ${y}`;
+    })
+    .join(' & ');
 }
