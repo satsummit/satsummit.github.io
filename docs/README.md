@@ -56,14 +56,18 @@ These pages are just MDX pages and can be global or edition specific. This is co
 Editions are the main content type for the website.  
 They are defined using a yaml file in `content/editions` with the name `<year>-<location>.yml`. This will become the `cId` (content Id) of the edition and is used to link content to a specific edition.
 
-| Property           | Description                                                                                |
-| ------------------ | ------------------------------------------------------------------------------------------ |
-| name               | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).             |
-| dates[]            | List of dates for the event.                                                               |
-| card.src           | Relative url for the image to use in the edition card.                                     |
-| navigation         | List of menu items for this edition. This controls what navigation is shown on the header. |
-| navigation[].title | Title of the menu link.                                                                    |
-| navigation[].url   | Url for the menu link. Can be internal or external.                                        |
+| Property            | Description                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| name                | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).             |
+| dates[]             | List of dates for the event.                                                               |
+| card.src            | Relative url for the image to use in the edition card.                                     |
+| navigation          | List of menu items for this edition. This controls what navigation is shown on the header. |
+| navigation[].title  | Title of the menu link.                                                                    |
+| navigation[].url    | Url for the menu link. Can be internal or external.                                        |
+| tickets             | Settings of this edition's tickets in the ticket page:                                     |
+| tickets.url         | Url to the platform where the tickets can be purchased.                                    |
+| tickets.description | Description for the tickets.                                                               |
+| tickets.status      | One of: coming-soon                                                                        | sold-out | live | hide\nControls the display of tickets' status. |
 
 Starter template for an edition yaml file:
 
@@ -76,6 +80,10 @@ navigation:
     url: /<EDITION_CID>/agenda
   - title: Speakers
     url: /<EDITION_CID>/speakers
+tickets: 
+  url:
+  description:
+  status: hide # coming-soon live sold-out hide
 ```
 
 ### Letters
