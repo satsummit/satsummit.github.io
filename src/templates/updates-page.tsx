@@ -1,19 +1,21 @@
 import * as React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
+import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { Container } from '@chakra-ui/react';
+import { formatDistanceToNow } from 'date-fns';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
-
 import { MDXProse } from '$components/mdx-prose';
 import UpdatesHero from '$components/updates/updates-hero';
-import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+
+import { utcString2userTzDate } from '$utils/date';
 
 interface UpdatesPageProps {
   updates: {
     title: string;
     description?: string;
-    ago: string;
+    date: string;
     editions?: { edition: { name: string } }[];
     cover?: { src: IGatsbyImageData };
     tags?: string[];
@@ -23,10 +25,12 @@ interface UpdatesPageProps {
 export default function UpdatesPage(props: PageProps<UpdatesPageProps>) {
   const {
     data: {
-      updates: { title, ago, description, editions, tags, cover }
+      updates: { title, date, description, editions, tags, cover }
     },
     children
   } = props;
+
+  const ago = `${formatDistanceToNow(utcString2userTzDate(date))} ago`;
 
   const allTags = [
     ...(editions?.map(({ edition }) => edition.name) || []),
@@ -61,7 +65,7 @@ export const query = graphql`
     updates(slug: { eq: $slug }) {
       title
       description
-      ago: date(fromNow: true)
+      date
       tags
       editions {
         edition {
