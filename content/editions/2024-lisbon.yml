@@ -15,5 +15,5 @@ navigation:
     url: /2024-lisbon/practical-info
 tickets:
   url: 
-  description: Tickets include attendance for all days. There are no one day tickets offered at this time. The prices include breakfast and lunch during the conference and light fare at social events. Tickets are nonrefundable.
+  description: Tickets include attendance for all days. There are no one day tickets offered at this time. The prices include breakfast and lunch during the conference and light fare at social events. <a href='/2024-lisbon/practical-info#fulfillment-policy'>Tickets are nonrefundable</a>.
   status: coming-soon # coming-soon live sold-out hide

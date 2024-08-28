@@ -105,7 +105,18 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
         </Heading>
       </Box>
       {edition.tickets?.description && (
-        <Text maxW='30rem'>{edition.tickets.description}</Text>
+        <Text
+          maxW='30rem'
+          sx={{
+            a: {
+              color: 'primary.500',
+              _hover: {
+                textDecoration: 'underline'
+              }
+            }
+          }}
+          dangerouslySetInnerHTML={{ __html: edition.tickets.description }}
+        />
       )}
       <Flex
         width={{ base: 'auto', md: '7rem', lg: '9rem' }}
