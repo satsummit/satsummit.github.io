@@ -23,7 +23,7 @@
     "node": "20.15"
   },
   "scripts": {
-    "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -p 9000 -H 0.0.0.0",
+    "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -p $(node port.js) -H 0.0.0.0",
     "start": "gatsby develop",
     "build": "node people-avatar-process.mjs && NODE_OPTIONS=--max-old-space-size=8192 gatsby build",
     "serve": "gatsby serve",
@@ -83,6 +83,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "glob": "^11.0.0",
     "js-yaml": "^4.1.0",
+    "portscanner": "^2.2.0",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
   },
@@ -93,5 +94,6 @@
     "$images": "./src/images",
     "$context": "./src/context",
     "$utils": "./src/utils"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
