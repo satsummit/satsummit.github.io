@@ -10,6 +10,7 @@ import {
   ListItem,
   Text
 } from '@chakra-ui/react';
+import { CollecticonExpandTopRight } from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
@@ -138,6 +139,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
             colorScheme='primary'
             borderRadius='xs'
             size='sm'
+            rightIcon={<CollecticonExpandTopRight />}
           >
             Book ticket
           </Button>
