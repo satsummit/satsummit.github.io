@@ -6,6 +6,12 @@ export const createLetterSchema = ({ actions }) => {
       src: File! @fileByRelativePath
     }
 
+    type EditionTicketInfo {
+      url: String
+      description: String
+      status: String
+    }
+
     type EditionNavigation {
       title: String!
       path: String!
@@ -22,6 +28,7 @@ export const createLetterSchema = ({ actions }) => {
       dates: [Date!] @dateformat
       card: MediaUrl
       navigation: [EditionNavigation!]
+      tickets: EditionTicketInfo
     }
 
     type LetterEdition {

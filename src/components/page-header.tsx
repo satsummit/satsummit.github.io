@@ -16,7 +16,6 @@ import {
   List,
   ListItem,
   Show,
-  Tooltip,
   useDisclosure
 } from '@chakra-ui/react';
 import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
@@ -28,7 +27,6 @@ import MenuLink from './menu-link';
 import SmartLink from './smart-link';
 import { ItemMarker } from './item-marker';
 import { useEditionCId, useEditionContext } from '$context/edition';
-import { visuallyDisableProps } from '$utils/utils';
 
 function NavMenu(props: { inDrawer?: boolean }) {
   return (
@@ -87,19 +85,16 @@ export default function PageHeader() {
                 <EditionLocalNavigation />
               </Show>
 
-              <Tooltip label='Coming soon' placement='bottom' hasArrow>
-                <Button
-                  as={SmartLink}
-                  noLinkStyles
-                  colorScheme='surface'
-                  variant='soft-outline'
-                  to='/tickets/'
-                  size={{ base: 'sm', lg: 'md' }}
-                  {...visuallyDisableProps()}
-                >
-                  Get your Ticket
-                </Button>
-              </Tooltip>
+              <Button
+                as={SmartLink}
+                noLinkStyles
+                colorScheme='surface'
+                variant='soft-outline'
+                to='/tickets/'
+                size={{ base: 'sm', lg: 'md' }}
+              >
+                Get your Ticket
+              </Button>
 
               <Hide above={MENU_BRKPOINT}>
                 <Button

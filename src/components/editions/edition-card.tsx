@@ -1,10 +1,11 @@
 import React from 'react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { format } from 'date-fns';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { CollecticonExpandTopRight } from '@devseed-ui/collecticons-chakra';
 
 import SmartLink from '$components/smart-link';
+
+import { multiDateDisplay } from '$utils/date';
 
 import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
 
@@ -93,42 +94,4 @@ export function EditionCard(props: EditionCardProps) {
       <Text>Satellite data for global development.</Text>
     </SmartLink>
   );
-}
-
-// Creates a human readable string of dates without much repetition.
-// Groups by year and month, then lists the days.
-// Example:
-// The dates: [2022-09-28, 2022-09-29, 2022-10-01, 2022-01-01]
-// Will be displayed as:
-// September 28 & 29 & October 01, 2022 & January 01, 2022
-function multiDateDisplay(dates: Date[]) {
-  const group = dates.reduce(
-    (acc, date) => {
-      // Group by month and year
-      const y = date.getFullYear();
-      const m = date.getMonth();
-
-      const yGroup = acc[y] || {};
-      const mGroup = yGroup[m] || [];
-
-      return {
-        ...acc,
-        [y]: {
-          ...yGroup,
-          [m]: [...mGroup, date]
-        }
-      };
-    },
-    {} as Record<number, Record<number, Date[]>>
-  );
-
-  return Object.entries(group)
-    .map(([y, yGroup]) => {
-      const months = Object.entries(yGroup).map(([, mGroup]) => {
-        const days = mGroup.map((d) => format(d, 'dd')).join(' & ');
-        return `${format(mGroup[0], 'MMMM')} ${days}`;
-      });
-      return `${months.join(' & ')}, ${y}`;
-    })
-    .join(' & ');
 }

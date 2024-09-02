@@ -148,7 +148,7 @@ function GlobalFooterNavigation() {
           </MenuLink>
         </ListItem>
         <ListItem>
-          <MenuLink to='/tickets' showComingSoon tooltipPos={{ base: 'right' }}>
+          <MenuLink to='/tickets'>
             <ListIcon as={CollecticonArrowRight} /> Tickets
           </MenuLink>
         </ListItem>
