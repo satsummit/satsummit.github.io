@@ -313,6 +313,7 @@ const searchEventForRole = async (role, person, context) => {
     type: 'Event',
     query: {
       filter: {
+        published: { eq: true },
         edition: { cId: { eq: person.edition } }
       },
       sort: { date: 'ASC' }
@@ -347,6 +348,7 @@ const eventPeopleResolver = (role) => {
         type: 'People',
         query: {
           filter: {
+            published: { eq: true },
             title: { in: peopleList },
             edition: { cId: { eq: source.__edition } }
           }
