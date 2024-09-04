@@ -10,7 +10,7 @@ navigation:
     comingSoon: true
   - title: Speakers
     url: /2024-lisbon/speakers
-    comingSoon: 
+    comingSoon: false
   - title: Practical info
     url: /2024-lisbon/practical-info
 tickets:
