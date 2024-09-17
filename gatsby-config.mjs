@@ -28,10 +28,19 @@ const config = {
   // https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    // {
+    //   resolve: 'gatsby-plugin-google-tagmanager',
+    //   options: {
+    //     id: 'GTM-5NPWQ998'
+    //   }
+    // },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        id: 'GTM-5NPWQ998'
+        environments: ['production', 'development'],
+        googleTagManager: {
+          trackingId: 'GTM-5NPWQ998'
+        }
       }
     },
     'gatsby-plugin-image',

@@ -7,6 +7,7 @@ import PageHeader from './page-header';
 import PageFooter from './page-footer';
 import SponsorsFold from './sponsors-fold';
 import { Newsletter } from './newsletter';
+import CookieBanner from './cookie-banner';
 
 export default function PageLayout(props: {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export default function PageLayout(props: {
   }, []);
   return (
     <EditionContextProvider pageProps={props.pageProps}>
+      <CookieBanner />
       <Flex direction='column' minHeight='100vh'>
         <PageHeader />
         <Box as='main' flex='1'>
