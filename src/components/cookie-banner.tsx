@@ -22,6 +22,8 @@ function setCookie(cname: string, cvalue: string, exdays: number) {
 }
 
 function getCookie(cname: string) {
+  if (typeof window === 'undefined') return '';
+
   const name = cname + '=';
   const decodedCookie = decodeURIComponent(document.cookie);
   const ca = decodedCookie.split(';');
