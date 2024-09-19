@@ -4,11 +4,14 @@ import {
   updateEditionPagesContext
 } from './gatsby-node/edition-pages.mjs';
 import {
+  createCommonSchema,
+  createEditionSchema,
   createEventPeopleRelSchema,
   createEventSchema,
   createLetterSchema,
   createPeopleSchema,
-  createSponsorSchema
+  createSponsorSchema,
+  createUpdatesSchema
 } from './gatsby-node/schema.mjs';
 import { capitalize, pageComponent } from './gatsby-node/utils.mjs';
 import { createUpdatesPages } from './gatsby-node/updates-pages.mjs';
@@ -190,6 +193,9 @@ export const createPages = async (helpers) => {
 };
 
 export const createSchemaCustomization = (helpers) => {
+  createCommonSchema(helpers);
+  createEditionSchema(helpers);
+  createUpdatesSchema(helpers);
   createLetterSchema(helpers);
   createEventSchema(helpers);
   createPeopleSchema(helpers);
@@ -240,6 +246,58 @@ export const createResolvers = ({ createResolvers }) => {
           });
 
           return entriesByEdition.concat(entriesByTag);
+        }
+      },
+      featuredEditionUpdates: {
+        type: ['Updates!'],
+        args: {
+          edition: 'String!',
+          limit: 'Int',
+          skip: 'Int',
+          filter: 'UpdatesFilterInput'
+        },
+        resolve: async (source, args, context) => {
+          const {
+            edition,
+            limit = Infinity,
+            skip = 0,
+            filter: userFilter = {}
+          } = args;
+
+          const { entries } = await context.nodeModel.findAll({
+            query: {
+              filter: {
+                published: { eq: true },
+                editions: {
+                  elemMatch: {
+                    edition: { cId: { eq: edition } },
+                    featured: { ne: null }
+                  }
+                },
+                ...userFilter
+              }
+            },
+            type: 'Updates'
+          });
+
+          const nodes = Array.from(entries);
+
+          // Sort nodes by edition's featured order.
+          const sorted = [...nodes].sort((a, b) => {
+            const aOrder =
+              a.editions.find((e) => e.edition === edition).featured || 0;
+            const bOrder =
+              b.editions.find((e) => e.edition === edition).featured || 0;
+
+            if (aOrder === bOrder) {
+              return b.date - a.date;
+            }
+
+            return bOrder - aOrder;
+          });
+
+          // Return the sorted nodes with limit and skip.
+          return sorted.slice(skip, limit);
         }
       }
     }
