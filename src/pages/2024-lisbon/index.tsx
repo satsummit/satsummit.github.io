@@ -259,7 +259,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
 export const pageQuery = graphql`
   query Home2024Lx($editionCId: String = "") {
     ...EditionContextualData
-    featuredEditionUpdates(edition: $editionCId) {
+    featuredEditionUpdates(edition: $editionCId, limit: 3) {
       title
       ago: date(fromNow: true)
       date
