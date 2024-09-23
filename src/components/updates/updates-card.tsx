@@ -13,7 +13,7 @@ interface UpdatesCardProps {
   description?: string;
   parent?: { excerpt: string };
   editions?: readonly { edition: { name: string } }[];
-  tags: string[];
+  tags: readonly string[];
 }
 
 export function UpdatesCard(props: UpdatesCardProps) {
@@ -46,7 +46,7 @@ export function UpdatesCard(props: UpdatesCardProps) {
           <GatsbyImage image={cover} alt='Post decorative cover' />
         </Box>
       )}
-      <Box>
+      <Box mt={!cover ? '2.5rem' : undefined}>
         <Heading size='xl'>{title}</Heading>
         <Text
           as='time'

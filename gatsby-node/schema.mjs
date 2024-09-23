@@ -1,11 +1,20 @@
-export const createLetterSchema = ({ actions }) => {
+export const createCommonSchema = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = [
     `
     type MediaUrl {
       src: File! @fileByRelativePath
     }
+    `
+  ];
 
+  createTypes(typeDefs);
+};
+
+export const createEditionSchema = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    `
     type EditionTicketInfo {
       url: String
       description: String
@@ -30,7 +39,59 @@ export const createLetterSchema = ({ actions }) => {
       navigation: [EditionNavigation!]
       tickets: EditionTicketInfo
     }
+    `
+  ];
 
+  createTypes(typeDefs);
+};
+
+export const createUpdatesSchema = ({ actions, schema }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    schema.buildObjectType({
+      name: 'UpdatesEdition',
+      fields: {
+        edition: {
+          type: 'Edition!',
+          extensions: {
+            link: {
+              by: 'cId'
+            }
+          }
+        }
+      },
+      featured: {
+        type: 'Int',
+        resolve: (source) => {
+          const v = parseInt(source.featured);
+          return isNaN(v) || v === 0 ? null : v;
+        }
+      }
+    }),
+    `
+    type Updates implements Node {
+      cId: String!
+      published: Boolean!
+      slug: String!
+      weight: Int!
+
+      title: String!
+      date: Date @dateformat
+      description: String
+      editions: [UpdatesEdition!]
+      cover: MediaUrl
+      tags: [String!]
+    }
+    `
+  ];
+
+  createTypes(typeDefs);
+};
+
+export const createLetterSchema = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    `
     type LetterEdition {
       edition: Edition! @link(by: "cId")
     }
@@ -44,24 +105,6 @@ export const createLetterSchema = ({ actions }) => {
       title: String!
       lead: String
       editions: [LetterEdition]
-    }
-
-    type UpdatesEdition {
-      edition: Edition! @link(by: "cId")
-    }
-
-    type Updates implements Node {
-      cId: String!
-      published: Boolean!
-      slug: String!
-      weight: Int!
-
-      title: String!
-      date: Date @dateformat
-      description: String
-      editions: [UpdatesEdition!]
-      cover: MediaUrl
-      tags: [String!]
     }
     `
   ];

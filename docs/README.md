@@ -181,15 +181,19 @@ Within this directory, you can add any assets or additional content needed for t
 
 Frontmatter fields:
 
-| Property           | Description                                                                                                                            |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| title              | The title of the blog post.                                                                                                            |
-| description        | Description to be shown on the post card if defined. When not defined an excerpt is used.                                              |
-| date               | The file name should define the post date, but in case of need it can be overridden with this property.                                |
-| cover.src          | Relative url for the image to use in the post card and page hero.                                                                      |
-| editions           | Editions this post relates to. <br/> Used to show an edition tag on the post header and to link the content on the edition's homepage. |
-| editions[].edition | cId of the edition.                                                                                                                    |
+| Property            | Description                                                                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| title               | The title of the blog post.                                                                                                            |
+| description         | Description to be shown on the post card if defined. When not defined an excerpt is used.                                              |
+| date                | The file name should define the post date, but in case of need it can be overridden with this property.                                |
+| cover.src           | Relative url for the image to use in the post card and page hero.                                                                      |
+| editions            | Editions this post relates to. <br/> Used to show an edition tag on the post header and to link the content on the edition's homepage. |
+| editions[].edition  | cId of the edition.                                                                                                                    |
+| editions[].featured | Weight when this edition is featured. (Number).<br/>Any non zero number causes the update to become featured.                          |
 
+> [!IMPORTANT]
+> Marking an update as featured does not do anything in and of itself. It is up to the developer to use this information to display the content in a special way.
+> The resolver `featuredEditionUpdates(edition: $editionCId)` can be used to get the featured updates for a given edition.
 
 ## Creating a new edition
 
