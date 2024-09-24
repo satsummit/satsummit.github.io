@@ -6,6 +6,9 @@ editions:
 ---
 
 import LocationMap from '/src/components/location-map.tsx';
+import { CollecticonCity } from '/src/components/icons/city';
+import { CollecticonPlaneDeparture } from '/src/components/icons/plane-departure';
+import { CollecticonTrain } from '/src/components/icons/train';
 
 ## What it is
 
@@ -22,11 +25,24 @@ The 2024 Lisbon edition takes place in November 18 & 19 at [**NOVA SBE**](https:
   center={[-9.32636, 38.6785]}
   zoom={15}
   minZoom={13.5}
+  poiMarkers={[
+    {
+      name: 'Lisbon',
+      coordinates: [-9.137, 38.713],
+      icon: CollecticonCity
+    },
+    {
+      name: 'Airport',
+      coordinates: [-9.135, 38.777],
+      icon: CollecticonPlaneDeparture
+    },
+    {
+      name: 'Train Station',
+      coordinates: [-9.3189, 38.6885],
+      icon: CollecticonTrain
+    }
+  ]}
 />
-
-## How to get to the venue
-
-**NOVA SBE** is located at Rua da Holanda 1, 2775-405 Carcavelos.
 
 ## Fulfillment policy
 
