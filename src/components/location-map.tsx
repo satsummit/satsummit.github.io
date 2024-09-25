@@ -272,29 +272,37 @@ function OffscreenMarkerIndicaror(props: OffscreenMarkerIndicarorProps) {
       if (!inViewport) {
         pointerMarker.style.display = 'block';
         const { lng, lat } = mbMap.getCenter();
-        const angle = bearing([lng, lat], point(coordinates));
+        const br = bearing([lng, lat], point(coordinates));
 
-        const _dx = Math.tan(degToRad(angle)) * h2;
-        const dx = Math.abs(angle) > 90 ? -_dx : _dx;
+        // Bring the bearing to the north east quadrant.
+        const absoluteBearing = Math.abs(br);
+        const isNorth = absoluteBearing <= 90;
+        const isEast = br >= 0;
 
-        const _dy = Math.tan(degToRad(angle - 90)) * w2;
-        const dy = angle < 0 ? -_dy : _dy;
+        const angle = isNorth ? absoluteBearing : 90 - (absoluteBearing - 90);
+
+        let x0 = Math.tan(degToRad(angle)) * h2;
+        let y0 = w2 / Math.tan(degToRad(angle));
+
+        // Invert values according to the quadrant.
+        x0 = isEast ? x0 : -x0;
+        y0 = isNorth ? -y0 : y0;
 
         const { width: markerW, height: markerH } =
           pointerMarker.getBoundingClientRect();
 
         const x =
-          clamp(w2 + dx, padding + markerW / 2, width - padding - markerW / 2) -
+          clamp(w2 + x0, padding + markerW / 2, width - padding - markerW / 2) -
           markerW / 2;
         const y =
           clamp(
-            h2 + dy,
+            h2 + y0,
             padding + markerH / 2,
             height - padding - markerH / 2
           ) -
           markerH / 2;
 
-        setPosition({ x, y, angle });
+        setPosition({ x, y, angle: br });
 
         pointerMarker.style.transform = `translate(${x}px, ${y}px)`;
       } else {
