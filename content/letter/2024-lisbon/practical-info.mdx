@@ -6,14 +6,25 @@ editions:
 ---
 
 import LocationMap from '/src/components/location-map.tsx';
+import { CollecticonCity } from '/src/components/icons/city';
+import { CollecticonPlaneDeparture } from '/src/components/icons/plane-departure';
+import { CollecticonTrain } from '/src/components/icons/train';
 
 ## What it is
 
 **SatSummit** is an event that gathers leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.
 
+From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.
+
 ## When and where
 
-The 2024 Lisbon edition takes place in November 18 & 19 at [**NOVA SBE**](https://www.novasbe.unl.pt/en/about-us/contacts-directions), in Carcavelos - Lisbon. 
+The second SatSummit gathering of 2024 will be held at the [**NOVA School of Business & Economics**](https://www.novasbe.unl.pt/en/about-us/contacts-directions) in Carcavelos, Lisbon, Portugal on November 18 and 19th.
+
+## Why Lisbon
+
+Lisbon, Portugal is an exciting and growing technology hub. As mainland Europe's westernmost capital, it is strategically situated on the Atlantic which makes it geographically accessible for attendees from Africa, the Americas, and the rest of Europe.  
+
+We heard you when you asked for a more accessible location. Our goal is to provide our international community of satellite industry and global development experts more convenient and exciting locations to convene and work towards solutions for to solve the world's most critical development challenges with satellite data. 
 
 <LocationMap
   coordinates={[-9.32636, 38.6785]}
@@ -22,11 +33,24 @@ The 2024 Lisbon edition takes place in November 18 & 19 at [**NOVA SBE**](https:
   center={[-9.32636, 38.6785]}
   zoom={15}
   minZoom={13.5}
+  poiMarkers={[
+    {
+      name: 'Lisbon',
+      coordinates: [-9.137, 38.713],
+      icon: CollecticonCity
+    },
+    {
+      name: 'Airport',
+      coordinates: [-9.135, 38.777],
+      icon: CollecticonPlaneDeparture
+    },
+    {
+      name: 'Train Station',
+      coordinates: [-9.3189, 38.6885],
+      icon: CollecticonTrain
+    }
+  ]}
 />
-
-## How to get to the venue
-
-**NOVA SBE** is located at Rua da Holanda 1, 2775-405 Carcavelos.
 
 ## Fulfillment policy
 
