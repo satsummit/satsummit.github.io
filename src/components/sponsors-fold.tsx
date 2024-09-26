@@ -20,7 +20,8 @@ const sponsorsGroups = [
   'Bronze',
   'Community',
   'Hosts',
-  'Media Partner'
+  'Media Partner',
+  'Institutional Partner'
 ];
 
 const opticalLogoAdjustments = {
@@ -30,8 +31,9 @@ const opticalLogoAdjustments = {
     transform: 'scale(0.84)'
   },
 
-  '.sponsor-devglobal': {},
-  '.sponsor-lifelines': {}
+  '.sponsor-degas': {
+    transform: 'scale(1.28)'
+  },
 };
 
 export default function SponsorsFold() {
