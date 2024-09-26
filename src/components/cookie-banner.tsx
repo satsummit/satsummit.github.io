@@ -55,7 +55,13 @@ export default function CookieBanner() {
   return (
     <Modal isOpen={cookie === ''} onClose={() => {}} size='xl'>
       <ModalOverlay />
-      <ModalContent flexDirection='row' alignItems='center' p={4} gap={4}>
+      <ModalContent
+        flexDirection={{ base: 'column', md: 'row' }}
+        alignItems='center'
+        p={4}
+        gap={4}
+        mx={4}
+      >
         <ModalBody p={0}>
           <Text>
             This website uses cookies for analytics purposes. The data is
