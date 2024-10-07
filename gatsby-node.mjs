@@ -22,12 +22,12 @@ export const onCreatePage = async (helpers) => {
     actions: { deletePage }
   } = helpers;
 
-  updateEditionPagesContext(helpers);
+  await updateEditionPagesContext(helpers);
 
   // Remove sandbox in production.
   if (process.env.NODE_ENV === 'production') {
     if (page.path.match(/^\/sandbox/)) {
-      deletePage(page);
+      await deletePage(page);
     }
   }
 };
@@ -67,7 +67,7 @@ export const onCreateNode = async ({
     };
 
     await createNode(newNode);
-    createParentChildLink({ parent: fileNode, child: newNode });
+    await createParentChildLink({ parent: fileNode, child: newNode });
   }
 
   // Create a new node type for all the content pieces based on the folder name.
@@ -131,8 +131,8 @@ export const onCreateNode = async ({
         contentFilePath: node.internal.contentFilePath
       }
     };
-    createNode(newNode);
-    createParentChildLink({ parent: node, child: newNode });
+    await createNode(newNode);
+    await createParentChildLink({ parent: node, child: newNode });
   }
 };
 
@@ -178,9 +178,11 @@ export const createPages = async (helpers) => {
   `);
 
   // Create global letter pages
-  data?.allLetter.nodes.forEach((node) => {
+  const letterNodes = data?.allLetter.nodes || [];
+
+  for (const node of letterNodes) {
     const { slug, id } = node;
-    actions.createPage({
+    await actions.createPage({
       path: `/${slug}`,
       // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
       component: pageComponent(
@@ -189,7 +191,7 @@ export const createPages = async (helpers) => {
       ),
       context: { slug, id }
     });
-  });
+  }
 };
 
 export const createSchemaCustomization = (helpers) => {

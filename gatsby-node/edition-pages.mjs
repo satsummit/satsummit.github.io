@@ -21,11 +21,11 @@ export const updateEditionPagesContext = async (helpers) => {
 
   for (const edition of editionsNodes) {
     if (page.path.startsWith(`/${edition.cId}`)) {
-      deletePage(page);
+      await deletePage(page);
 
       if (edition.published) {
         // Create the page again with updated context.
-        createPage({
+        await createPage({
           ...page,
           context: {
             ...page.context,
@@ -117,6 +117,8 @@ export const createEditionPages = async (helpers) => {
     }
   `);
 
+  let pagesToCreate = [];
+
   // Create edition specific pages.
   data?.allEdition.nodes.forEach(({ cId: editionCId, dates }) => {
     // Letter pages for the edition.
@@ -126,7 +128,7 @@ export const createEditionPages = async (helpers) => {
     // Create letter pages for the edition.
     editionLetters.forEach((node) => {
       const { slug, id } = node;
-      actions.createPage({
+      pagesToCreate.push({
         path: `/${editionCId}/${slug}`,
         // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
         component: pageComponent(
@@ -141,7 +143,7 @@ export const createEditionPages = async (helpers) => {
     const evenDates = dates.map((date) => new Date(date));
 
     evenDates.forEach((date, i) => {
-      actions.createPage({
+      pagesToCreate.push({
         path: i ? `/${editionCId}/agenda/${i + 1}` : `/${editionCId}/agenda`,
         component: template('agenda-hub.tsx'),
         context: {
@@ -158,7 +160,7 @@ export const createEditionPages = async (helpers) => {
         ?.totalCount > 0;
 
     if (hasFringe) {
-      actions.createPage({
+      pagesToCreate.push({
         path: `/${editionCId}/fringe`,
         component: template('fringe-hub.tsx'),
         context: {
@@ -167,7 +169,7 @@ export const createEditionPages = async (helpers) => {
       });
     }
 
-    actions.createPage({
+    pagesToCreate.push({
       path: `/${editionCId}/speakers`,
       component: template('speakers-hub.tsx'),
       context: {
@@ -182,7 +184,7 @@ export const createEditionPages = async (helpers) => {
       .filter((n) => n.edition.cId === editionCId)
       .forEach((node) => {
         const { slug, id } = node;
-        actions.createPage({
+        pagesToCreate.push({
           path: `/${editionCId}/speakers/${slug}`,
           // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
           component: pageComponent(
@@ -193,4 +195,9 @@ export const createEditionPages = async (helpers) => {
         });
       });
   });
+
+  // Create the pages.
+  for (const page of pagesToCreate) {
+    await actions.createPage(page);
+  }
 };
