@@ -70,6 +70,9 @@ export const editionContextualData = graphql`
         url
         comingSoon
       }
+      agenda {
+        status
+      }
     }
   }
 `;

@@ -64,6 +64,7 @@ They are defined using a yaml file in `content/editions` with the name `<year>-<
 | navigation          | List of menu items for this edition. This controls what navigation is shown on the header. |
 | navigation[].title  | Title of the menu link.                                                                    |
 | navigation[].url    | Url for the menu link. Can be internal or external.                                        |
+| agenda.status       | One of `draft` or `final`                                                                  |
 | tickets             | Settings of this edition's tickets in the ticket page:                                     |
 | tickets.url         | Url to the platform where the tickets can be purchased.                                    |
 | tickets.description | Description for the tickets.                                                               |

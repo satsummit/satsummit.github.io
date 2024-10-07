@@ -110,7 +110,7 @@ export default function AgendaPage(
 
         <Text textStyle='lead.lg' maxW='container.sm'>
           {edition.dates.length} days of presentations and in-depth
-          conversations.
+          conversations. {edition.agenda?.status === 'draft' && 'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
         </Text>
 
         <ButtonGroup
