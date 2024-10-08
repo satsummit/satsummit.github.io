@@ -31,7 +31,7 @@ import PageLayout from '$components/page-layout';
 import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
-import { parseEventDate, timeFromDate } from '$utils/utils';
+import { parseEventDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
 import { useEditionCId } from '$context/edition';
 import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
@@ -74,7 +74,10 @@ export default function AgendaPage(
   const hourGroups = useMemo(() => {
     const indexObj = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
       (acc, event) => {
-        const t = timeFromDate(parseEventDate(event.date));
+        const t = format(
+          parseEventDate(event.date),
+          edition.format?.event_time || 'HH:mm'
+        );
         return {
           ...acc,
           [t]: [...(acc[t] || []), event]
@@ -84,7 +87,7 @@ export default function AgendaPage(
     );
 
     return Object.entries(indexObj);
-  }, [allEvent.nodes]);
+  }, [allEvent.nodes, edition.format?.event_time]);
 
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
@@ -120,7 +123,9 @@ export default function AgendaPage(
 
         <Text textStyle='lead.lg' maxW='container.sm'>
           {edition.dates.length} days of presentations and in-depth
-          conversations. {edition.agenda?.status === 'draft' && 'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
+          conversations.{' '}
+          {edition.agenda?.status === 'draft' &&
+            'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
         </Text>
 
         <ButtonGroup

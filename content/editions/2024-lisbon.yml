@@ -2,6 +2,8 @@ name: Lisbon '24
 dates:
   - '2024-11-18'
   - '2024-11-19'
+format:
+  event_time: HH:mm
 card:
   src: ./2024-lisbon-card.png
 navigation:

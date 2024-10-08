@@ -369,6 +369,7 @@ type Edition = Node & {
   readonly card: Maybe<MediaUrl>;
   readonly children: ReadonlyArray<Node>;
   readonly dates: Maybe<ReadonlyArray<Scalars['Date']>>;
+  readonly format: Maybe<EditionFormat>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Scalars['String'];
@@ -455,6 +456,7 @@ type EditionFieldSelector = {
   readonly card: InputMaybe<MediaUrlFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
+  readonly format: InputMaybe<EditionFormatFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
@@ -472,6 +474,7 @@ type EditionFilterInput = {
   readonly card: InputMaybe<MediaUrlFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
+  readonly format: InputMaybe<EditionFormatFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -485,6 +488,22 @@ type EditionFilterInput = {
 
 type EditionFilterListInput = {
   readonly elemMatch: InputMaybe<EditionFilterInput>;
+};
+
+type EditionFormat = {
+  readonly event_time: Maybe<Scalars['String']>;
+};
+
+type EditionFormatFieldSelector = {
+  readonly event_time: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionFormatFilterInput = {
+  readonly event_time: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionFormatSortInput = {
+  readonly event_time: InputMaybe<SortOrderEnum>;
 };
 
 type EditionGroupConnection = {
@@ -566,6 +585,7 @@ type EditionSortInput = {
   readonly card: InputMaybe<MediaUrlSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
+  readonly format: InputMaybe<EditionFormatSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
@@ -606,6 +626,7 @@ type EditionsYaml = Node & {
   readonly card: Maybe<EditionsYamlCard>;
   readonly children: ReadonlyArray<Node>;
   readonly dates: Maybe<ReadonlyArray<Maybe<Scalars['Date']>>>;
+  readonly format: Maybe<EditionsYamlFormat>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
@@ -704,6 +725,7 @@ type EditionsYamlFieldSelector = {
   readonly card: InputMaybe<EditionsYamlCardFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly dates: InputMaybe<FieldSelectorEnum>;
+  readonly format: InputMaybe<EditionsYamlFormatFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
@@ -717,6 +739,7 @@ type EditionsYamlFilterInput = {
   readonly card: InputMaybe<EditionsYamlCardFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly dates: InputMaybe<DateQueryOperatorInput>;
+  readonly format: InputMaybe<EditionsYamlFormatFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -727,6 +750,22 @@ type EditionsYamlFilterInput = {
 
 type EditionsYamlFilterListInput = {
   readonly elemMatch: InputMaybe<EditionsYamlFilterInput>;
+};
+
+type EditionsYamlFormat = {
+  readonly event_time: Maybe<Scalars['String']>;
+};
+
+type EditionsYamlFormatFieldSelector = {
+  readonly event_time: InputMaybe<FieldSelectorEnum>;
+};
+
+type EditionsYamlFormatFilterInput = {
+  readonly event_time: InputMaybe<StringQueryOperatorInput>;
+};
+
+type EditionsYamlFormatSortInput = {
+  readonly event_time: InputMaybe<SortOrderEnum>;
 };
 
 type EditionsYamlGroupConnection = {
@@ -803,6 +842,7 @@ type EditionsYamlSortInput = {
   readonly card: InputMaybe<EditionsYamlCardSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly dates: InputMaybe<SortOrderEnum>;
+  readonly format: InputMaybe<EditionsYamlFormatSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
@@ -2211,6 +2251,7 @@ type MdxFrontmatter = {
   readonly date: Maybe<Scalars['Date']>;
   readonly description: Maybe<Scalars['String']>;
   readonly editions: Maybe<ReadonlyArray<Maybe<MdxFrontmatterEditions>>>;
+  readonly fringe: Maybe<Scalars['Boolean']>;
   readonly image: Maybe<File>;
   readonly lead: Maybe<Scalars['String']>;
   readonly people: Maybe<MdxFrontmatterPeople>;
@@ -2223,6 +2264,7 @@ type MdxFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly type: Maybe<Scalars['String']>;
   readonly url: Maybe<Scalars['String']>;
+  readonly weight: Maybe<Scalars['Int']>;
 };
 
 
@@ -2284,6 +2326,7 @@ type MdxFrontmatterFieldSelector = {
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly editions: InputMaybe<MdxFrontmatterEditionsFieldSelector>;
+  readonly fringe: InputMaybe<FieldSelectorEnum>;
   readonly image: InputMaybe<FileFieldSelector>;
   readonly lead: InputMaybe<FieldSelectorEnum>;
   readonly people: InputMaybe<MdxFrontmatterPeopleFieldSelector>;
@@ -2296,6 +2339,7 @@ type MdxFrontmatterFieldSelector = {
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
   readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFrontmatterFilterInput = {
@@ -2305,6 +2349,7 @@ type MdxFrontmatterFilterInput = {
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly editions: InputMaybe<MdxFrontmatterEditionsFilterListInput>;
+  readonly fringe: InputMaybe<BooleanQueryOperatorInput>;
   readonly image: InputMaybe<FileFilterInput>;
   readonly lead: InputMaybe<StringQueryOperatorInput>;
   readonly people: InputMaybe<MdxFrontmatterPeopleFilterInput>;
@@ -2317,6 +2362,7 @@ type MdxFrontmatterFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly weight: InputMaybe<IntQueryOperatorInput>;
 };
 
 type MdxFrontmatterPeople = {
@@ -2366,6 +2412,7 @@ type MdxFrontmatterSortInput = {
   readonly date: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly editions: InputMaybe<MdxFrontmatterEditionsSortInput>;
+  readonly fringe: InputMaybe<SortOrderEnum>;
   readonly image: InputMaybe<FileSortInput>;
   readonly lead: InputMaybe<SortOrderEnum>;
   readonly people: InputMaybe<MdxFrontmatterPeopleSortInput>;
@@ -2378,6 +2425,7 @@ type MdxFrontmatterSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type MdxGroupConnection = {
@@ -2924,6 +2972,7 @@ type Query_editionArgs = {
   card: InputMaybe<MediaUrlFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
+  format: InputMaybe<EditionFormatFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -2941,6 +2990,7 @@ type Query_editionsYamlArgs = {
   card: InputMaybe<EditionsYamlCardFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   dates: InputMaybe<DateQueryOperatorInput>;
+  format: InputMaybe<EditionsYamlFormatFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -4823,11 +4873,11 @@ type AgendaHubQueryVariables = Exact<{
 }>;
 
 
-type AgendaHubQuery = { readonly allEvent: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly cId: string, readonly title: string, readonly type: string | null, readonly date: string, readonly room: string | null, readonly fringe: boolean, readonly internal: { readonly contentFilePath: string | null }, readonly people: { readonly hosts: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly moderators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly panelists: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly facilitators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly speakers: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null } | null }> }, readonly edition: { readonly dates: ReadonlyArray<string> | null, readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null } | null, readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
+type AgendaHubQuery = { readonly allEvent: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly cId: string, readonly title: string, readonly type: string | null, readonly date: string, readonly room: string | null, readonly fringe: boolean, readonly internal: { readonly contentFilePath: string | null }, readonly people: { readonly hosts: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly moderators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly panelists: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly facilitators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly speakers: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null } | null }> }, readonly edition: { readonly dates: ReadonlyArray<string> | null, readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null, readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> } };
 
 type AllEventPeopleFragment = { readonly hosts: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly moderators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly panelists: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly facilitators: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null, readonly speakers: ReadonlyArray<{ readonly title: string, readonly slug: string, readonly group: string | null } | { readonly title: string, readonly isVoid: boolean | null } | null> | null };
 
-type EditionContextualDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null } | null };
+type EditionContextualDataFragment = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -4860,7 +4910,7 @@ type Home2024LxQueryVariables = Exact<{
 }>;
 
 
-type Home2024LxQuery = { readonly featuredEditionUpdates: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> | null, readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null } | null };
+type Home2024LxQuery = { readonly featuredEditionUpdates: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> | null, readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null };
 
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -73,6 +73,9 @@ export const editionContextualData = graphql`
       agenda {
         status
       }
+      format {
+        event_time
+      }
     }
   }
 `;

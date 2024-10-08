@@ -16,8 +16,8 @@ import SmartLink from '../smart-link';
 import { EventPeople } from '$components/agenda/event-people';
 import { events } from '$components/agenda/events-gen';
 import { MDXProse } from '$components/mdx-prose';
-import { parseEventDate, timeFromDate } from '$utils/utils';
-import { useEditionCId } from '$context/edition';
+import { parseEventDate } from '$utils/utils';
+import { useEditionCId, useEditionContext } from '$context/edition';
 
 export const EVENT_DISPLAY_DURATION = 640;
 
@@ -53,7 +53,7 @@ export function AgendaEvent(props: AgendaEventProps) {
   } = props;
 
   const dateObj = parseEventDate(date);
-  const time = timeFromDate(dateObj);
+  const { edition } = useEditionContext();
 
   const editionCId = useEditionCId();
 
@@ -84,7 +84,8 @@ export function AgendaEvent(props: AgendaEventProps) {
             gap={2}
           >
             <DateWrapper>
-              {format(dateObj, `MMM. dd ''yy`)}, {time}{' '}
+              {format(dateObj, `MMM. dd ''yy`)},{' '}
+              {format(dateObj, edition?.format?.event_time || 'HH:mm')}{' '}
               <Divider
                 borderColor='base.200a'
                 size='xs'
