@@ -2,6 +2,8 @@ name: Washington DC '24
 dates:
   - '2024-05-16'
   - '2024-05-17'
+format:
+  event_time: hh:mmaaa
 card:
   src: ./2024-washington-card.png
 navigation:

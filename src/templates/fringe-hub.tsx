@@ -15,7 +15,7 @@ import Seo from '$components/seo';
 import PageLayout from '$components/page-layout';
 import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import { ChakraFade } from '$components/reveal';
-import { parseEventDate, timeFromDate } from '$utils/utils';
+import { parseEventDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
 import { PageHero } from '$components/page-hero';
 
@@ -39,7 +39,7 @@ interface FringePageQuery extends Queries.EditionContextualDataFragment {
 }
 
 export default function FringePage(props: PageProps<FringePageQuery>) {
-  const { allEvent } = props.data;
+  const { allEvent, edition } = props.data;
 
   // Create day and hour groups for the events.
   const eventsTimeGroups = allEvent.nodes.reduce<
@@ -47,7 +47,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
   >((acc, event) => {
     const date = parseEventDate(event.date);
     const evDate = format(date, 'yyyy-MM-dd');
-    const evTime = timeFromDate(date);
+    const evTime = format(date, edition?.format?.event_time || 'HH:mm');
 
     // Create a map of events by day and time.
     const timeEvents = [...(acc[evDate]?.[evTime] || []), event];

@@ -34,11 +34,13 @@ export const createUpdatesPages = async (helpers) => {
     }
   `);
 
+  let pagesToCreate = [];
+
   const updates = data?.allUpdates.nodes;
 
   updates.forEach((node) => {
     const { slug } = node;
-    actions.createPage({
+    pagesToCreate.push({
       path: `/updates/${slug}`,
       // Details at: https://www.gatsbyjs.com/docs/how-to/routing/mdx/#make-a-layout-template-for-your-posts
       component: pageComponent(
@@ -73,7 +75,7 @@ export const createUpdatesPages = async (helpers) => {
   const updatesPerPage = 12;
   const numPages = Math.ceil(updates.length / updatesPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
-    actions.createPage({
+    pagesToCreate.push({
       path: i === 0 ? `/updates` : `/updates/${i + 1}`,
       component: template('updates-list.tsx'),
       context: {
@@ -92,7 +94,7 @@ export const createUpdatesPages = async (helpers) => {
     const tagSlug = _.kebabCase(tag);
 
     Array.from({ length: numPages }).forEach((_, i) => {
-      actions.createPage({
+      pagesToCreate.push({
         path:
           i === 0
             ? `/updates/tag/${tagSlug}`
@@ -109,4 +111,9 @@ export const createUpdatesPages = async (helpers) => {
       });
     });
   });
+
+  // Create the pages.
+  for (const page of pagesToCreate) {
+    await actions.createPage(page);
+  }
 };

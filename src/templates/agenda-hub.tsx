@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
 import { HeadProps, PageProps, graphql, navigate } from 'gatsby';
 import { format } from 'date-fns';
 import {
@@ -25,7 +31,7 @@ import PageLayout from '$components/page-layout';
 import { AgendaEvent, EVENT_DISPLAY_DURATION } from '$components/agenda/event';
 import SmartLink from '$components/smart-link';
 import { ChakraFade } from '$components/reveal';
-import { parseEventDate, timeFromDate } from '$utils/utils';
+import { parseEventDate } from '$utils/utils';
 import { utcString2userTzDate } from '$utils/date';
 import { useEditionCId } from '$context/edition';
 import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
@@ -65,16 +71,23 @@ export default function AgendaPage(
   const { allEvent, edition } = props.data;
   const { start, editionCId, dayIndex } = props.pageContext;
 
-  const hourGroups = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
-    (acc, event) => {
-      const t = timeFromDate(parseEventDate(event.date));
-      return {
-        ...acc,
-        [t]: [...(acc[t] || []), event]
-      };
-    },
-    {}
-  );
+  const hourGroups = useMemo(() => {
+    const indexObj = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
+      (acc, event) => {
+        const t = format(
+          parseEventDate(event.date),
+          edition.format?.event_time || 'HH:mm'
+        );
+        return {
+          ...acc,
+          [t]: [...(acc[t] || []), event]
+        };
+      },
+      {}
+    );
+
+    return Object.entries(indexObj);
+  }, [allEvent.nodes, edition.format?.event_time]);
 
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
@@ -110,7 +123,9 @@ export default function AgendaPage(
 
         <Text textStyle='lead.lg' maxW='container.sm'>
           {edition.dates.length} days of presentations and in-depth
-          conversations.
+          conversations.{' '}
+          {edition.agenda?.status === 'draft' &&
+            'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
         </Text>
 
         <ButtonGroup
@@ -140,12 +155,12 @@ export default function AgendaPage(
         <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
           {format(currentDay, 'EEEE, LLL dd')}
         </Heading>
-        {Object.entries(hourGroups).length === 0 && (
+        {hourGroups.length === 0 && (
           <Text gridColumn='content-start/content-end'>
             No events scheduled for this day.
           </Text>
         )}
-        {Object.entries(hourGroups).map(([time, eventsByTime]) => (
+        {hourGroups.map(([time, eventsByTime]) => (
           <EventHourGroup
             key={time}
             dayIndex={dayIndex}
@@ -186,6 +201,14 @@ function EventHourGroup(props: EventHourGroup) {
 
     return () => observer.disconnect();
   });
+
+  const sortedEvents = useMemo(() => {
+    return [...events].sort((a, b) => {
+      return a.room === b.room
+        ? a.title.localeCompare(b.title)
+        : a.room.localeCompare(b.room);
+    });
+  }, [events]);
 
   return (
     <ChakraFade
@@ -280,7 +303,7 @@ function EventHourGroup(props: EventHourGroup) {
             flexFlow='column nowrap'
             ml={0}
           >
-            {events.map((node) => (
+            {sortedEvents.map((node) => (
               <ListItem
                 key={node.id}
                 gridColumn='1/-1'
