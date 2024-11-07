@@ -10,6 +10,8 @@ navigation:
   - title: Agenda
     url: /2024-lisbon/agenda
     comingSoon: false
+  - title: Fringe events
+    url: /2024-lisbon/fringe
   - title: Speakers
     url: /2024-lisbon/speakers
     comingSoon: false
