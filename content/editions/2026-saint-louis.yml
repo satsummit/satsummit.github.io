@@ -1,0 +1,24 @@
+name: Saint Louis '26
+dates:
+  - '2026-11-16'
+  - '2026-11-17'
+format:
+  event_time: hh:mmaaa
+card:
+  src: ./2026-saint-louis-card.png
+navigation:
+  - title: Agenda
+    url: /2026-saint-louis/agenda
+    comingSoon: true
+  - title: Speakers
+    url: /2026-saint-louis/speakers
+    comingSoon: true
+  - title: Practical info
+    url: /2026-saint-louis/practical-info
+    comingSoon: true
+agenda:
+  status: draft # draft final
+tickets:
+  url: https://app.tickettailor.com/events/satsummit2026/1151624
+  description: Tickets include attendance for all days. There are no one day tickets offered at this time. The prices include breakfast and lunch during the conference and light fare at social events. Tickets are nonrefundable.
+  status: coming-soon
