@@ -27,6 +27,7 @@
     "module": "esnext",                                /* Specify what module code is generated. */
     // "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
+    "ignoreDeprecations": "6.0",                         /* Silence TS6 deprecation of node moduleResolution */
     // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {                                          /* Specify a set of entries that re-map imports to additional lookup locations. */
       "$components/*": ["./src/components/*"],
@@ -105,5 +106,6 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": ["./src/**/*", "gatsby-node.mjs", "gatsby-config.mjs", "./plugins/**/*", "src/templates", "gatsby-node/events-mdx-index.mjs"]
+  "include": ["./src/**/*", "gatsby-node.mjs", "gatsby-config.mjs", "./plugins/**/*", "src/templates", "gatsby-node/events-mdx-index.mjs"],
+  "exclude": ["src/components/agenda/events-gen.ts"]
 }

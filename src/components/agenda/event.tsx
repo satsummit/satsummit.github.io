@@ -1,6 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { ElementType, Fragment } from 'react';
 import {
-  As,
   Box,
   Divider,
   Flex,
@@ -22,7 +21,7 @@ import { useEditionCId, useEditionContext } from '$context/edition';
 export const EVENT_DISPLAY_DURATION = 640;
 
 // Get the Heading tag.
-const hl = (l: number) => (l > 0 ? (`h${l}` as As) : undefined);
+const hl = (l: number) => (l > 0 ? (`h${l}` as ElementType) : undefined);
 
 interface AgendaEventProps {
   cId: string;

@@ -14,3 +14,14 @@ declare module "*.svg" {
   const path: string;
   export default path;
 }
+
+declare module "*.css" {
+  const content: Record<string, string>;
+  export default content;
+}
+
+declare module "*.mdx" {
+  import type { MDXContent } from 'mdx/types';
+  const MDXComponent: MDXContent;
+  export default MDXComponent;
+}
