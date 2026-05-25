@@ -103,8 +103,52 @@ export function createColorPalette(baseColor: string) {
   return colorPaletteSettings.reduce(
     (acc, c) => ({
       ...acc,
-      [c.code]: c.colorFn(baseColor)
+      [c.code]: { value: c.colorFn(baseColor) }
     }),
     {}
   );
 }
+
+export const createColorSemanticTokens = (colorName: string) => ({
+  [colorName]: {
+    contrast: {
+      value: { _light: 'white', _dark: 'white' }
+    },
+    fg: {
+      value: {
+        _light: `{colors.${colorName}.500}`,
+        _dark: `{colors.${colorName}.300}`
+      }
+    },
+    subtle: {
+      value: {
+        _light: `{colors.${colorName}.100}`,
+        _dark: `{colors.${colorName}.900}`
+      }
+    },
+    muted: {
+      value: {
+        _light: `{colors.${colorName}.200}`,
+        _dark: `{colors.${colorName}.800}`
+      }
+    },
+    emphasized: {
+      value: {
+        _light: `{colors.${colorName}.300}`,
+        _dark: `{colors.${colorName}.700}`
+      }
+    },
+    solid: {
+      value: {
+        _light: `{colors.${colorName}.500}`,
+        _dark: `{colors.${colorName}.500}`
+      }
+    },
+    focusRing: {
+      value: {
+        _light: `{colors.${colorName}.400}`,
+        _dark: `{colors.${colorName}.400}`
+      }
+    }
+  }
+});

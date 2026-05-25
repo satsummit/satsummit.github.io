@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Flex, Heading, Tag, Text } from '@chakra-ui/react';
+import { Box, chakra, Flex, Heading, Text, Badge } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import SmartLink from '$components/smart-link';
@@ -23,12 +23,14 @@ export function UpdatesCard(props: UpdatesCardProps) {
   return (
     <SmartLink
       to={`/updates/${slug}`}
-      borderRadius='sm'
+      borderRadius='xs'
       display='flex'
       flexDir='column'
+      alignItems='normal'
       h='100%'
-      color='base.500'
-      bg='base.50'
+      color='basi.500'
+      bg='basi.50'
+      transition='transform 150ms ease-in-out'
       _hover={{
         textDecoration: 'none',
         transform: 'translateY(-2px)'
@@ -48,14 +50,13 @@ export function UpdatesCard(props: UpdatesCardProps) {
       )}
       <Box mt={!cover ? '2.5rem' : undefined}>
         <Heading size='xl'>{title}</Heading>
-        <Text
-          as='time'
+        <chakra.time
           dateTime={date || undefined}
           fontSize='sm'
           fontStyle='initial'
         >
           {ago}
-        </Text>
+        </chakra.time>
       </Box>
       <Text>
         {description || (parent as { excerpt: string } | undefined)?.excerpt}
@@ -64,14 +65,18 @@ export function UpdatesCard(props: UpdatesCardProps) {
       {(editions || tags) && (
         <Flex gap={2} mt='auto' wrap='wrap-reverse'>
           {editions?.map((edition) => (
-            <Tag key={edition.edition.name} variant='satsummit-dark'>
+            <Badge
+              key={edition.edition.name}
+              variant='satsummit-dark'
+              size='sm'
+            >
               {edition.edition.name}
-            </Tag>
+            </Badge>
           ))}
           {tags.map((tag) => (
-            <Tag key={tag} variant='satsummit-dark'>
+            <Badge key={tag} variant='satsummit-dark' size='sm'>
               {tag}
-            </Tag>
+            </Badge>
           ))}
         </Flex>
       )}

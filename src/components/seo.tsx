@@ -47,7 +47,7 @@ export default function Seo(props: SeoProps) {
     `${title} — ${site.siteMetadata.title}` +
     (edition ? ` ${edition.name}` : '');
 
-  const themeColor = useToken('colors', 'primary.500');
+  const [themeColor] = useToken('colors', ['primary.500']);
 
   return (
     <>

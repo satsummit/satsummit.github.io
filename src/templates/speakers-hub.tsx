@@ -6,13 +6,15 @@ import {
   ImageDataLike,
   StaticImage
 } from 'gatsby-plugin-image';
+
+const ChakraGatsbyImage = chakra(GatsbyImage);
 import {
   Box,
-  Divider,
+  chakra,
+  Separator,
   Flex,
   Heading,
   List,
-  ListItem,
   Text,
   VisuallyHidden
 } from '@chakra-ui/react';
@@ -77,7 +79,8 @@ export default function SpeakersPage(
               updates.
             </Text>
           ) : (
-            <List
+            <List.Root
+              unstyled
               display='grid'
               gap={{ base: 4, md: 8 }}
               gridTemplateColumns={{
@@ -88,12 +91,12 @@ export default function SpeakersPage(
             >
               <ChakraFade direction='up' triggerOnce duration={500} delay={100}>
                 {main.map((speaker) => (
-                  <ListItem key={speaker.id} h='100%'>
+                  <List.Item key={speaker.id} h='100%'>
                     <Box
                       as='article'
-                      bg='base.50'
+                      bg='basi.50'
                       h='100%'
-                      borderRadius='sm'
+                      borderRadius='xs'
                       overflow='hidden'
                     >
                       <SmartLink
@@ -121,8 +124,7 @@ export default function SpeakersPage(
                           </Text>
                         </Flex>
                         {speaker.avatar ? (
-                          <Box
-                            as={GatsbyImage}
+                          <ChakraGatsbyImage
                             image={
                               getImage(
                                 speaker.avatar as unknown as ImageDataLike
@@ -130,7 +132,7 @@ export default function SpeakersPage(
                             }
                             alt={`Picture of ${speaker.title}`}
                             objectFit='contain'
-                            borderRadius='sm'
+                            borderRadius='xs'
                             overflow='hidden'
                             order={-1}
                           />
@@ -148,19 +150,19 @@ export default function SpeakersPage(
                         )}
                       </SmartLink>
                     </Box>
-                  </ListItem>
+                  </List.Item>
                 ))}
               </ChakraFade>
-            </List>
+            </List.Root>
           )}
         </Box>
 
         {!!other.length && (
           <>
-            <Divider
+            <Separator
               gridColumn='content-start / content-end'
               size='md'
-              borderColor='base.200a'
+              borderColor='basi.200a'
             />
             <Flex
               gridColumn='content-start / content-end'
@@ -168,7 +170,8 @@ export default function SpeakersPage(
               direction='column'
             >
               <Heading size='3xl'>Other speakers include</Heading>
-              <List
+              <List.Root
+                unstyled
                 display='grid'
                 gap={{ base: 4, md: 8 }}
                 gridTemplateColumns={{
@@ -185,7 +188,7 @@ export default function SpeakersPage(
                   damping={0.2}
                 >
                   {other.map((speaker) => (
-                    <ListItem key={speaker.id}>
+                    <List.Item key={speaker.id}>
                       <Box as='article'>
                         <Flex
                           as='header'
@@ -200,10 +203,10 @@ export default function SpeakersPage(
                           </Text>
                         </Flex>
                       </Box>
-                    </ListItem>
+                    </List.Item>
                   ))}
                 </ChakraFade>
-              </List>
+              </List.Root>
             </Flex>
           </>
         )}

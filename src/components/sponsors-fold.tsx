@@ -1,10 +1,9 @@
 import React from 'react';
 import {
-  Box,
-  Divider,
+  Separator,
   Flex,
   Heading,
-  List,
+  ListRoot,
   ListItem,
   VisuallyHidden
 } from '@chakra-ui/react';
@@ -25,15 +24,12 @@ const sponsorsGroups = [
 ];
 
 const opticalLogoAdjustments = {
-  /* Adjust image optical size */
-
-  '.sponsor-development-seed': {
+  '& .sponsor-development-seed': {
     transform: 'scale(0.84)'
   },
-
-  '.sponsor-degas': {
+  '& .sponsor-degas': {
     transform: 'scale(1.28)'
-  },
+  }
 };
 
 export default function SponsorsFold() {
@@ -42,21 +38,22 @@ export default function SponsorsFold() {
   if (!sponsors?.length) return null;
 
   return (
-    <Box
+    <Flex
       as='section'
-      bg='base.50'
+      bg='basi.50'
       px={{ base: '4', md: '8' }}
       pt={{ base: '8', lg: '16' }}
-      display='flex'
       flexFlow='column'
       gap={{ base: '8', lg: '16' }}
     >
-      <Fold spacingY={{ base: '4', lg: '8' }}>
+      <Fold rowGap={{ base: '4', lg: '8' }}>
         <Heading as='h2' size='2xl' gridColumn='1/-1'>
           Sponsors
         </Heading>
         {sponsorsGroups.map((group) => {
-          const items = sponsors.filter((node) => node.groupInEdition === group);
+          const items = sponsors.filter(
+            (node) => node.groupInEdition === group
+          );
 
           if (!items.length) {
             return null;
@@ -75,8 +72,9 @@ export default function SponsorsFold() {
               <Heading as='h3' size='md'>
                 {group}
               </Heading>
-              <List
+              <ListRoot
                 as='ol'
+                listStyleType='none'
                 display='grid'
                 gap={{ base: '4', lg: '8' }}
                 gridTemplateColumns='repeat(2, 1fr)'
@@ -98,15 +96,11 @@ export default function SponsorsFold() {
                         padding='4'
                         borderRadius='sm'
                         background='surface.500'
+                        transition='opacity 0.16s ease-in-out'
                         _hover={{
-                          '> *': {
-                            opacity: 0.64
-                          }
+                          opacity: 0.64
                         }}
-                        sx={{
-                          '> *': {
-                            transition: 'opacity 0.16s ease-in-out'
-                          },
+                        css={{
                           ...opticalLogoAdjustments
                         }}
                       >
@@ -120,12 +114,18 @@ export default function SponsorsFold() {
                     </ListItem>
                   );
                 })}
-              </List>
+              </ListRoot>
             </Flex>
           );
         })}
       </Fold>
-      <Divider borderColor='base.200a' size='md' maxW='container.xl' m='auto' />
-    </Box>
+      <Separator
+        borderColor='basi.200a'
+        size='md'
+        maxW='7xl'
+        m='auto'
+        w='100%'
+      />
+    </Flex>
   );
 }

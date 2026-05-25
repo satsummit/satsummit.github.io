@@ -11,13 +11,12 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Divider,
+  Separator,
   Flex,
   Heading,
-  ListItem,
-  OrderedList,
   Text,
-  useBreakpointValue
+  useBreakpointValue,
+  List
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
 import { Global } from '@emotion/react';
@@ -121,7 +120,7 @@ export default function AgendaPage(
       >
         <PageHeroHeadline title='Agenda' />
 
-        <Text textStyle='lead.lg' maxW='container.sm'>
+        <Text fontSize='lg' maxW='2xl'>
           {edition.dates.length} days of presentations and in-depth
           conversations.{' '}
           {edition.agenda?.status === 'draft' &&
@@ -129,23 +128,33 @@ export default function AgendaPage(
         </Text>
 
         <ButtonGroup
-          isAttached
-          colorScheme='surface'
+          attached
+          colorPalette='surface'
           variant='soft-outline'
           size={{ base: 'sm', md: 'md' }}
         >
           {eventDates.map((date, i) => (
             <Button
               key={date.getTime()}
-              as={SmartLink}
-              noLinkStyles
-              to={
-                !i ? `/${editionCId}/agenda/` : `/${editionCId}/agenda/${i + 1}`
+              asChild
+              aria-current={
+                date.getTime() === currentDay.getTime() ? 'page' : undefined
               }
-              isActive={date.getTime() === currentDay.getTime()}
-              color='currentColor'
+              data-active={
+                date.getTime() === currentDay.getTime() ? '' : undefined
+              }
             >
-              {format(date, 'EEEE, LLL dd')}
+              <SmartLink
+                unstyled
+                to={
+                  !i
+                    ? `/${editionCId}/agenda/`
+                    : `/${editionCId}/agenda/${i + 1}`
+                }
+                color='currentColor'
+              >
+                {format(date, 'EEEE, LLL dd')}
+              </SmartLink>
             </Button>
           ))}
         </ButtonGroup>
@@ -217,16 +226,14 @@ function EventHourGroup(props: EventHourGroup) {
       gridColumn='content-start / content-end'
       duration={EVENT_DISPLAY_DURATION}
       _notFirst={{
-        '.agenda-time': {
-          borderTop: '8px solid',
-          borderTopColor: 'base.200a',
+        '& .agenda-time': {
+          borderTop: '8px solid {colors.basi.200a}',
           paddingTop: 8,
           mt: { base: 2, md: 0 },
           top: { base: '-2rem', md: '-1rem' }
         },
-        '.agenda-events': {
-          borderTop: { md: '8px solid' },
-          borderTopColor: { md: 'base.200a' },
+        '& .agenda-events': {
+          borderTop: { md: '8px solid {colors.basi.200a}' },
           paddingTop: { md: 8 }
         }
       }}
@@ -270,8 +277,8 @@ function EventHourGroup(props: EventHourGroup) {
             {isStuck ? (
               <>
                 {day}
-                <Divider
-                  borderColor='base.200a'
+                <Separator
+                  borderColor='basi.200a'
                   size='xs'
                   h='5'
                   orientation='vertical'
@@ -292,8 +299,6 @@ function EventHourGroup(props: EventHourGroup) {
           }}
         >
           <Hug
-            as={OrderedList}
-            listStyleType='none'
             hugGrid={{
               base: ['content-start', 'content-end'],
               md: ['content-2', 'content-8'],
@@ -302,29 +307,31 @@ function EventHourGroup(props: EventHourGroup) {
             display='flex'
             flexFlow='column nowrap'
             ml={0}
+            asChild
           >
-            {sortedEvents.map((node) => (
-              <ListItem
-                key={node.id}
-                gridColumn='1/-1'
-                _notFirst={{
-                  borderTop: '4px solid',
-                  borderTopColor: 'base.200a',
-                  pt: { base: 4, md: 8, lg: 10 }
-                }}
-              >
-                <AgendaEvent
-                  startingHLevel={4}
-                  dayIndex={dayIndex}
-                  cId={node.cId}
-                  title={node.title}
-                  type={node.type}
-                  date={node.date}
-                  room={node.room}
-                  people={node.people}
-                />
-              </ListItem>
-            ))}
+            <List.Root as='ol' unstyled>
+              {sortedEvents.map((node) => (
+                <List.Item
+                  key={node.id}
+                  gridColumn='1/-1'
+                  _notFirst={{
+                    borderTop: '4px solid {colors.basi.200a}',
+                    pt: { base: 4, md: 8, lg: 10 }
+                  }}
+                >
+                  <AgendaEvent
+                    startingHLevel={4}
+                    dayIndex={dayIndex}
+                    cId={node.cId}
+                    title={node.title}
+                    type={node.type}
+                    date={node.date}
+                    room={node.room}
+                    people={node.people}
+                  />
+                </List.Item>
+              ))}
+            </List.Root>
           </Hug>
         </Hug>
       </Hug>
@@ -360,28 +367,28 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
         {activeIdx > 0 && (
           <Button
             variant='solid'
-            colorScheme='primary'
+            colorPalette='primary'
             size={{ base: 'md', md: 'lg' }}
             onClick={() => {
               goToTab(activeIdx - 1);
             }}
-            leftIcon={<CollecticonArrowLeft />}
           >
+            <CollecticonArrowLeft />
             View previous day
           </Button>
         )}
         {activeIdx < dates.length - 1 && (
           <Button
             variant='solid'
-            colorScheme='primary'
+            colorPalette='primary'
             size={{ base: 'md', md: 'lg' }}
             ml='auto'
             onClick={() => {
               goToTab(activeIdx + 1);
             }}
-            rightIcon={<CollecticonArrowRight />}
           >
             View next day
+            <CollecticonArrowRight />
           </Button>
         )}
       </Flex>

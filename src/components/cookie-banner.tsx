@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from '@reach/router';
-import {
-  Button,
-  ButtonGroup,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalOverlay,
-  Text
-} from '@chakra-ui/react';
+import { Button, ButtonGroup, Dialog, Text } from '@chakra-ui/react';
+
 import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies';
 
 const K_NAME = 'gatsby-gdpr-google-tagmanager';
@@ -47,50 +39,51 @@ export default function CookieBanner() {
 
   useEffect(() => {
     if (cookie === 'true') {
-      // Initialize the analytics
       initializeAndTrack(location);
     }
   }, [cookie, location]);
 
   return (
-    <Modal isOpen={cookie === ''} onClose={() => {}} size='xl'>
-      <ModalOverlay />
-      <ModalContent
-        flexDirection={{ base: 'column', md: 'row' }}
-        alignItems='center'
-        p={4}
-        gap={4}
-        mx={4}
-      >
-        <ModalBody p={0}>
-          <Text>
-            This website uses cookies for analytics purposes. The data is
-            anonymized and cannot be used to identify you.
-          </Text>
-        </ModalBody>
+    <Dialog.Root open={cookie === ''} onOpenChange={() => {}} size='lg'>
+      <Dialog.Backdrop />
+      <Dialog.Positioner>
+        <Dialog.Content
+          flexDirection={{ base: 'column', md: 'row' }}
+          alignItems='center'
+          p={4}
+          gap={4}
+          mx={4}
+        >
+          <Dialog.Body p={0}>
+            <Text>
+              This website uses cookies for analytics purposes. The data is
+              anonymized and cannot be used to identify you.
+            </Text>
+          </Dialog.Body>
 
-        <ModalFooter justifyContent='center' p={0}>
-          <ButtonGroup colorScheme='primary'>
-            <Button
-              onClick={() => {
-                setCookie(K_NAME, 'true', 30);
-                render((v) => ++v);
-              }}
-            >
-              Allow Cookies
-            </Button>
-            <Button
-              variant='outline'
-              onClick={() => {
-                setCookie(K_NAME, 'false', 30);
-                render((v) => ++v);
-              }}
-            >
-              Disable Cookies
-            </Button>
-          </ButtonGroup>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+          <Dialog.Footer justifyContent='center' p={0}>
+            <ButtonGroup colorPalette='primary'>
+              <Button
+                onClick={() => {
+                  setCookie(K_NAME, 'true', 30);
+                  render((v) => ++v);
+                }}
+              >
+                Allow Cookies
+              </Button>
+              <Button
+                variant='outline'
+                onClick={() => {
+                  setCookie(K_NAME, 'false', 30);
+                  render((v) => ++v);
+                }}
+              >
+                Disable Cookies
+              </Button>
+            </ButtonGroup>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog.Positioner>
+    </Dialog.Root>
   );
 }

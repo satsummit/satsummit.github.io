@@ -40,7 +40,7 @@ export default function LocationMap(props: LocationMapProps) {
   const { coordinates, url, location, poiMarkers = [], ...options } = props;
 
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<mapboxgl.Map>();
+  const mapInstance = useRef<mapboxgl.Map | undefined>(undefined);
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -171,6 +171,7 @@ export default function LocationMap(props: LocationMapProps) {
               whiteSpace='nowrap'
               textAlign='center'
               transform='translate(-50%, -100%)'
+              color='primary.500'
               _visited={{
                 color: 'inherit',
                 textDecoration: 'none'
@@ -190,7 +191,7 @@ export default function LocationMap(props: LocationMapProps) {
                 clipPath: 'polygon(100% 0, 0 0, 50% 100%)',
                 pointerEvents: 'none'
               }}
-              sx={{
+              css={{
                 '&, > *': {
                   transition: 'opacity 0.24s ease'
                 },
@@ -225,7 +226,7 @@ interface OffscreenMarkerIndicarorProps {
     x: number;
     y: number;
     angle: number;
-  }) => JSX.Element;
+  }) => React.ReactElement;
 }
 
 function OffscreenMarkerIndicaror(props: OffscreenMarkerIndicarorProps) {

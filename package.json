@@ -29,7 +29,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "ts-check": "tsc --noEmit",
-    "lint": "eslint src --no-error-on-unmatched-pattern"
+    "lint": "eslint src --no-error-on-unmatched-pattern",
+    "theme": "npx @chakra-ui/cli typegen src/theme/index.ts"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.0.0",

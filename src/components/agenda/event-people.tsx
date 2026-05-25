@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem } from '@chakra-ui/react';
+import { List } from '@chakra-ui/react';
 
 import { LinkedSpeaker } from './linked-speaker';
 
@@ -11,18 +11,19 @@ export function EventPeople(props: EventPeopleProps) {
   const { list } = props;
 
   return (
-    <List
+    <List.Root
       as='ol'
+      unstyled
       display='flex'
       flexFlow='row wrap'
       columnGap={{ base: 3, md: 4 }}
       ml={0}
     >
       {list.map((person) => (
-        <ListItem key={(person as Queries.People).slug || person.title}>
+        <List.Item key={(person as Queries.People).slug || person.title}>
           <LinkedSpeaker name={person.title} />
-        </ListItem>
+        </List.Item>
       ))}
-    </List>
+    </List.Root>
   );
 }

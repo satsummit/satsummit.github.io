@@ -6,7 +6,7 @@ import {
   Box,
   Heading,
   ListItem,
-  OrderedList,
+  ListRoot,
   useBreakpointValue
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
@@ -97,7 +97,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
                   pt: 8
                 }}
                 // Needed to override the border set around each event section.
-                sx={{
+                css={{
                   '& + .agenda-time-group': {
                     '.agenda-time, .agenda-events': {
                       border: 'none !important',
@@ -118,15 +118,14 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
                   duration={EVENT_DISPLAY_DURATION}
                   gridColumn='content-start / content-end'
                   _notFirst={{
-                    '.agenda-time': {
-                      borderTop: '8px solid',
-                      borderTopColor: 'base.200a',
+                    '& .agenda-time': {
+                      borderTop: '8px solid {colors.basi.200a}',
                       paddingTop: 8,
-                      mt: { base: 2, md: 0 }
+                      mt: { base: 2, md: 0 },
+                      top: { base: '-2rem', md: '-1rem' }
                     },
-                    '.agenda-events': {
-                      borderTop: { md: '8px solid' },
-                      borderTopColor: { md: 'base.200a' },
+                    '& .agenda-events': {
+                      borderTop: { md: '8px solid {colors.basi.200a}' },
                       paddingTop: { md: 8 }
                     }
                   }}
@@ -158,7 +157,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
                       }}
                     >
                       <Hug
-                        as={OrderedList}
+                        as={ListRoot}
                         listStyleType='none'
                         hugGrid={{
                           base: ['content-start', 'content-end'],
@@ -175,7 +174,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
                             gridColumn='1/-1'
                             _notFirst={{
                               borderTop: '4px solid',
-                              borderTopColor: 'base.200a',
+                              borderTopColor: 'basi.200a',
                               pt: { base: 4, md: 8, lg: 10 }
                             }}
                           >

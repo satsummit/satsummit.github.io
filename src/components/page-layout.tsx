@@ -14,9 +14,12 @@ export default function PageLayout(props: {
   pageProps?: PageProps;
 }) {
   useEffect(() => {
+    const w = window.innerWidth - document.documentElement.clientWidth;
     document.documentElement.style.setProperty(
       '--scrollbar-width',
-      window.innerWidth - document.documentElement.clientWidth + 'px'
+      // In the mobile view this messes up calculations. The width should never
+      // be very high
+      w > 20 ? `0px` : `${w}px`
     );
   }, []);
   return (

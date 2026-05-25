@@ -26,12 +26,11 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
       <Container
         py={{ base: '8', lg: '16' }}
         px={{ base: '4', md: '8' }}
-        maxW='container.lg'
+        maxW='5xl'
         display='flex'
         flexFlow='column'
-        gap={{ base: '4', md: '8' }}
       >
-        <MDXProse>{children}</MDXProse>
+        <MDXProse gap={{ base: '4', md: '8' }}>{children}</MDXProse>
       </Container>
     </PageLayout>
   );

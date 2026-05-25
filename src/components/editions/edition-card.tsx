@@ -27,25 +27,27 @@ export function EditionCard(props: EditionCardProps) {
       minH={{ base: '18rem', md: '24rem' }}
       display='flex'
       flexDir='column'
+      alignItems='start'
       justifyContent='end'
       gap={4}
       p={{ base: 4, md: 8 }}
       overflow='hidden'
-      borderRadius='sm'
+      borderRadius='xs'
       color='surface.500'
       bgColor='primary.800'
       bgImage={`url('${cloudSmallUrl}')`}
       bgRepeat='no-repeat'
       bgSize='auto 70%'
-      bgPosition='calc(100% + 8rem) bottom'
+      bgPos='calc(100% + 8rem) bottom'
       // Override background if image is provided.
       bg={image ? 'none' : undefined}
+      transition='transform 150ms ease-in-out'
       _hover={{
         textDecoration: 'none',
         transform: 'translateY(-2px)'
       }}
-      sx={{
-        '.gatsby-image-wrapper': {
+      css={{
+        '& .gatsby-image-wrapper': {
           position: 'absolute',
           inset: 0,
           zIndex: -1,
@@ -87,7 +89,7 @@ export function EditionCard(props: EditionCardProps) {
       )}
       <Box>
         <Heading size='xl'>{title}</Heading>
-        <Text fontSize='sm' fontStyle='initial'>
+        <Text as='time' fontSize='sm' fontStyle='initial'>
           {multiDateDisplay(dates)}
         </Text>
       </Box>

@@ -19,7 +19,7 @@ export default function HugPage() {
         <Text
           py='5rem'
           overflow='hidden'
-          align='center'
+          textAlign='center'
           bg='blanchedalmond'
           gridColumn='full-start/content-start'
         >
@@ -28,7 +28,7 @@ export default function HugPage() {
         <Text
           py='5rem'
           overflow='hidden'
-          align='center'
+          textAlign='center'
           bg='aliceblue'
           gridColumn='content-start/content-end'
         >
@@ -37,7 +37,7 @@ export default function HugPage() {
         <Text
           py='5rem'
           overflow='hidden'
-          align='center'
+          textAlign='center'
           bg='blanchedalmond'
           gridColumn='content-end/full-end'
         >

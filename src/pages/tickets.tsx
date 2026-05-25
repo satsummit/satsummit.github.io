@@ -7,7 +7,6 @@ import {
   Flex,
   Heading,
   List,
-  ListItem,
   Text
 } from '@chakra-ui/react';
 import { CollecticonExpandTopRight } from '@devseed-ui/collecticons-chakra';
@@ -44,26 +43,26 @@ export default function IndexPage(props: PageProps<PageQuery>) {
       <Container
         py={{ base: '8', lg: '16' }}
         px={{ base: '4', md: '8' }}
-        maxW='container.lg'
+        maxW='5xl'
         display='flex'
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
-        <List>
+        <List.Root unstyled>
           {data.allEdition.nodes
             .filter((e) => e.dates?.length)
             .map((edition) => (
-              <ListItem
+              <List.Item
                 key={edition.cId}
                 _notFirst={{
                   borderTop: '8px solid',
-                  borderTopColor: 'base.200a'
+                  borderTopColor: 'basi.200a'
                 }}
               >
                 <EditionEntry edition={edition} />
-              </ListItem>
+              </List.Item>
             ))}
-        </List>
+        </List.Root>
       </Container>
     </PageLayout>
   );
@@ -108,7 +107,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
       {edition.tickets?.description && (
         <Text
           maxW='30rem'
-          sx={{
+          css={{
             a: {
               color: 'primary.500',
               _hover: {
@@ -133,15 +132,11 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
             Sold out
           </Heading>
         ) : status === 'live' ? (
-          <Button
-            as={SmartLink}
-            to={edition.tickets!.url}
-            colorScheme='primary'
-            borderRadius='xs'
-            size='sm'
-            rightIcon={<CollecticonExpandTopRight />}
-          >
-            Book ticket
+          <Button asChild colorPalette='primary' borderRadius='xs' size='sm'>
+            <SmartLink to={edition.tickets!.url} unstyled>
+              Book ticket
+              <CollecticonExpandTopRight />
+            </SmartLink>
           </Button>
         ) : (
           <Heading as='p' size='sm'>

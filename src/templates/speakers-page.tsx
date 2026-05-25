@@ -4,14 +4,14 @@ import { getImage, ImageDataLike } from 'gatsby-plugin-image';
 import {
   Box,
   Button,
-  Divider,
+  Separator,
   Flex,
   Heading,
   ListItem,
-  OrderedList
+  ListRoot
 } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
-import { CollecticonLayoutGrid3x3 } from '@devseed-ui/collecticons-chakra';
+import { CollecticonLayoutGrid3X3 } from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
@@ -50,7 +50,7 @@ export default function PeoplePage(
         }
       />
 
-      <Hug py={16}>
+      <Hug py={16} rowGap={{ lg: 12 }}>
         <MDXProse
           gridColumn={{
             base: 'content-start / content-end',
@@ -66,14 +66,14 @@ export default function PeoplePage(
 
         {!!events?.length && (
           <>
-            <Divider
+            <Separator
               gridColumn={{
                 base: 'content-start / content-end',
                 md: 'content-2 / content-8',
                 lg: 'content-2 / content-12'
               }}
               size='md'
-              borderColor='base.200a'
+              borderColor='basi.200a'
             />
             <Box
               gridColumn={{
@@ -87,7 +87,7 @@ export default function PeoplePage(
               </Heading>
 
               <Hug
-                as={OrderedList}
+                as={ListRoot}
                 listStyleType='none'
                 hugGrid={{
                   base: ['content-start', 'content-end'],
@@ -106,7 +106,7 @@ export default function PeoplePage(
                       gridColumn='1/-1'
                       _notFirst={{
                         borderTop: '4px solid',
-                        borderTopColor: 'base.200a',
+                        borderTopColor: 'basi.200a',
                         pt: { base: 4, md: 8, lg: 10 }
                       }}
                     >
@@ -128,14 +128,14 @@ export default function PeoplePage(
           </>
         )}
 
-        <Divider
+        <Separator
           gridColumn={{
             base: 'content-start / content-end',
             md: 'content-2 / content-8',
             lg: 'content-2 / content-12'
           }}
           size='sm'
-          borderColor='base.200a'
+          borderColor='basi.200a'
         />
 
         <Flex
@@ -146,15 +146,15 @@ export default function PeoplePage(
           }}
         >
           <Button
-            as={SmartLink}
-            noLinkStyles
-            to={`/${editionCId}/speakers`}
+            asChild
             variant='solid'
-            colorScheme='primary'
+            colorPalette='primary'
             size={{ base: 'md', md: 'lg' }}
-            leftIcon={<CollecticonLayoutGrid3x3 />}
           >
-            View all speakers
+            <SmartLink to={`/${editionCId}/speakers`} unstyled>
+              <CollecticonLayoutGrid3X3 />
+              View all speakers
+            </SmartLink>
           </Button>
         </Flex>
       </Hug>

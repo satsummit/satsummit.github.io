@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, PageProps, type HeadFC } from 'gatsby';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import { Button, Flex, Heading, List, ListItem } from '@chakra-ui/react';
+import { Button, Flex, Heading, List } from '@chakra-ui/react';
 
 import { useFuturePastEditions } from '$utils/use-future-past-edition';
 import { utcString2userTzDate } from '$utils/date';
@@ -73,24 +73,19 @@ export default function IndexPage(props: PageProps<PageQuery>) {
           gridColumn='content-start/content-end'
         >
           <Heading size='2xl'>Editions</Heading>
-          <Button
-            as={SmartLink}
-            to='/editions'
-            variant='solid'
-            colorScheme='primary'
-            size={{ base: 'sm', lg: 'md' }}
-          >
-            View all
+          <Button asChild variant='solid' colorPalette='primary' size={{ base: 'sm', lg: 'md' }}>
+            <SmartLink to='/editions'>View all</SmartLink>
           </Button>
         </Flex>
-        <List
+        <List.Root
+          listStyleType='none'
           display='grid'
           gap={{ base: 4, md: 8 }}
           gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
           gridColumn='content-start/content-end'
         >
           {future.map((edition) => (
-            <ListItem key={edition.cId} pos='relative'>
+            <List.Item key={edition.cId} pos='relative'>
               <EditionCard
                 title={edition.name}
                 url={`/${edition.cId}`}
@@ -100,19 +95,19 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               <ItemMarker pos='absolute' top='2rem' left='-1rem'>
                 Coming up next
               </ItemMarker>
-            </ListItem>
+            </List.Item>
           ))}
           {past.map((edition) => (
-            <ListItem key={edition.cId}>
+            <List.Item key={edition.cId}>
               <EditionCard
                 title={edition.name}
                 url={`/${edition.cId}`}
                 dates={edition.dates?.map(utcString2userTzDate) || []}
                 image={getImage(edition.card?.src)}
               />
-            </ListItem>
+            </List.Item>
           ))}
-        </List>
+        </List.Root>
         <UpdatesFold updates={allUpdates.nodes} />
       </Hug>
     </PageLayout>

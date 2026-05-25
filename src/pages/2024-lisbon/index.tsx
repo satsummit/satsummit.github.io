@@ -97,8 +97,10 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
             </Text>
             <Button
               as='a'
+              // @ts-expect-error types from "a" not propagating properly
               href='#newsletter-fold'
-              colorScheme='primary'
+              variant='solid'
+              colorPalette='primary'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >
@@ -241,13 +243,12 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
               <strong>SatSummit</strong>.
             </Text>
             <Button
-              as={SmartLink}
-              to='/updates'
-              colorScheme='primary'
+              asChild
+              colorPalette='primary'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >
-              View updates
+              <SmartLink to='/updates'>View updates</SmartLink>
             </Button>
           </Flex>
         </ChakraFade>

@@ -37,9 +37,9 @@ export default function HomeHero() {
           textTransform='uppercase'
           display='inline-flex'
           flexFlow='column'
-          color='base.500'
+          color='basi.500'
           mt={{ base: '0', md: '-3rem', lg: '0' }}
-          sx={{
+          css={{
             '> *': {
               mt: { base: '-1rem', md: '-1rem' }
             }
@@ -98,7 +98,7 @@ export default function HomeHero() {
             content: '""',
             width: '1.5rem',
             height: '1rem',
-            background: 'base.500',
+            background: 'basi.500',
             clipPath: {
               base: 'polygon(100% 0, 0% 100%, 100% 100%)',
               sm: 'polygon(0 0, 0% 100%, 100% 100%)',
@@ -111,7 +111,7 @@ export default function HomeHero() {
           <Box
             as='span'
             display='block'
-            bg='base.500'
+            bg='basi.500'
             color='surface.500'
             p='4'
           >
