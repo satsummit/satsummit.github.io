@@ -61,9 +61,10 @@ They are defined using a yaml file in `content/editions` with the name `<year>-<
 | name                | Name of the edition. Usually `<location> <short year>` (Ex: `Washington '24`).             |
 | dates[]             | List of dates for the event.                                                               |
 | card.src            | Relative url for the image to use in the edition card.                                     |
-| navigation          | List of menu items for this edition. This controls what navigation is shown on the header. |
-| navigation[].title  | Title of the menu link.                                                                    |
-| navigation[].url    | Url for the menu link. Can be internal or external.                                        |
+| navigation              | List of menu items for this edition. This controls what navigation is shown on the header. |
+| navigation[].title      | Title of the menu link.                                                                    |
+| navigation[].url        | Url for the menu link. Can be internal or external.                                        |
+| navigation[].comingSoon | When `true`, the link is shown with a "Coming Soon" badge and is not clickable.            |
 | agenda.status       | One of `draft` or `final`\nControls the display of a coming soon informational message.    |
 | tickets             | Settings of this edition's tickets in the ticket page:                                     |
 | tickets.url         | Url to the platform where the tickets can be purchased.                                    |
