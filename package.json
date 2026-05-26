@@ -25,7 +25,7 @@
   "scripts": {
     "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -p $(node port.js) -H 0.0.0.0",
     "start": "gatsby develop",
-    "build": "node people-avatar-process.mjs && NODE_OPTIONS=--max-old-space-size=8192 gatsby build",
+    "build": "node people-avatar-process.mjs && NODE_OPTIONS=--max-old-space-size=8192 gatsby build && git checkout content/people/*/media",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "ts-check": "tsc --noEmit",

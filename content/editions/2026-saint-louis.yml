@@ -5,7 +5,7 @@ dates:
 format:
   event_time: hh:mmaaa
 card:
-  src: ./2026-saint-louis-card.png
+  src: ../../src/images/editions/external-edition.jpg
 navigation:
   - title: Agenda
     url: /2026-saint-louis/agenda

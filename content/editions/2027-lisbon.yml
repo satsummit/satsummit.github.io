@@ -5,7 +5,7 @@ dates:
 format:
   event_time: HH:mm
 card:
-  src: ./2027-lisbon-card.png
+  src: ../../src/images/editions/external-edition.jpg
 navigation:
   - title: Agenda
     url: /2027-lisbon/agenda
