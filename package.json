@@ -24,7 +24,6 @@
   },
   "scripts": {
     "develop": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -p $(node port.js) -H 0.0.0.0",
-    "start": "gatsby develop",
     "build": "node people-avatar-process.mjs && NODE_OPTIONS=--max-old-space-size=8192 gatsby build && git checkout content/people/*/media",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -47,7 +46,7 @@
     "@types/mdx": "^2.0.12",
     "date-fns": "^4.0.0",
     "framer-motion": "^12.0.0",
-    "gatsby": "5.18.0-react19.1",
+    "gatsby": "^5.16.1",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-google-gtag": "^5.13.1",

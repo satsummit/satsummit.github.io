@@ -37,13 +37,16 @@ This assumes that you already cloned the repository.
 npm install
 ```
 
+> [!WARNING]
+> If the installation fails due to peer dependency errors, use `npm install --force` to bypass the peer dependency check. This happens because some dependencies do not accept React 19, even though they work without issues.
+
 > [!IMPORTANT]
 > On Apple Silicon M1, you need to [install libvips first](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241). 
 
 3.  **Start developing.**
 
 ```shell
-npm start
+npm develop
 ```
 
 4.  **Open the source code and start editing!**
@@ -57,7 +60,7 @@ Your site is now running at `http://localhost:9000`!
 
 | Script | Description |
 | --- | --- |
-| `npm start` | Start the development server. |
+| `npm develop` | Start the development server. |
 | `npm run build` | Build the site for production. |
 | `npm run serve` | Serve the production build locally. |
 | `npm run clean` | Clear Gatsby's cache. |
