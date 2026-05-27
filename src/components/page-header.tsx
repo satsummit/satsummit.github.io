@@ -64,13 +64,13 @@ export default function PageHeader() {
   }, [isLargerThanMenuBreakpoint, onClose]);
 
   return (
-    <Box
-      as='header'
-      bg='primary.500'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '12' }}
-    >
-      <Container maxW='7xl' color='white' p='0'>
+    <Box as='header' bg='primary.500'>
+      <Container
+        maxW='7xl'
+        color='white'
+        px={{ base: '4', md: '8' }}
+        py={{ base: '8', lg: '12' }}
+      >
         <Flex alignItems='center'>
           <Flex alignItems='center' gap={6}>
             <Brand variation='negative' />
@@ -136,9 +136,7 @@ export default function PageHeader() {
         onOpenChange={({ open: o }: { open: boolean }) => !o && onClose()}
       >
         <Drawer.Backdrop />
-        {/* @ts-expect-error something weird with the types */}
         <Drawer.Positioner>
-          {/* @ts-expect-error something weird with the types */}
           <Drawer.Content>
             <Drawer.Header
               display='flex'

@@ -9,7 +9,8 @@ import {
   type InputProps,
   Text,
   Field,
-  FieldLabelProps
+  FieldLabelProps,
+  Container
 } from '@chakra-ui/react';
 
 import { Fold } from './fold';
@@ -126,13 +127,16 @@ export function Newsletter() {
     <Flex
       as='section'
       bg='basi.50'
-      px={{ base: '4', md: '8' }}
       pt={{ base: '8', lg: '16' }}
       flexFlow='column'
       gap={{ base: '8', lg: '16' }}
       id='newsletter-fold'
     >
-      <Fold rowGap={{ base: '4', lg: '8' }} w='100%'>
+      <Fold
+        rowGap={{ base: '4', lg: '8' }}
+        w='100%'
+        px={{ base: '4', md: '8' }}
+      >
         <Heading as='h2' size='2xl' gridColumn='1/-1'>
           Get the newsletter
         </Heading>
@@ -249,13 +253,9 @@ export function Newsletter() {
           </>
         )}
       </Fold>
-      <Separator
-        borderColor='basi.200a'
-        size='md'
-        maxW='7xl'
-        m='auto'
-        width='100%'
-      />
+      <Container maxW='7xl' px={{ base: '4', md: '8' }}>
+        <Separator borderColor='basi.200a' size='md' m='auto' width='100%' />
+      </Container>
     </Flex>
   );
 }

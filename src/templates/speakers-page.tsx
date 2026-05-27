@@ -55,7 +55,7 @@ export default function PeoplePage(
           gridColumn={{
             base: 'content-start / content-end',
             md: 'content-2 / content-8',
-            lg: 'content-2 / content-12'
+            lg: 'content-3 / content-11'
           }}
         >
           <Heading as='h2' size='2xl'>
@@ -70,7 +70,7 @@ export default function PeoplePage(
               gridColumn={{
                 base: 'content-start / content-end',
                 md: 'content-2 / content-8',
-                lg: 'content-2 / content-12'
+                lg: 'content-3 / content-11'
               }}
               size='md'
               borderColor='basi.200a'
@@ -79,7 +79,7 @@ export default function PeoplePage(
               gridColumn={{
                 base: 'content-start / content-end',
                 md: 'content-2 / content-8',
-                lg: 'content-2 / content-11'
+                lg: 'content-3 / content-11'
               }}
             >
               <Heading as='h2' size='2xl' mb={4}>
@@ -92,7 +92,7 @@ export default function PeoplePage(
                 hugGrid={{
                   base: ['content-start', 'content-end'],
                   md: ['content-2', 'content-8'],
-                  lg: ['content-2', 'content-11']
+                  lg: ['content-3', 'content-11']
                 }}
                 display='flex'
                 flexFlow='column nowrap'
@@ -132,7 +132,7 @@ export default function PeoplePage(
           gridColumn={{
             base: 'content-start / content-end',
             md: 'content-2 / content-8',
-            lg: 'content-2 / content-12'
+            lg: 'content-3 / content-11'
           }}
           size='sm'
           borderColor='basi.200a'
@@ -142,7 +142,7 @@ export default function PeoplePage(
           gridColumn={{
             base: 'content-start / content-end',
             md: 'content-2 / content-8',
-            lg: 'content-2 / content-12'
+            lg: 'content-3 / content-11'
           }}
         >
           <Button

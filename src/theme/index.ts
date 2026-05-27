@@ -189,7 +189,7 @@ const config = defineConfig({
       separator: separatorRecipe,
       hug: {
         base: {
-          maxW: '1344px',
+          maxW: '7xl',
           gap: {
             lg: 8
           }

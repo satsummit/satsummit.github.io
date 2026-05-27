@@ -15,8 +15,7 @@ import SmartLink from './smart-link';
 import { useEditionContext } from '$context/edition';
 
 interface PageHeroProps
-  extends PageHeroHeadlineProps,
-    Omit<PageHeroFoundationProps, 'children'> {
+  extends PageHeroHeadlineProps, Omit<PageHeroFoundationProps, 'children'> {
   lead?: string;
 }
 
@@ -49,8 +48,6 @@ export function PageHeroFoundation(props: PageHeroFoundationProps) {
   return (
     <Box
       background='primary.500'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '16' }}
       position='relative'
       {...props.wrapperProps}
       _after={{
@@ -68,7 +65,8 @@ export function PageHeroFoundation(props: PageHeroFoundationProps) {
         color='white'
         display='flex'
         alignItems='center'
-        p='0'
+        px={{ base: '4', md: '8' }}
+        py={{ base: '8', lg: '16' }}
         {...props.innerProps}
       >
         {props.children}

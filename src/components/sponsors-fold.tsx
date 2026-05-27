@@ -5,7 +5,8 @@ import {
   Heading,
   ListRoot,
   ListItem,
-  VisuallyHidden
+  VisuallyHidden,
+  Container
 } from '@chakra-ui/react';
 import { Fold } from './fold';
 import SmartLink from './smart-link';
@@ -41,12 +42,11 @@ export default function SponsorsFold() {
     <Flex
       as='section'
       bg='basi.50'
-      px={{ base: '4', md: '8' }}
       pt={{ base: '8', lg: '16' }}
       flexFlow='column'
       gap={{ base: '8', lg: '16' }}
     >
-      <Fold rowGap={{ base: '4', lg: '8' }}>
+      <Fold rowGap={{ base: '4', lg: '8' }} px={{ base: '4', md: '8' }}>
         <Heading as='h2' size='2xl' gridColumn='1/-1'>
           Sponsors
         </Heading>
@@ -119,13 +119,10 @@ export default function SponsorsFold() {
           );
         })}
       </Fold>
-      <Separator
-        borderColor='basi.200a'
-        size='md'
-        maxW='7xl'
-        m='auto'
-        w='100%'
-      />
+
+      <Container maxW='7xl' px={{ base: '4', md: '8' }}>
+        <Separator borderColor='basi.200a' size='md' m='auto' width='100%' />
+      </Container>
     </Flex>
   );
 }

@@ -20,13 +20,8 @@ function FooterBlock(props: FlexProps) {
 
 export default function PageFooter() {
   return (
-    <Box
-      as='footer'
-      bg='basi.50'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '16' }}
-    >
-      <Fold rowGap={{ base: '6', md: '8' }}>
+    <Box as='footer' bg='basi.50' py={{ base: '8', lg: '16' }}>
+      <Fold rowGap={{ base: '6', md: '8' }} px={{ base: '4', md: '8' }}>
         <GlobalFooterNavigation />
         <FooterBlock
           gridColumn={{
