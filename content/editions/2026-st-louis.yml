@@ -1,4 +1,4 @@
-name: Saint Louis '26
+name: St Louis '26
 dates:
   - '2026-11-16'
   - '2026-11-17'
@@ -8,13 +8,13 @@ card:
   src: ../../src/images/editions/external-edition.jpg
 navigation:
   - title: Agenda
-    url: /2026-saint-louis/agenda
+    url: /2026-st-louis/agenda
     comingSoon: true
   - title: Speakers
-    url: /2026-saint-louis/speakers
+    url: /2026-st-louis/speakers
     comingSoon: true
   - title: Practical info
-    url: /2026-saint-louis/practical-info
+    url: /2026-st-louis/practical-info
     comingSoon: true
 agenda:
   status: draft # draft final

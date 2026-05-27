@@ -65,7 +65,7 @@ export default function HomeHero() {
               zIndex: '-1'
             }}
           >
-            Saint Louis &apos;26
+            ST Louis &apos;26
           </Text>
         </Heading>
       </Flex>
