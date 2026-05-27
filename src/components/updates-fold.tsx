@@ -45,7 +45,7 @@ export function UpdatesFold(props: UpdatesFoldProps) {
         justifyContent='space-between'
         gridColumn='content-start/content-end'
       >
-        <Heading size='lg'>Updates</Heading>
+        <Heading size='2xl'>Updates</Heading>
         <Button asChild variant='solid' colorPalette='primary'>
           <SmartLink to='/updates'>View all</SmartLink>
         </Button>
