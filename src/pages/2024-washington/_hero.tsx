@@ -39,7 +39,7 @@ export default function HomeHero() {
           flexFlow='column'
           color='basi.500'
           css={{
-            '> *': {
+            '& > *': {
               lineHeight: { base: '0.875', md: '1' }
             }
           }}

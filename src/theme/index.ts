@@ -14,7 +14,7 @@ const lineHeight = 'calc(0.5rem + 1em)';
 const headingRecipe = defineRecipe({
   base: {
     fontWeight: '600',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
   },
   variants: {
     size: {
@@ -48,7 +48,8 @@ const headingRecipe = defineRecipe({
       },
       '4xl': {
         fontSize: { base: '4xl', lg: '5xl' },
-        lineHeight
+        lineHeight,
+        letterSpacing: '0'
       }
     }
   }
@@ -58,7 +59,8 @@ const buttonRecipe = defineRecipe({
   base: {
     textTransform: 'uppercase',
     borderRadius: 'xs',
-    fontFamily: 'heading'
+    fontFamily: 'heading',
+    fontWeight: '600'
   },
   variants: {
     size: {

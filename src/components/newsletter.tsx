@@ -52,7 +52,13 @@ const FormLabelStyled = (props: FieldLabelProps) => (
 );
 
 const InputStyled = (props: InputProps) => (
-  <Input bg='white' borderRadius='xs' borderWidth='2px' {...props} />
+  <Input
+    bg='white'
+    borderRadius='xs'
+    borderWidth='2px'
+    fontSize='md'
+    {...props}
+  />
 );
 
 export function Newsletter() {
@@ -193,7 +199,9 @@ export function Newsletter() {
                   invalid={!!formErrors.email}
                   gap={2}
                 >
-                  <FormLabelStyled>Email</FormLabelStyled>
+                  <FormLabelStyled>
+                    Email <Field.RequiredIndicator />
+                  </FormLabelStyled>
                   <InputStyled
                     placeholder='Email'
                     value={formValues.email}

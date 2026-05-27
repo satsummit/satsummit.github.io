@@ -4912,6 +4912,20 @@ type Home2024LxQueryVariables = Exact<{
 
 type Home2024LxQuery = { readonly featuredEditionUpdates: ReadonlyArray<{ readonly title: string, readonly date: string | null, readonly slug: string, readonly id: string, readonly description: string | null, readonly tags: ReadonlyArray<string> | null, readonly ago: string | null, readonly cover: { readonly src: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } } | null, readonly editions: ReadonlyArray<{ readonly edition: { readonly name: string } }> | null, readonly parent: { readonly excerpt: string | null } | {} | null }> | null, readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null };
 
+type Home2026StLouisQueryVariables = Exact<{
+  editionCId?: InputMaybe<Scalars['String']>;
+}>;
+
+
+type Home2026StLouisQuery = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null };
+
+type Home2027LxQueryVariables = Exact<{
+  editionCId?: InputMaybe<Scalars['String']>;
+}>;
+
+
+type Home2027LxQuery = { readonly sponsors: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly slug: string, readonly url: string | null, readonly groupInEdition: string | null, readonly image: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null }> }, readonly edition: { readonly cId: string, readonly name: string, readonly navigation: ReadonlyArray<{ readonly title: string, readonly url: string | null, readonly comingSoon: boolean | null }> | null, readonly agenda: { readonly status: string | null } | null, readonly format: { readonly event_time: string | null } | null } | null };
+
 type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 

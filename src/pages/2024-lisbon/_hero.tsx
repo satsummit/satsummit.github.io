@@ -40,7 +40,7 @@ export default function HomeHero() {
           color='basi.500'
           mt={{ base: '0', md: '-3rem', lg: '0' }}
           css={{
-            '> *': {
+            '& > *': {
               mt: { base: '-1rem', md: '-1rem' }
             }
           }}
