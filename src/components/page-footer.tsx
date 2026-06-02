@@ -80,16 +80,7 @@ export default function PageFooter() {
               color='primary.500'
             >
               Development Seed
-            </SmartLink>{' '}
-            and{' '}
-            <SmartLink
-              to='https://dev.global/'
-              fontWeight='bold'
-              color='primary.500'
-            >
-              DevGlobal
-            </SmartLink>
-            .
+            </SmartLink>.
           </Text>
           <Text fontSize='xs'>&copy; 2015-{new Date().getFullYear()}</Text>
         </FooterBlock>
