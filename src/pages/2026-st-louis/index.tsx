@@ -40,8 +40,11 @@ export default function IndexPage(
         </Text>
         <Text>
           Interested in supporting the event? Sponsorship opportunities are now
-          available — <A to='mailto:info@satsummit.io'>get in touch</A> to learn
-          more about partnering with SatSummit St. Louis.
+          available — Check out the <A to='/2026-st-louis-sponsor-prospectus.pdf'>
+            prospectus
+          </A> and{' '}
+          <A to='mailto:info@satsummit.io'>get in touch</A> to learn more about
+          partnering with SatSummit St. Louis.
         </Text>
       </Stack>
     </PageLayout>
