@@ -1,13 +1,6 @@
 import React from 'react';
 import { getImage, IGatsbyImageData } from 'gatsby-plugin-image';
-import {
-  Button,
-  Divider,
-  Flex,
-  Heading,
-  List,
-  ListItem
-} from '@chakra-ui/react';
+import { Button, Separator, Flex, Heading, List } from '@chakra-ui/react';
 
 import SmartLink from '$components/smart-link';
 import { UpdatesCard } from '$components/updates/updates-card';
@@ -20,7 +13,7 @@ interface UpdatesFoldProps {
     slug: string;
     id: string;
     description: string;
-    tags: string[]
+    tags: string[];
     cover: {
       src: IGatsbyImageData;
     };
@@ -42,8 +35,8 @@ export function UpdatesFold(props: UpdatesFoldProps) {
 
   return (
     <>
-      <Divider
-        borderColor='base.200a'
+      <Separator
+        borderColor='basi.200a'
         size='sm'
         orientation='horizontal'
         gridColumn='content-start/content-end'
@@ -52,18 +45,14 @@ export function UpdatesFold(props: UpdatesFoldProps) {
         justifyContent='space-between'
         gridColumn='content-start/content-end'
       >
-        <Heading size='lg'>Updates</Heading>
-        <Button
-          as={SmartLink}
-          to='/updates'
-          variant='solid'
-          colorScheme='primary'
-        >
-          View all
+        <Heading size='2xl'>Updates</Heading>
+        <Button asChild variant='solid' colorPalette='primary'>
+          <SmartLink to='/updates'>View all</SmartLink>
         </Button>
       </Flex>
 
-      <List
+      <List.Root
+        unstyled
         gridColumn='content-start/content-end'
         display='grid'
         gap={{ base: 4, md: 8 }}
@@ -74,7 +63,7 @@ export function UpdatesFold(props: UpdatesFoldProps) {
         }}
       >
         {updates.map((update) => (
-          <ListItem key={update.id}>
+          <List.Item key={update.id}>
             <UpdatesCard
               slug={update.slug}
               title={update.title}
@@ -86,9 +75,9 @@ export function UpdatesFold(props: UpdatesFoldProps) {
               tags={update.tags || []}
               cover={getImage(update.cover?.src as unknown as IGatsbyImageData)}
             />
-          </ListItem>
+          </List.Item>
         ))}
-      </List>
+      </List.Root>
     </>
   );
 }

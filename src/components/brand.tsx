@@ -1,7 +1,9 @@
 import React from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import { Heading, Text, Link as ChLink } from '@chakra-ui/react';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Heading, Text } from '@chakra-ui/react';
 import LogoMark from './logo-mark';
+import SmartLink from './smart-link';
+
 
 interface BrandProps {
   variation?: 'positive' | 'negative';
@@ -25,10 +27,9 @@ export default function Brand(props: BrandProps) {
       as='strong'
       size='md'
       display='inline-flex'
-      color={variation === 'positive' ? 'base.500' : 'surface.500'}
+      color={variation === 'positive' ? 'basi.500' : 'surface.500'}
     >
-      <ChLink
-        as={Link}
+      <SmartLink
         to='/'
         display='inline-flex'
         alignItems='center'
@@ -44,7 +45,7 @@ export default function Brand(props: BrandProps) {
         <Text as='span' display='inline-flex' alignItems='center' gap='1'>
           <Text as='span'>{data.site.siteMetadata.title}</Text>
         </Text>
-      </ChLink>
+      </SmartLink>
     </Heading>
   );
 }

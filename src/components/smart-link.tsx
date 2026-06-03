@@ -1,31 +1,43 @@
-import React from 'react';
-import { Link as ChLink, LinkProps, chakra } from '@chakra-ui/react';
+import React, { MouseEvent, useMemo } from 'react';
 import { Link } from 'gatsby';
+import { Link as ChLink, LinkProps } from '@chakra-ui/react';
 
 export interface SmartLinkProps extends LinkProps {
   to: string;
-  /**
-   * If true, the link will not have any default styles applied. Otherwise
-   * Chakra's Link default styles will be applied.
-   * 
-   * Useful when using as "as" prop in other components.
-   */
-  noLinkStyles?: boolean;
+  ref?: React.Ref<HTMLAnchorElement>;
+  noLinkTrigger?: boolean;
 }
 
-export default React.forwardRef<HTMLLinkElement, SmartLinkProps>(
-  function SmartLink(props, ref) {
-    const { to, noLinkStyles, ...rest } = props;
+export default function SmartLink(props: SmartLinkProps) {
+  const { to, ref, children, noLinkTrigger, onClick, ...rest } = props;
 
-    const isExternal =
-      !!to.match(/^(https?:)?\/\//) || !!to.match(/^(mailto|tel):/);
+  const isExternal = to.match(/^(https?:)?\/\//) || to.match(/^(mailto|tel):/);
 
-    const Cmp = noLinkStyles ? chakra.a : ChLink;
+  const css = {
+    '&[type="button"]:hover': {
+      textDecoration: 'none'
+    }
+  };
 
-    return isExternal ? (
-      <Cmp ref={ref} href={to} {...rest} />
-    ) : (
-      <Cmp ref={ref} as={Link} to={to} {...rest} />
-    );
-  }
-);
+  const onClickHandler = useMemo(() => {
+    if (noLinkTrigger) {
+      return (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        e.defaultPrevented = true;
+        onClick?.(e);
+      };
+    }
+
+    return onClick;
+  }, [noLinkTrigger, onClick]);
+
+  return isExternal ? (
+    <ChLink ref={ref} href={to} css={css} onClick={onClickHandler} {...rest}>
+      {children}
+    </ChLink>
+  ) : (
+    <ChLink ref={ref} asChild css={css} onClick={onClickHandler} {...rest}>
+      <Link to={to}>{children}</Link>
+    </ChLink>
+  );
+}

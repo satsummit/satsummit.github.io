@@ -33,7 +33,7 @@ export function LinkedSpeaker(props: { name: string }) {
   const prefix = editionCId ? `/${editionCId}` : '';
 
   return (
-    <SmartLink to={`${prefix}/speakers/${person.slug}`}>
+    <SmartLink to={`${prefix}/speakers/${person.slug}`} color='primary.500'>
       <strong>{person.title}</strong>
     </SmartLink>
   );

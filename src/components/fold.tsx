@@ -12,9 +12,9 @@ export function Fold(props: SimpleGridProps) {
   return (
     <SimpleGrid
       columns={{ base: 4, md: 8, lg: 12 }}
-      spacingX={{ base: '4', lg: '8' }}
-      spacingY={{ base: '4', lg: '8' }}
-      maxW='container.xl'
+      columnGap={{ base: '4', lg: '8' }}
+      rowGap={{ base: '4', lg: '8' }}
+      maxW='7xl'
       mx='auto'
       {...props}
     />
@@ -26,5 +26,5 @@ export function FoldProse(props: FlexProps) {
 }
 
 export function FoldMedia(props: BoxProps) {
-  return <Box borderRadius='sm' overflow='hidden' {...props} />;
+  return <Box borderRadius='xs' overflow='hidden' {...props} />;
 }

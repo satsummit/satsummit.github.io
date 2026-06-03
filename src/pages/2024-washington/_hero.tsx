@@ -37,9 +37,9 @@ export default function HomeHero() {
           textTransform='uppercase'
           display='inline-flex'
           flexFlow='column'
-          color='base.500'
-          sx={{
-            '> *': {
+          color='basi.500'
+          css={{
+            '& > *': {
               lineHeight: { base: '0.875', md: '1' }
             }
           }}
@@ -81,7 +81,7 @@ export default function HomeHero() {
           </Text>
         </Heading>
         <Box
-          bg='base.500'
+          bg='basi.500'
           color='white'
           position='absolute'
           bottom={{ base: '-5rem', md: '-5rem', lg: '3.5rem' }}
@@ -94,7 +94,7 @@ export default function HomeHero() {
             content: '""',
             width: '1.5rem',
             height: '1rem',
-            background: 'base.500',
+            background: 'basi.500',
             top: { lg: '100%' },
             left: { base: '0', lg: 'auto' },
             right: { lg: '0' },

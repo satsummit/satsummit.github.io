@@ -1,18 +1,7 @@
 import React from 'react';
 import { PageProps, graphql, type HeadFC } from 'gatsby';
-import {
-  getImage,
-  IGatsbyImageData,
-  StaticImage
-} from 'gatsby-plugin-image';
-import {
-  Container,
-  Divider,
-  Heading,
-  List,
-  ListItem,
-} from '@chakra-ui/react';
-
+import { getImage, IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import { Container, Separator, Heading, List } from '@chakra-ui/react';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
@@ -48,49 +37,55 @@ export default function IndexPage(props: PageProps<PageQuery>) {
 
   return (
     <PageLayout>
-      <PageHero
-        title='Editions'
-        lead={PAGE_DESCRIPTION}
-      />
+      <PageHero title='Editions' lead={PAGE_DESCRIPTION} />
       <Container
         py={{ base: '8', lg: '16' }}
         px={{ base: '4', md: '8' }}
-        maxW='container.xl'
+        maxW='7xl'
         display='flex'
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
-        <Heading size='2xl'>Upcoming</Heading>
-        <List display='flex' flexDir='column' gap={4}>
-          {future.map((edition) => (
-            <ListItem key={edition.cId}>
-              <EditionCard
-                title={edition.name}
-                url={`/${edition.cId}`}
-                dates={edition.dates?.map(utcString2userTzDate) || []}
-                image={getImage(edition.card?.src)}
-              />
-            </ListItem>
-          ))}
-        </List>
-        <Divider borderColor='base.200a' size='md' orientation='horizontal' />
+        {future.length > 0 && (
+          <>
+            <Heading size='2xl'>Upcoming</Heading>
+            <List.Root unstyled display='flex' flexDir='column' gap={4}>
+              {future.map((edition) => (
+                <List.Item key={edition.cId}>
+                  <EditionCard
+                    title={edition.name}
+                    url={`/${edition.cId}`}
+                    dates={edition.dates?.map(utcString2userTzDate) || []}
+                    image={getImage(edition.card?.src)}
+                  />
+                </List.Item>
+              ))}
+            </List.Root>
+            <Separator
+              borderColor='basi.200a'
+              size='md'
+              orientation='horizontal'
+            />
+          </>
+        )}
         <Heading size='2xl'>Past</Heading>
-        <List
+        <List.Root
+          unstyled
           display='grid'
           gap={{ base: 4, md: 8 }}
           gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
         >
           {past.map((edition) => (
-            <ListItem key={edition.cId}>
+            <List.Item key={edition.cId}>
               <EditionCard
                 title={edition.name}
                 url={`/${edition.cId}`}
                 dates={edition.dates?.map(utcString2userTzDate) || []}
                 image={getImage(edition.card?.src)}
               />
-            </ListItem>
+            </List.Item>
           ))}
-          <ListItem>
+          <List.Item>
             <EditionCard
               title={`Washington DC '22`}
               url='https://2022.satsummit.io/'
@@ -106,8 +101,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               }
               isExternal
             />
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <EditionCard
               title={`Washington DC '18`}
               url='https://2018.satsummit.io/'
@@ -123,8 +118,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               }
               isExternal
             />
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <EditionCard
               title={`Washington DC '17`}
               url='https://2017.satsummit.io/'
@@ -137,8 +132,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               }
               isExternal
             />
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <EditionCard
               title={`Washington DC '15`}
               url='https://2015.satsummit.io/'
@@ -151,8 +146,8 @@ export default function IndexPage(props: PageProps<PageQuery>) {
               }
               isExternal
             />
-          </ListItem>
-        </List>
+          </List.Item>
+        </List.Root>
       </Container>
     </PageLayout>
   );
@@ -168,10 +163,7 @@ export const pageQuery = graphql`
         card {
           src {
             childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-              )
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }
@@ -180,4 +172,6 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <Seo title='Editions' description={PAGE_DESCRIPTION} />;
+export const Head: HeadFC = () => (
+  <Seo title='Editions' description={PAGE_DESCRIPTION} />
+);

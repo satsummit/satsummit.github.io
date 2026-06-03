@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { ElementType, Fragment } from 'react';
 import {
-  As,
   Box,
-  Divider,
+  Separator,
   Flex,
   Grid,
   Heading,
@@ -22,7 +21,7 @@ import { useEditionCId, useEditionContext } from '$context/edition';
 export const EVENT_DISPLAY_DURATION = 640;
 
 // Get the Heading tag.
-const hl = (l: number) => (l > 0 ? (`h${l}` as As) : undefined);
+const hl = (l: number) => (l > 0 ? (`h${l}` as ElementType) : undefined);
 
 interface AgendaEventProps {
   cId: string;
@@ -73,7 +72,7 @@ export function AgendaEvent(props: AgendaEventProps) {
       <Flex pos='relative' align='flex-end' gap={4}>
         <Flex flexDir='column'>
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
-            <SmartLink to={`${eventBaseLink}#${cId}`}>{title}</SmartLink>
+            <SmartLink to={`${eventBaseLink}#${cId}`} color='primary.500'>{title}</SmartLink>
           </Heading>
           <Heading
             as='div'
@@ -86,16 +85,16 @@ export function AgendaEvent(props: AgendaEventProps) {
             <DateWrapper>
               {format(dateObj, `MMM. dd ''yy`)},{' '}
               {format(dateObj, edition?.format?.event_time || 'HH:mm')}{' '}
-              <Divider
-                borderColor='base.200a'
+              <Separator
+                borderColor='basi.200a'
                 size='xs'
                 h='5'
                 orientation='vertical'
               />
             </DateWrapper>
             {type}{' '}
-            <Divider
-              borderColor='base.200a'
+            <Separator
+              borderColor='basi.200a'
               size='xs'
               h='5'
               orientation='vertical'
@@ -107,7 +106,7 @@ export function AgendaEvent(props: AgendaEventProps) {
       {!eventMDXContent.empty && (
         <Box>
           <MDXProse
-            sx={{
+            css={{
               '& >:first-child': { mt: '0 !important' },
               '& >:last-child': { mb: '0 !important' }
             }}

@@ -5,7 +5,7 @@ export function ItemMarker(props: BoxProps) {
   const { children, ...rest } = props;
   return (
     <Box
-      bg='base.500'
+      bg='basi.500'
       color='white'
       p='2'
       _after={{
@@ -13,7 +13,7 @@ export function ItemMarker(props: BoxProps) {
         content: '""',
         width: '1rem',
         height: '0.75rem',
-        background: 'base.500',
+        background: 'basi.500',
         top: '100%',
         left: '0',
         right: 'auto',

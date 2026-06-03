@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, chakra, Flex, Text } from '@chakra-ui/react';
 import {
   GatsbyImage,
   IGatsbyImageData,
@@ -11,6 +11,8 @@ import SmartLink from '$components/smart-link';
 import { CollecticonBrandX } from '$components/icons/brand-x';
 import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
 import { useEditionCId } from '$context/edition';
+
+const ChakraGatsbyImage = chakra(GatsbyImage);
 
 interface SpeakerHeroProps {
   title: string;
@@ -34,12 +36,11 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
       }}
     >
       {image ? (
-        <Box
-          as={GatsbyImage}
+        <ChakraGatsbyImage
           image={image}
           alt={`Picture of ${title}`}
           objectFit='contain'
-          borderRadius='sm'
+          borderRadius='xs'
           overflow='hidden'
         />
       ) : (
@@ -64,10 +65,7 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
           />
           {pronouns && <> {pronouns}.</>}
         </Box>
-        <Text
-          textStyle={{ base: 'lead.md', md: 'lead.lg' }}
-          maxW='container.sm'
-        >
+        <Text textStyle={{ base: 'md', md: 'lg' }} maxW='2xl'>
           {role} at {company}.
         </Text>
 
@@ -75,32 +73,35 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
           <Flex gap={{ base: 2, md: 3, lg: 4 }}>
             {social.x && (
               <Button
-                as={SmartLink}
-                noLinkStyles
+                asChild
                 variant='soft-outline'
-                colorScheme='surface'
-                to={`https://twitter.com/${social.x}`}
-                leftIcon={<CollecticonBrandX />}
+                colorPalette='surface'
                 size={{ base: 'sm', lg: 'md' }}
               >
-                <Text as='span' maxW={24} isTruncated>
-                  @{social.x}
-                </Text>
+                <SmartLink to={`https://twitter.com/${social.x}`} unstyled>
+                  <CollecticonBrandX />
+                  <Text as='span' maxW={24} truncate>
+                    @{social.x}
+                  </Text>
+                </SmartLink>
               </Button>
             )}
             {social.linkedin && (
               <Button
-                as={SmartLink}
-                noLinkStyles
+                asChild
                 variant='soft-outline'
-                colorScheme='surface'
-                to={`https://www.linkedin.com/in/${social.linkedin}`}
-                leftIcon={<CollecticonBrandLinkedin />}
+                colorPalette='surface'
                 size={{ base: 'sm', lg: 'md' }}
               >
-                <Text as='span' maxW={24} isTruncated>
-                  {social.linkedin}
-                </Text>
+                <SmartLink
+                  to={`https://www.linkedin.com/in/${social.linkedin}`}
+                  unstyled
+                >
+                  <CollecticonBrandLinkedin />
+                  <Text as='span' maxW={24} truncate>
+                    {social.linkedin}
+                  </Text>
+                </SmartLink>
               </Button>
             )}
           </Flex>

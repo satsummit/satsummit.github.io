@@ -1,21 +1,17 @@
 import React, { cloneElement } from 'react';
-import {
-  LinkProps,
-  PlacementWithLogical,
-  Tooltip,
-  useBreakpointValue
-} from '@chakra-ui/react';
+import { useBreakpointValue } from '@chakra-ui/react';
 
-import { MENU_BRKPOINT } from '../@chakra-ui/gatsby-plugin/theme';
+import { MENU_BRKPOINT } from '../theme';
 import SmartLink, { SmartLinkProps } from './smart-link';
 import { visuallyDisableProps } from '$utils/utils';
+import { Tooltip } from './tooltip';
 
-export interface MenuLinkProps extends SmartLinkProps, LinkProps {
+export interface MenuLinkProps extends SmartLinkProps {
   showComingSoon?: boolean;
-  tooltipPos?: Record<string, PlacementWithLogical>;
+  tooltipPos?: Record<string, string>;
 }
 
-export default React.forwardRef<HTMLLinkElement, MenuLinkProps>(
+export default React.forwardRef<HTMLAnchorElement, MenuLinkProps>(
   function MenuLink(props, ref) {
     const {
       showComingSoon,
@@ -26,8 +22,9 @@ export default React.forwardRef<HTMLLinkElement, MenuLinkProps>(
       ...rest
     } = props;
 
-    const popoverPosition: PlacementWithLogical | undefined =
-      useBreakpointValue(tooltipPos, { fallback: 'bottom' });
+    const popoverPosition = useBreakpointValue(tooltipPos, {
+      fallback: 'base'
+    });
 
     const content = (
       <SmartLink
@@ -49,7 +46,14 @@ export default React.forwardRef<HTMLLinkElement, MenuLinkProps>(
     );
 
     return showComingSoon ? (
-      <Tooltip label='Coming soon' placement={popoverPosition} hasArrow>
+      <Tooltip
+        showArrow
+        content='Coming soon'
+        openDelay={200}
+        positioning={{
+          placement: popoverPosition as 'right' | 'bottom'
+        }}
+      >
         {cloneElement(content, { ...visuallyDisableProps() })}
       </Tooltip>
     ) : (

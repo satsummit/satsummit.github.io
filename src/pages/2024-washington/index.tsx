@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { Flex, Text, Heading, Button, Divider } from '@chakra-ui/react';
+import { Flex, Text, Heading, Button, Separator } from '@chakra-ui/react';
 import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
@@ -58,7 +58,7 @@ export default function IndexPage(props: PageProps) {
                 world&apos;s most critical development challenges with satellite
                 data.
               </Text>
-              <Divider borderColor='base.200a' size='md' />
+              <Separator borderColor='basi.200a' size='md' />
               <Heading size='2xl'>Stay Tuned</Heading>
               <Text>
                 From climate change to population growth to natural resource
@@ -71,8 +71,10 @@ export default function IndexPage(props: PageProps) {
               </Text>
               <Button
                 as='a'
+                // @ts-expect-error types from "a" not propagating properly
                 href='#newsletter-fold'
-                colorScheme='primary'
+                variant='solid'
+                colorPalette='primary'
                 alignSelf='start'
                 size={{ base: 'md', lg: 'lg' }}
               >

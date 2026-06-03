@@ -2,24 +2,23 @@ import React, { useCallback, useState } from 'react';
 import {
   Box,
   Button,
-  Divider,
+  Separator,
   Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  FormLabelProps,
   Heading,
   Input,
-  InputProps,
-  Text
+  type InputProps,
+  Text,
+  Field,
+  FieldLabelProps,
+  Container
 } from '@chakra-ui/react';
+
 import { Fold } from './fold';
 import { useEditionCId } from '$context/edition';
 
 const LEGITIMATE_INTEREST_CONSENT_TEXT =
   'By clicking subscribe, you consent to allow SatSummit to store and process the personal information submitted to provide you the content requested.';
 
-// Hubspot API
 const postToHubspot = async (data: object = {}) => {
   return fetch(
     'https://api.hsforms.com/submissions/v3/integration/submit/23425005/aca91298-766e-49df-bedb-64d07e7190d3',
@@ -32,16 +31,9 @@ const postToHubspot = async (data: object = {}) => {
         ...data,
         legalConsentOptions: {
           legitimateInterest: {
-            // This must be true when using the 'legitimateInterest' option, as it
-            // reflects the consent indicated by the visitor when submitting the form
             value: true,
-            // Integer; The ID of the specific subscription type that this forms
-            // indicates interest to.
             subscriptionTypeId: 999,
-            // String, one of CUSTOMER or LEAD; Whether this form indicates legitimate
-            // interest from a prospect/lead or from a client.
             legalBasis: 'CUSTOMER',
-            // String; The privacy text displayed to the visitor.
             text: LEGITIMATE_INTEREST_CONSENT_TEXT
           }
         }
@@ -50,17 +42,24 @@ const postToHubspot = async (data: object = {}) => {
   );
 };
 
-const FormLabelStyled = (props: FormLabelProps) => (
-  <FormLabel
+const FormLabelStyled = (props: FieldLabelProps) => (
+  <Field.Label
     fontWeight='600'
     textTransform='uppercase'
     fontFamily='Barlow Condensed, serif'
+    fontSize='md'
     {...props}
   />
 );
 
 const InputStyled = (props: InputProps) => (
-  <Input bg='white' borderRadius='sm' borderWidth='2px' {...props} />
+  <Input
+    bg='white'
+    borderRadius='xs'
+    borderWidth='2px'
+    fontSize='md'
+    {...props}
+  />
 );
 
 export function Newsletter() {
@@ -88,17 +87,12 @@ export function Newsletter() {
       return;
     }
 
-    // Send the form data to the Hubspot API
     const postData = async () => {
       setStatus('LOADING');
 
       const response = await postToHubspot({
         fields: [
-          {
-            objectTypeId: '0-1',
-            name: 'email',
-            value: formValues.email
-          },
+          { objectTypeId: '0-1', name: 'email', value: formValues.email },
           {
             objectTypeId: '0-1',
             name: 'firstname',
@@ -130,17 +124,19 @@ export function Newsletter() {
   const isSubmitting = reqStatus === 'LOADING';
 
   return (
-    <Box
+    <Flex
       as='section'
-      bg='base.50'
-      px={{ base: '4', md: '8' }}
+      bg='basi.50'
       pt={{ base: '8', lg: '16' }}
-      display='flex'
       flexFlow='column'
       gap={{ base: '8', lg: '16' }}
       id='newsletter-fold'
     >
-      <Fold spacingY={{ base: '4', lg: '8' }} w='100%'>
+      <Fold
+        rowGap={{ base: '4', lg: '8' }}
+        w='100%'
+        px={{ base: '4', md: '8' }}
+      >
         <Heading as='h2' size='2xl' gridColumn='1/-1'>
           Get the newsletter
         </Heading>
@@ -166,12 +162,10 @@ export function Newsletter() {
                 gridTemplateColumns='1fr 1fr'
                 gap={5}
               >
-                <FormControl
-                  gridColumn={{
-                    base: 'span 2',
-                    lg: 'span 1'
-                  }}
-                  isDisabled={isSubmitting}
+                <Field.Root
+                  gap={2}
+                  gridColumn={{ base: 'span 2', lg: 'span 1' }}
+                  disabled={isSubmitting}
                 >
                   <FormLabelStyled>First name</FormLabelStyled>
                   <InputStyled
@@ -184,13 +178,11 @@ export function Newsletter() {
                       });
                     }}
                   />
-                </FormControl>
-                <FormControl
-                  gridColumn={{
-                    base: 'span 2',
-                    lg: 'span 1'
-                  }}
-                  isDisabled={isSubmitting}
+                </Field.Root>
+                <Field.Root
+                  gap={2}
+                  gridColumn={{ base: 'span 2', lg: 'span 1' }}
+                  disabled={isSubmitting}
                 >
                   <FormLabelStyled>Last name</FormLabelStyled>
                   <InputStyled
@@ -203,14 +195,17 @@ export function Newsletter() {
                       });
                     }}
                   />
-                </FormControl>
-                <FormControl
+                </Field.Root>
+                <Field.Root
                   gridColumn='span 2'
-                  isRequired
-                  isDisabled={isSubmitting}
-                  isInvalid={!!formErrors.email}
+                  required
+                  disabled={isSubmitting}
+                  invalid={!!formErrors.email}
+                  gap={2}
                 >
-                  <FormLabelStyled>Email</FormLabelStyled>
+                  <FormLabelStyled>
+                    Email <Field.RequiredIndicator />
+                  </FormLabelStyled>
                   <InputStyled
                     placeholder='Email'
                     value={formValues.email}
@@ -220,17 +215,17 @@ export function Newsletter() {
                     }}
                   />
                   {formErrors.email && (
-                    <FormErrorMessage>
+                    <Field.ErrorText>
                       A valid email is required.
-                    </FormErrorMessage>
+                    </Field.ErrorText>
                   )}
-                </FormControl>
+                </Field.Root>
                 <Flex gap={4} alignItems='center'>
                   <Button
-                    colorScheme='primary'
+                    colorPalette='primary'
                     flexShrink={0}
                     onClick={onSubmit}
-                    isDisabled={isSubmitting}
+                    disabled={isSubmitting}
                   >
                     Subscribe
                   </Button>
@@ -258,7 +253,9 @@ export function Newsletter() {
           </>
         )}
       </Fold>
-      <Divider borderColor='base.200a' size='md' maxW='container.xl' m='auto' />
-    </Box>
+      <Container maxW='7xl' px={{ base: '4', md: '8' }}>
+        <Separator borderColor='basi.200a' size='md' m='auto' width='100%' />
+      </Container>
+    </Flex>
   );
 }

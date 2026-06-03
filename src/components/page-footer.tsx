@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  FlexProps,
-  Heading,
-  ListItem,
-  Text,
-  ListIcon,
-  List
-} from '@chakra-ui/react';
+import { Box, Flex, FlexProps, Heading, List, Text } from '@chakra-ui/react';
 import {
   CollecticonArrowRight,
   CollecticonBrandLinkedin,
@@ -29,13 +20,8 @@ function FooterBlock(props: FlexProps) {
 
 export default function PageFooter() {
   return (
-    <Box
-      as='footer'
-      bg='base.50'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '16' }}
-    >
-      <Fold spacingY={{ base: '6', md: '8' }}>
+    <Box as='footer' bg='basi.50' py={{ base: '8', lg: '16' }}>
+      <Fold rowGap={{ base: '6', md: '8' }} px={{ base: '4', md: '8' }}>
         <GlobalFooterNavigation />
         <FooterBlock
           gridColumn={{
@@ -46,38 +32,36 @@ export default function PageFooter() {
           }}
         >
           <Heading size='md'>Connect</Heading>
-          <List>
-            <ListItem>
-              <MenuLink to='mailto:info@satsummit.io'>
-                <ListIcon as={CollecticonEnvelope} />
-                Get in Touch
+          <List.Root unstyled>
+            <List.Item>
+              <MenuLink gap='2' to='mailto:info@satsummit.io'>
+                <CollecticonEnvelope /> Get in Touch
               </MenuLink>
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               <MenuLink
+                gap='2'
                 textStyle='menuLink'
                 to='https://twitter.com/intent/user?screen_name=sat_summit'
               >
-                <ListIcon as={CollecticonBrandX} />
-                Follow us on X
+                <CollecticonBrandX /> Follow us on X
               </MenuLink>
-            </ListItem>
-            <ListItem>
-              <MenuLink to='https://github.com/satsummit'>
-                <ListIcon as={CollecticonBrandSatsummit} />
-                Find us on Github
+            </List.Item>
+            <List.Item>
+              <MenuLink gap='2' to='https://github.com/satsummit'>
+                <CollecticonBrandSatsummit /> Find us on Github
               </MenuLink>
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               <MenuLink
+                gap='2'
                 textStyle='menuLink'
                 to='https://www.linkedin.com/showcase/satsummit'
               >
-                <ListIcon as={CollecticonBrandLinkedin} />
-                Connect through LinkedIn
+                <CollecticonBrandLinkedin /> Connect through LinkedIn
               </MenuLink>
-            </ListItem>
-          </List>
+            </List.Item>
+          </List.Root>
         </FooterBlock>
         <FooterBlock
           gridColumn={{
@@ -90,14 +74,13 @@ export default function PageFooter() {
           <Brand variation='positive' />
           <Text fontSize='sm'>
             An event by{' '}
-            <SmartLink to='https://developmentseed.org' fontWeight='bold'>
+            <SmartLink
+              to='https://developmentseed.org'
+              fontWeight='bold'
+              color='primary.500'
+            >
               Development Seed
-            </SmartLink>{' '}
-            and{' '}
-            <SmartLink to='https://dev.global/' fontWeight='bold'>
-              DevGlobal
-            </SmartLink>
-            .
+            </SmartLink>.
           </Text>
           <Text fontSize='xs'>&copy; 2015-{new Date().getFullYear()}</Text>
         </FooterBlock>
@@ -136,30 +119,30 @@ function GlobalFooterNavigation() {
       }}
     >
       <Heading size='md'>Browse</Heading>
-      <List>
-        <ListItem>
-          <MenuLink to='/updates'>
-            <ListIcon as={CollecticonArrowRight} /> Updates
+      <List.Root listStyleType='none'>
+        <List.Item>
+          <MenuLink gap='2' to='/updates'>
+            <CollecticonArrowRight /> Updates
           </MenuLink>
-        </ListItem>
-        <ListItem>
-          <MenuLink to='/editions'>
-            <ListIcon as={CollecticonArrowRight} /> Editions
+        </List.Item>
+        <List.Item>
+          <MenuLink gap='2' to='/editions'>
+            <CollecticonArrowRight /> Editions
           </MenuLink>
-        </ListItem>
-        <ListItem>
-          <MenuLink to='/tickets'>
-            <ListIcon as={CollecticonArrowRight} /> Tickets
+        </List.Item>
+        <List.Item>
+          <MenuLink gap='2' to='/tickets'>
+            <CollecticonArrowRight /> Tickets
           </MenuLink>
-        </ListItem>
+        </List.Item>
         {data.allLetter.nodes.map(({ title, slug }) => (
-          <ListItem key={slug}>
-            <MenuLink to={`/${slug}`}>
-              <ListIcon as={CollecticonArrowRight} /> {title}
+          <List.Item key={slug}>
+            <MenuLink gap='2' to={`/${slug}`}>
+              <CollecticonArrowRight /> {title}
             </MenuLink>
-          </ListItem>
+          </List.Item>
         ))}
-      </List>
+      </List.Root>
     </FooterBlock>
   );
 }

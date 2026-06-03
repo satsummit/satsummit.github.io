@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box, Flex, Tag, Text } from '@chakra-ui/react';
+import { Box, chakra, Flex, Badge, Text } from '@chakra-ui/react';
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+
+const ChakraGatsbyImage = chakra(GatsbyImage);
 
 import { PageHeroFoundation, PageHeroHeadline } from '$components/page-hero';
 
@@ -26,7 +28,7 @@ export default function UpdatesHero(props: UpdatesHeroProps) {
       <Flex
         flexFlow='column'
         gap='4'
-        maxW={{ base: '100%', sm: 'container.sm', md: '50%' }}
+        maxW={{ base: '100%', sm: '2xl', md: '50%' }}
       >
         <Box>
           <PageHeroHeadline
@@ -39,25 +41,24 @@ export default function UpdatesHero(props: UpdatesHeroProps) {
           {published}
         </Box>
         {lead && (
-          <Text textStyle={{ base: 'lead.md', md: 'lead.lg' }}>{lead}</Text>
+          <Text textStyle={{ base: 'md', md: 'lg' }}>{lead}</Text>
         )}
 
         {!!tags?.length && (
           <Flex gap={2} mt={4}>
             {tags.map((tag) => (
-              <Tag key={tag} variant='satsummit-dark'>
+              <Badge key={tag} variant='satsummit-dark' size='sm'>
                 {tag}
-              </Tag>
+              </Badge>
             ))}
           </Flex>
         )}
       </Flex>
       {image && (
-        <Box
-          as={GatsbyImage}
+        <ChakraGatsbyImage
           image={image}
           alt='Decorative picture for this post'
-          borderRadius='sm'
+          borderRadius='xs'
           flexGrow={1}
         />
       )}

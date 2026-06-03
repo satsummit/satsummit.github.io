@@ -5,12 +5,12 @@ import {
   Container,
   Flex,
   Heading,
-  List,
+  ListRoot,
   ListItem,
-  Select,
-  Text
+  Text,
+  NativeSelect
 } from '@chakra-ui/react';
-import { CollecticonLayoutGrid3x3 } from '@devseed-ui/collecticons-chakra';
+import { CollecticonLayoutGrid3X3 } from '@devseed-ui/collecticons-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
@@ -58,40 +58,44 @@ export default function UpdatesPage(
       >
         <PageHeroHeadline title='Updates' />
 
-        <Text textStyle='lead.lg' maxW='container.sm'>
+        <Text textStyle='lg' maxW='2xl'>
           News, insights and general updates.
         </Text>
 
-        <Select
-          value={currentTag || ''}
-          onChange={(e) => {
-            const t = e.target.value;
-            if (!t) return navigate(`/updates/`);
-            const tag = tagList.find((tag) => tag.name === t)!;
-            return navigate(`/updates/tag/${tag.id}`);
-          }}
-          width='auto'
-        >
-          <option value=''>All posts</option>
-          {tagList.map((tag) => (
-            <option key={tag.id} value={tag.name}>
-              {tag.name}
-            </option>
-          ))}
-        </Select>
+        <NativeSelect.Root size='sm' width='auto'>
+          <NativeSelect.Field
+            value={currentTag || ''}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+              const t = e.target.value;
+              if (!t) return navigate(`/updates/`);
+              const tag = tagList.find((tag) => tag.name === t)!;
+              return navigate(`/updates/tag/${tag.id}`);
+            }}
+            fontSize='md'
+          >
+            <option value=''>All posts</option>
+            {tagList.map((tag) => (
+              <option key={tag.id} value={tag.name}>
+                {tag.name}
+              </option>
+            ))}
+          </NativeSelect.Field>
+          <NativeSelect.Indicator color='surface.500' />
+        </NativeSelect.Root>
       </PageHeroFoundation>
 
       <Container
         py={{ base: '8', lg: '16' }}
         px={{ base: '4', md: '8' }}
-        maxW='container.xl'
+        maxW='7xl'
         display='flex'
         flexFlow='column'
         gap={{ base: '4', md: '8' }}
       >
         <Heading size='lg'>{currentTag || 'All posts'}</Heading>
         {updates?.length ? (
-          <List
+          <ListRoot
+            listStyleType='none'
             display='grid'
             gap={{ base: 4, md: 8 }}
             gridTemplateColumns={{
@@ -117,7 +121,7 @@ export default function UpdatesPage(
                 />
               </ListItem>
             ))}
-          </List>
+          </ListRoot>
         ) : (
           <Text>No updates found.</Text>
         )}
@@ -125,29 +129,32 @@ export default function UpdatesPage(
           <Flex mt={8}>
             {currentPage > 1 && (
               <Button
-                as={SmartLink}
-                noLinkStyles
-                to={`/updates/${currentPage - 1 === 1 ? '' : currentPage - 1}`}
+                asChild
                 variant='solid'
-                colorScheme='primary'
+                colorPalette='primary'
                 size={{ base: 'md', md: 'lg' }}
-                leftIcon={<CollecticonLayoutGrid3x3 />}
               >
-                Newer posts
+                <SmartLink
+                  unstyled
+                  to={`/updates/${currentPage - 1 === 1 ? '' : currentPage - 1}`}
+                >
+                  <CollecticonLayoutGrid3X3 />
+                  Newer posts
+                </SmartLink>
               </Button>
             )}
             {currentPage < numPages && (
               <Button
-                as={SmartLink}
-                noLinkStyles
-                to={`/updates/${currentPage + 1}`}
-                ml='auto'
+                asChild
                 variant='solid'
-                colorScheme='primary'
+                colorPalette='primary'
                 size={{ base: 'md', md: 'lg' }}
-                leftIcon={<CollecticonLayoutGrid3x3 />}
+                ml='auto'
               >
-                Older posts
+                <SmartLink unstyled to={`/updates/${currentPage + 1}`}>
+                  <CollecticonLayoutGrid3X3 />
+                  Older posts
+                </SmartLink>
               </Button>
             )}
           </Flex>

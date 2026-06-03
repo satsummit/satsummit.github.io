@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
   Container,
-  Divider,
+  Separator,
   Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerHeader,
-  DrawerOverlay,
   Flex,
   Heading,
-  Hide,
+  useDisclosure,
   List,
-  ListItem,
-  Show,
-  useDisclosure
+  IconButton,
+  useMediaQuery,
+  useToken
 } from '@chakra-ui/react';
-import { CollecticonHamburgerMenu } from '@devseed-ui/collecticons-chakra';
 
-import { MENU_BRKPOINT } from '../@chakra-ui/gatsby-plugin/theme';
+import {
+  CollecticonHamburgerMenu,
+  CollecticonXmarkSmall
+} from '@devseed-ui/collecticons-chakra';
+
+import { MENU_BRKPOINT } from '../theme';
 
 import Brand from './brand';
 import MenuLink from './menu-link';
@@ -30,48 +29,65 @@ import { useEditionCId, useEditionContext } from '$context/edition';
 
 function NavMenu(props: { inDrawer?: boolean }) {
   return (
-    <List
+    <List.Root
+      listStyleType='none'
       display='flex'
       gap={props.inDrawer ? 2 : 8}
       flexFlow={props.inDrawer ? 'column' : 'row'}
     >
-      <ListItem>
+      <List.Item>
         <MenuLink display={{ [MENU_BRKPOINT]: 'block' }} to='/updates'>
           Updates
         </MenuLink>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <MenuLink display={{ [MENU_BRKPOINT]: 'block' }} to='/editions'>
           Editions
         </MenuLink>
-      </ListItem>
-    </List>
+      </List.Item>
+    </List.Root>
   );
 }
 
 export default function PageHeader() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
+
+  const [menuBreakpointSize] = useToken('breakpoints', [MENU_BRKPOINT]);
+  const [isLargerThanMenuBreakpoint] = useMediaQuery([
+    `(min-width: ${menuBreakpointSize})`
+  ]);
+
+  useEffect(() => {
+    if (isLargerThanMenuBreakpoint) {
+      onClose();
+    }
+  }, [isLargerThanMenuBreakpoint, onClose]);
 
   return (
-    <Box
-      as='header'
-      bg='primary.500'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '12' }}
-    >
-      <Container maxW='container.xl' color='white' p='0'>
+    <Box as='header' bg='primary.500'>
+      <Container
+        maxW='7xl'
+        color='white'
+        px={{ base: '4', md: '8' }}
+        py={{ base: '8', lg: '12' }}
+      >
         <Flex alignItems='center'>
           <Flex alignItems='center' gap={6}>
             <Brand variation='negative' />
-            <Show above={MENU_BRKPOINT}>
-              <Divider
+            <Box
+              hideBelow={MENU_BRKPOINT}
+              display='flex'
+              alignItems='center'
+              gap={6}
+            >
+              <Separator
                 borderColor='surface.300a'
                 size='xs'
                 h='4'
                 orientation='vertical'
               />
               <NavMenu />
-            </Show>
+            </Box>
           </Flex>
           <Flex ml='auto'>
             <Box
@@ -81,44 +97,48 @@ export default function PageHeader() {
               gap={{ base: '2', md: '4', lg: '8' }}
               alignItems='center'
             >
-              <Show above={MENU_BRKPOINT}>
+              <Box hideBelow={MENU_BRKPOINT}>
                 <EditionLocalNavigation />
-              </Show>
+              </Box>
 
               <Button
-                as={SmartLink}
-                noLinkStyles
-                colorScheme='surface'
+                asChild
+                colorPalette='surface'
                 variant='soft-outline'
-                to='/tickets/'
                 size={{ base: 'sm', lg: 'md' }}
               >
-                Get your Ticket
+                <SmartLink to='/tickets/' unstyled>
+                  Get your Ticket
+                </SmartLink>
               </Button>
 
-              <Hide above={MENU_BRKPOINT}>
+              <Box hideFrom={MENU_BRKPOINT}>
                 <Button
                   variant='ghost'
-                  colorScheme='whiteAlpha'
+                  colorPalette='surface'
                   size={{ base: 'sm', lg: 'md' }}
                   onClick={onOpen}
-                  color='currentcolor'
                 >
                   <CollecticonHamburgerMenu
                     title='Open menu drawer'
                     meaningful
                   />
                 </Button>
-              </Hide>
+              </Box>
             </Box>
           </Flex>
         </Flex>
       </Container>
-      <Hide above={MENU_BRKPOINT}>
-        <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerHeader
+
+      <Drawer.Root
+        open={open}
+        placement='end'
+        onOpenChange={({ open: o }: { open: boolean }) => !o && onClose()}
+      >
+        <Drawer.Backdrop />
+        <Drawer.Positioner>
+          <Drawer.Content>
+            <Drawer.Header
               display='flex'
               gap='4'
               alignItems='center'
@@ -127,16 +147,22 @@ export default function PageHeader() {
               <Heading as='span' size='md' width='100%'>
                 Menu
               </Heading>
-              <DrawerCloseButton position='initial' size='md' />
-            </DrawerHeader>
+              <IconButton
+                variant='ghost'
+                size={{ base: 'sm', lg: 'md' }}
+                onClick={onClose}
+              >
+                <CollecticonXmarkSmall title='Close menu drawer' meaningful />
+              </IconButton>
+            </Drawer.Header>
 
-            <DrawerBody>
+            <Drawer.Body>
               <NavMenu inDrawer />
               <EditionLocalNavigation inDrawer />
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-      </Hide>
+            </Drawer.Body>
+          </Drawer.Content>
+        </Drawer.Positioner>
+      </Drawer.Root>
     </Box>
   );
 }
@@ -165,14 +191,15 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
           {edition?.name}
         </SmartLink>
       </ItemMarker>
-      <List
+      <List.Root
+        listStyleType='none'
         display='flex'
         gap={props.inDrawer ? 2 : 8}
         flexFlow={props.inDrawer ? 'column' : 'row'}
         mt={props.inDrawer ? 16 : 0}
       >
         {navItems.map((item) => (
-          <ListItem key={item.url}>
+          <List.Item key={item.url}>
             <MenuLink
               display={{ [MENU_BRKPOINT]: 'block' }}
               to={item.url!}
@@ -180,9 +207,9 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
             >
               {item.title}
             </MenuLink>
-          </ListItem>
+          </List.Item>
         ))}
-      </List>
+      </List.Root>
     </Box>
   );
 }

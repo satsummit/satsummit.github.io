@@ -4,7 +4,7 @@ import {
   BoxProps,
   Container,
   ContainerProps,
-  Divider,
+  Separator,
   Flex,
   Heading,
   Text
@@ -15,8 +15,7 @@ import SmartLink from './smart-link';
 import { useEditionContext } from '$context/edition';
 
 interface PageHeroProps
-  extends PageHeroHeadlineProps,
-    Omit<PageHeroFoundationProps, 'children'> {
+  extends PageHeroHeadlineProps, Omit<PageHeroFoundationProps, 'children'> {
   lead?: string;
 }
 
@@ -30,7 +29,7 @@ export function PageHero(props: PageHeroProps) {
       <Flex flexFlow='column' gap='4'>
         <PageHeroHeadline title={title} parent={parent} />
         {lead && (
-          <Text textStyle='lead.lg' maxW='container.sm'>
+          <Text fontSize='lg' maxW='2xl'>
             {lead}
           </Text>
         )}
@@ -49,8 +48,6 @@ export function PageHeroFoundation(props: PageHeroFoundationProps) {
   return (
     <Box
       background='primary.500'
-      px={{ base: '4', md: '8' }}
-      py={{ base: '8', lg: '16' }}
       position='relative'
       {...props.wrapperProps}
       _after={{
@@ -64,11 +61,12 @@ export function PageHeroFoundation(props: PageHeroFoundationProps) {
       }}
     >
       <Container
-        maxW='container.xl'
+        maxW='7xl'
         color='white'
         display='flex'
         alignItems='center'
-        p='0'
+        px={{ base: '4', md: '8' }}
+        py={{ base: '8', lg: '16' }}
         {...props.innerProps}
       >
         {props.children}
@@ -94,17 +92,14 @@ export function PageHeroHeadline(props: PageHeroHeadlineProps) {
     <Box>
       <Flex alignItems='center' gap={4}>
         {edition && (
-          <Heading
-            as={SmartLink}
-            to={`/${editionCId}`}
-            color='surface.500'
-            size='md'
-          >
-            {edition.name}
+          <Heading color='surface.500' size='md' asChild>
+            <SmartLink to={`/${editionCId}`} color='inherit'>
+              {edition.name}
+            </SmartLink>
           </Heading>
         )}
         {parent && edition && (
-          <Divider
+          <Separator
             borderColor='surface.300a'
             size='xs'
             h='4'
@@ -112,8 +107,10 @@ export function PageHeroHeadline(props: PageHeroHeadlineProps) {
           />
         )}
         {parent && (
-          <Heading as={SmartLink} to={parent.url} color='surface.500' size='md'>
-            {parent.title}
+          <Heading color='surface.500' size='md' asChild>
+            <SmartLink to={parent.url} color='inherit'>
+              {parent.title}
+            </SmartLink>
           </Heading>
         )}
       </Flex>
