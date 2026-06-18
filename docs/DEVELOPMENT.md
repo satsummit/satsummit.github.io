@@ -46,7 +46,7 @@ npm install
 3.  **Start developing.**
 
 ```shell
-npm develop
+npm run develop
 ```
 
 4.  **Open the source code and start editing!**
