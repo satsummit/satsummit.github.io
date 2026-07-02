@@ -69,7 +69,7 @@ They are defined using a yaml file in `content/editions` with the name `<year>-<
 | tickets             | Settings of this edition's tickets in the ticket page:                                     |
 | tickets.url         | Url to the platform where the tickets can be purchased.                                    |
 | tickets.description | Description for the tickets.                                                               |
-| tickets.status      | One of: coming-soon                                                                        | sold-out | live | hide\nControls the display of tickets' status. |
+| tickets.status      | One of: "coming-soon, sold-out, live"       | hide\nControls the display of tickets' status. |
 | format.event_time | Controls the format on the event time in the agenda. Use tokens from [date-fns](https://date-fns.org/v4.1.0/docs/format) |
 
 Starter template for an edition yaml file:
