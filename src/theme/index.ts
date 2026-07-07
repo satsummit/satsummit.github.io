@@ -9,6 +9,12 @@ import { hugConfig } from '@devseed-ui/hug-chakra';
 import { createColorPalette, createColorSemanticTokens } from './color-palette';
 
 export const MENU_BRKPOINT = 'lg';
+
+// Base brand primary (hex). Single source of truth for the palette seed below,
+// and usable outside the Chakra system — e.g. in Gatsby `Head`, which renders
+// without providers and so cannot read theme tokens.
+export const BRAND_PRIMARY = '#1a5bdb';
+
 const lineHeight = 'calc(0.5rem + 1em)';
 
 const headingRecipe = defineRecipe({
@@ -122,11 +128,11 @@ const separatorRecipe = defineRecipe({
   }
 });
 
-const config = defineConfig({
+export const baseConfig = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: createColorPalette('#1a5bdb'),
+        primary: createColorPalette(BRAND_PRIMARY),
         secondary: createColorPalette('#46d6cd'),
         basi: createColorPalette('#0d1658'),
         danger: createColorPalette('#ff5353'),
@@ -207,7 +213,7 @@ const config = defineConfig({
   }
 });
 
-export const system = createSystem(defaultConfig, hugConfig, config);
+export const system = createSystem(defaultConfig, hugConfig, baseConfig);
 
 // container: {
 //   sm: '640px',  2xl
