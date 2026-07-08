@@ -1,31 +1,19 @@
 import React from 'react';
-import { Box, BoxProps, Heading } from '@chakra-ui/react';
+import { Box, BoxProps, Heading, useRecipe } from '@chakra-ui/react';
 
 export function ItemMarker(props: BoxProps) {
   const { children, ...rest } = props;
+
+  const recipe = useRecipe({ key: 'itemMarker' });
+  const [recipeProps, boxProps] = recipe.splitVariantProps(rest);
+  const styles = recipe(recipeProps);
+
   return (
-    <Box
-      bg='basi.500'
-      color='white'
-      p='2'
-      _after={{
-        position: 'absolute',
-        content: '""',
-        width: '1rem',
-        height: '0.75rem',
-        background: 'basi.500',
-        top: '100%',
-        left: '0',
-        right: 'auto',
-        bottom: 'auto',
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
-      }}
-      {...rest}
-    >
+    <Box css={styles} {...boxProps}>
       <Heading
         as='p'
         textTransform='uppercase'
-        fontSize='1rem'
+        fontSize='inherit'
         lineHeight='1'
         whiteSpace='nowrap'
       >

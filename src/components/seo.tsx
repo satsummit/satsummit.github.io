@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useToken } from '@chakra-ui/react';
+import { BRAND_PRIMARY } from '../theme';
 
 interface SeoProps {
   description?: string;
@@ -47,13 +47,11 @@ export default function Seo(props: SeoProps) {
     `${title} — ${site.siteMetadata.title}` +
     (edition ? ` ${edition.name}` : '');
 
-  const [themeColor] = useToken('colors', ['primary.500']);
-
   return (
     <>
       <title>{formattedTitle}</title>
       <meta name='description' content={metaDescription} />
-      <meta name='theme-color' content={themeColor} />
+      <meta name='theme-color' content={BRAND_PRIMARY} />
 
       <meta property='og:title' content={formattedTitle} />
       <meta property='og:type' content='article' />

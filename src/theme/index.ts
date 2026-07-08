@@ -20,7 +20,7 @@ const lineHeight = 'calc(0.5rem + 1em)';
 const headingRecipe = defineRecipe({
   base: {
     fontWeight: '600',
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   variants: {
     size: {
@@ -128,6 +128,30 @@ const separatorRecipe = defineRecipe({
   }
 });
 
+const itemMarkerRecipe = defineRecipe({
+  className: 'item-marker',
+  base: {
+    bg: 'basi.500',
+    color: 'white',
+    p: '2',
+    // Text size for the marker label. The inner element inherits this, so
+    // editions can restyle it by overriding `recipes.itemMarker`.
+    fontSize: '1rem',
+    _after: {
+      position: 'absolute',
+      content: '""',
+      width: '1rem',
+      height: '0.75rem',
+      background: 'basi.500',
+      top: '100%',
+      left: '0',
+      right: 'auto',
+      bottom: 'auto',
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
+    }
+  }
+});
+
 export const baseConfig = defineConfig({
   theme: {
     tokens: {
@@ -187,12 +211,29 @@ export const baseConfig = defineConfig({
         }
       }
     },
+    textStyles: {
+      menuLink: {
+        value: {
+          fontFamily: 'heading',
+          fontWeight: '600',
+          fontSize: 'sm',
+          textTransform: 'uppercase',
+          transition: 'opacity 0.24s ease 0s',
+          color: 'currentColor',
+          _hover: {
+            opacity: '0.64',
+            textDecoration: 'none'
+          }
+        }
+      }
+    },
     recipes: {
       heading: headingRecipe,
       button: buttonRecipe,
       link: linkRecipe,
       badge: badgeRecipe,
       separator: separatorRecipe,
+      itemMarker: itemMarkerRecipe,
       hug: {
         base: {
           maxW: '7xl',

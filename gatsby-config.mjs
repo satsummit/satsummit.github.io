@@ -95,6 +95,12 @@ const config = {
             {
               family: 'Barlow Condensed',
               axes: 'ital,wght@0,500;0,600;1,600;1,700'
+            },
+            {
+              // Heading typeface for the St Louis '26 edition
+              // (see src/theme/editions/2026-st-louis.ts).
+              family: 'Science Gothic',
+              axes: 'wght@400;600;700'
             }
           ]
         }

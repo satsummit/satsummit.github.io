@@ -14,6 +14,56 @@ export default defineEditionTheme({
       // Must be registered with gatsby-plugin-webfonts in gatsby-config.mjs.
       fonts: {
         heading: { value: 'Science Gothic, sans-serif' }
+      },
+      // fontSizes: {
+      //   xs: { value: '0.5rem' },
+      //   sm: { value: '0.875rem' },
+      //   md: { value: '1rem' },
+      //   lg: { value: '1.25rem' },
+      //   xl: { value: '1.5rem' },
+      //   '2xl': { value: '1.75rem' },
+      //   '3xl': { value: '2rem' },
+      //   '4xl': { value: '2.25rem' },
+      //   '5xl': { value: '2.5rem' },
+      //   '6xl': { value: '2.75rem' },
+      //   '7xl': { value: '3rem' },
+      //   '8xl': { value: '3.35rem' },
+      //   '9xl': { value: '3.5rem' },
+      //   '10xl': { value: '3.75rem' }
+      // }
+    },
+    textStyles: {
+      menuLink: {
+        value: {
+          fontSize: '0.875rem'
+        }
+      }
+    },
+    // Shrink the edition-name marker label in the header for this edition.
+    recipes: {
+      itemMarker: {
+        base: { fontSize: '0.75rem' }
+      },
+      button: {
+        variants: {
+          size: {
+            md: {
+              fontSize: '0.875rem'
+            },
+            lg: {
+              fontSize: '1rem'
+            }
+          }
+        }
+      },
+      heading: {
+        variants: {
+          size: {
+            md: {
+              fontSize: 'md'
+            }
+          }
+        }
       }
     }
   }
