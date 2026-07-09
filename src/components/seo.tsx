@@ -73,6 +73,20 @@ export default function Seo(props: SeoProps) {
         href='/meta/apple-touch-icon.png'
       />
       <link rel='manifest' href='/meta/site.webmanifest' />
+      {edition?.cId === '2026-st-louis' && (
+        <>
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link
+            rel='preconnect'
+            href='https://fonts.gstatic.com'
+            crossOrigin='anonymous'
+          />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Science+Gothic:wdth,wght@50..200,100..900&display=swap'
+            rel='stylesheet'
+          />
+        </>
+      )}
       {children}
     </>
   );
