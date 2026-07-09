@@ -15,7 +15,7 @@ navigation:
     comingSoon: true
   - title: Practical info
     url: /2026-st-louis/practical-info
-    comingSoon: true
+    # comingSoon: true
 agenda:
   status: draft # draft final
 tickets:
