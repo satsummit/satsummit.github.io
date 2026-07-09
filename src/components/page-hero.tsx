@@ -7,10 +7,10 @@ import {
   Separator,
   Flex,
   Heading,
-  Text
+  Text,
+  useSlotRecipe
 } from '@chakra-ui/react';
 
-import cloudSmallUrl from '$images/banner/banner--cloud-small@2x.png';
 import SmartLink from './smart-link';
 import { useEditionContext } from '$context/edition';
 
@@ -18,8 +18,6 @@ interface PageHeroProps
   extends PageHeroHeadlineProps, Omit<PageHeroFoundationProps, 'children'> {
   lead?: string;
 }
-
-const heroBg = `url('${cloudSmallUrl}') calc(100% + 20rem) bottom / auto 16rem no-repeat`;
 
 export function PageHero(props: PageHeroProps) {
   const { title, lead, parent, ...passthrough } = props;
@@ -45,30 +43,12 @@ interface PageHeroFoundationProps {
 }
 
 export function PageHeroFoundation(props: PageHeroFoundationProps) {
+  const recipe = useSlotRecipe({ key: 'pageHero' });
+  const styles = recipe();
+
   return (
-    <Box
-      background='primary.500'
-      position='relative'
-      {...props.wrapperProps}
-      _after={{
-        content: '""',
-        position: 'absolute',
-        inset: 0,
-        background: heroBg,
-        zIndex: 100,
-        pointerEvents: 'none',
-        display: { base: 'none', lg: 'block' }
-      }}
-    >
-      <Container
-        maxW='7xl'
-        color='white'
-        display='flex'
-        alignItems='center'
-        px={{ base: '4', md: '8' }}
-        py={{ base: '8', lg: '16' }}
-        {...props.innerProps}
-      >
+    <Box css={styles.root} {...props.wrapperProps}>
+      <Container css={styles.content} {...props.innerProps}>
         {props.children}
       </Container>
     </Box>
@@ -92,7 +72,7 @@ export function PageHeroHeadline(props: PageHeroHeadlineProps) {
     <Box>
       <Flex alignItems='center' gap={4}>
         {edition && (
-          <Heading color='surface.500' size='md' asChild>
+          <Heading size='md' asChild>
             <SmartLink to={`/${editionCId}`} color='inherit'>
               {edition.name}
             </SmartLink>
@@ -107,7 +87,7 @@ export function PageHeroHeadline(props: PageHeroHeadlineProps) {
           />
         )}
         {parent && (
-          <Heading color='surface.500' size='md' asChild>
+          <Heading size='md' asChild>
             <SmartLink to={parent.url} color='inherit'>
               {parent.title}
             </SmartLink>

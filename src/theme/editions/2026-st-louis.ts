@@ -1,5 +1,9 @@
 import { defineEditionTheme } from '../edition-theme';
 import { createColorPalette } from '../color-palette';
+import { pageHeroRecipe } from '$components/page-hero.recipe';
+
+import satelliteArch from './satsummit-stlouis-2026--arch-sat-motif.png';
+const heroBg = `url('${satelliteArch}') right top / auto 16rem no-repeat {colors.primary.500}`;
 
 // Theme override for St Louis '26.
 export default defineEditionTheme({
@@ -61,6 +65,14 @@ export default defineEditionTheme({
           size: {
             md: {
               fontSize: 'md'
+    slotRecipes: {
+      pageHero: {
+        slots: pageHeroRecipe.slots,
+        base: {
+          root: {
+            _after: {
+              background: heroBg,
+              backgroundBlendMode: 'multiply'
             }
           }
         }

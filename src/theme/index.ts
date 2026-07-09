@@ -7,6 +7,7 @@ import {
 import { hugConfig } from '@devseed-ui/hug-chakra';
 
 import { createColorPalette, createColorSemanticTokens } from './color-palette';
+import { pageHeroRecipe } from '$components/page-hero.recipe';
 
 export const MENU_BRKPOINT = 'lg';
 
@@ -242,6 +243,9 @@ export const baseConfig = defineConfig({
           }
         }
       }
+    },
+    slotRecipes: {
+      pageHero: pageHeroRecipe
     }
   },
   globalCss: {
@@ -255,10 +259,3 @@ export const baseConfig = defineConfig({
 });
 
 export const system = createSystem(defaultConfig, hugConfig, baseConfig);
-
-// container: {
-//   sm: '640px',  2xl
-//   md: '768px',  3xl
-//   lg: '1024px', 5xl
-//   xl: '1280px', 7xl
-// }
