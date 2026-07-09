@@ -18,7 +18,7 @@ export default defineEditionTheme({
       // Must be registered with gatsby-plugin-webfonts in gatsby-config.mjs.
       fonts: {
         heading: { value: 'Science Gothic, sans-serif' }
-      },
+      }
       // fontSizes: {
       //   xs: { value: '0.5rem' },
       //   sm: { value: '0.875rem' },
@@ -63,8 +63,31 @@ export default defineEditionTheme({
       heading: {
         variants: {
           size: {
+            sm: {
+              fontSize: '0.875rem'
+            },
             md: {
-              fontSize: 'md'
+              fontSize: '1rem'
+            },
+            lg: {
+              fontSize: '1.25rem'
+            },
+            xl: {
+              fontSize: '1.5rem'
+            },
+            '2xl': {
+              fontSize: '1.75rem'
+            },
+            '3xl': {
+              fontSize: '2rem'
+            },
+            '4xl': {
+              fontSize: '2.25rem'
+            }
+          }
+        }
+      }
+    },
     slotRecipes: {
       pageHero: {
         slots: pageHeroRecipe.slots,
