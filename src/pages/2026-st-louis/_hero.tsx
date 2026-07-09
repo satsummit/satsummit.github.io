@@ -126,7 +126,7 @@ function LocationDate() {
         lineHeight='1'
         fontVariationSettings="'wght' 300, 'wdth' 60"
       >
-        November 16 & 19
+        November 18 & 19
       </Text>
       <Text fontSize='2.5rem' lineHeight='1' fontVariationSettings="'wdth' 80">
         ST. Louis, MO
