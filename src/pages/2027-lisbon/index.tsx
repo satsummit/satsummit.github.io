@@ -36,8 +36,11 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
         </Text>
         <Text>
           Interested in supporting the event? Sponsorship opportunities are now
-          available — <A to='mailto:info@satsummit.io'>get in touch</A> to learn
-          more about partnering with SatSummit Lisbon.
+          available — Check out the <A to='/2027-lisbon-sponsor-prospectus.pdf'>
+            prospectus
+          </A> and{' '}
+          <A to='mailto:info@satsummit.io'>get in touch</A> to learn more about
+          partnering with SatSummit Lisbon.
         </Text>
       </Stack>
     </PageLayout>
