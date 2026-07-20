@@ -1,15 +1,17 @@
 import React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { Button, Flex, Heading, Separator, Text } from '@chakra-ui/react';
+import { CollecticonDownload2 } from '@devseed-ui/collecticons-chakra';
+import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
-
-import HomeHero from './_hero';
-import { Button, Flex, Heading, Separator, Text } from '@chakra-ui/react';
 import { Fold, FoldMedia, FoldProse } from '$components/fold';
 import { ChakraFade } from '$components/reveal';
-import { CollecticonDownload2 } from '@devseed-ui/collecticons-chakra';
+import { UpdatesFold } from '$components/updates-fold';
+
+import HomeHero from './_hero';
 
 export default function IndexPage(
   props: PageProps<Queries.Home2026StLouisQuery>
@@ -159,6 +161,10 @@ export default function IndexPage(
             </FoldMedia>
           </ChakraFade>
         </Fold>
+        <Hug>
+          {/* @ts-expect-error allUpdates exists */}
+          <UpdatesFold updates={props.data.allUpdates.nodes} />
+        </Hug>
       </Flex>
     </PageLayout>
   );
@@ -167,6 +173,41 @@ export default function IndexPage(
 export const pageQuery = graphql`
   query Home2026StLouis($editionCId: String = "") {
     ...EditionContextualData
+    allUpdates(
+      filter: {
+        published: { eq: true }
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
+      }
+      sort: { date: DESC }
+      limit: 3
+    ) {
+      nodes {
+        title
+        ago: date(fromNow: true)
+        date
+        slug
+        id
+        description
+        tags
+        cover {
+          src {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
+          }
+        }
+        editions {
+          edition {
+            name
+          }
+        }
+        parent {
+          ... on Mdx {
+            excerpt
+          }
+        }
+      }
+    }
   }
 `;
 
