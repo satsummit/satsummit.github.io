@@ -310,6 +310,7 @@ export const createSponsorSchema = ({ actions, schema }) => {
       type SponsorEdition {
         edition: Edition! @link(by: "cId")
         group: String!
+        weight: Int
       }
     `,
     schema.buildObjectType({
@@ -338,6 +339,18 @@ export const createSponsorSchema = ({ actions, schema }) => {
               ({ edition }) => edition === args.editionCId
             );
             return edition?.group || null;
+          }
+        },
+        weightInEdition: {
+          type: 'Int!',
+          args: {
+            editionCId: 'String'
+          },
+          resolve(source, args) {
+            const edition = source.editions?.find(
+              ({ edition }) => edition === args.editionCId
+            );
+            return edition?.weight || 0;
           }
         }
       },
