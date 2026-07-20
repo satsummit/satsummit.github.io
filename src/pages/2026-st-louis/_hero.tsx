@@ -12,13 +12,12 @@ import {
 import { StaticImage } from 'gatsby-plugin-image';
 
 export default function HomeHero() {
-  const bkpt = useBreakpoint({ breakpoints: ['base', 'lg'] });
+  const bkpt = useBreakpoint({ breakpoints: ['base', 'md'] });
 
   if (bkpt === 'base') {
     return (
       <Box position='relative'>
         <Container
-          maxW={{ base: '35rem', md: '50rem' }}
           p={2}
           gap={2}
           display='flex'
@@ -48,11 +47,17 @@ export default function HomeHero() {
         </Container>
       </Box>
     );
-  } else if (bkpt === 'lg') {
+  } else if (bkpt === 'md') {
     return (
       <Box position='relative'>
-        <Container maxW='7xl' p={4} gap={4} display='flex' fontFamily='heading'>
-          <Stack gap={4}>
+        <Container
+          maxW='2000px'
+          p={4}
+          gap={4}
+          display='flex'
+          fontFamily='heading'
+        >
+          <Stack gap={4} flexBasis='35rem' hideBelow='lg'>
             <Box bg='primary.500' h='4rem' borderTopRadius='xl' />
             <Box borderBottomRadius='xl' overflow='hidden'>
               <StaticImage
@@ -62,15 +67,19 @@ export default function HomeHero() {
             </Box>
           </Stack>
 
-          <Stack gap={4} alignItems='end'>
-            <Box hideBelow='lg'>
-              <StaticImage src='./hero-2.png' alt='Satellite orbiting earth' />
+          <Stack gap={4} alignItems='end' width='100%'>
+            <Box borderTopRadius='xl' overflow='hidden' width='100%'>
+              <StaticImage
+                src='./hero-2.png'
+                alt='Satellite orbiting earth'
+                style={{ width: '100%' }}
+              />
             </Box>
 
             <EventName />
           </Stack>
 
-          <Stack gap={4}>
+          <Stack gap={4} flexBasis='35rem'>
             <Box borderTopRadius='xl' overflow='hidden'>
               <StaticImage src='./hero-3.png' alt='Satellite near arch' />
             </Box>
