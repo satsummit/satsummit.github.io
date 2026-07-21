@@ -226,6 +226,7 @@ export function Newsletter() {
                     flexShrink={0}
                     onClick={onSubmit}
                     disabled={isSubmitting}
+                    size={{ base: 'md', lg: 'lg' }}
                   >
                     Subscribe
                   </Button>

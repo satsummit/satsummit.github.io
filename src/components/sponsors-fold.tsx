@@ -51,9 +51,9 @@ export default function SponsorsFold() {
           Sponsors
         </Heading>
         {sponsorsGroups.map((group) => {
-          const items = sponsors.filter(
-            (node) => node.groupInEdition === group
-          );
+          const items = sponsors
+            .filter((node) => node.groupInEdition === group)
+            .sort((a, b) => b.weightInEdition - a.weightInEdition);
 
           if (!items.length) {
             return null;

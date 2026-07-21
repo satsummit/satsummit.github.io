@@ -1,0 +1,43 @@
+---
+title: Practical Information
+lead: Everything you need to know in a convenient place.
+editions:
+  - edition: 2026-st-louis
+---
+
+import LocationMap from '/src/components/location-map.tsx';
+import { CollecticonCity } from '/src/components/icons/city';
+import { CollecticonPlaneDeparture } from '/src/components/icons/plane-departure';
+import { CollecticonTrain } from '/src/components/icons/train';
+
+## What it is
+
+**SatSummit** is an event that gathers leaders in the satellite industry and experts in global development for 2 days of presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.
+
+From climate change to population growth to natural resource availability, earth observation data offers insights into today's biggest global issues.
+
+<LocationMap
+  coordinates={[-9.20859, 38.69545]}
+  url='https://www.ccb.pt/como-chegar/'
+  location='Centro Cultural de Belém'
+  center={[-9.20859, 38.69545]}
+  zoom={15}
+  minZoom={13.5}
+  poiMarkers={[
+    {
+      name: 'Lisbon',
+      coordinates: [-9.137, 38.713],
+      icon: CollecticonCity
+    },
+    {
+      name: 'Airport',
+      coordinates: [-9.135, 38.777],
+      icon: CollecticonPlaneDeparture
+    },
+    {
+      name: 'Train Station',
+      coordinates: [-9.19759, 38.69624],
+      icon: CollecticonTrain
+    }
+  ]}
+/>

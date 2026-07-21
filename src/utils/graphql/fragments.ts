@@ -49,6 +49,7 @@ export const editionContextualData = graphql`
         slug
         url
         groupInEdition(editionCId: $editionCId)
+        weightInEdition(editionCId: $editionCId)
         image {
           childImageSharp {
             gatsbyImageData(

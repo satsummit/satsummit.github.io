@@ -7,14 +7,21 @@ import {
 import { hugConfig } from '@devseed-ui/hug-chakra';
 
 import { createColorPalette, createColorSemanticTokens } from './color-palette';
+import { pageHeroRecipe } from '$components/page-hero.recipe';
 
 export const MENU_BRKPOINT = 'lg';
+
+// Base brand primary (hex). Single source of truth for the palette seed below,
+// and usable outside the Chakra system — e.g. in Gatsby `Head`, which renders
+// without providers and so cannot read theme tokens.
+export const BRAND_PRIMARY = '#1a5bdb';
+
 const lineHeight = 'calc(0.5rem + 1em)';
 
 const headingRecipe = defineRecipe({
   base: {
     fontWeight: '600',
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   variants: {
     size: {
@@ -122,11 +129,35 @@ const separatorRecipe = defineRecipe({
   }
 });
 
-const config = defineConfig({
+const itemMarkerRecipe = defineRecipe({
+  className: 'item-marker',
+  base: {
+    bg: 'basi.500',
+    color: 'white',
+    p: '2',
+    // Text size for the marker label. The inner element inherits this, so
+    // editions can restyle it by overriding `recipes.itemMarker`.
+    fontSize: '1rem',
+    _after: {
+      position: 'absolute',
+      content: '""',
+      width: '1rem',
+      height: '0.75rem',
+      background: 'basi.500',
+      top: '100%',
+      left: '0',
+      right: 'auto',
+      bottom: 'auto',
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%)'
+    }
+  }
+});
+
+export const baseConfig = defineConfig({
   theme: {
     tokens: {
       colors: {
-        primary: createColorPalette('#1a5bdb'),
+        primary: createColorPalette(BRAND_PRIMARY),
         secondary: createColorPalette('#46d6cd'),
         basi: createColorPalette('#0d1658'),
         danger: createColorPalette('#ff5353'),
@@ -181,12 +212,29 @@ const config = defineConfig({
         }
       }
     },
+    textStyles: {
+      menuLink: {
+        value: {
+          fontFamily: 'heading',
+          fontWeight: '600',
+          fontSize: 'sm',
+          textTransform: 'uppercase',
+          transition: 'opacity 0.24s ease 0s',
+          color: 'currentColor',
+          _hover: {
+            opacity: '0.64',
+            textDecoration: 'none'
+          }
+        }
+      }
+    },
     recipes: {
       heading: headingRecipe,
       button: buttonRecipe,
       link: linkRecipe,
       badge: badgeRecipe,
       separator: separatorRecipe,
+      itemMarker: itemMarkerRecipe,
       hug: {
         base: {
           maxW: '7xl',
@@ -195,6 +243,9 @@ const config = defineConfig({
           }
         }
       }
+    },
+    slotRecipes: {
+      pageHero: pageHeroRecipe
     }
   },
   globalCss: {
@@ -207,11 +258,4 @@ const config = defineConfig({
   }
 });
 
-export const system = createSystem(defaultConfig, hugConfig, config);
-
-// container: {
-//   sm: '640px',  2xl
-//   md: '768px',  3xl
-//   lg: '1024px', 5xl
-//   xl: '1280px', 7xl
-// }
+export const system = createSystem(defaultConfig, hugConfig, baseConfig);

@@ -30,17 +30,8 @@ export default React.forwardRef<HTMLAnchorElement, MenuLinkProps>(
       <SmartLink
         ref={ref}
         display='inline-flex'
+        textStyle='menuLink'
         alignItems='center'
-        fontFamily='Barlow Condensed, serif'
-        fontWeight='600'
-        fontSize='sm'
-        textTransform='uppercase'
-        transition='opacity 0.24s ease 0s'
-        color='currentColor'
-        _hover={{
-          opacity: '0.64',
-          textDecoration: 'none'
-        }}
         {...rest}
       />
     );

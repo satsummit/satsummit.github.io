@@ -41,7 +41,6 @@ export default function PageFooter() {
             <List.Item>
               <MenuLink
                 gap='2'
-                textStyle='menuLink'
                 to='https://twitter.com/intent/user?screen_name=sat_summit'
               >
                 <CollecticonBrandX /> Follow us on X
@@ -55,7 +54,6 @@ export default function PageFooter() {
             <List.Item>
               <MenuLink
                 gap='2'
-                textStyle='menuLink'
                 to='https://www.linkedin.com/showcase/satsummit'
               >
                 <CollecticonBrandLinkedin /> Connect through LinkedIn
@@ -80,7 +78,8 @@ export default function PageFooter() {
               color='primary.500'
             >
               Development Seed
-            </SmartLink>.
+            </SmartLink>
+            .
           </Text>
           <Text fontSize='xs'>&copy; 2015-{new Date().getFullYear()}</Text>
         </FooterBlock>

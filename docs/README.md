@@ -174,9 +174,10 @@ Frontmatter fields:
 | editions           | Editions this entity is supporting and their sponsor level. |
 | editions[].edition | cId of the edition.                                         |
 | editions[].group   | Sponsor level. This may vary edition by edition.            |
+| editions[].weight  | Sponsor weight to control the display order.                |
 
 > [!IMPORTANT]
-> If the sponsor's groups are different for a given edition, the sponsors fold needs to be updates to accommodate them. This is done in `src/components/sponsors-fold.tsx`.
+> If the sponsor's groups are different for a given edition, the sponsors fold needs to be updated to accommodate them. This is done in `src/components/sponsors-fold.tsx`.
 
 ### Updates
 

@@ -132,7 +132,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
             Sold out
           </Heading>
         ) : status === 'live' ? (
-          <Button asChild colorPalette='primary' borderRadius='xs' size='sm'>
+          <Button asChild colorPalette='primary' borderRadius='xs' size='md'>
             <SmartLink to={edition.tickets!.url} unstyled>
               Book ticket
               <CollecticonExpandTopRight />
