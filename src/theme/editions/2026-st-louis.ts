@@ -95,7 +95,7 @@ export default defineEditionTheme({
           root: {
             _after: {
               background: heroBg,
-              backgroundBlendMode: 'multiply'
+              backgroundBlendMode: 'luminosity'
             }
           }
         }

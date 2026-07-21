@@ -1,14 +1,14 @@
 import React from 'react';
-import { type BoxProps, Box } from '@chakra-ui/react';
+import { type StackProps, Stack } from '@chakra-ui/react';
 import { Fade, type FadeProps } from 'react-awesome-reveal';
 
 export const ChakraFade = React.forwardRef<
   HTMLDivElement,
-  BoxProps & FadeProps
+  StackProps & FadeProps
 >((props, ref) => {
   const { children, triggerOnce, direction, delay, duration } = props;
   return (
-    <Box ref={ref} {...props} asChild>
+    <Stack ref={ref} alignItems='start' {...props} asChild>
       <Fade
         triggerOnce={triggerOnce}
         direction={direction}
@@ -17,7 +17,7 @@ export const ChakraFade = React.forwardRef<
       >
         {children}
       </Fade>
-    </Box>
+    </Stack>
   );
 });
 

@@ -36,7 +36,7 @@ export default function IndexPage(
             alignSelf='end'
             delay={200}
           >
-            <FoldMedia>
+            <FoldMedia borderRadius='xl' overflow='hidden'>
               <StaticImage
                 src='./home-vibe-1.png'
                 alt='Four people sitting in line with the second one talking to a microphone'
@@ -93,7 +93,7 @@ export default function IndexPage(
             triggerOnce
             gridColumn={{ base: '1/-1', md: 'span 4', lg: '1/ span 4' }}
           >
-            <FoldMedia>
+            <FoldMedia borderRadius='xl' overflow='hidden'>
               <StaticImage
                 src='./home-vibe-2.png'
                 alt='Group of people happily talking to each other'
@@ -106,7 +106,7 @@ export default function IndexPage(
             gridColumn={{ base: '1/-1', md: 'span 4', lg: '5/ span 8' }}
             delay={200}
           >
-            <FoldMedia>
+            <FoldMedia borderRadius='xl' overflow='hidden'>
               <StaticImage
                 src='./home-vibe-3.png'
                 alt='Person on a stage talking to an audience seen from the audience perspective'
@@ -153,7 +153,7 @@ export default function IndexPage(
             alignSelf='end'
             delay={200}
           >
-            <FoldMedia>
+            <FoldMedia borderRadius='xl' overflow='hidden'>
               <StaticImage
                 src='./home-vibe-4.png'
                 alt='Several people getting food at a conference buffet line'

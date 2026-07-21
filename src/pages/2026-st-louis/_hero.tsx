@@ -24,21 +24,55 @@ export default function HomeHero() {
           fontFamily='heading'
           flexFlow='column'
         >
-          <Flex gap={2}>
-            <Box borderRadius='xl' overflow='hidden'>
-              <StaticImage
-                src='./hero-1b.png'
-                alt='Yellow sun behind building'
-              />
-            </Box>
-            <Box borderRadius='xl' overflow='hidden'>
-              <StaticImage src='./hero-2b.png' alt='Single satellite' />
-            </Box>
+          <Flex gap={2} alignItems='start' maxW='35rem'>
+            <Stack
+              bg='primary.500'
+              borderRadius='xl'
+              overflow='hidden'
+              aspectRatio={1}
+              justifyContent='end'
+            >
+              <Box w='40%' mt='1rem'>
+                <StaticImage src='./hero-sun.png' alt='Yellow sun' />
+              </Box>
+              <Box blendMode='screen' mt='-10rem'>
+                <StaticImage
+                  src='./hero-sci-center.png'
+                  alt='Science center building'
+                />
+              </Box>
+            </Stack>
+
+            <Stack
+              bg='primary.500'
+              borderRadius='xl'
+              overflow='hidden'
+              position='relative'
+              aspectRatio={1}
+              _before={{
+                content: "''",
+                bg: '#D3472C',
+                w: '90%',
+                h: '3rem',
+                borderLeftRadius: 'xl',
+                position: 'absolute',
+                right: 0,
+                bottom: '0.5rem'
+              }}
+            >
+              <Box blendMode='screen' w='80%' alignSelf='end'>
+                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' />
+              </Box>
+            </Stack>
           </Flex>
 
-          <Stack alignItems='end' mt={{ base: '-8rem', md: '-17rem' }}>
+          <Stack alignItems='end' mt={{ base: '-8rem', sm: '-11rem' }}>
             <Box height='100%'>
-              <StaticImage src='./hero-arch.png' alt='Arch' objectFit='none' />
+              <StaticImage
+                src='./hero-arch-gray.png'
+                alt='Arch'
+                objectFit='none'
+              />
             </Box>
             <EventName mt='-10.5rem' zIndex={2} />
           </Stack>
@@ -57,32 +91,81 @@ export default function HomeHero() {
           display='flex'
           fontFamily='heading'
         >
-          <Stack gap={4} flexBasis='35rem' hideBelow='lg'>
-            <Box bg='primary.500' h='4rem' borderTopRadius='xl' />
-            <Box borderBottomRadius='xl' overflow='hidden'>
-              <StaticImage
-                src='./hero-1.png'
-                alt='Yellow sun behind building'
-              />
-            </Box>
+          <Stack
+            gap={4}
+            flexBasis='42rem'
+            hideBelow='lg'
+            _before={{
+              content: "''",
+              bg: 'primary.500',
+              w: '100%',
+              h: '4rem',
+              borderTopRadius: 'xl'
+            }}
+          >
+            <Stack
+              bg='primary.500'
+              borderBottomRadius='xl'
+              overflow='hidden'
+              justifyContent='end'
+              h='100%'
+            >
+              <Box w='50%' mt='4rem'>
+                <StaticImage src='./hero-sun.png' alt='Yellow sun' />
+              </Box>
+              <Box blendMode='screen' mt='-10rem'>
+                <StaticImage
+                  src='./hero-sci-center.png'
+                  alt='Science center building'
+                />
+              </Box>
+            </Stack>
           </Stack>
 
-          <Stack gap={4} alignItems='end' width='100%'>
-            <Box borderTopRadius='xl' overflow='hidden' width='100%'>
-              <StaticImage
-                src='./hero-2.png'
-                alt='Satellite orbiting earth'
-                style={{ width: '100%' }}
-              />
+          <Stack gap={4} alignItems='end' width='100%' maxW='68rem'>
+            <Box
+              borderRadius='xl'
+              overflow='hidden'
+              width='100%'
+              bg='primary.500'
+            >
+              <Box blendMode='screen'>
+                <StaticImage
+                  src='./hero-sat-globe.png'
+                  alt='Satellite orbiting earth'
+                  style={{ width: '100%' }}
+                />
+              </Box>
             </Box>
 
             <EventName />
           </Stack>
 
-          <Stack gap={4} flexBasis='35rem'>
-            <Box borderTopRadius='xl' overflow='hidden'>
-              <StaticImage src='./hero-3.png' alt='Satellite near arch' />
-            </Box>
+          <Stack gap={4} flexBasis='42rem'>
+            <Stack
+              bg='primary.500'
+              borderTopRadius='xl'
+              overflow='hidden'
+              justifyContent='end'
+              position='relative'
+              _before={{
+                content: "''",
+                bg: '#D3472C',
+                w: '75%',
+                h: '6rem',
+                borderLeftRadius: 'xl',
+                position: 'absolute',
+                right: 0,
+                top: '9rem'
+              }}
+            >
+              <Box blendMode='screen' w='50%' alignSelf='end' mt='1rem'>
+                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' />
+              </Box>
+              <Box mt='-2rem'>
+                <StaticImage src='./hero-arch.svg' alt='Arch' />
+              </Box>
+            </Stack>
             <LocationDate />
           </Stack>
         </Container>
@@ -102,12 +185,12 @@ function EventName(props: HeadingProps) {
       flexFlow='column'
       color='basi.500'
       alignItems='end'
-      fontSize={{ base: '4rem', md: '4.5rem', lg: '5rem' }}
+      fontSize={{ base: '4rem', md: '4.5rem', lg: '5rem', xl: '6rem' }}
       maxW='31rem'
       {...props}
     >
       <Text
-        fontSize={{ base: '1.5rem', md: '2rem' }}
+        fontSize={{ base: '1.5rem', md: '2rem', xl: '2.5rem' }}
         fontVariationSettings="'wght' 300, 'wdth' 60"
         lineHeight='1'
       >
