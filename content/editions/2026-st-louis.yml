@@ -9,7 +9,7 @@ card:
 navigation:
   - title: Agenda
     url: /2026-st-louis/agenda
-    comingSoon: true
+    # comingSoon: true
   - title: Speakers
     url: /2026-st-louis/speakers
   - title: Practical info
