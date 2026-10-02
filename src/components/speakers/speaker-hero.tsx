@@ -94,12 +94,16 @@ export default function SpeakerHero(props: SpeakerHeroProps) {
                 size={{ base: 'sm', lg: 'md' }}
               >
                 <SmartLink
-                  to={`https://www.linkedin.com/in/${social.linkedin}`}
+                  to={
+                    social.linkedin.startsWith('http')
+                      ? social.linkedin
+                      : `https://www.linkedin.com/in/${social.linkedin}`
+                  }
                   unstyled
                 >
                   <CollecticonBrandLinkedin />
                   <Text as='span' maxW={24} truncate>
-                    {social.linkedin}
+                    {social.linkedin.replace(/\/$/, '').split('/').pop()}
                   </Text>
                 </SmartLink>
               </Button>
