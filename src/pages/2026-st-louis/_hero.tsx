@@ -24,7 +24,7 @@ export default function HomeHero() {
           fontFamily='heading'
           flexFlow='column'
         >
-          <Flex gap={2} alignItems='start' maxW='35rem'>
+          <Flex gap={2} alignItems='start'>
             <Stack
               bg='primary.500'
               borderRadius='xl'
@@ -33,12 +33,13 @@ export default function HomeHero() {
               justifyContent='end'
             >
               <Box w='40%' mt='1rem'>
-                <StaticImage src='./hero-sun.png' alt='Yellow sun' />
+                <StaticImage src='./hero-sun.png' alt='Yellow sun' placeholder='none' />
               </Box>
               <Box blendMode='screen' mt='-10rem'>
                 <StaticImage
                   src='./hero-sci-center.png'
                   alt='Science center building'
+                  placeholder='none'
                 />
               </Box>
             </Stack>
@@ -61,7 +62,7 @@ export default function HomeHero() {
               }}
             >
               <Box blendMode='screen' w='80%' alignSelf='end'>
-                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' />
+                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' placeholder='none' />
               </Box>
             </Stack>
           </Flex>
@@ -72,6 +73,7 @@ export default function HomeHero() {
                 src='./hero-arch-gray.png'
                 alt='Arch'
                 objectFit='none'
+                placeholder='none'
               />
             </Box>
             <EventName mt='-10.5rem' zIndex={2} />
@@ -111,12 +113,13 @@ export default function HomeHero() {
               h='100%'
             >
               <Box w='50%' mt='4rem'>
-                <StaticImage src='./hero-sun.png' alt='Yellow sun' />
+                <StaticImage src='./hero-sun.png' alt='Yellow sun' placeholder='none' />
               </Box>
               <Box blendMode='screen' mt='-10rem'>
                 <StaticImage
                   src='./hero-sci-center.png'
                   alt='Science center building'
+                  placeholder='none'
                 />
               </Box>
             </Stack>
@@ -134,6 +137,7 @@ export default function HomeHero() {
                   src='./hero-sat-globe.png'
                   alt='Satellite orbiting earth'
                   style={{ width: '100%' }}
+                  placeholder='none'
                 />
               </Box>
             </Box>
@@ -160,10 +164,10 @@ export default function HomeHero() {
               }}
             >
               <Box blendMode='screen' w='50%' alignSelf='end' mt='1rem'>
-                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' />
+                <StaticImage src='./hero-landsat.png' alt='Landsat Satellite' placeholder='none' />
               </Box>
               <Box mt='-2rem'>
-                <StaticImage src='./hero-arch.svg' alt='Arch' />
+                <StaticImage src='./hero-arch.svg' alt='Arch' placeholder='none' />
               </Box>
             </Stack>
             <LocationDate />
