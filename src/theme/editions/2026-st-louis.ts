@@ -3,7 +3,7 @@ import { createColorPalette } from '../color-palette';
 import { pageHeroRecipe } from '$components/page-hero.recipe';
 
 import satelliteArch from './satsummit-stlouis-2026--arch-sat-motif.png';
-const heroBg = `url('${satelliteArch}') right top / auto 16rem no-repeat {colors.primary.500}`;
+const heroBg = `url('${satelliteArch}') right bottom / auto 16rem no-repeat {colors.primary.500}`;
 
 // Theme override for St Louis '26.
 export default defineEditionTheme({
@@ -39,7 +39,8 @@ export default defineEditionTheme({
     textStyles: {
       menuLink: {
         value: {
-          fontSize: '0.875rem'
+          fontSize: '0.875rem',
+          fontWeight: '500'
         }
       }
     },
