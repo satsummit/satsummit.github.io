@@ -108,7 +108,12 @@ export default function PageHeader() {
                 size={{ base: 'sm', lg: 'md' }}
               >
                 <SmartLink to='/tickets/' unstyled>
-                  Get your Ticket
+                  <Box as='span' display={{ [MENU_BRKPOINT]: 'none' }}>
+                    Tickets
+                  </Box>
+                  <Box as='span' hideBelow={MENU_BRKPOINT}>
+                    Get Your Ticket
+                  </Box>
                 </SmartLink>
               </Button>
 
