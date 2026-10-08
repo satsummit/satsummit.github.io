@@ -119,6 +119,7 @@ export function AgendaEvent(props: AgendaEventProps) {
         <Grid
           as='footer'
           templateColumns='min-content auto'
+          alignItems='baseline'
           rowGap={{ base: 1, lg: 2 }}
           columnGap={{ base: 2, md: 4 }}
         >

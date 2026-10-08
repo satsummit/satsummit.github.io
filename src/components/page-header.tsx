@@ -72,13 +72,13 @@ export default function PageHeader() {
         py={{ base: '8', lg: '12' }}
       >
         <Flex alignItems='center'>
-          <Flex alignItems='center' gap={6}>
+          <Flex alignItems='center' gap={{ lg: '4', xl: '6' }}>
             <Brand variation='negative' />
             <Box
               hideBelow={MENU_BRKPOINT}
               display='flex'
               alignItems='center'
-              gap={6}
+              gap={{ lg: '4', xl: '6' }}
             >
               <Separator
                 borderColor='surface.300a'
@@ -94,7 +94,7 @@ export default function PageHeader() {
               as='nav'
               display='flex'
               flexFlow='row'
-              gap={{ base: '2', md: '4', lg: '8' }}
+              gap={{ base: '2', md: '4', lg: '6', xl: '8' }}
               alignItems='center'
             >
               <Box hideBelow={MENU_BRKPOINT}>
@@ -108,7 +108,12 @@ export default function PageHeader() {
                 size={{ base: 'sm', lg: 'md' }}
               >
                 <SmartLink to='/tickets/' unstyled>
-                  Get your Ticket
+                  <Box as='span' hideFrom={MENU_BRKPOINT}>
+                    Tickets
+                  </Box>
+                  <Box as='span' hideBelow={MENU_BRKPOINT}>
+                    Get Your Ticket
+                  </Box>
                 </SmartLink>
               </Button>
 
@@ -194,7 +199,7 @@ function EditionLocalNavigation(props: { inDrawer?: boolean }) {
       <List.Root
         listStyleType='none'
         display='flex'
-        gap={props.inDrawer ? 2 : 8}
+        gap={props.inDrawer ? 2 : { lg: '6', xl: '8' }}
         flexFlow={props.inDrawer ? 'column' : 'row'}
         mt={props.inDrawer ? 16 : 0}
       >
