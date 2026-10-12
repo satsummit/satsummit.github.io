@@ -84,9 +84,9 @@ export default function SpeakersPage(
               display='grid'
               gap={{ base: 4, md: 8 }}
               gridTemplateColumns={{
-                base: 'repeat(2, 1fr)',
-                md: 'repeat(3, 1fr)',
-                xl: 'repeat(4, 1fr)'
+                base: 'repeat(2, minmax(0, 1fr))',
+                md: 'repeat(3, minmax(0, 1fr))',
+                xl: 'repeat(4, minmax(0, 1fr))'
               }}
             >
               <ChakraFade direction='up' triggerOnce duration={500} delay={100}>
@@ -116,7 +116,7 @@ export default function SpeakersPage(
                           flexFlow='column nowrap'
                           p={{ base: 4, md: 8 }}
                         >
-                          <Heading as='h3' size={{ base: 'md', sm: 'xl' }}>
+                          <Heading as='h3' size={{ base: 'md', sm: 'lg' }}>
                             {speaker.title}
                           </Heading>
                           <Text fontSize={{ base: 'sm', md: 'md' }}>
@@ -175,9 +175,9 @@ export default function SpeakersPage(
                 display='grid'
                 gap={{ base: 4, md: 8 }}
                 gridTemplateColumns={{
-                  base: 'repeat(2, 1fr)',
-                  md: 'repeat(3, 1fr)',
-                  xl: 'repeat(4, 1fr)'
+                  base: 'repeat(2, minmax(0, 1fr))',
+                  md: 'repeat(3, minmax(0, 1fr))',
+                  xl: 'repeat(4, minmax(0, 1fr))'
                 }}
               >
                 <ChakraFade
