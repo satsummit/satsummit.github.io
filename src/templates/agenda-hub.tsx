@@ -213,9 +213,11 @@ function EventHourGroup(props: EventHourGroup) {
 
   const sortedEvents = useMemo(() => {
     return [...events].sort((a, b) => {
-      return a.room === b.room
+      const roomA = a.room ?? '';
+      const roomB = b.room ?? '';
+      return roomA === roomB
         ? a.title.localeCompare(b.title)
-        : a.room.localeCompare(b.room);
+        : roomA.localeCompare(roomB);
     });
   }, [events]);
 
