@@ -15,7 +15,6 @@ navigation:
     comingSoon: true
   - title: Practical info
     url: /2027-lisbon/practical-info
-    comingSoon: true
 agenda:
   status: draft # draft final
 tickets:
