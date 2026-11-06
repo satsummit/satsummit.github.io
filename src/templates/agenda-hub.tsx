@@ -143,7 +143,7 @@ export default function AgendaPage(
           {edition.agenda?.status === 'draft' &&
             'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
           {isOutline &&
-            'Agenda curation is still in full swing. Here are the sessions we are planning so far. Times, rooms, and speakers will follow.'}
+            'The agenda is still a work in progress, and the full programme will be available soon. In the meantime, here are some of the sessions we have planned.'}
         </Text>
 
         {!isOutline && (
