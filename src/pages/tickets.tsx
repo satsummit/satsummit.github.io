@@ -108,7 +108,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
         <Text
           maxW='30rem'
           css={{
-            a: {
+            '& a': {
               color: 'primary.500',
               _hover: {
                 textDecoration: 'underline'
