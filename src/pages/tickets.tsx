@@ -106,6 +106,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
       </Box>
       {edition.tickets?.description && (
         <Text
+          as='div'
           maxW='30rem'
           css={{
             a: {
@@ -113,6 +114,13 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
               _hover: {
                 textDecoration: 'underline'
               }
+            },
+            '& p + p, & ul + p, & p + ul': {
+              mt: 2
+            },
+            ul: {
+              listStyleType: 'disc',
+              pl: 5
             }
           }}
           dangerouslySetInnerHTML={{ __html: edition.tickets.description }}
