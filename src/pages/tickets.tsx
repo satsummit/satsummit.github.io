@@ -109,7 +109,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
           as='div'
           maxW='30rem'
           css={{
-            a: {
+            '& a': {
               color: 'primary.500',
               _hover: {
                 textDecoration: 'underline'
@@ -118,7 +118,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
             '& p + p, & ul + p, & p + ul': {
               mt: 2
             },
-            ul: {
+            '& ul': {
               listStyleType: 'disc',
               pl: 5
             }
