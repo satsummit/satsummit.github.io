@@ -70,7 +70,24 @@ export default function AgendaPage(
   const { allEvent, edition } = props.data;
   const { start, editionCId, dayIndex } = props.pageContext;
 
+  // Outline mode: list sessions grouped by type, without times or days.
+  const isOutline = edition.agenda?.status === 'outline';
+
   const hourGroups = useMemo(() => {
+    if (isOutline) {
+      const byType = allEvent.nodes
+        .filter((event) => !OUTLINE_HIDDEN_TYPES.includes(event.type))
+        .reduce<Record<string, AgendaEvent[]>>((acc, event) => {
+          const t = `${event.type} sessions`;
+          return {
+            ...acc,
+            [t]: [...(acc[t] || []), event]
+          };
+        }, {});
+
+      return Object.entries(byType);
+    }
+
     const indexObj = allEvent.nodes.reduce<Record<string, AgendaEvent[]>>(
       (acc, event) => {
         const t = format(
@@ -86,7 +103,7 @@ export default function AgendaPage(
     );
 
     return Object.entries(indexObj);
-  }, [allEvent.nodes, edition.format?.event_time]);
+  }, [allEvent.nodes, edition.format?.event_time, isOutline]);
 
   const scrollPad = useBreakpointValue({ base: '5rem', md: '6rem' });
 
@@ -125,44 +142,48 @@ export default function AgendaPage(
           conversations.{' '}
           {edition.agenda?.status === 'draft' &&
             'Agenda curation is still in full swing. Sessions and times might be subject to change.'}
+          {isOutline &&
+            'Agenda curation is still in full swing. Here are the sessions we are planning so far. Times, rooms, and speakers will follow.'}
         </Text>
 
-        <ButtonGroup
-          attached
-          colorPalette='surface'
-          variant='soft-outline'
-          size={{ base: 'sm', md: 'md' }}
-        >
-          {eventDates.map((date, i) => (
-            <Button
-              key={date.getTime()}
-              asChild
-              aria-current={
-                date.getTime() === currentDay.getTime() ? 'page' : undefined
-              }
-              data-active={
-                date.getTime() === currentDay.getTime() ? '' : undefined
-              }
-            >
-              <SmartLink
-                unstyled
-                to={
-                  !i
-                    ? `/${editionCId}/agenda/`
-                    : `/${editionCId}/agenda/${i + 1}`
+        {!isOutline && (
+          <ButtonGroup
+            attached
+            colorPalette='surface'
+            variant='soft-outline'
+            size={{ base: 'sm', md: 'md' }}
+          >
+            {eventDates.map((date, i) => (
+              <Button
+                key={date.getTime()}
+                asChild
+                aria-current={
+                  date.getTime() === currentDay.getTime() ? 'page' : undefined
                 }
-                color='currentColor'
+                data-active={
+                  date.getTime() === currentDay.getTime() ? '' : undefined
+                }
               >
-                {format(date, 'EEEE, LLL dd')}
-              </SmartLink>
-            </Button>
-          ))}
-        </ButtonGroup>
+                <SmartLink
+                  unstyled
+                  to={
+                    !i
+                      ? `/${editionCId}/agenda/`
+                      : `/${editionCId}/agenda/${i + 1}`
+                  }
+                  color='currentColor'
+                >
+                  {format(date, 'EEEE, LLL dd')}
+                </SmartLink>
+              </Button>
+            ))}
+          </ButtonGroup>
+        )}
       </PageHeroFoundation>
 
       <Hug py={{ base: 8, md: 16 }}>
         <Heading as='h2' size='2xl' gridColumn='content-start/content-end'>
-          {format(currentDay, 'EEEE, LLL dd')}
+          {isOutline ? 'Sessions' : format(currentDay, 'EEEE, LLL dd')}
         </Heading>
         {hourGroups.length === 0 && (
           <Text gridColumn='content-start/content-end'>
@@ -174,16 +195,20 @@ export default function AgendaPage(
             key={time}
             dayIndex={dayIndex}
             time={time}
-            day={format(currentDay, 'EEE, LLL dd')}
+            day={isOutline ? '' : format(currentDay, 'EEE, LLL dd')}
             events={eventsByTime}
           />
         ))}
       </Hug>
 
-      <TabsSecNav dates={eventDates} currentDay={currentDay} />
+      {!isOutline && <TabsSecNav dates={eventDates} currentDay={currentDay} />}
     </PageLayout>
   );
 }
+
+// Breaks, meals and socials have no meaning without times, so they are left
+// out of the outline view.
+const OUTLINE_HIDDEN_TYPES = ['Social', 'Offsite Gathering'];
 
 interface EventHourGroup {
   dayIndex: number;
@@ -276,7 +301,7 @@ function EventHourGroup(props: EventHourGroup) {
             alignItems='center'
             gap={2}
           >
-            {isStuck ? (
+            {isStuck && day ? (
               <>
                 {day}
                 <Separator

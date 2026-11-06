@@ -60,6 +60,9 @@ export const createEditionPages = async (helpers) => {
         nodes {
           cId
           dates
+          agenda {
+            status
+          }
         }
       }
       # Letter pages that are for the editions, one or more.
@@ -120,7 +123,7 @@ export const createEditionPages = async (helpers) => {
   let pagesToCreate = [];
 
   // Create edition specific pages.
-  data?.allEdition.nodes.forEach(({ cId: editionCId, dates }) => {
+  data?.allEdition.nodes.forEach(({ cId: editionCId, dates, agenda }) => {
     // Letter pages for the edition.
     const editionLetters = data?.allLetter.nodes.filter((letter) =>
       letter.editions.some((e) => e.edition.cId === editionCId)
@@ -142,7 +145,24 @@ export const createEditionPages = async (helpers) => {
     // Agenda pages for the different days.
     const evenDates = dates.map((date) => new Date(date));
 
-    evenDates.forEach((date, i) => {
+    // In outline mode (agenda status: outline) the agenda is a single page
+    // listing all sessions without times, so it spans every edition day.
+    if (agenda?.status === 'outline') {
+      pagesToCreate.push({
+        path: `/${editionCId}/agenda`,
+        component: template('agenda-hub.tsx'),
+        context: {
+          start: evenDates[0].toISOString().slice(0, 10),
+          end: add(evenDates[evenDates.length - 1], { days: 1 })
+            .toISOString()
+            .slice(0, 10),
+          editionCId,
+          dayIndex: 0
+        }
+      });
+    }
+
+    (agenda?.status === 'outline' ? [] : evenDates).forEach((date, i) => {
       pagesToCreate.push({
         path: i ? `/${editionCId}/agenda/${i + 1}` : `/${editionCId}/agenda`,
         component: template('agenda-hub.tsx'),
