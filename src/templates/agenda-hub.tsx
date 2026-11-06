@@ -196,6 +196,7 @@ export default function AgendaPage(
             dayIndex={dayIndex}
             time={time}
             day={isOutline ? '' : format(currentDay, 'EEE, LLL dd')}
+            hideDate={isOutline}
             events={eventsByTime}
           />
         ))}
@@ -211,6 +212,7 @@ export default function AgendaPage(
 const OUTLINE_HIDDEN_TYPES = ['Social', 'Offsite Gathering'];
 
 interface EventHourGroup {
+  hideDate?: boolean;
   dayIndex: number;
   time: string;
   day: string;
@@ -218,7 +220,7 @@ interface EventHourGroup {
 }
 
 function EventHourGroup(props: EventHourGroup) {
-  const { dayIndex, time, day, events } = props;
+  const { dayIndex, time, day, events, hideDate } = props;
 
   const timeRef = useRef<HTMLDivElement>(null);
   const [isStuck, setStuck] = useState(false);
@@ -355,6 +357,7 @@ function EventHourGroup(props: EventHourGroup) {
                     date={node.date}
                     room={node.room}
                     people={node.people}
+                    hideDate={hideDate}
                   />
                 </List.Item>
               ))}

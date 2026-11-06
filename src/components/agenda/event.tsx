@@ -34,6 +34,8 @@ interface AgendaEventProps {
   linkTo?: string;
   dayIndex?: number;
   showDate?: boolean;
+  // Leave the date out entirely, including for screen readers.
+  hideDate?: boolean;
 }
 
 export function AgendaEvent(props: AgendaEventProps) {
@@ -48,7 +50,8 @@ export function AgendaEvent(props: AgendaEventProps) {
     startingHLevel = -1,
     linkTo,
     dayIndex = 0,
-    showDate = false
+    showDate = false,
+    hideDate = false
   } = props;
 
   const dateObj = parseEventDate(date);
@@ -72,7 +75,9 @@ export function AgendaEvent(props: AgendaEventProps) {
       <Flex pos='relative' align='flex-end' gap={4}>
         <Flex flexDir='column'>
           <Heading as={hl(startingHLevel)} id={cId} size='xl'>
-            <SmartLink to={`${eventBaseLink}#${cId}`} color='primary.500'>{title}</SmartLink>
+            <SmartLink to={`${eventBaseLink}#${cId}`} color='primary.500'>
+              {title}
+            </SmartLink>
           </Heading>
           <Heading
             as='div'
@@ -82,16 +87,18 @@ export function AgendaEvent(props: AgendaEventProps) {
             alignItems='center'
             gap={2}
           >
-            <DateWrapper>
-              {format(dateObj, `MMM. dd ''yy`)},{' '}
-              {format(dateObj, edition?.format?.event_time || 'HH:mm')}{' '}
-              <Separator
-                borderColor='basi.200a'
-                size='xs'
-                h='5'
-                orientation='vertical'
-              />
-            </DateWrapper>
+            {!hideDate && (
+              <DateWrapper>
+                {format(dateObj, `MMM. dd ''yy`)},{' '}
+                {format(dateObj, edition?.format?.event_time || 'HH:mm')}{' '}
+                <Separator
+                  borderColor='basi.200a'
+                  size='xs'
+                  h='5'
+                  orientation='vertical'
+                />
+              </DateWrapper>
+            )}
             {type}{' '}
             <Separator
               borderColor='basi.200a'
