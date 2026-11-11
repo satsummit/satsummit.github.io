@@ -14,7 +14,7 @@ const A = (props: React.ComponentProps<typeof SmartLink>) => (
 
 export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero />
       <Stack maxW='4xl' mx='auto' px={4} py={12} fontSize='lg' gap={6}>
         <Text>

@@ -38,7 +38,7 @@ export default function PeoplePage(
   const { editionCId } = props.pageContext;
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-speaker' pageProps={props}>
       <SpeakerHero
         title={title!}
         role={role}

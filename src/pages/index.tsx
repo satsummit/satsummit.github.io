@@ -61,7 +61,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
   );
 
   return (
-    <PageLayout>
+    <PageLayout className='page-home'>
       <PageHero
         title='Welcome to SatSummit'
         lead='Convening leaders in the satellite industry and experts in global development since 2015.'

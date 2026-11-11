@@ -103,7 +103,7 @@ export default function AgendaPage(
   }, []);
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-agenda' pageProps={props}>
       <Global
         styles={{
           html: {

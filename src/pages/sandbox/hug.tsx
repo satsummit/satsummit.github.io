@@ -13,7 +13,7 @@ export default function HugPage() {
   if (process.env.NODE_ENV !== 'development') return <NotFoundPage />;
 
   return (
-    <PageLayout>
+    <PageLayout className='page-sandbox'>
       <PageHero title='Testing HUG' lead='Human Universal Gridder' />
       <Hug height='15rem'>
         <Text

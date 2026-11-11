@@ -9,7 +9,7 @@ import SmartLink from '$components/smart-link';
 
 export default function NotFoundPage() {
   return (
-    <PageLayout>
+    <PageLayout className='page-not-found'>
       <PageHero title='Page not found' lead="That's a 404 error." />
       <Container
         py={{ base: '8', lg: '16' }}

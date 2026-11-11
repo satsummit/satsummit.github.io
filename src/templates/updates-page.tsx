@@ -38,7 +38,7 @@ export default function UpdatesPage(props: PageProps<UpdatesPageProps>) {
   ];
 
   return (
-    <PageLayout>
+    <PageLayout className='page-update'>
       <UpdatesHero
         title={title}
         lead={description}
