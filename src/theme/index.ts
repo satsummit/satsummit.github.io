@@ -6,7 +6,11 @@ import {
 } from '@chakra-ui/react';
 import { hugConfig } from '@devseed-ui/hug-chakra';
 
-import { createColorPalette, createColorSemanticTokens } from './color-palette';
+import {
+  createColorAlias,
+  createColorPalette,
+  createColorSemanticTokens
+} from './color-palette';
 import { pageHeroRecipe } from '$components/page-hero.recipe';
 
 export const MENU_BRKPOINT = 'lg';
@@ -208,8 +212,14 @@ export const baseConfig = defineConfig({
           solid: { value: '{colors.surface.500}' },
           muted: { value: '{colors.surface.200a}' },
           fg: { value: '{colors.surface.500}' },
-          subtle: { value: '{colors.surface.300a}' }
-        }
+          subtle: { value: '{colors.surface.300a}' },
+          emphasized: { value: '{colors.surface.400a}' },
+          focusRing: { value: '{colors.surface.400}' }
+        },
+        // Role palettes. Components use these as `colorPalette`; an edition
+        // remaps a role by overriding it with `createColorAlias(<palette>)`.
+        'action-button': createColorAlias('primary'),
+        nav: createColorAlias('surface')
       }
     },
     textStyles: {

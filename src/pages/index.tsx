@@ -73,7 +73,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
           gridColumn='content-start/content-end'
         >
           <Heading size='2xl'>Editions</Heading>
-          <Button asChild variant='solid' colorPalette='primary' size={{ base: 'sm', lg: 'md' }}>
+          <Button asChild variant='solid' colorPalette='action-button' size={{ base: 'sm', lg: 'md' }}>
             <SmartLink to='/editions'>View all</SmartLink>
           </Button>
         </Flex>

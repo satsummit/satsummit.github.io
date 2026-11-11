@@ -100,7 +100,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
               // @ts-expect-error types from "a" not propagating properly
               href='#newsletter-fold'
               variant='solid'
-              colorPalette='primary'
+              colorPalette='action-button'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >
@@ -244,7 +244,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
             </Text>
             <Button
               asChild
-              colorPalette='primary'
+              colorPalette='action-button'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >

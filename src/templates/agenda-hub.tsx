@@ -369,7 +369,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
         {activeIdx > 0 && (
           <Button
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
             onClick={() => {
               goToTab(activeIdx - 1);
@@ -382,7 +382,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
         {activeIdx < dates.length - 1 && (
           <Button
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
             ml='auto'
             onClick={() => {
