@@ -38,7 +38,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
   const { data } = props;
 
   return (
-    <PageLayout>
+    <PageLayout className='page-tickets'>
       <PageHero title='Tickets' lead="Get'em while they're hot" />
       <Container
         py={{ base: '8', lg: '16' }}

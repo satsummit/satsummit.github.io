@@ -62,7 +62,7 @@ export default function SpeakersPage(
   );
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-speakers' pageProps={props}>
       <PageHero
         title='Speakers'
         lead='All the wonderful people presenting at SatSummit.'

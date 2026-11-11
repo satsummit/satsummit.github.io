@@ -12,7 +12,9 @@ interface LetterPageProps extends Queries.EditionContextualDataFragment {
   letter: Queries.Letter;
 }
 
-export default function LetterPage(props: PageProps<LetterPageProps>) {
+export default function LetterPage(
+  props: PageProps<LetterPageProps, { slug: string }>
+) {
   const {
     data: {
       letter: { title, lead }
@@ -21,7 +23,7 @@ export default function LetterPage(props: PageProps<LetterPageProps>) {
   } = props;
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className={`page-letter page-${props.pageContext.slug}`} pageProps={props}>
       <PageHero title={title!} lead={lead!} />
       <Container
         py={{ base: '8', lg: '16' }}

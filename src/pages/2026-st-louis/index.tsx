@@ -17,7 +17,7 @@ export default function IndexPage(
   props: PageProps<Queries.Home2026StLouisQuery>
 ) {
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero />
 
       <Flex

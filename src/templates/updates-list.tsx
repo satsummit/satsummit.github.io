@@ -48,7 +48,7 @@ export default function UpdatesPage(
   const { currentPage, numPages, currentTag, tagList } = props.pageContext;
 
   return (
-    <PageLayout>
+    <PageLayout className='page-updates'>
       <PageHeroFoundation
         innerProps={{
           gap: 4,
