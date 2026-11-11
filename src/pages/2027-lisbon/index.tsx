@@ -1,48 +1,172 @@
 import React from 'react';
 import { graphql, HeadProps, type PageProps } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
+import { Button, Flex, Heading, Separator, Text } from '@chakra-ui/react';
+import { CollecticonDownload2 } from '@devseed-ui/collecticons-chakra';
+import { Hug } from '@devseed-ui/hug-chakra';
 
 import PageLayout from '$components/page-layout';
 import Seo from '$components/seo';
-import SmartLink from '$components/smart-link';
+import { Fold, FoldMedia, FoldProse } from '$components/fold';
+import { ChakraFade } from '$components/reveal';
+import { UpdatesFold } from '$components/updates-fold';
 
 import HomeHero from './_hero';
-import { Stack, Text } from '@chakra-ui/react';
 
-const A = (props: React.ComponentProps<typeof SmartLink>) => (
-  <SmartLink {...props} fontWeight='bold' color='primary.500' />
-);
-
-export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
+export default function IndexPage(
+  props: PageProps<Queries.Home2027LxQuery>
+) {
   return (
     <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero />
-      <Stack maxW='4xl' mx='auto' px={4} py={12} fontSize='lg' gap={6}>
-        <Text>
-          We&apos;re excited to return to Lisbon for SatSummit on March 16–17,
-          at the iconic <A to='https://www.ccb.pt/'>Centro Cultural de Belém</A>. Following
-          the incredible energy and community that came together for our
-          first Lisbon event in 2024, SatSummit will once again bring together
-          leaders across Earth observation, geospatial technology, science,
-          design, and decision-making for conversations that look beyond the
-          hype and focus on real-world applications and collaboration.
-        </Text>
-        <Text>
-          Speakers and programming details will be announced soon. Sign up
-          for the newsletter and{' '}
-          <A to='https://www.linkedin.com/showcase/satsummit/'>
-            follow us on LinkedIn
-          </A>{' '}
-          to stay up to date.
-        </Text>
-        <Text>
-          Interested in supporting the event? Sponsorship opportunities are now
-          available — Check out the <A to='/2027-lisbon-sponsor-prospectus.pdf'>
-            prospectus
-          </A> and{' '}
-          <A to='mailto:info@satsummit.io'>get in touch</A> to learn more about
-          partnering with SatSummit Lisbon.
-        </Text>
-      </Stack>
+
+      <Flex
+        flexFlow='column'
+        gap='8'
+        py='12'
+        px='4'
+        position='relative'
+        zIndex='30'
+        mt={-40}
+      >
+        <Fold>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', lg: '1/ span 6' }}
+            alignSelf='end'
+            delay={200}
+          >
+            <FoldMedia borderRadius='xl' overflow='hidden'>
+              <StaticImage
+                src='../2026-st-louis/home-vibe-1.png'
+                alt='Four people sitting in line with the second one talking to a microphone'
+              />
+            </FoldMedia>
+          </ChakraFade>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
+          >
+            <FoldProse
+              display='flex'
+              flexFlow='column'
+              gap={{ base: '4', lg: '8' }}
+              mt={0}
+            >
+              <Heading size='2xl'>Save the date</Heading>
+              <Text>
+                <strong>SatSummit</strong> convenes leaders in the satellite
+                industry and experts in global development for 2 days of
+                presentations and in-depth conversations on solving the
+                world&apos;s most critical development challenges with satellite
+                data.
+              </Text>
+              <Separator borderColor='basi.200a' size='md' />
+              <Heading size='2xl'>Stay Tuned</Heading>
+              <Text>
+                From climate change to population growth to natural resource
+                availability, earth observation data offers insights into
+                today&apos;s biggest global issues.
+              </Text>
+              <Text>
+                Subscribe to the newsletter for more information on the{' '}
+                <strong>SatSummit 2027</strong>!
+              </Text>
+              <Button
+                as='a'
+                // @ts-expect-error types from "a" not propagating properly
+                href='#newsletter-fold'
+                variant='solid'
+                colorPalette='action-button'
+                alignSelf='start'
+                size={{ base: 'md', lg: 'lg' }}
+              >
+                Get the newsletter
+              </Button>
+            </FoldProse>
+          </ChakraFade>
+        </Fold>
+        <Fold>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', md: 'span 4', lg: '1/ span 4' }}
+          >
+            <FoldMedia borderRadius='xl' overflow='hidden'>
+              <StaticImage
+                src='../2026-st-louis/home-vibe-2.png'
+                alt='Group of people happily talking to each other'
+              />
+            </FoldMedia>
+          </ChakraFade>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', md: 'span 4', lg: '5/ span 8' }}
+            delay={200}
+          >
+            <FoldMedia borderRadius='xl' overflow='hidden'>
+              <StaticImage
+                src='../2026-st-louis/home-vibe-3.png'
+                alt='Person on a stage talking to an audience seen from the audience perspective'
+              />
+            </FoldMedia>
+          </ChakraFade>
+        </Fold>
+        <Fold>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', lg: '1/ span 6' }}
+          >
+            <FoldProse
+              display='flex'
+              flexFlow='column'
+              gap={{ base: '4', lg: '8' }}
+              mt={0}
+            >
+              <Heading size='2xl'>Become a sponsor</Heading>
+              <Text>
+                We&apos;re excited to partner with thought and industry leaders
+                in the satellite and development communities, and through their
+                sponsorship and support of <strong>SatSummit</strong>, we are
+                solving real-world and global development challenges.
+              </Text>
+              <Button
+                as='a'
+                // @ts-expect-error types from "a" not propagating properly
+                href='/2027-lisbon-sponsor-prospectus.pdf'
+                variant='solid'
+                colorPalette='action-button'
+                alignSelf='start'
+                size={{ base: 'md', lg: 'lg' }}
+              >
+                Download the kit <CollecticonDownload2 />
+              </Button>
+            </FoldProse>
+          </ChakraFade>
+          <ChakraFade
+            direction='up'
+            triggerOnce
+            gridColumn={{ base: '1/-1', lg: '7/ span 6' }}
+            alignSelf='end'
+            delay={200}
+          >
+            <FoldMedia borderRadius='xl' overflow='hidden'>
+              <StaticImage
+                src='../2026-st-louis/home-vibe-4.png'
+                alt='Several people getting food at a conference buffet line'
+              />
+            </FoldMedia>
+          </ChakraFade>
+        </Fold>
+        <Hug>
+          {/* @ts-expect-error allUpdates exists */}
+          <UpdatesFold updates={props.data.allUpdates.nodes} />
+        </Hug>
+      </Flex>
     </PageLayout>
   );
 }
@@ -50,6 +174,41 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
 export const pageQuery = graphql`
   query Home2027Lx($editionCId: String = "") {
     ...EditionContextualData
+    allUpdates(
+      filter: {
+        published: { eq: true }
+        editions: { elemMatch: { edition: { cId: { eq: $editionCId } } } }
+      }
+      sort: { date: DESC }
+      limit: 3
+    ) {
+      nodes {
+        title
+        ago: date(fromNow: true)
+        date
+        slug
+        id
+        description
+        tags
+        cover {
+          src {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            }
+          }
+        }
+        editions {
+          edition {
+            name
+          }
+        }
+        parent {
+          ... on Mdx {
+            excerpt
+          }
+        }
+      }
+    }
   }
 `;
 

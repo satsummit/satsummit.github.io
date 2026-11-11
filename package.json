@@ -38,6 +38,8 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mdx-js/react": "^3.0.0",
+    "@splinetool/react-spline": "^4.2.0",
+    "@splinetool/runtime": "^2.0.172",
     "@turf/bbox-polygon": "^7.1.0",
     "@turf/bearing": "^7.1.0",
     "@turf/boolean-point-in-polygon": "^7.1.0",
