@@ -97,7 +97,7 @@ const buttonRecipe = defineRecipe({
 
 const linkRecipe = defineRecipe({
   base: {
-    color: '{colors.primary.500}'
+    color: 'link'
   }
 });
 
@@ -219,7 +219,9 @@ export const baseConfig = defineConfig({
         // Role palettes. Components use these as `colorPalette`; an edition
         // remaps a role by overriding it with `createColorAlias(<palette>)`.
         'action-button': createColorAlias('primary'),
-        nav: createColorAlias('surface')
+        nav: createColorAlias('surface'),
+        link: { value: '{colors.primary.500}' },
+        'segmented-button': createColorAlias('surface')
       }
     },
     textStyles: {

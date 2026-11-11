@@ -129,7 +129,7 @@ export default function AgendaPage(
 
         <ButtonGroup
           attached
-          colorPalette='surface'
+          colorPalette='segmented-button'
           variant='soft-outline'
           size={{ base: 'sm', md: 'md' }}
         >
