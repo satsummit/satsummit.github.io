@@ -131,7 +131,7 @@ export default function UpdatesPage(
               <Button
                 asChild
                 variant='solid'
-                colorPalette='primary'
+                colorPalette='action-button'
                 size={{ base: 'md', md: 'lg' }}
               >
                 <SmartLink
@@ -147,7 +147,7 @@ export default function UpdatesPage(
               <Button
                 asChild
                 variant='solid'
-                colorPalette='primary'
+                colorPalette='action-button'
                 size={{ base: 'md', md: 'lg' }}
                 ml='auto'
               >

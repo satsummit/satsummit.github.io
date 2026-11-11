@@ -148,7 +148,7 @@ export default function PeoplePage(
           <Button
             asChild
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
           >
             <SmartLink to={`/${editionCId}/speakers`} unstyled>

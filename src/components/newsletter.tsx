@@ -222,7 +222,7 @@ export function Newsletter() {
                 </Field.Root>
                 <Flex gap={4} alignItems='center'>
                   <Button
-                    colorPalette='primary'
+                    colorPalette='action-button'
                     flexShrink={0}
                     onClick={onSubmit}
                     disabled={isSubmitting}

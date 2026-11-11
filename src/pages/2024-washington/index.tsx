@@ -74,7 +74,7 @@ export default function IndexPage(props: PageProps) {
                 // @ts-expect-error types from "a" not propagating properly
                 href='#newsletter-fold'
                 variant='solid'
-                colorPalette='primary'
+                colorPalette='action-button'
                 alignSelf='start'
                 size={{ base: 'md', lg: 'lg' }}
               >

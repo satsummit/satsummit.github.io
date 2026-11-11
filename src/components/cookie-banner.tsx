@@ -62,7 +62,7 @@ export default function CookieBanner() {
           </Dialog.Body>
 
           <Dialog.Footer justifyContent='center' p={0}>
-            <ButtonGroup colorPalette='primary'>
+            <ButtonGroup colorPalette='action-button'>
               <Button
                 onClick={() => {
                   setCookie(K_NAME, 'true', 30);
