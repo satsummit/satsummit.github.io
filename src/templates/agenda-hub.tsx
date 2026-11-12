@@ -130,7 +130,7 @@ export default function AgendaPage(
         <ButtonGroup
           attached
           colorPalette='segmented-button'
-          variant='soft-outline'
+          variant='segmented'
           size={{ base: 'sm', md: 'md' }}
         >
           {eventDates.map((date, i) => (
@@ -151,7 +151,6 @@ export default function AgendaPage(
                     ? `/${editionCId}/agenda/`
                     : `/${editionCId}/agenda/${i + 1}`
                 }
-                color='currentColor'
               >
                 {format(date, 'EEEE, LLL dd')}
               </SmartLink>
