@@ -1,3 +1,5 @@
+import { defaultConfig } from '@chakra-ui/react';
+
 import { defineEditionTheme } from '../../edition-theme';
 import { createColorAlias, createColorPalette } from '../../color-palette';
 import { pageHeroRecipe } from '$components/page-hero.recipe';
@@ -58,6 +60,32 @@ export default defineEditionTheme({
           fg: { value: '{colors.basi.900}' }
         },
         'segmented-button': createColorAlias('basi')
+      }
+    },
+    recipes: {
+      button: {
+        variants: {
+          variant: {
+            // Header ticket button: filled, like Chakra's `solid` variant.
+            // `_active` replaces the base soft-outline pressed tint.
+            'nav-action': {
+              ...defaultConfig.theme?.recipes?.button?.variants?.variant?.solid,
+              _active: { bg: 'colorPalette.solid/90' }
+            },
+            // Agenda day switcher: white with dark stroke, selected day
+            // (`data-active`) filled dark.
+            segmented: {
+              bg: 'colorPalette.contrast',
+              color: 'colorPalette.900',
+              borderColor: 'colorPalette.900',
+              _hover: { bg: 'colorPalette.50' },
+              _active: {
+                bg: 'colorPalette.900',
+                color: 'colorPalette.contrast'
+              }
+            }
+          }
+        }
       }
     },
     slotRecipes: {
