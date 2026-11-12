@@ -1,12 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import type { Application, SPEObject } from '@splinetool/runtime';
-import { Box } from '@chakra-ui/react';
+import { Box, VisuallyHidden } from '@chakra-ui/react';
+
+import { multiDateDisplay, utcString2userTzDate } from '$utils/date';
 
 const DEG = Math.PI / 180;
 
 const scene = '/2027-lisbon/home-hero.splinecode';
-// Transparent still of the scene, shown only when the 3D scene can't run
-// (no WebGPU or WebGL, load error).
+// Transparent still of the scene, shown until the 3D scene draws its first
+// frame. It stays if the scene can't run (no WebGPU or WebGL, load error) or
+// is slow to load.
 const fallback = '/2027-lisbon/home-hero-fallback.png';
 const maxYaw = 7;
 const maxPitch = 4;
@@ -37,7 +40,14 @@ async function pickRenderer(): Promise<'webgpu' | 'webgl'> {
  * The tilt rotates the "Composition" group and nudges the "Horizon Globe"
  * for a little parallax, matching the behaviour built into the Spline file.
  */
-export default function HomeHero() {
+interface HomeHeroProps {
+  name: string;
+  dates: readonly string[];
+}
+
+export default function HomeHero(props: HomeHeroProps) {
+  const { name, dates } = props;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const fallbackRef = useRef<HTMLImageElement>(null);
 
@@ -57,25 +67,12 @@ export default function HomeHero() {
     });
     container.appendChild(canvas);
 
-    // The still is a last resort. Once the runtime has drawn a frame the scene
-    // is up, and nothing after that point may bring the still back.
-    let rendered = false;
-    const hideFallback = () => {
-      if (fallbackRef.current) fallbackRef.current.style.display = 'none';
-    };
-    const showFallback = () => {
-      if (!rendered && fallbackRef.current) {
-        fallbackRef.current.style.display = 'block';
-      }
-    };
+    // Swap the still for the canvas once the runtime has drawn a frame.
     const onRendered = () => {
-      rendered = true;
-      hideFallback();
+      if (fallbackRef.current) fallbackRef.current.style.display = 'none';
       canvas.removeEventListener('rendered', onRendered);
     };
     canvas.addEventListener('rendered', onRendered);
-    // The runtime reports scenes it can't show (e.g. no WebGPU) with this event.
-    canvas.addEventListener('splineerror', showFallback);
 
     let disposed = false;
     let raf = 0;
@@ -159,9 +156,8 @@ export default function HomeHero() {
       if (disposed) return undefined;
       const app = new Application(canvas, {
         renderer,
-        // Same options @splinetool/react-spline uses: render only when the
-        // scene changes and keep the scene's HTML layer inline (the default
-        // sandboxed iframe interferes with pointer events).
+        // Render only when the scene changes and keep the scene's HTML layer
+        // inline (the default sandboxed iframe interferes with pointer events).
         renderOnDemand: true,
         htmlContentMode: 'inline'
       });
@@ -174,17 +170,12 @@ export default function HomeHero() {
         }
       }
       return app;
-    })().catch(() => {
-      // Show the still only when the scene can't be shown at all.
-      if (!disposed) showFallback();
-      return undefined;
-    });
+    })().catch(() => undefined); // The still stays in place.
 
     return () => {
       disposed = true;
       stopTilt?.();
       canvas.removeEventListener('rendered', onRendered);
-      canvas.removeEventListener('splineerror', showFallback);
       // Wait for an in-flight load before disposing, then drop the canvas.
       loading?.then((app) => app?.dispose()).finally(() => canvas.remove());
     };
@@ -213,15 +204,15 @@ export default function HomeHero() {
         }
       }}
     >
+      <VisuallyHidden as='h1'>
+        SatSummit {name}, {multiDateDisplay(dates.map(utcString2userTzDate))}
+      </VisuallyHidden>
       <img
         ref={fallbackRef}
         src={fallback}
         alt=''
         aria-hidden='true'
         style={{
-          // Hidden unless the live scene fails: it is a still of the canvas, so
-          // showing it while loading would jump when the canvas takes over.
-          display: 'none',
           position: 'absolute',
           top: 0,
           bottom: 0,
