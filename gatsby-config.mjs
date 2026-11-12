@@ -34,15 +34,6 @@ const config = {
     //     id: 'GTM-5NPWQ998'
     //   }
     // },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        environments: ['production', 'development'],
-        googleTagManager: {
-          trackingId: 'GTM-5NPWQ998'
-        }
-      }
-    },
     'gatsby-plugin-image',
     'gatsby-transformer-yaml-full',
     {
