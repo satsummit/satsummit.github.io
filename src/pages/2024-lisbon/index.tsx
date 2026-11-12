@@ -20,7 +20,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
   const [update1, update2, update3] = props.data.featuredEditionUpdates || [];
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero />
 
       <Hug mb={12}>
@@ -100,7 +100,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
               // @ts-expect-error types from "a" not propagating properly
               href='#newsletter-fold'
               variant='solid'
-              colorPalette='primary'
+              colorPalette='action-button'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >
@@ -244,7 +244,7 @@ export default function IndexPage(props: PageProps<Queries.Home2024LxQuery>) {
             </Text>
             <Button
               asChild
-              colorPalette='primary'
+              colorPalette='action-button'
               alignSelf='start'
               size={{ base: 'md', lg: 'lg' }}
             >

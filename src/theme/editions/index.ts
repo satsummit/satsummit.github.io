@@ -2,12 +2,14 @@ import { system as baseSystem } from '../index';
 import { buildEditionSystem, type EditionConfig } from '../edition-theme';
 
 import stLouis2026 from './2026-st-louis';
+import lisbon2027 from './2027-lisbon/2027-lisbon';
 
 // Register per-edition themes here, keyed by the edition's `cId` (its content
 // filename, e.g. `2026-st-louis`). Editions absent from this map render with
 // the global brand.
 const registry: Record<string, EditionConfig> = {
-  '2026-st-louis': stLouis2026
+  '2026-st-louis': stLouis2026,
+  '2027-lisbon': lisbon2027
 };
 
 // Build every edition system once at module load. Identities are stable, so a

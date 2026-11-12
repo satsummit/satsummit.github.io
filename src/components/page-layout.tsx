@@ -9,9 +9,15 @@ import SponsorsFold from './sponsors-fold';
 import { Newsletter } from './newsletter';
 import CookieBanner from './cookie-banner';
 
+const cx = (...classes: (string | undefined)[]) =>
+  classes.filter(Boolean).join(' ');
+
 export default function PageLayout(props: {
   children: React.ReactNode;
   pageProps?: PageProps;
+  // Page class (e.g. `page-agenda`) so theme recipes can target a page with
+  // `'.page-agenda &'`.
+  className?: string;
 }) {
   useEffect(() => {
     const w = window.innerWidth - document.documentElement.clientWidth;
@@ -25,7 +31,11 @@ export default function PageLayout(props: {
   return (
     <EditionContextProvider pageProps={props.pageProps}>
       <CookieBanner />
-      <Flex direction='column' minHeight='100vh'>
+      <Flex
+        className={cx('page', props.className)}
+        direction='column'
+        minHeight='100vh'
+      >
         <PageHeader />
         <Box as='main' flex='1'>
           {props.children}

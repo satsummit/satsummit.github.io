@@ -73,7 +73,7 @@ export default function FringePage(props: PageProps<FringePageQuery>) {
   }, []);
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-fringe' pageProps={props}>
       <Global
         styles={{
           html: {

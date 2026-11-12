@@ -38,7 +38,7 @@ export default function PeoplePage(
   const { editionCId } = props.pageContext;
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-speaker' pageProps={props}>
       <SpeakerHero
         title={title!}
         role={role}
@@ -148,7 +148,7 @@ export default function PeoplePage(
           <Button
             asChild
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
           >
             <SmartLink to={`/${editionCId}/speakers`} unstyled>

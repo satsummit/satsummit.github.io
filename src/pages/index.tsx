@@ -61,7 +61,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
   );
 
   return (
-    <PageLayout>
+    <PageLayout className='page-home'>
       <PageHero
         title='Welcome to SatSummit'
         lead='Convening leaders in the satellite industry and experts in global development since 2015.'
@@ -73,7 +73,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
           gridColumn='content-start/content-end'
         >
           <Heading size='2xl'>Editions</Heading>
-          <Button asChild variant='solid' colorPalette='primary' size={{ base: 'sm', lg: 'md' }}>
+          <Button asChild variant='solid' colorPalette='action-button' size={{ base: 'sm', lg: 'md' }}>
             <SmartLink to='/editions'>View all</SmartLink>
           </Button>
         </Flex>

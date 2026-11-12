@@ -171,9 +171,9 @@ export default function LocationMap(props: LocationMapProps) {
               whiteSpace='nowrap'
               textAlign='center'
               transform='translate(-50%, -100%)'
-              color='primary.500'
+              color='link'
               _visited={{
-                color: 'inherit',
+                color: 'link',
                 textDecoration: 'none'
               }}
               _hover={{
@@ -245,6 +245,7 @@ function OffscreenMarkerIndicaror(props: OffscreenMarkerIndicarorProps) {
   });
 
   useEffect(() => {
+    if (!mbMap.loaded()) return;
     const pointerMarker = document.createElement('div');
     pointerMarker.style.position = 'absolute';
     pointerMarker.style.display = 'none';

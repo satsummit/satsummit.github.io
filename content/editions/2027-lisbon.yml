@@ -9,10 +9,10 @@ card:
 navigation:
   - title: Agenda
     url: /2027-lisbon/agenda
-    comingSoon: true
+    comingSoon: false
   - title: Speakers
     url: /2027-lisbon/speakers
-    comingSoon: true
+    comingSoon: false
   - title: Practical info
     url: /2027-lisbon/practical-info
 agenda:

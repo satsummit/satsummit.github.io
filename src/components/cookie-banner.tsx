@@ -2,9 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from '@reach/router';
 import { Button, ButtonGroup, Dialog, Text } from '@chakra-ui/react';
 
-import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies';
-
+// Cookie name kept from gatsby-plugin-gdpr-cookies so existing consents stay valid.
 const K_NAME = 'gatsby-gdpr-google-tagmanager';
+const GTM_ID = 'GTM-5NPWQ998';
+
+type GtmWindow = Window & {
+  dataLayer: unknown[];
+  gtag?: (...args: unknown[]) => void;
+};
+
+function trackPageView(location: {
+  pathname: string;
+  search: string;
+  hash: string;
+}) {
+  const w = window as unknown as GtmWindow;
+
+  if (!w.gtag) {
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+    document.head.appendChild(script);
+
+    // gtag must push the arguments object, not an array.
+    w.gtag = function () {
+      w.dataLayer.push(arguments);
+    };
+    w.gtag('js', new Date());
+    w.gtag('config', GTM_ID, {
+      anonymize_ip: true,
+      allow_google_signals: false
+    });
+  }
+
+  w.gtag('event', 'page_view', {
+    page_path: location.pathname + location.search + location.hash
+  });
+  setTimeout(() => w.dataLayer.push({ event: 'gatsbyRouteChange' }), 50);
+}
 
 function setCookie(cname: string, cvalue: string, exdays: number) {
   const d = new Date();
@@ -39,7 +76,7 @@ export default function CookieBanner() {
 
   useEffect(() => {
     if (cookie === 'true') {
-      initializeAndTrack(location);
+      trackPageView(location);
     }
   }, [cookie, location]);
 
@@ -62,7 +99,7 @@ export default function CookieBanner() {
           </Dialog.Body>
 
           <Dialog.Footer justifyContent='center' p={0}>
-            <ButtonGroup colorPalette='primary'>
+            <ButtonGroup colorPalette='action-button'>
               <Button
                 onClick={() => {
                   setCookie(K_NAME, 'true', 30);

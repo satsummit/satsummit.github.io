@@ -64,10 +64,11 @@ export default function PageHeader() {
   }, [isLargerThanMenuBreakpoint, onClose]);
 
   return (
-    <Box as='header' bg='primary.500'>
+    <Box as='header' bg='primary.500' position='relative' zIndex='30'>
       <Container
         maxW='7xl'
-        color='white'
+        colorPalette='nav'
+        color='colorPalette.fg'
         px={{ base: '4', md: '8' }}
         py={{ base: '8', lg: '12' }}
       >
@@ -81,7 +82,7 @@ export default function PageHeader() {
               gap={{ lg: '4', xl: '6' }}
             >
               <Separator
-                borderColor='surface.300a'
+                borderColor='colorPalette.300a'
                 size='xs'
                 h='4'
                 orientation='vertical'
@@ -103,8 +104,7 @@ export default function PageHeader() {
 
               <Button
                 asChild
-                colorPalette='surface'
-                variant='soft-outline'
+                variant='nav-action'
                 size={{ base: 'sm', lg: 'md' }}
               >
                 <SmartLink to='/tickets/' unstyled>
@@ -120,7 +120,6 @@ export default function PageHeader() {
               <Box hideFrom={MENU_BRKPOINT}>
                 <Button
                   variant='ghost'
-                  colorPalette='surface'
                   size={{ base: 'sm', lg: 'md' }}
                   onClick={onOpen}
                 >
