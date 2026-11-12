@@ -66,6 +66,14 @@ const headingRecipe = defineRecipe({
   }
 });
 
+// Fresh object per variant so an edition can restyle one without the others.
+const softOutline = () => ({
+  borderWidth: '2px',
+  borderColor: 'colorPalette.200a',
+  _hover: { bg: 'colorPalette.50a' },
+  _active: { bg: 'colorPalette.100a' }
+});
+
 const buttonRecipe = defineRecipe({
   base: {
     textTransform: 'uppercase',
@@ -85,12 +93,11 @@ const buttonRecipe = defineRecipe({
         borderWidth: '2px',
         borderStyle: 'solid'
       },
-      'soft-outline': {
-        borderWidth: '2px',
-        borderColor: 'colorPalette.200a',
-        _hover: { bg: 'colorPalette.50a' },
-        _active: { bg: 'colorPalette.100a' }
-      }
+      'soft-outline': softOutline(),
+      // Agenda day switcher. Editions restyle it here.
+      segmented: softOutline(),
+      // Page header call to action (tickets). Editions restyle it here.
+      'nav-action': softOutline()
     }
   }
 });

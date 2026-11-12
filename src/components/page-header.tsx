@@ -104,7 +104,7 @@ export default function PageHeader() {
 
               <Button
                 asChild
-                variant='soft-outline'
+                variant='nav-action'
                 size={{ base: 'sm', lg: 'md' }}
               >
                 <SmartLink to='/tickets/' unstyled>
