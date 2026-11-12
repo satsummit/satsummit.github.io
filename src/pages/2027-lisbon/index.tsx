@@ -18,7 +18,10 @@ export default function IndexPage(
 ) {
   return (
     <PageLayout className='page-edition-home' pageProps={props}>
-      <HomeHero />
+      <HomeHero
+        name={props.data.edition?.name ?? ''}
+        dates={props.data.edition?.dates ?? []}
+      />
 
       <Flex
         flexFlow='column'
@@ -174,6 +177,9 @@ export default function IndexPage(
 export const pageQuery = graphql`
   query Home2027Lx($editionCId: String = "") {
     ...EditionContextualData
+    edition(cId: { eq: $editionCId }) {
+      dates
+    }
     allUpdates(
       filter: {
         published: { eq: true }
