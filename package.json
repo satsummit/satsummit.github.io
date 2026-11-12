@@ -49,7 +49,6 @@
     "framer-motion": "^12.0.0",
     "gatsby": "^5.16.1",
     "gatsby-plugin-alias-imports": "^1.0.5",
-    "gatsby-plugin-gdpr-cookies": "^2.0.9",
     "gatsby-plugin-google-gtag": "^5.13.1",
     "gatsby-plugin-google-tagmanager": "^5.13.1",
     "gatsby-plugin-image": "^3.13.1",
