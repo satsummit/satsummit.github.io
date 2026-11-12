@@ -64,7 +64,7 @@ export default function PageHeader() {
   }, [isLargerThanMenuBreakpoint, onClose]);
 
   return (
-    <Box as='header' bg='primary.500'>
+    <Box as='header' bg='primary.500' position='relative' zIndex='30'>
       <Container
         maxW='7xl'
         colorPalette='nav'

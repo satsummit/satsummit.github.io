@@ -75,7 +75,7 @@ export default function PageFooter() {
             <SmartLink
               to='https://developmentseed.org'
               fontWeight='bold'
-              color='primary.500'
+              color='link'
             >
               Development Seed
             </SmartLink>

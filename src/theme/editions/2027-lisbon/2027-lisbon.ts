@@ -10,6 +10,7 @@ import star from './shape_star.png';
 import pentagon from './shape_pentagon.png';
 import iconSpeaker from './icon_speaker.png';
 import iconAgenda from './icon_agenda.png';
+import { BRAND_PRIMARY } from '../..';
 
 // Fade layer sits over the globe so its grid blends into the page.
 const globeBg = [
@@ -50,7 +51,7 @@ export default defineEditionTheme({
     },
     semanticTokens: {
       colors: {
-        link: { value: '#001a4f' },
+        link: { value: BRAND_PRIMARY },
         'action-button': createColorAlias('basi'),
         nav: {
           ...createColorAlias('basi'),

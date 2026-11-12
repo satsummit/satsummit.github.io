@@ -186,6 +186,7 @@ export default function HomeHero(props: HomeHeroProps) {
       position='relative'
       bg='primary.500'
       minHeight={{ base: '20rem', md: '36rem' }}
+      mt={-20}
       css={{
         // Decorative only: block Spline's orbit pan/zoom and its HTML-content
         // overlay (inline pointer-events:auto, hence !important). The tilt

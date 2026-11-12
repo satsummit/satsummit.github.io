@@ -60,7 +60,7 @@ const mdComponents: Readonly<MDXComponents> = {
   a: (aProps: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <SmartLink
       to={aProps.href ?? '#'}
-      color='primary.500'
+      color='link'
       {...aProps}
       css={{ '&.anchor-heading': { color: 'inherit' } }}
     />

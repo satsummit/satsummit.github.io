@@ -30,7 +30,7 @@ export default function IndexPage(
         px='4'
         position='relative'
         zIndex='30'
-        mt={-40}
+        mt={-20}
       >
         <Fold>
           <ChakraFade
