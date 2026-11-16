@@ -14,7 +14,7 @@ export const pageHeroRecipe = defineSlotRecipe({
         position: 'absolute',
         inset: 0,
         background: heroBg,
-        zIndex: 100,
+        zIndex: 18,
         pointerEvents: 'none',
         display: { base: 'none', lg: 'block' }
       }
@@ -24,7 +24,7 @@ export const pageHeroRecipe = defineSlotRecipe({
       color: 'surface.500',
       display: 'flex',
       alignItems: 'center',
-      zIndex: 200,
+      zIndex: 20,
       px: { base: '4', md: '8' },
       py: { base: '8', lg: '16' },
       '& .lead': {
