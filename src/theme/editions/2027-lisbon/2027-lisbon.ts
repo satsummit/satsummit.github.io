@@ -16,27 +16,33 @@ import { BRAND_PRIMARY } from '../..';
 
 // Fade layer sits over the globe so its grid blends into the page.
 const globeBg = [
-  'linear-gradient(transparent, white) center bottom / 100% 6rem no-repeat',
+  'linear-gradient(transparent, white) center bottom / 100% 1rem no-repeat',
   `url('${globe}') center bottom / 100% auto no-repeat`
 ].join(', ');
 const shapesBg = [
   `url('${dodecahedron}') left 18% bottom 0.75rem / 11rem auto no-repeat`,
   `url('${torus}') left 84% bottom 2.5rem / 10rem auto no-repeat`
 ].join(', ');
+const shapesBgMobile = [
+  `url('${dodecahedron}')  left 6% bottom -1rem / 7rem auto no-repeat`,
+  `url('${torus}') right -4rem top 3rem / 9rem auto no-repeat`
+].join(', ');
 // Speakers and agenda pages use a different pair of shapes.
 const hubShapesBg = [
   `url('${star}') left 7% top 10rem / 11rem auto no-repeat`,
   `url('${pentagon}') left 97% top 9rem / 16rem auto no-repeat`
 ].join(', ');
+const hubShapesBgMobile = [
+  `url('${star}') left 6% bottom -1rem / 7rem auto no-repeat`,
+  `url('${pentagon}') right -4rem top 3rem / 9rem auto no-repeat`
+].join(', ');
 
 // Page icon to the left of the title, replacing the logo badge.
 const titleIcon = (
   url: string,
-  ratio: string,
   pos: { top: string; left: string; width: string }
 ) => ({
   ...pos,
-  aspectRatio: ratio,
   background: `url('${url}') center / contain no-repeat`
 });
 
@@ -59,7 +65,10 @@ export default defineEditionTheme({
           ...createColorAlias('basi'),
           fg: { value: '{colors.basi.900}' }
         },
-        'segmented-button': createColorAlias('basi')
+        'segmented-button': {
+          ...createColorAlias('basi'),
+          fg: { value: '{colors.basi.900}' }
+        }
       }
     },
     recipes: {
@@ -95,11 +104,17 @@ export default defineEditionTheme({
           root: {
             _after: {
               display: 'block',
-              background: { base: globeBg, lg: `${shapesBg}, ${globeBg}` }
+              background: {
+                base: `${shapesBgMobile}, ${globeBg}`,
+                lg: `${shapesBg}, ${globeBg}`
+              }
             },
             '.page-speakers &, .page-agenda &': {
               _after: {
-                background: { base: globeBg, lg: `${hubShapesBg}, ${globeBg}` }
+                background: {
+                  base: `${hubShapesBgMobile}, ${globeBg}`,
+                  lg: `${hubShapesBg}, ${globeBg}`
+                }
               }
             }
           },
@@ -108,8 +123,8 @@ export default defineEditionTheme({
             justifyContent: 'center',
             textAlign: 'center',
             alignItems: 'center !important',
-            pt: '8',
-            pb: { base: '16', lg: '24' },
+            pt: 16,
+            pb: { base: 24, lg: '24' },
             '& > div': { alignItems: 'center' },
             // Edition / parent breadcrumb
             '& div:has(+ h1)': {
@@ -137,31 +152,52 @@ export default defineEditionTheme({
               _after: {
                 content: '""',
                 position: 'absolute',
-                top: '-0.80em',
-                left: '-0.2em',
-                width: '8rem',
-                aspectRatio: '284 / 190',
-                background: `url('${logo}') center / contain no-repeat`
+                aspectRatio: 1,
+                background: `url('${logo}') center / contain no-repeat`,
+                base: {
+                  top: '-5rem',
+                  left: '-2rem',
+                  width: '5rem'
+                },
+                lg: {
+                  top: '-9rem',
+                  left: '-2rem',
+                  width: '10rem'
+                }
               }
             },
             '.page-speakers &': {
               '& h1': {
                 _before: { left: '-0.08em', right: '-0.11em' },
-                _after: titleIcon(iconSpeaker, '214 / 238', {
-                  top: '-0.04em',
-                  left: '-1.2em',
-                  width: '6rem'
-                })
+                _after: {
+                  base: titleIcon(iconSpeaker, {
+                    top: '-5rem',
+                    left: '-1.5em',
+                    width: '5rem'
+                  }),
+                  lg: titleIcon(iconSpeaker, {
+                    top: '-0.6em',
+                    left: '-1.2em',
+                    width: '6rem'
+                  })
+                }
               }
             },
             '.page-agenda &': {
               '& h1': {
                 _before: { left: '0', right: '-0.15em' },
-                _after: titleIcon(iconAgenda, '222 / 228', {
-                  top: '-0.5em',
-                  left: '-1.5em',
-                  width: '4rem'
-                })
+                _after: {
+                  base: titleIcon(iconAgenda, {
+                    top: '-5rem',
+                    left: '-1.5em',
+                    width: '5rem'
+                  }),
+                  lg: titleIcon(iconAgenda, {
+                    top: '-0.6em',
+                    left: '-1.2em',
+                    width: '6rem'
+                  })
+                }
               }
             }
           }

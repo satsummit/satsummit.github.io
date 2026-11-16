@@ -23,12 +23,16 @@ const zoom = 1.5;
  */
 async function pickRenderer(): Promise<'webgpu' | 'webgl'> {
   try {
-    if (new URLSearchParams(window.location.search).get('renderer') === 'webgl') {
+    if (
+      new URLSearchParams(window.location.search).get('renderer') === 'webgl'
+    ) {
       return 'webgl';
     }
-    const gpu = (navigator as Navigator & {
-      gpu?: { requestAdapter: () => Promise<unknown> };
-    }).gpu;
+    const gpu = (
+      navigator as Navigator & {
+        gpu?: { requestAdapter: () => Promise<unknown> };
+      }
+    ).gpu;
     return gpu && (await gpu.requestAdapter()) ? 'webgpu' : 'webgl';
   } catch {
     return 'webgl';
@@ -186,7 +190,7 @@ export default function HomeHero(props: HomeHeroProps) {
       position='relative'
       bg='primary.500'
       minHeight={{ base: '20rem', md: '36rem' }}
-      mt={-20}
+      mt={{ base: -8, lg: -20 }}
       css={{
         // Decorative only: block Spline's orbit pan/zoom and its HTML-content
         // overlay (inline pointer-events:auto, hence !important). The tilt
@@ -227,10 +231,7 @@ export default function HomeHero(props: HomeHeroProps) {
           objectPosition: 'center bottom'
         }}
       />
-      <div
-        ref={containerRef}
-        style={{ position: 'absolute', inset: 0 }}
-      />
+      <div ref={containerRef} style={{ position: 'absolute', inset: 0 }} />
     </Box>
   );
 }

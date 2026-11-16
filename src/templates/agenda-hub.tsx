@@ -113,14 +113,14 @@ export default function AgendaPage(
       />
       <PageHeroFoundation
         innerProps={{
-          gap: 8,
+          gap: 12,
           flexFlow: 'column',
           alignItems: 'start'
         }}
       >
         <PageHeroHeadline title='Agenda' />
 
-        <Text fontSize='lg' maxW='2xl'>
+        <Text className='lead' maxW='2xl'>
           {edition.dates.length} days of presentations and in-depth
           conversations.{' '}
           {edition.agenda?.status === 'draft' &&

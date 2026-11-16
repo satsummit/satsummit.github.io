@@ -26,7 +26,10 @@ export const pageHeroRecipe = defineSlotRecipe({
       alignItems: 'center',
       zIndex: 200,
       px: { base: '4', md: '8' },
-      py: { base: '8', lg: '16' }
+      py: { base: '8', lg: '16' },
+      '& .lead': {
+        fontSize: { base: 'md', md: 'lg' }
+      }
     }
   }
 });

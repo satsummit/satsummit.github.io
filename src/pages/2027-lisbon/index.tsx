@@ -13,9 +13,7 @@ import { UpdatesFold } from '$components/updates-fold';
 
 import HomeHero from './_hero';
 
-export default function IndexPage(
-  props: PageProps<Queries.Home2027LxQuery>
-) {
+export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
   return (
     <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero
@@ -30,7 +28,7 @@ export default function IndexPage(
         px='4'
         position='relative'
         zIndex='30'
-        mt={-20}
+        mt={{ lg: -20 }}
       >
         <Fold>
           <ChakraFade
