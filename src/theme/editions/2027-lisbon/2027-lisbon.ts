@@ -161,9 +161,9 @@ export default defineEditionTheme({
                   width: '5rem'
                 },
                 lg: {
-                  top: '-9rem',
-                  left: '-2rem',
-                  width: '10rem'
+                  top: '-8.25rem',
+                  left: '-2.5rem',
+                  width: '9.5rem'
                 }
               }
             },
