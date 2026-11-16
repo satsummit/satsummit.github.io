@@ -90,7 +90,8 @@ export default defineEditionTheme({
               _hover: { bg: 'colorPalette.50' },
               _active: {
                 bg: 'colorPalette.900',
-                color: 'colorPalette.contrast'
+                color: 'colorPalette.contrast',
+                _hover: { bg: 'colorPalette.500' }
               }
             }
           }
