@@ -38,9 +38,9 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
             alignSelf='end'
             delay={200}
           >
-            <FoldMedia borderRadius='xl' overflow='hidden'>
+            <FoldMedia overflow='hidden'>
               <StaticImage
-                src='../2026-st-louis/home-vibe-1.png'
+                src='./home-vibe-1.jpg'
                 alt='Four people sitting in line with the second one talking to a microphone'
               />
             </FoldMedia>
@@ -95,9 +95,9 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
             triggerOnce
             gridColumn={{ base: '1/-1', md: 'span 4', lg: '1/ span 4' }}
           >
-            <FoldMedia borderRadius='xl' overflow='hidden'>
+            <FoldMedia overflow='hidden'>
               <StaticImage
-                src='../2026-st-louis/home-vibe-2.png'
+                src='./home-vibe-2.jpg'
                 alt='Group of people happily talking to each other'
               />
             </FoldMedia>
@@ -108,9 +108,9 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
             gridColumn={{ base: '1/-1', md: 'span 4', lg: '5/ span 8' }}
             delay={200}
           >
-            <FoldMedia borderRadius='xl' overflow='hidden'>
+            <FoldMedia overflow='hidden'>
               <StaticImage
-                src='../2026-st-louis/home-vibe-3.png'
+                src='./home-vibe-3.jpg'
                 alt='Person on a stage talking to an audience seen from the audience perspective'
               />
             </FoldMedia>
@@ -155,9 +155,9 @@ export default function IndexPage(props: PageProps<Queries.Home2027LxQuery>) {
             alignSelf='end'
             delay={200}
           >
-            <FoldMedia borderRadius='xl' overflow='hidden'>
+            <FoldMedia overflow='hidden'>
               <StaticImage
-                src='../2026-st-louis/home-vibe-4.png'
+                src='./home-vibe-4.jpg'
                 alt='Several people getting food at a conference buffet line'
               />
             </FoldMedia>
