@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksatsummit_io=self.webpackChunksatsummit_io||[]).push([[6728],{46728:function(s,a,i){i.r(a);var t=i(82458),u=(i(13268),i(76911),i(73236));i(93362),i(92836),i(5561);(0,u.d)("Hair",(s,a,i)=>new t.k(s,a,i)),(0,u.a)("hair")}}]);
+//# sourceMappingURL=6728-d2b1583e155979fbd8ff.js.map
