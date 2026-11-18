@@ -103,7 +103,7 @@ export default function AgendaPage(
   }, []);
 
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-agenda' pageProps={props}>
       <Global
         styles={{
           html: {
@@ -113,14 +113,14 @@ export default function AgendaPage(
       />
       <PageHeroFoundation
         innerProps={{
-          gap: 8,
+          gap: 12,
           flexFlow: 'column',
           alignItems: 'start'
         }}
       >
         <PageHeroHeadline title='Agenda' />
 
-        <Text fontSize='lg' maxW='2xl'>
+        <Text className='lead' maxW='2xl'>
           {edition.dates.length} days of presentations and in-depth
           conversations.{' '}
           {edition.agenda?.status === 'draft' &&
@@ -129,8 +129,8 @@ export default function AgendaPage(
 
         <ButtonGroup
           attached
-          colorPalette='surface'
-          variant='soft-outline'
+          colorPalette='segmented-button'
+          variant='segmented'
           size={{ base: 'sm', md: 'md' }}
         >
           {eventDates.map((date, i) => (
@@ -151,7 +151,6 @@ export default function AgendaPage(
                     ? `/${editionCId}/agenda/`
                     : `/${editionCId}/agenda/${i + 1}`
                 }
-                color='currentColor'
               >
                 {format(date, 'EEEE, LLL dd')}
               </SmartLink>
@@ -369,7 +368,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
         {activeIdx > 0 && (
           <Button
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
             onClick={() => {
               goToTab(activeIdx - 1);
@@ -382,7 +381,7 @@ function TabsSecNav(props: { dates: Date[]; currentDay: Date }) {
         {activeIdx < dates.length - 1 && (
           <Button
             variant='solid'
-            colorPalette='primary'
+            colorPalette='action-button'
             size={{ base: 'md', md: 'lg' }}
             ml='auto'
             onClick={() => {

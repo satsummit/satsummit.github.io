@@ -5,7 +5,7 @@ dates:
 format:
   event_time: HH:mm
 card:
-  src: ../../src/images/editions/default-card-image.png
+  src: ./2027-lisbon-card.png
 navigation:
   - title: Agenda
     url: /2027-lisbon/agenda
@@ -18,6 +18,6 @@ navigation:
 agenda:
   status: draft # draft final
 tickets:
-  url: https://www.tickettailor.com/events/satsummitclimate2027/1372188
+  url: https://www.tickettailor.com/events/satsummitlisbon/2522277
   description: Tickets include attendance for all days. There are no one day tickets offered at this time. The prices include breakfast and lunch during the conference and light fare at social events. <a href='/2027-lisbon/practical-info#fulfillment-policy'>Tickets are nonrefundable</a>.
-  status: coming-soon
+  status: live

@@ -36,7 +36,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
   );
 
   return (
-    <PageLayout>
+    <PageLayout className='page-editions'>
       <PageHero title='Editions' lead={PAGE_DESCRIPTION} />
       <Container
         py={{ base: '8', lg: '16' }}

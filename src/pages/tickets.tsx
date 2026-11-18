@@ -38,7 +38,7 @@ export default function IndexPage(props: PageProps<PageQuery>) {
   const { data } = props;
 
   return (
-    <PageLayout>
+    <PageLayout className='page-tickets'>
       <PageHero title='Tickets' lead="Get'em while they're hot" />
       <Container
         py={{ base: '8', lg: '16' }}
@@ -132,7 +132,7 @@ function EditionEntry(props: { edition: PageQuery['allEdition']['nodes'][0] }) {
             Sold out
           </Heading>
         ) : status === 'live' ? (
-          <Button asChild colorPalette='primary' borderRadius='xs' size='md'>
+          <Button asChild colorPalette='action-button' borderRadius='xs' size='md'>
             <SmartLink to={edition.tickets!.url} unstyled>
               Book ticket
               <CollecticonExpandTopRight />

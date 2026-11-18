@@ -109,46 +109,41 @@ export function createColorPalette(baseColor: string) {
   );
 }
 
+// Light mode only: semantic tokens resolve to a single value.
 export const createColorSemanticTokens = (colorName: string) => ({
   [colorName]: {
-    contrast: {
-      value: { _light: 'white', _dark: 'white' }
-    },
-    fg: {
-      value: {
-        _light: `{colors.${colorName}.500}`,
-        _dark: `{colors.${colorName}.300}`
-      }
-    },
-    subtle: {
-      value: {
-        _light: `{colors.${colorName}.100}`,
-        _dark: `{colors.${colorName}.900}`
-      }
-    },
-    muted: {
-      value: {
-        _light: `{colors.${colorName}.200}`,
-        _dark: `{colors.${colorName}.800}`
-      }
-    },
-    emphasized: {
-      value: {
-        _light: `{colors.${colorName}.300}`,
-        _dark: `{colors.${colorName}.700}`
-      }
-    },
-    solid: {
-      value: {
-        _light: `{colors.${colorName}.500}`,
-        _dark: `{colors.${colorName}.500}`
-      }
-    },
-    focusRing: {
-      value: {
-        _light: `{colors.${colorName}.400}`,
-        _dark: `{colors.${colorName}.400}`
-      }
-    }
+    contrast: { value: 'white' },
+    fg: { value: `{colors.${colorName}.500}` },
+    subtle: { value: `{colors.${colorName}.100}` },
+    muted: { value: `{colors.${colorName}.200}` },
+    emphasized: { value: `{colors.${colorName}.300}` },
+    solid: { value: `{colors.${colorName}.500}` },
+    focusRing: { value: `{colors.${colorName}.400}` }
   }
 });
+
+const semanticKeys = [
+  'contrast',
+  'fg',
+  'subtle',
+  'muted',
+  'emphasized',
+  'solid',
+  'focusRing'
+];
+
+/**
+ * Creates a role palette (e.g. `action-button`, `nav`) that points every shade
+ * and semantic key at an existing palette. Components use the role as their
+ * `colorPalette`; editions remap the role without touching component code.
+ * The source palette must define all semantic keys.
+ *
+ * @param {string} source Name of the palette the role points to.
+ */
+export const createColorAlias = (source: string) =>
+  Object.fromEntries(
+    [...colorPaletteSettings.map((c) => c.code), ...semanticKeys].map((k) => [
+      k,
+      { value: `{colors.${source}.${k}}` }
+    ])
+  );

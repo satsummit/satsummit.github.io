@@ -46,7 +46,7 @@ export function UpdatesFold(props: UpdatesFoldProps) {
         gridColumn='content-start/content-end'
       >
         <Heading size='2xl'>Updates</Heading>
-        <Button asChild variant='solid' colorPalette='primary'>
+        <Button asChild variant='solid' colorPalette='action-button'>
           <SmartLink to='/updates'>View all</SmartLink>
         </Button>
       </Flex>

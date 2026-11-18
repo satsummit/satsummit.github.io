@@ -17,7 +17,7 @@ export default function IndexPage(
   props: PageProps<Queries.Home2026StLouisQuery>
 ) {
   return (
-    <PageLayout pageProps={props}>
+    <PageLayout className='page-edition-home' pageProps={props}>
       <HomeHero />
 
       <Flex
@@ -78,7 +78,7 @@ export default function IndexPage(
                 // @ts-expect-error types from "a" not propagating properly
                 href='#newsletter-fold'
                 variant='solid'
-                colorPalette='primary'
+                colorPalette='action-button'
                 alignSelf='start'
                 size={{ base: 'md', lg: 'lg' }}
               >
@@ -138,7 +138,7 @@ export default function IndexPage(
                 // @ts-expect-error types from "a" not propagating properly
                 href='https://satsummit.io/2026-st-louis-sponsor-prospectus.pdf'
                 variant='solid'
-                colorPalette='primary'
+                colorPalette='action-button'
                 alignSelf='start'
                 size={{ base: 'md', lg: 'lg' }}
               >

@@ -52,6 +52,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          SITE_URL: http://${{ env.BUCKET_NAME }}.s3-website-${{ env.AWS_REGION }}.amazonaws.com
 
       - name: Post error comment
         uses: actions/github-script@v7

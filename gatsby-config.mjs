@@ -11,7 +11,8 @@ const pkg = require('./package.json');
 
 const config = {
   siteMetadata: {
-    siteUrl: 'https://satsummit.io',
+    // Deploy host for absolute URLs (meta image, og:url). Previews set SITE_URL.
+    siteUrl: process.env.SITE_URL || 'https://satsummit.io',
     title: 'SatSummit',
     subtitle: `Satellite data for global development`,
     description: `SatSummit convenes leaders in the satellite industry and experts in global development for presentations and in-depth conversations on solving the world's most critical development challenges with satellite data.`,
@@ -34,15 +35,6 @@ const config = {
     //     id: 'GTM-5NPWQ998'
     //   }
     // },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        environments: ['production', 'development'],
-        googleTagManager: {
-          trackingId: 'GTM-5NPWQ998'
-        }
-      }
-    },
     'gatsby-plugin-image',
     'gatsby-transformer-yaml-full',
     {

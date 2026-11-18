@@ -27,7 +27,7 @@ export default function Brand(props: BrandProps) {
       as='strong'
       size='md'
       display='inline-flex'
-      color={variation === 'positive' ? 'basi.500' : 'surface.500'}
+      color={variation === 'positive' ? 'basi.500' : 'nav.fg'}
     >
       <SmartLink
         to='/'

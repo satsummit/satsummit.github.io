@@ -27,7 +27,7 @@ export function PageHero(props: PageHeroProps) {
       <Flex flexFlow='column' gap='4'>
         <PageHeroHeadline title={title} parent={parent} />
         {lead && (
-          <Text fontSize='lg' maxW='2xl'>
+          <Text maxW='2xl' className='lead'>
             {lead}
           </Text>
         )}

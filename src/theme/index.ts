@@ -6,7 +6,11 @@ import {
 } from '@chakra-ui/react';
 import { hugConfig } from '@devseed-ui/hug-chakra';
 
-import { createColorPalette, createColorSemanticTokens } from './color-palette';
+import {
+  createColorAlias,
+  createColorPalette,
+  createColorSemanticTokens
+} from './color-palette';
 import { pageHeroRecipe } from '$components/page-hero.recipe';
 
 export const MENU_BRKPOINT = 'lg';
@@ -62,6 +66,14 @@ const headingRecipe = defineRecipe({
   }
 });
 
+// Fresh object per variant so an edition can restyle one without the others.
+const softOutline = () => ({
+  borderWidth: '2px',
+  borderColor: 'colorPalette.200a',
+  _hover: { bg: 'colorPalette.50a' },
+  _active: { bg: 'colorPalette.100a' }
+});
+
 const buttonRecipe = defineRecipe({
   base: {
     textTransform: 'uppercase',
@@ -81,19 +93,18 @@ const buttonRecipe = defineRecipe({
         borderWidth: '2px',
         borderStyle: 'solid'
       },
-      'soft-outline': {
-        borderWidth: '2px',
-        borderColor: 'colorPalette.200a',
-        _hover: { bg: 'colorPalette.50a' },
-        _active: { bg: 'colorPalette.100a' }
-      }
+      'soft-outline': softOutline(),
+      // Agenda day switcher. Editions restyle it here.
+      segmented: softOutline(),
+      // Page header call to action (tickets). Editions restyle it here.
+      'nav-action': softOutline()
     }
   }
 });
 
 const linkRecipe = defineRecipe({
   base: {
-    color: '{colors.primary.500}'
+    color: 'link'
   }
 });
 
@@ -208,8 +219,16 @@ export const baseConfig = defineConfig({
           solid: { value: '{colors.surface.500}' },
           muted: { value: '{colors.surface.200a}' },
           fg: { value: '{colors.surface.500}' },
-          subtle: { value: '{colors.surface.300a}' }
-        }
+          subtle: { value: '{colors.surface.300a}' },
+          emphasized: { value: '{colors.surface.400a}' },
+          focusRing: { value: '{colors.surface.400}' }
+        },
+        // Role palettes. Components use these as `colorPalette`; an edition
+        // remaps a role by overriding it with `createColorAlias(<palette>)`.
+        'action-button': createColorAlias('primary'),
+        nav: createColorAlias('surface'),
+        link: { value: '{colors.primary.500}' },
+        'segmented-button': createColorAlias('surface')
       }
     },
     textStyles: {
