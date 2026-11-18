@@ -14,11 +14,7 @@ import iconSpeaker from './icon_speaker.png';
 import iconAgenda from './icon_agenda.png';
 import { BRAND_PRIMARY } from '../..';
 
-// Fade layer sits over the globe so its grid blends into the page.
-const globeBg = [
-  'linear-gradient(transparent, white) center bottom / 100% 1rem no-repeat',
-  `url('${globe}') center bottom / 100% auto no-repeat`
-].join(', ');
+const globeBg = `url('${globe}') center bottom / clamp(1100px, 100%, 1440px) auto no-repeat`;
 const shapesBg = [
   `url('${dodecahedron}') left 18% bottom 0.75rem / 11rem auto no-repeat`,
   `url('${torus}') left 84% bottom 2.5rem / 10rem auto no-repeat`
@@ -103,12 +99,26 @@ export default defineEditionTheme({
         slots: pageHeroRecipe.slots,
         base: {
           root: {
+            _before: {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              zIndex: 19,
+              pointerEvents: 'none',
+              display: 'block',
+              background:
+                'linear-gradient(transparent, white) center bottom / 100% 3rem no-repeat'
+            },
             _after: {
               display: 'block',
               background: {
                 base: `${shapesBgMobile}, ${globeBg}`,
                 lg: `${shapesBg}, ${globeBg}`
-              }
+              },
+              width: '100%',
+              maxW: '1440px',
+              left: '50%',
+              transform: 'translateX(-50%)'
             },
             '.page-speakers &, .page-agenda &': {
               _after: {
