@@ -134,7 +134,8 @@ export default function HomeHero() {
         src={satelliteUrl}
         alt='A piece of collage illustrating a satellite.'
         position='absolute'
-        zIndex='6'
+        // Above the page header (zIndex 30): the satellite overlaps it.
+        zIndex='31'
         top={{ base: '-1.5rem', md: '-2rem', lg: '-4rem' }}
         right={{ base: '4%', sm: '8%', md: 'calc(50% + 8rem)' }}
         width={{ base: '10rem', sm: '12rem', md: '16rem', lg: '20rem' }}

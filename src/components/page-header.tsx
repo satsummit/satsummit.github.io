@@ -11,7 +11,8 @@ import {
   List,
   IconButton,
   useMediaQuery,
-  useToken
+  useToken,
+  Portal
 } from '@chakra-ui/react';
 
 import {
@@ -139,33 +140,35 @@ export default function PageHeader() {
         placement='end'
         onOpenChange={({ open: o }: { open: boolean }) => !o && onClose()}
       >
-        <Drawer.Backdrop />
-        <Drawer.Positioner>
-          <Drawer.Content>
-            <Drawer.Header
-              display='flex'
-              gap='4'
-              alignItems='center'
-              py={{ base: '8', lg: '12' }}
-            >
-              <Heading as='span' size='md' width='100%'>
-                Menu
-              </Heading>
-              <IconButton
-                variant='ghost'
-                size={{ base: 'sm', lg: 'md' }}
-                onClick={onClose}
+        <Portal>
+          <Drawer.Backdrop />
+          <Drawer.Positioner>
+            <Drawer.Content>
+              <Drawer.Header
+                display='flex'
+                gap='4'
+                alignItems='center'
+                py={{ base: '8', lg: '12' }}
               >
-                <CollecticonXmarkSmall title='Close menu drawer' meaningful />
-              </IconButton>
-            </Drawer.Header>
+                <Heading as='span' size='md' width='100%'>
+                  Menu
+                </Heading>
+                <IconButton
+                  variant='ghost'
+                  size={{ base: 'sm', lg: 'md' }}
+                  onClick={onClose}
+                >
+                  <CollecticonXmarkSmall title='Close menu drawer' meaningful />
+                </IconButton>
+              </Drawer.Header>
 
-            <Drawer.Body>
-              <NavMenu inDrawer />
-              <EditionLocalNavigation inDrawer />
-            </Drawer.Body>
-          </Drawer.Content>
-        </Drawer.Positioner>
+              <Drawer.Body>
+                <NavMenu inDrawer />
+                <EditionLocalNavigation inDrawer />
+              </Drawer.Body>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Portal>
       </Drawer.Root>
     </Box>
   );
